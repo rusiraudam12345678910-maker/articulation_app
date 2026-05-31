@@ -3,17 +3,22 @@
 import { useState } from 'react'
 import { deleteEntry, updateEntry, toggleFavorite, toggleMastered } from './actions'
 import { updateEntryCategory, addCategory, deleteCategory } from './category-actions'
+import DefinitionButton from './definition-modal'
 
 const TYPE_LABELS: Record<string, string> = {
   word: 'Word',
   phrase: 'Phrase',
   sentence: 'Sentence',
+  topic: 'Topic',
+  proverb: 'Proverb',
 }
 
 const TYPE_COLORS: Record<string, string> = {
   word: 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300',
   phrase: 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300',
   sentence: 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300',
+  topic: 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300',
+  proverb: 'bg-rose-100 text-rose-700 dark:bg-rose-900 dark:text-rose-300',
 }
 
 type Entry = {
@@ -112,7 +117,7 @@ export default function EntriesList({ entries, categories }: { entries: Entry[],
           className="flex-1 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-zinc-50"
         />
         <div className="flex gap-2 flex-wrap">
-          {['all', 'word', 'phrase', 'sentence'].map((type) => (
+          {['all', 'word', 'phrase', 'sentence', 'topic', 'proverb'].map((type) => (
             <button
               key={type}
               onClick={() => setTypeFilter(type)}
@@ -199,6 +204,8 @@ export default function EntriesList({ entries, categories }: { entries: Entry[],
                     <option value="word">Word</option>
                     <option value="phrase">Phrase</option>
                     <option value="sentence">Sentence</option>
+                    <option value="topic">Topic</option>
+                    <option value="proverb">Proverb</option>
                   </select>
                   <button onClick={() => saveEdit(entry.id)} className="rounded-full bg-zinc-900 dark:bg-zinc-50 px-3 py-1 text-xs font-medium text-white dark:text-zinc-900 hover:bg-zinc-700 transition-colors">Save</button>
                   <button onClick={() => setEditingId(null)} className="rounded-full border border-zinc-300 dark:border-zinc-700 px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 transition-colors">Cancel</button>
@@ -207,6 +214,18 @@ export default function EntriesList({ entries, categories }: { entries: Entry[],
             ) : (
               <div className="flex flex-col gap-1.5 flex-1">
                 <div className="flex items-start gap-2">
+                  <button
+                    onClick={() => {
+                      const utterance = new SpeechSynthesisUtterance(entry.content)
+                      utterance.lang = 'en-US'
+                      window.speechSynthesis.speak(utterance)
+                    }}
+                    className="mt-0.5 text-zinc-400 hover:text-blue-500 transition-colors flex-shrink-0"
+                    title="Pronounce"
+                  >
+                    🔊
+                  </button>
+                  <DefinitionButton word={entry.content} />
                   <span className={`text-sm text-zinc-900 dark:text-zinc-50 flex-1 ${entry.is_mastered ? 'line-through opacity-60' : ''}`}>
                     {entry.content}
                   </span>
@@ -224,7 +243,7 @@ export default function EntriesList({ entries, categories }: { entries: Entry[],
                   <select
                     value={entry.category_id ?? ''}
                     onChange={(e) => updateEntryCategory(entry.id, e.target.value || null)}
-                    className="rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2 py-0.5 text-xs text-zinc-600 dark:text-zinc-400 focus:outline-none"
+                    className="rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2 py-0.5 text-xs text-zinc-600 dark:text-zinc-400 focus:outline-none hidden"
                   >
                     <option value="">No category</option>
                     {categories.map((c) => (

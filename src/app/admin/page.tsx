@@ -3,6 +3,7 @@ import { createClient } from '@/utils/supabase/server'
 import { createServiceClient } from '@/utils/supabase/service'
 import { isAdmin } from '@/utils/supabase/admin'
 import UsersTable from './users-table'
+import EntriesTable from './entries-table'
 
 export default async function AdminPage() {
   const admin = await isAdmin()
@@ -59,30 +60,7 @@ export default async function AdminPage() {
             <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-50 mb-4">
               All Entries ({entries?.length ?? 0})
             </h2>
-            <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-zinc-200 dark:border-zinc-800 text-left">
-                    <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">Content</th>
-                    <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">Type</th>
-                    <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">User ID</th>
-                    <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {entries?.map((e) => (
-                    <tr key={e.id} className="border-b border-zinc-100 dark:border-zinc-800 last:border-0">
-                      <td className="px-4 py-3 text-zinc-900 dark:text-zinc-50">{e.content}</td>
-                      <td className="px-4 py-3 text-zinc-500 dark:text-zinc-400 capitalize">{e.type}</td>
-                      <td className="px-4 py-3 text-zinc-400 font-mono text-xs">{e.user_id}</td>
-                      <td className="px-4 py-3 text-zinc-500 dark:text-zinc-400 text-xs">
-                        {new Date(e.created_at).toLocaleDateString()}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <EntriesTable entries={entries ?? []} users={users ?? []} />
           </div>
 
         </div>

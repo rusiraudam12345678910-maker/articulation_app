@@ -22,7 +22,8 @@ export async function addEntry(formData: FormData) {
   if (!content) return
 
   await supabase.from('entries').insert({ content, type, user_id: user.id })
-  revalidatePath('/dashboard')
+  revalidatePath('/dashboard', 'layout')
+  redirect('/dashboard/add')
 }
 
 export async function deleteEntry(id: string) {

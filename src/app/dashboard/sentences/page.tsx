@@ -1,13 +1,14 @@
 import { createClient } from '@/utils/supabase/server'
-import EntriesList from './entries-list'
-import Flashcard from './flashcard'
+import EntriesList from '../entries-list'
+import Flashcard from '../flashcard'
 
-export default async function DashboardPage() {
+export default async function SentencesPage() {
   const supabase = await createClient()
 
   const { data: entries } = await supabase
     .from('entries')
     .select('*')
+    .eq('type', 'sentence')
     .order('created_at', { ascending: false })
 
   const { data: categories } = await supabase
