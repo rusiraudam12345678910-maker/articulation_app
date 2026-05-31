@@ -27,6 +27,7 @@ type Entry = {
   type: string
   created_at: string
   category_id: string | null
+  user_id: string
   is_favorite: boolean
   is_mastered: boolean
   practice_count: number
