@@ -37,10 +37,16 @@ type Category = {
   name: string
 }
 
-export default function EntriesList({ entries, categories }: { entries: Entry[], categories: Category[] }) {
+type User = {
+  id: string
+  email: string
+}
+
+export default function EntriesList({ entries, categories, users }: { entries: Entry[], categories: Category[], users: User[] }) {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
   const [categoryFilter, setCategoryFilter] = useState('all')
+  const [userFilter, setUserFilter] = useState('all')
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editContent, setEditContent] = useState('')
@@ -62,7 +68,8 @@ export default function EntriesList({ entries, categories }: { entries: Entry[],
     const matchesType = typeFilter === 'all' || e.type === typeFilter
     const matchesCategory = categoryFilter === 'all' || e.category_id === categoryFilter
     const matchesFavorite = !showFavoritesOnly || e.is_favorite
-    return matchesSearch && matchesType && matchesCategory && matchesFavorite
+    const matchesUser = userFilter === 'all' || e.user_id === userFilter
+    return matchesSearch && matchesType && matchesCategory && matchesFavorite && matchesUser
   })
 
   const masteredCount = entries.filter((e) => e.is_mastered).length
@@ -142,6 +149,35 @@ export default function EntriesList({ entries, categories }: { entries: Entry[],
           </button>
         </div>
       </div>
+
+      {/* User filter */}
+      {users.length > 1 && (
+        <div className="flex gap-2 flex-wrap">
+          <button
+            onClick={() => setUserFilter('all')}
+            className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+              userFilter === 'all'
+                ? 'bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900'
+                : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+            }`}
+          >
+            All users
+          </button>
+          {users.map((u) => (
+            <button
+              key={u.id}
+              onClick={() => setUserFilter(u.id)}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                userFilter === u.id
+                  ? 'bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900'
+                  : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+              }`}
+            >
+              {u.email}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Category filter */}
       {categories.length > 0 && (
