@@ -31,6 +31,7 @@ type Entry = {
   is_favorite: boolean
   is_mastered: boolean
   practice_count: number
+  word_family: string | null
 }
 
 type Category = {
@@ -277,17 +278,35 @@ export default function EntriesList({ entries, categories, users }: { entries: E
                   {entry.is_mastered && (
                     <span className="text-xs text-green-600 dark:text-green-400 font-medium">✓ Mastered</span>
                   )}
-                  <select
-                    value={entry.category_id ?? ''}
-                    onChange={(e) => updateEntryCategory(entry.id, e.target.value || null)}
-                    className="rounded-full border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2 py-0.5 text-xs text-zinc-600 dark:text-zinc-400 focus:outline-none hidden"
-                  >
-                    <option value="">No category</option>
-                    {categories.map((c) => (
-                      <option key={c.id} value={c.id}>{c.name}</option>
-                    ))}
-                  </select>
                 </div>
+                {entry.word_family && (() => {
+                  const related = entries.filter(
+                    (e) => e.word_family === entry.word_family && e.id !== entry.id
+                  )
+                  return related.length > 0 ? (
+                    <div className="flex items-center gap-1.5 flex-wrap mt-0.5">
+                      <span className="text-xs text-zinc-400 dark:text-zinc-500">Related:</span>
+                      {related.map((r) => (
+                        <span
+                          key={r.id}
+                          className="rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 px-2 py-0.5 text-xs text-zinc-600 dark:text-zinc-300"
+                        >
+                          {r.content}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null
+                })()}
+                <select
+                  value={entry.category_id ?? ''}
+                  onChange={(e) => updateEntryCategory(entry.id, e.target.value || null)}
+                  className="hidden"
+                >
+                  <option value="">No category</option>
+                  {categories.map((c) => (
+                    <option key={c.id} value={c.id}>{c.name}</option>
+                  ))}
+                </select>
               </div>
             )}
 

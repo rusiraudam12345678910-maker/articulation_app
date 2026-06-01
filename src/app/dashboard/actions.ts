@@ -18,10 +18,11 @@ export async function addEntry(formData: FormData) {
 
   const content = (formData.get('content') as string).trim()
   const type = formData.get('type') as string
+  const word_family = type === 'word' ? ((formData.get('word_family') as string | null)?.trim().toLowerCase() || null) : null
 
   if (!content) return
 
-  await supabase.from('entries').insert({ content, type, user_id: user.id })
+  await supabase.from('entries').insert({ content, type, user_id: user.id, word_family })
   revalidatePath('/dashboard', 'layout')
   redirect('/dashboard/add')
 }
@@ -30,6 +31,30 @@ export async function deleteEntry(id: string) {
   const supabase = await createClient()
   await supabase.from('entries').delete().eq('id', id)
   revalidatePath('/dashboard')
+}
+
+export async function bulkAddEntries(formData: FormData) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) redirect('/login')
+
+  const raw = formData.get('contents') as string
+  const type = formData.get('type') as string
+  const word_family = type === 'word' ? ((formData.get('word_family') as string | null)?.trim().toLowerCase() || null) : null
+
+  const lines = raw
+    .split('\n')
+    .map((l) => l.trim())
+    .filter((l) => l.length > 0)
+
+  if (!lines.length) return
+
+  await supabase.from('entries').insert(
+    lines.map((content) => ({ content, type, user_id: user.id, word_family }))
+  )
+
+  revalidatePath('/dashboard', 'layout')
+  redirect('/dashboard/add')
 }
 
 export async function updateEntry(id: string, content: string, type: string) {
