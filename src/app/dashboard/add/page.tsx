@@ -1,7 +1,8 @@
 'use client'
 
 import { addEntry, bulkAddEntries } from '../actions'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 
 const typeOptions = (
   <>
@@ -38,8 +39,9 @@ function WordFamilyInput({
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [loading, setLoading] = useState(false)
   const [open, setOpen] = useState(false)
+  const [dropdownStyle, setDropdownStyle] = useState<{ top: number; left: number; width: number }>({ top: 0, left: 0, width: 0 })
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current)
@@ -52,22 +54,24 @@ function WordFamilyInput({
       setLoading(true)
       const results = await fetchWordSuggestions(value)
       setSuggestions(results)
-      setOpen(results.length > 0)
+      if (results.length > 0 && inputRef.current) {
+        const rect = inputRef.current.getBoundingClientRect()
+        setDropdownStyle({ top: rect.bottom + window.scrollY + 4, left: rect.left + window.scrollX, width: rect.width })
+        setOpen(true)
+      } else {
+        setOpen(false)
+      }
       setLoading(false)
     }, 350)
     return () => { if (debounceRef.current) clearTimeout(debounceRef.current) }
   }, [value])
 
-  // Close dropdown when clicking outside
+  const close = useCallback(() => setOpen(false), [])
+
   useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    document.addEventListener('mousedown', close)
+    return () => document.removeEventListener('mousedown', close)
+  }, [close])
 
   function select(word: string) {
     onChange(word)
@@ -76,25 +80,29 @@ function WordFamilyInput({
   }
 
   return (
-    <div ref={containerRef} className="relative flex flex-col gap-1">
+    <div className="relative">
       <div className="relative">
         <input
+          ref={inputRef}
           name="word_family"
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          onFocus={() => suggestions.length > 0 && setOpen(true)}
-          placeholder="Word family / root (optional) — e.g. intellig..."
+          placeholder="Word family / root (optional) — type to search e.g. intellig..."
           autoComplete="off"
           className="w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-zinc-50"
         />
         {loading && (
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-zinc-400">...</span>
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-zinc-400">searching...</span>
         )}
       </div>
 
-      {open && suggestions.length > 0 && (
-        <ul className="absolute top-full mt-1 z-20 w-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-lg overflow-hidden">
+      {open && suggestions.length > 0 && createPortal(
+        <ul
+          style={{ position: 'absolute', top: dropdownStyle.top, left: dropdownStyle.left, width: dropdownStyle.width, zIndex: 9999 }}
+          className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-xl overflow-hidden"
+          onMouseDown={(e) => e.stopPropagation()}
+        >
           {suggestions.map((word) => (
             <li key={word}>
               <button
@@ -106,7 +114,8 @@ function WordFamilyInput({
               </button>
             </li>
           ))}
-        </ul>
+        </ul>,
+        document.body
       )}
     </div>
   )
