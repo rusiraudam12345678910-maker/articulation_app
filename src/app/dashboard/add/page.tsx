@@ -169,13 +169,13 @@ export default function AddPage() {
       {/* Bulk add */}
       <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6">
         <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Bulk add</h2>
-        <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4">Enter one entry per line — all will be added as the same type.</p>
+        <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4">Enter words separated by spaces or new lines — all will be added as the same type.</p>
         <form className="flex flex-col gap-3">
           <textarea
             name="contents"
             required
             rows={8}
-            placeholder={"apple\nbanana\ncherry\n..."}
+            placeholder={"apple banana cherry\nor one per line..."}
             className="rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 dark:focus:ring-zinc-50 resize-none font-mono"
           />
           {bulkType === 'word' && (

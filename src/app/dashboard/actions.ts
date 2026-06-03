@@ -43,7 +43,7 @@ export async function bulkAddEntries(formData: FormData) {
   const word_family = type === 'word' ? ((formData.get('word_family') as string | null)?.trim().toLowerCase() || null) : null
 
   const lines = raw
-    .split('\n')
+    .split(/[\s\n]+/)
     .map((l) => l.trim())
     .filter((l) => l.length > 0)
 
