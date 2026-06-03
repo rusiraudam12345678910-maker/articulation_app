@@ -44,7 +44,14 @@ type User = {
   email: string
 }
 
-export default function EntriesList({ entries, categories, users }: { entries: Entry[], categories: Category[], users: User[] }) {
+type SavedDefinition = {
+  word: string
+  part_of_speech: string | null
+  definition: string
+  example: string | null
+}
+
+export default function EntriesList({ entries, categories, users, definitionsByWord }: { entries: Entry[], categories: Category[], users: User[], definitionsByWord: Record<string, SavedDefinition> }) {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
   const [categoryFilter, setCategoryFilter] = useState('all')
@@ -263,11 +270,23 @@ export default function EntriesList({ entries, categories, users }: { entries: E
                   >
                     🔊
                   </button>
-                  <DefinitionButton word={entry.content} />
+                  <DefinitionButton word={entry.content} saved={definitionsByWord[entry.content.toLowerCase()]} />
                   <span className={`text-sm text-zinc-900 dark:text-zinc-50 flex-1 ${entry.is_mastered ? 'line-through opacity-60' : ''}`}>
                     {entry.content}
                   </span>
                 </div>
+                {definitionsByWord[entry.content.toLowerCase()] && (
+                  <div className="mt-0.5 pl-0.5">
+                    {definitionsByWord[entry.content.toLowerCase()].part_of_speech && (
+                      <span className="text-xs italic text-purple-500 dark:text-purple-400 mr-1">
+                        {definitionsByWord[entry.content.toLowerCase()].part_of_speech}
+                      </span>
+                    )}
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                      {definitionsByWord[entry.content.toLowerCase()].definition}
+                    </span>
+                  </div>
+                )}
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${TYPE_COLORS[entry.type]}`}>
                     {TYPE_LABELS[entry.type]}

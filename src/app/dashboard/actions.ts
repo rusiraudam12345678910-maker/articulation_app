@@ -80,3 +80,16 @@ export async function incrementPractice(id: string, current: number) {
   await supabase.from('entries').update({ practice_count: current + 1 }).eq('id', id)
   revalidatePath('/dashboard')
 }
+
+export async function saveDefinition(word: string, part_of_speech: string, definition: string, example: string | null) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) redirect('/login')
+
+  // upsert: one saved definition per word (replace if already exists)
+  await supabase.from('definitions').upsert(
+    { word: word.toLowerCase(), part_of_speech, definition, example, saved_by: user.id },
+    { onConflict: 'word' }
+  )
+  revalidatePath('/dashboard')
+}
