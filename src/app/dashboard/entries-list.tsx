@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { deleteEntry, updateEntry, toggleFavorite, toggleMastered } from './actions'
+import { deleteEntry, updateEntry, toggleFavorite, toggleMastered, toggleStudied, setTier } from './actions'
 import { updateEntryCategory, addCategory, deleteCategory } from './category-actions'
 import DefinitionButton from './definition-modal'
 
@@ -21,6 +21,14 @@ const TYPE_COLORS: Record<string, string> = {
   proverb: 'bg-rose-100 text-rose-700 dark:bg-rose-900 dark:text-rose-300',
 }
 
+const TIER_COLORS: Record<string, string> = {
+  '$10': 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300',
+  '$100': 'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300',
+  '$1000': 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
+}
+
+const TIERS = ['$10', '$100', '$1000'] as const
+
 type Entry = {
   id: string
   content: string
@@ -30,8 +38,10 @@ type Entry = {
   user_id: string
   is_favorite: boolean
   is_mastered: boolean
+  is_studied: boolean
   practice_count: number
   word_family: string | null
+  tier: string | null
 }
 
 type Category = {
@@ -54,9 +64,11 @@ type SavedDefinition = {
 export default function EntriesList({ entries, categories, users, definitionsByWord }: { entries: Entry[], categories: Category[], users: User[], definitionsByWord: Record<string, SavedDefinition> }) {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
+  const [tierFilter, setTierFilter] = useState('all')
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [userFilter, setUserFilter] = useState('all')
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
+  const [sortBy, setSortBy] = useState<'date' | 'tier'>('date')
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editContent, setEditContent] = useState('')
   const [editType, setEditType] = useState('')
@@ -72,32 +84,59 @@ export default function EntriesList({ entries, categories, users, definitionsByW
     setEditingId(null)
   }
 
-  const filtered = entries.filter((e) => {
-    const matchesSearch = e.content.toLowerCase().includes(search.toLowerCase())
-    const matchesType = typeFilter === 'all' || e.type === typeFilter
-    const matchesCategory = categoryFilter === 'all' || e.category_id === categoryFilter
-    const matchesFavorite = !showFavoritesOnly || e.is_favorite
-    const matchesUser = userFilter === 'all' || e.user_id === userFilter
-    return matchesSearch && matchesType && matchesCategory && matchesFavorite && matchesUser
-  })
+  const TIER_ORDER: Record<string, number> = { '$10': 1, '$100': 2, '$1000': 3 }
+
+  const filtered = entries
+    .filter((e) => {
+      const matchesSearch = e.content.toLowerCase().includes(search.toLowerCase())
+      const matchesType = typeFilter === 'all' || e.type === typeFilter
+      const matchesTier = tierFilter === 'all' || e.tier === tierFilter
+      const matchesCategory = categoryFilter === 'all' || e.category_id === categoryFilter
+      const matchesFavorite = !showFavoritesOnly || e.is_favorite
+      const matchesUser = userFilter === 'all' || e.user_id === userFilter
+      return matchesSearch && matchesType && matchesTier && matchesCategory && matchesFavorite && matchesUser
+    })
+    .sort((a, b) => {
+      if (sortBy === 'tier') {
+        const at = TIER_ORDER[a.tier ?? ''] ?? 0
+        const bt = TIER_ORDER[b.tier ?? ''] ?? 0
+        return at - bt
+      }
+      return 0 // keep original order (by created_at desc from server)
+    })
 
   const masteredCount = entries.filter((e) => e.is_mastered).length
+  const studiedCount = entries.filter((e) => e.is_studied).length
 
   return (
     <div className="flex flex-col gap-4">
 
       {/* Progress bar */}
       {entries.length > 0 && (
-        <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex flex-col gap-1.5">
-          <div className="flex justify-between text-xs text-zinc-500 dark:text-zinc-400">
-            <span>Progress</span>
-            <span>{masteredCount} / {entries.length} mastered</span>
+        <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex flex-col gap-2">
+          <div className="flex flex-col gap-1.5">
+            <div className="flex justify-between text-xs text-zinc-500 dark:text-zinc-400">
+              <span>Studied</span>
+              <span>{studiedCount} / {entries.length}</span>
+            </div>
+            <div className="w-full h-2 bg-zinc-100 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-blue-500 rounded-full transition-all"
+                style={{ width: `${entries.length ? (studiedCount / entries.length) * 100 : 0}%` }}
+              />
+            </div>
           </div>
-          <div className="w-full h-2 bg-zinc-100 dark:bg-zinc-700 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-green-500 rounded-full transition-all"
-              style={{ width: `${entries.length ? (masteredCount / entries.length) * 100 : 0}%` }}
-            />
+          <div className="flex flex-col gap-1.5">
+            <div className="flex justify-between text-xs text-zinc-500 dark:text-zinc-400">
+              <span>Mastered</span>
+              <span>{masteredCount} / {entries.length}</span>
+            </div>
+            <div className="w-full h-2 bg-zinc-100 dark:bg-zinc-700 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-green-500 rounded-full transition-all"
+                style={{ width: `${entries.length ? (masteredCount / entries.length) * 100 : 0}%` }}
+              />
+            </div>
           </div>
         </div>
       )}
@@ -159,6 +198,47 @@ export default function EntriesList({ entries, categories, users, definitionsByW
         </div>
       </div>
 
+      {/* Tier filter + sort */}
+      <div className="flex items-center gap-2 flex-wrap">
+        <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Tier:</span>
+        {(['all', '$10', '$100', '$1000'] as const).map((t) => (
+          <button
+            key={t}
+            onClick={() => setTierFilter(t)}
+            className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+              tierFilter === t
+                ? t === 'all'
+                  ? 'bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900'
+                  : TIER_COLORS[t].replace('bg-', 'bg-').split(' ')[0] + ' ' + (t === '$10' ? 'bg-emerald-500 text-white' : t === '$100' ? 'bg-amber-500 text-white' : 'bg-red-500 text-white')
+                : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+            }`}
+          >
+            {t === 'all' ? 'All tiers' : t}
+          </button>
+        ))}
+        <span className="ml-2 text-xs font-medium text-zinc-500 dark:text-zinc-400">Sort:</span>
+        <button
+          onClick={() => setSortBy('date')}
+          className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+            sortBy === 'date'
+              ? 'bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900'
+              : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+          }`}
+        >
+          Newest
+        </button>
+        <button
+          onClick={() => setSortBy('tier')}
+          className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+            sortBy === 'tier'
+              ? 'bg-zinc-900 text-white dark:bg-zinc-50 dark:text-zinc-900'
+              : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+          }`}
+        >
+          By tier
+        </button>
+      </div>
+
       {/* User filter */}
       {users.length > 1 && (
         <div className="flex gap-2 flex-wrap">
@@ -212,7 +292,7 @@ export default function EntriesList({ entries, categories, users, definitionsByW
 
       {/* Results count */}
       <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
-        {search || typeFilter !== 'all' || categoryFilter !== 'all' || showFavoritesOnly
+        {search || typeFilter !== 'all' || tierFilter !== 'all' || categoryFilter !== 'all' || showFavoritesOnly
           ? `${filtered.length} result${filtered.length !== 1 ? 's' : ''}`
           : `Your entries${entries.length ? ` (${entries.length})` : ''}`}
       </h2>
@@ -229,6 +309,8 @@ export default function EntriesList({ entries, categories, users, definitionsByW
             className={`flex items-start justify-between gap-4 bg-white dark:bg-zinc-900 rounded-xl border px-4 py-3 ${
               entry.is_mastered
                 ? 'border-green-200 dark:border-green-900'
+                : entry.is_studied
+                ? 'border-blue-200 dark:border-blue-900'
                 : 'border-zinc-200 dark:border-zinc-800'
             }`}
           >
@@ -240,7 +322,7 @@ export default function EntriesList({ entries, categories, users, definitionsByW
                   rows={3}
                   className="rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-zinc-900 resize-none"
                 />
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
                   <select
                     value={editType}
                     onChange={(e) => setEditType(e.target.value)}
@@ -288,11 +370,31 @@ export default function EntriesList({ entries, categories, users, definitionsByW
                   </div>
                 )}
                 <div className="flex items-center gap-2 flex-wrap">
+                  {/* Tier selector */}
+                  <div className="flex gap-1">
+                    {TIERS.map((t) => (
+                      <button
+                        key={t}
+                        onClick={() => setTier(entry.id, entry.tier === t ? null : t)}
+                        className={`rounded-full px-2 py-0.5 text-xs font-medium transition-colors ${
+                          entry.tier === t
+                            ? TIER_COLORS[t]
+                            : 'border border-zinc-200 dark:border-zinc-700 text-zinc-400 dark:text-zinc-500 hover:border-zinc-400'
+                        }`}
+                        title={`${t === '$10' ? 'Easy' : t === '$100' ? 'Intermediate' : 'Hard'} — click to ${entry.tier === t ? 'remove' : 'set'} tier`}
+                      >
+                        {t}
+                      </button>
+                    ))}
+                  </div>
                   <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${TYPE_COLORS[entry.type]}`}>
                     {TYPE_LABELS[entry.type]}
                   </span>
                   {entry.practice_count > 0 && (
                     <span className="text-xs text-zinc-400">Practiced {entry.practice_count}×</span>
+                  )}
+                  {entry.is_studied && !entry.is_mastered && (
+                    <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">✓ Studied</span>
                   )}
                   {entry.is_mastered && (
                     <span className="text-xs text-green-600 dark:text-green-400 font-medium">✓ Mastered</span>
@@ -337,6 +439,13 @@ export default function EntriesList({ entries, categories, users, definitionsByW
                   title={entry.is_favorite ? 'Remove from favorites' : 'Add to favorites'}
                 >
                   ★
+                </button>
+                <button
+                  onClick={() => toggleStudied(entry.id, entry.is_studied)}
+                  className={`text-base transition-colors ${entry.is_studied ? 'text-blue-500' : 'text-zinc-300 hover:text-blue-500'}`}
+                  title={entry.is_studied ? 'Mark as not studied' : 'Mark as studied'}
+                >
+                  📚
                 </button>
                 <button
                   onClick={() => toggleMastered(entry.id, entry.is_mastered)}

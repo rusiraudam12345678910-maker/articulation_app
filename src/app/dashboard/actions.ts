@@ -75,6 +75,18 @@ export async function toggleMastered(id: string, current: boolean) {
   revalidatePath('/dashboard')
 }
 
+export async function toggleStudied(id: string, current: boolean) {
+  const supabase = await createClient()
+  await supabase.from('entries').update({ is_studied: !current }).eq('id', id)
+  revalidatePath('/dashboard')
+}
+
+export async function setTier(id: string, tier: string | null) {
+  const supabase = await createClient()
+  await supabase.from('entries').update({ tier }).eq('id', id)
+  revalidatePath('/dashboard')
+}
+
 export async function incrementPractice(id: string, current: number) {
   const supabase = await createClient()
   await supabase.from('entries').update({ practice_count: current + 1 }).eq('id', id)
