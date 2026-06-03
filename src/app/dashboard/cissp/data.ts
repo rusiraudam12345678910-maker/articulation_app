@@ -553,6 +553,7 @@ export const domains: Domain[] = [
       },
       {
         id: 'd1t12',
+
         title: '1.12 Security Awareness and Training',
         content: [
           {
@@ -586,6 +587,55 @@ export const domains: Domain[] = [
               ],
             },
             tip: 'The final target of awareness, training, and education is a change in user behaviour.',
+          },
+        ],
+      },
+      {
+        id: 'd1t13',
+        title: '1.13 AI Governance, Ethics, and Strategic Risk Integration',
+        content: [
+          {
+            heading: 'AI as an Organizational Risk',
+            body: 'Organizations must treat AI assets as first-class citizens within existing Enterprise Risk Management frameworks. AI is not just new software — it is a fundamental organizational risk that requires governance, ethics oversight, and supply chain evaluation.',
+          },
+          {
+            heading: 'Key Governance Areas',
+            table: {
+              headers: ['Control Area', 'Description'],
+              rows: [
+                ['Right to Audit', 'Organizations must be able to audit AI provider practices and models.'],
+                ['Data Usage Rights', 'Clear agreements on how training data is used, stored, and shared.'],
+                ['Model Versioning', 'Track model changes to understand how decisions evolve over time.'],
+                ['Exit Strategy', 'Plans to migrate away from an AI provider without losing capability.'],
+              ],
+            },
+          },
+          {
+            heading: 'Ethics and Algorithmic Bias',
+            list: [
+              'Bias Sources — training data that reflects historical inequalities can perpetuate discrimination.',
+              'Transparency and Explainability — AI decisions must be auditable; "black box" outputs create accountability gaps.',
+              'Human-in-the-Loop — high-stakes decisions (hiring, credit, medical) require human oversight before action.',
+              'Fairness Testing — regularly audit model outputs for disparate impact across protected groups.',
+            ],
+          },
+          {
+            heading: 'Privacy and Legal Compliance',
+            list: [
+              'Data Minimization — only collect and use data strictly necessary for the AI objective.',
+              'Differential Privacy — add mathematical noise to datasets to prevent individual re-identification.',
+              'Intellectual Property Rights — AI-generated outputs may have unclear ownership; review licensing.',
+              'AI Bill of Materials (AIBOM) — inventory of all components, datasets, and models used in an AI system.',
+            ],
+          },
+          {
+            heading: 'AI Supply Chain Evaluation',
+            list: [
+              'Data Sourcing — verify the provenance and integrity of training datasets from third parties.',
+              'Provider Resilience — assess vendor financial stability, security posture, and incident history.',
+              'Due Diligence Requirements — apply the same third-party risk management rigor to AI providers as to other critical vendors.',
+              'Shadow AI — unsanctioned use of AI tools by employees creates uncontrolled data exposure and governance gaps.',
+            ],
           },
         ],
       },
@@ -799,6 +849,50 @@ export const domains: Domain[] = [
           },
         ],
       },
+      {
+        id: 'd2t7',
+        title: '2.7 Asset Security in the Age of AI',
+        content: [
+          {
+            heading: 'AI-Specific Asset Classification',
+            body: 'In an AI-driven enterprise, the asset inventory must expand beyond traditional files, databases, and hardware. New asset types require classification and protection:',
+            list: [
+              'Training Datasets — contain corporate data or PII; must be classified at the highest level of confidentiality and integrity.',
+              'Model Weights and Parameters — represent the learned logic and IP of the AI; theft allows adversaries to replicate the model.',
+              'Pre-trained Models — third-party models must be treated as untrusted supply-chain assets until integrity is verified.',
+            ],
+          },
+          {
+            heading: 'Data Poisoning',
+            body: 'Data Poisoning is a strategic attack where an adversary injects "toxic" data into a training set, creating a backdoor trigger that causes the model to fail or behave maliciously on specific inputs.',
+            list: [
+              'Control: Implement strict Data Provenance — track the origin of every dataset.',
+              'Control: Use Digital Signatures for datasets to detect tampering throughout the lifecycle.',
+              'Control: Perform statistical outlier detection to identify toxic inputs before training begins.',
+            ],
+          },
+          {
+            heading: 'Privacy Controls in AI Environments',
+            table: {
+              headers: ['Control', 'Description', 'Limitation'],
+              rows: [
+                ['Data Masking', 'Replaces sensitive fields with placeholder values', 'AI can sometimes re-identify individuals by correlating other data points'],
+                ['Differential Privacy', 'Adds mathematical noise to datasets', 'Gold standard; ensures model learns trends without memorizing individuals'],
+                ['Data Minimization', 'Collect only attributes required for the AI objective', 'Reduces PII exposure in training pipelines'],
+              ],
+            },
+          },
+          {
+            heading: 'AI Data Lifecycle',
+            list: [
+              'Collection — apply data minimization; strip unnecessary PII before training.',
+              'Storage — apply classification, access controls, and encryption to training datasets.',
+              'Destruction — "Machine Unlearning" is an emerging challenge: removing specific data influence from a trained model without retraining from scratch.',
+              'GDPR Right to Erasure — compliance requires a plan for removing individual data influence from deployed AI models.',
+            ],
+          },
+        ],
+      },
     ],
   },
 
@@ -910,6 +1004,58 @@ export const domains: Domain[] = [
               'Do — implement controls.',
               'Check — monitor effectiveness.',
               'Act — adjust based on findings.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd3t4',
+        title: '3.4 Security Capabilities of Information Systems',
+        content: [
+          {
+            heading: 'Memory Protection Mechanisms',
+            list: [
+              'Segmentation — divides memory into sections with defined access permissions (read, write, execute).',
+              'Paging — breaks memory into fixed-size pages; OS controls access via page table.',
+              'Virtual Memory — allows applications to use more memory than physically available; prevents process interference.',
+              'Data Execution Prevention (DEP) — prevents execution of code stored in data-only memory regions; blocks buffer overflow attacks.',
+              'Address Space Layout Randomization (ASLR) — randomizes memory addresses to make injection attacks harder.',
+            ],
+          },
+          {
+            heading: 'Trusted Platform Module (TPM)',
+            body: 'A dedicated security chip on the motherboard providing hardware-based cryptographic operations, secure key storage, and system integrity verification.',
+            table: {
+              headers: ['Feature', 'TPM Capability', 'Limitation'],
+              rows: [
+                ['Boot Integrity', 'Measures boot components; detects unauthorized changes (Measured Boot)', 'Cannot prevent tampering — only detects it'],
+                ['Key Protection', 'Stores keys in hardware; resistant to software attacks', 'Keys tied to device — recovery is complex if motherboard fails'],
+                ['Disk Encryption', 'Enhances BitLocker/LUKS — keys released only if system integrity is verified', 'Dependent on OS integration; TPM alone does not encrypt data'],
+                ['Attestation', 'Cryptographic proof the system booted into a trusted state', 'Remote attestation requires supporting infrastructure'],
+              ],
+            },
+            note: 'TPM 2.0 improves on 1.2 with SHA-256, ECC support, and enhanced authorization mechanisms.',
+          },
+          {
+            heading: 'Hardware Security Module (HSM)',
+            body: 'Specialized hardware device for enterprise-scale cryptographic key management. Physically protects keys, processes encryption in an isolated environment, and resists tampering.',
+            table: {
+              headers: ['Feature', 'TPM', 'HSM'],
+              rows: [
+                ['Primary Purpose', 'Hardware root of trust for single device', 'Enterprise key management and cryptography'],
+                ['Deployment', 'Integrated on motherboard', 'External device, appliance, or network-attached'],
+                ['Key Storage', 'Device-level (boot, disk encryption)', 'Enterprise keys, certificates, PKI'],
+                ['Scope', 'Single device', 'Organization-wide'],
+                ['Use Case', 'Secure Boot, BitLocker', 'Certificate Authority, database encryption, SSL/TLS'],
+              ],
+            },
+          },
+          {
+            heading: 'Cryptographic Modules',
+            list: [
+              'FIPS 140-2/140-3 — US government standard defining security levels 1–4 for cryptographic modules.',
+              'Common Criteria (ISO 15408) — evaluates cryptographic module security and effectiveness.',
+              'Functions: encryption/decryption, hashing (SHA-256), key management, digital signatures.',
             ],
           },
         ],
@@ -1141,6 +1287,72 @@ export const domains: Domain[] = [
           },
         ],
       },
+      {
+        id: 'd3t10',
+        title: '3.10 Manage the Information System Lifecycle',
+        content: [
+          {
+            heading: 'System Lifecycle Phases',
+            table: {
+              headers: ['Phase', 'Security Focus'],
+              rows: [
+                ['Stakeholders\' Needs & Requirements', 'Engage users, business leaders, IT, and regulators to define security expectations.'],
+                ['Requirements Analysis', 'Convert needs into actionable security specifications; align with NIST and ISO 27001.'],
+                ['Architectural Design', 'Create security frameworks with defense-in-depth: firewalls, IDS, secure communication channels.'],
+                ['Development / Implementation', 'Apply secure coding practices, code reviews, and integrate WAFs.'],
+                ['Integration', 'Combine components while maintaining security protocols; conduct penetration testing.'],
+                ['Verification and Validation', 'Test security features and regulatory compliance; run vulnerability scans.'],
+                ['Transition / Deployment', 'Secure configurations, apply patches, prepare rollback plans.'],
+                ['Operations and Maintenance', 'Ongoing monitoring, patch management, SIEM platforms, threat intelligence.'],
+                ['Retirement / Disposal', 'Secure decommission: data wiping, degaussing, physical destruction; comply with GDPR and HIPAA.'],
+              ],
+            },
+          },
+        ],
+      },
+      {
+        id: 'd3t11',
+        title: '3.11 Architecting Trust — Engineering Secure AI Environments',
+        content: [
+          {
+            heading: 'Secure Enclaves (Trusted Execution Environments)',
+            body: 'AI workloads require GPUs and TPUs handling sensitive data and proprietary models. Secure Enclaves create a "system within a system" where data is encrypted even during processing in CPU/GPU memory. The Hardware Root of Trust verifies infrastructure integrity before execution to prevent rootkits.',
+          },
+          {
+            heading: 'Prompt Injection Defense',
+            body: 'Prompt Injection is the AI equivalent of SQL injection — users craft inputs that override the AI\'s safety rules. Every prompt must be treated as untrusted data.',
+            list: [
+              'Preprocessing layers — strip malicious code and hidden characters from inputs.',
+              'Adversarial Training — train models to recognize and ignore jailbreak attempts.',
+              'Input validation — analyze semantic intent, not just syntax.',
+            ],
+          },
+          {
+            heading: 'Shared Responsibility in Cloud AI',
+            table: {
+              headers: ['Layer', 'Responsibility', 'Entity'],
+              rows: [
+                ['Physical Infrastructure', 'Data centers, cooling, hardware security', 'Cloud Provider'],
+                ['Base Model (Foundation)', 'Preventing bias and training data leaks', 'Cloud Provider'],
+                ['Application & Prompt', 'How the AI is used and what data it accesses', 'Customer'],
+                ['Output Monitoring', 'Reviewing AI results for hallucinations or leaks', 'Customer'],
+              ],
+            },
+          },
+          {
+            heading: 'Explainable AI (XAI)',
+            body: 'XAI is the security requirement that forces an AI system to provide a "reasoning path." Without auditability, an AI decision is a security risk — if you can\'t audit it, you can\'t verify it wasn\'t poisoned. XAI turns AI behavior into readable logs for incident response.',
+          },
+          {
+            heading: 'AI Resilience Risks',
+            list: [
+              'Complexity Attacks — adversarially crafted prompts designed to max out GPU resources and crash the system (DoS).',
+              'Neural networks must be architectured to throttle abusive requests.',
+              'AI should not be a single point of failure for enterprise operations.',
+            ],
+          },
+        ],
+      },
     ],
   },
 
@@ -1271,6 +1483,36 @@ export const domains: Domain[] = [
           {
             heading: 'Third-Party and Satellite Connectivity',
             body: 'Organizations use telecom providers for leased lines, broadband, and cloud interconnects. Satellite types: GEO, MEO, and LEO orbits. Key risks: data interception and supply chain vulnerabilities — mitigated through encrypted VPNs and zero-trust architecture.',
+          },
+        ],
+      },
+      {
+        id: 'd4t4',
+        title: '4.4 Securing AI Data in Motion and Intelligent Network Defense',
+        content: [
+          {
+            heading: 'The Challenge of AI Network Traffic',
+            body: 'AI workloads continuously move data between training clusters, inference endpoints, and edge devices, creating dynamic and complex traffic patterns that traditional security tools struggle to monitor. The volume, speed, and distributed nature of AI data flows require updated defensive approaches.',
+          },
+          {
+            heading: 'Primary Defense Strategies',
+            list: [
+              'Micro-Segmentation — breaks networks into isolated zones; if one component is compromised, the attacker cannot easily move to another; contains the blast radius.',
+              'Zero Trust Architecture — no entity inside or outside the network is trusted by default; every interaction requires authentication, authorization, and continuous validation.',
+              'Encrypted Channels — all AI data in transit must use TLS 1.3 or equivalent; model parameters and training data are high-value IP.',
+            ],
+          },
+          {
+            heading: 'AI-Driven Network Detection and Response',
+            body: 'AI-driven NDR systems surpass signature-based tools by analyzing behavioral patterns and anomalies rather than relying on known attack signatures. They can identify coordinated multi-stage attacks that would appear as unrelated events to rule-based tools.',
+          },
+          {
+            heading: 'High-Risk Areas for AI Data in Motion',
+            list: [
+              'Edge Inference Devices — continuously send and receive data; often lack enterprise-grade security controls.',
+              'Training Environments — contain both valuable datasets and model weights (intellectual property); high-priority targets.',
+              'Model Distribution Pipelines — delivering updated model versions to production is a potential supply chain attack vector.',
+            ],
           },
         ],
       },
@@ -1435,6 +1677,84 @@ export const domains: Domain[] = [
           },
         ],
       },
+      {
+        id: 'd5t6',
+        title: '5.6 Implement Authentication Systems',
+        content: [
+          {
+            heading: 'OAuth 2.0',
+            body: 'Open standard for delegated authorization — allows third-party applications to access user resources without exposing credentials. Uses access tokens scoped by permission and time.',
+            list: [
+              'Resource Owner (User) — grants authorization to the third-party application.',
+              'Authorization Server — authenticates the user and issues access tokens.',
+              'Resource Server — validates tokens and serves protected data.',
+              'Client — the third-party application requesting access.',
+            ],
+          },
+          {
+            heading: 'OpenID Connect (OIDC)',
+            body: 'Identity layer built on top of OAuth 2.0 that adds authentication for Single Sign-On (SSO). Issues an ID Token (JWT) containing identity claims (name, email) in addition to the OAuth access token.',
+          },
+          {
+            heading: 'SAML 2.0',
+            body: 'XML-based framework for exchanging authentication and authorization data between Identity Provider (IdP) and Service Provider (SP). Core of enterprise SSO. The IdP issues a SAML Assertion; the SP validates it to grant access.',
+            table: {
+              headers: ['Feature', 'OAuth 2.0 / OIDC', 'SAML 2.0'],
+              rows: [
+                ['Message Format', 'JSON, JWT', 'XML'],
+                ['Token Type', 'Access token, ID token', 'SAML Assertion'],
+                ['Transport', 'REST (HTTP, JSON)', 'Browser POST/Redirect'],
+                ['Common Use', 'APIs, mobile, web apps', 'Enterprise SSO'],
+                ['Identity Layer', 'OIDC (extension)', 'Built-in'],
+              ],
+            },
+          },
+          {
+            heading: 'Kerberos',
+            body: 'Network authentication protocol using symmetric key cryptography and encrypted tickets. Enables SSO across distributed systems without transmitting passwords over the network.',
+            list: [
+              '1. Client requests Ticket-Granting Ticket (TGT) from Authentication Server (AS/KDC).',
+              '2. Client presents TGT to Ticket-Granting Server (TGS) to get a Service Ticket.',
+              '3. Client presents Service Ticket to the target service for access.',
+            ],
+            note: 'Kerberos is widely used in Microsoft Active Directory environments.',
+          },
+        ],
+      },
+      {
+        id: 'd5t7',
+        title: '5.7 Identity as the Last Perimeter',
+        content: [
+          {
+            heading: 'Evolution of the Perimeter',
+            body: 'In an AI-driven environment where workloads are distributed and increasingly autonomous, identity becomes the new perimeter. Access decisions must account not only for human users but also for AI agents, service accounts, APIs, and machine-to-machine interactions that operate at scale without direct human oversight.',
+          },
+          {
+            heading: 'Least Privilege and Non-Human Identities',
+            list: [
+              'Every identity — human or machine — must be granted only the minimum access required to perform its function.',
+              'AI agents may dynamically interact with multiple datasets and services; without strict privilege boundaries, they can inadvertently access sensitive data beyond their intended scope.',
+              'Service accounts must be dynamically managed, time-bound where possible, and tightly scoped.',
+              'Regular auditing and continuous monitoring must extend to non-human identities.',
+            ],
+            warning: 'Without strict privilege boundaries, an AI system could inadvertently or maliciously access sensitive data beyond its intended scope.',
+          },
+          {
+            heading: 'AI-Enhanced Identity Management',
+            list: [
+              'Behavioral Biometrics — analyze typing speed, mouse movement, login times, device usage, and geographic location to establish a baseline of normal behavior.',
+              'Adaptive Authentication — when anomalies are detected, adjust the verification level required rather than giving a binary grant/deny response.',
+              'Anomaly Detection — AI detects dormant accounts, excessive permissions, and unusual access paths at scale.',
+              'Scalability — AI-driven IAM handles large volumes of access data that would be impractical to manage manually.',
+            ],
+          },
+          {
+            heading: 'Dual Role Challenge',
+            body: 'Organizations must secure the identities of AI systems while simultaneously trusting AI to enhance security decisions. AI models used in IAM must be explainable, auditable, and resistant to manipulation.',
+            warning: 'If an attacker can influence the behavior of an AI-driven authentication system, they may be able to bypass controls or generate false trust signals.',
+          },
+        ],
+      },
     ],
   },
 
@@ -1569,6 +1889,59 @@ export const domains: Domain[] = [
         ],
       },
       {
+        id: 'd6t4',
+        title: '6.4 Analyze Test Output and Generate Reports',
+        content: [
+          {
+            heading: 'Security Report Structure',
+            table: {
+              headers: ['Section', 'Purpose', 'Key Content'],
+              rows: [
+                ['Executive Summary', 'Non-technical overview for leadership', 'Main findings, risk level, next steps — clear and concise'],
+                ['Assumptions', 'Lists starting conditions of the test', 'Access level granted, environment tested, exclusions'],
+                ['Scope', 'Defines what was and was not tested', 'Systems, applications, and excluded areas'],
+                ['Summary of Activities', 'Details actions performed', 'Tools used, tests conducted, effort level'],
+                ['Findings', 'Core security problems discovered', 'Description, impact, risk level, evidence'],
+                ['Recommendations', 'Fix guidance for each finding', 'Technical steps for IT; policy guidance for management'],
+                ['Appendices', 'Supporting material', 'Full scan output, screenshots, tool configurations'],
+              ],
+            },
+          },
+          {
+            heading: 'Remediation Plans',
+            body: 'A remediation plan outlines who is responsible, what action is needed, when it must be done, and how success will be measured. Testing the remediation is as important as the plan itself — re-run original tests to confirm the vulnerability is resolved.',
+            list: [
+              'Prioritize by risk — critical vulnerabilities first, especially those actively exploited.',
+              'Include temporary mitigations (monitoring, firewall rules) when permanent fixes are delayed.',
+              'Create closure reports documenting the fix, test evidence, and management approval.',
+            ],
+            note: 'Regulated environments require documented proof that vulnerabilities were identified, fixed, and validated.',
+          },
+          {
+            heading: 'Exception Handling',
+            body: 'When a security control cannot be fully applied, a formal exception process must be followed:',
+            list: [
+              '1. Identify the need — recognize when a control cannot be applied (legacy system, business constraint).',
+              '2. Evaluate the risk — assess the impact on security posture.',
+              '3. Define compensating controls — alternative measures (extra monitoring, logging, access controls).',
+              '4. Approval process — formal sign-off from system owners and security management.',
+              '5. Monitor the exception — regular audits to ensure it does not become a permanent vulnerability.',
+              '6. Time-bound — all exceptions must have an expiry date and go through re-approval if extended.',
+            ],
+          },
+          {
+            heading: 'Ethical Disclosure',
+            list: [
+              'Responsible Disclosure — report to the vendor and allow time to fix before public disclosure.',
+              'Full Disclosure — immediate public reporting; controversial as it can expose users before patches exist.',
+              'Bug Bounty Programs — financial incentives for ethical hackers who responsibly disclose vulnerabilities.',
+              'Mandatory Reporting — some jurisdictions require reporting vulnerabilities to authorities or law enforcement.',
+              'Nondisclosure — legal or contractual obligations may prevent disclosure in some cases.',
+            ],
+          },
+        ],
+      },
+      {
         id: 'd6t5',
         title: '6.5 Security Audits',
         content: [
@@ -1597,6 +1970,46 @@ export const domains: Domain[] = [
               'Certification Delayed — major non-conformities found; must fix before certification.',
               'Certification Denied — ISMS not aligned; must restart preparation.',
               'Surveillance Audits — annual lighter checks after initial certification; full recertification every 3 years.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd6t6',
+        title: '6.6 Red Teaming and Continuous Security Testing for AI Systems',
+        content: [
+          {
+            heading: 'Why AI Requires Evolved Security Testing',
+            body: 'Traditional testing targets software vulnerabilities like buffer overflows and misconfigurations. In AI-driven systems, the attack surface has expanded into the behavior of the model itself. An AI system can be technically secure from a software perspective and still be vulnerable at the model level.',
+          },
+          {
+            heading: 'AI-Specific Attack Types',
+            table: {
+              headers: ['Attack', 'Description', 'Impact'],
+              rows: [
+                ['Evasion Attacks', 'Manipulate input data to cause the AI to misclassify or misinterpret it — appears normal to humans', 'Undermines reliability; model produces incorrect or harmful outputs'],
+                ['Extraction Attacks', 'Repeatedly query the model to reconstruct it or infer sensitive training data', 'Steals the model\'s intelligence and embedded proprietary information'],
+                ['Prompt Injection', 'Craft inputs that override safety rules or cause unauthorized behavior', 'Can bypass access controls or extract confidential information'],
+              ],
+            },
+            note: 'These are "logic flaws" inherent to how the model processes data — not traditional coding errors.',
+          },
+          {
+            heading: 'AI Red Teaming',
+            body: 'Red Teaming for AI goes beyond simulating network intrusions — it involves actively challenging the model\'s logic, decision-making boundaries, and resilience against manipulation. The goal is to understand how weaknesses could be exploited and what business impact they would have.',
+            list: [
+              'Design controlled adversarial exercises that simulate real-world attacks against AI models.',
+              'Test monitoring, detection, and response mechanisms, not just the model itself.',
+              'Include adversarial input crafting, jailbreak attempts, and data extraction probes.',
+            ],
+          },
+          {
+            heading: 'AI-Enhanced Vulnerability Management',
+            list: [
+              'Continuous Security Assessment — AI-powered scanning analyzes systems in real time, correlating vulnerabilities with current threat intelligence.',
+              'Risk-Based Prioritization — vulnerabilities actively exploited in the wild are flagged as critical; others deprioritized.',
+              'Pattern Detection — AI identifies hidden dependencies, anomalous configurations, and predicts potential vulnerabilities before exploitation.',
+              'Human Expertise Still Required — AI highlights risks but cannot fully understand business context, intent, or organizational priorities.',
             ],
           },
         ],
@@ -1656,6 +2069,83 @@ export const domains: Domain[] = [
               '8. Offline backups and archival media.',
             ],
             note: 'Locard\'s Exchange Principle — "every contact leaves a trace" — underlies all forensic investigation.',
+          },
+        ],
+      },
+      {
+        id: 'd7t2',
+        title: '7.2 Understand and Support Investigations',
+        content: [
+          {
+            heading: 'Digital Forensics Principles',
+            list: [
+              'Locard\'s Exchange Principle — every contact leaves a trace; underlies all forensic investigation.',
+              'Chain of Custody — documented record of who handled evidence, when, and how; must be unbroken for legal admissibility.',
+              'Order of Volatility — collect evidence from most volatile to least: CPU registers → RAM → network state → running processes → disk → backups.',
+              'Avoid Evidence Contamination — never work on original media; always create forensic images (bit-for-bit copies).',
+            ],
+          },
+          {
+            heading: 'Types of Evidence',
+            table: {
+              headers: ['Type', 'Description'],
+              rows: [
+                ['Real Evidence', 'Physical, tangible items (hardware, devices)'],
+                ['Documentary Evidence', 'Written records, logs, policies, contracts'],
+                ['Testimonial Evidence', 'Witness statements; must be from qualified persons'],
+                ['Demonstrative Evidence', 'Visual aids, models, or simulations used to explain findings'],
+                ['Digital Evidence', 'Files, logs, metadata, network captures'],
+              ],
+            },
+          },
+          {
+            heading: 'Investigation Requirements',
+            list: [
+              'Administrative Investigations — internal HR or policy matters; lower evidentiary standard.',
+              'Criminal Investigations — coordinated with law enforcement; highest evidentiary standard; chain of custody critical.',
+              'Civil Investigations — legal disputes; discovery process applies.',
+              'Regulatory Investigations — industry watchdogs (SEC, HIPAA); specific reporting requirements.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd7t3',
+        title: '7.3 Logging, Monitoring, and Visibility',
+        content: [
+          {
+            heading: 'Security Monitoring Purpose',
+            body: 'Effective monitoring transforms raw events into actionable intelligence. Without visibility, security incidents go undetected. The goal is continuous awareness of the security posture across all systems and networks.',
+          },
+          {
+            heading: 'Log Management',
+            list: [
+              'Centralized Logging — aggregate logs from all systems into a SIEM for correlation and analysis.',
+              'Log Integrity — logs must be tamper-evident; store on separate, write-once media or forward to immutable storage.',
+              'Retention — define retention periods based on regulatory requirements (GDPR, HIPAA, PCI-DSS).',
+              'Timestamping — all logs must use synchronized NTP-based timestamps for correlation accuracy.',
+            ],
+          },
+          {
+            heading: 'SIEM Systems',
+            body: 'Security Information and Event Management (SIEM) platforms collect, aggregate, correlate, and analyze log data from across the organization. They enable real-time threat detection, incident response support, and compliance reporting.',
+            list: [
+              'Correlation Rules — detect multi-step attack patterns that no single log source would reveal alone.',
+              'Dashboards and Alerts — provide real-time visibility and notify analysts of threshold violations.',
+              'Use Cases: detecting brute force attacks, lateral movement, privilege escalation, data exfiltration.',
+            ],
+          },
+          {
+            heading: 'Network Monitoring Tools',
+            table: {
+              headers: ['Tool', 'Purpose'],
+              rows: [
+                ['Wireshark', 'Packet capture and analysis; inspect protocol details at the frame level'],
+                ['NetFlow', 'Network flow data; who talked to whom, when, and how much data — without payload'],
+                ['SNMP', 'Monitor device health, performance metrics, and trap alerts from network devices'],
+                ['Syslog', 'Standard protocol for forwarding log messages from devices to a central server'],
+              ],
+            },
           },
         ],
       },
@@ -1897,6 +2387,120 @@ export const domains: Domain[] = [
         ],
       },
       {
+        id: 'd7t11',
+        title: '7.11 Implement Disaster Recovery (DR) Processes',
+        content: [
+          {
+            heading: 'Emergency Response',
+            body: 'Emergency response is the first human-led moment in DR — when automated alerts become action, leadership, and containment. It is the execution of plans prepared before the emergency. Speed must be decisive and structured, not panicked.',
+            list: [
+              'Precise Containment — follow playbooks; overreaction (e.g., unplugging systems incorrectly) can cause more damage.',
+              'Coordination — response lead communicates with system owners, legal counsel, and potentially law enforcement.',
+              'Predefined Roles — who leads? who can shut down systems? who contacts executives? These must be decided in advance.',
+              'Communication Discipline — say what you know, avoid speculation; "We are aware and investigating" is the right tone.',
+            ],
+          },
+          {
+            heading: 'Personnel in DR',
+            list: [
+              'Redundancy — every role must have an alternate; vacations, illness, or disasters may remove key personnel.',
+              'Access Pre-Approval — credentials, VPNs, and physical access must be exercised in drills, not discovered during a crisis.',
+              'Stress Resilience — tabletop exercises reveal who stays calm under pressure; build balanced teams.',
+              'Communication Roles — assign who speaks externally, to executives, and to regulators; train tone and message discipline.',
+            ],
+          },
+          {
+            heading: 'Communication During Disaster',
+            table: {
+              headers: ['Aspect', 'Key Points'],
+              rows: [
+                ['Audience Definition', 'Internal staff, IT, leadership, customers, regulators, and media need different messages'],
+                ['Backup Mediums', 'Plan for system failures: SMS, encrypted apps, satellite phones, radios, or physical runners'],
+                ['Risk of Silence', 'Absence of communication fuels speculation; proactive updates prevent reputational damage'],
+                ['Security Principles', 'Communication channels must be authenticated, encrypted, logged, and available during outages'],
+              ],
+            },
+          },
+          {
+            heading: 'Restoration',
+            list: [
+              'Prioritization — critical systems first; sequence is defined in the BIA during calm planning time.',
+              'Validation — every restored system must be tested for malware, secure configuration, and data integrity.',
+              'Phased Restoration — bring systems online stage by stage to avoid cascading failures.',
+              'Improvement Opportunity — restoration is not just rebuilding; it is an opportunity to improve access controls, segmentation, and hardening.',
+            ],
+          },
+          {
+            heading: 'Lessons Learned',
+            body: 'Lessons learned is the bridge to organizational maturity. Conduct post-incident reviews, stakeholder debriefs, root cause analysis, and recommend policy/technical improvements. Capture findings in a centralized repository to build institutional memory.',
+            tip: 'Security is about resilience. Incidents will happen. What defines a mature organization is how it responds and learns from them.',
+          },
+        ],
+      },
+      {
+        id: 'd7t12',
+        title: '7.12 Test Disaster Recovery Plans (DRP)',
+        content: [
+          {
+            heading: 'DRP Testing Types',
+            table: {
+              headers: ['Test Type', 'Description', 'Disruption Level'],
+              rows: [
+                ['Read-Through / Checklist', 'Participants review the plan to identify errors, outdated contacts, or infeasible steps', 'None'],
+                ['Tabletop Exercise', 'Team walks through a simulated scenario verbally; no systems activated', 'None'],
+                ['Walk-Through Drill', 'Team physically walks through their roles and locations', 'Minimal'],
+                ['Simulation', 'Tests specific scenarios without full activation', 'Low'],
+                ['Parallel Test', 'Alternate site activated alongside production', 'Moderate'],
+                ['Full Interruption Test', 'Production systems shut down; most thorough but most disruptive', 'High'],
+              ],
+            },
+          },
+          {
+            heading: 'Key DRP Testing Principles',
+            list: [
+              'An untested DR plan is just a theory — it must be validated before it is needed.',
+              'Read-through tests catch outdated contacts, removed systems, or deprecated procedures.',
+              'Tabletop exercises reveal decision-making gaps and communication breakdowns.',
+              'Full interruption tests provide the highest confidence but require careful scheduling.',
+              'Test frequency should be driven by the rate of organizational and infrastructure change.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd7t13',
+        title: '7.13 Participate in Business Continuity Planning',
+        content: [
+          {
+            heading: 'BCP vs DR',
+            body: 'BCP keeps the business running during and after a disruption. DR brings IT systems back online. BCP is broader — it addresses all critical business functions, not just technology.',
+          },
+          {
+            heading: 'BCP Components',
+            table: {
+              headers: ['Component', 'Description'],
+              rows: [
+                ['Occupant Emergency Plan (OEP)', 'Facility response procedures for physical emergencies (fire, evacuation, lockdown)'],
+                ['Cyber Incident Response Planning (CIRP)', 'Detection and recovery processes for cyber-attacks'],
+                ['Information System Contingency Plan (ISCP)', 'System-by-system assessment and recovery procedures'],
+                ['Continuity of Operations Plan (COOP)', 'Restoring mission-critical functions at alternate sites'],
+              ],
+            },
+          },
+          {
+            heading: 'Security Professional\'s Role in BCP',
+            list: [
+              'Understand system dependencies and authentication mechanisms that business units overlook.',
+              'Challenge unrealistic RTOs and RPOs based on threat modeling and technical knowledge.',
+              'Validate that backup systems are secure and properly segmented.',
+              'Evaluate whether security controls are maintained or bypassed during stress scenarios.',
+              'Facilitate communication between technical and business stakeholders.',
+            ],
+            note: 'COVID-19 demonstrated that theoretical plans require real-world validation and rapid adaptation capabilities — BCP exercises are essential muscle memory.',
+          },
+        ],
+      },
+      {
         id: 'd7t14',
         title: '7.14–7.15 Physical Security and Personnel Safety',
         content: [
@@ -1930,6 +2534,87 @@ export const domains: Domain[] = [
               'Emergency Preparedness — evacuation plans, assembly points, emergency communication.',
               'Workplace Violence — policies and training for identifying and responding to threats.',
             ],
+          },
+        ],
+      },
+    {
+        id: 'd7t15',
+        title: '7.15 Personnel Safety and Security Concerns',
+        content: [
+          {
+            heading: 'Travel Security',
+            body: 'Traveling employees carry network access, credentials, and sensitive data into uncontrolled environments. They are temporary mobile endpoints exposed to physical and digital threats.',
+            table: {
+              headers: ['Phase', 'Key Action'],
+              rows: [
+                ['Pre-Travel', 'Issue clean devices, enable full-disk encryption, install VPN, brief employees'],
+                ['Transit', 'Disable auto-connect Wi-Fi; use tethering instead of public networks'],
+                ['On-Site', 'Avoid sensitive discussions in public; use screen privacy filters; know local surveillance laws'],
+                ['Legal Awareness', 'Understand jurisdiction-specific rules on device searches and compelled decryption'],
+                ['Post-Travel', 'Quarantine and inspect devices; debrief travelers on suspicious incidents'],
+              ],
+            },
+          },
+          {
+            heading: 'Security Awareness Topics',
+            list: [
+              'Insider Threats — both malicious and unintentional; well-meaning employees with poor security awareness are often more dangerous than deliberate attackers.',
+              'Social Media — OSINT goldmine for attackers; employees sharing travel plans, project names, or technology stack inadvertently assists targeting.',
+              '2FA Fatigue — attackers exploit repeated MFA prompts until the user approves out of frustration; mitigate with number matching and user education.',
+              'Training Design — gamified, role-specific, and continuously updated training builds habits rather than just awareness.',
+            ],
+          },
+          {
+            heading: 'Emergency Management Phases',
+            list: [
+              'Mitigation — reduce likelihood/impact: fire-resistant materials, segmenting critical systems.',
+              'Preparedness — training, drills, and documented plans so everyone knows what to do.',
+              'Response — execute the plan: evacuate, communicate, contain; technology assists but culture makes it work.',
+              'Recovery — restore operations AND support people: psychological first aid, clear communication, flexible return plans.',
+            ],
+          },
+          {
+            heading: 'Duress',
+            body: 'Duress occurs when an employee is coerced into providing access or credentials. Defenses include duress codes (secondary PINs that silently alert security) and environmental design that reduces coercion opportunities.',
+            list: [
+              'Duress Codes — a secondary access PIN that appears normal but triggers a silent security alert.',
+              'Long-term duress (blackmail, financial pressure) can turn employees into insider threats over time.',
+              'Behavioral analytics can detect unusual access patterns that indicate an employee under duress.',
+              'A culture where employees feel safe reporting concerns is the most effective deterrent.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd7t16',
+        title: '7.16 AI as the SOC\'s Force Multiplier',
+        content: [
+          {
+            heading: 'The Alert Fatigue Problem',
+            body: 'The problem in modern SOCs is not a lack of data — it is an overwhelming excess of it. Traditional rule-based systems generate alerts in isolation without understanding context, causing analysts to miss real signals. AI addresses this by correlating events across multiple data sources to identify coordinated attacks hidden in the noise.',
+          },
+          {
+            heading: 'How AI Transforms SOC Operations',
+            list: [
+              'Correlation at Scale — connects ten apparently unrelated alerts into a single identified attack pattern.',
+              'Contextualized Incidents — analysts receive high-fidelity alerts enriched with context, risk scoring, and probable attack paths.',
+              'SOAR Automation — routine tasks (isolating endpoints, blocking IPs) executed automatically at machine speed.',
+              'Faster Decision-Making — shifts analyst focus from triaging noise to making strategic response decisions.',
+            ],
+          },
+          {
+            heading: 'AI as a Target — Model Drift',
+            body: 'Once deployed, AI systems must be continuously monitored and protected. Model drift occurs when the data the AI encounters changes over time, causing performance to degrade — more false positives, missed threats, or misclassifications. If undetected, the SOC may become dependent on a tool that is no longer reliable.',
+            list: [
+              'Continuous Validation — monitor performance metrics; implement feedback loops and retraining processes.',
+              'Adversarial Attacks on AI — attackers may manipulate inputs or poison data to cause the model to hide malicious activity.',
+              'AI-specific incident response — security professionals must integrate AI model monitoring into operational processes.',
+            ],
+            note: 'AI should not be deployed and forgotten — it must be managed as a living component of the security architecture.',
+          },
+          {
+            heading: 'Human-AI Balance',
+            body: 'AI provides speed, scale, and intelligence. Humans provide context, judgment, and oversight. Over-reliance on automation leads to blind trust; ignoring it leads to inefficiency. The modern SOC must operate as a hybrid system.',
           },
         ],
       },
@@ -2049,6 +2734,62 @@ export const domains: Domain[] = [
         ],
       },
       {
+        id: 'd8t4',
+        title: '8.4 Assess Security Impact of Acquired Software',
+        content: [
+          {
+            heading: 'COTS (Commercial Off-the-Shelf) Software',
+            body: 'COTS shifts part of your trust boundary outside your organization. You are trusting not only the product but the vendor\'s entire supply chain. Key assessment areas:',
+            table: {
+              headers: ['Assessment Area', 'Key Questions'],
+              rows: [
+                ['Vendor Security', 'Do they follow secure SDLC? Can they provide pentest results and SBOM?'],
+                ['Patch Management', 'Average time to patch? Can patches be automated?'],
+                ['Configuration', 'Are default settings secure? Can the system be hardened effectively?'],
+                ['Access Controls', 'Integrates with IAM? Supports RBAC and MFA?'],
+                ['Logging & Monitoring', 'Logs compatible with your SIEM? Alerts for anomalies?'],
+                ['Data Protection', 'Encrypted at rest and in transit? Who controls the keys?'],
+                ['Contractual Safeguards', 'SLAs, breach notification, audit rights, exit clauses?'],
+              ],
+            },
+            warning: 'Just because a product is commercially supported does not mean it is securely configured out of the box. Default settings are for ease of use, not security.',
+          },
+          {
+            heading: 'Open Source Software (OSS)',
+            list: [
+              '"Many eyes" myth — code being open does not mean anyone is actively auditing it; Heartbleed lived in OpenSSL for years.',
+              'Software Bill of Materials (SBOM) — inventory all OSS components and their versions; track CVEs in dependencies.',
+              'Supply Chain Risk — a single compromised NPM/PyPI package can affect thousands of applications.',
+              'Maintainership — assess who maintains the project; abandoned projects will not receive security patches.',
+              'Licensing — viral licenses (GPL) may require you to open your own source code upon integration.',
+              'Configuration — many OSS tools (Elasticsearch, MongoDB) shipped without authentication by default; harden before production.',
+            ],
+          },
+          {
+            heading: 'Third-Party Software',
+            list: [
+              'Shadow IT — departments install tools without security review; asset discovery is the essential first step.',
+              'Integration Risk — every API, SSO connector, or file-sharing interface is a potential attack vector.',
+              'Patch Dependency — you cannot create your own fixes; you depend entirely on the vendor\'s responsiveness.',
+              'Contractual Protections — include breach notification, SLAs, audit rights, and termination clauses in vendor agreements.',
+              'Outsourcing ≠ Delegating Responsibility — GDPR, HIPAA, and PCI-DSS make clear that you remain accountable for data handled by third parties.',
+            ],
+          },
+          {
+            heading: 'Managed Services and Cloud (SaaS/PaaS/IaaS)',
+            table: {
+              headers: ['Model', 'Customer Responsibility', 'Common Risk'],
+              rows: [
+                ['SaaS', 'User access, configurations, data protection, backup strategy', 'MFA not enforced; data retention misconfigured'],
+                ['PaaS', 'Application code, configs, data; DevSecOps maturity', 'Vulnerable app deployed on patched platform'],
+                ['IaaS', 'OS, applications, network, access controls, firewall rules', 'Misconfigured S3 buckets, open ports, weak IAM roles'],
+              ],
+            },
+            note: 'Outsourcing services to a managed provider does not outsource security responsibility. Shared responsibility models define the boundary — and the customer always retains some obligations.',
+          },
+        ],
+      },
+      {
         id: 'd8t5',
         title: '8.5 Secure Coding Guidelines and Standards',
         content: [
@@ -2102,6 +2843,45 @@ export const domains: Domain[] = [
               '8. Software and Data Integrity Failures — insecure deserialization, CI/CD tampering.',
               '9. Security Logging and Monitoring Failures — inability to detect breaches.',
               '10. Server-Side Request Forgery (SSRF) — server making requests to unintended locations.',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd8t6',
+        title: '8.6 Securing AI-Assisted Development in the Modern SDLC',
+        content: [
+          {
+            heading: 'The New Reality: AI as a Coding Collaborator',
+            body: 'Developers increasingly rely on AI tools that generate entire functions and suggest architecture patterns. AI models do not truly understand code — they predict it based on patterns. This creates "insecure by suggestion" risk: AI may recommend outdated cryptographic functions, improper input validation, or unsafe dependencies that developers accept without scrutiny.',
+          },
+          {
+            heading: 'Shift-Left for AI-Generated Code',
+            list: [
+              'Treat AI-generated code as untrusted input requiring the same review as third-party libraries.',
+              'Integrate SAST, DAST, and SCA tools into CI/CD pipelines that also analyze AI-generated components.',
+              'Every commit, merge, and deployment must pass automated security gates.',
+              'AI accelerates development — without automated controls, it also accelerates risk.',
+            ],
+          },
+          {
+            heading: 'AI Supply Chain Risks in Development',
+            table: {
+              headers: ['Risk', 'Description', 'Mitigation'],
+              rows: [
+                ['Model Hijacking', 'Attacker gains control over a model or manipulates its behavior via compromised dependencies', 'Verify model integrity; use trusted registries; monitor deployment pipelines'],
+                ['Inference Attacks', 'Analyzing model outputs to reconstruct sensitive training data', 'Limit query access; implement differential privacy; monitor query patterns'],
+                ['Poisoned Dependencies', 'Malicious ML libraries or datasets introduced into the development environment', 'SBOM for all AI components; pin dependency versions; scan before use'],
+              ],
+            },
+          },
+          {
+            heading: 'Governing AI Tools in Development',
+            list: [
+              'Evaluate AI coding tools with the same rigor as third-party software — SBOM, vendor security practices, data handling.',
+              'Define policies for which AI tools are approved for development use (prevent shadow AI in pipelines).',
+              'Foster a culture of skepticism — developers should treat AI suggestions as starting points, not authoritative solutions.',
+              'Security must be a continuous process spanning design, development, testing, deployment, and maintenance when AI is involved.',
             ],
           },
         ],
