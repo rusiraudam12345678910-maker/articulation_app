@@ -18,6 +18,7 @@ export default function CISSPPage() {
   const [activeDomain, setActiveDomain] = useState<Domain>(domains[0])
   const [activeTopic, setActiveTopic] = useState<Topic>(domains[0].topics[0])
   const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [pillsOpen, setPillsOpen] = useState(true)
 
   function selectDomain(domain: Domain) {
     setActiveDomain(domain)
@@ -133,20 +134,31 @@ export default function CISSPPage() {
           </div>
 
           {/* Topic navigation pills */}
-          <div className="flex gap-1.5 flex-wrap mb-6">
-            {activeDomain.topics.map((topic) => (
-              <button
-                key={topic.id}
-                onClick={() => setActiveTopic(topic)}
-                className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors whitespace-nowrap ${
-                  activeTopic.id === topic.id
-                    ? 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900'
-                    : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
-                }`}
-              >
-                {topic.title}
-              </button>
-            ))}
+          <div className="mb-6">
+            <button
+              onClick={() => setPillsOpen(!pillsOpen)}
+              className="flex items-center gap-1 text-xs text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors mb-2"
+            >
+              <span>{pillsOpen ? '▾' : '▸'}</span>
+              <span>Topics</span>
+            </button>
+            {pillsOpen && (
+              <div className="flex gap-1.5 flex-wrap">
+                {activeDomain.topics.map((topic) => (
+                  <button
+                    key={topic.id}
+                    onClick={() => setActiveTopic(topic)}
+                    className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors whitespace-nowrap ${
+                      activeTopic.id === topic.id
+                        ? 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900'
+                        : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                    }`}
+                  >
+                    {topic.title}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Topic content */}
