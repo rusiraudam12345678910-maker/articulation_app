@@ -16,6 +16,7 @@ export type Section = {
   list?: string[]
   table?: { headers: string[]; rows: string[][] }
   image?: { src: string; alt: string; caption?: string }
+  diagram?: { svg: string; caption?: string }
   note?: string
   tip?: string
   warning?: string
@@ -2840,10 +2841,42 @@ export const domains: Domain[] = [
             tip: 'Bell-LaPadula protects CONFIDENTIALITY. Remember: "No Read Up, No Write Down" (RNWD).',
           },
           {
-            image: {
-              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/BellLapadulasimpleRules.jpg/640px-BellLapadulasimpleRules.jpg',
-              alt: 'Bell-LaPadula Model diagram showing No Read Up and No Write Down rules across classification levels',
-              caption: 'Bell-LaPadula: subjects can read down and write up — preventing disclosure of classified data',
+            diagram: {
+              caption: 'Bell-LaPadula: No Read Up (NRU) · No Write Down (NWD) — protects CONFIDENTIALITY',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="ui-monospace,monospace" font-size="13">
+  <!-- Background -->
+  <rect width="560" height="300" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <!-- Title -->
+  <text x="280" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Bell-LaPadula Model — Confidentiality</text>
+  <!-- Levels -->
+  <rect x="30" y="50" width="500" height="52" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="280" y="72" text-anchor="middle" font-weight="bold" fill="#dc2626">TOP SECRET</text>
+  <text x="280" y="90" text-anchor="middle" font-size="11" fill="#ef4444">Highest Classification</text>
+  <rect x="30" y="115" width="500" height="52" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="280" y="137" text-anchor="middle" font-weight="bold" fill="#ea580c">SECRET</text>
+  <text x="280" y="155" text-anchor="middle" font-size="11" fill="#f97316">Intermediate Classification</text>
+  <rect x="30" y="180" width="500" height="52" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="280" y="202" text-anchor="middle" font-weight="bold" fill="#16a34a">UNCLASSIFIED</text>
+  <text x="280" y="220" text-anchor="middle" font-size="11" fill="#22c55e">Lowest Classification</text>
+  <!-- No Read Up arrow (blocked) -->
+  <text x="60" y="170" font-size="11" fill="#dc2626" font-weight="bold">✗ No Read Up</text>
+  <line x1="80" y1="175" x2="80" y2="125" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
+  <!-- No Write Down arrow (blocked) -->
+  <text x="380" y="170" font-size="11" fill="#dc2626" font-weight="bold">✗ No Write Down</text>
+  <line x1="460" y1="125" x2="460" y2="175" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
+  <!-- Allowed Read Down -->
+  <text x="48" y="248" font-size="11" fill="#16a34a" font-weight="bold">✓ Read Down OK</text>
+  <line x1="80" y1="125" x2="80" y2="175" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <!-- Allowed Write Up -->
+  <text x="370" y="248" font-size="11" fill="#16a34a" font-weight="bold">✓ Write Up OK</text>
+  <line x1="460" y1="175" x2="460" y2="125" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <!-- Legend -->
+  <text x="280" y="275" text-anchor="middle" font-size="11" fill="#64748b">Subject at lower level cannot READ higher · Subject at higher level cannot WRITE lower</text>
+  <defs>
+    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#dc2626"/></marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#16a34a"/></marker>
+  </defs>
+</svg>`,
             },
           },
           {
@@ -2856,10 +2889,38 @@ export const domains: Domain[] = [
             tip: 'Biba protects INTEGRITY. Remember: "No Read Down, No Write Up" (RDWU).',
           },
           {
-            image: {
-              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Biba_model.png/640px-Biba_model.png',
-              alt: 'Biba Integrity Model diagram showing No Read Down and No Write Up rules across integrity levels',
-              caption: 'Biba: subjects can read up and write down — preventing corruption of high-integrity data',
+            diagram: {
+              caption: 'Biba: No Read Down (NRD) · No Write Up (NWU) — protects INTEGRITY',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="ui-monospace,monospace" font-size="13">
+  <rect width="560" height="300" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="280" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Biba Model — Integrity</text>
+  <rect x="30" y="50" width="500" height="52" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="280" y="72" text-anchor="middle" font-weight="bold" fill="#1d4ed8">HIGH INTEGRITY</text>
+  <text x="280" y="90" text-anchor="middle" font-size="11" fill="#3b82f6">Most Trusted Data (e.g. audited financial records)</text>
+  <rect x="30" y="115" width="500" height="52" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <text x="280" y="137" text-anchor="middle" font-weight="bold" fill="#7c3aed">MEDIUM INTEGRITY</text>
+  <text x="280" y="155" text-anchor="middle" font-size="11" fill="#8b5cf6">Internal reviewed data</text>
+  <rect x="30" y="180" width="500" height="52" rx="6" fill="#fdf4ff" stroke="#e879f9" stroke-width="1.5"/>
+  <text x="280" y="202" text-anchor="middle" font-weight="bold" fill="#a21caf">LOW INTEGRITY</text>
+  <text x="280" y="220" text-anchor="middle" font-size="11" fill="#c026d3">Untrusted external input</text>
+  <!-- No Read Down (blocked) -->
+  <text x="48" y="170" font-size="11" fill="#dc2626" font-weight="bold">✗ No Read Down</text>
+  <line x1="80" y1="125" x2="80" y2="175" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowR2)"/>
+  <!-- No Write Up (blocked) -->
+  <text x="378" y="170" font-size="11" fill="#dc2626" font-weight="bold">✗ No Write Up</text>
+  <line x1="460" y1="175" x2="460" y2="125" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowR2)"/>
+  <!-- Allowed Read Up -->
+  <text x="48" y="248" font-size="11" fill="#16a34a" font-weight="bold">✓ Read Up OK</text>
+  <line x1="80" y1="175" x2="80" y2="125" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowG2)"/>
+  <!-- Allowed Write Down -->
+  <text x="368" y="248" font-size="11" fill="#16a34a" font-weight="bold">✓ Write Down OK</text>
+  <line x1="460" y1="125" x2="460" y2="175" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowG2)"/>
+  <text x="280" y="275" text-anchor="middle" font-size="11" fill="#64748b">Subject at higher level cannot READ lower · Subject at lower level cannot WRITE higher</text>
+  <defs>
+    <marker id="arrowR2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#dc2626"/></marker>
+    <marker id="arrowG2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#16a34a"/></marker>
+  </defs>
+</svg>`,
             },
           },
           {
@@ -2887,10 +2948,9 @@ export const domains: Domain[] = [
             note: 'Clark-Wilson is the model behind double-entry bookkeeping and financial system controls.',
           },
           {
-            image: {
-              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Clark-Wilson_model.svg/640px-Clark-Wilson_model.svg.png',
-              alt: 'Clark-Wilson Model diagram showing Subject, Transformation Procedure, and CDI access triples',
-              caption: 'Clark-Wilson: subjects access CDIs only through authorized Transformation Procedures — enforcing well-formed transactions',
+            diagram: {
+              caption: 'Clark-Wilson: subjects access CDIs only through authorized Transformation Procedures (TPs)',
+              svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 260" font-family="ui-sans-serif,sans-serif" font-size="12"><rect width="580" height="260" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/><text x="290" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Clark-Wilson Model — Commercial Integrity</text><rect x="30" y="100" width="110" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/><text x="85" y="126" text-anchor="middle" font-weight="bold" fill="#1d4ed8">SUBJECT</text><text x="85" y="146" text-anchor="middle" font-size="11" fill="#2563eb">(User / Process)</text><rect x="230" y="90" width="120" height="80" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/><text x="290" y="118" text-anchor="middle" font-weight="bold" fill="#15803d">TRANSFORMATION</text><text x="290" y="136" text-anchor="middle" font-weight="bold" fill="#15803d">PROCEDURE (TP)</text><text x="290" y="156" text-anchor="middle" font-size="11" fill="#16a34a">Authorized Program</text><rect x="440" y="100" width="110" height="60" rx="8" fill="#fef9c3" stroke="#eab308" stroke-width="2"/><text x="495" y="126" text-anchor="middle" font-weight="bold" fill="#92400e">CDI</text><text x="495" y="146" text-anchor="middle" font-size="11" fill="#a16207">Protected Data</text><rect x="230" y="190" width="120" height="50" rx="8" fill="#fee2e2" stroke="#f87171" stroke-width="1.5"/><text x="290" y="212" text-anchor="middle" font-weight="bold" fill="#b91c1c">UDI</text><text x="290" y="228" text-anchor="middle" font-size="11" fill="#dc2626">Untrusted Input</text><rect x="30" y="190" width="110" height="50" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/><text x="85" y="212" text-anchor="middle" font-weight="bold" fill="#7e22ce">IVP</text><text x="85" y="228" text-anchor="middle" font-size="11" fill="#9333ea">Verify Integrity</text><line x1="140" y1="130" x2="228" y2="130" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowB)"/><text x="184" y="122" text-anchor="middle" font-size="10" fill="#3b82f6">requests</text><line x1="350" y1="130" x2="438" y2="130" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowGr)"/><text x="394" y="122" text-anchor="middle" font-size="10" fill="#22c55e">modifies</text><line x1="290" y1="188" x2="290" y2="172" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrowRd)"/><text x="320" y="183" font-size="10" fill="#ef4444">validated</text><text x="290" y="252" text-anchor="middle" font-size="11" fill="#64748b">Access Triple: (Subject, TP, CDI) — no direct subject-to-CDI access allowed</text><defs><marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#3b82f6"/></marker><marker id="arrowGr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#22c55e"/></marker><marker id="arrowRd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/></marker></defs></svg>',
             },
           },
           {
@@ -2903,10 +2963,9 @@ export const domains: Domain[] = [
             ],
           },
           {
-            image: {
-              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Chinese_wall_model.svg/640px-Chinese_wall_model.svg.png',
-              alt: 'Brewer-Nash Chinese Wall model showing conflict of interest classes and dynamic access restriction',
-              caption: 'Chinese Wall: once a subject accesses data from one company in a conflict class, all competing companies are walled off',
+            diagram: {
+              caption: 'Chinese Wall: accessing Oil Co. A locks out Oil Co. B — conflict of interest classes enforce separation',
+              svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 270" font-family="ui-sans-serif,sans-serif" font-size="12"><rect width="600" height="270" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/><text x="300" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Brewer-Nash (Chinese Wall) Model</text><rect x="20" y="45" width="170" height="160" rx="8" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/><text x="105" y="68" text-anchor="middle" font-weight="bold" fill="#c2410c">Conflict Class A</text><text x="105" y="84" text-anchor="middle" font-size="11" fill="#ea580c">Oil Companies</text><rect x="35" y="95" width="140" height="40" rx="6" fill="#fed7aa" stroke="#f97316" stroke-width="1.5"/><text x="105" y="120" text-anchor="middle" font-weight="bold" fill="#9a3412">Oil Co. A</text><rect x="35" y="148" width="140" height="40" rx="6" fill="#fed7aa" stroke="#f97316" stroke-width="1.5"/><text x="105" y="173" text-anchor="middle" font-weight="bold" fill="#9a3412">Oil Co. B</text><rect x="215" y="45" width="170" height="160" rx="8" fill="#eff6ff" stroke="#60a5fa" stroke-width="2"/><text x="300" y="68" text-anchor="middle" font-weight="bold" fill="#1d4ed8">Conflict Class B</text><text x="300" y="84" text-anchor="middle" font-size="11" fill="#2563eb">Investment Banks</text><rect x="230" y="95" width="140" height="40" rx="6" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/><text x="300" y="120" text-anchor="middle" font-weight="bold" fill="#1e40af">Bank A</text><rect x="230" y="148" width="140" height="40" rx="6" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/><text x="300" y="173" text-anchor="middle" font-weight="bold" fill="#1e40af">Bank B</text><rect x="410" y="45" width="170" height="160" rx="8" fill="#f0fdf4" stroke="#4ade80" stroke-width="2"/><text x="495" y="68" text-anchor="middle" font-weight="bold" fill="#15803d">No Conflict</text><text x="495" y="84" text-anchor="middle" font-size="11" fill="#16a34a">Can always access</text><rect x="425" y="95" width="140" height="40" rx="6" fill="#bbf7d0" stroke="#22c55e" stroke-width="1.5"/><text x="495" y="120" text-anchor="middle" font-weight="bold" fill="#14532d">Public Data</text><rect x="425" y="148" width="140" height="40" rx="6" fill="#bbf7d0" stroke="#22c55e" stroke-width="1.5"/><text x="495" y="173" text-anchor="middle" font-weight="bold" fill="#14532d">Press Releases</text><text x="105" y="225" text-anchor="middle" font-size="11" fill="#dc2626" font-weight="bold">After accessing Oil Co. A:</text><text x="105" y="242" text-anchor="middle" font-size="11" fill="#dc2626">Oil Co. B is BLOCKED</text><text x="300" y="225" text-anchor="middle" font-size="11" fill="#2563eb">Bank classes are</text><text x="300" y="242" text-anchor="middle" font-size="11" fill="#2563eb">still accessible</text><text x="495" y="225" text-anchor="middle" font-size="11" fill="#16a34a">No-conflict data</text><text x="495" y="242" text-anchor="middle" font-size="11" fill="#16a34a">always accessible</text></svg>',
             },
           },
           {
