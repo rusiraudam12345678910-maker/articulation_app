@@ -224,6 +224,21 @@ export default function CISSPPage() {
                   </div>
                 )}
 
+                {section.image && (
+                  <figure className="flex flex-col items-center gap-2 my-2">
+                    <img
+                      src={section.image.src}
+                      alt={section.image.alt}
+                      className="rounded-lg border border-zinc-200 dark:border-zinc-700 max-w-full"
+                    />
+                    {section.image.caption && (
+                      <figcaption className="text-xs text-zinc-400 dark:text-zinc-500 italic text-center">
+                        {section.image.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                )}
+
                 {section.note && (
                   <div className="rounded-lg bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 px-4 py-3">
                     <p className="text-xs text-blue-700 dark:text-blue-300 leading-relaxed">

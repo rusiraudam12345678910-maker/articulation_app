@@ -15,6 +15,7 @@ export type Section = {
   body?: string
   list?: string[]
   table?: { headers: string[]; rows: string[][] }
+  image?: { src: string; alt: string; caption?: string }
   note?: string
   tip?: string
   warning?: string
@@ -2839,6 +2840,13 @@ export const domains: Domain[] = [
             tip: 'Bell-LaPadula protects CONFIDENTIALITY. Remember: "No Read Up, No Write Down" (RNWD).',
           },
           {
+            image: {
+              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/BellLapadulasimpleRules.jpg/640px-BellLapadulasimpleRules.jpg',
+              alt: 'Bell-LaPadula Model diagram showing No Read Up and No Write Down rules across classification levels',
+              caption: 'Bell-LaPadula: subjects can read down and write up — preventing disclosure of classified data',
+            },
+          },
+          {
             heading: 'Biba Model (Integrity)',
             body: 'The Biba model is the integrity-focused inverse of Bell-LaPadula. It prevents unauthorized modification of data. Two rules:',
             list: [
@@ -2846,6 +2854,13 @@ export const domains: Domain[] = [
               'Star Integrity Axiom / *-Integrity (No Write Up / NWU) — a subject at a lower integrity level cannot write to objects at a higher integrity level (prevents corruption of trusted data).',
             ],
             tip: 'Biba protects INTEGRITY. Remember: "No Read Down, No Write Up" (RDWU).',
+          },
+          {
+            image: {
+              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Biba_model.png/640px-Biba_model.png',
+              alt: 'Biba Integrity Model diagram showing No Read Down and No Write Up rules across integrity levels',
+              caption: 'Biba: subjects can read up and write down — preventing corruption of high-integrity data',
+            },
           },
           {
             heading: 'Bell-LaPadula vs Biba Comparison',
@@ -2872,6 +2887,13 @@ export const domains: Domain[] = [
             note: 'Clark-Wilson is the model behind double-entry bookkeeping and financial system controls.',
           },
           {
+            image: {
+              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Clark-Wilson_model.svg/640px-Clark-Wilson_model.svg.png',
+              alt: 'Clark-Wilson Model diagram showing Subject, Transformation Procedure, and CDI access triples',
+              caption: 'Clark-Wilson: subjects access CDIs only through authorized Transformation Procedures — enforcing well-formed transactions',
+            },
+          },
+          {
             heading: 'Brewer-Nash Model (Chinese Wall)',
             body: 'Prevents conflicts of interest in environments where consultants or employees might work with competing organizations. Access decisions are dynamic — based on what data the subject has already accessed.',
             list: [
@@ -2879,6 +2901,13 @@ export const domains: Domain[] = [
               'Once a subject accesses data from one organization in a conflict class, they are blocked from accessing data from any other organization in the same class.',
               'Common exam scenario: investment bankers, law firms, consulting companies handling competing clients.',
             ],
+          },
+          {
+            image: {
+              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Chinese_wall_model.svg/640px-Chinese_wall_model.svg.png',
+              alt: 'Brewer-Nash Chinese Wall model showing conflict of interest classes and dynamic access restriction',
+              caption: 'Chinese Wall: once a subject accesses data from one company in a conflict class, all competing companies are walled off',
+            },
           },
           {
             heading: 'Other Models',
