@@ -85,7 +85,7 @@ export default function CISSPPage() {
 
       {/* Main reading area */}
       <div className="flex-1 overflow-y-auto">
-        <div className="max-w-7xl px-8 py-10">
+        <div className="w-full px-8 py-10">
 
           {/* Attribution banner */}
           <div className="mb-8 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950 px-5 py-4">
@@ -130,23 +130,6 @@ export default function CISSPPage() {
               {activeDomain.title}
             </h1>
             <p className="text-sm text-zinc-500 dark:text-zinc-400">{activeDomain.summary}</p>
-          </div>
-
-          {/* Topic navigation chips */}
-          <div className="flex gap-2 flex-wrap mb-8">
-            {activeDomain.topics.map((topic) => (
-              <button
-                key={topic.id}
-                onClick={() => setActiveTopic(topic)}
-                className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
-                  activeTopic.id === topic.id
-                    ? 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900'
-                    : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
-                }`}
-              >
-                {topic.title}
-              </button>
-            ))}
           </div>
 
           {/* Topic content */}
