@@ -25,7 +25,7 @@ export default function CISSPPage() {
   }
 
   return (
-    <div className="flex gap-0 -mx-6 -my-10 min-h-screen">
+    <div className="flex gap-0 min-h-screen">
 
       {/* Sidebar */}
       <aside className={`${sidebarOpen ? 'w-72' : 'w-12'} flex-shrink-0 bg-white dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 flex flex-col transition-all duration-200 overflow-hidden`}>
