@@ -137,7 +137,7 @@ export default function CISSPPage() {
           <div className="mb-6">
             <button
               onClick={() => setPillsOpen(!pillsOpen)}
-              className="flex items-center gap-1 text-xs text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors mb-2"
+              className="flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors mb-2"
             >
               <span>{pillsOpen ? '▾' : '▸'}</span>
               <span>Topics</span>
