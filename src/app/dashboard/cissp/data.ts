@@ -1,4 +1,4 @@
-﻿export type Topic = {
+export type Topic = {
   id: string
   title: string
   content: Section[]
@@ -1952,256 +1952,787 @@ export const domains: Domain[] = [
   // ─────────────────────────────────────────────────────────────────────────
   // DOMAIN 2
   // ─────────────────────────────────────────────────────────────────────────
+  // ─────────────────────────────────────────────────────────────────────────
+  // DOMAIN 2
+  // ─────────────────────────────────────────────────────────────────────────
   {
     id: 'd2',
     number: 2,
     title: 'Asset Security',
     summary: 'Covers data classification, asset handling, provisioning, lifecycle management, retention, and compliance requirements.',
     topics: [
+      // ── 2.1 ──────────────────────────────────────────────────────────────
       {
-        id: 'd2t1',
-        title: '2.1 Identify and Classify Information and Assets',
+        id: 'd2t1-1',
+        title: '2.1.1 Data Classification',
         content: [
           {
-            heading: 'Commercial Classification Levels',
-            list: [
-              'Confidential — most sensitive (trade secrets, strategic plans).',
-              'Private — requires extra protection (employee/medical records).',
-              'Sensitive — special handling needed (financial reports, marketing strategies).',
-              'Public — generally available information.',
-            ],
+            body: 'Data is the lifeblood of any organization. From financial records to customer information, strategic plans, and trade secrets, the variety and volume of data are immense, even for small manufacturing companies. Protecting this data from unauthorized access, use, disclosure, modification, or destruction is not just good practice, it\'s crucial for survival.',
           },
           {
-            heading: 'Military/Government Classification Levels',
-            list: [
-              'Top Secret — exceptionally grave damage to national security.',
-              'Secret — serious damage to national security.',
-              'Confidential — potential damage to national security.',
-              'Unclassified — does not meet classified criteria.',
-              'Controlled Unclassified Information (CUI) — sensitive but unclassified.',
-            ],
+            body: 'Data security strictly requires a proper data classification. To understand the concept behind data classification you can think of it like sorting your clothes: you wouldn\'t throw your delicates in with your work boots, right? Similarly, data classification is the process of organizing data into categories that reflect its sensitivity and value. This careful categorization allows organizations to apply the appropriate level of security controls, ensuring that the "crown jewels" are kept under lock and key while less critical information can be accessed more easily.',
           },
           {
-            heading: 'Asset Classification',
-            body: 'Asset classification identifies and assigns value to physical and digital systems based on sensitivity and criticality. Uses tiered approaches (Tier 0 mission-critical through Tier 2 general use). Asset classification should match the highest classification level of data it processes.',
+            body: 'By classifying data, organizations can: Prioritize Protection — Allocate resources effectively, focusing more stringent security measures on highly sensitive data. Facilitate Informed Decision Making — Make data-driven decisions about security investments and policies. Meet Compliance Requirements — Adhere to legal and regulatory frameworks like GDPR. Reduce Risk — Minimize the likelihood and impact of data breaches. Streamline Data Management — Improve data handling, storage, and retrieval processes.',
+            note: 'There\'s no one-size-fits-all approach to data classification. Different organizations may use different schemes, but the underlying principle is the same: assigning a level of sensitivity that dictates the level of protection.',
+          },
+          {
+            body: 'Organizations use various criteria to determine the appropriate classification level for data. These criteria may include: the value of the data; the age of the data; the usefulness of the data; the level of damage that could be caused if the data were disclosed; legal, regulatory, or contractual responsibility to protect the data; effects the data has on security; who should be able to access, modify, or reproduce the data; and lost opportunity costs that could be incurred if the data were not available or were corrupted.',
+          },
+          {
+            note: 'NIST SP 800-122 provides recommendations for identifying and securing PII to prevent unauthorized access and data breaches. Protected Health Information (PHI) is defined by HIPAA as "individually identifiable health information" that is transmitted or maintained in any form or medium.',
+          },
+          {
+            body: 'Some common data classification levels for commercial businesses include:\n- Confidential: The most sensitive data, unauthorized disclosure of which could severely impact the company. Think trade secrets, financial algorithms, or strategic plans.\n- Private: Data that requires more than normal protection to ensure its confidentiality. Examples include employee records, medical information, or legal documents.\n- Sensitive: Data that requires special precautions but is not as critical as confidential or private data. Financial reports, marketing strategies, or upcoming projects fall under this category.\n- Public: Information that is generally available and poses no risk if disclosed. This might include company addresses, press releases, or product brochures.',
+          },
+          {
+            body: 'Military and government organizations employ a different classification scheme, reflecting the potential impact on national security:\n- Top Secret: Unauthorized disclosure could cause exceptionally grave damage to national security.\n- Secret: Data that, if disclosed, could cause serious damage to national security.\n- Confidential: Information that could cause damage to national security if compromised.\n- Unclassified: Data that doesn\'t meet the criteria for classified information but may still require some level of protection.\n- Controlled Unclassified Information (CUI): Sensitive information that is not classified but requires safeguarding.',
+          },
+          {
+            heading: 'Data Classification Levels',
+            table: {
+              headers: ['Environment', 'Classification Level', 'Description & Examples'],
+              rows: [
+                ['Commercial (e.g., business)', 'Confidential', 'Most sensitive data — trade secrets, financial algorithms, strategic plans. Unauthorized disclosure could severely impact the company.'],
+                ['', 'Private', 'Data needing more protection than typical internal info — e.g., employee records, medical data, legal documents.'],
+                ['', 'Sensitive', 'Important data still requiring special handling — e.g., financial reports, marketing strategies, upcoming projects.'],
+                ['', 'Public', 'Freely shareable information — e.g., press releases, product brochures, company addresses. No risk if disclosed.'],
+                ['Military / Government', 'Top Secret', 'Unauthorized disclosure could cause exceptionally grave damage to national security.'],
+                ['', 'Secret', 'Disclosure could cause serious damage to national security.'],
+                ['', 'Confidential', 'Disclosure could reasonably cause damage to national security.'],
+                ['', 'Unclassified', 'Information not meeting higher classification criteria; still may require minimal protection.'],
+                ['', 'Controlled Unclassified Information (CUI)', 'Unclassified but sensitive information requiring safeguarding under law, regulation, or policy.'],
+              ],
+            },
+          },
+          {
+            body: 'Data classification is more than just slapping labels on data. It\'s an ongoing process that involves defining clear criteria for classification, assigning roles and responsibilities, implementing security controls and regularly reviewing and updating the classification scheme.',
+            tip: 'As an information security manager, it\'s crucial to monitor and prevent data creep — when data continuously accumulates without proper oversight, resulting in increased complexity and inefficiencies.',
+          },
+          {
+            body: 'Here are some key steps in building a robust data classification program:\n1. Define Classification Levels: Clearly define the different levels of data sensitivity and their corresponding security requirements.\n2. Establish Ownership: Identify data owners who are responsible for classifying data and ensuring its protection.\n3. Develop Procedures: Create a documented process for classifying data, including criteria, guidelines, and review mechanisms.\n4. Implement Security Controls: Deploy appropriate technical and administrative controls to safeguard data at each classification level.\n5. Train and Educate: Provide comprehensive training to all employees on data classification policies and procedures.',
+          },
+          {
+            body: 'Data Categorization comes before Data Classification and focuses on grouping data based on its inherent content, purpose, or characteristics. For example, you might categorize data into types like "financial records," "employee records," "customer data," or "transaction logs." The goal of data categorization is to organize the data in a way that makes sense for the organization, so that it can be better managed and analyzed.\n\nCategorization Criteria are usually:\n1. Content-based: Categorizing data based on the actual content of the data, such as PII, financial data, or intellectual property.\n2. Context-based: Categorizing data based on its source, ownership, location, or other contextual information.\n3. User-based: Categorizing data based on its intended use or the users who have access to it.\n\nData classification assigns sensitivity levels to the categorized data based on its potential impact if exposed, modified, or destroyed.',
+            note: 'Data classification and categorization are ongoing processes. As data changes over time, its classification and categorization may need to be updated. They should be integrated with other security controls including access control, encryption, data loss prevention, and incident response.',
+          },
+          {
+            questions: [
+              { q: 'What are the primary goals of data classification?', a: 'Data classification aims to identify sensitive data, group it based on its level of sensitivity, and apply appropriate security controls to protect it from unauthorized access, use, disclosure, modification, or destruction. This helps organizations comply with legal, regulatory, and contractual requirements and reduce the risk of data breaches.' },
+              { q: 'What are the key differences between commercial and military data classification levels?', a: 'Commercial data classification levels typically focus on the potential impact on the organization\'s business operations, while military data classification levels emphasize the potential impact on national security. For example, "Confidential" data in a commercial setting might involve sensitive business information, while "Confidential" data in a military context could relate to information that, if disclosed, could cause damage to national security.' },
+              { q: 'Provide three examples of criteria that can be used to determine the classification level of data.', a: 'The value of the data (e.g., financial, strategic, personal), the age of the data (e.g., current, historical), and the potential impact of disclosure (e.g., financial loss, reputational damage, legal liability) are all criteria used to determine the appropriate classification level.' },
+              { q: 'Describe the role of data owners in a data classification program.', a: 'Data owners are responsible for determining the initial classification level of data, reviewing the classification periodically, and ensuring that appropriate security controls are in place to protect the data. They play a crucial role in managing and safeguarding sensitive information within an organization.' },
+              { q: 'Briefly explain how data categorization differs from data classification.', a: 'Data classification focuses on assigning a sensitivity level to data (e.g., confidential, public) based on its potential impact if compromised. Data categorization, on the other hand, involves grouping data into specific categories based on its content, purpose, or other characteristics to facilitate data management, retrieval, and compliance.' },
+              { q: 'What are the potential benefits of implementing a data categorization system?', a: 'Data categorization can improve data management by organizing data into logical groups, enhance data discoverability by making it easier to search for and retrieve specific information, and facilitate compliance with data privacy regulations by enabling organizations to identify and protect sensitive data more effectively.' },
+              { q: 'Explain the concept of context-based data categorization.', a: 'Context-based categorization involves classifying data based on factors such as its source, ownership, location, or the context in which it was created or used. For example, data related to a specific project or department might be categorized together, regardless of its specific content.' },
+              { q: 'Why is it important to have a procedure for declassifying data?', a: 'A procedure for declassifying data is important because it allows organizations to release data that is no longer sensitive or to lower the classification level of data that has become less sensitive over time. This ensures that data is not unnecessarily protected, reducing the burden of security controls and facilitating information sharing.' },
+              { q: 'What security awareness training should be provided to employees regarding data classification and categorization?', a: 'Employees should receive training on the organization\'s data classification policy, including the different classification levels, the criteria used to determine classification, and their responsibilities for handling data at each level. They should also understand the importance of data categorization and how it relates to data protection.' },
+              { q: 'Why are data classification and categorization considered ongoing processes?', a: 'Data classification and categorization are ongoing processes because the sensitivity and value of data can change over time, and new data is constantly being created. Organizations must regularly review and update their classification and categorization schemes to ensure that data is appropriately protected.' },
+            ],
           },
         ],
       },
+      {
+        id: 'd2t1-2',
+        title: '2.1.2 Asset Classification',
+        content: [
+          {
+            body: 'Assets encompass not only information, but also the physical and digital systems that house, process, and transmit it. Recognizing the diverse nature of these assets and their varying levels of sensitivity is the cornerstone of effective security.',
+            note: 'NIST SP 1800-5 IT Asset Management offers organizations, particularly in the financial services sector, an example solution to effectively track, manage, and report on information technology (IT) assets throughout their entire lifecycle.',
+          },
+          {
+            body: 'Asset classification is a systematic and continuous process that involves identifying, categorizing, and assigning value to each asset based on its sensitivity, criticality, and the potential impact of its compromise. This process extends beyond mere data classification to encompass the hardware, software, and physical locations where information resides. For example, a smartphone containing confidential financial data would be classified as a high-value asset requiring stringent security measures, while a printer used for general office tasks would be classified as a low-value asset.',
+          },
+          {
+            body: 'A robust asset classification program could offer the following benefits:\n- Enhanced Security Posture: by understanding the value and sensitivity of each asset, organizations can tailor security controls to provide the appropriate level of protection.\n- Improved Risk Management: asset classification facilitates a comprehensive risk assessment by enabling organizations to identify potential threats and vulnerabilities specific to each asset category.\n- Streamlined Operations: a well-defined asset classification framework provides a clear roadmap for managing assets throughout their lifecycle.',
+          },
+          {
+            body: 'To effectively implement asset classification, organizations can adopt a tiered approach, assigning assets to different levels based on their criticality and the potential impact of their compromise. A common framework involves categorizing assets into tiers such as Tier 0 (mission-critical), Tier 1 (important), and Tier 2 (general use). Each tier is associated with specific security controls and procedures, ensuring that the level of protection aligns with the asset\'s value.',
+            tip: 'Asset classes should be chosen based on the organization\'s unique operational, regulatory, and business requirements. Categories should reflect factors like data sensitivity, criticality to operations, value, and compliance obligations.',
+          },
+          {
+            body: 'Beyond categorizing assets, organizations must establish clear procedures for data handling in all its states: at rest, in transit, and in use. For instance, data at rest on storage devices should be encrypted to protect its confidentiality. Data in transit over networks should be secured using a combination of symmetric and asymmetric encryption. Data in use, while being processed by applications, requires careful management of temporary storage buffers and access controls to prevent unauthorized disclosure.',
+          },
+          {
+            questions: [
+              { q: 'How does asset classification differ from data classification?', a: 'Asset classification focuses on the sensitivity and value of information systems and assets that store, process, and transmit data, while data classification focuses solely on identifying the sensitivity of the data itself.' },
+              { q: 'Why is it essential to classify assets according to their sensitivity and criticality?', a: 'Classifying assets allows organizations to tailor security controls to protect assets based on their value and potential impact if compromised, ensuring appropriate resource allocation for security measures.' },
+              { q: 'What factors should be considered when determining the classification of an asset?', a: 'Factors include the type of data handled by the asset, the processes it performs, its importance to business operations, and the potential impact of a security breach involving that asset.' },
+              { q: 'What is the role of a data owner in the asset classification process?', a: 'Data owners are responsible for determining the classification level of the data and defining appropriate security controls for its protection.' },
+              { q: 'What is the purpose of clear markings on hardware assets regarding data classification?', a: 'Clear markings serve as a visual reminder to users about the sensitivity of data that can be processed or stored on the asset, helping to prevent accidental data breaches.' },
+              { q: 'Explain the relationship between the classification of an asset and the classification of the data it contains.', a: 'The classification of an asset should typically be as high as the classification of the most sensitive data it stores or processes. This ensures that the asset\'s security measures are adequate for the data it handles.' },
+              { q: 'Briefly outline the first three steps in establishing a proper asset classification program.', a: 'First, define the classification levels used by the organization. Second, establish specific criteria for determining how data is classified. Third, identify the data owners who will be responsible for classifying the data.' },
+              { q: 'What is the importance of a data custodian in relation to classified data?', a: 'The data custodian is responsible for the day-to-day management and protection of classified data, ensuring that it is stored, handled, and accessed according to defined security policies and procedures.' },
+              { q: 'Why is it crucial to integrate data classification procedures into the security awareness program?', a: 'Integrating data classification into security awareness training ensures that all employees understand the importance of data security, how to handle data at different classification levels, and their responsibilities in protecting sensitive information.' },
+              { q: 'Briefly describe two benefits of having a well-defined asset classification system.', a: 'Two benefits are: (1) Enhanced security posture by applying appropriate safeguards to assets based on their value; (2) Improved compliance with regulatory requirements and industry standards for data protection.' },
+            ],
+          },
+        ],
+      },
+      // ── 2.2 ──────────────────────────────────────────────────────────────
       {
         id: 'd2t2',
-        title: '2.2 Information and Asset Handling',
+        title: '2.2 Establish information and asset handling requirements',
         content: [
+          {
+            body: 'The first step towards effective data handling is data maintenance, which encompasses organizing and caring for data from its creation to its eventual disposal. This includes implementing access controls and classifying data based on its sensitivity. For example, a network with proper security controls can safeguard data by separating classified and unclassified networks, preventing unauthorized access.',
+          },
+          {
+            body: 'Data loss prevention (DLP) systems play a crucial role in detecting and blocking data exfiltration attempts. These systems work by identifying specific data patterns, such as Social Security numbers or credit card details, and flagging any attempts to send this information outside the organization. DLP systems come in two primary types: network-based and endpoint-based. Network-based DLP scans all outgoing data, while endpoint-based DLP focuses on data leaving specific devices, such as printers or USB drives.',
+          },
+          {
+            body: 'To further enhance data security, organizations employ marking and labeling techniques. This involves placing easily identifiable labels on assets, both physical and digital, to indicate their security level and handling instructions. For example, a backup tape containing confidential information should have a clear label indicating its sensitivity. Proper labeling not only aids in data protection but also ensures efficient and cost-effective asset handling by eliminating ambiguity about the data\'s sensitivity.',
+            note: 'Labeling and Marking in information security refer to the processes of categorizing and visually identifying data or assets to ensure they are handled, stored, and accessed appropriately according to their sensitivity or classification level.',
+          },
+          {
+            body: 'Labeling is the act of assigning a classification or designation to information based on its sensitivity and security requirements. Marking is the physical or digital placement of classification indicators on information or assets to visually alert users of its sensitivity. Labeling is more comprehensive and enforces security through system automation, while marking is simpler, requiring manual user interpretation and adherence to security policies.',
+          },
           {
             heading: 'Labeling vs Marking',
-            list: [
-              'Labeling — assigns classifications automatically through system metadata; stronger system-based enforcement.',
-              'Marking — places human-readable indicators on assets; manual process.',
-            ],
+            table: {
+              headers: ['Category', 'Labeling (System)', 'Marking (Process)'],
+              rows: [
+                ['Readability', 'System- and human-readable metadata', 'Human-readable only'],
+                ['Subject/Object Association', 'Associates security attributes with both subjects and objects in internal data structures', 'Associates security attributes with objects in a human-readable form (e.g., document header, footer)'],
+                ['Enforcement Type', 'System-based enforcement via metadata and policy engines', 'Organization-based process enforcement (manual or procedural)'],
+              ],
+            },
           },
           {
-            heading: 'Data Loss Prevention (DLP)',
-            body: 'DLP systems detect and block unauthorized data exfiltration:',
-            list: [
-              'Network-based DLP — scans outgoing network data.',
-              'Endpoint-based DLP — monitors specific devices.',
-            ],
+            body: 'Data storage is another critical aspect of asset protection. Organizations need to establish clear policies and procedures for storing sensitive information, both physically and digitally. This includes choosing appropriate storage locations, implementing encryption for data at rest, and securing encryption keys using robust controls like hardware security modules (HSMs).',
           },
           {
-            heading: 'Data Sanitization Methods',
-            list: [
-              'Clearing — overwriting for internal reuse of non-sensitive data.',
-              'Purging — multi-pass overwrites or degaussing magnetic media.',
-              'Destruction — physical obliteration (crushing, shredding, incinerating) for classified data leaving organizational control.',
-            ],
-            note: 'NIST SP 800-88 Rev. 1 provides recommended sanitization guidance.',
+            body: 'Data declassification is the process of lowering the sensitivity level of an asset. This is necessary when data no longer requires the same level of protection or when it reaches the end of its lifecycle. Declassification involves thorough documentation and often multiple levels of approval, ensuring that data is handled appropriately based on its updated classification.',
+            tip: 'A strong asset security posture relies on a holistic approach, encompassing both technical controls and robust policies and procedures.',
           },
           {
-            heading: 'Data Declassification',
-            body: 'Lowers an asset\'s sensitivity level when protection needs decrease. Requires documentation and approvals before reclassification.',
+            questions: [
+              { q: 'What are the two primary categories of Data Loss Prevention (DLP) systems, and how do they differ in their implementation?', a: 'Network-based DLP scans all outgoing data at the network perimeter, looking for specific patterns. Endpoint-based DLP focuses on monitoring and controlling data activities on individual devices like computers and printers.' },
+              { q: 'Explain the concept of "data downgrading" and why organizations should have policies in place to prevent it.', a: 'Data downgrading refers to the unauthorized or accidental reduction of the security classification of sensitive data. Organizations need policies to prevent this to ensure consistent protection and avoid accidental disclosure of confidential information.' },
+              { q: 'What are the three main methods for handling sensitive information and provide a brief explanation for each?', a: 'The three main methods are marking and labeling (makes it easy to identify the sensitivity of information), handling (includes secure transportation and usage of sensitive data), and storage (involves secure physical and logical protection of assets).' },
+              { q: 'Describe the purpose of data sanitization and why it\'s essential before reusing or disposing of media containing sensitive data.', a: 'Data sanitization removes sensitive data from media before reuse or disposal, ensuring that even sophisticated techniques cannot recover the data, protecting organizations from data breaches and compliance violations.' },
+              { q: 'What is data remanence, and why does it pose a security risk even after deleting data from storage media?', a: 'Data remanence refers to residual data remaining on storage media even after deletion or formatting. This poses a security risk because unauthorized individuals could potentially recover sensitive information using specialized tools.' },
+              { q: 'Why might an organization choose to declassify data, and what are the potential consequences if declassification isn\'t handled properly?', a: 'Organizations may declassify data when it no longer holds the same sensitivity level or has reached the end of its retention period. Improper declassification could lead to the application of unnecessary controls or, conversely, the inadequate protection of sensitive information.' },
+              { q: 'Explain how data de-identification techniques like anonymization and masking help protect sensitive information while still allowing for data analysis.', a: 'De-identification techniques like anonymization (replacing identifiers with random values) and masking (concealing specific parts of data) help protect individual identities while preserving data usability for analysis and research purposes.' },
+            ],
+          },
+        ],
+      },
+      // ── 2.3 ──────────────────────────────────────────────────────────────
+      {
+        id: 'd2t3-1',
+        title: '2.3.1 Information and Asset Ownership',
+        content: [
+          {
+            body: 'Asset ownership is a central concept to proper information security. While legal ownership may reside with the corporation that purchases a server, the life-cycle owner is the employee or department responsible for its daily operation. This distinction highlights the practical aspect of asset ownership: responsibility for the effective management of the asset throughout its life cycle.',
+          },
+          {
+            body: 'Identifying the asset owner is crucial because it pinpoints the individual ultimately accountable for its protection. While the CEO or authorized delegates hold formal ownership responsibility as defined by governance documents and legal regulations, they often delegate data protection tasks.',
+            note: 'The CEO or their delegates retain formal ownership but delegate data protection tasks to data owners responsible for securing sensitive information.',
+          },
+          {
+            body: 'For instance, the IT department might own servers, with senior management within that department responsible for their protection. These individuals, the data owners, play a critical role in safeguarding sensitive information. Their responsibilities may include: maintaining an up-to-date inventory of information assets; classifying information assets based on sensitivity levels; implementing and monitoring safeguards to ensure confidentiality, integrity, and availability; authorizing and revoking access to information based on business need; and adapting security measures in response to evolving environmental and legal/compliance landscapes.',
+          },
+          {
+            body: 'Effective asset management encompasses both tangible and intangible assets, starting with a comprehensive inventory and extending to protection throughout their lifecycle. Tangible assets include hardware and software, while intangible assets encompass data, patents, copyrights, and even a company\'s reputation.',
+            note: 'Intangible assets, such as intellectual property, brand reputation, and customer relationships, often drive a company\'s competitive advantage and long-term profitability, making them more valuable than physical assets.',
+          },
+          {
+            body: 'To streamline hardware asset management, many organizations employ automated Configuration Management Systems (CMS). While primarily used for configuration management, these systems connect to hardware systems to verify settings, providing an efficient way to track and manage assets. A CMS typically integrates with a Configuration Management Database (CMDB), which stores detailed information about each CI and its relationships. This system helps organizations improve change management, reduce downtime, and enhance security by ensuring that all configurations are properly documented, monitored, and controlled.',
+          },
+          {
+            questions: [
+              { q: 'What is the difference between legal ownership and life cycle ownership of an asset?', a: 'Legal ownership refers to the entity that holds legal title to the asset, while life cycle ownership refers to the individual or department responsible for the asset\'s day-to-day management. For instance, a corporation might legally own a server, while the IT department is responsible for its daily operations.' },
+              { q: 'Who holds ultimate responsibility for data security within an organization?', a: 'Senior management, such as the CEO, President, or Department Head, holds ultimate responsibility for data security within an organization.' },
+              { q: 'Provide an example of a tangible asset and an intangible asset.', a: 'A tangible asset is a physical object, like a computer server, while an intangible asset is a non-physical asset, like a company\'s reputation or a patent.' },
+              { q: 'What is the primary purpose of an automated configuration management system (CMS)?', a: 'The primary purpose of an automated configuration management system (CMS) is to assist with configuration management, ensuring systems are configured correctly and consistently. They also play a role in hardware asset management by connecting to and checking the configuration settings of hardware systems.' },
+              { q: 'How does the provisioning of IT resources affect an organization\'s security posture?', a: 'The provisioning (and deprovisioning) of IT resources directly impacts an organization\'s security posture as it introduces new assets and potential vulnerabilities. Secure provisioning processes are vital to maintaining a strong security stance.' },
+              { q: 'What is the role of a data custodian in relation to data security?', a: 'Data custodians are responsible for the day-to-day management of data, performing tasks delegated by the data owner. This includes activities like implementing access controls, performing backups, and managing data storage.' },
+              { q: 'What are the key components of data governance?', a: 'Key components of data governance include defining access permissions, establishing acceptable use policies, and implementing data retention schedules. These practices ensure data is handled appropriately and complies with legal and regulatory requirements.' },
+              { q: 'Who typically has formal ownership responsibility for information assets within an organization?', a: 'The chief executive officer (CEO) or their authorized delegates typically hold formal ownership responsibility for information assets within an organization, as defined by the organization\'s governance documents and legal/compliance requirements.' },
+              { q: 'List three responsibilities of asset owners related to data security.', a: 'Three key responsibilities of asset owners include maintaining an up-to-date information asset inventory, identifying the classification level of the information asset, and defining and implementing appropriate safeguards to ensure the confidentiality, integrity, and availability of the information asset.' },
+              { q: 'Why is it important for asset owners to continuously evaluate the environment and legal/compliance landscape?', a: 'Continuous evaluation of the environment and legal/compliance landscape is critical for asset owners to adapt security measures to evolving threats, new technologies, and changes in regulations, ensuring ongoing data protection.' },
+            ],
           },
         ],
       },
       {
-        id: 'd2t3',
-        title: '2.3 Provision Information and Assets Securely',
+        id: 'd2t3-2',
+        title: '2.3.2 Asset Inventory',
         content: [
           {
-            heading: 'Information and Asset Ownership',
-            body: 'Data owners bear ultimate responsibility for classification and security controls. Key data owner responsibilities:',
-            list: [
-              'Maintaining current information asset inventories.',
-              'Classifying assets by sensitivity levels.',
-              'Implementing safeguards for confidentiality, integrity, and availability.',
-              'Authorizing and revoking access based on business need.',
-            ],
+            body: 'Asset inventory encompasses the meticulous tracking of all physical and virtual assets within an organization. This includes hardware like computers and servers, software such as operating systems and applications, and even intangible assets like patents and copyrights. A complete and current asset inventory is necessary for effective security control implementation and monitoring. Without this comprehensive understanding of what needs protection, organizations cannot guarantee the security of their critical assets. This is precisely why asset inventory management is highlighted as the top priority in the widely recognized CIS 20 Controls list.',
           },
           {
-            heading: 'Asset Inventory Tracking Methods',
+            note: 'An asset inventory should collect essential information such as the asset\'s name, unique identifier (e.g., serial number), location, owner or responsible party, asset type (hardware or software), and its status (active, retired, under maintenance). Focusing on key attributes ensures the inventory remains manageable, relevant, and up-to-date without overwhelming users with excessive details.',
+          },
+          {
+            body: 'Managing hardware assets efficiently involves employing tools and processes to track these assets throughout their lifecycle. A popular technique involves bar-code systems. Each piece of equipment is tagged with a unique barcode containing details such as model, serial number, and location. Regular scans with barcode readers help verify the organization\'s control over its hardware. A more advanced method leverages Radio-frequency Identification (RFID) tags, which transmit information wirelessly to RFID readers. While RFID systems incur higher costs compared to barcode systems, they offer a significant advantage in terms of time efficiency for conducting inventory checks.',
+          },
+          {
+            heading: 'Barcode vs QR Code vs RFID',
             table: {
-              headers: ['Method', 'Capacity', 'Line-of-Sight', 'Cost'],
+              headers: ['Feature', 'Barcodes', 'QR Codes', 'RFID'],
               rows: [
-                ['Barcodes', '20–25 characters', 'Required', 'Very low'],
-                ['QR Codes', '4,000–7,000 characters', 'Required', 'Low'],
-                ['RFID', 'Moderate–High', 'Not required; reads from distance', 'Higher'],
+                ['Type of Technology', 'Optical, 1D line scanning', 'Optical, 2D camera scanning', 'Radio-Frequency (no line-of-sight needed)'],
+                ['Storage Capacity', 'Limited (~20–25 characters)', 'High (up to ~4,000–7,000 characters)', 'Moderate to high, depending on tag type (read/write possible)'],
+                ['Reading Requirement', 'Must be in line-of-sight and close range', 'Must be in line-of-sight and close range', 'Can be read from a distance, no direct sight needed'],
+                ['Cost', 'Very low', 'Low', 'Moderate to high (tag + reader infrastructure)'],
+                ['Applications', 'Retail, inventory, shipping', 'Marketing, payments, authentication', 'Asset tracking, logistics, contactless payments'],
+                ['Durability', 'Low — prone to scuffing or fading', 'Better — often readable even when partially damaged', 'High — tags withstand harsh environments and wear'],
+                ['Simultaneous Reads', 'One at a time', 'One at a time', 'Multiple tags at once via bulk reading'],
               ],
             },
-            note: 'Complete asset inventory is the top priority in the CIS 18 Controls list.',
           },
           {
-            heading: 'Configuration Management',
-            body: 'Documents and controls system configurations using baselines and security checklists. The Security Content Automation Protocol (SCAP) automates configuration verification against established baselines.',
+            body: 'Prior to disposing of any hardware, sanitization is essential. This process involves meticulously removing all data to prevent unauthorized access to sensitive information. Checklists are valuable tools for ensuring thorough sanitization, encompassing steps for hard drives, non-volatile memory, and removable media. Portable media containing sensitive data, such as USB drives, should also be treated as assets and incorporated into the inventory management system.',
+            warning: 'Assigning a monetary value to intangible assets can be challenging, often involving estimations of their potential benefits to the organization. For instance, the value of a patent can be estimated based on the revenue generated from products based on that patent. In the United States, patents have a validity period of 20 years, which can also factor into the valuation process.',
+          },
+          {
+            body: 'Software assets encompass operating systems and applications used by an organization. Managing these assets effectively necessitates focusing on software licensing and preventing the use of unauthorized software. Monitoring license compliance is another critical aspect of software asset management, both for legal and security reasons. Large organizations typically report intangible asset values on their balance sheets in accordance with Generally Accepted Accounting Principles (GAAP).',
+          },
+          {
+            body: 'A crucial element is establishing a single, authoritative system of record for the asset inventory. This system serves as the ultimate source of truth, resolving any conflicts that may arise from data collected by different tools. It\'s crucial to ensure the accuracy and completeness of data in the system of record, as it forms the basis for official reports and audit responses.',
+            tip: 'Knowing your assets is the first step in effectively protecting them. (This is so important and so often forgotten in companies)',
+          },
+          {
+            questions: [
+              { q: 'Explain the importance of sanitizing hardware before disposal.', a: 'Sanitizing hardware before disposal is crucial to prevent unauthorized access to sensitive information that may be stored on the device. This involves completely removing all data to ensure data confidentiality and protect the organization from potential data breaches.' },
+              { q: 'Describe two methods commonly used for tracking hardware assets.', a: 'Two commonly used methods for tracking hardware assets are bar-code systems and RFID tags. Bar-code systems involve attaching barcodes to assets and scanning them to update their location and status. RFID tags use radio frequencies to transmit asset information to readers, enabling faster and more automated inventory tracking.' },
+              { q: 'What challenges exist in managing intangible assets, and how do organizations address these challenges?', a: 'Intangible assets like intellectual property are challenging to manage due to the difficulty in assigning them a monetary value. Organizations address this by estimating the potential benefits these assets will bring, such as revenue generated from a patented product. Senior management typically oversees intangible asset valuation.' },
+              { q: 'Why is it essential to monitor software license compliance?', a: 'Monitoring software license compliance is essential to avoid legal issues and potential penalties. Using software beyond the scope of the license agreement can result in lawsuits and financial repercussions. It also ensures that the organization is using software legally and ethically.' },
+              { q: 'How can organizations ensure they are not running unauthorized software on their systems?', a: 'Organizations can prevent unauthorized software from running on their systems by utilizing tools that remotely inspect systems and detect software installations. These tools compare installed software against a list of approved applications and flag any unauthorized programs.' },
+              { q: 'What are the key benefits of using an automated tool for asset inventory management?', a: 'Automated asset inventory management tools offer several benefits. They streamline the inventory process, reducing manual effort and potential errors. They can automatically discover new assets, track asset details, and generate reports, leading to improved accuracy, efficiency, and better control over the organization\'s assets.' },
+              { q: 'What kind of information should be collected for each asset in the inventory?', a: 'The asset inventory should include comprehensive information for each asset, covering both technical and operational details. This includes hardware specifications (manufacturer, model, serial number, location), software details (publisher, version, license information), and operational data (asset owner, data sensitivity, business purpose).' },
+              { q: 'What is a "system of record" in the context of asset inventory, and why is it important?', a: 'A "system of record" in asset inventory management is the designated authoritative source of asset information. It acts as the single source of truth for all asset data and is used for reporting, audits, and data requests. Having a system of record ensures data consistency and reliability across the organization.' },
+              { q: 'Briefly describe how the asset inventory management process might differ for virtualized environments compared to on-premises assets.', a: 'Asset inventory management in virtualized environments often involves utilizing automated tools like Puppet, Chef, or Ansible for dynamic asset discovery, provisioning, and tracking. These tools are designed to handle the fluctuating nature of virtual assets. On-premises asset management may rely more on manual processes or traditional inventory tools.' },
+              { q: 'Why is it important to update the asset inventory regularly and notify the administrator of significant asset changes?', a: 'Regularly updating the asset inventory and notifying the administrator of significant changes is essential to maintain its accuracy and reliability. Assets are constantly changing — being added, removed, updated, or relocated. Keeping the inventory current ensures that it reflects the actual state of the organization\'s assets, which is critical for security, compliance, and operational efficiency.' },
+            ],
           },
         ],
       },
       {
-        id: 'd2t4',
-        title: '2.4 Manage Data Lifecycle',
+        id: 'd2t3-3',
+        title: '2.3.3 Asset Management',
         content: [
           {
-            heading: 'Data Lifecycle Stages',
-            list: [
-              'Create/Collect — establish security from inception.',
-              'Store — commit data to repositories.',
-              'Use — process data actively.',
-              'Share — make information accessible.',
-              'Archive — transition to long-term storage.',
-              'Destroy — eliminate data physically or digitally.',
+            body: 'An asset, like for example a server, starts its journey from procurement, moving through various phases like design, operation, maintenance, and finally disposal. Each stage presents unique security challenges. Imagine neglecting to securely dispose of an old hard drive – sensitive data could easily fall into the wrong hands! That\'s why a robust asset management program is crucial.',
+            warning: 'Asset management is not just about keeping an inventory; it\'s about actively managing assets throughout their entire lifecycle, ensuring their security and maximizing their value.',
+          },
+          {
+            note: 'ISO 55000 is a set of international standards for asset management that provides a framework for organizations to establish, implement, and continuously improve their asset management systems. It focuses on optimizing the lifecycle of assets, ensuring that they deliver value while minimizing risks and costs.\n\nISO 19770 is a set of international standards focused on IT asset management (ITAM), providing guidelines for managing software and hardware assets within an organization.',
+          },
+          {
+            body: 'Effective asset management involves several key activities:\n1. Assignment of Ownership: Clearly defining who is responsible for each asset ensures accountability and streamlines security processes.\n2. IT Asset Management (ITAM): ITAM focuses on governing and managing all your IT assets, both tangible and intangible. This includes hardware, software, data, and even the processes associated with them. The ISO 19770 family of standards provides a comprehensive framework.\n3. Configuration Management: This involves meticulously documenting and controlling system and software configurations. A system baseline outlines the specific versions and settings required for building a system correctly. A security baseline defines the minimum security controls needed to protect a system.\n4. Change Management: Change management establishes standardized processes for making modifications to assets, ensuring that all changes are authorized, implemented correctly, and documented thoroughly.',
+          },
+          {
+            note: 'Manually checking configurations for hundreds of systems? That\'s where the Security Content Automation Protocol (SCAP) steps in. SCAP allows security products to automatically verify configurations against established baselines, streamlining the process and reducing the risk of human error.',
+            warning: 'Asset security is a dynamic field, constantly evolving alongside technological advancements. Staying informed about new threats and best practices is crucial.',
+            tip: 'An asset is anything of value to an organization that needs protection, including tangible items like hardware and facilities, intangible resources such as data, intellectual property, and software, as well as personnel and reputation.',
+          },
+          {
+            questions: [
+              { q: 'Describe the importance of tracking information assets throughout their entire lifecycle.', a: 'Tracking information assets throughout their lifecycle enhances cybersecurity resilience. This practice increases asset visibility, identifies vulnerabilities, enables quicker responses to security alerts, and reveals active applications.' },
+              { q: 'What is the role of ISO 55000 in asset management?', a: 'ISO 55000 provides valuable guidance for the proper management of physical assets, encompassing both IT and non-IT infrastructure components like power and plumbing utilities.' },
+              { q: 'Why is it crucial to manage even unplanned or discovered assets?', a: 'Even unplanned assets, which may arise in agile environments, must be managed to ensure comprehensive asset security. Unmanaged assets can introduce vulnerabilities and compliance issues.' },
+              { q: 'Define Information Technology Asset Management (ITAM) and its core function.', a: 'ITAM comprises a set of business practices dedicated to governing and managing IT assets, including hardware, software, data, and associated processes. Its core function is to ensure asset accountability, maintenance, upgrades, and appropriate retirement.' },
+              { q: 'Explain the purpose and components of the ISO 19770 standard family.', a: 'ISO 19770 is a family of standards designed to help organizations manage IT asset-related risks and costs. It includes five parts covering best practices, software identification tags (SWID), software entitlement terminology, resource utilization reporting, and general ITAM vocabulary.' },
+              { q: 'How does configuration management contribute to asset security?', a: 'Configuration management ensures controlled and documented system and software configurations. This practice is vital to asset security as it prevents configuration drifts that can introduce vulnerabilities and complicate security management.' },
+              { q: 'Differentiate between system baselines and security baselines.', a: 'A system baseline defines the approved versions and settings of configuration items for proper system construction. In contrast, a security baseline outlines the minimum security controls needed to protect a given system.' },
+              { q: 'What is the function of change management in asset security?', a: 'Change management involves standardized processes for modifying assets, preventing arbitrary changes, and minimizing disruptions. In asset security, it helps maintain a secure and controlled environment by ensuring that changes don\'t inadvertently introduce vulnerabilities.' },
+              { q: 'What potential issues can arise from improper change management?', a: 'Improper change management can lead to discrepancies between inventory records and actual environments. It can also increase the risk of security breaches as changes may not be adequately assessed for their security implications.' },
+              { q: 'What is a Configuration Management Database (CMDB) and its role according to ITIL?', a: 'A Configuration Management Database (CMDB), as advocated by ITIL, is a repository that documents inventory and tracks planned deployments and changes. It aids in maintaining an accurate and up-to-date view of the IT environment.' },
             ],
-          },
-          {
-            heading: 'Data Minimization',
-            body: 'Collect only necessary data to reduce breach risk. Organizations should reject "keeping data just in case" approaches.',
-          },
-          {
-            heading: 'Data Retention',
-            body: 'Retention policies must answer: what data to keep, how long, and where. Regulation examples:',
-            list: [
-              'HIPAA — requires minimum 6 years retention for health records.',
-              'FISMA — mandates 3 years for federal agencies.',
-            ],
-          },
-          {
-            heading: 'Data Remanence',
-            body: 'Residual data persists after deletion. Mitigation techniques: overwriting, degaussing, encryption, or physical destruction.',
-          },
-          {
-            heading: 'Key Data Management Roles',
-            table: {
-              headers: ['Role', 'Responsibility'],
-              rows: [
-                ['Data Owner', 'Ultimate responsibility for classification and security controls'],
-                ['Data Controller', 'Determines how personal data is processed'],
-                ['Data Custodian', 'Technical implementation — storage and backups'],
-                ['Data Processor', 'Manages data operations under controller direction'],
-                ['Data User', 'Consumes data for specific purposes'],
-                ['Data Subject', 'Individual whose personal information is processed'],
-              ],
-            },
           },
         ],
       },
+      // ── 2.4 ──────────────────────────────────────────────────────────────
+      {
+        id: 'd2t4-1',
+        title: '2.4.1 Data roles (i.e., owners, controllers, custodians, processors, users/subjects)',
+        content: [
+          {
+            body: 'In the realm of cybersecurity, understanding the roles and responsibilities associated with data management is paramount. These roles encompass a spectrum of individuals, each playing a crucial part in ensuring the security and integrity of an organization\'s valuable asset — data.',
+          },
+          {
+            body: 'Data Owners sit at the apex of this hierarchy, bearing the ultimate responsibility for data. Often, this mantle falls upon senior leaders such as the CEO, president, or department heads. Their responsibilities are multifaceted, encompassing data classification, ensuring appropriate security controls based on classification and organizational security policies, and defining rules for data use and protection. Data owners are also accountable for their data and can be held liable for negligence if sensitive information under their purview is misused or disclosed without authorization.',
+          },
+          {
+            body: 'Data Controllers are the architects of data processing, determining the purpose, conditions, and methods of handling personal data. This role gained significant prominence with the General Data Protection Regulation (GDPR), highlighting the importance of adhering to principles like lawfulness, fairness, transparency, data minimization, accuracy, storage limitations, integrity, and confidentiality. While often synonymous with data owners, this distinction becomes crucial when organizations outsource data processing responsibilities to third parties.',
+          },
+          {
+            body: 'Data Custodians are the guardians of data, ensuring its security and integrity within the IT infrastructure. Their responsibilities are primarily technical, focusing on tasks such as data storage, backup, and maintenance of audit logs. They operate under the guidance of data owners and business requirements, implementing security controls and ensuring auditability of data and its usage.',
+          },
+          {
+            body: 'Data Processors handle data on behalf of the data owner, responsible for tasks like transferring, transmitting, or manipulating data. They operate under the direction of the data controller, who dictates the purpose and methods of data processing. A prime example is cloud providers, often categorized as data processors due to their role in handling data based on instructions from the data controller.',
+          },
+          {
+            body: 'Data Users are the individuals who consume or utilize data for specific purposes. They rely on data processors to ensure data availability and performance, often holding them accountable through service-level agreements (SLAs) and contractual obligations.\n\nData Subjects, as defined by the GDPR, are the individuals whose personal information is collected and processed. The core objective of data protection regulations like the GDPR is to safeguard the privacy and rights of data subjects.',
+          },
+          {
+            heading: 'Data Roles Summary',
+            table: {
+              headers: ['Role', 'Responsibility Summary'],
+              rows: [
+                ['Data Owner / Controller', 'Senior individual (e.g. department head or CEO) accountable for classifying data, enforcing security controls, defining usage policies, and granting or denying access; handles legal liability and compliance.'],
+                ['Data Custodian', 'IT or technical staff responsible for implementing owner\'s policies — managing storage, backups, access controls, audit logs, system availability, and integrity.'],
+                ['Data Processor', 'Third-party or internal team that handles or processes data according to the controller\'s instructions — typically without decision-making power over purpose or use.'],
+                ['Data User', 'Individuals consuming data to perform tasks, relying on access provided; they must comply with usage policies and SLAs, but are not responsible for broader data governance.'],
+                ['Data Subject', 'Individual whose personal data is processed. Their rights drive regulations like GDPR and influence data governance expectations.'],
+              ],
+            },
+            warning: 'While companies have the freedom to define their own data roles, it is advisable to align these roles with legal and regulatory requirements to prevent confusion, misunderstandings, and potential liabilities.',
+            note: 'Under GDPR, personal data is always owned by the data subject, meaning that individuals retain control over their own personal information.',
+          },
+          {
+            questions: [
+              { q: 'Differentiate between the roles of a data owner and a data custodian.', a: 'Data owners have ultimate responsibility for data, including setting rules for its use and protection. Data custodians, on the other hand, are responsible for the day-to-day management and technical implementation of data security measures as directed by the data owner.' },
+              { q: 'Explain the concept of "due care" in the context of asset management. Provide an example.', a: 'Due care in asset management refers to taking reasonable measures to protect valuable assets. An example is maintaining an accurate and up-to-date asset inventory to ensure proper tracking and management of sensitive information.' },
+              { q: 'How does the General Data Protection Regulation (GDPR) define a data processor?', a: 'The GDPR defines a data processor as a natural or legal person, public authority, agency, or other body that processes personal data solely on behalf of the data controller.' },
+              { q: 'Describe the responsibilities of a data controller according to the GDPR.', a: 'Data controllers determine the purpose and means of processing personal data. They are responsible for adhering to GDPR principles, including lawfulness, fairness, transparency, data minimization, accuracy, storage limitation, integrity, and confidentiality.' },
+              { q: 'What are the potential consequences for companies that violate privacy rules outlined in the GDPR?', a: 'Companies violating GDPR privacy rules face significant fines, up to 4% of their global annual revenue. They can also face reputational damage and legal action from affected individuals.' },
+              { q: 'Differentiate between a user and a subject in the context of data access.', a: 'A user is any individual who accesses data through a computing system to perform tasks. A subject, in a broader sense, includes any entity that accesses a resource, such as programs, processes, or computers.' },
+              { q: 'What are the key responsibilities of a data processor in safeguarding data?', a: 'Data processors ensure the secure transfer, transmission, and handling of data on behalf of the data owner. They are responsible for adhering to contractual agreements and maintaining data confidentiality, integrity, and availability.' },
+              { q: 'Why is it important to train data processors on acceptable data handling practices?', a: 'Training data processors ensures they understand acceptable data handling practices and comply with relevant policies and regulations. This minimizes risks associated with accidental or intentional data misuse.' },
+              { q: 'What is the significance of respecting data subjects in the context of data privacy?', a: 'Respecting data subjects means recognizing their right to privacy and ensuring their personal information is handled ethically and responsibly. It is fundamental to building trust and maintaining compliance with data protection laws.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t4-2',
+        title: '2.4.2 Data collection',
+        content: [
+          {
+            body: 'A critical aspect of safeguarding data lies in understanding and managing the data lifecycle, a concept encompassing the journey of data from its creation to its ultimate disposal. The data lifecycle stages are: 1. Create / Collect — Generation or modification of digital content. 2. Store — Committing data to a storage repository. 3. Use — Viewing or processing data in activities. 4. Share — Making information accessible to others. 5. Archive — Transitioning data to long-term storage. 6. Destroy — Physically or digitally eliminating data.',
+          },
+          {
+            body: 'The data lifecycle begins with data collection (or data creation), which encompasses data creation, acquisition, aggregation, or any instance where data enters an organization\'s system. This initial phase is where secure defaults, privacy by design, and other security principles are critical. Embedding security measures from the outset, rather than as an afterthought, is a cornerstone of best practices and regulatory requirements. It\'s also crucial to obtain consent or have a legitimate legal basis for collecting data, as emphasized by regulations like the GDPR.',
+            note: 'The decisions made during data collection will have implications throughout the entire lifecycle.',
+          },
+          {
+            body: 'One of the fundamental principles of data security is data minimization, which advocates for collecting only the data absolutely necessary for business operations. This approach, enshrined in many privacy regulations worldwide, is not just a best practice; it is often a legal requirement.',
+            tip: 'To establish a robust data security posture, organizations must define a clear and comprehensive data privacy policy, often divided into internal and external documents to address employee and customer data separately.',
+            warning: 'An approach like "keeping it just in case it becomes useful someday" is not acceptable for data management or asset collection.',
+          },
+          {
+            questions: [
+              { q: 'Why is it crucial to limit data collection?', a: 'Limiting data collection minimizes the risk of data breaches and protects individual privacy. By collecting only essential data, organizations reduce their liability and comply with privacy regulations.' },
+              { q: 'Provide an example of how an e-commerce company can minimize data breach risks.', a: 'An e-commerce company can minimize data breach risks by using a third-party credit card processor and avoiding storing sensitive credit card information on their servers. This limits their exposure in case of a security incident.' },
+              { q: 'What are the potential consequences of collecting and storing excessive customer data?', a: 'Collecting and storing excessive customer data increases the potential impact of data breaches, leading to financial losses, reputational damage, and legal liabilities for the company.' },
+              { q: 'How do privacy laws impact data collection practices?', a: 'Privacy laws dictate how organizations can collect, use, and store personal data. They often mandate obtaining consent, minimizing data collection, and implementing security measures to protect sensitive information.' },
+              { q: 'Explain the concept of "privacy by design" in the context of the data lifecycle.', a: '"Privacy by design" means incorporating privacy considerations into the initial design and development stages of systems and processes. This ensures data protection is built-in rather than added as an afterthought.' },
+              { q: 'Why is data classification important in the data collection phase?', a: 'Data classification during collection helps determine appropriate security controls based on the sensitivity and value of the data. It ensures sensitive data is handled with extra care and protection.' },
+              { q: 'What is the purpose of obtaining consent in data collection, particularly from a privacy perspective?', a: 'Obtaining consent in data collection demonstrates respect for individual privacy rights and ensures transparency. It allows individuals to make informed decisions about how their data is used.' },
+              { q: 'What key questions should a comprehensive privacy policy address?', a: 'A comprehensive privacy policy should address: what data is collected, why it\'s collected, how it\'s used and shared, data ownership, subject rights, data retention periods, data destruction procedures, and relevant laws and regulations.' },
+              { q: 'Explain the significance of having separate internal and external privacy policy documents.', a: 'Separate internal and external privacy policies cater to the specific needs and rights of employees and customers, ensuring clear and transparent communication about data practices for each group.' },
+              { q: 'How does the location of third-party service providers impact data privacy concerns?', a: 'The location of third-party service providers raises data privacy concerns due to varying international privacy laws. Organizations must ensure providers comply with relevant regulations to protect data transferred across borders.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t4-3',
+        title: '2.4.3 Data location',
+        content: [
+          {
+            body: 'Data location refers to the physical or geographical whereabouts of data at rest and data backups or copies. This seemingly simple concept has far-reaching implications for organizations, especially when handling sensitive data like personal information, healthcare records, or national security secrets.',
+          },
+          {
+            body: 'Several factors contribute to the complexity of data location. Many countries have enacted data localization laws. These laws mandate that specific types of data, often related to citizens\' personal information, be stored and processed within the country\'s geographical boundaries. Examples of such legislation can be found in China and Russia. China\'s Cybersecurity Law, enacted in 2016, grants the Chinese government significant control over cybersecurity practices, particularly for industries deemed "critical information infrastructure" (CII). Foreign companies operating within these sectors in China are obligated to either establish local servers and data centers or collaborate with Chinese data management companies.',
+          },
+          {
+            body: 'In addition to data localization, data sovereignty laws further complicate the landscape. These laws stipulate that any entity, regardless of their location, handling specific data types must comply with that nation\'s regulations.',
+            warning: 'Cloud service providers can play a crucial role in both enabling and hindering compliance with data location mandates.',
+            tip: 'The Data controller is in any case accountable for PII; he/she can delegate responsibility for Data processing.',
+          },
+          {
+            note: 'Data location is simply the geographic place where data is stored. Data localization is a legal or governmental requirement that mandates specific types of data must be collected, processed, and stored within a country\'s borders, restricting its cross-border transfer. Data sovereignty asserts that data is subject to the laws and regulations of the country in which it is collected or processed, regardless of where it is stored.',
+          },
+          {
+            body: 'Beyond legal and regulatory compliance, data location significantly impacts disaster recovery and business continuity. Organizations often maintain backups of their critical data at different locations to mitigate risks associated with natural disasters, cyberattacks, or other disruptive events. The geographical distance between the primary data storage and the backup location is a crucial consideration.',
+            warning: 'Data location considerations should be interwoven into every stage of data management, from initial data classification to cloud architecture design and disaster recovery planning.',
+          },
+          {
+            questions: [
+              { q: 'What is the importance of off-site data backups, and how does geographical distance play a role in effective backup strategies?', a: 'Off-site data backups protect against data loss from disasters like fires or floods that could impact the primary data storage location. Geographical distance between the primary site and the backup location is crucial to ensure the backup isn\'t affected by the same event. A backup stored in the same building as the primary data is useless if the building is destroyed.' },
+              { q: 'Explain the concept of data localization/residency and provide an example of a regulation that enforces it.', a: 'Data localization/residency refers to laws requiring data about a country\'s citizens or residents to be collected, processed, and/or stored within that country\'s borders. China\'s Cybersecurity Law is an example, mandating certain industries to store data within China, impacting how foreign companies manage data.' },
+              { q: 'Why might an organization choose to replicate data across multiple data centers, particularly those situated in different geographical regions?', a: 'Replicating data across geographically diverse data centers ensures data availability even if one data center experiences an outage due to regional issues like natural disasters or power failures. This redundancy increases resilience and minimizes downtime.' },
+              { q: 'How does China\'s Cybersecurity Law address data localization, and what implications does it hold for foreign companies operating within China?', a: 'China\'s Cybersecurity Law enforces data localization by requiring critical information infrastructure (CII) data to be stored within China. This compels foreign companies to either establish data centers in China or partner with Chinese companies for local data management.' },
+              { q: 'Explain the significance of data controllers possessing encryption keys in the context of data localization/residency and data destruction requirements.', a: 'When data controllers hold encryption keys, they have direct control over data accessibility. If a country mandates data destruction before international transfer, deleting the key effectively renders the data unusable, ensuring compliance with data localization/residency regulations.' },
+              { q: 'What challenges might organizations face when attempting to meet data localization requirements without a clear data classification system?', a: 'Without a clear data classification system, organizations may struggle to identify which data falls under specific localization requirements. This can lead to unintentional non-compliance, potentially exposing them to legal and financial penalties.' },
+              { q: 'Describe how cloud service providers can be leveraged to assist organizations in complying with data localization mandates.', a: 'Cloud service providers can offer infrastructure and services that confine data to specific geographic locations. This allows organizations to meet data localization mandates by selecting cloud regions or data centers that align with regulatory requirements.' },
+              { q: 'What potential consequences might arise if an organization fails to consider data location when designing its cloud architecture?', a: 'Failure to account for data location in cloud architecture can result in sensitive data being stored in unintended locations, potentially violating data localization laws. This could lead to legal repercussions, financial penalties, and reputational damage.' },
+              { q: 'Why is data location a critical consideration, especially when handling sensitive data types such as personal, healthcare, or national security information?', a: 'Data location is crucial for sensitive data because different countries have varying data protection and privacy regulations. Storing such data in unauthorized locations can breach these laws, compromising privacy and security.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t4-4',
+        title: '2.4.4 Data Maintenance',
+        content: [
+          {
+            body: 'The Use phase in the secure data lifecycle is where data truly comes alive. After being carefully collected and stored, it\'s in this phase that data is processed, analyzed, and shared across your organization to fulfill its intended purpose. Maintaining data security during the "Use" phase requires a delicate balance between functionality and security.',
+          },
+          {
+            body: 'If a customer\'s details change, it\'s vital to update that information everywhere, not just in one system. Failing to do so can lead to confusion, errors, and even potential legal issues. This highlights the importance of having a robust plan for maintaining data accuracy and addressing any errors promptly.',
+          },
+          {
+            body: 'Protecting sensitive data within an organization requires strategic segregation and controlled access measures. Organizations can implement network segmentation to isolate sensitive data from the rest of the network. Techniques like air gaps, where physically separate networks are used to house classified and unclassified data, provide enhanced protection against unauthorized access. While air gaps provide robust security, they can also create challenges when it comes to data updates and transfers.',
+          },
+          {
+            body: 'Practical ways for taking care of your data are:\n- Data Loss Prevention (DLP) solutions: These tools can help detect and prevent sensitive data from leaving your organization\'s control, whether intentionally or accidentally.\n- User training and awareness programs: Educating employees about data security policies, best practices, and common threats is crucial to fostering a security-conscious culture.\n- Regular security audits and penetration testing: These assessments can help identify vulnerabilities in your systems and processes, allowing you to proactively address them before they can be exploited.',
+          },
+          {
+            questions: [
+              { q: 'Why is maintaining data accuracy crucial for an organization\'s operations and legal standing?', a: 'Accurate data is vital for informed decision-making, efficient processes, and compliance with regulations. Inaccurate data can lead to operational disruptions, financial losses, and legal liabilities.' },
+              { q: 'Explain the potential consequences of inaccurate data entry, using a real-world example.', a: 'Inaccurate data entry can have severe consequences. The example of a police clerk mistakenly entering the information of an innocent citizen as a convicted murderer highlights how such errors can lead to long-term harm, denying individuals opportunities and impacting their lives.' },
+              { q: 'How do data inconsistencies arise in systems with multiple data stores, and what mechanisms can address this?', a: 'Data inconsistencies can occur in systems with multiple data stores due to factors like delayed replication or server outages. Mechanisms like automatic inconsistency resolution and data rollback capabilities help maintain data integrity across these distributed systems.' },
+              { q: 'What are the challenges in protecting sensitive data when it\'s distributed across an organization\'s network?', a: 'Protecting sensitive data distributed across multiple servers and endpoints becomes challenging because it increases the attack surface and complicates the application of consistent security controls. Centralized storage simplifies the security management.' },
+              { q: 'Describe the concept of an "air gap" and its purpose in network security.', a: 'An "air gap" is a physical separation between networks, ensuring that classified and unclassified systems have no physical connections. This prevents unauthorized data transfer and limits the risk of cyberattacks reaching sensitive data.' },
+              { q: 'What are three methods for transferring data to a classified network from an unclassified one?', a: 'Data transfer to a classified network can be done manually using USB devices, through a unidirectional network bridge allowing one-way data flow, or via a technical guard solution that filters and allows only authorized data transfer.' },
+              { q: 'Why is it essential to routinely review data policies within an organization?', a: 'Regularly reviewing data policies ensures they remain aligned with current threats, legal requirements, and organizational needs. This practice promotes awareness among personnel and helps identify gaps in data protection strategies.' },
+              { q: 'What is the primary focus of the "Use" phase in the secure data lifecycle?', a: 'The "Use" phase of the secure data lifecycle focuses on managing and maintaining data security during its active utilization, ensuring access control, applying appropriate security measures, and balancing security with functionality.' },
+              { q: 'Explain the principle of "least privilege" in the context of data security.', a: 'The "least privilege" principle advocates granting users only the minimum level of data access required to perform their tasks. This minimizes potential damage from unauthorized access or accidental data breaches.' },
+              { q: 'How does data encryption present a challenge in balancing security with data usability?', a: 'Encryption enhances data security but can hinder its usability for analysis and processing. Organizations must carefully consider this trade-off, potentially implementing selective encryption or decryption processes to facilitate data use while maintaining security.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t4-5',
+        title: '2.4.5 Data Retention',
+        content: [
+          {
+            body: 'Data retention is a critical aspect of asset management and security. Organizations must establish comprehensive data retention policies and procedures that outline what data to keep, how long to keep it, and where to keep it.',
+            tip: 'Data retention policies should be aligned with legal, regulatory, and contractual requirements, as well as business needs and privacy considerations.',
+          },
+          {
+            body: 'Data retention policies should address three key questions:\n1. What data do we keep? This involves identifying data needed for analysis, historical knowledge, regulatory compliance, and business operations.\n2. How long do we keep this data? This requires considering statutory, regulatory, and best practice guidelines, as well as case law.\n3. Where do we keep this data? The focus here is on the manner in which data is stored and its accessibility for retrieval.',
+          },
+          {
+            body: 'Effective data retention policies strike a balance between business needs and employee or customer privacy. To ensure the accessibility of retained data, several factors should be considered:\n1. Taxonomy: A scheme for classifying data based on categories such as functional, chronological, or organizational.\n2. Classification: Assigning sensitivity classifications to data to determine appropriate controls during use and archiving.\n3. Normalization: Converting data into a standardized format for efficient storage and retrieval.\n4. Indexing: Creating indexes to facilitate quick and efficient data searching.',
+          },
+          {
+            body: 'E-discovery, the process of producing electronically stored information (ESI) relevant to a legal proceeding, can be streamlined with robust data retention policies. The Electronic Discovery Reference Model (EDRM) outlines eight steps: 1. Identification of relevant data. 2. Preservation of data to prevent destruction. 3. Collection of data from various storage locations. 4. Processing to ensure correct data and metadata format. 5. Review for relevance. 6. Analysis for context. 7. Production of the final data set. 8. Presentation.',
+          },
+          {
+            body: 'Regulations such as FISMA and HIPAA impose specific data retention requirements. FISMA, through NIST SP 800-53, mandates a minimum retention period of three years for federal agencies. HIPAA requires covered entities to retain HIPAA-related data for at least six years from creation. The GDPR emphasizes data minimization, requiring organizations to retain personal data only as long as necessary to fulfill the original purpose of collection.',
+            warning: 'For data, as with assets, an approach based on "keep it just in case it may serve in future" is not acceptable.',
+          },
+          {
+            questions: [
+              { q: 'Why is it insufficient to simply have a data retention policy without actively ensuring its implementation?', a: 'Simply having a data retention policy without enforcement is insufficient because it fails to ensure compliance. Regular audits and documentation are crucial to verify adherence to the policy and mitigate legal or security risks.' },
+              { q: 'What are the three fundamental questions a data retention policy answers?', a: 'A data retention policy answers: what data is kept, for how long, and where it is stored.' },
+              { q: 'Why is the "where" of data retention not just about location but also about accessibility?', a: 'The "where" of data retention is about accessibility because simply storing data is not enough; it must be retrievable quickly and efficiently when needed, especially for legal or operational purposes.' },
+              { q: 'Provide two examples of reasons why an organization might retain data beyond legal obligations.', a: 'Reasons for retaining data beyond legal obligations include historical analysis to understand trends and inform future decisions, or preserving research data that may be valuable in the future.' },
+              { q: 'What were the two traditional, and now largely unacceptable, data retention longevity approaches?', a: 'The two traditional data retention longevity approaches were "keep nothing" and "keep everything."' },
+              { q: 'Explain why both the "keep nothing" and "keep everything" approaches are problematic.', a: '"Keep nothing" is problematic as it can hinder legal defense and demonstrating due diligence. "Keep everything" leads to excessive storage costs and complicates e-discovery due to the sheer volume of data.' },
+              { q: 'Define the five characteristics that define big data.', a: 'The five characteristics of big data are volume (size), velocity (speed of data addition), variety (different formats), veracity (reliability), and value (usefulness).' },
+              { q: 'Why is the value of big data a critical factor in retention decisions?', a: 'The value of big data is critical in retention decisions because storing and processing large datasets can be expensive. Retention should be justified by the potential insights and value the data can provide.' },
+              { q: 'What is e-discovery, and how can a robust data retention policy simplify this process?', a: 'E-discovery is the process of producing electronically stored information (ESI) relevant to a legal proceeding. A robust data retention policy simplifies this process by ensuring data is well-organized, categorized, and easily retrievable, minimizing time and costs.' },
+              { q: 'Why is it essential to regularly review and update data retention policies and procedures?', a: 'Regular review and updates to data retention policies are essential to accommodate changes in laws and regulations, evolving technologies, and changing business needs, ensuring continued effectiveness and compliance.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t4-6',
+        title: '2.4.6 Data Remanence',
+        content: [
+          {
+            body: 'Data remanence is a critical concept in cybersecurity, particularly when dealing with sensitive information. It refers to the residual data that persists on storage media even after deletion or formatting attempts. This poses a significant security risk as unauthorized individuals could potentially recover this data, leading to privacy breaches and data theft.',
+            tip: 'Managers handling data remanence should implement a formalized process that includes asset tracking, secure data sanitization methods, and compliance checks to ensure alignment with organizational policies and regulatory standards.',
+          },
+          {
+            body: 'The persistence of data remanence stems from the way operating systems handle file deletion. When a file is deleted, the operating system typically only removes pointers to the data\'s location on the storage medium, leaving the actual data intact. In a File Allocation Table (FAT) file system, deleting a file merely replaces the first character of the filename in the directory table with a reserved character, marking it as deleted. However, the data blocks containing the file\'s content remain untouched, making it susceptible to recovery.',
+          },
+          {
+            body: 'Several techniques can be employed to mitigate the risk of data remanence:\n1. Overwriting: This involves replacing the data on storage media with random or fixed patterns of 1s and 0s multiple times, rendering the original data unrecoverable.\n2. Degaussing: Applying a powerful magnetic force to magnetic media, like hard drives, effectively wipes the data and may even render the drive unusable. This method is not suitable for SSDs.\n3. Encryption: Encrypting data and storing the encryption key separately provides a secure way to render data unreadable if the key is securely deleted.\n4. Physical Destruction: This is considered the most foolproof method and involves physically destroying the storage media through shredding, incineration, or exposure to corrosive chemicals.',
+            tip: 'The specific data destruction methods required vary depending on the sensitivity of the information, applicable regulations, and the type of storage media being used.',
+          },
+          {
+            body: 'The rise of cloud computing presents unique challenges for data remanence mitigation. In cloud environments, users typically lack physical access to storage hardware, limiting their control over data destruction processes. Cryptographic erasure, achieved by deleting the encryption key for encrypted data stored in the cloud, is often the preferred solution.',
+            note: 'Encryption may not completely solve the issue of data remanence for data stored in the cloud because, even though encryption protects data while it is in transit or at rest, the encrypted data could still be inadvertently left behind or improperly erased during the deletion process.',
+          },
+          {
+            body: 'It is crucial to remember that no data destruction method is entirely foolproof. Additionally, understanding the concept of slack space is important. Slack space is the unused space within a disk cluster after a file is written. Sensitive data from memory can sometimes be stored in slack space, potentially leading to data leakage.',
+            tip: 'Effective data remanence management requires a multi-faceted approach that combines technical measures with procedural controls and adherence to relevant regulations.',
+          },
+          {
+            questions: [
+              { q: 'Define data remanence and explain why it poses a security threat.', a: 'Data remanence is the residual data that remains on storage media even after attempts to delete or erase it. It poses a security threat because this leftover data can be recovered using specialized tools, potentially exposing sensitive information.' },
+              { q: 'Describe how file deletion works in a typical file system and why it doesn\'t guarantee data removal.', a: 'File deletion in a typical file system usually only removes the file\'s entry from the directory, marking the space as available for reuse. The actual data remains on the storage media until overwritten. This makes the data recoverable until overwritten.' },
+              { q: 'Explain the difference between overwriting and degaussing as data destruction methods.', a: 'Overwriting involves repeatedly replacing the data on the storage media with random or specific patterns to make the original data unrecoverable. Degaussing uses a strong magnetic field to erase data stored on magnetic media.' },
+              { q: 'Why is physical destruction considered the most reliable way to eliminate data remanence?', a: 'Physical destruction is considered the most reliable because it eliminates the storage media itself, rendering any data recovery impossible. Methods include shredding, crushing, or incineration.' },
+              { q: 'What is the primary challenge of addressing data remanence in cloud environments?', a: 'The primary challenge in cloud environments is the lack of physical control over storage devices. Cloud providers manage the infrastructure, making traditional data destruction methods like physical destruction or degaussing infeasible.' },
+              { q: 'Describe cryptographic erasure and explain how it mitigates data remanence risks in cloud settings.', a: 'Cryptographic erasure involves encrypting the data and then securely deleting the encryption key. Without the key, the data is essentially unreadable and unusable, mitigating data remanence risks in cloud environments.' },
+              { q: 'Why are traditional degaussing methods ineffective for sanitizing SSDs?', a: 'Degaussing uses magnetic fields to erase data, which is effective for magnetic storage media. However, SSDs use electronic circuitry to store data, rendering degaussing methods ineffective.' },
+              { q: 'Briefly explain the concept of slack space and how it can contribute to data remanence issues.', a: 'Slack space is the unused space within a disk cluster that has been allocated to a file. It can contain remnants of previous data or even sensitive information that was in the computer\'s memory. This residual data in slack space contributes to data remanence.' },
+              { q: 'Name at least two regulations or standards that address data destruction requirements.', a: 'Two examples are NIST Special Publication 800-88 (Guidelines for Media Sanitization) and HIPAA (Health Insurance Portability and Accountability Act).' },
+              { q: 'Why is it essential to verify the effectiveness of data destruction processes?', a: 'Verification is essential to ensure that the chosen data destruction method was successful in completely removing data from the media. This helps organizations maintain compliance with data security standards and regulations and minimizes the risk of data breaches.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t4-7',
+        title: '2.4.7 Data Destruction',
+        content: [
+          {
+            body: 'Data destruction, the final stage of the data lifecycle, is often neglected, but it\'s a crucial aspect of data security.',
+            note: 'When data is no longer needed, either due to regulations or because it\'s no longer functionally relevant, it becomes a magnet for hackers, especially since it\'s often the least protected resource in an environment. Stale data, like an abandoned house, becomes an easy target for those with malicious intent.',
+          },
+          {
+            body: 'The methods used to ensure complete data destruction vary depending on the data\'s classification and the organization\'s security policies. Highly classified data, for instance, might require the complete physical destruction of the storage media, ensuring that no residual data can be recovered. Methods like shredding or incineration are commonly used for this purpose. For data classified at a lower level, using software tools to overwrite data files might be sufficient.',
+          },
+          {
+            body: 'Data destruction is not always as straightforward as wiping a hard drive or shredding a document. Data can be fragmented and spread across various systems, making it challenging to ensure complete destruction across all locations. Data can reside on servers, backups, cloud storage, and even personal devices. No matter the reason for data destruction, the bottom line is that the data must be rendered sufficiently difficult to recover for an adversary, ensuring that the risk of such recovery is acceptable to the organization.',
+          },
+          {
+            questions: [
+              { q: 'Why is data destruction important?', a: 'Data destruction is crucial for protecting sensitive information and preventing unauthorized access. When data is no longer needed, proper destruction ensures it cannot be recovered and misused, mitigating security risks and potential legal liabilities.' },
+              { q: 'How do data classification levels impact destruction methods? Provide an example.', a: 'Data classification levels determine the sensitivity of the information and, consequently, the required destruction methods. Higher classification levels demand more rigorous and thorough destruction techniques. For example, highly classified data might require complete physical destruction of the storage media, while lower-level data could be overwritten with specialized software.' },
+              { q: 'What is data sanitization and how does it relate to data destruction?', a: 'Data sanitization is the process of securely removing data from storage media to ensure its irrecoverability. It is a key element of data destruction, as it guarantees the data\'s elimination before the media is disposed of or reused.' },
+              { q: 'What are two key considerations when an organization decides to destroy data?', a: 'The two primary considerations are ensuring complete data destruction and employing the correct destruction methods. This involves verifying the data is irretrievable and aligning the destruction methods with the data\'s sensitivity and relevant regulations.' },
+              { q: 'Explain how data destruction requirements might differ between physical media and individual files.', a: 'Destroying data on physical media like hard drives often involves physical destruction or secure erasure techniques. Individual files, however, may reside in multiple locations, requiring comprehensive identification and deletion across all systems to ensure complete destruction.' },
+              { q: 'Why might an organization transfer data to another party before destroying it?', a: 'Data transfers often occur when services are migrated to a new provider or when accounts are sold to other companies. In such cases, the original organization might transfer the data and subsequently destroy their own copies after a mandatory retention period.' },
+              { q: 'What factors determine how an organization chooses to destroy its data?', a: 'Data destruction methods are determined by the organization\'s risk management strategy, the sensitivity and classification of the data, industry regulations, and the potential cost and resources required for different destruction methods.' },
+              { q: 'Describe three methods of destroying data stored on physical hard drives.', a: 'Three common methods include: a) Wiping — overwriting the drive with random data, b) Degaussing — using a powerful magnetic field to erase data, and c) Shredding — physically destroying the drive into small pieces.' },
+              { q: 'What is the relationship between data destruction and an organization\'s risk management strategy?', a: 'Data destruction is a critical component of a comprehensive risk management strategy. Properly destroying sensitive data reduces the risk of data breaches, unauthorized access, and potential legal consequences, thus contributing to the overall security posture of the organization.' },
+              { q: 'Why is stale data a security risk?', a: 'Stale data poses a security risk because it often lacks the same level of protection as active data and can become an easy target for attackers. It increases an organization\'s attack surface and may contain sensitive information that could be exploited if compromised.' },
+            ],
+          },
+        ],
+      },
+      // ── 2.5 ──────────────────────────────────────────────────────────────
       {
         id: 'd2t5',
-        title: '2.5 Asset Retention',
+        title: '2.5 Ensure appropriate asset retention',
         content: [
           {
-            heading: 'Retention Policy Components',
-            list: [
-              'Purpose and scope — objectives and covered systems.',
-              'Legal alignment — ensuring regulatory compliance.',
-              'Data categorization — specific retention schedules by data type.',
-              'Secure handling procedures — management and destruction.',
-              'Litigation exception processes — legal holds and e-discovery.',
-              'Clear roles and responsibilities for staff.',
-              'Employee training on policy adherence.',
-              'Regular reviews adapting to evolving business needs.',
-            ],
-            warning: 'Indiscriminate data retention creates liability. Extended storage increases breach risks and costs. Hardware beyond end-of-support (EOS) leaves organizations vulnerable to unpatched exploits.',
-          },
-        ],
-      },
-      {
-        id: 'd2t6',
-        title: '2.6 Data Security Controls and Compliance',
-        content: [
-          {
-            heading: 'Data States and Protection',
-            table: {
-              headers: ['State', 'Description', 'Protection Methods'],
-              rows: [
-                ['At Rest', 'Stored data on persistent media', 'Full-disk encryption, file-level encryption, access controls'],
-                ['In Transit', 'Data moving across networks', 'TLS/HTTPS, IPSec, VPNs'],
-                ['In Use', 'Actively processed data', 'Secure enclaves, late-moment decryption, homomorphic encryption'],
-              ],
-            },
+            body: 'Asset retention encompasses the strategic management of data, physical and electronic records, hardware, and even personnel access to sensitive information. This practice is not merely about hoarding information; it\'s about striking a balance between preservation and disposal, ensuring data is readily available when needed and securely purged when it\'s no longer necessary.',
           },
           {
-            heading: 'NIST Cybersecurity Framework Five Functions',
-            list: [
-              'Identify — asset management, risk assessment, governance.',
-              'Protect — access control, awareness training, data security.',
-              'Detect — anomaly detection, continuous monitoring.',
-              'Respond — response planning, communications, improvements.',
-              'Recover — recovery planning, improvements, communications.',
-            ],
+            body: 'One of the most powerful tools in an organization\'s asset retention arsenal is a well-crafted and diligently implemented retention policy. Key components of a comprehensive retention policy include:\n1. Clear purpose statement and scope: Defining the policy\'s objectives and identifying the data, systems, and personnel it covers.\n2. Legal and regulatory alignment: Ensuring compliance with applicable laws and industry regulations.\n3. Data categorization and retention schedules: Establishing specific retention periods for different data types based on sensitivity, legal requirements, and operational needs.\n4. Secure handling and destruction procedures: Mandating secure procedures for data management and disposal throughout its lifecycle, including during destruction.\n5. Litigation exception process: Outlining procedures for handling data in legal proceedings, including e-discovery requests.\n6. Roles and responsibilities: Defining clear responsibilities for individuals involved in data retention activities.\n7. Training and awareness: Educating employees on their roles in adhering to the policy.\n8. Regular review and updates: Continuously evaluating the policy\'s effectiveness and adapting it to evolving business needs, legal requirements, and technological advancements.',
           },
           {
-            heading: 'Data Protection Technologies',
-            list: [
-              'DLP (Data Loss Prevention) — detects and blocks unauthorized data exfiltration.',
-              'DRM (Digital Rights Management) — controls usage and distribution of digital content.',
-              'IRM (Information Rights Management) — enterprise-focused rights management for documents.',
-              'CASB (Cloud Access Security Broker) — enforces security policies between cloud users and cloud services.',
+            body: 'A well-defined retention policy offers numerous advantages:\n1. Minimizing legal and financial risks: By adhering to legal mandates and demonstrating responsible data management, organizations can reduce the risk of litigation, fines, and reputational damage.\n2. Supporting business continuity: Retaining vital records ensures business operations can continue smoothly in the event of disruptions or disasters.\n3. Preserving institutional memory: Maintaining access to historical data can be invaluable for decision-making, trend analysis, and fostering organizational learning.\n4. Facilitating investigations: In the aftermath of security incidents or legal disputes, retained data can provide crucial evidence for forensic analysis and legal proceedings.',
+            note: 'ISO 15489-1:2016 is an international standard for records management that provides guidelines on how organizations should create, manage, and maintain records throughout their lifecycle. DoD Instruction 5015.02 establishes policies and procedures for records management within the DoD.',
+          },
+          {
+            body: 'While retaining vital data is essential, indiscriminate data retention can be detrimental. The costs associated with storing and protecting massive volumes of data can quickly outweigh their value. Additionally, the longer data is retained, the greater the risk of data breaches and legal exposure. Understanding the nuances of end-of-life (EOL) and end-of-support (EOS) for hardware is very important. EOL signifies the point when a vendor ceases production and support for a product, while EOS marks the termination of software updates and security patches.',
+          },
+          {
+            body: 'Secure decommissioning is a vital final step in the asset lifecycle, ensuring the safe and responsible disposal of hardware assets. This process involves:\n1. Data sanitization: Completely erasing sensitive data from storage devices to prevent unauthorized access after disposal.\n2. Physical destruction: For highly sensitive data, physical destruction of storage media might be necessary.\n3. Inventory management: Maintaining accurate records of decommissioned assets to prevent accidental reuse or disposal of sensitive equipment.',
+          },
+          {
+            questions: [
+              { q: 'What is asset retention?', a: 'Asset retention means keeping and managing all of an organization\'s data — whether digital records, physical documents, hardware, or even user access rights — in a way that balances what\'s necessary to preserve and what should be securely disposed of when no longer needed.' },
+              { q: 'Why does a retention policy matter beyond storage?', a: 'A well-crafted retention policy acts as a strategic roadmap for how data is handled through its entire lifecycle — from creation to destruction. It ensures legal compliance, supports operational continuity, protects institutional memory, and securely disposes of data when it\'s no longer useful.' },
+              { q: 'What must a comprehensive retention policy include?', a: 'It should define its purpose and scope clearly; align with laws and regulations; categorize data with specific retention schedules; enforce secure handling and destruction; incorporate litigation hold procedures; assign roles and responsibilities; train staff; and ensure regular policy review and updates.' },
+              { q: 'What are the benefits of a solid retention policy?', a: 'It minimizes legal and financial risk, helps maintain business operations during disruptions, preserves valuable historical insights, and supports forensic investigations — all while avoiding the high costs and risks of unnecessary data storage or outdated hardware.' },
+              { q: 'Why is secure decommissioning essential for hardware?', a: 'Proper hardware decommissioning — through data sanitization, physical destruction of storage devices, and inventory tracking — prevents accidental data leakage and ensures outdated or end-of-support equipment doesn\'t leave an organization exposed.' },
             ],
           },
         ],
       },
+      // ── 2.6 ──────────────────────────────────────────────────────────────
       {
-        id: 'd2t7',
-        title: '2.7 Asset Security in the Age of AI',
+        id: 'd2t6-1',
+        title: '2.6.1 Data States',
         content: [
           {
-            heading: 'AI-Specific Asset Classification',
-            body: 'In an AI-driven enterprise, the asset inventory must expand beyond traditional files, databases, and hardware. New asset types require classification and protection:',
-            list: [
-              'Training Datasets — contain corporate data or PII; must be classified at the highest level of confidentiality and integrity.',
-              'Model Weights and Parameters — represent the learned logic and IP of the AI; theft allows adversaries to replicate the model.',
-              'Pre-trained Models — third-party models must be treated as untrusted supply-chain assets until integrity is verified.',
-            ],
+            body: 'Data can exist in three states: data at rest, data in motion, and data in use. Each state presents unique security challenges and requires different protection mechanisms.',
+            tip: 'For each data state, you must ensure its Confidentiality, Integrity, and Availability.',
           },
           {
-            heading: 'Data Poisoning',
-            body: 'Data Poisoning is a strategic attack where an adversary injects "toxic" data into a training set, creating a backdoor trigger that causes the model to fail or behave maliciously on specific inputs.',
-            list: [
-              'Control: Implement strict Data Provenance — track the origin of every dataset.',
-              'Control: Use Digital Signatures for datasets to detect tampering throughout the lifecycle.',
-              'Control: Perform statistical outlier detection to identify toxic inputs before training begins.',
-            ],
+            body: 'Data at rest refers to data that is stored on a device or in a storage medium, such as hard drives, solid-state drives, backup tapes, or cloud storage. This data is not actively being used or transmitted, making it a prime target for attackers who gain physical access to the storage device or compromise the system remotely. Encryption is the most effective way to protect data at rest.\n\nExamples of data at rest protection measures include:\n1. Full disk encryption: Encrypting an entire hard drive volume.\n2. Self-encrypting drives (SEDs): Hard drives or solid-state drives that automatically encrypt and decrypt data without additional software.\n3. File-level encryption: Encrypting individual files.\n4. Field-level encryption: Encrypting specific data fields within a file.\n5. Access control: Restricting physical and logical access to storage devices and systems.',
           },
           {
-            heading: 'Privacy Controls in AI Environments',
+            body: 'Data in motion, also known as data in transit or data in flight, refers to data that is being transmitted over a network. Data in motion is particularly vulnerable as it travels outside the protected confines of networks and can be intercepted by attackers. Strong encryption, such as Transport Layer Security (TLS) and IPSec, is crucial for protecting data in motion. Data in motion is usually encrypted by:\n1. Transport Layer Security (TLS): A cryptographic protocol that secures communications over the internet, commonly used for HTTPS websites.\n2. IPSec: A suite of protocols that provide secure communication between devices or networks, often used for VPNs.\n3. Virtual Private Networks (VPNs): Create secure connections between remote users and corporate resources.',
+          },
+          {
+            body: 'Data in use refers to data that is actively being processed by an application or system and is temporarily stored in volatile memory, such as RAM, CPU caches, or registers. Protecting data in use is challenging because it needs to be decrypted before processing. Emerging technologies, such as homomorphic encryption, offer promising solutions for protecting data in use. Homomorphic encryption allows computations on encrypted data without decryption, meaning the data remains encrypted throughout the processing.\n\nSide-channel attacks pose a significant threat to data in use. These attacks exploit information leaked by a cryptosystem, such as power consumption or processing time. For example, attacks like Meltdown, Spectre, and BranchScope leverage hardware features in modern CPUs to exploit memory access patterns and steal data in use.',
+          },
+          {
+            heading: 'Data States Summary',
             table: {
-              headers: ['Control', 'Description', 'Limitation'],
+              headers: ['Data State', 'Definition', 'Risks', 'Protection Measures'],
               rows: [
-                ['Data Masking', 'Replaces sensitive fields with placeholder values', 'AI can sometimes re-identify individuals by correlating other data points'],
-                ['Differential Privacy', 'Adds mathematical noise to datasets', 'Gold standard; ensures model learns trends without memorizing individuals'],
-                ['Data Minimization', 'Collect only attributes required for the AI objective', 'Reduces PII exposure in training pipelines'],
+                ['At rest', 'Data stored on devices or storage media not currently moving or being used', 'Physical theft, unauthorized system access, ransomware', 'Full-disk encryption, self-encrypting drives, file/field-level encryption, access control, "encrypt everywhere"'],
+                ['In motion', 'Data being transmitted over networks (internal, internet, or cloud)', 'Interception, man-in-the-middle, packet sniffing', 'TLS/HTTPS, IPSec/VPN, secure communication tunnels'],
+                ['In use', 'Data loaded into memory (RAM, CPU cache) while being processed', 'Memory scraping, side-channel attacks', 'Last-moment decryption, secure enclaves (TEE), emerging approaches like homomorphic encryption'],
+                ['Common goal', 'Ensure Confidentiality, Integrity, and Availability (CIA triad) for every data state', '—', 'Encryption and robust access control across all states'],
               ],
             },
           },
           {
-            heading: 'AI Data Lifecycle',
-            list: [
-              'Collection — apply data minimization; strip unnecessary PII before training.',
-              'Storage — apply classification, access controls, and encryption to training datasets.',
-              'Destruction — "Machine Unlearning" is an emerging challenge: removing specific data influence from a trained model without retraining from scratch.',
-              'GDPR Right to Erasure — compliance requires a plan for removing individual data influence from deployed AI models.',
+            questions: [
+              { q: 'Explain the difference between data at rest and data in transit.', a: 'Data at rest refers to data stored on a device or system and not actively being used. Data in transit is data that is actively being transmitted over a network.' },
+              { q: 'List three methods of data encryption and briefly describe their scope of protection.', a: 'Full-disk encryption: Encrypts an entire storage drive. File-level encryption: Encrypts individual files. Field-level encryption: Encrypts specific data fields within a file.' },
+              { q: 'What is the primary purpose of using encryption as a security control?', a: 'Encryption is primarily used to protect the confidentiality of data by making it unreadable without the proper decryption key. This prevents unauthorized access and disclosure of sensitive information.' },
+              { q: 'Describe two technologies that can be used to secure data in transit.', a: 'TLS (HTTPS) and VPNs are two common technologies used to secure data in transit. TLS encrypts data exchanged between web browsers and servers, while VPNs create secure, encrypted tunnels over public networks.' },
+              { q: 'What is the main challenge associated with securing data in use?', a: 'The main challenge with securing data in use is that data is typically decrypted in memory for processing, making it vulnerable to attacks.' },
+              { q: 'What is a TPM and how can it be used for data security?', a: 'A TPM is a hardware chip that provides secure storage of cryptographic keys and can be used for full-disk encryption. It helps authenticate the platform during boot-up, ensuring that the system hasn\'t been tampered with.' },
+              { q: 'Differentiate between link encryption and end-to-end encryption.', a: 'Link encryption encrypts data at each hop in a network path, while end-to-end encryption ensures that only the sender and the intended recipient can decrypt the data.' },
+              { q: 'Briefly describe how a man-in-the-middle attack works.', a: 'In a man-in-the-middle attack, the attacker intercepts communication between two parties and potentially impersonates one or both to gain access to sensitive information.' },
+              { q: 'What is a side-channel attack, and why is it a concern for data security?', a: 'A side-channel attack exploits information leakage from a system\'s physical implementation, like power consumption or timing differences. It can be used to infer sensitive data or compromise cryptographic keys.' },
+              { q: 'What is homomorphic encryption, and what potential advantage does it offer?', a: 'Homomorphic encryption allows computations to be performed on encrypted data without decryption. This has the potential to enable secure processing of sensitive data without compromising confidentiality.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t6-2',
+        title: '2.6.2 Scoping and Tailoring',
+        content: [
+          {
+            body: 'As a security expert, you play a crucial role in ensuring that security controls are not just implemented, but implemented effectively. Two key processes in this adaptation are scoping and tailoring.',
+          },
+          {
+            body: 'Scoping involves determining which security controls are applicable to the systems and assets you need to protect. It\'s about eliminating controls that are redundant or unnecessary for your environment. For instance, if your system doesn\'t allow concurrent logins, there\'s no need for a control addressing concurrent session management. Scoping demands careful consideration and documented justification for omitting any controls from the baseline.',
+          },
+          {
+            body: 'Tailoring, on the other hand, focuses on modifying the implementation of controls to align with the organization\'s specific requirements. This might involve adjusting the control\'s parameters or substituting it with a compensating control that achieves a similar security outcome.\n\nKey Considerations for Scoping and Tailoring:\n1. Organizational Mission and Objectives: Security controls should support the organization\'s core functions and strategic goals.\n2. Risk Assessment: The selection and modification of controls should be driven by a thorough understanding of the organization\'s risk profile.\n3. Resource Constraints: Consider the organization\'s budget, staffing, and technical capabilities.\n4. Operational Impact: Evaluate how the chosen controls will affect the organization\'s day-to-day operations.\n5. Documentation: Meticulously document all scoping and tailoring decisions, including the rationale behind them.',
+            warning: 'Convenience should never be the driving force behind removing or altering security controls. Any changes must be justified based on operational needs and their potential impact on risk.',
+          },
+          {
+            questions: [
+              { q: 'What is the primary purpose of tailoring security controls?', a: 'Tailoring security controls aims to customize a set of baseline security controls to align with an organization\'s specific security requirements, risk tolerance, and operational context. It ensures that the controls are effectively implemented and relevant to the organization\'s needs.' },
+              { q: 'Explain the relationship between tailoring and an organization\'s mission.', a: 'Tailoring ensures the chosen security controls align directly with the organization\'s mission. By considering the organization\'s goals and objectives, tailoring helps select controls that protect the most critical assets and processes, ensuring the organization can achieve its mission securely.' },
+              { q: 'What is the key difference between scoping and tailoring in security control implementation?', a: 'Scoping involves selecting the relevant security controls from a broader standard or baseline and eliminating those that are not applicable. Tailoring, on the other hand, involves modifying the selected controls to better address the organization\'s specific requirements and constraints.' },
+              { q: 'Provide an example of a situation where compensating controls might be necessary in the tailoring process.', a: 'Compensating controls might be necessary when a baseline control cannot be implemented in a specific environment. For example, if a remote office lacks the infrastructure for a specific control, a compensating control with equivalent security measures can be implemented.' },
+              { q: 'Why is it important to document the decisions made during the scoping and tailoring process?', a: 'Documenting scoping and tailoring decisions provides transparency and accountability for the security choices made. This documentation helps auditors understand the rationale behind the implemented controls and demonstrates compliance efforts.' },
+              { q: 'If a baseline recommends a control that is already implemented more comprehensively, how should this be addressed during tailoring?', a: 'If a control is already implemented more comprehensively than the baseline recommendation, this should be documented during tailoring. The organization can justify retaining the existing implementation, demonstrating that it meets or exceeds the baseline requirements.' },
+              { q: 'What is the significance of "control value" in the context of tailoring?', a: '"Control value" refers to the specific parameter or setting of a security control. Tailoring may involve adjusting these values to align with the organization\'s risk tolerance and operational needs. For example, the number of allowed login attempts before an account lockout can be modified.' },
+              { q: 'Why is it essential to rigorously defend decisions to omit controls from a baseline?', a: 'Rigorously defending decisions to omit controls from a baseline is crucial to ensure that security risks are not overlooked. Organizations must provide clear and documented justification, demonstrating that alternative controls or risk mitigation strategies are in place.' },
+              { q: 'In what scenario might a company need to scope a security standard received from a parent company?', a: 'A company might need to scope a parent company\'s security standard if the subsidiary company has different policies or practices. For example, if the parent company allows BYOD but the subsidiary company prohibits it, the BYOD sections would be removed during the scoping process.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t6-3',
+        title: '2.6.3 Standards Selection',
+        content: [
+          {
+            body: 'When establishing a security control baseline for an organization, one approach is to adopt an existing framework.',
+            note: 'A security framework is a structured set of documented policies and procedures that outline how an enterprise should manage its security posture.',
+          },
+          {
+            body: 'Several U.S. and internationally recognized frameworks are commonly used:\n- The Department of Defense Risk Management Framework (DoD RMF) is specifically tailored to establishing a baseline and adapting security controls in alignment with the DoD\'s mission.\n- NIST SP 800-37, Risk Management Framework, has broader applicability, extending to both public and private sector organizations.\n- Federal government agencies outside of the DoD are subject to the Federal Information Security Management Act (FISMA) framework.\n- The NIST Cybersecurity Framework (CSF) focuses on providing security and privacy guidelines primarily aimed at assisting private sector companies. It is structured around five core functions: identify, protect, detect, respond, and recover.\n- The UK 10 Steps to Cyber Security is a government-issued advisory document intended to guide organizations in prioritizing major threats.',
+          },
+          {
+            body: 'NIST SP 800-53 Rev 5 catalogs security controls for all U.S. federal information systems. FIPS Publication 199 provides a standardized approach for categorizing U.S. federal information and information systems based on an agency\'s level of concern for confidentiality, integrity, and availability. FIPS Publication 200 defines 17 families of security controls encompassing confidentiality, integrity, and availability.',
+          },
+          {
+            body: 'ISO 27001 specifies the requirements for establishing, implementing, maintaining, and continually improving an information security management system (ISMS) within the context of an organization. ISO 27002 offers guidelines for organizational information security standards and information security management practices, including the selection, implementation, and management of controls.',
+          },
+          {
+            body: 'When selecting security controls within a baseline, organizations need to consider external security standards. The Payment Card Industry Data Security Standard (PCI DSS) outlines requirements that businesses must adhere to when processing major credit cards. Organizations that handle data belonging to EU citizens are obligated to comply with the requirements of the GDPR.',
+            warning: 'Security practitioners must possess the expertise to evaluate frameworks against organizational requirements and implement solutions that achieve the desired level of asset security.',
+          },
+          {
+            questions: [
+              { q: 'What is a security framework and how does it differ from a security standard?', a: 'A security framework is a collection of documented policies and procedures outlining how to manage an enterprise\'s security, focusing on overall processes and best practices. Security standards, on the other hand, are more specific and often mandate the implementation of particular security controls.' },
+              { q: 'Why might an organization choose to adopt a recognized security framework even if they are not required to do so?', a: 'Organizations may voluntarily adopt recognized security frameworks to leverage industry best practices, enhance their security posture, demonstrate a commitment to security to stakeholders, and potentially benefit from reduced insurance premiums or regulatory compliance advantages.' },
+              { q: 'What are three examples of widely recognized security frameworks?', a: 'Three widely recognized security frameworks are: NIST Risk Management Framework (RMF), NIST Cybersecurity Framework (CSF), and ISO 27001.' },
+              { q: 'Describe the key focus of the NIST Cybersecurity Framework (CSF).', a: 'The NIST CSF focuses on providing security and privacy guidelines that primarily assist private-sector companies in improving their security posture.' },
+              { q: 'What are the five core functions outlined in the NIST CSF?', a: 'The five core functions of the NIST CSF are: Identify, Protect, Detect, Respond, and Recover.' },
+              { q: 'What are two examples of U.S. government security standards that are also relevant for private-sector organizations?', a: 'NIST SP 800-53 and NIST SP 800-53A are two examples of U.S. government security standards that are highly relevant for private-sector organizations due to their comprehensive control catalog and assessment procedures.' },
+              { q: 'Explain the purpose of ISO 27001 and its applicability to organizations.', a: 'ISO 27001 outlines the requirements for establishing, implementing, maintaining, and continually improving an Information Security Management System (ISMS) within an organization. It is applicable to all organizations regardless of their type, size, or nature.' },
+              { q: 'How does ISO 27002 complement ISO 27001 in terms of information security management?', a: 'ISO 27002 provides guidelines for organizational information security standards and information security management practices, including the selection, implementation, and management of controls. It complements ISO 27001 by offering practical guidance on implementing the controls specified in the framework.' },
+              { q: 'What factors should an organization consider when evaluating the applicability and effectiveness of different security frameworks?', a: 'When evaluating security frameworks, organizations should consider factors like the sensitivity of assets to be protected, industry requirements, regulatory factors (e.g., jurisdiction), and cost/benefit analysis.' },
+              { q: 'Why is it crucial to balance the value of information with the cost of protecting it when selecting information asset protection standards?', a: 'Balancing the value of information with the cost of protecting it is crucial to ensure cost-effective security measures. Protecting all information with the highest level of security can be prohibitively expensive and unnecessary, while underprotecting valuable assets can lead to significant losses.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd2t6-4',
+        title: '2.6.4 Data Protection methods',
+        content: [
+          {
+            body: 'Data security controls are essential for protecting the confidentiality, integrity, and availability of data. These controls should be implemented throughout the data lifecycle, from creation to disposal. Digital assets, defined as anything existing in digital form with intrinsic value requiring restricted access, need various controls to ensure data preservation and prevent compromise.',
+          },
+          {
+            body: 'Storage media management is critical, requiring clear marking, logging, integrity verification, and secure data erasure when no longer needed. Secure disposal methods are also required for non-digital forms of information, like paper, microfilm, and microfiche. Dumpster diving, the act of searching through trash for valuable information, highlights the importance of shredding or burning sensitive information before disposal.',
+          },
+          {
+            body: 'Organizations can leverage several technologies and methodologies to strengthen their data protection strategies:\n1. Encryption: Transforms data into an unreadable format, making it incomprehensible to unauthorized individuals.\n2. Data Loss Prevention (DLP): DLP technologies and practices prevent sensitive data loss or unauthorized access. These solutions identify, classify, and protect data throughout its lifecycle, covering data at rest, in transit, and in use.\n3. Digital Rights Management (DRM): DRM focuses on controlling the use, modification, and distribution of intellectual property. It employs techniques like licensing, persistent online authentication, continuous audit trails, and automatic expiration.\n4. Information Rights Management (IRM): A related technology to DRM that protects sensitive data from unauthorized access by controlling who can view, copy, delete, or modify the data.\n5. Cloud Access Security Broker (CASB): CASBs act as intermediaries between cloud users and cloud services, monitoring and enforcing security policies for cloud-based data. There are three primary types: forward proxy, reverse proxy, and API-based.',
+          },
+          {
+            note: 'A DLP system works by monitoring, detecting, and blocking the unauthorized transmission of sensitive data across networks or endpoints. It uses content inspection techniques such as pattern matching, keyword recognition, and contextual analysis to identify sensitive information.\n\nCloud Access Security Broker (CASB) solutions: Forward Proxy CASB sits between the user and the cloud application, intercepting user requests. Reverse Proxy CASB is deployed in front of cloud applications, controlling access. API-based CASB leverages APIs to interact directly with cloud services for deep visibility and control.',
+          },
+          {
+            questions: [
+              { q: 'Describe the three core stages of a Data Loss Prevention (DLP) implementation.', a: 'DLP implementation involves: (1) Discovery and Classification: identifying and categorizing sensitive data; (2) Monitoring: inspecting data movement and usage to detect policy violations; (3) Enforcement: taking actions such as blocking or alerting based on policy violations and data sensitivity.' },
+              { q: 'Differentiate between DLP at rest, in transit, and in use.', a: 'DLP at rest: secures data stored on devices through encryption and access control. DLP in transit: monitors network traffic to prevent unauthorized data transfer. DLP in use: protects data being actively used on endpoints, controlling actions like copy/paste and screen capture.' },
+              { q: 'What is a Cloud Access Security Broker (CASB) and what are its four primary functions?', a: 'A CASB acts as an intermediary between cloud users and services, enforcing security policies and protecting data in the cloud. Its four functions are: Visibility (providing insight into cloud usage); Data security (preventing data exfiltration); Threat protection (guarding against insider threats); Compliance (ensuring adherence to regulatory requirements).' },
+              { q: 'Describe the three primary types of CASB solutions.', a: 'Forward proxy CASB: resides on user devices, inspecting traffic through encryption. Reverse proxy CASB: integrates with identity services, routing traffic through the CASB. API-based CASB: directly interacts with cloud service APIs to monitor data within the cloud.' },
+              { q: 'Explain the concept of Digital Rights Management (DRM) and provide some methods associated with DRM solutions.', a: 'DRM aims to protect the copyright of digital works by controlling access, usage, and distribution. Methods include DRM licenses, persistent online authentication, continuous audit trails, automatic expiration, and digital watermarks to deter unauthorized use and piracy.' },
+              { q: 'What are the arguments for and against the use of DRM?', a: 'Arguments for DRM: Prevents revenue loss from piracy, protects intellectual property, and allows for greater control over content distribution. Arguments against DRM: Restricts fair use by legitimate consumers, may be circumvented, and can create inconvenience for authorized users.' },
+            ],
+          },
+        ],
+      },
+      // ── 2.7 ──────────────────────────────────────────────────────────────
+      {
+        id: 'd2t7-1',
+        title: '2.7.1 AI-Specific Asset Classification',
+        content: [
+          {
+            body: 'Here we move from the governance of risk to the protection of the tangible and intangible assets that make AI possible. In a traditional environment, we classify files, databases, and hardware. In an AI-driven enterprise, data is not just an asset; it is the basic component that determines the reliability our systems. Our role is to ensure that the AI lifecycle — from data collection to model destruction — is secured against both traditional theft and emerging adversarial threats.',
+          },
+          {
+            body: 'One of the most significant shifts in this domain is the expansion of our asset inventory. We must now classify and handle assets that didn\'t exist in our legacy environments:\n\n- Training Datasets: These are the "textbooks" for your AI. Because they often contain vast amounts of corporate data or PII, they must be classified at the highest level of confidentiality and integrity.\n\n- Model Weights and Parameters: Think of these as the "secret sauce." Model weights represent the learned logic of the AI. If an attacker steals these weights, they have effectively stolen your Intellectual Property (IP) and can run the model on their own infrastructure.\n\n- Pre-trained Models: Third-party models brought into the environment must be treated as untrusted supply-chain assets until verified for integrity.',
+          },
+        ],
+      },
+      {
+        id: 'd2t7-2',
+        title: '2.7.2 Maintaining Data Integrity: Preventing Data Poisoning',
+        content: [
+          {
+            body: 'Data Poisoning is a strategic attack where an adversary injects "toxic" data into the training set.\n\n- The Risk: A poisoned model might function perfectly 99% of the time but contain a "trigger" or "backdoor" that causes it to fail or grant unauthorized access when a specific input is provided.\n\n- The Control: We must implement strict Data Provenance (tracking the origin) and Digital Signatures for datasets to ensure that what we use to "teach" our systems remains untampered throughout the lifecycle.',
+          },
+        ],
+      },
+      {
+        id: 'd2t7-3',
+        title: '2.7.3 Privacy and PII in AI Environments',
+        content: [
+          {
+            body: 'AI systems are remarkably good at finding patterns, which makes them a nightmare for privacy if not properly managed. There are primarily two technical controls to protect PII within AI:\n\n1. Data Masking and Anonymization: Traditional masking replaces sensitive fields with "X\'s." However, AI can sometimes "re-identify" masked individuals by correlating other data points.\n\n2. Differential Privacy: This is the gold standard for AI privacy. By mathematically adding "noise" to the dataset, we ensure that the model learns general trends without being able to identify or "memorize" any specific individual\'s data.',
+          },
+        ],
+      },
+      {
+        id: 'd2t7-4',
+        title: '2.7.4 The AI Data Lifecycle: Storage and Destruction',
+        content: [
+          {
+            body: 'Managing AI assets requires a clear roadmap for the data lifecycle, ensuring we satisfy both security and privacy mandates (like GDPR\'s "Right to Erasure").\n\n- Collection & Storage: We must apply Data Minimization. If the AI doesn\'t need a specific PII field to reach its objective, that field should never be collected or stored in the training environment.\n\n- Destruction: Traditional data destruction involves wiping a hard drive. But what happens if a user exercises their "right to be forgotten" after their data has already been used to train a model? "Machine Unlearning" is an emerging area where we must find ways to remove the influence of specific data points from a pre-trained model without destroying the model itself.',
+          },
+          {
+            questions: [
+              { q: 'In the context of AI, how does the classification of "Model Weights" differ from traditional application binaries?', a: 'While a binary is executable code, model weights represent the "learned logic" and proprietary intelligence of the system. They are treated as high-value Intellectual Property (IP) because stealing them allows an adversary to perfectly replicate the model\'s functionality without the cost of training.' },
+              { q: 'Why is "Integrity" often considered the most critical pillar of the CIA triad for AI training datasets?', a: 'If the integrity of the training data is compromised (e.g., through data poisoning), the AI learns incorrect or malicious patterns. Unlike a confidentiality breach where data is simply leaked, an integrity breach creates a "silent failure" where the system continues to operate but makes untrustworthy or compromised decisions.' },
+              { q: 'Describe the threat of "Data Poisoning" and how a CISSP can mitigate it.', a: 'Data poisoning is the injection of malicious data into a training set to create backdoors or bias. Mitigation includes implementing strict Data Provenance (verifying the origin of data), using digital signatures for datasets, and performing statistical outlier detection to find "toxic" inputs before training begins.' },
+              { q: 'How does "Differential Privacy" protect PII more effectively than simple data masking in an AI environment?', a: 'Simple masking can often be reversed through "re-identification" attacks by correlating data points. Differential privacy adds mathematical noise to the data, ensuring the model learns general trends without "memorizing" or allowing the extraction of specific individual records.' },
+              { q: 'What is the primary security risk associated with using "Pre-trained Models" from a third-party repository?', a: 'The primary risk is a Supply Chain Attack. The model could contain a "hidden trigger" or backdoor embedded during its initial training that allows an attacker to bypass security controls when the model is deployed in your environment.' },
+              { q: 'How does the "Data Minimization" principle apply specifically to the development of AI models?', a: 'Organizations should only feed the AI the specific attributes required to achieve the desired outcome. For example, if a credit-scoring AI doesn\'t need a user\'s name or exact birthdate to calculate risk, that PII should be stripped before the data enters the training pipeline.' },
+              { q: 'Why is "Machine Unlearning" a significant challenge for privacy compliance (like GDPR)?', a: 'Traditional data destruction involves deleting a record from a database. In AI, once a person\'s data has been "learned" into the model\'s weights, it is difficult to remove that specific influence without retaking the entire training process, which is costly and complex.' },
+              { q: 'What is a "Model Inversion" attack, and what asset is it targeting?', a: 'It is an attack where an adversary queries a model repeatedly to reconstruct the sensitive training data used to build it. It targets the Confidentiality of the training dataset.' },
             ],
           },
         ],
       },
     ],
   },
+
 
   // ─────────────────────────────────────────────────────────────────────────
   // DOMAIN 3
