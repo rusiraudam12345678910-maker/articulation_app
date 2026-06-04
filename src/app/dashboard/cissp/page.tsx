@@ -85,7 +85,7 @@ export default function CISSPPage() {
 
       {/* Main reading area */}
       <div className="flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-8 py-10">
+        <div className="max-w-7xl px-8 py-10">
 
           {/* Attribution banner */}
           <div className="mb-8 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950 px-5 py-4">
@@ -157,10 +157,15 @@ export default function CISSPPage() {
 
             {activeTopic.content.map((section, i) => (
               <div key={i} className="flex flex-col gap-3">
-                {section.heading && (
-                  <h3 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                    {section.heading}
+                {section.subheading && (
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 border-b border-zinc-200 dark:border-zinc-700 pb-2 mt-2">
+                    {section.subheading}
                   </h3>
+                )}
+                {section.heading && (
+                  <h4 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                    {section.heading}
+                  </h4>
                 )}
 
                 {section.body && (
@@ -228,6 +233,23 @@ export default function CISSPPage() {
                     <p className="text-xs text-amber-700 dark:text-amber-300 leading-relaxed">
                       <strong>⚠ Warning:</strong> {section.warning}
                     </p>
+                  </div>
+                )}
+
+                {section.questions && section.questions.length > 0 && (
+                  <div className="mt-4 flex flex-col gap-3">
+                    <h5 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 uppercase tracking-wide">Open Questions</h5>
+                    {section.questions.map((q, qi) => (
+                      <details key={qi} className="rounded-lg border border-zinc-200 dark:border-zinc-700 overflow-hidden">
+                        <summary className="px-4 py-3 text-sm text-zinc-800 dark:text-zinc-200 cursor-pointer hover:bg-zinc-50 dark:hover:bg-zinc-800 list-none flex items-start gap-2">
+                          <span className="flex-shrink-0 font-semibold text-zinc-400">{qi + 1}.</span>
+                          <span>{q.q}</span>
+                        </summary>
+                        <div className="px-4 py-3 bg-zinc-50 dark:bg-zinc-800 border-t border-zinc-200 dark:border-zinc-700 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                          {q.a}
+                        </div>
+                      </details>
+                    ))}
                   </div>
                 )}
               </div>

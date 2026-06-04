@@ -4,7 +4,13 @@ export type Topic = {
   content: Section[]
 }
 
+export type Question = {
+  q: string
+  a: string
+}
+
 export type Section = {
+  subheading?: string
   heading?: string
   body?: string
   list?: string[]
@@ -12,6 +18,7 @@ export type Section = {
   note?: string
   tip?: string
   warning?: string
+  questions?: Question[]
 }
 
 export type Domain = {
@@ -36,34 +43,61 @@ export const domains: Domain[] = [
         id: 'd1t1',
         title: '1.1 Professional Ethics',
         content: [
+          // ── 1.1.1 ──────────────────────────────────────────────────────────
           {
-            heading: 'ISC² Code of Professional Ethics',
-            body: 'Ethics are moral principles guiding individuals in determining right from wrong. All CISSP candidates must understand and integrate these ethics. ISC² members who intentionally violate the Code may face revocation of certification.',
-            note: 'A code of ethics is designed to provide general direction rather than address specific technical situations. Technical skills build systems — ethics keep them worthy of trust.',
+            subheading: '1.1.1 ISC² Code of Professional Ethics',
           },
           {
-            heading: 'Code of Ethics Canons',
-            body: 'Four mandatory canons:',
+            heading: 'What Are Ethics?',
+            body: 'Ethics refer to a set of moral principles that guide individuals or groups in determining what is right or wrong, good or bad, in a given situation. They often encompass values such as honesty, fairness, integrity, and respect for others. Many professional bodies like ISC² have established codes of ethics that members must adhere to, ensuring ethical conduct in their respective fields.',
+            note: 'All CISSP candidates must understand and integrate these ethics into their professional practice both before and after taking the exam. A code of ethics is designed to provide general direction rather than address specific technical situations. Technical skills build systems — ethics keep them worthy of trust.',
+          },
+          {
+            heading: 'Code of Ethics Preamble',
+            body: 'The safety and welfare of society and the common good, duty to our principals, and duty to each other, require that we adhere, and be seen to adhere, to the highest ethical standards of behavior. Therefore, strict adherence to this Code is a condition of certification.',
+            note: 'Strict adherence is a condition of certification — not merely a recommendation. ISC² members who intentionally or knowingly violate any provision of the Code will be subject to action by a peer review panel, which may result in revocation of certification.',
+          },
+          {
+            heading: 'Code of Ethics Canons (Priority Order)',
+            body: 'Four mandatory canons, listed in descending priority. When canons conflict, the higher-ranked canon takes precedence:',
             list: [
-              'Protect society, the common good, necessary public trust and confidence, and the infrastructure.',
-              'Act honorably, honestly, justly, responsibly, and legally.',
-              'Provide diligent and competent service to principals.',
-              'Advance and protect the profession.',
+              '1 (Highest) — Protect society, the common good, necessary public trust and confidence, and the infrastructure.',
+              '2 — Act honorably, honestly, justly, responsibly, and legally.',
+              '3 — Provide diligent and competent service to principals.',
+              '4 (Lowest) — Advance and protect the profession.',
             ],
+            warning: 'Canon priority is a common exam topic. Society always comes first — even above your employer (principals). In daily professional conduct, ethics canons are adhered to in descending order of importance.',
           },
           {
             heading: 'Ethics Complaint Process',
             list: [
-              'Filing — anyone can file a written, specific complaint; anonymous complaints generally not accepted.',
-              'Initial Review — Ethics Committee checks jurisdiction and merit; frivolous complaints dismissed.',
-              'Notification — respondent is notified and given a chance to respond.',
-              'Investigation and Hearing — evidence gathered; formal hearing may be convened.',
-              'Decision and Sanctions — private reprimand, public reprimand, suspension, or revocation.',
-              'Appeal — member may appeal within a specified timeframe.',
+              'Filing — anyone (members of the public, employers, colleagues, or other ISC² members) can file a written, specific complaint; anonymous complaints are generally not accepted.',
+              'Initial Review — Ethics Committee checks whether the complaint falls under its jurisdiction and has enough information to proceed; frivolous complaints dismissed.',
+              'Notification — the respondent is notified and given a chance to respond (preserving due process).',
+              'Investigation and Hearing — evidence gathered; a formal hearing may be convened in complex cases.',
+              'Decision and Sanctions — private reprimand, public reprimand, suspension of certification, or revocation of certification.',
+              'Appeal — member may appeal the decision within a specified timeframe, reviewed by a separate ISC² committee.',
             ],
+            questions: [
+              { q: 'What are ethics, and how do they relate to professional organizations like ISC²?', a: 'Ethics are moral principles that guide behavior and define right and wrong. Professional organizations like ISC² establish codes of ethics to ensure ethical conduct among their members.' },
+              { q: 'What happens to ISC² members who intentionally violate the Code of Ethics?', a: 'ISC² members who intentionally violate the Code of Ethics may face disciplinary action from a peer review panel, including potential revocation of their certification.' },
+              { q: 'Explain the purpose of the ISC² Code of Ethics complaint procedure.', a: 'The complaint procedure allows members to report suspected ethical breaches by other members, ensuring accountability and upholding the integrity of the Code.' },
+              { q: 'Why are the four canons in the ISC² Code of Ethics considered high-level guidance?', a: 'The four canons offer broad guidelines that require individual ethical judgment and interpretation to apply to specific situations.' },
+              { q: 'Summarize the main idea expressed in the ISC² Code of Ethics Preamble.', a: 'The Preamble emphasizes the importance of ethical behavior for the safety and well-being of society, individuals, and the profession itself.' },
+              { q: 'According to the first canon, what are ISC² members obligated to protect?', a: 'ISC² members are obligated to protect society, the common good, public trust and confidence, and critical infrastructure.' },
+              { q: 'What values are emphasized in the second canon of the ISC² Code of Ethics?', a: 'The second canon stresses the values of honor, honesty, justice, responsibility, and legality in all professional actions.' },
+              { q: 'What responsibility do ISC² members have towards their principals according to the third canon?', a: 'ISC² members must provide diligent and competent service to their principals, demonstrating professionalism and commitment to their clients\' needs.' },
+              { q: 'What is the significance of the fourth canon in relation to the information security profession?', a: 'The fourth canon emphasizes the continuous development and protection of the information security profession through knowledge sharing and ethical practice.' },
+              { q: 'How does adherence to the ISC² Code of Ethics benefit both individuals and the profession as a whole?', a: 'Adherence to the Code upholds the reputation of the profession, builds trust among stakeholders, and ensures ethical and responsible conduct, ultimately benefiting both individuals and the collective.' },
+            ],
+          },
+          // ── 1.1.2 ──────────────────────────────────────────────────────────
+          {
+            subheading: '1.1.2 Organizational Code of Ethics',
           },
           {
             heading: 'Ten Commandments of Computer Ethics (Computer Ethics Institute)',
+            body: 'The framework for ethical computing practice provided by the Computer Ethics Institute has been extensively employed in formulating acceptable use policies and educating users about the proper utilization of computing resources.',
             list: [
               'Thou shalt not use a computer to harm other people.',
               'Thou shalt not interfere with other people\'s computer work.',
@@ -79,17 +113,41 @@ export const domains: Domain[] = [
           },
           {
             heading: 'IEEE Code of Ethics',
-            body: 'Key IEEE commitments: uphold highest standards of integrity; hold paramount safety, health, and welfare of the public; avoid real or perceived conflicts of interest; seek and offer honest criticism; treat all persons fairly; avoid harassment or discrimination; support colleagues in following the code.',
+            body: 'The IEEE Code of Ethics guides the ethical behavior of its members, ensuring integrity, accountability, and fairness while promoting the welfare of society. Members commit to:',
+            list: [
+              'Hold paramount the safety, health, and welfare of the public; strive to comply with ethical design and sustainable development practices.',
+              'Improve understanding by individuals and society of the capabilities and societal implications of conventional and emerging technologies.',
+              'Avoid real or perceived conflicts of interest whenever possible; disclose them to affected parties when they do exist.',
+              'Avoid unlawful conduct in professional activities and reject bribery in all its forms.',
+              'Seek, accept, and offer honest criticism of technical work; acknowledge and correct errors; credit properly the contributions of others.',
+              'Maintain and improve technical competence; undertake technological tasks only if qualified or after full disclosure of limitations.',
+              'Treat all persons fairly and with respect; not engage in discrimination based on race, religion, gender, disability, age, national origin, sexual orientation, gender identity, or gender expression.',
+              'Not engage in harassment of any kind, including sexual harassment or bullying behavior.',
+              'Avoid injuring others, their property, reputation, or employment by false or malicious actions.',
+              'Support colleagues and co-workers in following this code; not retaliate against individuals reporting a violation.',
+            ],
           },
           {
             heading: 'RFC 1087 — Ethics and the Internet',
-            body: 'RFC 1087 defines unethical Internet behavior. The following are considered unethical:',
+            body: 'RFC 1087 ("Ethics and the Internet") was published when the internet was primarily used for academic, research, and governmental purposes. Its core message: the Internet is a privileged resource built for the advancement of research and education — anyone using it must uphold ethical conduct. RFC 1087 considers the following behaviors unethical:',
             list: [
               'Unauthorized access to network resources.',
               'Disruption of the intended use of the network.',
               'Waste of resources such as bandwidth or processing power.',
               'Destruction or alteration of information.',
               'Compromise of privacy of users.',
+            ],
+            questions: [
+              { q: 'What is the primary function of the Computer Ethics Institute\'s "Ten Commandments of Computer Ethics"?', a: 'The "Ten Commandments of Computer Ethics" serve as guidelines for ethical computer use, helping to establish acceptable use policies and educating individuals on responsible utilization of computing resources.' },
+              { q: 'How does the IEEE Code of Ethics promote societal well-being in relation to technological advancements?', a: 'The IEEE Code of Ethics promotes societal well-being by emphasizing ethical design, sustainable development practices, and the consideration of societal implications, ensuring technology benefits humanity.' },
+              { q: 'According to the "Ten Commandments of Computer Ethics," what obligation do individuals have regarding software ownership?', a: 'The guidelines state individuals should not copy or use proprietary software without proper payment, respecting intellectual property rights and legal ownership.' },
+              { q: 'Explain the concept of "intellectual output" and its protection as outlined in the Computer Ethics Institute\'s guidelines.', a: '"Intellectual output" refers to creative works and ideas generated by individuals. The guidelines emphasize respecting ownership and prohibiting appropriation without permission or proper compensation.' },
+              { q: 'Why is it crucial for computer professionals to consider the societal consequences of their work?', a: 'Considering societal consequences is crucial to ensure technology is used responsibly, minimizing negative impacts and maximizing positive contributions to society.' },
+              { q: 'What commitment does the IEEE Code of Ethics make regarding the safety and well-being of the public?', a: 'The IEEE Code of Ethics prioritizes the safety, health, and welfare of the public above all else, urging members to consider potential risks and act responsibly.' },
+              { q: 'How does the IEEE Code of Ethics address the issue of potential conflicts of interest in professional settings?', a: 'The code mandates disclosing any real or perceived conflicts of interest to affected parties, promoting transparency and ethical decision-making.' },
+              { q: 'Explain the importance of honest criticism and acknowledging errors within the framework of the IEEE Code of Ethics.', a: 'Honest criticism and acknowledging errors fosters improvement and knowledge sharing within the profession, contributing to overall progress and accountability.' },
+              { q: 'How does the IEEE Code of Ethics promote fairness and inclusivity in professional environments?', a: 'The code explicitly prohibits discrimination and harassment based on various characteristics, ensuring a fair and inclusive environment for all individuals.' },
+              { q: 'What responsibility do IEEE members have towards upholding the code of ethics among their colleagues and coworkers?', a: 'IEEE members are obligated to support colleagues in upholding the code and to report any violations without fear of retaliation, fostering a culture of ethical conduct.' },
             ],
           },
         ],
@@ -130,14 +188,15 @@ export const domains: Domain[] = [
             ],
           },
           {
-            heading: 'IAAA Framework',
+            heading: 'IAAA / IAAAA Framework',
             list: [
               'Identification — claiming an identity (username, ID number).',
               'Authentication — verifying the claimed identity (passwords, biometrics, tokens).',
               'Authorization — determining access rights and permissions.',
               'Accountability — tracking and recording activities; auditing and logging.',
+              'Auditing (5th A) — retrospective, periodic review of logs to detect policy violations.',
             ],
-            note: 'Auditing is retrospective (periodic log review). Monitoring is real-time observation.',
+            note: 'Auditing is retrospective (periodic log review). Monitoring is real-time observation. Some frameworks extend IAAA to IAAAA by treating Auditing as distinct from Accountability.',
           },
           {
             heading: 'Identity Assurance Levels (IAL)',
@@ -177,12 +236,13 @@ export const domains: Domain[] = [
         content: [
           {
             heading: 'GRC — Governance, Risk, Compliance',
-            body: 'Security Governance is the framework of practices and processes through which an organization plans, supports, evaluates, and manages its security efforts.',
+            body: 'Security Governance is the framework of practices and processes through which an organization plans, supports, evaluates, and manages its security efforts. Security must be baked into the company: its software, processes, policies, departments, and personnel.',
             list: [
               'Governance — ensuring activities support business goals.',
               'Risk — identification and management of risks.',
               'Compliance — adherence to regulations and policies.',
             ],
+            note: 'A top-down approach is most effective — it establishes a culture of security from the highest levels of the organization down to individual employees.',
           },
           {
             heading: 'Planning Hierarchy',
@@ -270,29 +330,57 @@ export const domains: Domain[] = [
         content: [
           {
             heading: 'Cybercrimes and Data Breaches',
-            body: 'Key distinctions: Data Loss (accidental), Data Leak (unintentional exposure), Data Breach (unauthorized access). Major US federal laws include the Computer Fraud and Abuse Act (CFAA), FISMA, and the National Information Infrastructure Protection Act.',
+            body: 'Key distinctions: Data Loss (accidental), Data Leak (unintentional exposure), Data Breach (unauthorized access — ultimate breakdown of the CIA triad). A breach triggers legal liabilities, regulatory fines, and long-term erosion of organizational trust. Every breach should be treated as a lessons-learned opportunity to refine Incident Response procedures.',
+            note: 'Security measures deter cyber intrusions by making attacks unprofitable, labor-intensive, and cost-prohibitive. Complete invulnerability is impossible — the goal is adequate protection.',
+          },
+          {
+            heading: 'US Federal Cybercrime Laws',
+            table: {
+              headers: ['Law', 'Year', 'Key Provisions'],
+              rows: [
+                ['Computer Crime and Abuse Act (CCCA)', '1984', 'Prohibited unauthorized access to classified/financial federal systems; damage threshold $1,000; trafficking computer passwords'],
+                ['Computer Fraud and Abuse Act (CFAA)', '1986', 'Extended CCCA; raised damage threshold to $5,000; expanded scope to all "federal interest" computers including financial institutions'],
+                ['CFAA Amendments (Computer Abuse Amendments Act)', '1994', 'Prohibited malicious code creation; allowed imprisonment regardless of intent; enabled civil remedies for victims'],
+                ['National Information Infrastructure Protection Act', '1996', 'Extended CFAA to international commerce; protected critical infrastructure (railroads, pipelines, power grids, telecom); intentional damage = felony'],
+                ['FISMA', '2002', 'Mandated NIST to define security standards; required periodic risk assessments, security policy, training, incident response, and continuity planning'],
+                ['Federal Cybersecurity Laws (modernization)', '2014', 'DHS took primary responsibility; NIST tasked with voluntary standards (SP 800 series); created National Cybersecurity and Communications Integration Center'],
+              ],
+            },
+            note: 'Many computer-related crimes cross state lines and fall under federal jurisdiction. Some state laws impose more stringent penalties than federal laws.',
           },
           {
             heading: 'Intellectual Property Types',
-            list: [
-              'Copyright (©) — protects original creative works; automatic upon creation.',
-              'Trademark (™/®) — protects brand identifiers (names, logos, slogans).',
-              'Patent — protects inventions for a limited period (20 years).',
-              'Trade Secret — confidential business information providing competitive advantage.',
-            ],
+            table: {
+              headers: ['Symbol', 'Name', 'Duration', 'Applies To', 'Common Attack'],
+              rows: [
+                ['©', 'Copyright', 'Life + 70 years; work-for-hire: 95 years from publication', 'Literary, musical, dramatic, pictorial, architectural, software works', 'Piracy — unauthorized copying'],
+                ['™ / ®', 'Trademark', '10 years, renewable indefinitely', 'Words, slogans, logos identifying a brand', 'Counterfeiting; Dilution (generic use of brand name)'],
+                ['(none)', 'Patent', '20 years', 'Processes, machines, manufactured items; must be new, useful, non-obvious', 'Infringement — unauthorized use even if unintentional'],
+                ['(none)', 'Trade Secret', 'Indefinite (while kept secret)', 'Confidential business info: formulas, recipes, processes; enforced via NDA/NCA', 'Espionage — theft for competitive advantage'],
+              ],
+            },
+            note: 'A patent is the strongest form of IP protection. The DMCA (1998) criminalizes circumvention of copyright protection measures and provides safe harbors for platforms with a notice-and-takedown procedure. Ownership of works created by employees defaults to the employer (work-for-hire).',
           },
           {
             heading: 'Software Licensing Types',
-            list: [
-              'Contractual — signed agreement between parties.',
-              'Shrink-wrap — terms accepted by opening product packaging.',
-              'Click-through — terms accepted by clicking "I Agree" online.',
-              'Perpetual — one-time purchase; use forever.',
-              'Subscription — periodic payment for continued access.',
-              'Open-Source — source code freely available under specific terms.',
-              'EULA (End User License Agreement) — defines permitted use.',
-              'Concurrent Use — limited number of simultaneous users.',
-            ],
+            table: {
+              headers: ['License Type', 'Description'],
+              rows: [
+                ['Contractual', 'Written contract negotiated between vendor and customer; used for expensive/specialized software'],
+                ['Shrink-wrap', 'Terms printed on packaging; opening the shrink-wrap implies acceptance'],
+                ['Click-through (Browser Wrap)', 'Terms shown on-screen; user clicks "I agree" during installation'],
+                ['Cloud Services', 'Extends click-through; terms displayed on-screen, often without a separate written contract'],
+                ['Perpetual', 'One-time purchase granting indefinite use rights; support/updates may expire separately'],
+                ['Subscription', 'Recurring payment (monthly/yearly); access ends if subscription lapses'],
+                ['Open-Source', 'Source code freely available under conditions (GPL, MIT, Apache, etc.)'],
+                ['Freeware', 'Free to use but typically closed-source; restrictions on modification and commercial use'],
+                ['Enterprise License Agreement (ELA)', 'Custom agreement for large organizations bundling multiple licenses under negotiated terms'],
+                ['EULA (End User License Agreement)', 'Legal contract defining how the end user may use the software'],
+                ['Concurrent Use', 'Specific number of simultaneous users permitted regardless of total installs'],
+                ['Named User', 'Assigned to a specific individual; usable on multiple devices but non-transferable'],
+              ],
+            },
+            warning: 'In shrink-wrap and click-through agreements the customer\'s only option is to accept or decline — there is no negotiation. This contrasts with contractual agreements where terms can be actively negotiated.',
           },
           {
             heading: 'Import/Export Controls',
@@ -304,26 +392,90 @@ export const domains: Domain[] = [
             ],
           },
           {
-            heading: 'Privacy Frameworks',
-            list: [
-              'GDPR (EU) — General Data Protection Regulation; governs processing of EU residents\' personal data.',
-              'CCPA (California) — California Consumer Privacy Act; rights for California residents.',
-              'PIPL (China) — Personal Information Protection Law.',
-              'POPIA (South Africa) — Protection of Personal Information Act.',
-            ],
+            heading: 'Transborder Data Flow',
+            table: {
+              headers: ['Concept', 'Definition', 'Key Focus', 'Distinction'],
+              rows: [
+                ['Data Sovereignty', 'Extent to which data is subject to a country\'s laws, regardless of where it is stored', 'Legal jurisdiction and compliance', 'About who has authority over the data, not where it is stored; distinct from data privacy'],
+                ['Data Residency', 'Physical/geographical location where data is stored and processed', 'Location-based legal compliance', 'Focuses on where data lives; supports sovereignty but does not define legal control'],
+                ['Data Localization', 'Requirement to store and process data strictly within a country\'s borders', 'National control and security', 'Strict form of data residency; legally enforces that data cannot cross borders'],
+              ],
+            },
+            note: 'CISOs must categorize and chart organizational data, identify its storage/movement, understand sensitivity, location, legal obligations, and third-party involvement.',
+          },
+          {
+            heading: 'International Privacy Frameworks',
+            table: {
+              headers: ['Framework', 'Description'],
+              rows: [
+                ['Universal Declaration of Human Rights', 'Everyone is entitled to protection against arbitrary intrusion into their privacy, family life, home, or correspondence'],
+                ['OECD Privacy Principles', 'Eight principles: lawful collection, data quality, purpose specification, use limitation, security safeguards, openness, individual participation, accountability — widely adopted in international privacy laws'],
+                ['APEC Privacy Framework', 'Emphasizes protection of PII during cross-border transfers; introduces proportionality in data breach penalties and organizational accountability'],
+              ],
+            },
+          },
+          {
+            heading: 'Major Privacy Laws',
+            table: {
+              headers: ['Law', 'Jurisdiction', 'Key Points'],
+              rows: [
+                ['GDPR', 'EU / EEA', 'Consent required; data subject rights; breach notification; fines up to €20M or 4% of global annual turnover'],
+                ['CCPA', 'California, USA', 'Rights to access, delete, opt-out of sale; applies to companies with $25M+ revenue or large data volumes'],
+                ['PIPL', 'China', 'Explicit consent; data localization; cross-border transfer restrictions; fines up to ¥50M or 5% of annual revenue'],
+                ['POPIA', 'South Africa', 'Lawful data processing conditions; breach notification; heavy fines or imprisonment for contraventions'],
+              ],
+            },
           },
           {
             heading: 'Key Privacy Concepts',
+            table: {
+              headers: ['Term', 'Definition'],
+              rows: [
+                ['Data Controller (Data Owner)', 'Determines the purposes and means of processing personal data'],
+                ['Data Processor', 'Processes personal data on behalf of the controller'],
+                ['Data Protection Officer (DPO)', 'Individual designated to oversee data protection and privacy compliance within an organization'],
+                ['Data Custodian', 'Implements and maintains safeguards for data based on data owner instructions'],
+                ['Data Subject', 'The individual to whom personal data relates'],
+                ['Personal Data', 'Any information relating to an identified or identifiable natural person'],
+                ['Processing', 'Any operation performed on personal data: collection, storage, use, disclosure, erasure, etc.'],
+              ],
+            },
+          },
+          {
+            heading: 'Privacy Impact Assessment (PIA / DPIA)',
+            body: 'A PIA is a process conducted by an organization to assess whether personal data is adequately protected and to mitigate potential risks. Steps: identify need → describe processing → evaluate necessity → consult stakeholders → identify risks → implement mitigations → document → monitor.',
             list: [
-              'Data Controller — determines how and why personal data is processed.',
-              'Data Processor — processes data on behalf of the controller.',
-              'Data Subject — the individual whose personal data is processed.',
-              'DPO (Data Protection Officer) — oversees GDPR compliance.',
-              'PIA (Privacy Impact Assessment) — evaluates privacy risks of new projects.',
-              'Data Sovereignty — data subject to the laws of the country where it is stored.',
-              'Data Residency — physical location of data storage.',
-              'Data Localization — laws mandating data stored within a specific country.',
+              'PIA — broad term used globally (US, Canada) for any privacy risk assessment.',
+              'DPIA (Data Protection Impact Assessment) — GDPR-specific; mandatory for processing likely to result in high risk to individuals\' rights.',
+              'Data Privacy Impact Assessment — hybrid term combining both PIA and DPIA aspects.',
             ],
+            tip: 'Remember that a PIA is a process conducted by an organization to assess whether personal data is adequately protected — the exact 8 steps are less important than the concept.',
+          },
+          {
+            heading: 'Contractual, Legal, Industry Standards, and Regulatory Requirements',
+            table: {
+              headers: ['Type', 'Description', 'Examples'],
+              rows: [
+                ['Contractual', 'Obligations outlined in agreements between parties', 'SLAs, vendor contracts, NDAs'],
+                ['Legal — Criminal Law', 'Regulations against offenses like homicide, assault, theft, arson', 'CFAA, Computer Misuse Act'],
+                ['Legal — Civil (Tort) Law', 'Contractual disputes, property, employment, estate matters', 'Breach of contract, negligence claims'],
+                ['Legal — Administrative Law', 'Grants government bodies power to establish regulations', 'GDPR enforcement by supervisory authorities'],
+                ['Industry Standards', 'Guidelines and best practices from professional bodies', 'ISO 27001, NIST CSF, PCI DSS'],
+                ['Regulatory', 'Mandates from government agencies ensuring sector compliance', 'PCI DSS (enforced), SOX, HIPAA'],
+              ],
+            },
+          },
+          {
+            heading: 'Standards vs Frameworks vs Regulations vs Laws',
+            table: {
+              headers: ['Feature', 'Standard', 'Framework', 'Regulation', 'Law'],
+              rows: [
+                ['Examples', 'ISO 27001, NIST SP 800-53', 'NIST CSF, COBIT, CIS Controls', 'GDPR, HIPAA, PCI DSS (enforced)', 'Data Protection Act, CFAA'],
+                ['Purpose', 'Define best practices or benchmarks', 'Guide implementation of security', 'Enforce legal compliance, protect data', 'Regulate behavior, ensure national security'],
+                ['Compliance', 'Voluntary; leads to certification', 'Voluntary but recommended', 'Legally enforced with penalties', 'Enforced by government; legal penalties'],
+                ['Assessment', 'Audits for certification', 'Self-assessment or third-party', 'Regulatory audits by government bodies', 'Legal audits, court orders'],
+              ],
+            },
           },
         ],
       },
@@ -380,6 +532,15 @@ export const domains: Domain[] = [
             },
           },
           {
+            heading: 'BCM, BCP, and DRP Relationship',
+            list: [
+              'BCM (Business Continuity Management) — the management process that covers both BCP and DRP.',
+              'BCP — strategically focused at a high level; centers on business processes and operations; active throughout the entire duration of a disruption.',
+              'DRP — more tactical; describes technical activities (recovery sites, backups, fault tolerance); carried out while still in emergency.',
+            ],
+            note: 'The top priority of both BCP and DR is people. Always prioritize people\'s safety before addressing IT recovery.',
+          },
+          {
             heading: 'Three Primary BCP Facets',
             list: [
               'Resilience — system capability to withstand disruptions.',
@@ -398,11 +559,35 @@ export const domains: Domain[] = [
           },
           {
             heading: 'Key Recovery Metrics',
+            table: {
+              headers: ['Metric', 'Full Name', 'Definition'],
+              rows: [
+                ['MTD', 'Maximum Tolerable Downtime', 'Maximum duration a business process can be unavailable before causing severe damage to the company'],
+                ['RPO', 'Recovery Point Objective', 'Acceptable amount of data loss in case of disaster; specifies the point in time to which data must be restored'],
+                ['RTO', 'Recovery Time Objective', 'Target time for restoring a system, application, or process after a disruption'],
+                ['WRT', 'Work Recovery Time', 'Time needed for testing and verifying restored systems before they go live after recovery'],
+              ],
+            },
+            note: 'MTD = RTO + WRT. If RTO is 1 hour and WRT is 30 minutes, MTD must be at least 1.5 hours.',
+          },
+          {
+            heading: 'BIA — Critical Business Functions',
+            body: 'The Business Impact Analysis identifies Critical Business Functions (CBFs) — systems and processes whose disruption would most harm the organization. Key elements to consider when identifying CBFs:',
             list: [
-              'RTO (Recovery Time Objective) — maximum acceptable downtime before restoration must occur.',
-              'RPO (Recovery Point Objective) — maximum acceptable amount of data loss measured in time.',
-              'MTD (Maximum Tolerable Downtime) — longest a business can survive without a critical system.',
-              'WRT (Work Recovery Time) — time needed for testing before systems go live after recovery.',
+              'Personnel — key individuals and their roles in maintaining critical operations.',
+              'Business Processes — essential processes that drive revenue or ensure continuity.',
+              'Information Systems and Applications — critical IT systems supporting core functions.',
+              'Other Assets — physical assets, intellectual property, or resources vital to operations.',
+            ],
+            note: 'Executive support is crucial for BCP — initiatives may not yield immediate returns but are vital for long-term resilience.',
+          },
+          {
+            heading: 'External Dependencies in BCP',
+            body: 'External dependencies directly impact an organization\'s ability to recover during disruptions. Key considerations:',
+            list: [
+              'Vendors — cloud providers, hardware suppliers, software vendors; contracts must include robust SLAs for crisis support.',
+              'Legal and Regulatory Requirements — may mandate specific recovery times or data protection measures in regulated industries.',
+              'Client SLA Alignment — BCP must ensure the organization can meet its own SLAs to clients even during disruptions.',
             ],
           },
         ],
@@ -412,8 +597,37 @@ export const domains: Domain[] = [
         title: '1.8 Personnel Security',
         content: [
           {
+            heading: 'People as Security Asset and Weakest Link',
+            body: 'People are frequently perceived as the weakest link in any security framework — susceptible to phishing, spear phishing, and social engineering. However, with proper training they also serve as a crucial security asset.',
+            list: [
+              'Phishing — broad scam where attackers pose as trustworthy entities via email, text, or website to trick individuals into revealing sensitive information.',
+              'Spear Phishing — highly targeted form of phishing using researched, personalized messages; dramatically increases success rate.',
+            ],
+            warning: 'Never refer to personnel as "the weakest link" — it demotivates. Instead, empower them by emphasizing that organizational security relies on their vigilance.',
+          },
+          {
+            heading: 'Job Descriptions and Security',
+            body: 'Security starts before an employee joins. A well-defined job description helps outline security expectations, support background checks, and reduce insider threats.',
+            table: {
+              headers: ['Category', 'Component', 'Security Value'],
+              rows: [
+                ['Why It Matters', 'Security Expectations', 'Candidates understand duty to protect sensitive data from Day 1'],
+                ['Why It Matters', 'Background Checks', 'Provides benchmark to verify candidate history against role risk level'],
+                ['Why It Matters', 'Threat Mitigation', 'Filters for security-aware, qualified individuals — reduces insider threats'],
+                ['Essential Elements', 'Job Title', 'Establishes clear identity and hierarchy'],
+                ['Essential Elements', 'Duties & Tasks', 'Defines specific actions with no gray areas'],
+                ['Essential Elements', 'Security Responsibilities', 'Explicitly links the role to cybersecurity policies'],
+                ['Impact on Operations', 'Access Control', 'Justifies level of access based on defined duties (Least Privilege)'],
+              ],
+            },
+          },
+          {
             heading: 'Pre-Employment Screening',
             body: 'Organizations need comprehensive policies covering job descriptions, background checks, reference verification, and security clearances. Screening intensity should match role sensitivity and risk level while respecting legal boundaries.',
+            list: [
+              'Permitted: background checks, reference checks, education verification, legally required security clearances.',
+              'Restricted/Illegal: discriminatory questions (race, religion, gender, marital status), invasive personal data without consent, medical/genetic testing unless legally justified.',
+            ],
           },
           {
             heading: 'Key Personnel Security Controls',
@@ -434,12 +648,33 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Employment Agreements and Policy Controls',
+            body: 'Employment agreements outline job responsibilities, compensation, benefits, and termination details. Comprehensiveness reduces legal risk (e.g., wrongful termination lawsuits). Personnel policies are reinforced by:',
+            list: [
+              'Non-compete agreements (NCA) — restrict working for competitors after leaving.',
+              'Acceptable Use Policy (AUP) — dictates proper use of company resources.',
+              'Non-disclosure agreements (NDA) — safeguard confidential information.',
+              'Ethical guideline questionnaires and agreements.',
+              'Vendor, consultant, and contractor agreements and controls.',
+            ],
+          },
+          {
             heading: 'UBA and UEBA',
-            body: 'User Behavior Analytics (UBA) and User and Entity Behavior Analytics (UEBA) monitor patterns to detect insider threats and data exfiltration attempts.',
+            body: 'User Behavior Analytics (UBA) analyzes patterns in user activities to detect anomalous or potentially malicious behavior. User and Entity Behavior Analytics (UEBA) expands on UBA by including system entity behavior (servers, IoT devices, applications).',
+            list: [
+              'UBA — detects insider threats, compromised accounts, data exfiltration by monitoring how users normally interact with systems.',
+              'UEBA — adds entity behavior; can detect threats involving automated systems even without a human trigger.',
+              'Benefits: detecting insider threats, preventing data breaches, reducing false positives via ML, improving incident response speed.',
+            ],
+            note: 'Example: an employee who typically accesses records during business hours suddenly downloading large volumes of data at midnight would be flagged by UBA.',
           },
           {
             heading: 'Third-Party Management',
-            body: 'When outsourcing, establish controls for: access, document exchange, maintenance standards, on-site assessments, policy reviews, and Service Level Agreements. Vendor Management Systems automate oversight and compliance tracking.',
+            body: 'When outsourcing, establish controls for: access, document exchange, maintenance standards, on-site assessments, policy reviews, and Service Level Agreements.',
+            list: [
+              'Vendor Management System (VMS) — software platform automating vendor selection, onboarding, performance tracking, contract management, and compliance monitoring.',
+              'Multiparty Risk — security and operational risks arising when multiple organizations, vendors, or third parties are involved in a shared business process or supply chain.',
+            ],
           },
         ],
       },
@@ -477,6 +712,44 @@ export const domains: Domain[] = [
               'SLE (Single Loss Expectancy) = Asset Value × Exposure Factor.',
               'ARO (Annualized Rate of Occurrence) — expected frequency of threat per year.',
               'ALE = SLE × ARO — expected annual loss from a threat.',
+            ],
+          },
+          {
+            heading: 'Security Control Classification',
+            table: {
+              headers: ['By Type', 'Description', 'By Function', 'Description'],
+              rows: [
+                ['Physical', 'Tangible measures protecting physical systems (locks, fences, guards)', 'Preventive', 'Stop unwanted activity before it occurs'],
+                ['Technical', 'Technology-based protections (firewalls, encryption, IDS)', 'Detective', 'Identify and alert to unauthorized activity'],
+                ['Administrative', 'Policy-based measures and organizational procedures', 'Corrective', 'Repair damage and restore resources after an incident'],
+              ],
+            },
+            note: 'Detective and preventive controls are complementary. Implementing controls in layers creates defense in depth. Security controls must offer measurable benefits to justify their implementation.',
+          },
+          {
+            heading: 'Security Control Assessment (SCA)',
+            body: 'A Security Control Assessment formally evaluates infrastructure components against established standards. It assesses control effectiveness, risk management processes, and generates reports identifying strengths and weaknesses. Effectiveness requires monitoring events before and after implementation to measure actual improvement.',
+          },
+          {
+            heading: 'Risk Reporting and Tracking',
+            list: [
+              'Risk Register — inventory tracking identified risks, their ratings, owners, and mitigation activities.',
+              'Risk Matrix / Heat Map — visual representation of likelihood versus impact; helps prioritize risks.',
+              'Risk Capacity — maximum risk an organization can absorb before viability is threatened.',
+              'Risk Tolerance — acceptable variation from the risk appetite the organization is willing to accept.',
+              'Risk Appetite — amount and type of risk an organization is willing to pursue or retain.',
+            ],
+            note: 'Risk reports should be accurate, timely, and clear, and regularly updated as the risk landscape evolves.',
+          },
+          {
+            heading: 'Risk Maturity Model',
+            body: 'Evaluates organizational capability to manage risk across five levels, progressing from reactive to proactive:',
+            list: [
+              'Level 1 — Ad hoc: no repeatable process; risks addressed reactively.',
+              'Level 2 — Preliminary: some processes exist but inconsistently applied.',
+              'Level 3 — Defined: documented, standardized risk management processes.',
+              'Level 4 — Integrated: risk management embedded across the organization.',
+              'Level 5 — Optimized: continuous improvement; risk management drives strategic decisions.',
             ],
           },
         ],
@@ -541,6 +814,14 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'SCRM Risk Mitigation Approaches',
+            list: [
+              'Third-Party Assessments — on-site visits (physical security and operations) and document reviews (architecture and policies); depth of assessment correlates with closeness of partnership.',
+              'Minimum Security Requirements — establish baseline security standards to prevent vulnerabilities from propagating through integrated systems.',
+              'Service Level Agreements — align SLAs with organizational expectations and existing partner commitments to ensure operational compatibility.',
+            ],
+          },
+          {
             heading: 'Third-Party Assessment Methods',
             list: [
               'On-site assessments examining physical security and operations.',
@@ -568,9 +849,10 @@ export const domains: Domain[] = [
             heading: 'Training Methods',
             list: [
               'Phishing simulations, tailgating exercises, and social engineering scenarios.',
-              'Security champions who advocate for security within teams.',
-              'Gamification with interactive elements, scoring, and rewards.',
-              'Microtraining (under 5 minutes) for ongoing reinforcement.',
+              'Security champions — designated individuals who advocate for security culture within their teams.',
+              'Gamification — interactive elements, scoring, and rewards to increase engagement and knowledge retention.',
+              'Microtraining — focused modules under 5 minutes; ideal for reinforcing specific concepts (e.g., password hygiene) within daily workflows.',
+              'Standard training — comprehensive multi-hour sessions for foundational learning during onboarding; works best combined with ongoing microtraining.',
               'Videos, e-learning modules, and internal social media platforms.',
             ],
           },
@@ -1791,23 +2073,50 @@ export const domains: Domain[] = [
             ],
           },
           {
-            heading: 'Types of Security Testing',
+            heading: 'Internal (First-Party) Evaluations',
+            body: 'Performed by an organization\'s own security teams to measure security posture and identify vulnerabilities before external parties discover them.',
             list: [
-              'Internal Penetration Testing — simulates attack from internal network access.',
-              'Phishing Simulations — tests user awareness and email filter effectiveness.',
-              'Vulnerability Scanning — automated tools scan for known weaknesses.',
-              'Tabletop Exercises — simulated incident response discussions; low-tech but high-impact.',
-              'Red Team / Blue Team — red teams attack; blue teams defend in real time.',
+              'Internal penetration testing — identifies vulnerabilities from within networks.',
+              'Phishing simulations — tests user awareness and email filter effectiveness.',
+              'Vulnerability scanning — automated tools detect weaknesses.',
+              'Tabletop exercises — simulate incident response scenarios without disrupting operations.',
+              'Red Team/Blue Team — red teams attack; blue teams defend; measures detection and response.',
+              'Internal audits — verify compliance with internal policies, standards, and regulations.',
+            ],
+            warning: 'Conflict of interest arises when auditors review their own work. Mitigations: independent teams, auditor rotation, direct reporting to leadership, supplementing with external audits.',
+          },
+          {
+            heading: 'Second-Party Evaluations',
+            body: 'Conducted by customers or partners to verify security requirements through contractual obligations. Activities include penetration testing, source code reviews, vulnerability scans, and formal on-site audits.',
+            list: [
+              'Advantages — increased trust, early risk identification, improved accountability.',
+              'Considerations — expectations must be clearly defined in contracts to prevent disputes.',
+            ],
+          },
+          {
+            heading: 'Third-Party Audits',
+            body: 'Independent external organizations provide objective evaluations following structured methodologies: scope definition, document review and interviews, technical testing and verification, and audit report and certification.',
+            list: [
+              'Benefits — impartiality, credibility with stakeholders, risk reduction, regulatory compliance assurance.',
             ],
           },
           {
             heading: 'SOC Reports',
             list: [
               'SOC 1 — financial reporting controls.',
-              'SOC 2 — data security and system reliability (Security, Availability, Processing Integrity, Confidentiality, Privacy).',
-              'SOC 3 — public summary of SOC 2 findings.',
-              'Type 1 — controls in place at a specific point in time.',
-              'Type 2 — controls operated effectively over 6–12 months.',
+              'SOC 2 — data security and system reliability (five Trust Service Criteria: Security, Availability, Processing Integrity, Confidentiality, Privacy).',
+              'SOC 3 — public summary version of SOC 2.',
+              'Type 1 — controls assessed at a specific point in time.',
+              'Type 2 — control effectiveness evaluated over 6–12 months (stronger assurance).',
+            ],
+          },
+          {
+            heading: 'ISO 27001 Audit Outcomes',
+            list: [
+              'Certification Granted — meets requirements; minor observations acceptable.',
+              'Certification Delayed — major non-conformities found; must fix before certification.',
+              'Certification Denied — ISMS not aligned; must restart preparation.',
+              'Surveillance Audits — annual lighter checks after initial certification; full recertification every 3 years.',
             ],
           },
         ],
@@ -1844,16 +2153,72 @@ export const domains: Domain[] = [
             ],
           },
           {
-            heading: 'Other Testing Methods',
+            heading: 'Log Reviews',
+            body: 'Log review systematically examines log files to detect abnormal patterns, unauthorized actions, and security incidents. SIEM systems automatically collect, normalize, correlate, and analyze logs from multiple sources in real time.',
             list: [
-              'Log Reviews — SIEM analysis; NetFlow; detect incidents and maintain compliance.',
-              'Synthetic Transactions — automated tests simulating user behavior 24/7.',
-              'Code Review — manual/automated; Fagan inspections; static and dynamic analysis.',
-              'Misuse Case Testing — design attack scenarios using UML diagrams.',
-              'Coverage Analysis — statement, branch, condition, function, and loop coverage metrics.',
-              'Interface Testing — GUI, CLI, REST API, RPC, IPC, and physical interfaces as attack vectors.',
-              'Breach Attack Simulation — automated continuous simulation of realistic attack chains.',
+              'NetFlow — Cisco protocol recording IP traffic flows (source/destination IP, ports, protocols, data volume, timestamps).',
+              'Log Management Lifecycle — Generation, collection, centralization, storage, analysis, retention, secure disposal.',
             ],
+          },
+          {
+            heading: 'Synthetic Transactions and Real User Monitoring',
+            list: [
+              'Synthetic Transactions — fake automated actions simulating legitimate user behavior to detect failures before real users encounter them; provide 24/7 availability testing and baseline monitoring.',
+              'Real User Monitoring (RUM) — tracks actual user interactions in real time; detects unusual patterns, bot activity, DDoS attacks, and distinguishes user errors from security breaches.',
+            ],
+          },
+          {
+            heading: 'Code Review and Testing',
+            list: [
+              'Fagan Inspection — formal structured process: Planning → Overview → Preparation → Inspection Meeting → Rework → Follow-up.',
+              'Static Testing — reviews code without execution; detects buffer overflows, hardcoded secrets, weak cryptography.',
+              'Dynamic Testing — executes applications observing runtime behavior; DAST identifies SQL injection, XSS, authentication bypass.',
+            ],
+          },
+          {
+            heading: 'Coverage Analysis Formula',
+            body: 'Test Coverage (%) = (Items tested / Total items) × 100',
+            table: {
+              headers: ['Coverage Type', 'Focus', 'Security Value'],
+              rows: [
+                ['Statement', 'Each line of code executed', 'Ensures no code goes untested'],
+                ['Branch', 'All decision paths tested', 'Detects untested logic paths'],
+                ['Condition', 'Individual conditions in decisions', 'Catches edge case failures'],
+                ['Function', 'All functions called', 'Identifies unused or risky code'],
+                ['Loop', 'Zero, one, multiple iterations', 'Prevents overflow or infinite loops'],
+              ],
+            },
+          },
+          {
+            heading: 'Interface Testing',
+            body: 'Interfaces are potential attack vectors — each must be tested for safety and security.',
+            list: [
+              'GUI — visible buttons, forms, menus; test input validation and error handling.',
+              'CLI — text-based command entry; test for command injection.',
+              'REST APIs — use URLs and JSON/XML over HTTP/HTTPS; risks include improper validation and data leakage.',
+              'RPC — remote function calls; risk: unauthorized function triggering.',
+              'IPC — inter-process communication via shared memory, queues, sockets; risk: hijacking or injection.',
+              'Physical Interfaces — USB ports, cables; risk: rogue device connection.',
+            ],
+          },
+          {
+            heading: 'Breach and Attack Simulation (BAS)',
+            body: 'Continuously simulates realistic cyberattacks in controlled environments to test defense effectiveness. Unlike vulnerability scanning, BAS actively simulates attacker behavior including malware, lateral movement, and data exfiltration.',
+            list: [
+              'By Target: endpoints, network infrastructure, cloud services, identity systems, web applications, databases.',
+              'By Vector: email attacks, web-based attacks, lateral movement, malware execution, data exfiltration.',
+              'Value: continuous validation vs. annual assessments; measures detection and response effectiveness.',
+            ],
+          },
+          {
+            heading: 'Compliance Checks',
+            body: 'Verify systems, processes, and data handling meet rules established by governments, regulators, and industry bodies.',
+            list: [
+              'Geographic variation — location determines applicable laws (GDPR in Europe, state laws in U.S.).',
+              'Industry variation — PCI-DSS for finance, HIPAA for healthcare, NIST for government.',
+              'Implementation steps: understand requirements → map to systems → collect evidence → run scans → gap analysis → document and certify.',
+            ],
+            note: 'Compliance requires both technical controls and documented procedures.',
           },
         ],
       },
@@ -1862,11 +2227,43 @@ export const domains: Domain[] = [
         title: '6.3 Collect Security Process Data',
         content: [
           {
+            heading: 'Account Management',
+            body: 'Account management involves creating, monitoring, updating, and deleting user accounts to ensure only authorized personnel have appropriate access. User accounts are primary attack vectors — compromised accounts enable lateral movement, privilege escalation, and data theft.',
+            table: {
+              headers: ['Category', 'Focus', 'Examples'],
+              rows: [
+                ['Administrative Process', 'Policy enforcement', 'Account creation criteria, approval workflows, role assignment, review frequency, offboarding procedures'],
+                ['Technical Implementation', 'Systems and tools', 'Identity platforms (Active Directory, Azure AD), password policies, RBAC, MFA, activity logging'],
+                ['Physical Controls', 'Device and facility protection', 'Building access, server room controls, hardware tokens, screen lockouts, encryption'],
+              ],
+            },
+          },
+          {
+            heading: 'Account Lifecycle — Join-Move-Leave',
+            list: [
+              'Join — create account with least-privilege permissions based on job role.',
+              'Move — update permissions when roles change; remove old access immediately.',
+              'Leave — immediately disable or delete account to prevent unauthorized access.',
+            ],
+            warning: 'Common issues: orphaned accounts, default or shared passwords, excessive privileges, stale unmonitored accounts, disabled logging.',
+          },
+          {
+            heading: 'Management Review and Approval',
+            body: 'Leadership formally reviews and approves security policies, controls, test results, and risk decisions. This ensures cybersecurity aligns with business objectives, receives proper funding, and maintains accountability.',
+            list: [
+              'ISO 27001 — regular ISMS reviews analyzing audits, metrics, and nonconformities.',
+              'NIST SP 800-53 — authorizing officials must approve security assessments before production deployment.',
+              'SOC 2 — management must document monitoring and control effectiveness reviews.',
+              'COBIT — requires governance oversight, continuous monitoring, and formal risk approvals.',
+            ],
+          },
+          {
             heading: 'KPIs vs KRIs',
             list: [
-              'KPIs (Key Performance Indicators) — measure performance against goals (e.g., patch deployment speed).',
-              'KRIs (Key Risk Indicators) — identify emerging risks (e.g., unpatched vulnerability count, phishing failure rates).',
+              'KPIs (Key Performance Indicators) — measure how well security processes meet goals (e.g., patch deployment speed, incident detection/response times).',
+              'KRIs (Key Risk Indicators) — warn of rising dangers (e.g., unpatched vulnerabilities, failed login attempts, phishing simulation failure rates, misconfigured cloud storage).',
             ],
+            note: 'Strong performance (high KPI) does not guarantee low risk (high KRI), and vice versa. Both perspectives are essential.',
           },
           {
             heading: 'Backup Verification — 3-2-1 Rule',
@@ -1875,15 +2272,22 @@ export const domains: Domain[] = [
               '2 — store on two different media types.',
               '1 — keep one copy offsite.',
             ],
-            note: 'Test backups regularly through test restores and checksums to ensure data integrity.',
+            note: 'Test backups regularly through periodic test restores in isolated environments and checksum verification. Automated corruption checks should be enabled in backup systems.',
           },
           {
-            heading: 'Security Process Data Categories',
+            heading: 'Training and Awareness',
+            body: 'Training provides formal instruction in specific skills; awareness builds a security mindset through messages, posters, reminders, and examples. Security training requires continuous updates as threats evolve — one-time sessions are insufficient.',
             list: [
-              'Account Management — Join-Move-Leave lifecycle tracking.',
-              'Management Review and Approval — ISO 27001, NIST SP 800-53, SOC 2, COBIT all require formal leadership oversight.',
-              'Training and Awareness — phishing click rates, incident reporting rates, quiz results, policy compliance.',
-              'DR/BC Testing — tabletop exercises or full simulations validate RTO and RPO before actual incidents.',
+              'Effectiveness metrics: phishing click rates (pre/post training), employee incident reporting frequency, quiz/test performance, policy compliance rates, reduction in audit findings.',
+            ],
+          },
+          {
+            heading: 'Disaster Recovery and Business Continuity Testing',
+            list: [
+              'DR and BC plans document recovery procedures for major disruptions; plans fail without testing.',
+              'Testing approaches: tabletop exercises (scenario discussion), partial failover tests, full system recovery simulations.',
+              'Critical metrics: RTO (maximum acceptable restoration time), RPO (maximum tolerable data loss).',
+              'Frequency: test at least annually, plus after major changes or incidents.',
             ],
           },
         ],
@@ -1946,30 +2350,61 @@ export const domains: Domain[] = [
         title: '6.5 Security Audits',
         content: [
           {
+            heading: 'Core Definition',
+            body: 'Auditing serves as a formal, structured way to validate that systems are both compliant with standards and protected against threats.',
+          },
+          {
             heading: 'Audit Types',
             list: [
-              'First-Party (Internal) — conducted by the organization itself; verifies compliance with internal policies.',
+              'First-Party (Internal) — conducted by the organization itself; verifies compliance with internal policies and identifies gaps before external parties discover them.',
               'Second-Party — conducted by a customer or partner; verifies contractual security requirements.',
               'Third-Party — independent external organizations; most objective; used for ISO 27001, SOC 2, PCI DSS.',
             ],
           },
           {
+            heading: 'Location Considerations',
+            list: [
+              'On-Premises — direct physical inspection of security controls, servers, and infrastructure.',
+              'Cloud — assessment focuses on shared responsibility models and provider certifications rather than physical access.',
+              'Hybrid — auditors must evaluate both physical and cloud environments plus data flows between them.',
+            ],
+          },
+          {
+            heading: 'Sampling Methodology',
+            body: 'Organizations often use sampling to reduce audit scope while maintaining representativeness:',
+            list: [
+              'Random sampling — unbiased selection; every item has an equal chance of being selected.',
+              'Stratified sampling — group-based selection; ensures all segments are represented.',
+              'Judgmental sampling — risk-focused selection; auditor applies expertise to choose items.',
+            ],
+          },
+          {
+            heading: 'Major Audit Frameworks',
+            list: [
+              'SSAE 18 — American Institute of CPAs standard for SOC reports.',
+              'ISO/IEC 15408 — Common Criteria for IT security evaluation.',
+              'NIST SP 800-53A — assessment procedures for federal systems.',
+              'FedRAMP SAF — security assessment framework for government cloud services.',
+            ],
+          },
+          {
+            heading: 'Audit Cycle Phases',
+            list: [
+              '1. Planning — define scope and objectives.',
+              '2. Fieldwork — collect evidence from systems and interviews.',
+              '3. Analysis — compare findings against expected controls.',
+              '4. Reporting — document gaps and recommendations.',
+              '5. Remediation — fix identified issues and verify corrections.',
+            ],
+          },
+          {
             heading: 'Conflict of Interest in Internal Audits',
-            body: 'When someone reviews a process they helped design or manage, it\'s difficult to be objective. Mitigations:',
+            body: 'When someone reviews a process they helped design or manage, objectivity is compromised. Mitigations:',
             list: [
               'Use independent teams within the company.',
               'Rotate auditors to avoid familiarity bias.',
               'Report audit results directly to senior leadership or the board.',
               'Supplement with periodic third-party audits.',
-            ],
-          },
-          {
-            heading: 'ISO 27001 Audit Outcomes',
-            list: [
-              'Certification Granted — meets requirements; minor observations acceptable.',
-              'Certification Delayed — major non-conformities found; must fix before certification.',
-              'Certification Denied — ISMS not aligned; must restart preparation.',
-              'Surveillance Audits — annual lighter checks after initial certification; full recertification every 3 years.',
             ],
           },
         ],
@@ -2043,32 +2478,68 @@ export const domains: Domain[] = [
             heading: 'Evidence Types',
             list: [
               'Real Evidence — physical objects (drives, devices, documents).',
-              'Documentary Evidence — written or recorded materials (logs, emails, configurations).',
-              'Testimonial Evidence — witness statements and expert testimony.',
-              'Demonstrative Evidence — visual aids explaining other evidence (diagrams, timelines).',
+              'Documentary Evidence — written or recorded materials (logs, emails, configurations, contracts).',
+              'Testimonial Evidence — witness statements and expert testimony; often weaker due to bias/memory issues.',
+              'Demonstrative Evidence — visual aids explaining other evidence (diagrams, timelines, reconstructions).',
             ],
           },
           {
             heading: 'Evidence Admissibility',
             list: [
-              'Relevance — directly related to the case.',
-              'Materiality — significant to the outcome.',
-              'Competence — properly collected and handled; chain of custody maintained.',
+              'Relevance — direct connection to the case.',
+              'Materiality — significant importance to the investigation outcome.',
+              'Competence — legally collected and properly handled; chain of custody maintained.',
             ],
+          },
+          {
+            heading: 'Legal Evidence Acquisition Methods',
+            table: {
+              headers: ['Method', 'Application'],
+              rows: [
+                ['Voluntary Surrender', 'Consensual handover of data or hardware'],
+                ['Subpoena', 'Court-ordered compulsion to produce evidence'],
+                ['Plain View Doctrine', 'Visible evidence discovered during lawful access'],
+                ['Search Warrant', 'Court authorization for specific seizure'],
+                ['Exigent Circumstances', 'Emergency collection to prevent destruction of evidence'],
+              ],
+            },
           },
           {
             heading: 'Order of Volatility (Most → Least Volatile)',
             list: [
-              '1. CPU registers and cache.',
-              '2. RAM (Random Access Memory).',
-              '3. Network connections and routing tables.',
-              '4. Running processes.',
-              '5. Disk storage.',
-              '6. Remote logging and monitoring data.',
-              '7. Physical configuration and network topology.',
-              '8. Offline backups and archival media.',
+              '1. CPU registers, cache, RAM.',
+              '2. Memory-resident processes, network connections.',
+              '3. Swap files, paging files, logs.',
+              '4. Hard drive files and system data.',
+              '5. Archived backups, offline storage.',
             ],
-            note: 'Locard\'s Exchange Principle — "every contact leaves a trace" — underlies all forensic investigation.',
+            note: 'Locard\'s Exchange Principle — "every contact leaves a trace" — all system interactions create detectable artifacts for skilled investigators.',
+          },
+          {
+            heading: 'Investigative Techniques',
+            list: [
+              'Data Capture — forensic imaging, memory extraction, network traffic capture.',
+              'Interviews — non-confrontational fact-gathering from witnesses.',
+              'Interrogations — adversarial questioning of suspects.',
+              'External Requests — third-party data acquisition via formal legal channels.',
+            ],
+          },
+          {
+            heading: 'Digital Forensics Tools',
+            list: [
+              'Acquisition — write blockers (prevent media modification), Faraday containers (block wireless), recording equipment.',
+              'Analysis — network traffic analysis, log parsing, data recovery, virtual machines, code analysis, hashing.',
+              'Forensic suites — FTK (Forensic Toolkit), EnCase, Autopsy.',
+            ],
+          },
+          {
+            heading: 'Investigation Artifacts by Source',
+            list: [
+              'Data artifacts — files, metadata, database entries, configuration changes.',
+              'Computer artifacts — event logs, process lists, scheduled tasks, registry entries.',
+              'Network artifacts — firewall logs, NetFlow records, packet captures, DNS queries.',
+              'Mobile artifacts — call/message logs, geolocation data, application data, cache.',
+            ],
           },
         ],
       },
@@ -2154,30 +2625,70 @@ export const domains: Domain[] = [
         title: '7.4 Foundational Security Operations Concepts',
         content: [
           {
-            heading: 'Core Principles',
+            heading: 'Need-to-Know and Least Privilege',
+            body: 'These two principles work together to create layered defense where users access only what they must have, not what they could want.',
             list: [
-              'Need-to-Know — restricts information access based on operational necessity.',
-              'Least Privilege — limits permissions granted to users.',
-              'Separation of Duties — prevents single individual from having unchecked control.',
-              'Two-Person Control (Dual Authorization) — dual approval required for sensitive actions.',
-              'Job Rotation — moves personnel through roles; detects long-running fraud.',
-              'Mandatory Vacations — forced absences detect misconduct during absence.',
+              'Need-to-Know — just because you have a badge or clearance doesn\'t mean you get access; access is based on current operational necessity.',
+              'Least Privilege — even if you need access, you should only get the minimum level of rights necessary.',
+              'Security clearance confirms trustworthiness; it does not automatically grant access to all information at that level.',
+              'Need-to-Know is dynamic — it changes based on current roles and projects.',
             ],
           },
           {
-            heading: 'Privileged Account Management (PAM)',
-            body: 'Strategies and tools for controlling, monitoring, securing, and auditing high-value accounts (administrators, service accounts, root, domain admins). Core PAM features:',
+            heading: 'Separation of Duties (SoD)',
+            body: 'No single individual should have unchecked power or control over critical processes.',
             list: [
-              'Password vaulting — secure storage and retrieval of privileged credentials.',
-              'Session monitoring — recording of privileged user sessions.',
-              'Automated password rotation — regular credential changes without human intervention.',
-              'Just-in-time access — temporary elevation only when needed.',
+              'Two-Person Control — requires two qualified individuals to complete sensitive actions together (e.g., deploying software updates, revoking certificates, accessing cryptographic keys, changing firewall rules).',
+              'Job Rotation — prevents individuals from building unassailable control; exposes hidden bad practices; disrupts cover-up ability; distributes knowledge for resilience.',
+              'Mandatory Vacations — creates opportunities to review work; disrupts ability to conceal wrongdoing; detects log manipulation, unauthorized access, and configuration drift.',
             ],
-            warning: 'Common PAM failures: password sharing, overprovisioning, and neglected service accounts.',
           },
           {
-            heading: 'Service Level Agreements (SLAs)',
-            body: 'Formal contracts specifying service performance metrics. Security-specific clauses address: incident response times, patch deployment windows, uptime guarantees, and data handling standards.',
+            heading: 'Privileged Account Types',
+            table: {
+              headers: ['Account Type', 'Description'],
+              rows: [
+                ['Administrator accounts', 'Create/delete users, change configurations, access all data'],
+                ['Service accounts', 'Run applications; frequently forgotten and unmanaged'],
+                ['Root accounts', 'Unlimited power over a system (Unix/Linux)'],
+                ['Domain administrator accounts', 'Control entire Active Directory environment'],
+              ],
+            },
+          },
+          {
+            heading: 'PAM Solution Features',
+            table: {
+              headers: ['Feature', 'Purpose', 'Real-World Effect'],
+              rows: [
+                ['Password Vaulting', 'Secure credential storage', 'No passwords on sticky notes or shared spreadsheets'],
+                ['Session Monitoring', 'Watch and record privileged sessions', 'Early detection of bad or unusual behavior'],
+                ['Password Rotation', 'Frequently change passwords automatically', 'Limits attacker opportunity window'],
+                ['Access Justification', 'Require users to justify access requests', 'Deters unnecessary privileged use'],
+              ],
+            },
+            warning: 'Common PAM failures: password sharing defeats accountability; overprovisioning grants temporary rights that are never removed; service accounts running critical processes are frequently neglected.',
+          },
+          {
+            heading: 'Job Rotation Benefits and Challenges',
+            table: {
+              headers: ['Benefit', 'Description'],
+              rows: [
+                ['Fraud Detection and Prevention', 'People less likely to commit fraud knowing others will step into their role; irregularities surface naturally'],
+                ['Cross-Training and Redundancy', 'Creates institutional memory; builds agile teams; improves organizational resilience'],
+                ['Boosting Policy Compliance', 'Surfaces bad habits and non-compliant behavior; fresh perspectives identify misconfigurations'],
+              ],
+            },
+          },
+          {
+            heading: 'Service Level Requirements and Agreements',
+            body: 'Service Level Requirements (SLRs) are the organizational wishlist for what is expected from a service in terms of security and performance — not legally binding, but set the stage for SLA negotiation.',
+            list: [
+              'Incident response timeframes — e.g., Severity 1 incidents responded to within 1 hour.',
+              'Patch deployment SLAs — e.g., critical vulnerabilities patched within 5 business days.',
+              'Uptime and availability — e.g., 99.99% uptime guarantee.',
+              'Data retention periods, encryption standards, log delivery times.',
+            ],
+            note: 'SLA monitoring uses automated dashboards and SIEM tools; tied to KPIs like Mean Time to Detect (MTTD) and Mean Time to Respond (MTTR).',
           },
         ],
       },
@@ -2356,6 +2867,15 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Backup Storage Strategies',
+            list: [
+              'Onsite Backups — stored within organizational premises; fastest restoration but vulnerable to same threats as primary systems (ransomware, disaster, insider threats).',
+              'Offsite Backups — physically separate location (remote facility, secure vault); resilient to localized disasters; requires encryption in transit and at rest; trade-offs: higher costs and longer retrieval times.',
+              'Cloud Storage — offers scalability, geo-redundancy, reduced overhead; challenges: bandwidth limitations, egress costs, compliance and data residency concerns.',
+            ],
+            note: '3-2-1 Strategy: three copies of data, two storage media types, one copy offsite. Use AES-256 encryption and immutable backup formats.',
+          },
+          {
             heading: 'Backup Types',
             table: {
               headers: ['Type', 'What is backed up', 'Create time', 'Restore time'],
@@ -2369,9 +2889,18 @@ export const domains: Domain[] = [
           {
             heading: 'Recovery Sites',
             list: [
-              'Hot Site — fully operational duplicate; immediate failover; most expensive.',
-              'Warm Site — partially configured; hours to days to bring online; moderate cost.',
-              'Cold Site — empty facility with infrastructure; days to weeks to activate; cheapest.',
+              'Hot Site — fully operational, near real-time data synchronization; recovery time: minutes to seconds; most expensive; requires continuous updates and licensing.',
+              'Warm Site — pre-installed systems with delayed data replication; recovery time: hours to one day; moderate cost; requires periodic maintenance.',
+              'Cold Site — basic infrastructure only, no pre-installed hardware or data; recovery time: days to weeks; most cost-effective; ideal for non-critical applications.',
+            ],
+          },
+          {
+            heading: 'System Resilience and High Availability',
+            list: [
+              'High Availability (HA) — remains operational for high percentage of time (e.g., 99.9%, 99.999% "five nines").',
+              'Fault Tolerance — continues operations without interruption despite component failures; uses redundancy (RAID, mirrored servers, dual power supplies).',
+              'Quality of Service (QoS) — prioritizes critical traffic to ensure performance for essential functions.',
+              'Network quality factors: bandwidth (capacity), latency (delay), jitter (variation), packet loss, interference.',
             ],
           },
           {
@@ -2506,32 +3035,37 @@ export const domains: Domain[] = [
         content: [
           {
             heading: 'Perimeter Security Controls',
-            list: [
-              'Barriers and Fencing — 7-foot fencing with razor ribbon and bollards; deter and delay unauthorized entry.',
-              'Mantraps — controlled entry points that force verification and prevent tailgating.',
-              'Lighting — proper illumination as deterrent and detection aid.',
-              'Surveillance (CCTV) — real-time monitoring; alerts must be configured properly.',
-              'Intrusion Detection — pressure sensors, vibration detectors, infrared systems.',
-              'Security Guards — human presence adds flexibility, judgment, and deterrence.',
-            ],
+            body: 'Physical perimeter security prevents attackers from bypassing digital controls through direct access. An attacker with physical access can remove hard drives, insert malicious USB devices, or shut down power supplies.',
+            table: {
+              headers: ['Layer', 'Purpose', 'Tools'],
+              rows: [
+                ['Outer Physical Barrier', 'Deter and delay unauthorized entry', 'Fence (min 7 ft with barbed wire), walls, bollards'],
+                ['Controlled Entry Points', 'Enforce authorized access and create audit trail', 'Gates, badge readers, mantraps (interlocking doors)'],
+                ['Surveillance and Detection', 'Monitor, record, and alert on suspicious activity', 'CCTV with AI analytics, motion sensors, intrusion detectors'],
+                ['Lighting', 'Deter and improve visibility', 'Floodlights, motion-activated lighting'],
+                ['Human Response', 'Verify, react, and escalate', 'Security guards, roving patrols'],
+              ],
+            },
+            note: 'CPTED (Crime Prevention Through Environmental Design) — landscape design with thorny bushes and strategic walkways naturally discourages unauthorized movement.',
           },
           {
             heading: 'Internal Security Controls',
             list: [
-              'Role-Based Access — restricting movement based on job function (least privilege).',
-              'Internal Barriers — locked doors, turnstiles, and secure zones.',
-              'Video Monitoring — real-time surveillance with intelligent anomaly alerts.',
-              'Escort Policies — authorized personnel must accompany visitors.',
-              'Environmental Protection — fire suppression, temperature control, leak detection.',
+              'Role-Based Access — principle of least privilege ensures individuals access only areas necessary for their job function.',
+              'Internal Barriers — locked doors, turnstiles, secure cages, and multi-factor authentication (badge + biometric) create zones and slow unauthorized movement.',
+              'Video Surveillance — real-time monitoring with intelligent alerts detects anomalies like after-hours access.',
+              'Intrusion Detection — magnetic door contacts, pressure mats, infrared beams, and motion detectors in sensitive spaces.',
+              'Escort Policies — visitors and contractors receive accompanied access; escorts act as witnesses and deterrents.',
+              'Environmental Controls — fire suppression, humidity sensors, temperature controls, and water leak detectors protect against non-human threats.',
             ],
-            note: 'Access must be treated as a living system — continuously reviewed, not a one-time setup.',
+            note: 'Access systems require continuous review and revocation processes; unrevoked access from terminated employees is a major vulnerability.',
           },
           {
             heading: 'Personnel Safety Concerns',
             list: [
-              'Duress — systems or code words to silently signal security when under threat.',
-              'Travel Security — awareness of physical risks when traveling with devices.',
-              'Emergency Preparedness — evacuation plans, assembly points, emergency communication.',
+              'Duress — systems or code words (duress codes/PINs) to silently signal security when under coercion.',
+              'Travel Security — clean devices, VPN, awareness of jurisdiction-specific device search laws.',
+              'Emergency Preparedness — evacuation plans, assembly points, documented emergency communication plans.',
               'Workplace Violence — policies and training for identifying and responding to threats.',
             ],
           },
@@ -2637,31 +3171,62 @@ export const domains: Domain[] = [
           {
             heading: 'Development Methodologies',
             list: [
-              'Waterfall — sequential phases; security flaws discovered late are expensive; define security requirements upfront.',
-              'Agile / Scrum — iterative sprints; risk of security becoming afterthought; embed security champions, integrate threat modeling into sprints.',
-              'Spiral — hybrid with risk focus; each cycle includes risk analysis; ideal for high-stakes systems.',
-              'DevOps — continuous integration/delivery; insecure code can rapidly reach production.',
-              'DevSecOps — embeds security at every pipeline stage; "shift left" philosophy.',
+              'Waterfall — sequential phases (requirements → design → implementation → testing → deployment → maintenance); strength: predictability and documentation for regulated environments; weakness: security changes discovered late are very costly.',
+              'Agile / Scrum — iterative 2-4 week sprints; strength: responsiveness to change; risk: security becomes secondary to speed; mitigation: embed security champions, integrate threat modeling into sprints.',
+              'Scaled Agile (SAFe) — four configuration levels: Essential SAFe, Large Solution SAFe, Portfolio SAFe, Full SAFe; challenge: scaling security governance across multiple Agile Release Trains.',
+              'Spiral — hybrid of Waterfall and iteration with risk as the core driver; formal risk assessment at each cycle; best for high-stakes systems (defense, critical infrastructure).',
+              'DevOps — continuous integration/delivery via automation; risk: unvetted code moves to production rapidly.',
+              'DevSecOps — embeds security scanners and policies directly into CI/CD pipeline; shift-left approach detects vulnerabilities early through SAST, DAST, and IaC scanning.',
             ],
           },
           {
             heading: 'Maturity Models',
             table: {
-              headers: ['Model', 'Focus', 'Structure', 'Best Used For'],
+              headers: ['Model', 'Purpose', 'Structure', 'Use Case'],
               rows: [
                 ['CMM', 'General process maturity', '5 levels (Initial → Optimizing)', 'Organizational process improvement'],
-                ['SAMM', 'Secure software development', '4 Functions × 3 Practices × 5 Levels', 'Software security improvement programs'],
-                ['IDEAL', 'Organizational change lifecycle', '5 Phases (Initiating → Learning)', 'Implementing security program changes'],
+                ['SAMM', 'Secure software development', '4 Functions × 3 Practices × 5 Levels', 'Software security posture evaluation'],
+                ['IDEAL', 'Change management lifecycle', '5 phases (Initiating → Learning)', 'Security program transformation'],
               ],
             },
+          },
+          {
+            heading: 'CMM Levels',
+            list: [
+              '1. Initial — ad hoc, unpredictable processes.',
+              '2. Repeatable — basic project management in place.',
+              '3. Defined — organization-wide standards established.',
+              '4. Managed — measured and controlled processes.',
+              '5. Optimizing — continuous improvement culture.',
+            ],
+          },
+          {
+            heading: 'SAMM Business Functions',
+            list: [
+              'Governance — Strategy & Metrics, Policy & Compliance, Education & Guidance.',
+              'Construction — Threat Assessment, Secure Architecture, Secure Build.',
+              'Verification — Security Testing, Code Review, Security Assessment.',
+              'Deployment — Environment Hardening, Operational Enablement, Defect Management.',
+            ],
+          },
+          {
+            heading: 'Integrated Product Team (IPT)',
+            body: 'A multidisciplinary group spanning development, architecture, testing, operations, security, legal, and compliance that collaborates throughout the product lifecycle.',
+            list: [
+              'Security integrated from day one, not appended later.',
+              'Early identification of threats via cross-functional input.',
+              'Supports "shift left" by addressing risks during design.',
+              'Shared ownership reduces blame and accelerates continuous improvement.',
+            ],
           },
           {
             heading: 'Change Management in SDLC',
             list: [
               'Request Control — formal documentation of proposed changes.',
-              'Change Control — review, evaluation, and approval/rejection with risk assessment.',
-              'Release Control — deployment to live environment with testing and scheduling.',
+              'Change Control — review, evaluation, and approval/rejection with risk assessment; segregation of duties: requestor ≠ approver ≠ deployer.',
+              'Release Control — deployment to live environment with testing and scheduling; every change requires a rollback plan.',
             ],
+            note: 'Emergency changes still require streamlined approval and post-change review. Audit trails must document all modifications.',
           },
         ],
       },
@@ -2670,35 +3235,78 @@ export const domains: Domain[] = [
         title: '8.2 Security Controls in Development Ecosystems',
         content: [
           {
-            heading: 'Application Security Testing Methods',
+            heading: 'Programming Language Security',
+            list: [
+              'Memory Safety — C/C++ lack built-in protections, making buffer overflows common; Java/Python use safer runtime sandboxing.',
+              'Input Validation — critical for preventing injection attacks across all languages.',
+              'Mobile Security — Swift (iOS) and Kotlin (Android) operate in permission-controlled environments.',
+              'Supply Chain Risk — dependency hijacking: attackers register package names matching internal private dependencies.',
+            ],
+          },
+          {
+            heading: 'Security Tool Categories',
             table: {
-              headers: ['Method', 'Focus', 'Runs App?', 'Best For'],
+              headers: ['Category', 'Purpose', 'Security Relevance'],
               rows: [
-                ['SAST (Static)', 'Source code analysis', 'No', 'Early detection, logic flaws'],
-                ['DAST (Dynamic)', 'Runtime behavior', 'Yes', 'External attack simulation'],
-                ['SCA (Composition)', 'Third-party dependencies', 'No', 'Inherited vulnerability discovery'],
-                ['IAST (Interactive)', 'Code + runtime hybrid', 'Yes', 'Contextual findings, fewer false positives'],
+                ['Version Control', 'Track code changes', 'Provides accountability and traceability'],
+                ['SAST', 'Analyze source code', 'Identifies flaws early in development'],
+                ['DAST', 'Test running applications', 'Detects runtime vulnerabilities'],
+                ['Dependency Management', 'Manage external packages', 'Prevents supply chain attacks'],
+                ['Configuration Management', 'Standardize environments', 'Reduces configuration drift'],
+                ['Monitoring/Logging', 'Real-time data collection', 'Enables detection and forensic analysis'],
+                ['Test Automation', 'Automate testing', 'Ensures security fixes remain effective'],
+                ['Infrastructure-as-Code', 'Define infrastructure', 'Creates auditable, reproducible setups'],
               ],
             },
           },
           {
-            heading: 'CI/CD Pipeline Security',
-            body: 'Automation enables consistent security enforcement but can rapidly propagate malicious code. Key controls:',
+            heading: 'Application Security Testing Methods',
+            table: {
+              headers: ['Method', 'Type', 'Key Strength', 'Key Limitation'],
+              rows: [
+                ['SAST', 'White-box (code)', 'Early detection, deep logic inspection', 'High false positives, no runtime context'],
+                ['DAST', 'Black-box (runtime)', 'Realistic external attacker perspective', 'Limited internal insight'],
+                ['SCA', 'Dependency analysis', 'Identifies inherited vulnerability risks', 'Only analyzes third-party components'],
+                ['IAST', 'Hybrid (code + runtime)', 'Real-time insights with fewer false positives', 'Requires test environment setup'],
+              ],
+            },
+          },
+          {
+            heading: 'IDE Security Risks',
             list: [
-              'Integrate SAST and SCA into pipeline gates.',
-              'Use secrets management (never hardcode credentials in pipelines).',
-              'Enforce RBAC on pipeline systems.',
-              'Maintain detailed audit logs of all pipeline actions.',
-              'Secure CI servers like production systems.',
+              'Plugin Risks — compromised extensions can leak credentials or source code.',
+              'Credential Management — modern IDEs should warn about hardcoded secrets.',
+              'Debug Safety — debug modes must be disabled in production to prevent sensitive data exposure.',
+              'AI Code Suggestions — may introduce insecure patterns from training data.',
+            ],
+          },
+          {
+            heading: 'Runtime Security',
+            list: [
+              'RASP (Runtime Application Self-Protection) — embeds protection within applications to monitor and block attacks in real-time.',
+              'Memory Exploitation — buffer overflows enable arbitrary code execution; use bounds checking.',
+              'Resource Management — DoS attacks exploit memory leaks and resource exhaustion.',
+              'Least Privilege — applications should only have permissions necessary for their functions.',
+            ],
+          },
+          {
+            heading: 'CI/CD Pipeline Security',
+            body: 'Treat CI servers as production-level assets due to their access to secrets and deployment pipelines. Automation enables consistent security but can rapidly propagate malicious code.',
+            list: [
+              'Integrate SAST and SCA into pipeline gates (shift left).',
+              'Use secrets management — never hardcode credentials in pipelines.',
+              'Enforce RBAC on pipeline systems and audit all actions.',
+              'Use SBOMs and trusted registries to prevent compromised components from reaching production.',
             ],
           },
           {
             heading: 'Code Repository Security',
             list: [
               'Role-based access control with branch protections.',
-              'Commit signing and code review requirements.',
+              'Commit signing to cryptographically verify developer identity.',
               'Secret scanning to detect leaked credentials.',
-              'Pull request approval workflows.',
+              'Mandatory pull request approval workflows and code reviews.',
+              'MFA enforcement on repository access.',
             ],
           },
         ],
