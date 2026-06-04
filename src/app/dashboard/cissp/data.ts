@@ -193,6 +193,34 @@ export const domains: Domain[] = [
             warning: 'Excessive focus on security can sometimes lead to its own set of challenges. Emphasizing confidentiality too much may inadvertently limit availability, while an excessive focus on integrity can also restrict availability. Similarly, prioritizing availability excessively may compromise both confidentiality and integrity.',
           },
           {
+            diagram: {
+              caption: 'CIA Triad — the three foundational pillars of information security and their opposite threats (DAD)',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" font-family="ui-monospace,monospace" font-size="13">
+  <rect width="560" height="320" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="280" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">CIA Triad vs DAD Threats</text>
+  <!-- Triangle background fill -->
+  <polygon points="280,55 70,270 490,270" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <!-- C node -->
+  <circle cx="280" cy="58" r="42" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="280" y="54" text-anchor="middle" font-weight="bold" fill="white" font-size="13">Confidentiality</text>
+  <text x="280" y="70" text-anchor="middle" fill="#dbeafe" font-size="11">vs Disclosure</text>
+  <!-- I node -->
+  <circle cx="90" cy="268" r="42" fill="#22c55e" stroke="#15803d" stroke-width="2"/>
+  <text x="90" y="264" text-anchor="middle" font-weight="bold" fill="white" font-size="13">Integrity</text>
+  <text x="90" y="280" text-anchor="middle" fill="#dcfce7" font-size="11">vs Alteration</text>
+  <!-- A node -->
+  <circle cx="470" cy="268" r="42" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+  <text x="470" y="264" text-anchor="middle" font-weight="bold" fill="white" font-size="13">Availability</text>
+  <text x="470" y="280" text-anchor="middle" fill="#fef3c7" font-size="11">vs Destruction</text>
+  <!-- Center label -->
+  <text x="280" y="178" text-anchor="middle" font-size="12" font-weight="bold" fill="#475569">Information</text>
+  <text x="280" y="196" text-anchor="middle" font-size="12" font-weight="bold" fill="#475569">Security</text>
+  <!-- Legend -->
+  <text x="280" y="305" text-anchor="middle" font-size="11" fill="#64748b">Controls: Encryption · Hashing · Redundancy · Access Controls · Backups</text>
+</svg>`,
+            },
+          },
+          {
             table: {
               headers: ['Concept', 'ISO 27001 Definition', 'NIST Definition', 'Synthetic Definition', 'Related Terms', 'Opposite', 'Protected By'],
               rows: [
@@ -1636,6 +1664,61 @@ export const domains: Domain[] = [
             },
           },
           {
+            diagram: {
+              caption: 'NIST RMF — 7-step cycle: Prepare → Categorize → Select → Implement → Assess → Authorize → Monitor',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="560" height="340" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="280" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">NIST Risk Management Framework (RMF)</text>
+  <!-- Center hub -->
+  <circle cx="280" cy="175" r="48" fill="#1e40af" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="280" y="169" text-anchor="middle" font-weight="bold" fill="white" font-size="11">NIST</text>
+  <text x="280" y="183" text-anchor="middle" font-weight="bold" fill="white" font-size="11">RMF</text>
+  <!-- Step boxes arranged in circle: Prepare(top), Categorize(top-right), Select(right), Implement(bottom-right), Assess(bottom), Authorize(left), Monitor(top-left) -->
+  <!-- 1 Prepare - top -->
+  <rect x="210" y="44" width="140" height="38" rx="6" fill="#7c3aed" stroke="#6d28d9" stroke-width="1.5"/>
+  <text x="280" y="60" text-anchor="middle" font-weight="bold" fill="white">1. Prepare</text>
+  <text x="280" y="75" text-anchor="middle" fill="#ede9fe" font-size="10">Org &amp; system-level prep</text>
+  <!-- 2 Categorize - top right -->
+  <rect x="400" y="82" width="145" height="38" rx="6" fill="#0369a1" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="472" y="98" text-anchor="middle" font-weight="bold" fill="white">2. Categorize</text>
+  <text x="472" y="113" text-anchor="middle" fill="#e0f2fe" font-size="10">Impact level (FIPS 199)</text>
+  <!-- 3 Select - right -->
+  <rect x="418" y="155" width="130" height="38" rx="6" fill="#0f766e" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="483" y="171" text-anchor="middle" font-weight="bold" fill="white">3. Select</text>
+  <text x="483" y="186" text-anchor="middle" fill="#ccfbf1" font-size="10">Controls (NIST 800-53)</text>
+  <!-- 4 Implement - bottom right -->
+  <rect x="390" y="238" width="155" height="38" rx="6" fill="#b45309" stroke="#d97706" stroke-width="1.5"/>
+  <text x="467" y="254" text-anchor="middle" font-weight="bold" fill="white">4. Implement</text>
+  <text x="467" y="269" text-anchor="middle" fill="#fef3c7" font-size="10">Deploy &amp; document controls</text>
+  <!-- 5 Assess - bottom -->
+  <rect x="210" y="270" width="140" height="38" rx="6" fill="#b91c1c" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="280" y="286" text-anchor="middle" font-weight="bold" fill="white">5. Assess</text>
+  <text x="280" y="301" text-anchor="middle" fill="#fee2e2" font-size="10">Verify effectiveness</text>
+  <!-- 6 Authorize - bottom left -->
+  <rect x="15" y="238" width="150" height="38" rx="6" fill="#166534" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="90" y="254" text-anchor="middle" font-weight="bold" fill="white">6. Authorize</text>
+  <text x="90" y="269" text-anchor="middle" fill="#dcfce7" font-size="10">ATO decision by AO</text>
+  <!-- 7 Monitor - left -->
+  <rect x="12" y="155" width="145" height="38" rx="6" fill="#374151" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="84" y="171" text-anchor="middle" font-weight="bold" fill="white">7. Monitor</text>
+  <text x="84" y="186" text-anchor="middle" fill="#e5e7eb" font-size="10">Continuous monitoring</text>
+  <!-- Arrows connecting steps (curved arc indicators) -->
+  <path d="M280,82 L280,123" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+  <path d="M350,100 L400,100" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+  <path d="M472,120 L483,155" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+  <path d="M483,193 L467,238" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+  <path d="M390,257 L350,275" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+  <path d="M210,280 L165,270" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+  <path d="M90,238 L84,193" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+  <path d="M157,170 L232,170" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)" fill="none"/>
+  <defs>
+    <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#94a3b8"/></marker>
+  </defs>
+  <text x="280" y="325" text-anchor="middle" font-size="11" fill="#64748b">SP 800-37 Rev 2 · Integrates security, privacy, and supply chain risk</text>
+</svg>`,
+            },
+          },
+          {
             questions: [
               { q: 'What is the primary purpose of a risk framework?', a: 'A risk framework provides a structured approach for assessing, addressing, and monitoring risks.' },
               { q: 'Differentiate between the NIST RMF and CSF in terms of their focus and application.', a: 'The RMF is a comprehensive risk management process focused on identifying and responding to threats, while the CSF provides guidelines specifically for mitigating cybersecurity risks.' },
@@ -2102,6 +2185,55 @@ export const domains: Domain[] = [
           },
           {
             body: 'Data storage is another critical aspect of asset protection. Organizations need to establish clear policies and procedures for storing sensitive information, both physically and digitally. This includes choosing appropriate storage locations, implementing encryption for data at rest, and securing encryption keys using robust controls like hardware security modules (HSMs).',
+          },
+          {
+            diagram: {
+              caption: 'Three States of Data — different controls required at rest, in transit, and in use',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 280" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="560" height="280" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="280" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Three States of Data</text>
+  <!-- Data at Rest -->
+  <rect x="20" y="50" width="155" height="180" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="97" y="74" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="13">Data at Rest</text>
+  <text x="97" y="94" text-anchor="middle" fill="#475569" font-size="11">Stored on disk,</text>
+  <text x="97" y="110" text-anchor="middle" fill="#475569" font-size="11">DB, tape, cloud</text>
+  <rect x="35" y="122" width="125" height="22" rx="4" fill="#dbeafe"/>
+  <text x="97" y="137" text-anchor="middle" fill="#1e40af" font-size="11">AES-256 Encryption</text>
+  <rect x="35" y="150" width="125" height="22" rx="4" fill="#dbeafe"/>
+  <text x="97" y="165" text-anchor="middle" fill="#1e40af" font-size="11">Access Controls</text>
+  <rect x="35" y="178" width="125" height="22" rx="4" fill="#dbeafe"/>
+  <text x="97" y="193" text-anchor="middle" fill="#1e40af" font-size="11">HSM Key Mgmt</text>
+  <rect x="35" y="206" width="125" height="16" rx="4" fill="#dbeafe"/>
+  <text x="97" y="218" text-anchor="middle" fill="#1e40af" font-size="10">Backup &amp; Media Sanitization</text>
+  <!-- Data in Transit -->
+  <rect x="202" y="50" width="155" height="180" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="279" y="74" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="13">Data in Transit</text>
+  <text x="279" y="94" text-anchor="middle" fill="#475569" font-size="11">Moving over network,</text>
+  <text x="279" y="110" text-anchor="middle" fill="#475569" font-size="11">email, API calls</text>
+  <rect x="217" y="122" width="125" height="22" rx="4" fill="#dcfce7"/>
+  <text x="279" y="137" text-anchor="middle" fill="#15803d" font-size="11">TLS 1.3 / IPSec</text>
+  <rect x="217" y="150" width="125" height="22" rx="4" fill="#dcfce7"/>
+  <text x="279" y="165" text-anchor="middle" fill="#15803d" font-size="11">VPN Tunneling</text>
+  <rect x="217" y="178" width="125" height="22" rx="4" fill="#dcfce7"/>
+  <text x="279" y="193" text-anchor="middle" fill="#15803d" font-size="11">mTLS / S/MIME</text>
+  <rect x="217" y="206" width="125" height="16" rx="4" fill="#dcfce7"/>
+  <text x="279" y="218" text-anchor="middle" fill="#15803d" font-size="10">Certificate Validation</text>
+  <!-- Data in Use -->
+  <rect x="384" y="50" width="155" height="180" rx="8" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="461" y="74" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="13">Data in Use</text>
+  <text x="461" y="94" text-anchor="middle" fill="#475569" font-size="11">In RAM, CPU,</text>
+  <text x="461" y="110" text-anchor="middle" fill="#475569" font-size="11">app processing</text>
+  <rect x="399" y="122" width="125" height="22" rx="4" fill="#fef08a"/>
+  <text x="461" y="137" text-anchor="middle" fill="#92400e" font-size="11">Memory Encryption</text>
+  <rect x="399" y="150" width="125" height="22" rx="4" fill="#fef08a"/>
+  <text x="461" y="165" text-anchor="middle" fill="#92400e" font-size="11">Secure Enclaves</text>
+  <rect x="399" y="178" width="125" height="22" rx="4" fill="#fef08a"/>
+  <text x="461" y="193" text-anchor="middle" fill="#92400e" font-size="11">Access Controls</text>
+  <rect x="399" y="206" width="125" height="16" rx="4" fill="#fef08a"/>
+  <text x="461" y="218" text-anchor="middle" fill="#92400e" font-size="10">Screen Locking / DLP</text>
+  <text x="280" y="258" text-anchor="middle" font-size="11" fill="#64748b">Data must be protected in ALL three states — attackers target whichever is weakest</text>
+</svg>`,
+            },
           },
           {
             body: 'Data declassification is the process of lowering the sensitivity level of an asset. This is necessary when data no longer requires the same level of protection or when it reaches the end of its lifecycle. Declassification involves thorough documentation and often multiple levels of approval, ensuring that data is handled appropriately based on its updated classification.',
@@ -3724,7 +3856,7 @@ export const domains: Domain[] = [
     id: 'd4',
     number: 4,
     title: 'Communication and Network Security',
-    summary: 'Covers network architecture models, secure network design, network components, secure communication protocols, and defending data in motion.',
+    summary: 'Covers OSI and TCP/IP models, secure network design and segmentation, network hardware and media, wireless security, cryptographic protocols, VPNs, email security, DNS security, remote access, software-defined networking, and emerging AI-aware network defense.',
     topics: [
       {
         id: 'd4t1',
@@ -3761,6 +3893,57 @@ export const domains: Domain[] = [
             },
           },
           {
+            diagram: {
+              caption: 'OSI Model — 7 layers with key protocols and attack vectors at each layer',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 360" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="360" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">OSI Model — 7 Layers</text>
+  <!-- Column headers -->
+  <text x="30" y="48" font-weight="bold" fill="#475569" font-size="11">Layer</text>
+  <text x="80" y="48" font-weight="bold" fill="#475569" font-size="11">Name</text>
+  <text x="200" y="48" font-weight="bold" fill="#475569" font-size="11">Protocols / Function</text>
+  <text x="430" y="48" font-weight="bold" fill="#475569" font-size="11">Attack Examples</text>
+  <!-- Layer rows - top to bottom (7 to 1) -->
+  <rect x="14" y="54" width="552" height="36" rx="4" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
+  <text x="30" y="76" font-weight="bold" fill="#be185d">7</text>
+  <text x="80" y="76" font-weight="bold" fill="#be185d">Application</text>
+  <text x="200" y="76" fill="#374151" font-size="11">HTTP/S, FTP, SMTP, DNS, SNMP</text>
+  <text x="430" y="76" fill="#be185d" font-size="11">Phishing, SQLi, DNS poison</text>
+  <rect x="14" y="93" width="552" height="36" rx="4" fill="#ede9fe" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="30" y="115" font-weight="bold" fill="#7c3aed">6</text>
+  <text x="80" y="115" font-weight="bold" fill="#7c3aed">Presentation</text>
+  <text x="200" y="115" fill="#374151" font-size="11">SSL/TLS, encoding, compression</text>
+  <text x="430" y="115" fill="#7c3aed" font-size="11">SSL stripping, format exploits</text>
+  <rect x="14" y="132" width="552" height="36" rx="4" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="30" y="154" font-weight="bold" fill="#1d4ed8">5</text>
+  <text x="80" y="154" font-weight="bold" fill="#1d4ed8">Session</text>
+  <text x="200" y="154" fill="#374151" font-size="11">NetBIOS, RPC, SOCKS, session mgmt</text>
+  <text x="430" y="154" fill="#1d4ed8" font-size="11">Session hijacking, replay</text>
+  <rect x="14" y="171" width="552" height="36" rx="4" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+  <text x="30" y="193" font-weight="bold" fill="#15803d">4</text>
+  <text x="80" y="193" font-weight="bold" fill="#15803d">Transport</text>
+  <text x="200" y="193" fill="#374151" font-size="11">TCP (reliable), UDP — ports, segmentation</text>
+  <text x="430" y="193" fill="#15803d" font-size="11">SYN flood, port scanning</text>
+  <rect x="14" y="210" width="552" height="36" rx="4" fill="#fff7ed" stroke="#fdba74" stroke-width="1"/>
+  <text x="30" y="232" font-weight="bold" fill="#c2410c">3</text>
+  <text x="80" y="232" font-weight="bold" fill="#c2410c">Network</text>
+  <text x="200" y="232" fill="#374151" font-size="11">IP, ICMP, IPSec, BGP, OSPF, routing</text>
+  <text x="430" y="232" fill="#c2410c" font-size="11">IP spoofing, route hijacking</text>
+  <rect x="14" y="249" width="552" height="36" rx="4" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+  <text x="30" y="271" font-weight="bold" fill="#854d0e">2</text>
+  <text x="80" y="271" font-weight="bold" fill="#854d0e">Data Link</text>
+  <text x="200" y="271" fill="#374151" font-size="11">Ethernet, MAC, ARP, 802.11 WiFi, switches</text>
+  <text x="430" y="271" fill="#854d0e" font-size="11">ARP spoofing, MAC flooding</text>
+  <rect x="14" y="288" width="552" height="36" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="30" y="310" font-weight="bold" fill="#475569">1</text>
+  <text x="80" y="310" font-weight="bold" fill="#475569">Physical</text>
+  <text x="200" y="310" fill="#374151" font-size="11">Cables, hubs, NIC, fiber, signals</text>
+  <text x="430" y="310" fill="#475569" font-size="11">Wiretapping, cable theft</text>
+  <text x="290" y="345" text-anchor="middle" font-size="11" fill="#64748b">Mnemonic: "All People Seem To Need Data Processing" (layers 7→1)</text>
+</svg>`,
+            },
+          },
+          {
             heading: 'TCP Three-Way Handshake',
             body: 'TCP establishes connections with a three-step process. Understanding this is critical for understanding SYN flood DoS attacks.',
             list: [
@@ -3782,6 +3965,54 @@ export const domains: Domain[] = [
               'Screened Subnet — a DMZ architecture with firewalls on both sides of the public-facing servers.',
             ],
             tip: 'The exam often tests the DMZ concept. Public-facing servers go in the DMZ — never directly on the internal network.',
+          },
+          {
+            diagram: {
+              caption: 'Screened Subnet (DMZ) Architecture — two firewalls isolate public-facing servers from the internal network',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 240" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="240" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Screened Subnet (DMZ) Architecture</text>
+  <!-- Internet -->
+  <rect x="14" y="80" width="90" height="80" rx="8" fill="#fee2e2" stroke="#f87171" stroke-width="2"/>
+  <text x="59" y="116" text-anchor="middle" font-weight="bold" fill="#dc2626">Internet</text>
+  <text x="59" y="132" text-anchor="middle" fill="#ef4444" font-size="10">Untrusted</text>
+  <!-- Arrow -->
+  <line x1="105" y1="120" x2="128" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#a4)"/>
+  <!-- Outer Firewall -->
+  <rect x="128" y="80" width="80" height="80" rx="8" fill="#fed7aa" stroke="#f97316" stroke-width="2"/>
+  <text x="168" y="116" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Outer</text>
+  <text x="168" y="130" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Firewall</text>
+  <!-- Arrow -->
+  <line x1="209" y1="120" x2="232" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#a4)"/>
+  <!-- DMZ Zone -->
+  <rect x="232" y="50" width="115" height="140" rx="8" fill="#fef3c7" stroke="#eab308" stroke-width="2"/>
+  <text x="289" y="72" text-anchor="middle" font-weight="bold" fill="#92400e">DMZ</text>
+  <rect x="248" y="82" width="84" height="26" rx="4" fill="#fde68a"/>
+  <text x="290" y="99" text-anchor="middle" fill="#78350f" font-size="11">Web Server</text>
+  <rect x="248" y="114" width="84" height="26" rx="4" fill="#fde68a"/>
+  <text x="290" y="131" text-anchor="middle" fill="#78350f" font-size="11">Mail Gateway</text>
+  <rect x="248" y="146" width="84" height="26" rx="4" fill="#fde68a"/>
+  <text x="290" y="163" text-anchor="middle" fill="#78350f" font-size="11">DNS Server</text>
+  <!-- Arrow -->
+  <line x1="348" y1="120" x2="371" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#a4)"/>
+  <!-- Inner Firewall -->
+  <rect x="371" y="80" width="80" height="80" rx="8" fill="#fed7aa" stroke="#f97316" stroke-width="2"/>
+  <text x="411" y="116" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Inner</text>
+  <text x="411" y="130" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Firewall</text>
+  <!-- Arrow -->
+  <line x1="452" y1="120" x2="474" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#a4)"/>
+  <!-- Internal Network -->
+  <rect x="474" y="60" width="92" height="120" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="520" y="86" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">Internal</text>
+  <text x="520" y="101" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">Network</text>
+  <rect x="486" y="110" width="70" height="22" rx="4" fill="#bbf7d0"/>
+  <text x="521" y="125" text-anchor="middle" fill="#14532d" font-size="10">File Servers</text>
+  <rect x="486" y="138" width="70" height="22" rx="4" fill="#bbf7d0"/>
+  <text x="521" y="153" text-anchor="middle" fill="#14532d" font-size="10">HR / Finance</text>
+  <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#94a3b8"/></marker></defs>
+  <text x="290" y="220" text-anchor="middle" font-size="11" fill="#64748b">Two separate firewalls — compromise of outer FW does not expose internal network</text>
+</svg>`,
+            },
           },
           {
             heading: 'Firewall Types',
@@ -3825,10 +4056,45 @@ export const domains: Domain[] = [
             note: 'NAT is not a security control — it does not replace firewalls. It only obscures internal IP addresses.',
           },
           {
+            heading: 'IPv4 vs IPv6 Security Considerations',
+            body: 'IPv6 was designed to address IPv4 address exhaustion but also introduces new security considerations. Organizations running dual-stack networks must secure both protocol stacks.',
+            table: {
+              headers: ['Aspect', 'IPv4', 'IPv6'],
+              rows: [
+                ['Address space', '32-bit (~4.3 billion)', '128-bit (~340 undecillion)'],
+                ['NAT requirement', 'Required for private addressing', 'NAT largely unnecessary — global addressing'],
+                ['ARP spoofing equivalent', 'ARP poisoning attacks', 'NDP (Neighbor Discovery Protocol) spoofing'],
+                ['IPSec', 'Optional', 'Mandatory in original spec (often skipped in practice)'],
+                ['Tunneling risk', 'N/A', 'IPv6-in-IPv4 tunnels (6to4, Teredo) can bypass IPv4 security controls'],
+                ['APIPA equivalent', '169.254.x.x link-local', 'fe80::/10 link-local; always present even when routable address exists'],
+              ],
+            },
+            warning: 'Dual-stack networks must apply consistent security policies to both IPv4 and IPv6. Firewalls and IPS rules that only inspect IPv4 traffic leave IPv6 tunneling as a blind spot.',
+          },
+          {
+            heading: 'Software-Defined Networking (SDN)',
+            body: 'SDN separates the control plane (routing decisions) from the data plane (packet forwarding), centralizing network intelligence in a software controller. This enables programmable, policy-driven network management.',
+            list: [
+              'Control Plane — the SDN controller makes routing and policy decisions; a single point of high-value attack.',
+              'Data Plane — network devices (switches, routers) simply forward packets as instructed by the controller.',
+              'Northbound APIs — interface between the SDN controller and applications/orchestration systems.',
+              'Southbound APIs — interface between the SDN controller and network devices (OpenFlow is the most common protocol).',
+              'Security benefits — centralized policy enforcement, rapid network-wide changes, automated micro-segmentation.',
+              'Security risks — controller compromise gives attacker full network control; API security is critical.',
+            ],
+          },
+          {
             questions: [
-              { q: 'At which OSI layer does a switch operate, and what attack targets it?', a: 'A standard switch operates at Layer 2 (Data Link). MAC flooding attacks overflow the switch\'s CAM table with fake MAC addresses, causing it to act like a hub and broadcast all traffic — enabling eavesdropping. ARP spoofing also targets Layer 2.' },
-              { q: 'What is the difference between a stateful and a stateless firewall?', a: 'A stateless (packet filtering) firewall evaluates each packet independently without tracking connections. A stateful firewall maintains a connection state table and only permits return traffic for established sessions — it can detect attacks like SYN flooding and out-of-state packets.' },
-              { q: 'Why would you put a web server in a DMZ rather than the internal network?', a: 'A web server must accept connections from the internet. Placing it in the DMZ limits the damage if it is compromised — an attacker in the DMZ still faces a firewall to reach the internal network. Placing it directly on the internal network gives a compromised web server immediate access to internal resources.' },
+              { q: 'At which OSI layer does a switch operate, and what attack targets it?', a: 'A standard switch operates at Layer 2 (Data Link). MAC flooding attacks overflow the switch\'s CAM table with fake MAC addresses, causing it to act like a hub and broadcast all traffic — enabling eavesdropping. ARP spoofing also targets Layer 2 by poisoning ARP caches to redirect traffic through an attacker\'s machine.' },
+              { q: 'What is the difference between a stateful and a stateless firewall?', a: 'A stateless (packet filtering) firewall evaluates each packet independently without tracking connections, filtering only by IP address, port, and protocol. A stateful firewall maintains a connection state table and only permits return traffic for established sessions — it can detect attacks like SYN flooding, out-of-state packets, and fragmentation attacks that a stateless firewall would miss.' },
+              { q: 'Why would you put a web server in a DMZ rather than the internal network?', a: 'A web server must accept connections from the internet. Placing it in the DMZ limits blast radius if it is compromised — an attacker in the DMZ still faces a firewall to reach the internal network. Placing it on the internal network gives a compromised web server immediate access to internal resources, effectively eliminating the perimeter.' },
+              { q: 'What is microsegmentation and how does it differ from VLANs?', a: 'VLANs provide logical network segmentation at Layer 2, grouping systems by switch configuration. Microsegmentation is far more granular — it applies security policies at the individual workload or application level, often enforced through software-defined networking or hypervisor-level controls. Microsegmentation can enforce east-west policies between workloads on the same VLAN, which VLANs cannot.' },
+              { q: 'Explain SYN cookies as a mitigation for SYN flood attacks.', a: 'In a SYN flood, an attacker sends many SYN packets with spoofed source IPs, forcing the server to allocate state for each half-open connection until its table is full. SYN cookies solve this by encoding the connection state into the initial sequence number (ISN) returned to the client, so the server allocates no state until the client completes the three-way handshake with a valid ACK. Legitimate clients complete the handshake; spoofed sources never respond.' },
+              { q: 'What is the security risk of an SDN controller compromise?', a: 'The SDN controller is a central point of network intelligence — it programs all forwarding decisions across the entire network. If an attacker compromises the SDN controller, they can redirect any traffic anywhere in the network, drop traffic, create covert channels, or disable security controls across all network segments simultaneously. This makes controller security and high availability critical.' },
+              { q: 'Why does IPv6 dual-stack create security blind spots?', a: 'Many organizations deploy IPv6 alongside IPv4 (dual-stack) but only configure security controls (firewalls, IPS, monitoring) for IPv4 traffic. IPv6-in-IPv4 tunneling protocols like Teredo or 6to4 allow an attacker to bypass IPv4 firewall rules by encapsulating IPv6 traffic inside IPv4 packets. The organization\'s IPv4 security tools see only the IPv4 wrapper and do not inspect the IPv6 payload.' },
+              { q: 'A NGFW can inspect SSL/TLS traffic but your privacy team objects. What is the concern?', a: 'NGFW SSL inspection performs a man-in-the-middle operation — the firewall terminates the user\'s TLS connection, decrypts and inspects the payload, then re-encrypts and forwards it to the destination. This means the firewall (and administrators) can read all HTTPS traffic including banking, personal email, and health portals. This raises legal and ethical privacy concerns, especially in jurisdictions with strict employee privacy laws or for sensitive personal data.' },
+              { q: 'What is VLAN hopping and how is it prevented?', a: 'VLAN hopping allows an attacker to send traffic to a VLAN they are not authorized to access. The two methods are: (1) Switch Spoofing — the attacker configures their NIC to negotiate a trunk link with the switch, gaining access to all VLANs; (2) Double Tagging — the attacker sends a frame with two 802.1Q VLAN tags, exploiting how some switches strip the outer tag and forward on the inner tag. Prevention: disable automatic trunk negotiation (DTP) on access ports, do not use the native VLAN for data traffic, and set unused ports to a dedicated unused VLAN.' },
+              { q: 'What is a screened subnet and how does it differ from a simple DMZ?', a: 'A screened subnet (also called a three-legged DMZ) places public-facing servers in a segment protected by firewalls on both sides — one facing the internet and one facing the internal network. A simple DMZ may use a single firewall with three interfaces (internet, DMZ, internal). The screened subnet uses two separate firewall devices, ensuring that a single firewall compromise does not expose the internal network. This provides defense-in-depth at the network boundary.' },
             ],
           },
         ],
@@ -3915,9 +4181,43 @@ export const domains: Domain[] = [
             note: 'Standard twisted pair maximum segment length is 100 meters. Exceeding this requires a repeater or switch. Fiber is immune to EMI and electrical tapping — preferred for secure backbone links.',
           },
           {
+            heading: 'Content Delivery Networks (CDN) and Cloud Network Security',
+            body: 'CDNs distribute content across globally distributed edge nodes, reducing latency and providing DDoS mitigation. Cloud environments require rethinking traditional network security models.',
+            list: [
+              'CDN DDoS Protection — large CDNs (Cloudflare, Akamai) absorb volumetric attacks by distributing traffic across many PoPs (Points of Presence).',
+              'WAF at CDN Edge — web application firewall rules enforced at the CDN edge before traffic reaches origin servers.',
+              'Cloud Security Groups — virtual firewall rules applied at the instance or subnet level in cloud environments (AWS Security Groups, Azure NSGs).',
+              'VPC (Virtual Private Cloud) — isolated network segment in cloud; supports subnets, routing tables, internet gateways, NAT gateways.',
+              'Transit Gateway / VPC Peering — connects multiple VPCs; must carefully control routing to prevent unintended cross-VPC access.',
+              'Cloud-Native Firewall (NGFW in Cloud) — deployed as virtual appliances for deep inspection within cloud environments.',
+            ],
+          },
+          {
+            heading: 'IoT and OT/ICS Network Security',
+            body: 'The Internet of Things (IoT) and Operational Technology (OT) environments introduce legacy and resource-constrained devices into networks that may have been designed without security in mind.',
+            table: {
+              headers: ['Environment', 'Key Characteristics', 'Security Challenges', 'Controls'],
+              rows: [
+                ['IoT Consumer', 'Low cost, long lifecycle, minimal patching', 'Default credentials, unencrypted protocols, rarely updated firmware', 'Network segmentation, credential changes, monitoring'],
+                ['Industrial IoT (IIoT)', 'Sensors, actuators in manufacturing/utility', 'Safety-critical, downtime-intolerant, proprietary protocols', 'Air gaps, unidirectional gateways, anomaly detection'],
+                ['OT/ICS/SCADA', 'Controls physical processes (power, water, oil)', 'Legacy PLCs designed before internet; uptime > security', 'Purdue Model zoning, patch carefully, OT-specific IDS (Claroty, Dragos)'],
+                ['Medical Devices', 'Implants, monitors, infusion pumps', 'FDA-regulated; patch approval delays; patient safety risk', 'VLAN isolation, compensating controls, vendor coordination'],
+              ],
+            },
+            note: 'The Purdue Model (ISA/IEC 62443) defines a hierarchical zone model for ICS security: Enterprise (Level 4/5), DMZ (Level 3.5), Manufacturing Operations (Level 3), Supervisory (Level 2), Control (Level 1), Field Devices (Level 0).',
+          },
+          {
             questions: [
-              { q: 'What is 802.1X and why is it preferred for enterprise wireless over WPA2-Personal?', a: '802.1X is port-based NAC using RADIUS for authentication. In WPA2-Enterprise mode, each user authenticates with unique credentials. WPA2-Personal uses a shared Pre-Shared Key (PSK) — if one employee leaves or the key is compromised, the key must be changed for all users. 802.1X eliminates this problem.' },
-              { q: 'What is the difference between EDR and EPP?', a: 'EPP (Endpoint Protection Platform) focuses on prevention — blocking known malware through signatures before execution. EDR (Endpoint Detection and Response) focuses on detection and response — monitoring behavior after execution to detect threats that evade EPP, and enabling investigation and remediation. Modern solutions combine both.' },
+              { q: 'What is 802.1X and why is it preferred for enterprise wireless over WPA2-Personal?', a: '802.1X is port-based NAC using RADIUS for authentication. In WPA2-Enterprise mode, each user authenticates with unique credentials tied to their identity. WPA2-Personal uses a shared Pre-Shared Key (PSK) — if one employee leaves or the key is compromised, the key must be changed for all users simultaneously. 802.1X eliminates this problem and supports per-user auditing.' },
+              { q: 'What is the difference between EDR and EPP?', a: 'EPP (Endpoint Protection Platform) focuses on prevention — blocking known malware at execution time through signatures and file reputation. EDR (Endpoint Detection and Response) focuses on detection and response after execution — monitoring process behavior, memory, and network connections to detect threats that evade prevention, enabling investigation and automated or manual remediation. Modern solutions combine both capabilities.' },
+              { q: 'Why is WPS (Wi-Fi Protected Setup) a security risk and how should it be handled?', a: 'WPS uses an 8-digit PIN for easy device setup. The PIN has a design flaw — it is validated in two halves (4+4 digits), reducing the brute force space from 100 million to ~11,000 combinations. Tools like Reaver can crack WPS in hours. WPS should be disabled on all access points; modern device onboarding should use WPA3-SAE or enterprise 802.1X instead.' },
+              { q: 'An attacker sets up a rogue access point with the same SSID as your corporate Wi-Fi. What attack is this and how do you detect it?', a: 'This is an Evil Twin attack. The rogue AP broadcasts a stronger signal with the same SSID, causing clients to connect to the attacker\'s network rather than the legitimate AP. Detection methods: (1) Wireless IDS that monitors for multiple APs with identical SSIDs; (2) BSSID monitoring — legitimate APs have known MAC addresses; (3) Certificate pinning or 802.1X certificate validation — clients refuse connections that cannot present a trusted certificate.' },
+              { q: 'What is a quarantine VLAN in the context of NAC?', a: 'A quarantine VLAN (also called a remediation VLAN) is a restricted network segment where NAC places devices that fail posture assessment — meaning they are non-compliant (outdated OS, missing AV updates, etc.) or unknown. Quarantined devices have limited connectivity, typically only to remediation servers or the internet for updates. Once compliant, they are moved to the appropriate production VLAN.' },
+              { q: 'Compare XDR and EDR.', a: 'EDR (Endpoint Detection and Response) monitors and responds to threats at the endpoint level — process behavior, file activity, memory. XDR (Extended Detection and Response) extends this across multiple domains: endpoints, network, cloud, email, and identity systems. XDR correlates signals across all these sources to detect multi-stage attacks that appear as low-confidence events in any single domain. XDR provides a more complete picture but requires integration across many security tools.' },
+              { q: 'What unique security challenge does OT/ICS (Industrial Control Systems) present compared to enterprise IT?', a: 'OT/ICS systems control physical processes where safety is the primary concern. Unlike IT systems that prioritize Confidentiality-Integrity-Availability (CIA), OT systems often prioritize Availability-Integrity-Confidentiality. OT systems typically run legacy operating systems that cannot be easily patched without disrupting production, have extremely low tolerance for downtime, use proprietary protocols (Modbus, DNP3, BACnet) not designed with security in mind, and any compromise could cause physical damage or harm.' },
+              { q: 'What is the function of a NAT gateway vs an internet gateway in a cloud VPC?', a: 'An internet gateway allows resources in a VPC subnet to send and receive traffic directly from the internet — used for public-facing resources (web servers, load balancers). A NAT gateway allows resources in private subnets to initiate outbound connections to the internet (e.g., for software updates) while preventing the internet from initiating inbound connections to those private resources. Private subnets behind a NAT gateway do not have directly reachable public IP addresses.' },
+              { q: 'What is a deauthentication attack and why is it difficult to prevent in 802.11?', a: 'A deauthentication attack exploits the fact that 802.11 management frames (including deauthentication frames) are unauthenticated — any device can send a deauth frame claiming to be an AP, forcing clients to disconnect. Attackers use this to disrupt wireless service or force clients to reconnect to a rogue AP. Prevention is difficult in older 802.11 standards. WPA3 introduces Management Frame Protection (MFP/802.11w) which authenticates management frames, blocking deauth attacks.' },
+              { q: 'What is the difference between a forward proxy and a reverse proxy?', a: 'A forward proxy sits between internal clients and the internet, making requests on behalf of clients — it hides internal client identities and can filter outbound content, block malicious sites, and cache responses. A reverse proxy sits in front of servers, accepting inbound client requests and forwarding them to internal servers — it hides server identities, provides load balancing, SSL termination, and WAF capabilities. A WAF is typically implemented as a reverse proxy.' },
             ],
           },
         ],
@@ -4024,10 +4324,41 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Secure Shell (SSH)',
+            body: 'SSH provides encrypted remote access and replaces Telnet, rsh, and rlogin. It operates on TCP port 22 and supports multiple authentication methods.',
+            list: [
+              'SSH Version 2 — the only acceptable version; SSH v1 has known cryptographic weaknesses and must be disabled.',
+              'Password Authentication — encrypted in transit; vulnerable to brute force; use fail2ban or account lockout.',
+              'Public Key Authentication — client holds private key; server holds public key; far more secure than passwords; eliminates credential theft risk.',
+              'SSH Agent Forwarding — allows using local SSH keys when hopping through intermediate hosts; risk: a compromised intermediate host can abuse the agent socket.',
+              'Port Forwarding / Tunneling — SSH can tunnel other protocols (local, remote, dynamic SOCKS proxy); can be abused to bypass firewalls.',
+              'Hardening — disable root login, disable password auth, restrict allowed users/groups, use AllowUsers, configure idle timeout.',
+            ],
+          },
+          {
+            heading: 'HTTPS and Certificate Validation',
+            body: 'HTTPS = HTTP over TLS. Proper certificate validation is essential — accepting invalid certificates provides false security.',
+            list: [
+              'Certificate Chain Validation — the presented certificate must chain to a trusted root CA in the browser/OS trust store.',
+              'Certificate Expiration — expired certificates must not be accepted; monitoring and auto-renewal (Let\'s Encrypt / ACME protocol) prevent outages.',
+              'Certificate Revocation — CRL (Certificate Revocation List) or OCSP (Online Certificate Status Protocol) must be checked; OCSP Stapling bundles the OCSP response with the TLS handshake for performance.',
+              'Certificate Pinning — client hard-codes expected certificate or public key; prevents MITM even with a fraudulent CA-signed certificate; high maintenance cost.',
+              'HSTS (HTTP Strict Transport Security) — HTTP response header that tells browsers to only connect via HTTPS for a specified period; prevents SSL stripping.',
+              'Certificate Transparency (CT) — all certificates must be logged in public CT logs; enables detection of misissued certificates.',
+            ],
+          },
+          {
             questions: [
-              { q: 'What is the difference between IPSec Tunnel mode and Transport mode?', a: 'Tunnel mode encrypts the entire original IP packet and adds a new outer IP header — used for gateway-to-gateway VPNs where the original source/destination must be hidden. Transport mode only encrypts the payload, leaving the original IP header intact — used for host-to-host communication where header information does not need protection.' },
-              { q: 'SPF passes but DMARC still marks the email as suspicious. Why?', a: 'DMARC requires alignment — the domain in the "From:" header must align with the SPF-authenticated domain or DKIM signing domain. SPF authenticating a different domain than what appears in the From header fails DMARC alignment even if SPF itself passes.' },
-              { q: 'Why is TACACS+ preferred over RADIUS for managing network device authentication?', a: 'TACACS+ uses TCP (more reliable), encrypts the entire body of each packet (RADIUS only encrypts the password), and separates Authentication, Authorization, and Accounting into distinct functions. This granularity allows per-command authorization on network devices — critical for limiting what different admin roles can do.' },
+              { q: 'What is the difference between IPSec Tunnel mode and Transport mode?', a: 'Tunnel mode encrypts the entire original IP packet and adds a new outer IP header — used for gateway-to-gateway VPNs where the original source/destination must be hidden from intermediate routers. Transport mode only encrypts the payload, leaving the original IP header intact — used for host-to-host communication where header visibility is acceptable, such as between two servers in the same organization.' },
+              { q: 'SPF passes but DMARC still marks the email as suspicious. Why?', a: 'DMARC requires alignment — the domain in the visible "From:" header must match (align with) the domain authenticated by SPF or signed by DKIM. If an email is sent from a server authorized by SPF for a subdomain, but the From header shows the parent domain, SPF alignment fails under strict DMARC policy. DMARC checks both SPF alignment and DKIM alignment, and the email must pass at least one.' },
+              { q: 'Why is TACACS+ preferred over RADIUS for managing network device authentication?', a: 'TACACS+ uses TCP (more reliable than UDP), encrypts the entire packet body (RADIUS only encrypts the password field), and separates Authentication, Authorization, and Accounting into distinct functions. This allows per-command authorization — for example, allowing a junior admin to run "show" commands but not "configure terminal." RADIUS bundles AAA together, making granular command authorization difficult.' },
+              { q: 'What is TLS Perfect Forward Secrecy (PFS) and why does it matter?', a: 'PFS means that session keys are ephemeral — derived from a temporary key exchange (like ECDHE) rather than the server\'s long-term private key. Without PFS, an attacker who records encrypted traffic today can decrypt it later if they ever obtain the server\'s private key. With PFS, each session\'s key is discarded after use, so past sessions cannot be decrypted even if the server key is eventually compromised. TLS 1.3 mandates PFS for all cipher suites.' },
+              { q: 'What is the difference between S/MIME and DKIM for email security?', a: 'DKIM protects email integrity in transit and authenticates the sending domain — it is a server-to-server control applied at the mail transfer agent level. S/MIME provides end-to-end encryption and signing — the message is encrypted by the sender\'s mail client and can only be decrypted by the recipient, protecting the message body even from email servers in transit. They address different threats: DKIM prevents spoofing and tampering during relay; S/MIME protects content confidentiality and sender authenticity end-to-end.' },
+              { q: 'What is DNS over HTTPS (DoH) and what security problem does it solve?', a: 'Traditional DNS queries are sent in plaintext over UDP port 53, allowing ISPs, network operators, or attackers on the same network to observe every domain a user queries (and block or tamper with responses). DNS over HTTPS encrypts DNS queries inside HTTPS connections (port 443), making them indistinguishable from normal web traffic. This prevents DNS eavesdropping and manipulation. Note: DoH does not authenticate DNS responses — DNSSEC still handles integrity.' },
+              { q: 'What is SSH public key authentication and why is it more secure than password authentication?', a: 'In SSH public key authentication, the client generates an asymmetric key pair, registers the public key with the server, and authenticates by proving possession of the corresponding private key via a cryptographic challenge. The private key never leaves the client and is not transmitted. This eliminates password guessing/brute force attacks, phishing of SSH passwords, and credential reuse. Even if an attacker captures the authentication exchange, there is no credential to extract.' },
+              { q: 'What is OCSP Stapling and why is it preferred over standard OCSP?', a: 'Standard OCSP requires the client to contact the CA\'s OCSP responder during every TLS handshake to check certificate revocation status, adding latency and creating privacy leakage (the CA learns which sites clients visit). OCSP Stapling has the server periodically fetch its own OCSP response from the CA and include it in the TLS handshake. The client gets revocation status from the server without contacting the CA, improving performance and privacy.' },
+              { q: 'What is MPLS and does it provide confidentiality?', a: 'MPLS (Multiprotocol Label Switching) is a provider-managed WAN technology that routes packets based on short path labels rather than IP addresses, enabling fast, predictable routing with traffic engineering. MPLS provides traffic isolation between customers on the same provider infrastructure, but it does NOT encrypt traffic — customers share the same physical infrastructure. For confidentiality, organizations should layer IPSec or another VPN over MPLS connections.' },
+              { q: 'Explain DNSSEC and its limitation regarding DNS query privacy.', a: 'DNSSEC adds cryptographic signatures (using public key cryptography) to DNS resource records, allowing resolvers to verify that DNS responses are authentic and have not been tampered with — it defeats DNS cache poisoning. However, DNSSEC does NOT encrypt DNS queries or responses; queries and answers are still transmitted in plaintext. An eavesdropper can observe which domains are being queried. DNS over HTTPS (DoH) or DNS over TLS (DoT) addresses the privacy gap that DNSSEC leaves.' },
             ],
           },
         ],
@@ -4094,9 +4425,120 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Threats Against AI Network Infrastructure',
+            table: {
+              headers: ['Attack Type', 'Target', 'Mechanism', 'Mitigation'],
+              rows: [
+                ['Model Extraction', 'Inference API', 'Attacker queries model extensively to reconstruct its behavior', 'Rate limiting, query monitoring, access controls on inference endpoints'],
+                ['Prompt Injection via Network', 'LLM application', 'Malicious instructions injected through network-sourced content', 'Input validation, prompt sanitization, least-privilege API scopes'],
+                ['Model Weight Exfiltration', 'Model storage/distribution', 'Steal trained model weights via network access', 'Encryption in transit and at rest, egress DLP, model access controls'],
+                ['Training Data Interception', 'Data pipelines', 'Intercept sensitive training data in transit', 'TLS 1.3 for all data pipelines, mTLS between services'],
+                ['Adversarial Input via API', 'Inference endpoint', 'Craft inputs to cause misclassification', 'Input validation, anomaly detection on inference requests, adversarial training'],
+              ],
+            },
+          },
+          {
             questions: [
-              { q: 'What is a gradient inversion attack and when does it occur?', a: 'A gradient inversion attack occurs in federated learning — an attacker analyzes gradient updates submitted by participating devices and mathematically reconstructs the original training data. It allows reconstruction of private data without ever accessing the training dataset directly. Mitigated by differential privacy (adding noise to gradients) and secure aggregation.' },
-              { q: 'Why is mutual TLS (mTLS) important for AI microservice communication?', a: 'In an AI system built from microservices, standard TLS only authenticates the server to the client. mTLS requires both services to present valid certificates, ensuring that only authorized services can communicate. This prevents a compromised service from posing as a legitimate internal component and intercepting model data or training traffic.' },
+              { q: 'What is a gradient inversion attack and when does it occur?', a: 'A gradient inversion attack occurs in federated learning — an attacker analyzes gradient updates submitted by participating devices and mathematically reconstructs the original training data. It allows recovery of private training data without ever accessing the dataset directly. Mitigated by differential privacy (adding calibrated noise to gradients before sharing) and secure aggregation protocols.' },
+              { q: 'Why is mutual TLS (mTLS) important for AI microservice communication?', a: 'In an AI system built from microservices, standard TLS only authenticates the server to the client — the server does not verify which client is connecting. mTLS requires both services to present valid certificates, ensuring that only authorized services can communicate. This prevents a compromised service from posing as a legitimate internal component and intercepting model weights, training data, or inference traffic.' },
+              { q: 'How does model extraction differ from model inversion as an attack?', a: 'Model extraction (also called model stealing) involves querying an inference API repeatedly to reconstruct the model\'s behavior — building a functional copy of the model. Model inversion attacks use the model\'s outputs to reconstruct its training data — inferring private information about individuals whose data was used in training. Both attack the inference API but with different goals: one steals the model, the other steals the training data.' },
+              { q: 'What network control protects AI training pipelines from data poisoning?', a: 'Data integrity verification — cryptographically hashing or signing datasets before ingestion and verifying signatures at pipeline entry points. Additionally, network-level controls include: restricting write access to training data storage with strict IAM policies, monitoring traffic to data pipelines for anomalous sources, and enforcing mTLS between data pipeline components so only authorized systems can write data. Unverified external data sources should always be isolated before being incorporated into training sets.' },
+              { q: 'Why is egress filtering particularly important for AI infrastructure?', a: 'AI model weights and training datasets represent significant intellectual property. An attacker who gains access to a training cluster could exfiltrate large model weight files or datasets. Egress filtering monitors and restricts outbound traffic from AI environments — large or unusual data transfers trigger alerts. DLP policies inspect outbound data for model file signatures or sensitive dataset patterns. Without egress controls, a compromised AI workload can exfiltrate its own model weights silently.' },
+              { q: 'What is the Zero Trust principle as applied to AI microservices?', a: 'In Zero Trust, no network location or service is implicitly trusted — every request between AI components must be authenticated (via mTLS or token), authorized (against a policy engine), and logged. This means a training cluster cannot simply call an inference endpoint because they are on the same internal network — the inference endpoint must verify that the training cluster is authorized to make that specific API call. Service mesh technologies like Istio enforce Zero Trust between microservices automatically.' },
+              { q: 'What is an API gateway and why is it important for AI inference endpoints?', a: 'An API gateway is a managed entry point for API traffic that enforces authentication, authorization, rate limiting, input validation, and logging before requests reach the backend service. For AI inference endpoints, it prevents abuse (rate limiting prevents model extraction), enforces authentication (only authorized applications can query the model), validates input (blocks malformed or oversized prompts), and provides an audit trail of all inference requests. Exposing AI models directly without an API gateway is a significant security risk.' },
+              { q: 'How does east-west traffic monitoring differ from traditional perimeter monitoring for AI security?', a: 'Traditional perimeter (north-south) monitoring inspects traffic entering and leaving the network boundary. East-west monitoring inspects lateral traffic between internal services. In AI infrastructure, the most sensitive data movements often occur between internal components — training cluster to model storage, data pipeline to training cluster, inference service to logging system. An attacker who has already compromised one internal AI service can move laterally undetected if only perimeter traffic is monitored. Service mesh telemetry and microsegmentation enable east-west visibility.' },
+            ],
+          },
+        ],
+      },
+      {
+        id: 'd4t5',
+        title: '4.5 Network Attacks and Countermeasures',
+        content: [
+          {
+            heading: 'Common Network Attack Categories',
+            body: 'Understanding network attacks is essential for both the CISSP exam and for designing appropriate countermeasures. The CISSP frames attacks in terms of CIA triad impact and appropriate defense-in-depth responses.',
+          },
+          {
+            heading: 'Denial of Service (DoS) and Distributed DoS (DDoS)',
+            table: {
+              headers: ['Attack Type', 'Mechanism', 'Countermeasure'],
+              rows: [
+                ['Volumetric DDoS', 'Floods bandwidth with UDP/ICMP traffic; amplification via DNS, NTP, Memcached', 'ISP/CDN upstream scrubbing, blackhole routing, anycast diffusion'],
+                ['Protocol DDoS', 'SYN floods, fragmented packet attacks exhaust connection tables', 'SYN cookies, rate limiting, stateful firewall tuning'],
+                ['Application DDoS (Layer 7)', 'Legitimate-looking HTTP requests exhaust server resources', 'WAF rate limiting, CAPTCHA, behavioral analysis, CDN'],
+                ['Reflected/Amplified DDoS', 'Uses third-party servers (DNS resolvers, NTP servers) to amplify traffic toward victim', 'Disable open resolvers, BCP38 egress filtering, rate limit UDP responses'],
+                ['Ping of Death / Teardrop', 'Malformed oversized or fragmented packets crash target OS', 'Modern OS patching; network device filtering of malformed packets'],
+              ],
+            },
+          },
+          {
+            heading: 'Reconnaissance Attacks',
+            list: [
+              'Port Scanning (Nmap) — identifies open ports and running services; precursor to targeted attacks.',
+              'OS Fingerprinting — analyzes TCP/IP stack behavior to identify the operating system and version.',
+              'Network Enumeration — discovers hosts, services, users via ICMP sweeps, DNS queries, SNMP walking.',
+              'Passive Reconnaissance — monitors traffic without sending packets (Wireshark, Kismet); harder to detect.',
+              'OSINT (Open Source Intelligence) — gathers public information (WHOIS, Shodan, LinkedIn, certificate transparency logs).',
+              'Countermeasures — firewall rules blocking scan patterns, IPS signature detection, egress filtering of outbound scans, disabling unnecessary ICMP.',
+            ],
+          },
+          {
+            heading: 'Man-in-the-Middle (MitM) Attacks',
+            table: {
+              headers: ['Attack', 'Method', 'Countermeasure'],
+              rows: [
+                ['ARP Poisoning', 'Sends gratuitous ARP replies mapping attacker MAC to gateway IP', 'Dynamic ARP Inspection (DAI) on managed switches'],
+                ['SSL Stripping', 'Downgrades HTTPS to HTTP between client and attacker', 'HSTS, HTTPS-only policies, certificate pinning'],
+                ['BGP Hijacking', 'Announces more specific routes to attract traffic through attacker\'s AS', 'RPKI (Resource Public Key Infrastructure) for route origin validation'],
+                ['DNS Spoofing / Cache Poisoning', 'Injects false DNS entries to redirect traffic', 'DNSSEC, DoH/DoT, validated resolvers'],
+                ['Rogue DHCP Server', 'Responds to DHCP requests with attacker-controlled gateway/DNS', 'DHCP Snooping on managed switches; limits trusted DHCP ports'],
+              ],
+            },
+          },
+          {
+            heading: 'Sniffing and Eavesdropping',
+            list: [
+              'Passive Sniffing — captures traffic on shared-medium networks (hubs, wireless); invisible to victims.',
+              'Active Sniffing — on switched networks, requires ARP poisoning or MAC flooding to capture others\' traffic.',
+              'Promiscuous Mode — NIC receives all frames, not just those addressed to it; required for packet capture.',
+              'Countermeasures — encrypt all sensitive traffic (TLS, IPSec, VPN); use managed switches (not hubs); monitor for promiscuous mode NICs; use 802.1X to prevent unauthorized devices from connecting.',
+            ],
+          },
+          {
+            heading: 'Replay Attacks',
+            body: 'A replay attack captures a legitimate authentication credential or token and retransmits it to gain unauthorized access. The attacker does not need to know the credentials — just the captured token.',
+            list: [
+              'Prevention methods: nonces (random one-time values), timestamps with short validity windows, sequence numbers.',
+              'Kerberos uses timestamped tickets with a 5-minute tolerance window — tickets cannot be reused after expiry.',
+              'TLS prevents replay through the Finished message verification that includes a transcript hash of the entire handshake.',
+              'Anti-Replay in IPSec — sequence numbers in AH/ESP headers; receiving host maintains a sliding window and discards duplicate or out-of-window packets.',
+            ],
+          },
+          {
+            heading: 'Covert Channels',
+            body: 'A covert channel transmits information through a medium not intended for communication, bypassing security controls.',
+            list: [
+              'Storage Covert Channel — communicates by modifying shared data structures (e.g., file modification times, DNS TTL values).',
+              'Timing Covert Channel — communicates by varying the timing of legitimate operations (e.g., CPU load timing).',
+              'DNS Tunneling — encodes data in DNS query names/responses to exfiltrate data through firewalls that allow DNS.',
+              'ICMP Tunneling — encodes data in ICMP echo request/reply payloads.',
+              'Detection — anomaly detection on DNS query volume and query name lengths; deep packet inspection for tunneling patterns.',
+              'Countermeasures — egress filtering, DNS sinkholing, DNS logging analysis, protocol inspection beyond port numbers.',
+            ],
+            tip: 'Covert channels are a classic CISSP topic. Remember: storage channels use stored data; timing channels use timing. Both bypass access controls without violating permissions.',
+          },
+          {
+            questions: [
+              { q: 'What is a DNS amplification attack and how is it mitigated?', a: 'A DNS amplification attack exploits open DNS resolvers — the attacker sends small DNS queries with a spoofed source IP (the victim\'s address) to many open resolvers. The resolvers send large DNS responses to the victim, overwhelming it with traffic. Amplification factor can be 70x or more. Mitigations: (1) Disable open DNS resolvers that respond to queries from any source; (2) Rate-limit DNS responses; (3) BCP38 — ISP egress filtering that blocks packets with spoofed source IPs from leaving the originating network.' },
+              { q: 'What is Dynamic ARP Inspection (DAI) and what attack does it prevent?', a: 'DAI is a switch feature that validates ARP packets against a DHCP snooping binding table (which records which IP was assigned to which MAC on which port). Only ARP packets matching the binding table are forwarded; others are dropped. This prevents ARP poisoning/spoofing attacks, where an attacker sends gratuitous ARP replies to redirect traffic through their machine for a man-in-the-middle position.' },
+              { q: 'Explain BGP hijacking and what RPKI does to prevent it.', a: 'BGP (Border Gateway Protocol) is the routing protocol of the internet. Routers accept route announcements and prefer more specific prefixes. BGP hijacking occurs when an attacker\'s Autonomous System (AS) announces a more specific route for an IP prefix they don\'t own, attracting traffic meant for another organization. RPKI (Resource Public Key Infrastructure) allows IP address owners to cryptographically sign their IP-to-AS mappings, enabling routers to reject unauthorized route announcements through Route Origin Validation (ROV).' },
+              { q: 'What is DNS tunneling and what makes it effective for exfiltration?', a: 'DNS tunneling encodes data (commands, stolen files) inside DNS query names and responses. For example, data.exfil.evil.com encodes data before the attacker\'s domain. Most firewalls allow DNS traffic outbound, and many organizations don\'t deeply inspect DNS. The attacker controls the authoritative DNS server for their domain, so all encoded queries reach them. Detection requires monitoring DNS query volume, query name length distributions, and entropy of query names — tunneled DNS traffic shows anomalously long, high-entropy query names.' },
+              { q: 'How does a replay attack differ from a man-in-the-middle attack?', a: 'A man-in-the-middle attack is active — the attacker intercepts and can modify communications in real time between two parties. A replay attack is simpler — the attacker captures a legitimate authentication message or token and retransmits it later to gain access, without necessarily modifying anything. A MITM attack can facilitate replay, but replay can also occur from a simple capture-and-retransmit without real-time interception.' },
+              { q: 'What is the difference between a DoS attack and a DDoS attack?', a: 'A DoS (Denial of Service) attack comes from a single source and is relatively easy to block by filtering the source IP. A DDoS (Distributed Denial of Service) attack uses many compromised systems (a botnet) or amplification sources distributed across the internet to generate attack traffic — blocking a single IP is useless. DDoS attacks require upstream mitigation at ISP or CDN level because the traffic volume can exceed the target\'s entire internet connection.' },
+              { q: 'An attacker uses ARP poisoning to insert themselves between a workstation and the default gateway. They then use SSL stripping. What is the combined attack and how is it defended?', a: 'This is a man-in-the-middle attack using ARP poisoning to redirect traffic and SSL stripping to downgrade HTTPS to HTTP, allowing the attacker to read and modify plaintext traffic. Defense layers: (1) Dynamic ARP Inspection prevents ARP poisoning at the switch level; (2) HSTS (HTTP Strict Transport Security) causes browsers to refuse HTTP connections to known HTTPS sites, blocking SSL stripping; (3) HSTS Preloading hardcodes major domains as HTTPS-only in browsers, preventing the first request from being downgraded.' },
+              { q: 'What is a timing covert channel and give a real-world example?', a: 'A timing covert channel communicates information by varying the timing of legitimate operations rather than modifying stored data. A classic example is a cache timing side-channel attack: a high-privilege process leaks data to a low-privilege process by modulating cache access patterns — the low-privilege process can infer what data the high-privilege process accessed by measuring its own cache hit/miss timings. Spectre and Meltdown are real-world CPU-level timing covert channels that can exfiltrate kernel memory through timing measurements in user-space code.' },
+              { q: 'What is DHCP snooping and what attack does it prevent?', a: 'DHCP snooping is a switch security feature that designates specific ports as trusted (connected to legitimate DHCP servers) and all other ports as untrusted. DHCP server responses on untrusted ports are dropped. This prevents rogue DHCP server attacks, where an attacker connects a device that responds to DHCP requests and assigns itself as the default gateway and DNS server — enabling a man-in-the-middle position over all connected clients. DHCP snooping also builds a binding table used by Dynamic ARP Inspection and IP Source Guard.' },
             ],
           },
         ],
@@ -4111,232 +4553,673 @@ export const domains: Domain[] = [
     id: 'd5',
     number: 5,
     title: 'Identity and Access Management (IAM)',
-    summary: 'Covers access control principles, authentication strategies, federated identity, authorization mechanisms, and identity lifecycle management.',
+    summary: 'Covers physical and logical access control, identification and authentication strategies, federated identity, authorization mechanisms, identity provisioning lifecycle, authentication system implementation, and the role of identity as the modern security perimeter.',
     topics: [
+      // ── 5.1 ──────────────────────────────────────────────────────────────
       {
         id: 'd5t1',
         title: '5.1 Physical and Logical Access to Assets',
         content: [
           {
+            body: 'Identity and Access Management (IAM) is the discipline of ensuring that the right individuals have the right access to the right resources at the right time — and that unauthorized access is prevented. IAM encompasses both physical access (who can enter a building or data center) and logical access (who can log in to systems, applications, and data). In practice, organizations must manage both in a unified manner because a failure in either domain can lead to a serious security incident.',
+          },
+          {
+            body: 'Physical access controls protect tangible assets — server rooms, data centers, offices, and equipment — from unauthorized physical presence. Logical access controls protect information systems, networks, and data from unauthorized digital access. Both are governed by the same fundamental principles: need-to-know, least privilege, and separation of duties.',
+          },
+          {
             heading: 'Core Access Control Principles',
+            body: 'Three foundational principles underpin every access control decision an organization makes:',
             list: [
-              'Need-to-Know — restricts access based on necessity to perform the job.',
-              'Least Privilege — minimum level of access necessary for assigned duties.',
-              'Separation of Duties — divides responsibilities to prevent conflicts of interest or misuse.',
+              'Need-to-Know — a user should only be able to access information that is directly required to perform their current job function. Even if two users hold the same clearance level, one may not have a need-to-know the other\'s data.',
+              'Least Privilege — every user, process, and system should be granted the minimum set of permissions necessary to accomplish its task, and nothing more. This limits the blast radius of a compromise.',
+              'Separation of Duties (SoD) — critical tasks are divided so that no single individual can complete a sensitive process alone. This prevents fraud, sabotage, and accidental errors. For example, the person who initiates a financial transaction should not be the same person who approves it.',
             ],
-            warning: 'These controls apply at all organizational levels. Managers and C-levels are NOT exempt.',
+            warning: 'These controls apply at all organizational levels. Executives, managers, and senior administrators are NOT exempt from need-to-know or least privilege. Overprivileged accounts are a leading cause of insider-threat incidents.',
+          },
+          {
+            heading: 'Physical Access Controls',
+            body: 'Physical controls are the first line of defense for protecting assets:',
+            list: [
+              'Perimeter controls — fences, walls, security guards, barricades, and vehicle barriers.',
+              'Entry controls — locked doors, mantraps (two-door vestibules), turnstiles, badge readers, and PINs.',
+              'Biometric access — fingerprint scanners, hand geometry readers, or iris scanners for high-security areas.',
+              'Visitor management — sign-in logs, visitor badges, and escort requirements.',
+              'CCTV and monitoring — surveillance cameras with recording and alerting capabilities.',
+              'Environmental controls — UPS systems, fire suppression, temperature/humidity sensors protect hardware assets.',
+            ],
+            note: 'Mantraps (also called airlocks) prevent tailgating — the practice of following an authorized person through a secure entry without swiping a credential.',
+          },
+          {
+            heading: 'Logical Access Controls',
+            body: 'Logical access controls govern digital access to systems, applications, and data:',
+            list: [
+              'Authentication systems — verify identity before granting access (passwords, MFA, certificates).',
+              'Authorization policies — define what authenticated users are permitted to do.',
+              'Access control lists (ACLs) — enumerate which subjects can perform which actions on which objects.',
+              'Firewalls and network segmentation — restrict which systems can communicate.',
+              'Encryption — protects data confidentiality even if logical access controls fail.',
+              'Audit logs — record access events for accountability and forensic analysis.',
+            ],
           },
           {
             heading: 'Access Control Models',
+            body: 'Access control models define the rules and mechanisms used to determine whether a subject (user, process) may access an object (file, resource). Each model has distinct strengths and is suited to different environments:',
             table: {
-              headers: ['Model', 'Decision Maker', 'Key Characteristic'],
+              headers: ['Model', 'Decision Maker', 'Key Characteristic', 'Typical Use'],
               rows: [
-                ['DAC (Discretionary)', 'User/Owner', 'Flexible but risky; owner controls access'],
-                ['MAC (Mandatory)', 'System', 'Strict, label-based; used in government/military'],
-                ['RBAC (Role-Based)', 'Role', 'Groups users by job function; most common in enterprises'],
-                ['ABAC (Attribute-Based)', 'Attributes', 'Dynamic decisions based on multiple factors; most flexible'],
-                ['Rule-Based', 'Rules/ACLs', 'Uses explicit allow/deny conditions'],
-                ['Risk-Based', 'Real-time assessment', 'Adjusts access based on threat intelligence'],
+                ['DAC (Discretionary Access Control)', 'Resource Owner/User', 'Owner grants/revokes access at their discretion; flexible but high risk of over-sharing', 'File systems (UNIX/Windows), personal storage'],
+                ['MAC (Mandatory Access Control)', 'System / Security Policy', 'Labels applied to subjects and objects; access determined by classification rules, not owners', 'Government/military classified systems, SELinux'],
+                ['RBAC (Role-Based Access Control)', 'Role Assignment', 'Permissions attached to roles; users assigned to roles; role changes adjust all permissions at once', 'Enterprise applications, databases, ERP systems'],
+                ['ABAC (Attribute-Based Access Control)', 'Policy Engine (Attributes)', 'Access decisions based on combinations of user, resource, environment, and action attributes; most flexible', 'Cloud services, zero-trust architectures'],
+                ['Rule-Based Access Control', 'Explicit Rules/ACLs', 'Fixed allow/deny conditions regardless of identity; used for network filtering', 'Firewalls, routers, network ACLs'],
+                ['Risk-Based Access Control', 'Real-time Risk Score', 'Dynamically adjusts access based on current threat intelligence, behavior anomalies, and context', 'Adaptive authentication systems, SASE'],
               ],
             },
           },
           {
-            heading: 'IAM Approaches',
+            diagram: {
+              caption: 'Access Control Models — who makes the access decision and on what basis',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 310" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="310" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Access Control Models</text>
+  <!-- DAC -->
+  <rect x="14" y="44" width="128" height="120" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="78" y="64" text-anchor="middle" font-weight="bold" fill="#1d4ed8">DAC</text>
+  <text x="78" y="80" text-anchor="middle" fill="#374151" font-size="10">Discretionary</text>
+  <text x="78" y="94" text-anchor="middle" fill="#475569" font-size="10">Decision: Owner</text>
+  <rect x="26" y="102" width="104" height="18" rx="3" fill="#dbeafe"/>
+  <text x="78" y="115" text-anchor="middle" fill="#1e40af" font-size="10">UNIX chmod</text>
+  <rect x="26" y="124" width="104" height="18" rx="3" fill="#dbeafe"/>
+  <text x="78" y="137" text-anchor="middle" fill="#1e40af" font-size="10">Windows ACLs</text>
+  <text x="78" y="157" text-anchor="middle" fill="#dc2626" font-size="10">Risk: over-sharing</text>
+  <!-- MAC -->
+  <rect x="156" y="44" width="128" height="120" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="220" y="64" text-anchor="middle" font-weight="bold" fill="#7c3aed">MAC</text>
+  <text x="220" y="80" text-anchor="middle" fill="#374151" font-size="10">Mandatory</text>
+  <text x="220" y="94" text-anchor="middle" fill="#475569" font-size="10">Decision: System/Policy</text>
+  <rect x="168" y="102" width="104" height="18" rx="3" fill="#ede9fe"/>
+  <text x="220" y="115" text-anchor="middle" fill="#6d28d9" font-size="10">SELinux / MLS</text>
+  <rect x="168" y="124" width="104" height="18" rx="3" fill="#ede9fe"/>
+  <text x="220" y="137" text-anchor="middle" fill="#6d28d9" font-size="10">Gov/Military systems</text>
+  <text x="220" y="157" text-anchor="middle" fill="#dc2626" font-size="10">Rigid; high overhead</text>
+  <!-- RBAC -->
+  <rect x="298" y="44" width="128" height="120" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="362" y="64" text-anchor="middle" font-weight="bold" fill="#15803d">RBAC</text>
+  <text x="362" y="80" text-anchor="middle" fill="#374151" font-size="10">Role-Based</text>
+  <text x="362" y="94" text-anchor="middle" fill="#475569" font-size="10">Decision: Role</text>
+  <rect x="310" y="102" width="104" height="18" rx="3" fill="#dcfce7"/>
+  <text x="362" y="115" text-anchor="middle" fill="#14532d" font-size="10">Enterprise apps</text>
+  <rect x="310" y="124" width="104" height="18" rx="3" fill="#dcfce7"/>
+  <text x="362" y="137" text-anchor="middle" fill="#14532d" font-size="10">ERP / Databases</text>
+  <text x="362" y="157" text-anchor="middle" fill="#dc2626" font-size="10">Role explosion risk</text>
+  <!-- ABAC -->
+  <rect x="440" y="44" width="128" height="120" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="504" y="64" text-anchor="middle" font-weight="bold" fill="#c2410c">ABAC</text>
+  <text x="504" y="80" text-anchor="middle" fill="#374151" font-size="10">Attribute-Based</text>
+  <text x="504" y="94" text-anchor="middle" fill="#475569" font-size="10">Decision: Policy Engine</text>
+  <rect x="452" y="102" width="104" height="18" rx="3" fill="#fed7aa"/>
+  <text x="504" y="115" text-anchor="middle" fill="#9a3412" font-size="10">Cloud / Zero Trust</text>
+  <rect x="452" y="124" width="104" height="18" rx="3" fill="#fed7aa"/>
+  <text x="504" y="137" text-anchor="middle" fill="#9a3412" font-size="10">XACML policies</text>
+  <text x="504" y="157" text-anchor="middle" fill="#dc2626" font-size="10">Complex to manage</text>
+  <!-- Subject → Decision → Object flow -->
+  <rect x="50" y="195" width="100" height="36" rx="6" fill="#1e293b"/>
+  <text x="100" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Subject (User)</text>
+  <line x1="150" y1="213" x2="210" y2="213" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
+  <rect x="210" y="195" width="160" height="36" rx="6" fill="#0369a1"/>
+  <text x="290" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Access Control Decision</text>
+  <line x1="370" y1="213" x2="430" y2="213" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
+  <rect x="430" y="195" width="120" height="36" rx="6" fill="#166534"/>
+  <text x="490" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Object (Resource)</text>
+  <text x="290" y="258" text-anchor="middle" font-size="11" fill="#475569">Identification → Authentication → Authorization → Accountability</text>
+  <text x="290" y="278" text-anchor="middle" font-size="11" fill="#64748b">Every access control model implements this flow — they differ in HOW authorization is decided</text>
+  <defs><marker id="a5" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#64748b"/></marker></defs>
+</svg>`,
+            },
+          },
+          {
+            heading: 'IAM Deployment Approaches',
             list: [
-              'Centralized IAM — dedicated team oversees all access; rigorous oversight but single point of failure.',
-              'Decentralized IAM — distributed to system owners; flexible but inconsistent.',
-              'Hybrid IAM — combines both; balances oversight with flexibility.',
+              'Centralized IAM — a dedicated identity team manages all authentication and authorization decisions from a single platform; provides rigorous oversight and consistent policy enforcement but creates a single point of failure.',
+              'Decentralized IAM — each business unit or system owner manages its own access independently; allows flexibility but produces inconsistent policies and audit gaps.',
+              'Hybrid IAM — blends centralized governance with delegated administration; the most common approach in large enterprises with a mix of on-premises and cloud systems.',
+            ],
+            tip: 'Most modern organizations are moving toward hybrid IAM driven by zero-trust principles — assuming no implicit trust, verifying every request continuously regardless of network location.',
+          },
+          {
+            questions: [
+              { q: 'What is the difference between need-to-know and least privilege, and why are both necessary?', a: 'Need-to-know restricts access to information directly required for a job task, even if the user holds the necessary clearance level. Least privilege restricts the scope and type of actions a user can perform to the minimum required. Both are necessary because need-to-know limits information exposure while least privilege limits operational capability — together they minimize the blast radius of any compromise.' },
+              { q: 'How does Mandatory Access Control (MAC) differ from Discretionary Access Control (DAC)?', a: 'In MAC, access decisions are made by the system based on labels or classifications applied to subjects and objects — the resource owner has no ability to override the policy. In DAC, the resource owner has discretion to grant or revoke access as they see fit, which is flexible but introduces risk of over-sharing.' },
+              { q: 'What is a mantrap and what attack does it prevent?', a: 'A mantrap (or airlock) is a physical security control consisting of two doors with a small enclosed area between them. Only one door can be open at a time. It prevents tailgating — the practice of an unauthorized person following an authorized person through a secured entry without presenting valid credentials.' },
+              { q: 'Why is Role-Based Access Control (RBAC) the most common model in enterprise environments?', a: 'RBAC simplifies access administration because permissions are attached to roles rather than individual users. When an employee changes positions, only their role assignment changes — all underlying permissions update automatically. This reduces provisioning errors, supports least privilege, and makes access reviews more manageable.' },
+              { q: 'What is the primary advantage of Attribute-Based Access Control (ABAC) over RBAC?', a: 'ABAC can make dynamic, fine-grained access decisions by evaluating multiple attributes simultaneously — such as the user\'s department, the resource sensitivity level, the time of day, and the device being used. RBAC can only evaluate role membership, making ABAC more suited for complex, context-aware access scenarios like cloud and zero-trust environments.' },
+              { q: 'What is separation of duties and provide an example of how it prevents fraud?', a: 'Separation of duties divides a critical process across multiple individuals so that no one person can complete it alone. For example, in financial processing, the employee who creates a purchase order should not be the same person who approves payment. If one person could do both, they could fabricate orders and approve payments to themselves.' },
+              { q: 'What is the risk of a decentralized IAM approach?', a: 'Decentralized IAM leads to inconsistent policies, duplicated accounts, orphaned access rights, and gaps in audit coverage. Each business unit may apply different standards, making it difficult to enforce enterprise-wide access controls or respond quickly to a compromise.' },
+              { q: 'Why should audit logs be considered a logical access control?', a: 'Audit logs support accountability and deterrence — knowing that access events are recorded discourages misuse. They also provide forensic evidence after incidents, enabling organizations to determine what data was accessed, by whom, and when. Accountability is a core principle of access control alongside identification, authentication, and authorization.' },
+              { q: 'What is privilege creep and how is it mitigated?', a: 'Privilege creep occurs when users accumulate access permissions over time — typically due to role changes, project assignments, or administrative oversight — without removing old permissions. It is mitigated through regular access reviews (recertification campaigns), automated provisioning/deprovisioning, and periodic entitlement audits.' },
+              { q: 'How does risk-based access control differ from traditional access control models?', a: 'Traditional models make static access decisions based on identity, role, or labels. Risk-based access control dynamically adjusts decisions in real time based on a calculated risk score that considers factors like device health, user behavior anomalies, geographic location, and current threat intelligence — allowing the system to step up authentication or deny access when risk is elevated.' },
             ],
           },
         ],
       },
+      // ── 5.2 ──────────────────────────────────────────────────────────────
       {
         id: 'd5t2',
         title: '5.2 Identification and Authentication Strategy',
         content: [
           {
-            heading: 'Authentication Factors',
+            body: 'Before an access control system can grant or deny access, it must establish who is making the request. This is a two-step process: identification and authentication. Identification is the act of claiming an identity — for example, entering a username. Authentication is the process of proving that claim — for example, entering a password or providing a fingerprint. Both must succeed before authorization decisions can be made.',
+          },
+          {
+            body: 'A critical concept is that identification is not secure by itself. Anyone can claim any identity; it is authentication that provides the evidence that the claim is legitimate. For this reason, strong authentication is one of the most important controls an organization can implement. The strength of authentication depends heavily on which factors are used and how many.',
+          },
+          {
+            heading: 'The Five Authentication Factors',
+            body: 'Authentication factors are categorized into five types. Multi-factor authentication (MFA) requires the use of two or more factors from different categories:',
             list: [
-              'Something You Know — passwords, PINs, security questions.',
-              'Something You Have — smart cards, hardware tokens, OTP devices.',
-              'Something You Are — biometrics (fingerprint, retina, voice).',
-              'Somewhere You Are — geolocation-based authentication.',
-              'Something You Do — behavioral biometrics (typing patterns, gait).',
+              'Something You Know (Type 1) — knowledge-based: passwords, PINs, passphrases, security questions. Easiest to implement, but vulnerable to phishing, shoulder surfing, and brute force.',
+              'Something You Have (Type 2) — possession-based: smart cards, hardware tokens (RSA SecurID), one-time password (OTP) devices, mobile authenticator apps (TOTP/HOTP), PIV/CAC cards.',
+              'Something You Are (Type 3) — inherence/biometrics: fingerprint, retina scan, iris scan, facial recognition, voice recognition, palm vein geometry.',
+              'Somewhere You Are (Type 4) — location-based: GPS geolocation, IP address geofencing, network context. Often used as a supplementary factor in adaptive authentication.',
+              'Something You Do (Type 5) — behavioral biometrics: typing cadence, mouse movement patterns, gait analysis. Forms the basis of continuous authentication.',
             ],
-            note: 'MFA combines two or more different factor types. Two-factor authentication (2FA) uses exactly two factors.',
+            note: 'True MFA requires factors from different categories. Two passwords — even if one is a PIN — constitute single-factor authentication (both are "something you know"). MFA requires at least one factor from a second category.',
+          },
+          {
+            diagram: {
+              caption: 'Five Authentication Factors — MFA requires factors from at least two different categories',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 270" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="270" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Five Authentication Factors</text>
+  <!-- Type 1 - Know -->
+  <rect x="14" y="44" width="103" height="140" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="65" y="64" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="11">Type 1</text>
+  <text x="65" y="80" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="13">Know</text>
+  <text x="65" y="100" text-anchor="middle" fill="#475569" font-size="10">Password</text>
+  <text x="65" y="115" text-anchor="middle" fill="#475569" font-size="10">PIN</text>
+  <text x="65" y="130" text-anchor="middle" fill="#475569" font-size="10">Passphrase</text>
+  <text x="65" y="145" text-anchor="middle" fill="#475569" font-size="10">Sec. Question</text>
+  <rect x="20" y="160" width="92" height="16" rx="3" fill="#dbeafe"/>
+  <text x="66" y="172" text-anchor="middle" fill="#dc2626" font-size="9">Phishable</text>
+  <!-- Type 2 - Have -->
+  <rect x="127" y="44" width="103" height="140" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="178" y="64" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">Type 2</text>
+  <text x="178" y="80" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="13">Have</text>
+  <text x="178" y="100" text-anchor="middle" fill="#475569" font-size="10">Smart Card</text>
+  <text x="178" y="115" text-anchor="middle" fill="#475569" font-size="10">Hardware Token</text>
+  <text x="178" y="130" text-anchor="middle" fill="#475569" font-size="10">TOTP App</text>
+  <text x="178" y="145" text-anchor="middle" fill="#475569" font-size="10">PIV / CAC</text>
+  <rect x="133" y="160" width="92" height="16" rx="3" fill="#dcfce7"/>
+  <text x="179" y="172" text-anchor="middle" fill="#15803d" font-size="9">Stealable/Lost</text>
+  <!-- Type 3 - Are -->
+  <rect x="240" y="44" width="103" height="140" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="291" y="64" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="11">Type 3</text>
+  <text x="291" y="80" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="13">Are</text>
+  <text x="291" y="100" text-anchor="middle" fill="#475569" font-size="10">Fingerprint</text>
+  <text x="291" y="115" text-anchor="middle" fill="#475569" font-size="10">Retina / Iris</text>
+  <text x="291" y="130" text-anchor="middle" fill="#475569" font-size="10">Facial Recog.</text>
+  <text x="291" y="145" text-anchor="middle" fill="#475569" font-size="10">Voice Print</text>
+  <rect x="246" y="160" width="92" height="16" rx="3" fill="#ede9fe"/>
+  <text x="292" y="172" text-anchor="middle" fill="#7c3aed" font-size="9">Non-revocable</text>
+  <!-- Type 4 - Where -->
+  <rect x="353" y="44" width="103" height="140" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="404" y="64" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Type 4</text>
+  <text x="404" y="80" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="13">Where</text>
+  <text x="404" y="100" text-anchor="middle" fill="#475569" font-size="10">GPS Location</text>
+  <text x="404" y="115" text-anchor="middle" fill="#475569" font-size="10">IP Geofence</text>
+  <text x="404" y="130" text-anchor="middle" fill="#475569" font-size="10">Network Ctx</text>
+  <text x="404" y="145" text-anchor="middle" fill="#475569" font-size="10">Cell Tower</text>
+  <rect x="359" y="160" width="92" height="16" rx="3" fill="#fed7aa"/>
+  <text x="405" y="172" text-anchor="middle" fill="#c2410c" font-size="9">Supplementary</text>
+  <!-- Type 5 - Do -->
+  <rect x="466" y="44" width="103" height="140" rx="8" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="517" y="64" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Type 5</text>
+  <text x="517" y="80" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="13">Do</text>
+  <text x="517" y="100" text-anchor="middle" fill="#475569" font-size="10">Typing Cadence</text>
+  <text x="517" y="115" text-anchor="middle" fill="#475569" font-size="10">Mouse Pattern</text>
+  <text x="517" y="130" text-anchor="middle" fill="#475569" font-size="10">Gait Analysis</text>
+  <text x="517" y="145" text-anchor="middle" fill="#475569" font-size="10">Signature Dyn.</text>
+  <rect x="472" y="160" width="92" height="16" rx="3" fill="#fef08a"/>
+  <text x="518" y="172" text-anchor="middle" fill="#92400e" font-size="9">Continuous Auth</text>
+  <!-- MFA requirement note -->
+  <rect x="14" y="198" width="552" height="36" rx="6" fill="#1e40af"/>
+  <text x="290" y="214" text-anchor="middle" fill="white" font-weight="bold" font-size="12">MFA = Two or more factors from DIFFERENT categories</text>
+  <text x="290" y="229" text-anchor="middle" fill="#bfdbfe" font-size="11">Password + PIN = Single-factor (both Type 1). Password + Token = MFA (Types 1+2) ✓</text>
+  <text x="290" y="255" text-anchor="middle" font-size="11" fill="#64748b">FAR · FRR · CER — biometric accuracy metrics; lower CER = better overall accuracy</text>
+</svg>`,
+            },
           },
           {
             heading: 'Biometric Evaluation Metrics',
+            body: 'Biometric systems are never perfectly accurate. Two key error rates determine the reliability of a biometric system:',
             list: [
-              'FAR (False Acceptance Rate) — percentage of unauthorized users accepted; lower is better.',
-              'FRR (False Rejection Rate) — percentage of authorized users rejected; lower is better.',
-              'CER/EER (Crossover Error Rate) — point where FAR = FRR; the lower the CER, the better the system.',
+              'FAR (False Acceptance Rate) — the percentage of unauthorized users who are incorrectly accepted. A high FAR represents a security risk.',
+              'FRR (False Rejection Rate) — the percentage of authorized users who are incorrectly rejected. A high FRR creates usability problems and operational friction.',
+              'CER/EER (Crossover Error Rate / Equal Error Rate) — the point at which FAR equals FRR. This single value is used to compare different biometric systems — the lower the CER, the more accurate the system overall.',
             ],
+            table: {
+              headers: ['Metric', 'What It Measures', 'Impact of High Value', 'Preferred Direction'],
+              rows: [
+                ['FAR (False Acceptance Rate)', 'Unauthorized users incorrectly accepted', 'Security risk — attackers may gain access', 'Lower is better'],
+                ['FRR (False Rejection Rate)', 'Authorized users incorrectly rejected', 'Usability problem — legitimate users cannot access', 'Lower is better'],
+                ['CER/EER (Crossover Error Rate)', 'Point where FAR = FRR; overall accuracy benchmark', 'Less accurate system', 'Lower is better'],
+              ],
+            },
+            warning: 'FAR and FRR are inversely related — tuning a biometric system to lower FAR (increase security) will raise FRR (reduce usability), and vice versa. The CER represents the optimal balance point.',
+          },
+          {
+            heading: 'Password Policies and Management',
+            body: 'Passwords remain the most widely used authentication factor despite well-known weaknesses. Organizations must establish password policies that balance security with usability:',
+            list: [
+              'Minimum length — NIST SP 800-63B recommends at least 8 characters for user-chosen passwords; longer passphrases are preferred.',
+              'Complexity requirements — while traditional complexity rules (uppercase, numbers, symbols) are being reconsidered by NIST, they remain common in enterprise policies.',
+              'Password history — prevent reuse of recent passwords (e.g., last 12).',
+              'Account lockout — lock after a defined number of failed attempts (e.g., 5–10) to prevent brute force.',
+              'Salted hashing — passwords should never be stored in plaintext; bcrypt, Argon2, or PBKDF2 with unique salts are recommended.',
+              'Credential stuffing protection — monitor for login attempts using known-breached credentials (e.g., using Have I Been Pwned datasets).',
+            ],
+            note: 'NIST SP 800-63B (2017 and updated guidance) recommends against mandatory periodic password changes unless there is evidence of compromise, and recommends checking passwords against known breached password lists.',
           },
           {
             heading: 'Advanced Authentication Methods',
             list: [
-              'Passwordless Authentication — uses biometrics, magic links, or hardware keys.',
-              'Context-Aware Authentication — evaluates device health, network, and behavioral patterns.',
-              'Just-In-Time Access — grants temporary privileges using broker-and-remove or ephemeral accounts.',
-              'SSO (Single Sign-On) — uses SAML and OAuth to reduce password fatigue.',
+              'Passwordless Authentication — eliminates shared secrets entirely; uses FIDO2/WebAuthn hardware keys, passkeys, device biometrics, or magic email links.',
+              'Context-Aware Authentication — evaluates device health posture, IP reputation, network location, time of day, and behavioral baseline before making an access decision.',
+              'Adaptive / Step-Up Authentication — grants initial access at a baseline assurance level and elevates authentication requirements when risk signals (anomalies) are detected.',
+              'Just-In-Time (JIT) Access — grants temporary, scoped elevated privileges for a specific task and revokes them automatically upon completion; uses PAM broker-and-remove patterns or ephemeral accounts.',
+              'Single Sign-On (SSO) — allows a user to authenticate once and gain access to multiple systems via assertion-passing protocols (SAML, OIDC). Reduces password fatigue but creates a high-value target.',
+              'Continuous Authentication — monitors behavioral signals throughout a session and revokes access or triggers re-authentication if anomalies are detected, even after initial login.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is the difference between identification and authentication?', a: 'Identification is the act of claiming an identity — for example, entering a username. Authentication is the act of proving that claim with evidence — for example, entering a correct password or providing a fingerprint. Identification alone provides no security guarantee.' },
+              { q: 'Why does using two passwords not constitute multi-factor authentication?', a: 'Multi-factor authentication requires factors from at least two different categories. Two passwords are both "something you know" (Type 1 factors). True MFA must combine factors from different categories, such as something you know (password) and something you have (hardware token).' },
+              { q: 'What is the CER/EER in biometric authentication and why is it important?', a: 'The Crossover Error Rate (CER) or Equal Error Rate (EER) is the point at which a biometric system\'s False Acceptance Rate equals its False Rejection Rate. It is used as a single benchmark to compare the overall accuracy of different biometric systems — the lower the CER, the more accurate the system.' },
+              { q: 'What is the relationship between FAR and FRR in biometric systems?', a: 'FAR and FRR are inversely related. If you tune a biometric system to be more secure (lower FAR), it will become more likely to reject legitimate users (higher FRR). If you tune it to be more convenient (lower FRR), it will be more likely to accept unauthorized users (higher FAR). Organizations must balance this trade-off based on their security and usability requirements.' },
+              { q: 'What is just-in-time access and what security principle does it support?', a: 'Just-in-time access grants temporary, scoped elevated privileges only when a user needs them for a specific task, and automatically revokes them when the task is complete. It supports the principle of least privilege by ensuring privileged access is not persistently available, reducing the window of opportunity for attackers.' },
+              { q: 'How does passwordless authentication improve security compared to passwords?', a: 'Passwordless authentication eliminates shared secrets that can be phished, brute-forced, reused across sites, or exposed in breaches. Solutions like FIDO2/WebAuthn use public-key cryptography — the private key never leaves the user\'s device, so there is nothing to steal from a server breach.' },
+              { q: 'What is adaptive authentication and when would it trigger a step-up?', a: 'Adaptive authentication uses real-time risk signals — such as unusual login location, unrecognized device, atypical access time, or behavioral anomalies — to dynamically adjust the authentication requirement. A step-up is triggered when risk signals exceed a threshold, requiring the user to provide an additional factor (e.g., OTP or biometric) before access is granted.' },
+              { q: 'Why does NIST SP 800-63B recommend against mandatory periodic password changes?', a: 'Research has shown that mandatory periodic password resets cause users to make predictable, incremental changes (e.g., Password1 → Password2) that provide little security benefit while increasing usability friction. NIST recommends changing passwords only when there is evidence of compromise, and instead focusing on checking credentials against known-breached password lists.' },
+              { q: 'What is continuous authentication and how does it differ from traditional session-based access?', a: 'Traditional authentication occurs once at login; after that, the session token provides access until it expires. Continuous authentication monitors behavioral signals throughout the entire session — typing patterns, mouse movements, navigation habits — and can revoke access mid-session if anomalies suggest the session has been taken over by a different user.' },
+              { q: 'What are the risks of implementing single sign-on (SSO) and how can they be mitigated?', a: 'SSO creates a high-value target — if the identity provider is compromised, all connected applications are compromised simultaneously. SSO also means a stolen session token provides broad access. Mitigations include enforcing MFA at the SSO provider, using short-lived tokens, monitoring SSO authentication logs for anomalies, and implementing session risk reassessment for sensitive applications.' },
             ],
           },
         ],
       },
+      // ── 5.3 ──────────────────────────────────────────────────────────────
       {
         id: 'd5t3',
         title: '5.3 Federated Identity with Third-Party Services',
         content: [
           {
-            heading: 'IDaaS — Identity as a Service',
-            body: 'Cloud-based extension of IAM that centralizes authentication, authorization, and access control. Integrates SSO, MFA, and federated protocols like SAML and OAuth.',
-            warning: 'IDaaS reduces administrative complexity but introduces a single point of failure and requires strict third-party risk assessment.',
+            body: 'Federated identity management allows users to authenticate once with a trusted identity provider and use that authentication assertion to access resources across multiple organizations or cloud services without re-entering credentials. Federation extends the concept of SSO beyond organizational boundaries, enabling B2B and B2C scenarios where partner organizations or external service providers accept assertions from each other\'s identity systems.',
           },
           {
-            heading: 'Three Deployment Models',
+            body: 'The key principle in federation is trust. One organization (the Identity Provider, or IdP) asserts a user\'s identity, and a second organization (the Service Provider, or SP) trusts that assertion without performing its own authentication. This trust relationship must be established, documented, and technically configured before federation can function. The mechanism by which assertions are passed and trusted determines which protocol is used — SAML 2.0 for enterprise web federation, OpenID Connect for modern APIs and consumer apps.',
+          },
+          {
+            heading: 'IDaaS — Identity as a Service',
+            body: 'Identity as a Service (IDaaS) is the delivery of IAM capabilities through a cloud-based platform. Rather than building and maintaining an on-premises identity infrastructure, organizations subscribe to a service that provides authentication, authorization, MFA, SSO, and directory services. Leading IDaaS providers include Okta, Microsoft Entra ID (formerly Azure AD), Google Workspace Identity, and Ping Identity.',
             list: [
-              'On-Premises — full control through systems like Active Directory or LDAP; higher maintenance costs.',
-              'Cloud — pure IDaaS; automation, scalability, cost efficiency; Just-in-Time provisioning creates accounts on first login.',
-              'Hybrid — combines both (e.g., Active Directory + Azure AD); gradual cloud migration; requires synchronization management.',
+              'Centralized identity plane — single point of control for authentication policy and access governance across all applications.',
+              'SSO integration — connects to hundreds of pre-built application connectors (SAML, OIDC, SCIM).',
+              'MFA as a service — enforces MFA at the identity layer rather than at each application individually.',
+              'Automated provisioning/deprovisioning — SCIM (System for Cross-domain Identity Management) automates account lifecycle across integrated applications.',
+              'Adaptive risk-based policies — evaluates login context in real time and enforces step-up authentication when needed.',
+            ],
+            warning: 'IDaaS introduces a critical single point of failure. If the identity provider is unavailable, users cannot access any federated applications. Ensure SLA requirements are evaluated, and consider offline/break-glass access procedures.',
+          },
+          {
+            heading: 'IAM Deployment Models',
+            table: {
+              headers: ['Model', 'Description', 'Advantages', 'Disadvantages'],
+              rows: [
+                ['On-Premises', 'Full identity infrastructure hosted internally (e.g., Active Directory, LDAP)', 'Full control; no external dependency; data stays internal', 'High maintenance cost; limited scalability; no built-in cloud integration'],
+                ['Cloud (IDaaS)', 'Pure cloud-hosted identity service (e.g., Okta, Azure AD)', 'Scalable; low admin overhead; built-in integrations; JIT provisioning', 'Dependency on third-party provider; data leaves internal infrastructure; vendor lock-in'],
+                ['Hybrid', 'On-premises directory synchronized with cloud IDaaS (e.g., AD + Azure AD Connect)', 'Gradual migration; supports legacy and cloud apps simultaneously', 'Synchronization complexity; potential for inconsistency; two platforms to manage'],
+              ],
+            },
+          },
+          {
+            heading: 'Federation Trust Models',
+            list: [
+              'Direct Trust — organizations manually configure bilateral trust relationships. Simple but does not scale to many partners.',
+              'Third-Party Trust (Brokered) — a neutral third party (e.g., a federation broker or identity hub) manages trust on behalf of participants. All parties trust the broker rather than each other directly.',
+              'Web of Trust — multiple organizations establish mutual trust relationships in a mesh topology. Complex to manage at scale.',
             ],
           },
           {
-            heading: 'Critical Risks',
+            heading: 'Critical Risks in Federated Identity',
             list: [
-              'Availability — provider downtime blocks all authentication.',
-              'Data Exposure — breaches affect all linked credentials.',
-              'Integration Complexity — legacy systems need bridging tools.',
-              'Synchronization Vulnerability — compromised cloud identity could expose on-premise resources.',
+              'Provider Availability — IdP downtime blocks authentication to all federated services simultaneously. Plan for offline access and break-glass procedures.',
+              'Credential Compromise — a stolen identity from the IdP grants access to all SP applications. Strong MFA at the IdP is critical.',
+              'Token Theft / Replay Attacks — an attacker who captures a SAML assertion or OAuth token can impersonate the user. Mitigate with short token lifetimes, token binding, and HTTPS everywhere.',
+              'Integration Complexity — legacy applications that do not support SAML or OIDC require bridging solutions (identity proxies, LDAP bridges) which introduce additional attack surface.',
+              'Synchronization Failures — in hybrid models, mismatches between on-premises and cloud directory state can cause access inconsistencies.',
+              'Third-Party Risk — the IdP is a critical vendor; its security posture, SLA, data handling practices, and breach response must be rigorously evaluated.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is federated identity management and what problem does it solve?', a: 'Federated identity management allows users to authenticate once with a trusted identity provider and access multiple services across organizational boundaries without re-authenticating. It solves the problem of managing separate credentials for every partner system or cloud service, reducing both user friction and credential sprawl.' },
+              { q: 'What is the difference between an Identity Provider (IdP) and a Service Provider (SP) in a federation?', a: 'The Identity Provider (IdP) is the organization that authenticates the user and issues an identity assertion. The Service Provider (SP) is the application or service that accepts that assertion and grants access. The SP trusts the IdP\'s assertion without performing its own authentication.' },
+              { q: 'What are the security implications of IDaaS acting as a single point of failure?', a: 'If the IDaaS provider experiences an outage, all federated applications become inaccessible simultaneously. If the IDaaS provider is breached, all linked applications may be compromised. Organizations must evaluate provider SLAs, implement break-glass (emergency access) accounts, and ensure MFA is enforced at the IdP to reduce the risk of credential compromise.' },
+              { q: 'What is SCIM and how does it relate to IDaaS?', a: 'SCIM (System for Cross-domain Identity Management) is a standard protocol for automating user provisioning and deprovisioning across identity-connected applications. IDaaS platforms use SCIM to automatically create, update, and delete user accounts in connected applications when changes are made in the central directory, reducing manual administration and orphaned account risk.' },
+              { q: 'How does Just-in-Time (JIT) provisioning work in a cloud IDaaS environment?', a: 'With JIT provisioning, no user account exists in the application before first login. When a user authenticates through the IdP for the first time, the identity assertion triggers automatic account creation in the application. This reduces administrative overhead and ensures that accounts only exist for users who have actually accessed the system.' },
+              { q: 'What is a token replay attack in the context of federated identity and how can it be mitigated?', a: 'A token replay attack occurs when an attacker captures a valid authentication token (such as a SAML assertion or OAuth access token) and presents it themselves to gain unauthorized access. Mitigations include using short token expiration times, implementing nonce values to ensure one-time use, using token binding to tie tokens to specific TLS sessions, and enforcing HTTPS to prevent interception.' },
+              { q: 'Why might an organization choose a hybrid IAM deployment model?', a: 'A hybrid model supports organizations that have legacy on-premises applications that cannot use cloud federation protocols while also migrating to cloud services. It allows gradual cloud adoption while maintaining compatibility with existing systems. Active Directory + Azure AD Connect is a common example, synchronizing identities between on-premises AD and cloud Microsoft 365 services.' },
+              { q: 'What is the direct trust model in federation and what is its primary limitation?', a: 'The direct trust model requires each pair of organizations to manually configure a bilateral trust relationship — exchanging certificates, configuring IdP and SP metadata, and establishing formal agreements. While straightforward for a single partnership, it does not scale — adding N partners requires configuring N separate trust relationships, making it impractical for large ecosystems.' },
+              { q: 'What third-party risks must be assessed when adopting an IDaaS provider?', a: 'Organizations must evaluate the IDaaS provider\'s security posture (certifications such as SOC 2 Type II, ISO 27001), data residency and privacy practices (GDPR compliance), SLA uptime guarantees, breach notification procedures, right to audit, business continuity plans, and the implications of vendor lock-in if migration becomes necessary.' },
+              { q: 'How does federated identity management relate to the principle of least privilege?', a: 'Federation itself does not enforce least privilege — it simply allows an identity assertion to be accepted across organizations. The SP must still define authorization policies that enforce least privilege for federated users. ABAC or RBAC at the SP, combined with scoped attributes in the identity assertion (claims), allows the SP to grant only the access appropriate to the user\'s role — least privilege is enforced at authorization, not authentication.' },
             ],
           },
         ],
       },
+      // ── 5.4 ──────────────────────────────────────────────────────────────
       {
         id: 'd5t4',
         title: '5.4 Authorization Mechanisms',
         content: [
           {
-            heading: 'Key Authorization Concepts',
+            body: 'Authorization is the process of determining what an authenticated identity is permitted to do. While authentication answers "Who are you?", authorization answers "What are you allowed to do?" Authorization decisions are based on policies that evaluate the authenticated subject\'s attributes, roles, or labels against the requested action and target resource.',
+          },
+          {
+            body: 'A critical point is that authorization is separate from authentication — they are two distinct steps in the access control process. A user who has successfully authenticated has only proven their identity. Whether they may perform the requested action depends on the authorization policy. This separation allows for granular control: an authenticated user may be authorized to read a file but not write to it, or authorized to access a system during business hours but not at night.',
+          },
+          {
+            heading: 'Core Authorization Concepts',
             list: [
-              'Permissions — define what a user or system can do with a specific resource.',
-              'Rights — system-level actions that a user or process can perform.',
-              'Privileges — encompass both permissions and rights but are broader in scope.',
-              'Implicit Deny — unless access is explicitly granted, it is denied by default.',
-              'Privilege Creep — users accumulate excess permissions over time; mitigated by regular access reviews.',
+              'Permissions — specific grants that define what actions a subject may perform on a particular object (e.g., read, write, execute, delete on a specific file or database table).',
+              'Rights — system-level capabilities granted to a subject (e.g., the right to log on locally, the right to shut down the system, the right to manage audit logs). Rights are broader than permissions.',
+              'Privileges — encompass both permissions and rights; the aggregate of all access capabilities granted to a subject.',
+              'Implicit Deny (Default Deny) — unless access is explicitly granted by an authorization rule, it is denied by default. This is the correct security posture for access control systems.',
+              'Privilege Creep — the gradual accumulation of excess permissions over time as a user changes roles or takes on additional responsibilities without removing old access. Creates insider threat risk.',
+              'Toxic Combinations — certain pairs of permissions create unacceptable segregation-of-duties conflicts (e.g., the ability to both initiate and approve financial transactions). IAM systems must detect and prevent toxic combinations.',
             ],
           },
           {
-            heading: 'Policy Enforcement Architecture',
+            heading: 'Policy Enforcement Architecture (XACML Model)',
+            body: 'Modern authorization frameworks separate policy definition from policy enforcement. The XACML (eXtensible Access Control Markup Language) architecture defines a reference model for authorization components:',
+            table: {
+              headers: ['Component', 'Abbreviation', 'Function'],
+              rows: [
+                ['Policy Enforcement Point', 'PEP', 'Intercepts access requests; forwards them to the PDP for evaluation; enforces the PDP\'s decision'],
+                ['Policy Decision Point', 'PDP', 'Evaluates access requests against applicable policies; returns Permit, Deny, Indeterminate, or Not Applicable'],
+                ['Policy Administration Point', 'PAP', 'Where policies are authored, stored, and managed'],
+                ['Policy Information Point', 'PIP', 'Provides external attribute data needed for policy evaluation (e.g., directory lookup, HR system)'],
+              ],
+            },
+            note: 'In practice, the PEP might be an API gateway, a network firewall, or an application authorization middleware. The PDP is the central decision engine. PEP and PDP are always separate — the PEP never makes its own authorization decisions.',
+          },
+          {
+            heading: 'Object Capabilities and ACLs',
             list: [
-              'PEP (Policy Enforcement Point) — intercepts access requests and forwards for evaluation.',
-              'PDP (Policy Decision Point) — evaluates requests against policies; returns allow/deny decisions.',
+              'Access Control List (ACL) — a list attached to a resource that specifies which subjects have which permissions (e.g., NTFS file ACLs, AWS S3 bucket policies). ACLs answer "who can access this resource?"',
+              'Capability List — a list attached to a subject that specifies which resources it may access and what it may do (e.g., a Kerberos ticket, an OAuth token with scopes). Capability lists answer "what can this identity access?"',
+            ],
+            tip: 'ACLs are used in most operating systems. Capability lists are more common in distributed/microservices architectures where tokens are passed between services.',
+          },
+          {
+            heading: 'Granular Privilege Management',
+            list: [
+              'Privileged Access Management (PAM) — specialized tools (CyberArk, BeyondTrust) that control, monitor, and audit privileged account activity. Features include password vaulting, session recording, and just-in-time elevation.',
+              'Privileged Identity Management (PIM) — focuses on who holds privileged roles and for how long; supports time-bound role activation (e.g., Azure AD PIM).',
+              'Zero Standing Privilege — no account holds permanent privileged access; all elevated access is just-in-time and revoked automatically.',
+              'Sudo / Run As — Unix and Windows mechanisms for temporary privilege elevation; must be governed by PAM policy with logging.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is the difference between authentication and authorization?', a: 'Authentication determines who a subject is — it verifies identity using credentials or biometrics. Authorization determines what that authenticated subject is permitted to do — it evaluates the subject\'s identity attributes against access control policies to allow or deny specific actions on specific resources. They are separate, sequential steps.' },
+              { q: 'What is the principle of implicit deny and why is it the correct default for access control?', a: 'Implicit deny (also called default deny) means that any access request not explicitly permitted by a rule is automatically denied. This is the correct default because it means an access control system can only grant access intentionally — any gap or misconfiguration results in denial rather than unintended access, reducing the risk of privilege escalation through oversight.' },
+              { q: 'What is privilege creep and what organizational process prevents it?', a: 'Privilege creep occurs when users accumulate access rights over time — often as they change roles, join projects, or receive temporary access that is never revoked. It is prevented through regular access recertification campaigns (access reviews), where managers periodically confirm that each user still requires each permission they hold. Automated deprovisioning on role changes also helps.' },
+              { q: 'What is the role of a Policy Enforcement Point (PEP) in an authorization architecture?', a: 'The PEP intercepts access requests at a resource boundary and forwards them to the Policy Decision Point for evaluation. The PEP then enforces whatever decision the PDP returns — granting or denying the request. The PEP never makes independent authorization decisions; it is purely an enforcement mechanism.' },
+              { q: 'What are toxic combinations in access control and why are they dangerous?', a: 'Toxic combinations are pairs of permissions that, when held by the same individual, violate segregation of duties — for example, the ability to both create vendor records and approve vendor payments. When a single person holds both, they could create a fictitious vendor and approve fraudulent payments. IAM systems must detect and prevent these combinations during provisioning.' },
+              { q: 'What is the difference between an Access Control List (ACL) and a capability list?', a: 'An ACL is attached to the resource and lists which subjects may access it. A capability list (or token) is held by the subject and specifies which resources it may access. ACLs make it easy to determine who can access a specific resource; capability lists make it easy to determine what a specific identity can access.' },
+              { q: 'What is Privileged Access Management (PAM) and what problem does it address?', a: 'PAM is a set of tools and practices that control, monitor, and audit the use of privileged accounts (administrator, root, service accounts). It addresses the risk that privileged accounts, if compromised or misused, can cause catastrophic damage. PAM features include password vaulting (no one knows the password — it is checked out on demand), session recording, and just-in-time elevation.' },
+              { q: 'What is zero standing privilege and how does it reduce attack surface?', a: 'Zero standing privilege means no account holds persistent elevated permissions. When an administrator needs privileged access, it is granted just-in-time for a specific task and automatically revoked when the task is complete. This reduces attack surface because there are no always-on privileged accounts for an attacker to compromise — even if an attacker steals credentials, they inherit no standing privilege.' },
+              { q: 'What does the Policy Information Point (PIP) provide in an XACML authorization architecture?', a: 'The PIP is an external data source that the Policy Decision Point queries to obtain attribute values needed to evaluate a policy. For example, the PDP might query the PIP to get the user\'s current department from an HR system, their clearance level from a directory, or device posture from an endpoint management system, before making an access decision.' },
+              { q: 'How do permissions differ from rights in the context of authorization?', a: 'Permissions are resource-specific grants that define what actions a subject can perform on a particular object — such as read, write, or execute permissions on a file. Rights are system-level capabilities that define what actions a subject can perform on the system itself — such as the right to log on locally, shut down the system, or manage audit logs. Rights are broader and more powerful than permissions.' },
             ],
           },
         ],
       },
+      // ── 5.5 ──────────────────────────────────────────────────────────────
       {
         id: 'd5t5',
         title: '5.5 Identity and Access Provisioning Lifecycle',
         content: [
           {
-            heading: 'Core Lifecycle Processes',
+            body: 'The identity lifecycle begins the moment a new user, system, or service identity is created and ends when it is permanently deleted. Managing this lifecycle rigorously is essential for enforcing least privilege, preventing orphaned accounts, and maintaining an auditable record of who has access to what. Poor lifecycle management is one of the most common findings in access control audits.',
+          },
+          {
+            body: 'Identity lifecycle management encompasses five core phases: provisioning, modification, suspension, deprovisioning, and deletion. Each phase must be governed by documented procedures, subject to approval workflows, and recorded in audit logs. Modern organizations automate much of this lifecycle using Identity Governance and Administration (IGA) tools integrated with HR systems, so that personnel changes in the HR system automatically trigger the appropriate access changes.',
+          },
+          {
+            heading: 'The Five Lifecycle Phases',
+            table: {
+              headers: ['Phase', 'Trigger', 'Key Actions', 'Risk if Poorly Managed'],
+              rows: [
+                ['Provisioning', 'New hire, new contractor, new service', 'Identity verification; access request approval; account creation; role assignment; MFA enrollment', 'Over-provisioning; accounts created without approval'],
+                ['Modification', 'Role change, promotion, project assignment', 'Add new role entitlements; remove old role entitlements (prevent creep); update attributes', 'Privilege creep if old access is not removed'],
+                ['Suspension', 'Leave of absence, investigation, security hold', 'Disable account without deleting (preserves audit trail); revoke active sessions; notify stakeholders', 'Active sessions not terminated; account reactivated without review'],
+                ['Deprovisioning', 'Resignation, termination, contract end', 'Disable immediately (day 0 for terminations); transfer data ownership; schedule deletion', 'Orphaned accounts used months later by ex-employees or attackers'],
+                ['Deletion', 'Retention period expired post-departure', 'Permanently remove account; archive logs per policy; remove from all systems', 'Audit trail lost if deleted prematurely; data orphaned'],
+              ],
+            },
+          },
+          {
+            heading: 'Joiner-Mover-Leaver Model',
+            body: 'The Joiner-Mover-Leaver (JML) framework is a widely used model for structuring identity lifecycle management:',
             list: [
-              'Provisioning — creates and grants user access during onboarding; involves identity verification, access request approval, and account configuration.',
-              'Deprovisioning — removes or adjusts access when no longer needed (role change, termination, system retirement).',
-              'Account Access Review — regular audits to identify excessive permissions and inactive accounts; non-admin accounts annually, admin accounts quarterly.',
-              'Role Definition and Transition — predefined role sets enforce least privilege and separation of duties across systems.',
-              'Privilege Escalation — temporary elevation (sudo, "Run as"); PAM systems enforce strict controls with MFA and session recording.',
-              'Service Accounts — specialized accounts for applications; require minimal privileges, regular monitoring, and human oversight.',
+              'Joiner — a new person or system joins the organization; full provisioning is needed; access should reflect only the role requirements from day one.',
+              'Mover — an existing identity changes roles, departments, or responsibilities; old entitlements must be removed and new ones added simultaneously to prevent privilege creep.',
+              'Leaver — an identity exits the organization; immediate deprovisioning is required; accounts should be disabled on the last day and deleted after the retention period.',
+            ],
+            warning: 'The "Mover" case is the most common source of privilege creep. Organizations often grant new access when an employee changes roles but fail to revoke access from the previous role. Access recertification campaigns must specifically target movers.',
+          },
+          {
+            heading: 'Account Access Reviews (Recertification)',
+            body: 'Periodic access reviews — also called access recertification or entitlement reviews — are a compensating control for accumulated access rights. Managers review each employee\'s current access and certify that it is still required for their current job function:',
+            list: [
+              'Standard user accounts — reviewed annually as a minimum.',
+              'Privileged and administrative accounts — reviewed quarterly due to the higher risk.',
+              'Service accounts — reviewed at least annually; ownership must be confirmed.',
+              'High-risk accounts (root, domain admin) — reviewed monthly or on a continuous basis.',
+            ],
+            tip: 'Access reviews should be risk-driven, not calendar-driven. A user who recently changed roles or departments should be reviewed immediately, not at the next scheduled cycle.',
+          },
+          {
+            heading: 'Service Account Management',
+            body: 'Service accounts are identities used by applications, scripts, and automated processes — not by humans. They often hold significant privileges and, because they are not associated with a named individual, they are frequently overlooked in access reviews:',
+            list: [
+              'Every service account must have a named human owner responsible for it.',
+              'Service accounts must follow the principle of least privilege — scoped to only the specific resources they need.',
+              'Credentials must be rotated regularly (automated secrets management tools like HashiCorp Vault or AWS Secrets Manager are preferred).',
+              'Service accounts should never be used for interactive login.',
+              'Where possible, replace long-lived service account credentials with short-lived workload identity tokens (e.g., Workload Identity Federation in cloud environments).',
             ],
           },
           {
-            heading: 'Best Practices',
-            list: [
-              'Implement automation to reduce errors and administrative burden.',
-              'Apply least privilege consistently.',
-              'Enforce separation of duties between provisioning and auditing roles.',
-              'Maintain detailed audit trails.',
-              'Document all access decisions with accountability measures.',
+            questions: [
+              { q: 'What are the five phases of the identity lifecycle?', a: 'The five phases are: (1) Provisioning — creating an account and assigning initial access; (2) Modification — updating access when roles or responsibilities change; (3) Suspension — temporarily disabling an account without deleting it; (4) Deprovisioning — disabling the account when the user leaves; (5) Deletion — permanently removing the account after the required retention period.' },
+              { q: 'What is the Joiner-Mover-Leaver (JML) model and why is the Mover phase the riskiest?', a: 'JML is a framework for managing identity lifecycle events. Joiners are new users, Movers are users changing roles, and Leavers are departing users. The Mover phase is riskiest because organizations typically grant new access for the new role but fail to remove access from the old role, causing privilege creep. Over time, movers accumulate entitlements across multiple roles.' },
+              { q: 'What is the recommended immediate action when an employee is involuntarily terminated?', a: 'Upon involuntary termination, accounts should be disabled on day zero — ideally before or at the same time as the employee is notified — to prevent a disgruntled employee from taking retaliatory action. All active sessions should be terminated, and access credentials (passwords, tokens, certificates) revoked. Physical access credentials (badges) should also be collected.' },
+              { q: 'What is an account access review (recertification) and what risk does it mitigate?', a: 'An access review (recertification) is a periodic process in which managers review each employee\'s current access entitlements and confirm they are still appropriate for the employee\'s current role. It mitigates privilege creep — the accumulation of excess access over time — and helps identify orphaned accounts and accounts with toxic permission combinations.' },
+              { q: 'Why should service accounts have a named human owner?', a: 'Service accounts without a named owner are often overlooked in access reviews, password rotation, and deprovisioning. A named owner is accountable for the account\'s activity, ensures credentials are rotated, reviews privileges during recertification, and deprovisions the account when the associated application is retired.' },
+              { q: 'What is an orphaned account and why is it a security risk?', a: 'An orphaned account is a user or service account whose owner has left the organization (or whose associated system has been retired) but that has not been disabled or deleted. Orphaned accounts are a security risk because they may still hold valid credentials and elevated privileges. An attacker or malicious insider who discovers them can use them to access systems with little chance of detection, as there is no active user to notice abnormal activity.' },
+              { q: 'How does automation in IAM reduce security risk during the provisioning lifecycle?', a: 'Manual provisioning is error-prone — access may be granted too broadly, approvals may be skipped, or deprovisioning may be delayed when someone leaves. Automation integrated with the HR system ensures that access changes happen immediately and consistently when HR records change. Automated deprovisioning on the departure date eliminates the risk of orphaned accounts surviving because someone forgot to submit a ticket.' },
+              { q: 'What is the purpose of suspending an account rather than immediately deleting it?', a: 'Suspending (disabling) an account preserves the audit trail associated with it — login history, activity logs, and group memberships remain intact for forensic and compliance purposes. Immediate deletion would destroy this evidence. For employees under investigation, suspended accounts may also need to be re-enabled temporarily for forensic access. Deletion occurs only after the required retention period has passed.' },
+              { q: 'Why should access reviews be risk-driven rather than purely calendar-driven?', a: 'Calendar-driven reviews only catch access problems at fixed intervals — a user who changed roles three days after the last review will not be examined for nearly a year. Risk-driven reviews trigger immediate recertification for high-risk events such as role changes, promotions, transfers, or suspicion of insider threat, ensuring that access is appropriate for the current situation rather than the situation at the last scheduled review.' },
+              { q: 'What is workload identity federation and how does it improve service account security?', a: 'Workload identity federation allows services and applications to authenticate using short-lived identity tokens issued by a trusted identity provider (e.g., a cloud provider\'s OIDC endpoint) rather than long-lived passwords or API keys. When the workload needs access, it obtains a short-lived token that expires quickly. This eliminates the need to store long-lived credentials entirely, removing the most common vector for service account compromise — credential leakage in source code or configuration files.' },
             ],
           },
         ],
       },
+      // ── 5.6 ──────────────────────────────────────────────────────────────
       {
         id: 'd5t6',
         title: '5.6 Implement Authentication Systems',
         content: [
           {
+            body: 'Implementing authentication systems requires understanding the protocols and standards used to verify identity and convey that verification to resource servers. Modern authentication relies on a small number of widely adopted open standards: OAuth 2.0 for delegated authorization, OpenID Connect (OIDC) for federated authentication, SAML 2.0 for enterprise SSO, Kerberos for network authentication in Active Directory environments, and RADIUS/TACACS+ for network device access control.',
+          },
+          {
+            body: 'Security practitioners must understand not only how these protocols work, but also their relative strengths, weaknesses, and appropriate use cases. Selecting the wrong protocol — or misconfiguring a correct one — can undermine authentication security entirely. Configuration errors such as accepting unsigned SAML assertions, using weak OAuth flows, or misconfiguring redirect URIs are among the most common IAM vulnerabilities.',
+          },
+          {
             heading: 'OAuth 2.0',
-            body: 'Open standard for delegated authorization — allows third-party applications to access user resources without exposing credentials. Uses access tokens scoped by permission and time.',
+            body: 'OAuth 2.0 is an open standard for delegated authorization — it allows a user to grant a third-party application access to resources on their behalf without sharing their credentials. OAuth 2.0 is an authorization framework, not an authentication protocol.',
             list: [
-              'Resource Owner (User) — grants authorization to the third-party application.',
-              'Authorization Server — authenticates the user and issues access tokens.',
-              'Resource Server — validates tokens and serves protected data.',
-              'Client — the third-party application requesting access.',
+              'Resource Owner — the user who owns the protected resource and grants authorization.',
+              'Client — the third-party application requesting access on behalf of the user.',
+              'Authorization Server — authenticates the user and issues access tokens after authorization is granted.',
+              'Resource Server — the API or service that holds the protected resources; validates tokens before serving data.',
             ],
+            note: 'OAuth 2.0 grants access tokens, not identity. An access token says "this client is allowed to perform these scopes" — it does not say who the user is. For identity information, OpenID Connect must be layered on top of OAuth 2.0.',
           },
           {
             heading: 'OpenID Connect (OIDC)',
-            body: 'Identity layer built on top of OAuth 2.0 that adds authentication for Single Sign-On (SSO). Issues an ID Token (JWT) containing identity claims (name, email) in addition to the OAuth access token.',
+            body: 'OpenID Connect is an identity layer built on top of OAuth 2.0. It adds authentication to the OAuth 2.0 authorization framework by issuing an ID Token (a JSON Web Token/JWT) that contains claims about the authenticated user — such as their unique identifier, name, email, and authentication time.',
+            list: [
+              'ID Token — a signed JWT containing identity claims; used to establish who the user is.',
+              'UserInfo Endpoint — an OAuth 2.0-protected endpoint that returns additional user claims.',
+              'Discovery Document — a published JSON document at a well-known URL that describes the OIDC provider\'s endpoints and capabilities.',
+            ],
+            tip: 'OIDC is the modern standard for web and mobile SSO. If you see "Sign in with Google" or "Sign in with Microsoft," that is OIDC in action. The application receives an ID Token that proves the user\'s identity without the application needing to handle passwords.',
           },
           {
             heading: 'SAML 2.0',
-            body: 'XML-based framework for exchanging authentication and authorization data between Identity Provider (IdP) and Service Provider (SP). Core of enterprise SSO. The IdP issues a SAML Assertion; the SP validates it to grant access.',
+            body: 'Security Assertion Markup Language (SAML) 2.0 is an XML-based framework for exchanging authentication and authorization data between an Identity Provider (IdP) and a Service Provider (SP). It is the dominant standard for enterprise web SSO, particularly for legacy and enterprise applications.',
+            list: [
+              'SAML Assertion — an XML document containing authentication, authorization, or attribute statements about the subject.',
+              'Identity Provider (IdP) — authenticates the user and issues the SAML Assertion.',
+              'Service Provider (SP) — validates the SAML Assertion and grants access based on its contents.',
+              'SP-Initiated Flow — user tries to access an SP resource; SP redirects to IdP for authentication; IdP issues assertion; user returned to SP.',
+              'IdP-Initiated Flow — user logs into the IdP portal and selects an SP application; IdP proactively sends the assertion to the SP.',
+            ],
             table: {
-              headers: ['Feature', 'OAuth 2.0 / OIDC', 'SAML 2.0'],
+              headers: ['Feature', 'OAuth 2.0', 'OIDC', 'SAML 2.0'],
               rows: [
-                ['Message Format', 'JSON, JWT', 'XML'],
-                ['Token Type', 'Access token, ID token', 'SAML Assertion'],
-                ['Transport', 'REST (HTTP, JSON)', 'Browser POST/Redirect'],
-                ['Common Use', 'APIs, mobile, web apps', 'Enterprise SSO'],
-                ['Identity Layer', 'OIDC (extension)', 'Built-in'],
+                ['Purpose', 'Delegated authorization', 'Federated authentication (SSO)', 'Enterprise SSO / federated identity'],
+                ['Message Format', 'JSON', 'JSON / JWT', 'XML'],
+                ['Token Type', 'Access token (opaque or JWT)', 'ID Token (JWT)', 'SAML Assertion (XML)'],
+                ['Transport', 'REST (HTTP)', 'REST (HTTP)', 'Browser redirect / POST binding'],
+                ['Best For', 'API authorization, mobile apps', 'Modern web/mobile SSO', 'Enterprise app SSO, legacy systems'],
+                ['Identity Layer', 'No (authorization only)', 'Yes (built-in)', 'Yes (built-in)'],
               ],
             },
           },
           {
             heading: 'Kerberos',
-            body: 'Network authentication protocol using symmetric key cryptography and encrypted tickets. Enables SSO across distributed systems without transmitting passwords over the network.',
+            body: 'Kerberos is a network authentication protocol developed at MIT that uses symmetric key cryptography and time-stamped tickets to authenticate users to network services without transmitting passwords over the network. It is the default authentication protocol in Microsoft Active Directory.',
             list: [
-              '1. Client requests Ticket-Granting Ticket (TGT) from Authentication Server (AS/KDC).',
-              '2. Client presents TGT to Ticket-Granting Server (TGS) to get a Service Ticket.',
-              '3. Client presents Service Ticket to the target service for access.',
+              'Key Distribution Center (KDC) — trusted third party consisting of two components: the Authentication Server (AS) and the Ticket-Granting Server (TGS).',
+              'Step 1 (AS Exchange) — the client sends the username to the AS; the AS returns a Ticket-Granting Ticket (TGT) encrypted with the client\'s password-derived key.',
+              'Step 2 (TGS Exchange) — the client presents the TGT to the TGS and requests a Service Ticket for the target service.',
+              'Step 3 (Client/Server Exchange) — the client presents the Service Ticket to the target service, which decrypts it using a shared key with the KDC; access is granted.',
             ],
-            note: 'Kerberos is widely used in Microsoft Active Directory environments.',
+            warning: 'Kerberos is vulnerable to Pass-the-Ticket attacks (stolen TGTs or Service Tickets replayed), Kerberoasting (offline cracking of Service Tickets encrypted with weak service account passwords), and Golden Ticket attacks (forged TGTs signed with the KRBTGT account hash). Mitigations include short ticket lifetimes, strong service account passwords (or managed service accounts), and monitoring for anomalous Kerberos requests.',
+          },
+          {
+            heading: 'RADIUS and TACACS+',
+            body: 'RADIUS (Remote Authentication Dial-In User Service) and TACACS+ (Terminal Access Controller Access-Control System Plus) are protocols used to authenticate and authorize users for network access (VPNs, wireless networks) and network device administration:',
+            table: {
+              headers: ['Feature', 'RADIUS', 'TACACS+'],
+              rows: [
+                ['Developer', 'Open standard (RFC 2865)', 'Cisco proprietary (widely supported)'],
+                ['Transport', 'UDP', 'TCP (more reliable)'],
+                ['Encryption', 'Encrypts only the password', 'Encrypts the entire payload'],
+                ['AAA Separation', 'Combines authentication & authorization', 'Separates authentication, authorization, and accounting'],
+                ['Best For', 'Network access (VPN, wireless, dial-up)', 'Network device administration (router/switch CLI)'],
+              ],
+            },
+            note: 'The choice between RADIUS and TACACS+ depends on the use case. For authenticating users to VPN or Wi-Fi, RADIUS is standard. For controlling administrator access to network devices (routers, switches, firewalls), TACACS+ is preferred because of its per-command authorization granularity and full payload encryption.',
+          },
+          {
+            questions: [
+              { q: 'What is OAuth 2.0 and is it an authentication protocol?', a: 'OAuth 2.0 is a delegated authorization framework — it allows users to grant third-party applications limited access to their resources without sharing credentials. It is NOT an authentication protocol. OAuth 2.0 tells a resource server what the client is allowed to do, but it does not tell the application who the user is. OpenID Connect is the authentication layer built on top of OAuth 2.0.' },
+              { q: 'What is an ID Token in OpenID Connect and what does it contain?', a: 'An ID Token is a JSON Web Token (JWT) issued by the OIDC provider (IdP) as part of the authentication response. It contains claims (assertions) about the authenticated user — such as their unique subject identifier (sub), name, email address, and the time of authentication. The ID Token is signed by the IdP so the relying party can verify its authenticity.' },
+              { q: 'What is a SAML Assertion and what are the three types of statements it can contain?', a: 'A SAML Assertion is a signed XML document issued by an Identity Provider. It can contain three types of statements: (1) Authentication statements — asserting that the subject authenticated at a specific time using a specific method; (2) Attribute statements — asserting attributes about the subject (name, email, group membership); (3) Authorization decision statements — asserting what the subject is permitted to do at the Service Provider.' },
+              { q: 'Describe the three-step Kerberos authentication flow.', a: 'Step 1 (AS Exchange): The client sends their username to the Authentication Server. The AS returns a Ticket-Granting Ticket (TGT) encrypted with the client\'s password-derived key. Step 2 (TGS Exchange): The client decrypts the TGT and presents it to the Ticket-Granting Server to request a Service Ticket for the target service. Step 3 (Client/Server Exchange): The client presents the Service Ticket to the target service, which validates it using its shared key with the KDC, and grants access.' },
+              { q: 'What is a Kerberoasting attack and how is it prevented?', a: 'Kerberoasting is an attack where an authenticated domain user requests Service Tickets for services registered in Active Directory. The Service Tickets are encrypted using the service account\'s password hash, allowing an attacker to take them offline and brute-force the password. Prevention includes using long, complex, randomly generated service account passwords (or Group Managed Service Accounts, which rotate automatically), and monitoring for anomalous Service Ticket requests.' },
+              { q: 'What is the key security difference between RADIUS and TACACS+?', a: 'RADIUS encrypts only the password field in its packets — all other authentication data is sent in cleartext. TACACS+ encrypts the entire payload of every packet, providing better confidentiality. Additionally, TACACS+ separates authentication, authorization, and accounting into independent functions, allowing finer-grained control. TACACS+ is preferred for network device administration (routers, switches) where the full packet encryption and per-command authorization are important.' },
+              { q: 'What is the difference between SP-initiated and IdP-initiated SAML flows?', a: 'In an SP-initiated flow, the user starts at the Service Provider, which detects they are unauthenticated and redirects them to the Identity Provider. After authentication, the IdP redirects the user back to the SP with a SAML Assertion. In an IdP-initiated flow, the user starts at the IdP portal, selects an application, and the IdP proactively sends the SAML Assertion to the SP. IdP-initiated flows have security considerations around CSRF (there is no prior SP state to validate against).' },
+              { q: 'What is a JSON Web Token (JWT) and why must it be validated before trusting?', a: 'A JWT is a compact, self-contained token that encodes claims as a Base64-encoded JSON payload and is cryptographically signed (and optionally encrypted). Before trusting a JWT, the relying party must: (1) verify the signature using the issuer\'s public key; (2) check the issuer (iss) claim matches the expected IdP; (3) check the audience (aud) claim matches the current application; (4) verify the token is not expired (exp claim). Failing to validate any of these allows attackers to forge or replay tokens.' },
+              { q: 'Why is OAuth 2.0 commonly used for API authorization while SAML 2.0 is preferred for enterprise web SSO?', a: 'OAuth 2.0 uses JSON/REST and lightweight tokens, making it well-suited for modern APIs, mobile applications, and microservices that need efficient, programmatic access. SAML 2.0 uses XML and browser-based redirect bindings, which align well with enterprise web applications, particularly legacy systems built before REST APIs were common. Many enterprises support both — SAML for internal app SSO and OIDC/OAuth for public APIs.' },
+              { q: 'What is a Golden Ticket attack against Kerberos?', a: 'A Golden Ticket attack exploits the KRBTGT account — the Kerberos key distribution center\'s own service account whose password hash is used to sign all Ticket-Granting Tickets. If an attacker compromises the KRBTGT hash (typically by dumping the Active Directory database), they can forge valid TGTs for any user, including domain administrators, with arbitrary lifetimes. This gives the attacker persistent, undetectable domain-level access. Mitigation requires rotating the KRBTGT password twice in quick succession after a suspected compromise.' },
+            ],
           },
         ],
       },
+      // ── 5.7 ──────────────────────────────────────────────────────────────
       {
         id: 'd5t7',
         title: '5.7 Identity as the Last Perimeter',
         content: [
           {
-            heading: 'Evolution of the Perimeter',
-            body: 'In an AI-driven environment where workloads are distributed and increasingly autonomous, identity becomes the new perimeter. Access decisions must account not only for human users but also for AI agents, service accounts, APIs, and machine-to-machine interactions that operate at scale without direct human oversight.',
+            body: 'For decades, network security was built around the concept of a physical perimeter: everything inside the firewall was trusted, everything outside was untrusted. The rise of cloud computing, mobile work, SaaS applications, and distributed workforces has eroded this model entirely. Workloads no longer live in a single data center; users connect from homes, cafes, and airports; applications are accessed over the public internet. The network perimeter no longer exists as a meaningful security boundary.',
           },
           {
-            heading: 'Least Privilege and Non-Human Identities',
+            body: 'In this environment, identity becomes the new perimeter. Every access decision — whether to a cloud application, an on-premises server, an API, or a database — is mediated by an identity assertion. The question is no longer "is this request coming from inside our network?" but "is this identity authorized to make this request, given what we know about it right now?" This shift underpins the Zero Trust architecture model.',
+          },
+          {
+            heading: 'Zero Trust Architecture and Identity',
+            body: 'Zero Trust is a security model based on the principle "never trust, always verify." It assumes that no user, device, or network location is inherently trusted — all access requests must be continuously authenticated, authorized, and validated regardless of source. Identity is the foundational control plane of Zero Trust:',
             list: [
-              'Every identity — human or machine — must be granted only the minimum access required to perform its function.',
-              'AI agents may dynamically interact with multiple datasets and services; without strict privilege boundaries, they can inadvertently access sensitive data beyond their intended scope.',
-              'Service accounts must be dynamically managed, time-bound where possible, and tightly scoped.',
-              'Regular auditing and continuous monitoring must extend to non-human identities.',
+              'Verify explicitly — always authenticate and authorize based on all available data points: identity, location, device health, service/workload, data classification, and anomalies.',
+              'Use least privilege access — limit user access with just-in-time and just-enough-access (JIT/JEA) policies, and risk-based adaptive policies.',
+              'Assume breach — minimize blast radius; segment access; encrypt all communication; use analytics to detect anomalies and respond to threats.',
             ],
-            warning: 'Without strict privilege boundaries, an AI system could inadvertently or maliciously access sensitive data beyond its intended scope.',
+            note: 'Zero Trust is not a product — it is an architectural philosophy. No single vendor or tool provides "Zero Trust." It requires a coordinated set of identity, device, network, application, and data controls working together.',
+          },
+          {
+            heading: 'Non-Human Identities and AI Agents',
+            body: 'In modern environments, the majority of access requests are made not by humans but by machines: service accounts, APIs, microservices, CI/CD pipelines, and increasingly, AI agents. These non-human identities often hold significant access and operate at scale without direct human oversight.',
+            list: [
+              'Every non-human identity must be subject to the same IAM principles as human users: least privilege, just-in-time access, regular review, and audit logging.',
+              'AI agents may dynamically discover and interact with multiple data sources and services; without strict privilege boundaries, they can inadvertently access sensitive data beyond their intended scope.',
+              'Workload Identity Federation and short-lived tokens (rather than long-lived static credentials) are the preferred mechanism for machine-to-machine authentication.',
+              'All service accounts and AI agent identities must have a named human owner responsible for their access.',
+            ],
+            warning: 'Non-human identities are frequently over-privileged and under-monitored. Attackers increasingly target service accounts and API keys rather than human credentials because they are less likely to trigger anomaly alerts.',
           },
           {
             heading: 'AI-Enhanced Identity Management',
+            body: 'AI and machine learning are increasingly used to strengthen IAM capabilities beyond what traditional rule-based systems can achieve:',
             list: [
-              'Behavioral Biometrics — analyze typing speed, mouse movement, login times, device usage, and geographic location to establish a baseline of normal behavior.',
-              'Adaptive Authentication — when anomalies are detected, adjust the verification level required rather than giving a binary grant/deny response.',
-              'Anomaly Detection — AI detects dormant accounts, excessive permissions, and unusual access paths at scale.',
-              'Scalability — AI-driven IAM handles large volumes of access data that would be impractical to manage manually.',
+              'Behavioral Biometrics — AI models analyze typing cadence, mouse movement, scrolling patterns, login times, and geographic sequences to build a behavioral profile of each user. Deviations from this profile trigger adaptive authentication challenges.',
+              'Adaptive Authentication — rather than binary grant/deny decisions, AI-enhanced IAM can continuously score a session\'s risk and step up authentication requirements dynamically when anomalies are detected.',
+              'Anomaly Detection — AI detects suspicious access patterns such as impossible travel (login from two geographically distant locations within an impossible timeframe), access to unusual resources, dormant accounts suddenly becoming active, and bulk data exfiltration patterns.',
+              'Automated Access Review Recommendations — AI can analyze access patterns and recommend entitlement removals for accounts that have not used certain permissions, reducing the manual burden of recertification.',
+              'Identity Threat Detection and Response (ITDR) — a dedicated category of tools focused on detecting and responding to identity-based attacks in real time.',
             ],
           },
           {
-            heading: 'Dual Role Challenge',
-            body: 'Organizations must secure the identities of AI systems while simultaneously trusting AI to enhance security decisions. AI models used in IAM must be explainable, auditable, and resistant to manipulation.',
-            warning: 'If an attacker can influence the behavior of an AI-driven authentication system, they may be able to bypass controls or generate false trust signals.',
+            heading: 'The Dual Role Challenge',
+            body: 'Organizations now face a paradox: they must secure the identities of AI systems while simultaneously trusting AI to enhance identity security decisions. This dual role creates unique risks:',
+            list: [
+              'Explainability — AI-driven authentication decisions must be auditable and explainable. If an AI system denies a user access, the reason must be documented for compliance and user rights purposes.',
+              'Adversarial Attacks — adversaries may attempt to manipulate AI-based authentication systems through data poisoning (corrupting training data) or evasion (crafting inputs that the model misclassifies).',
+              'Bias and Fairness — biometric AI systems may have higher error rates for certain demographic groups, creating equity issues and potential legal liability.',
+              'Model Integrity — AI models used for authentication and authorization must be protected from unauthorized modification with the same rigor as production code.',
+            ],
+            warning: 'If an attacker can influence the training data or runtime inputs of an AI-driven authentication system, they may be able to create persistent backdoor access or generate false trust signals that bypass controls.',
+          },
+          {
+            questions: [
+              { q: 'Why has the traditional network perimeter ceased to be an effective security boundary?', a: 'The traditional perimeter assumed all internal traffic was trusted. Cloud computing, SaaS applications, remote work, and mobile devices have eliminated clear network boundaries — users access resources over the public internet from untrusted networks, and workloads run in third-party cloud environments outside the corporate network. An attacker who breaches the perimeter (or bypasses it via phishing) has unrestricted access to internal resources in a perimeter-only model.' },
+              { q: 'What does "never trust, always verify" mean in the context of Zero Trust architecture?', a: 'It means that no user, device, or network location is assumed to be trustworthy by default — not even requests originating from inside the corporate network. Every access request must be explicitly authenticated and authorized based on all available context (identity, device health, location, behavior) and continuously re-evaluated throughout the session.' },
+              { q: 'What are the three Zero Trust principles and how does identity relate to each?', a: 'The three principles are: (1) Verify Explicitly — identity is the primary subject of verification, always authenticated with strong MFA and continuously evaluated. (2) Use Least Privilege — identity-based access controls enforce JIT/JEA, ensuring identities have only the access they need at the moment they need it. (3) Assume Breach — identity segmentation (per-user access scoping) and continuous monitoring of identity-based events limit blast radius when a breach occurs.' },
+              { q: 'Why are non-human identities (service accounts, AI agents) considered a growing IAM risk?', a: 'Non-human identities often hold significant access, operate continuously without direct human oversight, and are frequently over-privileged. They are less likely to trigger behavioral anomaly alerts because their access patterns are automated and regular. Attackers increasingly target API keys, service account credentials, and access tokens because they provide machine-level access with little chance of detection through traditional user behavior monitoring.' },
+              { q: 'What is behavioral biometrics and how does it support continuous authentication?', a: 'Behavioral biometrics uses AI to analyze patterns in how a user interacts with a device — typing speed, rhythm, keystroke dynamics, mouse movement, scrolling behavior, and navigation patterns. A behavioral profile is built for each user, and deviations during an active session can trigger re-authentication challenges or session termination. Unlike one-time authentication at login, behavioral biometrics provides continuous verification throughout the session.' },
+              { q: 'What is Identity Threat Detection and Response (ITDR)?', a: 'ITDR is a security discipline focused specifically on detecting, investigating, and responding to identity-based attacks in real time. It covers threats such as credential theft, account takeover, MFA bypass, token theft, privilege escalation, and lateral movement using stolen identities. ITDR tools integrate with IAM, SIEM, and EDR systems to correlate identity signals and provide rapid response to identity-focused attacks.' },
+              { q: 'What is an impossible travel anomaly and how does it indicate a compromised account?', a: 'An impossible travel anomaly is detected when an account shows login events from two geographically distant locations within a timeframe that is physically impossible — for example, a login from London followed 10 minutes later by a login from Tokyo. This indicates that either the account credentials have been stolen and are being used by someone in a different location, or that a VPN/proxy is being used to obscure location. Modern adaptive authentication systems use this signal to trigger step-up authentication or block access.' },
+              { q: 'What is an adversarial attack on an AI-based authentication system and what mitigations exist?', a: 'An adversarial attack attempts to manipulate an AI authentication system to produce an incorrect decision — for example, crafting inputs that bypass behavioral biometric detection (evasion), or poisoning training data to create a backdoor that allows a specific set of credentials to always be approved (data poisoning). Mitigations include model monitoring for drift, input validation and anomaly detection at the model boundary, adversarial training, model integrity protection (signing model artifacts), and human-in-the-loop oversight for high-risk decisions.' },
+              { q: 'Why must AI-driven authentication and authorization decisions be explainable?', a: 'For compliance and user rights purposes, individuals have the right to understand why they have been denied access to a system. Unexplainable AI decisions (black-box models) create legal and regulatory risk, particularly under frameworks like GDPR (right to explanation for automated decisions), and undermine trust in the IAM system. Security auditors also need to be able to review and validate that authorization decisions are consistently applying policy.' },
+              { q: 'How does Workload Identity Federation improve security compared to static service account credentials?', a: 'Static service account credentials (passwords, long-lived API keys) are stored in configuration files or environment variables and can be leaked through source code exposure, log files, or insider threats. Once leaked, they remain valid indefinitely or until manually rotated. Workload Identity Federation replaces static credentials with short-lived, automatically rotated tokens issued on demand by a trusted identity provider. There are no long-lived secrets to steal — if an attacker somehow captures a token, it will expire within minutes.' },
+            ],
           },
         ],
       },
@@ -4350,76 +5233,104 @@ export const domains: Domain[] = [
     id: 'd6',
     number: 6,
     title: 'Security Assessment and Testing',
-    summary: 'Covers assessment/test/audit strategy design, security controls testing, data collection, report analysis, and security audits.',
+    summary: 'Covers assessment/test/audit strategy design, security controls testing, data collection, report analysis, security audits, and AI-specific red teaming techniques.',
     topics: [
       {
         id: 'd6t1',
         title: '6.1 Assessment, Test, and Audit Strategy',
         content: [
           {
+            body: 'Security assessment and testing is the systematic process of evaluating an organization\'s security posture by examining controls, processes, and configurations against defined requirements. Without ongoing testing, organizations operate on the assumption that their controls work as intended — an assumption that attackers regularly exploit. A well-designed assessment and testing strategy provides evidence-based confidence in security controls and drives continuous improvement.',
+          },
+          {
+            body: 'Three related but distinct activities form the foundation of this domain: testing, assessments, and audits. Understanding the difference between them — and when to use each — is essential for designing an effective security assurance program. They are complementary, not competing: a mature organization uses all three in a coordinated cycle.',
+          },
+          {
             heading: 'Testing vs Assessment vs Audit',
             list: [
-              'Testing — like a fire drill; penetration tests, vulnerability scans, and functional tests simulate attacks and check what works.',
-              'Assessments — broader and strategic; evaluate overall security posture, policy adherence, and risk identification.',
-              'Audits — formal and tied to compliance; check if you\'re actually doing what you say you\'re doing.',
+              'Testing — technical, often hands-on activities that verify whether specific controls function as expected. Examples: penetration tests, vulnerability scans, and code reviews. Like a fire drill — the goal is to see what actually happens, not what the policy says should happen.',
+              'Assessments — broader, strategic evaluations of security posture across people, process, and technology. Assessments evaluate risk, identify gaps, and provide a holistic view of the organization\'s security maturity. They draw on testing results, interviews, document reviews, and observations.',
+              'Audits — formal examinations tied to compliance requirements. Audits verify that documented controls are in place and functioning. Audit findings have formal consequences — certifications may be granted, denied, or suspended based on results.',
             ],
-            tip: 'We don\'t secure systems by installing firewalls and crossing fingers. We need a cycle of testing, evaluating, and adjusting.',
+            tip: 'A useful analogy: testing is checking whether the smoke alarm works; assessment is evaluating the overall fire safety program; auditing is verifying compliance with fire code regulations.',
           },
           {
             heading: 'NIST SP 800-53A Assessment Framework',
-            body: 'Four types of Assessment Objects (what can be assessed):',
+            body: 'NIST SP 800-53A provides a comprehensive methodology for assessing federal information system security controls. It defines four categories of assessment objects — the things that can be examined to evaluate a control:',
             list: [
-              'Specifications — documents such as policies, plans, and system security plans.',
-              'Mechanisms — security functions or features (encryption, access control).',
-              'Activities — operations performed by people or systems (monitoring, backups).',
-              'Individuals — people performing roles (security officers, admins).',
+              'Specifications — policies, plans, procedures, and system documentation. Reviewed for completeness, correctness, and alignment with requirements.',
+              'Mechanisms — the security functions built into hardware and software (access control mechanisms, encryption algorithms, audit logging systems). Examined through testing and inspection.',
+              'Activities — operations performed by people or automated systems (vulnerability scanning, backup procedures, patch management workflows). Evaluated through observation and interview.',
+              'Individuals — the people responsible for security roles (security officers, system administrators, end users). Assessed through interviews, training records, and performance observation.',
             ],
           },
           {
             heading: 'Internal (First-Party) Evaluations',
-            body: 'Performed by an organization\'s own security teams to measure security posture and identify vulnerabilities before external parties discover them.',
+            body: 'Internal evaluations are conducted by the organization\'s own security team. Their purpose is to measure the current security posture, identify vulnerabilities before attackers do, verify that controls are working as designed, and support continuous improvement. Common internal evaluation activities include:',
             list: [
-              'Internal penetration testing — identifies vulnerabilities from within networks.',
-              'Phishing simulations — tests user awareness and email filter effectiveness.',
-              'Vulnerability scanning — automated tools detect weaknesses.',
-              'Tabletop exercises — simulate incident response scenarios without disrupting operations.',
-              'Red Team/Blue Team — red teams attack; blue teams defend; measures detection and response.',
-              'Internal audits — verify compliance with internal policies, standards, and regulations.',
+              'Internal penetration testing — authorized ethical hacking from within the network to identify vulnerabilities exploitable by insiders or attackers who have already breached the perimeter.',
+              'Phishing simulations — test employee susceptibility to social engineering and evaluate the effectiveness of email filtering controls.',
+              'Vulnerability scanning — automated scanning tools (Nessus, Qualys) identify known vulnerabilities in systems, applications, and network devices.',
+              'Tabletop exercises — structured discussion-based simulations of incident scenarios; test decision-making, communication, and response plans without disrupting operations.',
+              'Red Team/Blue Team exercises — red team simulates real-world attackers; blue team defends; the exercise measures detection capability, response time, and control effectiveness.',
+              'Internal audits — verify that security controls align with internal policies, standards, and regulatory requirements.',
             ],
-            warning: 'Conflict of interest arises when auditors review their own work. Mitigations: independent teams, auditor rotation, direct reporting to leadership, supplementing with external audits.',
+            warning: 'Internal evaluations face an inherent conflict of interest — teams may be reluctant to report findings that reflect poorly on their own work, or may unconsciously avoid testing certain areas. Mitigations: use independent teams, rotate assessors, report directly to senior leadership, and supplement with periodic external assessments.',
           },
           {
             heading: 'Second-Party Evaluations',
-            body: 'Conducted by customers or partners to verify security requirements through contractual obligations. Activities include penetration testing, source code reviews, vulnerability scans, and formal on-site audits.',
+            body: 'Second-party evaluations are conducted by a customer, partner, or business associate — typically as part of a contractual requirement. A customer may require the right to audit a vendor\'s security controls before sharing sensitive data or entering a high-value contract. These evaluations create external accountability without the full independence of a third-party audit.',
             list: [
-              'Advantages — increased trust, early risk identification, improved accountability.',
-              'Considerations — expectations must be clearly defined in contracts to prevent disputes.',
+              'Common activities: on-site security audits, penetration testing, source code reviews, vulnerability assessments.',
+              'Advantages: builds trust, creates early risk identification opportunities, improves accountability.',
+              'Considerations: expectations, scope, and evidence requirements must be clearly defined in contracts before the assessment begins, to prevent disputes about what was and was not tested.',
             ],
           },
           {
             heading: 'Third-Party Audits',
-            body: 'Independent external organizations provide objective evaluations following structured methodologies: scope definition, document review and interviews, technical testing and verification, and audit report and certification.',
+            body: 'Third-party audits are conducted by independent external organizations with no financial or operational relationship to the organization being assessed. They provide the highest level of objectivity and credibility, which is why they are required by major compliance frameworks (ISO 27001, SOC 2, PCI DSS, FedRAMP). The audit process follows a structured methodology:',
             list: [
-              'Benefits — impartiality, credibility with stakeholders, risk reduction, regulatory compliance assurance.',
+              '1. Scope definition — agree on what systems, processes, and controls will be examined.',
+              '2. Document review and interviews — review policies, procedures, system documentation, and interview key personnel.',
+              '3. Technical testing and verification — test control effectiveness through technical means.',
+              '4. Findings and reporting — produce a formal report documenting conformity, non-conformities, and observations.',
+              '5. Certification or attestation — issue formal certification (ISO 27001), report (SOC 2), or attestation based on findings.',
             ],
           },
           {
             heading: 'SOC Reports',
+            body: 'System and Organization Controls (SOC) reports, defined under SSAE 18, provide assurance about the controls at service organizations. There are three types and two report levels:',
             list: [
-              'SOC 1 — financial reporting controls.',
-              'SOC 2 — data security and system reliability (five Trust Service Criteria: Security, Availability, Processing Integrity, Confidentiality, Privacy).',
-              'SOC 3 — public summary version of SOC 2.',
-              'Type 1 — controls assessed at a specific point in time.',
-              'Type 2 — control effectiveness evaluated over 6–12 months (stronger assurance).',
+              'SOC 1 — evaluates controls relevant to financial reporting. Relevant for organizations whose systems impact a customer\'s financial statements (payroll processors, financial SaaS).',
+              'SOC 2 — evaluates security, availability, processing integrity, confidentiality, and privacy controls (the five Trust Service Criteria). The most relevant SOC report for cybersecurity purposes.',
+              'SOC 3 — a public summary version of SOC 2; intended for general audiences (e.g., marketing). Contains no detailed findings.',
+              'Type 1 — a point-in-time assessment; verifies that controls are designed appropriately and exist as of a specific date. Less assurance.',
+              'Type 2 — evaluates control effectiveness over a period of 6–12 months. Provides significantly stronger assurance because it demonstrates controls were operating consistently, not just present on audit day.',
             ],
+            note: 'SOC 2 Type 2 is now a baseline procurement requirement for cloud service providers in many industries. A SOC 2 report is not a security certification — it is an independent attestation that described controls were operating effectively over the review period.',
           },
           {
             heading: 'ISO 27001 Audit Outcomes',
             list: [
-              'Certification Granted — meets requirements; minor observations acceptable.',
-              'Certification Delayed — major non-conformities found; must fix before certification.',
-              'Certification Denied — ISMS not aligned; must restart preparation.',
-              'Surveillance Audits — annual lighter checks after initial certification; full recertification every 3 years.',
+              'Certification Granted — the ISMS meets all requirements; minor observations may be noted but do not block certification.',
+              'Certification Delayed — one or more major non-conformities identified; organization must remediate and demonstrate correction before certification is issued.',
+              'Certification Denied — ISMS is fundamentally not aligned with ISO 27001; full preparation and re-audit required.',
+              'Surveillance Audits — annual lighter-scope audits conducted in the two years following initial certification to verify ongoing compliance.',
+              'Recertification — full audit every three years to renew the certification.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is the difference between a security test, a security assessment, and a security audit?', a: 'A test is a technical, hands-on activity that verifies whether a specific control works (e.g., a penetration test). An assessment is a broader, strategic evaluation of overall security posture using multiple inputs including tests, interviews, and document reviews. An audit is a formal, compliance-focused examination that verifies documented controls are in place and functioning, often tied to a certification or regulatory requirement.' },
+              { q: 'What are the four types of assessment objects defined by NIST SP 800-53A?', a: 'The four assessment object types are: (1) Specifications — documents such as policies and procedures; (2) Mechanisms — technical security functions built into hardware and software; (3) Activities — operations performed by people or systems such as backup procedures or scanning; (4) Individuals — people performing security roles, assessed through interviews and observation.' },
+              { q: 'What is a red team/blue team exercise and what does it measure?', a: 'A red team/blue team exercise is a simulated adversarial engagement where the red team acts as an attacker attempting to breach systems, while the blue team defends and responds. The exercise measures the organization\'s detection capability (how quickly the blue team identifies the intrusion), response effectiveness, and the real-world impact of discovered vulnerabilities — providing far more realistic insight than compliance checklists.' },
+              { q: 'What is the conflict of interest risk in internal audits and how is it mitigated?', a: 'When auditors evaluate processes they helped design or manage, objectivity is compromised — they may unconsciously overlook gaps or be reluctant to report findings that reflect poorly on their team. Mitigations include using independent internal audit teams separate from operational security, rotating auditors, requiring results to be reported directly to senior leadership or the board, and supplementing internal audits with periodic third-party assessments.' },
+              { q: 'What is the difference between a SOC 2 Type 1 and Type 2 report?', a: 'A SOC 2 Type 1 report assesses whether controls are designed appropriately at a single point in time — it confirms the controls exist and are designed correctly. A SOC 2 Type 2 report evaluates whether those controls operated effectively over a period of 6–12 months. Type 2 provides substantially stronger assurance because it demonstrates consistent operation rather than just existence on audit day.' },
+              { q: 'What are the five Trust Service Criteria covered by a SOC 2 audit?', a: 'The five Trust Service Criteria are: (1) Security — protection against unauthorized access; (2) Availability — the system is available for operation as committed; (3) Processing Integrity — processing is complete, valid, accurate, and timely; (4) Confidentiality — information designated as confidential is protected; (5) Privacy — personal information is collected, used, retained, and disclosed in accordance with the privacy notice.' },
+              { q: 'What happens when an ISO 27001 audit reveals a major non-conformity?', a: 'A major non-conformity means the organization\'s ISMS does not meet one or more requirements of the ISO 27001 standard in a material way. Certification is delayed — the organization must implement corrective actions to address the non-conformity and provide objective evidence of those corrections to the auditor before certification can be issued.' },
+              { q: 'Why is a second-party audit important in vendor relationships?', a: 'A second-party audit allows a customer or business partner to verify that a vendor\'s security controls meet their contractual or regulatory requirements before trusting the vendor with sensitive data. It creates accountability beyond self-assessment and can surface risks that vendor-provided documentation would not reveal. The scope and evidence requirements must be defined in the contract to be enforceable.' },
+              { q: 'What is a phishing simulation and what two things does it measure?', a: 'A phishing simulation is an authorized test in which the security team sends realistic-looking phishing emails to employees to test their susceptibility. It measures two things: (1) employee awareness — the percentage of users who click the link, enter credentials, or open attachments; and (2) email control effectiveness — whether the organization\'s email filtering, SPF/DKIM/DMARC configurations, and sandboxing controls successfully blocked the simulated attack.' },
+              { q: 'What is the purpose of a tabletop exercise and why is it insufficient as a sole DR testing method?', a: 'A tabletop exercise is a structured, discussion-based simulation where key personnel walk through their response to a hypothetical incident scenario. It is valuable for testing decision-making, identifying gaps in communication, and training teams in a low-risk environment. However, it is insufficient alone because it does not test technical systems, real data restoration, or the team\'s ability to execute procedures under operational stress — those require simulation or live testing.' },
             ],
           },
         ],
@@ -4429,99 +5340,167 @@ export const domains: Domain[] = [
         title: '6.2 Conduct Security Controls Testing',
         content: [
           {
+            body: 'Security controls testing is the hands-on verification that individual security mechanisms work as intended. While assessments evaluate the overall security program and audits verify compliance, controls testing provides technical evidence — scan results, exploit proof-of-concepts, code analysis findings — that specific controls are effective or ineffective. Controls testing is the most technically demanding component of security assurance.',
+          },
+          {
+            body: 'Controls testing spans a broad range of activities: automated vulnerability scanning, manual penetration testing, code review, log analysis, synthetic transaction monitoring, and compliance verification. The right combination of methods depends on the environment, the type of control being tested, regulatory requirements, and the organization\'s risk appetite.',
+          },
+          {
             heading: 'Vulnerability Assessment Standards',
+            body: 'Consistent vulnerability identification requires standard naming and scoring systems so that organizations can compare findings, prioritize remediation, and track trends over time:',
             list: [
-              'CVE (Common Vulnerabilities and Exposures) — standardized naming for vulnerabilities.',
-              'CVSS (Common Vulnerability Scoring System) — standardized severity scores (0–10).',
-              'SCAP (Security Content Automation Protocol) — automates vulnerability management.',
-              'CPE (Common Platform Enumeration) — standardized naming for platforms.',
+              'CVE (Common Vulnerabilities and Exposures) — a standardized dictionary of publicly known vulnerabilities, each assigned a unique identifier (e.g., CVE-2021-44228). Maintained by MITRE; used by all major vulnerability scanners.',
+              'CVSS (Common Vulnerability Scoring System) — a standardized 0–10 severity scoring system based on exploitability metrics (attack vector, privileges required, user interaction) and impact metrics (confidentiality, integrity, availability). Version 3.1 is current.',
+              'SCAP (Security Content Automation Protocol) — a suite of specifications from NIST that enables automated vulnerability scanning, configuration checking, and reporting using standardized data formats.',
+              'CPE (Common Platform Enumeration) — a standardized naming scheme for hardware, operating systems, and applications; used to match CVEs to the specific products installed in an environment.',
             ],
           },
           {
-            heading: 'Penetration Testing Methodologies',
+            heading: 'Penetration Testing Knowledge Levels',
+            body: 'Penetration tests are classified by how much information the tester is given before starting, which simulates different attacker scenarios:',
             list: [
-              'Black Box — no prior knowledge; simulates external attacker.',
-              'White Box — full knowledge (architecture, source code); most thorough.',
-              'Gray Box — partial knowledge; simulates insider or partner threat.',
+              'Black Box — the tester has no prior knowledge of the target environment, simulating an external attacker who must gather all information themselves through reconnaissance. Most realistic but most time-consuming.',
+              'White Box — the tester has full access to architecture diagrams, source code, network maps, and credentials. Most thorough, finds the most issues, but does not simulate a realistic external attack.',
+              'Gray Box — the tester has partial knowledge (e.g., a network map but no source code), simulating an insider, a partner, or an attacker who has already gathered some intelligence. The most common approach in practice.',
             ],
+            note: 'Before any penetration test, a signed Rules of Engagement (RoE) document must define scope, authorized targets, test windows, emergency contacts, and what actions are permitted. Testing without written authorization is illegal regardless of intent.',
           },
           {
             heading: 'Penetration Testing Five Phases',
             list: [
-              '1. Planning and Reconnaissance — define scope; gather OSINT.',
-              '2. Scanning — active probing with Nmap, Nessus.',
-              '3. Exploitation — attempting to breach identified vulnerabilities.',
-              '4. Post-Exploitation — determine what an attacker could achieve with access.',
-              '5. Reporting — document findings, risk ratings, and remediation recommendations.',
+              '1. Planning and Reconnaissance — define scope, goals, and rules; gather OSINT (open-source intelligence) about the target; identify public-facing assets, employee information, and technology stack.',
+              '2. Scanning — actively probe targets with tools like Nmap (port scanning), Nessus (vulnerability scanning), and web application scanners; identify open ports, services, and potential entry points.',
+              '3. Exploitation — attempt to exploit identified vulnerabilities to gain unauthorized access; document successful attack paths with evidence; common techniques: credential stuffing, SQL injection, buffer overflow, privilege escalation.',
+              '4. Post-Exploitation — once access is gained, determine the full impact: what data is accessible, can the attacker move laterally, can they maintain persistence, what is the maximum business impact?',
+              '5. Reporting — produce a detailed report documenting all findings, attack paths, evidence, risk ratings (Critical/High/Medium/Low), and specific remediation recommendations for each finding.',
             ],
           },
           {
+            diagram: {
+              caption: 'Penetration Testing Five Phases — sequential methodology from scoping to remediation report',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 160" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="160" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Penetration Testing — Five Phases</text>
+  <!-- Phase boxes -->
+  <rect x="10" y="44" width="101" height="72" rx="7" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="60" y="68" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="11">1. Planning</text>
+  <text x="60" y="84" text-anchor="middle" fill="#475569" font-size="10">Scope, rules,</text>
+  <text x="60" y="98" text-anchor="middle" fill="#475569" font-size="10">OSINT recon</text>
+  <text x="60" y="112" text-anchor="middle" fill="#6b7280" font-size="9">Black/White/Gray</text>
+  <polygon points="111,80 122,74 122,86" fill="#3b82f6"/>
+  <rect x="122" y="44" width="101" height="72" rx="7" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="172" y="68" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">2. Scanning</text>
+  <text x="172" y="84" text-anchor="middle" fill="#475569" font-size="10">Nmap, Nessus,</text>
+  <text x="172" y="98" text-anchor="middle" fill="#475569" font-size="10">vuln scanning</text>
+  <text x="172" y="112" text-anchor="middle" fill="#6b7280" font-size="9">Active probing</text>
+  <polygon points="223,80 234,74 234,86" fill="#22c55e"/>
+  <rect x="234" y="44" width="101" height="72" rx="7" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>
+  <text x="284" y="68" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="11">3. Exploitation</text>
+  <text x="284" y="84" text-anchor="middle" fill="#475569" font-size="10">Gain access,</text>
+  <text x="284" y="98" text-anchor="middle" fill="#475569" font-size="10">document paths</text>
+  <text x="284" y="112" text-anchor="middle" fill="#6b7280" font-size="9">SQLi, BoF, LPE</text>
+  <polygon points="335,80 346,74 346,86" fill="#f87171"/>
+  <rect x="346" y="44" width="101" height="72" rx="7" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="396" y="62" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">4. Post-Exploit</text>
+  <text x="396" y="78" text-anchor="middle" fill="#475569" font-size="10">Lateral move,</text>
+  <text x="396" y="93" text-anchor="middle" fill="#475569" font-size="10">data access,</text>
+  <text x="396" y="107" text-anchor="middle" fill="#475569" font-size="10">persistence</text>
+  <polygon points="447,80 458,74 458,86" fill="#f97316"/>
+  <rect x="458" y="44" width="111" height="72" rx="7" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="513" y="68" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="11">5. Reporting</text>
+  <text x="513" y="84" text-anchor="middle" fill="#475569" font-size="10">Findings, risk</text>
+  <text x="513" y="98" text-anchor="middle" fill="#475569" font-size="10">ratings, remediation</text>
+  <text x="513" y="112" text-anchor="middle" fill="#6b7280" font-size="9">Critical/High/Med/Low</text>
+  <text x="290" y="148" text-anchor="middle" font-size="11" fill="#64748b">Requires written authorization (Rules of Engagement) before any testing begins</text>
+</svg>`,
+            },
+          },
+          {
             heading: 'Log Reviews',
-            body: 'Log review systematically examines log files to detect abnormal patterns, unauthorized actions, and security incidents. SIEM systems automatically collect, normalize, correlate, and analyze logs from multiple sources in real time.',
+            body: 'Log review is the systematic examination of system, application, and network logs to detect security incidents, policy violations, unauthorized changes, and performance anomalies. Logs provide the digital evidence trail that makes forensic investigation and incident reconstruction possible. Without robust logging, many attacks go undetected indefinitely.',
             list: [
-              'NetFlow — Cisco protocol recording IP traffic flows (source/destination IP, ports, protocols, data volume, timestamps).',
-              'Log Management Lifecycle — Generation, collection, centralization, storage, analysis, retention, secure disposal.',
+              'SIEM (Security Information and Event Management) — centralizes log collection from all sources, normalizes formats, correlates events across systems, and generates alerts for suspicious patterns. Transforms raw logs into actionable intelligence.',
+              'NetFlow — Cisco-originated protocol that records metadata about IP traffic flows: source/destination addresses, ports, protocols, data volume, and timestamps. Enables network behavior analysis without capturing payload content.',
+              'Log Management Lifecycle — Generation (systems create log events) → Collection (agents forward to central system) → Centralization (SIEM aggregates) → Storage (immutable, retention-compliant) → Analysis (correlation, alerting) → Retention (regulatory period) → Secure Disposal (when retention expires).',
             ],
           },
           {
             heading: 'Synthetic Transactions and Real User Monitoring',
             list: [
-              'Synthetic Transactions — fake automated actions simulating legitimate user behavior to detect failures before real users encounter them; provide 24/7 availability testing and baseline monitoring.',
-              'Real User Monitoring (RUM) — tracks actual user interactions in real time; detects unusual patterns, bot activity, DDoS attacks, and distinguishes user errors from security breaches.',
+              'Synthetic Transactions — automated scripts that simulate specific user actions (login, checkout, API call) at scheduled intervals. Detect application failures, latency degradation, and security control failures before real users encounter them. Provide 24/7 continuous testing and baseline performance data.',
+              'Real User Monitoring (RUM) — captures data about actual user interactions with the application in real time. Detects unusual navigation patterns, bot activity, credential stuffing, DDoS attacks, and distinguishes user errors from security breaches based on behavioral signatures.',
             ],
+            note: 'Synthetic transactions test in a controlled way; RUM observes real behavior. Together they provide both proactive and reactive visibility into application security.',
           },
           {
             heading: 'Code Review and Testing',
+            body: 'Software vulnerabilities introduced during development are far cheaper to fix before deployment than in production. Code review and testing disciplines form the security testing component of a secure SDLC:',
             list: [
-              'Fagan Inspection — formal structured process: Planning → Overview → Preparation → Inspection Meeting → Rework → Follow-up.',
-              'Static Testing — reviews code without execution; detects buffer overflows, hardcoded secrets, weak cryptography.',
-              'Dynamic Testing — executes applications observing runtime behavior; DAST identifies SQL injection, XSS, authentication bypass.',
+              'Fagan Inspection — a formal, highly structured peer review process developed by Michael Fagan at IBM. Phases: Planning → Overview → Preparation → Inspection Meeting → Rework → Follow-up. Proven to catch 60–90% of defects before execution.',
+              'Static Application Security Testing (SAST) — analyzes source code, bytecode, or binaries without executing the application. Identifies vulnerabilities like buffer overflows, hardcoded credentials, weak cryptography, and injection flaws early in development.',
+              'Dynamic Application Security Testing (DAST) — executes the running application and observes behavior in response to crafted inputs. Identifies runtime vulnerabilities: SQL injection, XSS, authentication bypass, insecure session management.',
+              'Interactive Application Security Testing (IAST) — combines static and dynamic analysis; agents inside the running application collect real-time information during functional testing.',
+              'Software Composition Analysis (SCA) — identifies vulnerabilities in third-party libraries and open-source components.',
             ],
           },
           {
-            heading: 'Coverage Analysis Formula',
-            body: 'Test Coverage (%) = (Items tested / Total items) × 100',
+            heading: 'Coverage Analysis',
+            body: 'Test coverage measures how thoroughly testing exercises the code or functionality being tested. Coverage (%) = (Items tested / Total items) × 100.',
             table: {
               headers: ['Coverage Type', 'Focus', 'Security Value'],
               rows: [
-                ['Statement', 'Each line of code executed', 'Ensures no code goes untested'],
-                ['Branch', 'All decision paths tested', 'Detects untested logic paths'],
-                ['Condition', 'Individual conditions in decisions', 'Catches edge case failures'],
-                ['Function', 'All functions called', 'Identifies unused or risky code'],
-                ['Loop', 'Zero, one, multiple iterations', 'Prevents overflow or infinite loops'],
+                ['Statement', 'Every individual line of code executed at least once', 'Ensures no code path goes completely untested'],
+                ['Branch', 'Every decision point takes both true and false paths', 'Detects untested logic paths that could contain flaws'],
+                ['Condition', 'Every Boolean sub-expression evaluated both true and false', 'Catches edge cases where complex conditions behave unexpectedly'],
+                ['Function', 'Every function or method called at least once', 'Identifies dead code and potentially dangerous unused functions'],
+                ['Loop', 'Loops tested with zero, one, and multiple iterations', 'Prevents off-by-one errors, infinite loops, and buffer overflows'],
               ],
             },
           },
           {
             heading: 'Interface Testing',
-            body: 'Interfaces are potential attack vectors — each must be tested for safety and security.',
+            body: 'Interfaces are the boundaries through which systems accept input — and any boundary that accepts input is a potential attack vector. All interfaces must be explicitly tested:',
             list: [
-              'GUI — visible buttons, forms, menus; test input validation and error handling.',
-              'CLI — text-based command entry; test for command injection.',
-              'REST APIs — use URLs and JSON/XML over HTTP/HTTPS; risks include improper validation and data leakage.',
-              'RPC — remote function calls; risk: unauthorized function triggering.',
-              'IPC — inter-process communication via shared memory, queues, sockets; risk: hijacking or injection.',
-              'Physical Interfaces — USB ports, cables; risk: rogue device connection.',
+              'GUI (Graphical User Interface) — visible buttons, forms, and menus; test for input validation bypass, reflected XSS, insecure file uploads, and error message information disclosure.',
+              'CLI (Command-Line Interface) — text-based command entry; test for command injection, path traversal, and privilege escalation through misuse of administrative utilities.',
+              'REST APIs — HTTP/HTTPS endpoints using JSON/XML; test for improper input validation, broken object-level authorization, mass assignment, and sensitive data exposure.',
+              'RPC (Remote Procedure Call) — remote function invocation; risk of unauthorized function triggering and parameter manipulation.',
+              'IPC (Inter-Process Communication) — shared memory, message queues, named pipes, Unix sockets; risk of race conditions, data injection between processes, and privilege escalation.',
+              'Physical Interfaces — USB ports, serial ports, JTAG debugging interfaces; risk of rogue device insertion, firmware extraction, and cold-boot attacks.',
             ],
           },
           {
             heading: 'Breach and Attack Simulation (BAS)',
-            body: 'Continuously simulates realistic cyberattacks in controlled environments to test defense effectiveness. Unlike vulnerability scanning, BAS actively simulates attacker behavior including malware, lateral movement, and data exfiltration.',
+            body: 'Breach and Attack Simulation (BAS) continuously simulates realistic cyberattacks in production or near-production environments to validate whether security controls detect and respond as expected. Unlike vulnerability scanning (which identifies weaknesses) or annual pen tests (which are point-in-time), BAS provides continuous, automated validation of detection and response capabilities.',
             list: [
-              'By Target: endpoints, network infrastructure, cloud services, identity systems, web applications, databases.',
-              'By Vector: email attacks, web-based attacks, lateral movement, malware execution, data exfiltration.',
-              'Value: continuous validation vs. annual assessments; measures detection and response effectiveness.',
+              'Simulated attack vectors: spear phishing, drive-by downloads, lateral movement, credential theft, ransomware detonation, C2 beaconing, data exfiltration.',
+              'By target: endpoint detection, network controls, email security, identity protections, cloud security configurations.',
+              'Value: reveals gaps between what security controls are supposed to do and what they actually do; quantifies detection coverage continuously rather than annually.',
             ],
           },
           {
             heading: 'Compliance Checks',
-            body: 'Verify systems, processes, and data handling meet rules established by governments, regulators, and industry bodies.',
+            body: 'Compliance checks verify that systems, processes, and data handling practices meet obligations set by government regulation, contractual requirements, and industry standards. They are distinct from security testing — a system can be compliant but not secure, and secure but not compliant:',
             list: [
-              'Geographic variation — location determines applicable laws (GDPR in Europe, state laws in U.S.).',
-              'Industry variation — PCI-DSS for finance, HIPAA for healthcare, NIST for government.',
-              'Implementation steps: understand requirements → map to systems → collect evidence → run scans → gap analysis → document and certify.',
+              'Geographic variation — jurisdiction determines applicable law: GDPR in the EU, CCPA in California, PDPA in Thailand, LGPD in Brazil.',
+              'Industry variation — PCI DSS for payment card industry, HIPAA for healthcare, FISMA/FedRAMP for US federal government, NERC CIP for energy.',
+              'Implementation steps: understand requirements → map to systems and data flows → collect evidence → run automated compliance scans → conduct gap analysis → document findings and certify.',
             ],
-            note: 'Compliance requires both technical controls and documented procedures.',
+            note: 'Compliance frameworks are a floor, not a ceiling. Meeting PCI DSS does not mean an organization is well-secured — it means it has met a defined minimum baseline.',
+          },
+          {
+            questions: [
+              { q: 'What is the difference between SAST and DAST in application security testing?', a: 'SAST (Static Application Security Testing) analyzes source code, bytecode, or binaries without executing the application — it finds vulnerabilities in code before it runs, such as hardcoded credentials, buffer overflows, and injection flaws. DAST (Dynamic Application Security Testing) executes the running application and sends crafted inputs to observe behavior — it finds runtime vulnerabilities like SQL injection, XSS, and authentication bypass that only manifest when the application is live.' },
+              { q: 'What are the five phases of a penetration test and what happens in each?', a: 'The five phases are: (1) Planning/Reconnaissance — define scope, gather OSINT; (2) Scanning — active probing to identify ports, services, and vulnerabilities; (3) Exploitation — attempt to exploit vulnerabilities and gain unauthorized access; (4) Post-Exploitation — determine the full impact of access (data reachable, lateral movement, persistence); (5) Reporting — document all findings with evidence, risk ratings, and specific remediation guidance.' },
+              { q: 'What is a Black Box penetration test and what attack scenario does it simulate?', a: 'A Black Box penetration test gives the tester no prior knowledge of the target environment — they must discover everything through reconnaissance alone, just as an external attacker would. It simulates a real-world external attack with no insider information. While it is the most realistic simulation, it is also the most time-consuming and may miss internal vulnerabilities that would only be found with greater access.' },
+              { q: 'What is CVSS and what factors does it measure?', a: 'CVSS (Common Vulnerability Scoring System) is a standardized framework for scoring the severity of software vulnerabilities on a scale of 0–10. The Base Score evaluates two groups of metrics: Exploitability (attack vector, attack complexity, privileges required, user interaction) and Impact (effect on confidentiality, integrity, and availability). Higher scores indicate more severe vulnerabilities that should be prioritized for remediation.' },
+              { q: 'What is a SIEM and how does it enable security monitoring?', a: 'A SIEM (Security Information and Event Management) platform centralizes log collection from all systems in the environment — servers, firewalls, applications, identity systems, endpoints. It normalizes different log formats, correlates events across sources using detection rules, and generates alerts when suspicious patterns emerge. This enables security analysts to detect multi-stage attack patterns that no single log source would reveal, and provides the centralized evidence trail needed for incident investigation.' },
+              { q: 'What is Breach and Attack Simulation (BAS) and how does it differ from penetration testing?', a: 'BAS continuously and automatically simulates realistic attack behaviors — phishing, lateral movement, data exfiltration, ransomware — to validate whether security controls detect and respond as expected. Unlike penetration testing (which is manual, episodic, and broad-scope), BAS is automated, continuous, and focused on validating specific control effectiveness. BAS answers "does our SIEM detect this attack?" while a pen test answers "can an attacker breach our perimeter?"' },
+              { q: 'What is Fagan Inspection and what makes it effective?', a: 'Fagan Inspection is a formal, structured peer code review process developed at IBM in the 1970s. It follows six phases: Planning, Overview, Preparation, Inspection Meeting, Rework, and Follow-up. It is highly effective — studies show it catches 60–90% of defects before code is executed — because it requires reviewers to prepare individually before the meeting, roles are clearly defined, and the process is data-driven with defect tracking. It is more rigorous than informal code review.' },
+              { q: 'Why is Rules of Engagement (RoE) documentation required before a penetration test?', a: 'A Rules of Engagement document formally authorizes the penetration test by specifying scope (which systems may be tested), excluded targets, permitted attack techniques, testing windows, emergency contacts for stopping the test, and evidence handling requirements. Without written authorization, performing penetration testing is illegal regardless of intent — it constitutes unauthorized access under laws like the Computer Fraud and Abuse Act. RoE also protects the tester and ensures the organization\'s critical systems are not accidentally disrupted.' },
+              { q: 'What is NetFlow and what can it reveal about security events?', a: 'NetFlow is a network protocol (originally from Cisco) that records metadata about IP traffic flows — who communicated with whom, when, using what protocol, and how much data was transferred — without capturing the actual payload content. From a security perspective, NetFlow analysis can reveal port scanning, unusual connection patterns, lateral movement between internal systems, beaconing to command-and-control servers, and large data transfers that may indicate exfiltration — all without requiring full packet capture.' },
+              { q: 'How does compliance testing differ from security testing?', a: 'Compliance testing verifies that an organization meets the specific technical and procedural requirements of a regulatory framework (PCI DSS, HIPAA, GDPR). Security testing verifies whether controls actually protect against real threats. A system can be fully compliant but vulnerable (it meets all required checkboxes but has additional unaddressed risks), or secure but non-compliant (it has strong controls that happen not to match the exact specification of a standard). Both are necessary; they serve different purposes.' },
+            ],
           },
         ],
       },
@@ -4530,67 +5509,93 @@ export const domains: Domain[] = [
         title: '6.3 Collect Security Process Data',
         content: [
           {
+            body: 'Collecting security process data is the ongoing activity of gathering evidence that security controls are working as intended across people, process, and technology. Unlike a point-in-time audit or periodic penetration test, security process data collection is continuous — it provides the operational intelligence that security teams need to detect threats, demonstrate compliance, measure program effectiveness, and support management decision-making.',
+          },
+          {
+            body: 'Security process data spans multiple categories: account lifecycle data from identity systems, management review records, security metrics (KPIs and KRIs), backup and recovery test results, training completion and effectiveness data, and business continuity testing outcomes. Together, these data points build the evidentiary record that demonstrates a functioning security program.',
+          },
+          {
             heading: 'Account Management',
-            body: 'Account management involves creating, monitoring, updating, and deleting user accounts to ensure only authorized personnel have appropriate access. User accounts are primary attack vectors — compromised accounts enable lateral movement, privilege escalation, and data theft.',
+            body: 'Account management data — who has access to what, when accounts were created or modified, and whether access reviews are occurring — is among the most valuable data for detecting insider threats and access control failures. User accounts are the primary attack vector in most breaches; compromised or orphaned accounts enable lateral movement, privilege escalation, and persistent data theft.',
             table: {
               headers: ['Category', 'Focus', 'Examples'],
               rows: [
                 ['Administrative Process', 'Policy enforcement', 'Account creation criteria, approval workflows, role assignment, review frequency, offboarding procedures'],
-                ['Technical Implementation', 'Systems and tools', 'Identity platforms (Active Directory, Azure AD), password policies, RBAC, MFA, activity logging'],
-                ['Physical Controls', 'Device and facility protection', 'Building access, server room controls, hardware tokens, screen lockouts, encryption'],
+                ['Technical Implementation', 'Systems and tools', 'Identity platforms (Active Directory, Entra ID), password policies, RBAC, MFA enrollment, activity logging'],
+                ['Physical Controls', 'Device and facility protection', 'Building access records, server room logs, hardware token inventory, screen lock enforcement, full-disk encryption status'],
               ],
             },
           },
           {
             heading: 'Account Lifecycle — Join-Move-Leave',
             list: [
-              'Join — create account with least-privilege permissions based on job role.',
-              'Move — update permissions when roles change; remove old access immediately.',
-              'Leave — immediately disable or delete account to prevent unauthorized access.',
+              'Join — create the account on the employee\'s start date (not before), assign only role-appropriate least-privilege access, enroll in MFA, and log the provisioning event.',
+              'Move — when an employee changes roles, simultaneously grant new entitlements and revoke old ones in a single transaction; failure to revoke old access is the primary cause of privilege creep.',
+              'Leave — disable the account immediately upon departure (same day or earlier for terminations), revoke all active sessions and tokens, transfer data ownership, and schedule deletion after the retention period.',
             ],
-            warning: 'Common issues: orphaned accounts, default or shared passwords, excessive privileges, stale unmonitored accounts, disabled logging.',
+            warning: 'The most common account management failures are: (1) orphaned accounts from departed employees, (2) accounts created with default or shared passwords, (3) excessive initial provisioning, (4) stale accounts that are never reviewed, and (5) disabled logging on privileged accounts. Each of these is a regular audit finding.',
           },
           {
             heading: 'Management Review and Approval',
-            body: 'Leadership formally reviews and approves security policies, controls, test results, and risk decisions. This ensures cybersecurity aligns with business objectives, receives proper funding, and maintains accountability.',
+            body: 'Management review is the formal process through which leadership reviews security program data and makes decisions about security investments, risk acceptance, and policy changes. Without leadership engagement, security programs become technically focused but strategically misaligned. Multiple frameworks require documented management reviews:',
             list: [
-              'ISO 27001 — regular ISMS reviews analyzing audits, metrics, and nonconformities.',
-              'NIST SP 800-53 — authorizing officials must approve security assessments before production deployment.',
-              'SOC 2 — management must document monitoring and control effectiveness reviews.',
-              'COBIT — requires governance oversight, continuous monitoring, and formal risk approvals.',
+              'ISO 27001 — requires regular formal ISMS management reviews analyzing audit results, security metrics, threat landscape changes, nonconformities, and the status of corrective actions.',
+              'NIST SP 800-53 — requires that authorizing officials review and approve system security plans and security assessment reports before systems are authorized to operate.',
+              'SOC 2 — requires that management document its review and monitoring of control effectiveness; this evidence is examined by SOC 2 auditors.',
+              'COBIT — requires governance-level oversight, continuous monitoring of security metrics, and formal risk acceptance or treatment decisions.',
             ],
           },
           {
             heading: 'KPIs vs KRIs',
+            body: 'Security metrics fall into two complementary categories. Both are necessary — using only KPIs gives a performance view without a risk view; using only KRIs gives a risk view without performance context:',
             list: [
-              'KPIs (Key Performance Indicators) — measure how well security processes meet goals (e.g., patch deployment speed, incident detection/response times).',
-              'KRIs (Key Risk Indicators) — warn of rising dangers (e.g., unpatched vulnerabilities, failed login attempts, phishing simulation failure rates, misconfigured cloud storage).',
+              'KPIs (Key Performance Indicators) — measure how well security processes are meeting their operational goals. Examples: mean time to patch critical vulnerabilities; percentage of employees completing annual security training; mean time to detect (MTTD) security incidents; percentage of systems with MFA enabled.',
+              'KRIs (Key Risk Indicators) — measure the current level of exposure to specific threats; used as early warning signals that risk levels are rising. Examples: number of unpatched critical CVEs; failed login attempt volume trends; phishing simulation click rates; percentage of external-facing systems with known vulnerabilities.',
             ],
-            note: 'Strong performance (high KPI) does not guarantee low risk (high KRI), and vice versa. Both perspectives are essential.',
+            note: 'An organization can have strong KPIs (efficient processes) and high KRIs (elevated risk exposure) simultaneously — for example, fast patching speed but a high number of newly discovered critical vulnerabilities. Both dimensions must be monitored.',
           },
           {
             heading: 'Backup Verification — 3-2-1 Rule',
+            body: 'Backup verification is the process of confirming that backup systems are functioning, data is recoverable, and the organization can meet its RPO and RTO commitments. A backup that has never been tested is not a backup — it is an untested assumption:',
             list: [
-              '3 — maintain three copies of data.',
-              '2 — store on two different media types.',
-              '1 — keep one copy offsite.',
+              '3 — maintain three copies of data (the primary plus two backups).',
+              '2 — store on two different media types (e.g., disk and tape, or local disk and cloud).',
+              '1 — keep at least one copy offsite or in a geographically separated location.',
+              'Regular test restores — periodically restore from backup to an isolated environment and verify data integrity and application functionality.',
+              'Checksum verification — backup systems should record cryptographic hashes of backup sets so corruption can be detected before a restore is needed.',
+              'Immutable backups — modern backup best practice uses WORM (write-once-read-many) or object lock storage to prevent ransomware from encrypting or deleting backups.',
             ],
-            note: 'Test backups regularly through periodic test restores in isolated environments and checksum verification. Automated corruption checks should be enabled in backup systems.',
           },
           {
             heading: 'Training and Awareness',
-            body: 'Training provides formal instruction in specific skills; awareness builds a security mindset through messages, posters, reminders, and examples. Security training requires continuous updates as threats evolve — one-time sessions are insufficient.',
+            body: 'Security training and awareness programs are a critical preventative control — most successful attacks involve a human element (phishing, social engineering, misconfiguration). Training and awareness are distinct: training imparts specific skills; awareness builds a security mindset and culture. Effectiveness must be measured to justify investment and demonstrate improvement:',
             list: [
-              'Effectiveness metrics: phishing click rates (pre/post training), employee incident reporting frequency, quiz/test performance, policy compliance rates, reduction in audit findings.',
+              'Effectiveness metrics: pre/post phishing click rates (should decrease over training cycles), incident reporting frequency (should increase as awareness grows), quiz/test scores, policy compliance rates, and reduction in security-related audit findings over time.',
+              'Training must be role-specific — executives need different content than system administrators; IT staff need different content than finance employees.',
+              'One-time annual training is insufficient; the threat landscape evolves continuously and training must keep pace.',
             ],
           },
           {
-            heading: 'Disaster Recovery and Business Continuity Testing',
+            heading: 'DR and BC Testing Data',
             list: [
-              'DR and BC plans document recovery procedures for major disruptions; plans fail without testing.',
-              'Testing approaches: tabletop exercises (scenario discussion), partial failover tests, full system recovery simulations.',
-              'Critical metrics: RTO (maximum acceptable restoration time), RPO (maximum tolerable data loss).',
-              'Frequency: test at least annually, plus after major changes or incidents.',
+              'DR and BC test results are critical process data — they demonstrate whether recovery plans will work when needed.',
+              'Collect: test type performed (tabletop/simulation/parallel/full), date, systems tested, RTO achieved vs. committed, RPO achieved vs. committed, issues identified, remediation actions.',
+              'Test at least annually, and after significant infrastructure changes, security incidents, or personnel changes.',
+              'Track trends over multiple test cycles to demonstrate maturing recovery capability.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What are KPIs and KRIs, and why are both necessary for security program management?', a: 'KPIs (Key Performance Indicators) measure how efficiently security processes are performing — e.g., patching speed, training completion rates. KRIs (Key Risk Indicators) measure the current level of risk exposure — e.g., unpatched critical vulnerabilities, failed login trends. Both are necessary because an organization can have efficient processes (good KPIs) while still having elevated risk exposure (bad KRIs), or low risk exposure but inefficient processes. Only using one type gives an incomplete picture.' },
+              { q: 'What is the 3-2-1 backup rule and what does each number represent?', a: 'The 3-2-1 rule states: maintain 3 copies of data (primary plus two backups), store them on 2 different types of media (e.g., disk and cloud), and keep 1 copy offsite or geographically separated. This ensures that no single failure mode — hardware failure, ransomware, or a localized disaster — can destroy all copies simultaneously.' },
+              { q: 'Why must backup systems be periodically test-restored rather than just verified for completion?', a: 'A backup job completing successfully only confirms that data was written to the backup destination — it does not confirm the backup is readable or that the restored application will function correctly. Backup files can become corrupted silently, restore processes can fail due to missing dependencies, or the recovery environment may be incompatible. Only an actual test restore to an isolated environment — followed by application testing — confirms that recovery is possible.' },
+              { q: 'What is the difference between security training and security awareness?', a: 'Security training provides formal instruction in specific, measurable skills — for example, teaching developers to identify and fix SQL injection vulnerabilities, or teaching IR team members to use forensic tools. Security awareness builds a general security mindset throughout the organization through campaigns, reminders, posters, and simulations. Training is deeper and role-specific; awareness is broader and culture-building. Both are necessary components of a security education program.' },
+              { q: 'Why is management review a formal requirement in frameworks like ISO 27001 and NIST SP 800-53?', a: 'Security programs without leadership engagement become technically focused but strategically misaligned — security teams make good technical decisions but without the authority, resources, or organizational support to address systemic issues. Management review requirements ensure that security data (audit results, metrics, incidents) reaches decision-makers who can approve resources, accept or reject risk, set direction, and hold the organization accountable for security outcomes.' },
+              { q: 'What is an orphaned account and why does it represent a security risk?', a: 'An orphaned account is a user account whose owner has left the organization (or whose system has been retired) but which has not been disabled or deleted. It retains its original access rights and valid credentials. An attacker who discovers an orphaned account — through phishing, credential stuffing, or inside knowledge — can use it to access systems with little risk of detection, since no active user will notice abnormal activity on the account.' },
+              { q: 'What does the Join-Move-Leave (JML) model describe and why is the Move phase particularly risky?', a: 'The JML model describes the three lifecycle events for any identity: Join (new user provisioned), Move (user changes roles), and Leave (user departs). The Move phase is most risky because new access for the new role is usually granted, but access from the old role is frequently not removed — creating privilege creep over time. Access recertification campaigns must specifically target employees who have recently changed roles.' },
+              { q: 'How should security training effectiveness be measured beyond completion rates?', a: 'Completion rates only confirm attendance, not behavior change. Effective measurement includes: phishing click rates before and after training campaigns (behavioral indicator); employee incident reporting frequency (increased reporting indicates improved awareness); test and quiz scores (knowledge retention); security incident rates attributable to user error (reduction over time); and reduction in access policy violations or audit findings in areas covered by training.' },
+              { q: 'What data should be captured from a DR test to demonstrate recovery capability?', a: 'DR test records should capture: test type (tabletop, simulation, parallel, full interruption), date and duration, systems and processes tested, actual RTO achieved versus committed RTO, actual RPO achieved versus committed RPO, issues discovered during the test, corrective actions identified, and personnel who participated. Tracking this data across multiple test cycles demonstrates maturing recovery capability and provides evidence of due diligence for auditors.' },
+              { q: 'What is an immutable backup and why is it important for ransomware resilience?', a: 'An immutable backup uses WORM (Write-Once, Read-Many) storage or object-lock features that prevent any process — including administrators — from modifying or deleting backup data for a defined retention period. This protects against ransomware that specifically targets backup systems to eliminate recovery options, forcing victims to pay the ransom. Modern ransomware operators routinely attempt to enumerate and encrypt backup repositories before triggering the visible encryption of production data.' },
             ],
           },
         ],
@@ -4600,50 +5605,84 @@ export const domains: Domain[] = [
         title: '6.4 Analyze Test Output and Generate Reports',
         content: [
           {
+            body: 'Conducting a security assessment without producing a clear, actionable report is like performing a medical examination and filing the results without telling the patient. The report is the output that creates organizational value — it translates technical findings into risk language that decision-makers understand, drives remediation activity, and creates the audit trail demonstrating that the organization identified and addressed vulnerabilities.',
+          },
+          {
+            body: 'Security reports serve two primary audiences with very different needs: technical teams (who need specific, precise vulnerability details and remediation steps) and leadership (who need risk context, business impact, and strategic guidance). A well-structured report serves both audiences by layering content from high-level executive summary to detailed technical appendices.',
+          },
+          {
             heading: 'Security Report Structure',
             table: {
               headers: ['Section', 'Purpose', 'Key Content'],
               rows: [
-                ['Executive Summary', 'Non-technical overview for leadership', 'Main findings, risk level, next steps — clear and concise'],
-                ['Assumptions', 'Lists starting conditions of the test', 'Access level granted, environment tested, exclusions'],
-                ['Scope', 'Defines what was and was not tested', 'Systems, applications, and excluded areas'],
-                ['Summary of Activities', 'Details actions performed', 'Tools used, tests conducted, effort level'],
-                ['Findings', 'Core security problems discovered', 'Description, impact, risk level, evidence'],
-                ['Recommendations', 'Fix guidance for each finding', 'Technical steps for IT; policy guidance for management'],
-                ['Appendices', 'Supporting material', 'Full scan output, screenshots, tool configurations'],
+                ['Executive Summary', 'Non-technical risk overview for leadership', 'Main findings, overall risk posture, priority next steps — written for a non-technical reader in clear business language'],
+                ['Assumptions', 'Defines starting conditions and scope limits', 'Access level granted, environment tested (production/staging), exclusions agreed before the test'],
+                ['Scope', 'Defines what was and was not tested', 'Systems, IP ranges, applications, APIs, network segments in scope; excluded areas'],
+                ['Summary of Activities', 'Describes what was actually done', 'Tools used, testing methodologies, time invested, limitations encountered'],
+                ['Findings', 'Core vulnerability and risk documentation', 'Each finding: description, affected system, proof of concept/evidence, risk rating, business impact'],
+                ['Recommendations', 'Prioritized remediation guidance', 'Technical remediation steps for IT; policy changes for management; short-term workarounds where full fixes are delayed'],
+                ['Appendices', 'Full technical evidence', 'Complete scan output, screenshots, code snippets, tool configurations — for technical review and evidence archival'],
               ],
             },
           },
           {
-            heading: 'Remediation Plans',
-            body: 'A remediation plan outlines who is responsible, what action is needed, when it must be done, and how success will be measured. Testing the remediation is as important as the plan itself — re-run original tests to confirm the vulnerability is resolved.',
+            heading: 'Risk Rating Frameworks',
+            body: 'Findings must be prioritized to focus remediation effort where it matters most. Common rating scales:',
             list: [
-              'Prioritize by risk — critical vulnerabilities first, especially those actively exploited.',
-              'Include temporary mitigations (monitoring, firewall rules) when permanent fixes are delayed.',
-              'Create closure reports documenting the fix, test evidence, and management approval.',
+              'CVSS — standardized 0–10 score with Critical (9–10), High (7–8.9), Medium (4–6.9), Low (0–3.9) bands.',
+              'DREAD — Damage, Reproducibility, Exploitability, Affected users, Discoverability; a simpler qualitative model.',
+              'Organizational context modifiers — a Critical CVSS score may be lower priority if the vulnerable system has no external exposure or no sensitive data; a Medium score may be critical if the system controls safety or financial transactions.',
             ],
-            note: 'Regulated environments require documented proof that vulnerabilities were identified, fixed, and validated.',
+            warning: 'Never present risk ratings without business context. A CVSS 9.8 vulnerability on an air-gapped test server that stores no sensitive data may be lower priority than a CVSS 6.5 finding on the public-facing authentication system.',
+          },
+          {
+            heading: 'Remediation Plans',
+            body: 'A remediation plan converts findings into tracked, accountable action items. Without a plan, reports produce awareness without improvement. A well-structured remediation plan specifies:',
+            list: [
+              'Owner — who is responsible for implementing the fix (specific team or individual, not just "IT").',
+              'Action — specific remediation steps (patch to version X; disable protocol Y; implement control Z).',
+              'Timeline — deadline aligned with risk priority (critical: 24–72 hours; high: 7–14 days; medium: 30 days; low: 90 days).',
+              'Verification — how completion will be verified (re-test, scan, configuration review).',
+              'Temporary mitigations — when permanent fixes require extended timelines, document interim compensating controls (WAF rule, firewall block, enhanced monitoring).',
+              'Closure report — formal documentation that the fix was implemented, tested, and approved.',
+            ],
+            note: 'In regulated environments (PCI DSS, HIPAA, FedRAMP), documented evidence that vulnerabilities were identified, remediated, and verified is required — the remediation plan and closure report provide this evidence.',
           },
           {
             heading: 'Exception Handling',
-            body: 'When a security control cannot be fully applied, a formal exception process must be followed:',
+            body: 'Not every security control can be fully implemented on every system at all times — legacy systems, business constraints, or technical dependencies may prevent immediate remediation. A formal exception process ensures that unresolved findings are not simply ignored:',
             list: [
-              '1. Identify the need — recognize when a control cannot be applied (legacy system, business constraint).',
-              '2. Evaluate the risk — assess the impact on security posture.',
-              '3. Define compensating controls — alternative measures (extra monitoring, logging, access controls).',
-              '4. Approval process — formal sign-off from system owners and security management.',
-              '5. Monitor the exception — regular audits to ensure it does not become a permanent vulnerability.',
-              '6. Time-bound — all exceptions must have an expiry date and go through re-approval if extended.',
+              '1. Identify the exception — formally document the control that cannot be applied and the reason.',
+              '2. Evaluate the risk — quantify the residual risk created by the exception.',
+              '3. Define compensating controls — identify alternative measures that reduce the risk to an acceptable level (enhanced monitoring, network isolation, restricted access).',
+              '4. Obtain formal approval — senior security management and system owner must sign off.',
+              '5. Set an expiry — all exceptions must have a defined end date; permanent exceptions become policy risks.',
+              '6. Monitor and review — audit exceptions regularly to ensure compensating controls remain effective and the exception is still justified.',
             ],
           },
           {
             heading: 'Ethical Disclosure',
+            body: 'When a vulnerability is discovered — whether by an internal tester, external researcher, or customer — how it is disclosed has significant security and legal implications:',
             list: [
-              'Responsible Disclosure — report to the vendor and allow time to fix before public disclosure.',
-              'Full Disclosure — immediate public reporting; controversial as it can expose users before patches exist.',
-              'Bug Bounty Programs — financial incentives for ethical hackers who responsibly disclose vulnerabilities.',
-              'Mandatory Reporting — some jurisdictions require reporting vulnerabilities to authorities or law enforcement.',
-              'Nondisclosure — legal or contractual obligations may prevent disclosure in some cases.',
+              'Responsible Disclosure (Coordinated Disclosure) — the researcher reports the vulnerability privately to the vendor, allowing a reasonable time (typically 90 days) for a patch to be developed and deployed before any public disclosure. The current industry standard.',
+              'Full Disclosure — immediate public reporting of all vulnerability details without waiting for a patch. Controversial: it pressures vendors to fix quickly but exposes users to exploitation before patches are available.',
+              'Bug Bounty Programs — organizations invite external researchers to find and report vulnerabilities in exchange for financial rewards. Creates economic incentives for responsible disclosure and channels security research constructively.',
+              'Mandatory Reporting — some jurisdictions and frameworks require reporting vulnerabilities to regulators, law enforcement, or affected parties (e.g., healthcare data breaches under HIPAA).',
+              'Nondisclosure — legal or contractual obligations (NDAs, government classifications) may prohibit disclosure of certain vulnerability details.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is the purpose of an executive summary in a security assessment report?', a: 'The executive summary translates technical findings into business risk language for non-technical leadership. It conveys the overall risk posture, highlights the most significant findings and their business impact, and provides clear priority guidance for next steps — without requiring the reader to understand technical vulnerability details. It is typically the only section that executives read; if it is unclear or incomplete, the organization\'s response will be inadequate.' },
+              { q: 'Why should CVSS scores always be presented with organizational business context?', a: 'CVSS measures vulnerability characteristics in isolation — exploitability and technical impact — but does not account for environmental factors like network exposure, asset value, or data sensitivity. A CVSS 9.8 vulnerability on an isolated test server is lower priority than a CVSS 5.0 finding on the production authentication system. Business context (is the system internet-facing? does it hold sensitive data? is it critical to operations?) must modify raw CVSS scores to produce meaningful risk prioritization.' },
+              { q: 'What are the key components of a complete remediation plan?', a: 'A remediation plan must specify: (1) the named owner responsible for implementing the fix; (2) specific technical remediation steps; (3) a deadline aligned with risk priority; (4) how successful remediation will be verified (re-test, rescan, configuration review); (5) interim compensating controls for extended timelines; and (6) a closure report documenting that the fix was implemented and verified. Without all these components, findings often remain unaddressed.' },
+              { q: 'What is responsible disclosure and why is it the current industry standard?', a: 'Responsible disclosure (coordinated disclosure) is the practice of privately notifying a vendor of a discovered vulnerability and allowing a reasonable time (typically 90 days) for a patch to be developed and deployed before any public details are released. It is the current standard because it balances transparency (the public is eventually informed) with safety (users are not exposed to active exploitation while awaiting a patch). It also provides vendors time to coordinate patch distribution to customers.' },
+              { q: 'What is the purpose of a formal exception process for unresolved security findings?', a: 'The exception process ensures that findings which cannot be immediately remediated are not simply ignored. It creates formal documentation of the residual risk, requires management sign-off (creating accountability), establishes compensating controls to reduce exposure, and sets an expiry date to prevent exceptions from becoming permanent. Without a formal process, organizations accumulate untracked, unreviewed accepted risks that can compound over time.' },
+              { q: 'What is the difference between a compensating control and a remediation?', a: 'A remediation directly eliminates the vulnerability (e.g., applying a patch, fixing a code defect, removing an unnecessary service). A compensating control does not eliminate the vulnerability but reduces the risk to an acceptable level through alternative means (e.g., restricting network access to a vulnerable system, adding enhanced monitoring, requiring additional authentication). Compensating controls are temporary measures used when remediation is not immediately feasible.' },
+              { q: 'What is a bug bounty program and what security benefit does it provide?', a: 'A bug bounty program invites external security researchers to test an organization\'s systems for vulnerabilities in exchange for financial rewards. It provides continuous security testing from a diverse, independent pool of researchers who bring different perspectives and techniques than internal teams. It channels security research constructively — instead of researchers selling vulnerabilities to malicious actors or publishing them without notice, they are incentivized to disclose responsibly. Programs like HackerOne and Bugcrowd facilitate managed bug bounties.' },
+              { q: 'Why should exceptions include a defined expiry date and re-approval process?', a: 'Without an expiry date, exceptions tend to become permanent — the original justification (legacy system migration, temporary workaround) becomes outdated but the exception persists. Re-approval requirements force periodic reassessment: is the original justification still valid? Has the risk profile changed? Have compensating controls eroded? Treating exceptions as time-limited forces the organization to either remediate the underlying issue or consciously re-accept the risk with current information.' },
+              { q: 'What is full disclosure and what are its security risks?', a: 'Full disclosure is the immediate, unrestricted publication of all vulnerability details — including proof-of-concept exploit code — without giving the vendor advance notice or time to patch. The security risk is that it gives attackers a working roadmap to exploit the vulnerability before patches are available or deployed, creating a window of mass exploitation. Proponents argue it creates maximum pressure on vendors to fix quickly; critics argue it sacrifices user safety for that pressure.' },
+              { q: 'What evidence does a closure report provide in a regulated environment?', a: 'In regulated environments (PCI DSS, HIPAA, FedRAMP), auditors require documented evidence not just that vulnerabilities were discovered but that they were remediated and the remediation was verified. A closure report documents: the original finding, the specific remediation action taken, when it was implemented, who verified it, and the verification method (re-test results, scan output, configuration evidence). This creates the audit trail demonstrating due diligence and control effectiveness.' },
             ],
           },
         ],
@@ -4653,61 +5692,78 @@ export const domains: Domain[] = [
         title: '6.5 Security Audits',
         content: [
           {
-            heading: 'Core Definition',
-            body: 'Auditing serves as a formal, structured way to validate that systems are both compliant with standards and protected against threats.',
+            body: 'A security audit is a formal, systematic, and evidence-based examination of an organization\'s security controls, policies, and procedures against a defined set of criteria — typically a regulatory requirement, industry standard, or internal policy. Unlike informal assessments, audits produce formal, binding conclusions: controls are conformant or non-conformant, certifications are granted or denied, findings may trigger regulatory enforcement. Security audits are the accountability mechanism of the security program.',
           },
           {
-            heading: 'Audit Types',
+            body: 'Auditing is distinct from testing and assessment in its formality, independence, and consequences. An internal penetration test is a technical activity; an ISO 27001 audit is a formal attestation process with professional standards of evidence, independence requirements, and legally significant outcomes. Both are necessary, but confusing them leads to misaligned expectations about what each activity can achieve.',
+          },
+          {
+            heading: 'Audit Types by Independence Level',
             list: [
-              'First-Party (Internal) — conducted by the organization itself; verifies compliance with internal policies and identifies gaps before external parties discover them.',
-              'Second-Party — conducted by a customer or partner; verifies contractual security requirements.',
-              'Third-Party — independent external organizations; most objective; used for ISO 27001, SOC 2, PCI DSS.',
+              'First-Party (Internal) Audit — conducted by the organization\'s own internal audit function or security team. Highest risk of bias but most access to internal systems. Best for identifying gaps before external parties discover them, verifying internal policy compliance, and preparing for external audits.',
+              'Second-Party Audit — conducted by a customer, partner, or downstream organization as part of a contractual or regulatory requirement. Used to verify that a vendor or supplier meets contractual security obligations. The auditing organization has a business relationship with the auditee.',
+              'Third-Party Audit — conducted by an independent, accredited external organization with no financial or operational relationship to the auditee. Provides the highest level of objectivity. Required for ISO 27001 certification, SOC 2 attestation, PCI DSS QSA assessments, and FedRAMP authorization.',
             ],
           },
           {
-            heading: 'Location Considerations',
+            heading: 'Audit Scope by Environment',
             list: [
-              'On-Premises — direct physical inspection of security controls, servers, and infrastructure.',
-              'Cloud — assessment focuses on shared responsibility models and provider certifications rather than physical access.',
-              'Hybrid — auditors must evaluate both physical and cloud environments plus data flows between them.',
+              'On-Premises — auditors can physically inspect servers, network equipment, access control systems, and environmental controls. Direct observation is a strong form of evidence.',
+              'Cloud — physical inspection is not possible; auditors focus on shared responsibility boundaries, provider certifications (ISO 27001, SOC 2, FedRAMP), configuration reviews, and cloud-specific controls (IAM policies, security group configurations, encryption settings).',
+              'Hybrid — auditors must evaluate both environments plus the data flows and trust relationships between them, which can be the most complex part of a hybrid audit.',
             ],
           },
           {
             heading: 'Sampling Methodology',
-            body: 'Organizations often use sampling to reduce audit scope while maintaining representativeness:',
+            body: 'Audits of large organizations cannot examine every transaction, account, or log entry — sampling techniques are used to draw statistically valid conclusions from a subset of the total population:',
             list: [
-              'Random sampling — unbiased selection; every item has an equal chance of being selected.',
-              'Stratified sampling — group-based selection; ensures all segments are represented.',
-              'Judgmental sampling — risk-focused selection; auditor applies expertise to choose items.',
+              'Random sampling — every item in the population has an equal probability of selection. Minimizes bias but may miss important high-risk subgroups.',
+              'Stratified sampling — the population is divided into meaningful subgroups (strata) and samples are drawn proportionally from each. Ensures all segments (privileged accounts, critical systems, recently joined employees) are represented.',
+              'Judgmental (Purposive) sampling — the auditor uses expertise to select items most likely to contain errors or vulnerabilities. Common in risk-based auditing; efficient but introduces auditor bias.',
             ],
           },
           {
             heading: 'Major Audit Frameworks',
             list: [
-              'SSAE 18 — American Institute of CPAs standard for SOC reports.',
-              'ISO/IEC 15408 — Common Criteria for IT security evaluation.',
-              'NIST SP 800-53A — assessment procedures for federal systems.',
-              'FedRAMP SAF — security assessment framework for government cloud services.',
+              'SSAE 18 (SOC) — American Institute of CPAs standard governing SOC 1 and SOC 2 reports; used for service organization attestations.',
+              'ISO/IEC 15408 (Common Criteria) — international standard for evaluating security properties of IT products; used in government procurement.',
+              'NIST SP 800-53A — assessment procedures for federal information systems; aligned with SP 800-53 security controls.',
+              'FedRAMP SAF (Security Assessment Framework) — mandated process for cloud service providers seeking US federal government authorization.',
+              'PCI DSS — Payment Card Industry Data Security Standard; requires annual assessments by a Qualified Security Assessor (QSA) for large merchants.',
             ],
           },
           {
             heading: 'Audit Cycle Phases',
             list: [
-              '1. Planning — define scope and objectives.',
-              '2. Fieldwork — collect evidence from systems and interviews.',
-              '3. Analysis — compare findings against expected controls.',
-              '4. Reporting — document gaps and recommendations.',
-              '5. Remediation — fix identified issues and verify corrections.',
+              '1. Planning — define audit scope, objectives, criteria, and team; risk-assess the subject area; develop the audit plan.',
+              '2. Fieldwork — collect evidence through document review, interviews with personnel, technical system inspection, and observation of processes.',
+              '3. Analysis — compare collected evidence against the audit criteria; identify conformances and non-conformances; assess significance.',
+              '4. Reporting — produce the formal audit report documenting findings, evidence, and audit conclusions; share with management and stakeholders.',
+              '5. Remediation and Follow-up — management responds to findings with corrective action plans; auditor verifies correction at follow-up or next cycle.',
             ],
           },
           {
             heading: 'Conflict of Interest in Internal Audits',
-            body: 'When someone reviews a process they helped design or manage, objectivity is compromised. Mitigations:',
+            body: 'The primary limitation of internal auditing is the potential for conflict of interest: auditors may be reluctant to criticize their colleagues, may unconsciously overlook areas they helped design, or may face organizational pressure to produce favorable results. Structural mitigations include:',
             list: [
-              'Use independent teams within the company.',
-              'Rotate auditors to avoid familiarity bias.',
-              'Report audit results directly to senior leadership or the board.',
-              'Supplement with periodic third-party audits.',
+              'Independent audit team — internal auditors should report to the audit committee or board, not to the CISO or CIO whose operations they audit.',
+              'Auditor rotation — prevent familiarity bias by rotating auditors between domains and ensuring no auditor reviews their own previous work.',
+              'Direct reporting to leadership or board — audit results that go directly to executive leadership or an audit committee cannot be filtered by operational management.',
+              'Supplemental third-party audits — periodic independent audits provide objective validation that internal audit conclusions are sound.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What distinguishes a security audit from a security assessment?', a: 'A security audit is a formal, structured examination against specific criteria (a standard, regulation, or policy) that produces formal conclusions — conformant or non-conformant — with potential legal, regulatory, or contractual consequences. A security assessment is typically broader and more strategic, evaluating overall security posture using multiple inputs including technical testing and interviews. Audits follow defined professional standards of evidence and independence; assessments are more flexible in methodology.' },
+              { q: 'What is the difference between a first-party, second-party, and third-party audit?', a: 'A first-party audit is conducted by the organization itself (internal audit). A second-party audit is conducted by a customer or business partner to verify contractual security requirements. A third-party audit is conducted by an independent, accredited external organization with no relationship to the auditee. Third-party audits provide the highest level of objectivity and are required for formal certifications like ISO 27001 and SOC 2.' },
+              { q: 'What is stratified sampling in auditing and why is it used?', a: 'Stratified sampling divides the population being audited into meaningful subgroups (strata) — such as privileged accounts, critical systems, or recently onboarded users — and draws samples proportionally from each group. It is used to ensure that all important segments are represented in the sample, particularly high-risk subgroups that might be missed by purely random sampling. It provides more representative results for the same sample size.' },
+              { q: 'What are the five phases of an audit cycle?', a: 'The five phases are: (1) Planning — define scope, criteria, and audit team; (2) Fieldwork — collect evidence through documents, interviews, and system inspection; (3) Analysis — compare evidence to criteria, identify conformances and non-conformances; (4) Reporting — produce the formal audit report; (5) Remediation and Follow-up — management implements corrective actions; auditor verifies corrections.' },
+              { q: 'Why is the audit function\'s reporting line important for maintaining independence?', a: 'If internal auditors report to the same executive (CISO, CIO) whose operations they audit, there is an inherent conflict of interest — findings that reflect poorly on that executive\'s department may face organizational pressure to be softened, delayed, or suppressed. Internal audit should report to an audit committee, the board, or directly to the CEO to ensure independence from the operational functions being audited.' },
+              { q: 'What is the Common Criteria (ISO/IEC 15408) and what does it evaluate?', a: 'The Common Criteria is an international standard for evaluating the security properties of specific IT products — hardware, software, or combinations thereof. Products are evaluated against a defined security target against a protection profile appropriate for their use case. Evaluations result in an Evaluation Assurance Level (EAL) rating (EAL1–EAL7) representing the depth and rigor of testing. It is used by governments for procurement decisions for sensitive applications.' },
+              { q: 'How does a cloud audit differ from an on-premises audit?', a: 'In an on-premises audit, auditors can physically inspect servers, network equipment, and access control systems. In a cloud audit, physical access to infrastructure is not possible. Cloud audits focus on: shared responsibility boundaries (what the cloud provider controls vs. the customer), review of provider certifications (SOC 2, ISO 27001, FedRAMP), configuration review of customer-controlled settings (IAM policies, security groups, encryption), and access to cloud-native logs and monitoring.' },
+              { q: 'What is judgmental sampling and what is its main limitation?', a: 'Judgmental (purposive) sampling is an audit technique where the auditor selects items to examine based on professional judgment about which items are most likely to contain errors or vulnerabilities — focusing attention on high-risk areas. Its main limitation is auditor bias: the auditor may miss important issues in areas they did not assess as high risk, and the results cannot be statistically extrapolated to the full population the way random or stratified samples can.' },
+              { q: 'What is a QSA (Qualified Security Assessor) in the context of PCI DSS?', a: 'A QSA is an organization certified by the PCI Security Standards Council to perform PCI DSS compliance assessments for merchants and service providers that handle payment card data. Large merchants (Level 1) are required to have an annual on-site QSA assessment. QSAs follow a defined assessment methodology and produce a Report on Compliance (ROC). Using an accredited QSA provides credibility and independence that self-assessments cannot.' },
+              { q: 'What is the purpose of surveillance audits in ISO 27001 certification?', a: 'After initial ISO 27001 certification, the organization undergoes lighter-scope surveillance audits annually in the two years following certification. Surveillance audits verify that the ISMS continues to function effectively, that non-conformities from the initial audit have been addressed, and that the organization is maintaining continual improvement. Full recertification audits occur every three years. Surveillance audits prevent organizations from achieving certification and then allowing their ISMS to deteriorate.' },
             ],
           },
         ],
@@ -4717,37 +5773,74 @@ export const domains: Domain[] = [
         title: '6.6 Red Teaming and Continuous Security Testing for AI Systems',
         content: [
           {
+            body: 'As AI and machine learning systems become embedded in security operations, business processes, and critical infrastructure, they introduce a new category of security vulnerability that traditional testing methodologies were not designed to address. An AI system can be architecturally secure — properly containerized, encrypted, access-controlled, and patched — and still be fundamentally vulnerable at the level of its model logic, training data, or inference behavior.',
+          },
+          {
+            body: 'Security practitioners must expand their testing repertoire beyond finding software vulnerabilities to include evaluating the security and integrity of AI model behavior. This requires new techniques, new mental models, and new adversarial thinking that treats the model itself as an attack surface.',
+          },
+          {
             heading: 'Why AI Requires Evolved Security Testing',
-            body: 'Traditional testing targets software vulnerabilities like buffer overflows and misconfigurations. In AI-driven systems, the attack surface has expanded into the behavior of the model itself. An AI system can be technically secure from a software perspective and still be vulnerable at the model level.',
+            body: 'Traditional application security testing focuses on implementation vulnerabilities: buffer overflows, SQL injection, missing authentication. These arise from bugs in code. AI vulnerabilities are different — they arise from the model\'s learned behavior, which can be manipulated through its inputs, its training data, or its deployment environment. An AI system can have zero software vulnerabilities and still be completely exploitable at the model level.',
           },
           {
             heading: 'AI-Specific Attack Types',
             table: {
               headers: ['Attack', 'Description', 'Impact'],
               rows: [
-                ['Evasion Attacks', 'Manipulate input data to cause the AI to misclassify or misinterpret it — appears normal to humans', 'Undermines reliability; model produces incorrect or harmful outputs'],
-                ['Extraction Attacks', 'Repeatedly query the model to reconstruct it or infer sensitive training data', 'Steals the model\'s intelligence and embedded proprietary information'],
-                ['Prompt Injection', 'Craft inputs that override safety rules or cause unauthorized behavior', 'Can bypass access controls or extract confidential information'],
+                ['Evasion Attacks', 'Craft inputs that appear normal to humans but cause the AI to produce incorrect outputs — e.g., adversarial images that fool image classifiers while appearing normal to the human eye', 'Undermines reliability of AI-based security controls; model produces incorrect decisions at scale'],
+                ['Poisoning Attacks', 'Contaminate the training data to introduce backdoors or bias the model\'s behavior in ways the attacker controls', 'Persistent, hard-to-detect compromise; the model behaves correctly on most inputs but maliciously on specific attacker-chosen inputs'],
+                ['Extraction Attacks', 'Repeatedly query the model to reconstruct its parameters or infer sensitive training data through the model\'s outputs', 'Steals intellectual property embedded in model weights; may expose PII or proprietary data used in training'],
+                ['Prompt Injection', 'Craft inputs that embed instructions which override the model\'s intended behavior or safety guardrails', 'Bypass access controls, extract confidential system prompts, or cause unauthorized actions in agentic systems'],
+                ['Model Inversion', 'Use model outputs to reconstruct approximate representations of training data', 'Privacy violation; may reveal sensitive attributes of individuals in the training set'],
               ],
             },
-            note: 'These are "logic flaws" inherent to how the model processes data — not traditional coding errors.',
+            note: 'These vulnerabilities are "logic flaws" in learned behavior — not traditional coding errors that can be found with SAST or patched. They require adversarial testing methodologies specifically designed for AI systems.',
           },
           {
             heading: 'AI Red Teaming',
-            body: 'Red Teaming for AI goes beyond simulating network intrusions — it involves actively challenging the model\'s logic, decision-making boundaries, and resilience against manipulation. The goal is to understand how weaknesses could be exploited and what business impact they would have.',
+            body: 'AI red teaming extends traditional red team concepts to adversarially test AI model behavior, safety guardrails, and decision-making resilience. Unlike traditional red teaming (which focuses on network intrusion and privilege escalation), AI red teaming challenges the model\'s logic and manipulation resistance:',
             list: [
-              'Design controlled adversarial exercises that simulate real-world attacks against AI models.',
-              'Test monitoring, detection, and response mechanisms, not just the model itself.',
-              'Include adversarial input crafting, jailbreak attempts, and data extraction probes.',
+              'Adversarial input crafting — design inputs that probe the boundaries of model behavior; test for misclassification, output manipulation, and guardrail bypass.',
+              'Jailbreak attempts — structured attempts to elicit harmful, policy-violating, or unauthorized outputs from language models.',
+              'Data extraction probes — attempt to extract training data, system prompts, or embedded credentials through carefully structured queries.',
+              'Robustness testing — evaluate model performance under distribution shift, noisy inputs, and edge cases that real-world deployment will encounter.',
+              'Control plane testing — test the security of the infrastructure around the model (APIs, authentication, rate limiting) as well as the model itself.',
             ],
           },
           {
             heading: 'AI-Enhanced Vulnerability Management',
+            body: 'Conversely, AI can significantly enhance traditional vulnerability management by enabling continuous, intelligent analysis at scales that human teams cannot achieve:',
             list: [
-              'Continuous Security Assessment — AI-powered scanning analyzes systems in real time, correlating vulnerabilities with current threat intelligence.',
-              'Risk-Based Prioritization — vulnerabilities actively exploited in the wild are flagged as critical; others deprioritized.',
-              'Pattern Detection — AI identifies hidden dependencies, anomalous configurations, and predicts potential vulnerabilities before exploitation.',
-              'Human Expertise Still Required — AI highlights risks but cannot fully understand business context, intent, or organizational priorities.',
+              'Continuous Security Assessment — AI-powered scanning analyzes systems in real time and correlates discovered vulnerabilities with current threat intelligence feeds, identifying which known vulnerabilities are being actively exploited in the wild.',
+              'Risk-Based Prioritization — rather than treating all CVSS 9.x vulnerabilities equally, AI models consider asset exposure, network reachability, business criticality, and active exploitation status to prioritize the specific vulnerabilities that represent real risk in the specific environment.',
+              'Pattern Detection — AI identifies hidden dependency chains, unusual configuration patterns, and anomalous system states that may indicate pre-exploitation activity or misconfigurations that static scanning misses.',
+              'Human Expertise Still Essential — AI can process data at scale, but cannot fully understand organizational context, business priorities, risk appetite, or the strategic significance of specific systems. Human analysts remain essential for validation and decision-making.',
+            ],
+          },
+          {
+            heading: 'Model Security Lifecycle',
+            body: 'AI models must be managed as security assets throughout their operational lifecycle:',
+            list: [
+              'Model integrity — sign and hash model artifacts; verify integrity before deployment and after any update.',
+              'Continuous performance monitoring — detect model drift (degrading accuracy over time as real-world data diverges from training data) before it affects decision quality.',
+              'Adversarial robustness monitoring — continuously monitor for inputs that trigger anomalous outputs, which may indicate active exploitation attempts.',
+              'Retraining governance — apply the same change management and security testing controls to model retraining as to production code deployments.',
+              'Incident response for AI — develop specific IR playbooks for AI-related incidents (model poisoning suspected, anomalous output patterns detected).',
+            ],
+            note: 'AI systems that are deployed and then ignored without ongoing monitoring are particularly dangerous — their behavior can degrade silently without triggering the traditional monitoring alerts used for software systems.',
+          },
+          {
+            questions: [
+              { q: 'What is an evasion attack against an AI system and how does it differ from a traditional software vulnerability?', a: 'An evasion attack crafts inputs that appear normal to humans but cause an AI model to produce incorrect outputs — for example, adding imperceptible noise to an image that causes an image classifier to misidentify it, or crafting an email that bypasses an AI-based spam filter while containing malicious content. Unlike traditional vulnerabilities (which are bugs in code), evasion attacks exploit the learned statistical behavior of the model — they cannot be patched by fixing code, but require retraining or defensive input preprocessing.' },
+              { q: 'What is a model poisoning attack and why is it particularly dangerous?', a: 'A model poisoning attack contaminates the training data to manipulate what the model learns — typically to introduce a backdoor that causes the model to behave maliciously on specific attacker-controlled inputs while behaving correctly on all other inputs. It is particularly dangerous because: it is persistent (survives retraining until the poisoned data is identified and removed), hard to detect (the model appears to function normally in testing), and strategically targeted (the attacker controls exactly which inputs trigger malicious behavior).' },
+              { q: 'What is prompt injection and what type of AI system is most at risk?', a: 'Prompt injection is an attack where a malicious input embeds instructions that override an AI model\'s intended behavior or safety guardrails — for example, injecting text into a document that, when processed by an AI assistant, causes it to exfiltrate data or bypass safety filters. Agentic AI systems (those that take actions in the real world — browsing the web, executing code, sending emails) are most at risk because a successful prompt injection can cause the agent to perform unauthorized actions with real consequences.' },
+              { q: 'What is model drift and why is it a security concern?', a: 'Model drift occurs when the real-world data a deployed model encounters gradually diverges from its training data, causing the model\'s performance and accuracy to degrade over time. From a security perspective, drift in a security-critical AI system (threat detection, authentication, fraud detection) can cause increasing false negatives (missed threats) or false positives, degrading the security function. If undetected, the organization may become dependent on a tool that is no longer reliably detecting threats.' },
+              { q: 'How does AI red teaming differ from traditional network red teaming?', a: 'Traditional network red teaming focuses on gaining unauthorized access through software vulnerabilities, misconfigurations, and social engineering — the goal is lateral movement and privilege escalation in IT infrastructure. AI red teaming focuses on manipulating model behavior: adversarial input crafting, jailbreak attempts, data extraction probes, and guardrail bypass testing. The "vulnerability" being exploited is not a code bug but the model\'s learned statistical behavior, requiring fundamentally different techniques and expertise.' },
+              { q: 'What is risk-based vulnerability prioritization in AI-enhanced vulnerability management?', a: 'Risk-based prioritization uses AI to evaluate not just the CVSS severity of a vulnerability but its actual risk in the specific environment — considering whether the vulnerable system is internet-facing, whether the specific attack path is technically reachable from the network, the business criticality of the system, and whether the vulnerability is being actively exploited in the wild. This produces a prioritized list of vulnerabilities that represent real risk in the specific environment, rather than treating all High/Critical CVEs equally regardless of context.' },
+              { q: 'Why must AI model retraining be subject to change management and security testing?', a: 'Retraining a model produces a new model artifact that may behave differently from the previous version in ways that affect security decisions. If model updates are deployed without the same controls applied to production code changes — security testing, staged rollout, rollback capability, performance validation — a retrained model could introduce regressions in detection capability, introduce adversarial vulnerabilities from new training data, or behave inconsistently with expected policy. Models are production code and must be treated as such.' },
+              { q: 'What is a model extraction attack and what does it threaten?', a: 'A model extraction attack involves repeatedly querying a deployed AI model with carefully designed inputs and using the outputs to reconstruct the model\'s parameters — essentially stealing the model without having access to the underlying code or weights. This threatens intellectual property embedded in model weights (representing months of training compute and proprietary data), and may also expose sensitive information from training data if the model has memorized examples.' },
+              { q: 'What is the limitation of applying traditional SAST and DAST tools to AI system security?', a: 'SAST and DAST analyze source code and running application behavior for implementation vulnerabilities — bugs in code. AI vulnerabilities do not arise from code bugs but from the model\'s learned behavior, training data composition, and statistical decision boundaries. SAST cannot detect a poisoned training dataset; DAST cannot detect that a model has a backdoor triggered by specific adversarial inputs. AI security requires model-specific evaluation tools and adversarial testing methodologies beyond what SAST/DAST provide.' },
+              { q: 'What role does human expertise play in AI-enhanced vulnerability management?', a: 'AI can process vulnerability data at scale, correlate findings with threat intelligence, and generate prioritized lists far faster than human analysts. However, AI cannot understand organizational context — which systems are mission-critical versus test environments, which business processes depend on specific services, what the risk appetite of the organization is, or whether a specific vulnerability chain is realistic given specific compensating controls. Human analysts are essential to validate AI-generated prioritizations, make final risk acceptance decisions, and provide the strategic judgment that AI cannot replicate.' },
             ],
           },
         ],
@@ -4844,6 +5937,20 @@ export const domains: Domain[] = [
               'Mobile artifacts — call/message logs, geolocation data, application data, cache.',
             ],
           },
+          {
+            questions: [
+              { q: 'What are the four types of investigations and how do their evidentiary standards differ?', a: 'Administrative investigations are internal HR/policy matters with the lowest evidentiary standard. Criminal investigations are led by law enforcement and require proof "beyond a reasonable doubt" — the highest standard. Civil investigations resolve disputes and use the "preponderance of evidence" standard (more likely than not). Regulatory investigations are conducted by government bodies and require full organizational cooperation; organizations must comply completely with requests.' },
+              { q: 'What is Locard\'s Exchange Principle and why is it foundational to digital forensics?', a: 'Locard\'s Exchange Principle states that "every contact leaves a trace" — whenever a person or process interacts with a system, evidence is left behind (logs, registry entries, file metadata, memory artifacts). This underpins all forensic investigation because it means digital activity cannot be completely hidden; skilled investigators can find evidence even of attempts to cover tracks. The principle motivates comprehensive logging and artifact collection.' },
+              { q: 'Why must forensic investigators work on copies rather than original media?', a: 'Working on original media risks altering it — even mounting a drive can update access timestamps, modify metadata, or trigger automatic system processes. Any modification to original evidence can render it inadmissible in legal proceedings by breaking the integrity requirement. Investigators create forensic images (bit-for-bit copies) using write blockers, hash the original and the copy to prove they are identical, and work exclusively on the copy.' },
+              { q: 'What is the order of volatility and why must evidence be collected in that order?', a: 'The order of volatility ranks evidence from most to least transient: CPU registers/cache → RAM/running processes/network connections → swap and page files → disk files → archived backups. Evidence must be collected starting from most volatile because that data disappears first — RAM contents are lost when power is removed, network connections disappear when a system is disconnected. Collecting least-volatile evidence first would mean losing the most time-sensitive data permanently.' },
+              { q: 'What is a write blocker and when must it be used?', a: 'A write blocker is a hardware or software device that allows data to be read from storage media while preventing any writes from occurring — ensuring the original evidence cannot be altered during acquisition. Write blockers must be used whenever creating forensic images of storage devices in criminal or civil investigations where evidence integrity must be demonstrable in court. Without a write blocker, even a simple disk mount could modify file system metadata.' },
+              { q: 'What three criteria must evidence meet to be admissible in legal proceedings?', a: 'Evidence must be relevant (it must have a logical connection to the matter being decided), material (it must be important and have meaningful bearing on the outcome — not trivially true or tangential), and competent (it must have been legally obtained and properly maintained — collected with appropriate authorization, handled without contamination, and tracked through an unbroken chain of custody).' },
+              { q: 'What is a Faraday container and why is it used in digital forensics?', a: 'A Faraday container is a shielded enclosure that blocks electromagnetic signals — specifically preventing wireless communications (cellular, Wi-Fi, Bluetooth) from reaching a device inside it. In forensics, Faraday containers are used to prevent a seized device from receiving remote wipe commands, lock commands, or communications that could alter its state between seizure and forensic examination.' },
+              { q: 'What is the Plain View Doctrine in digital forensics evidence collection?', a: 'The Plain View Doctrine allows law enforcement to collect evidence that is clearly visible during a lawfully authorized activity without needing a separate search warrant for that specific evidence. In digital forensics, this applies when investigators are conducting a lawfully authorized examination and discover evidence of other crimes within scope of their authorized access — they may collect and use that evidence. However, this does not authorize expanding the search beyond the original scope without additional authorization.' },
+              { q: 'What are network artifacts and what security events can they reveal?', a: 'Network artifacts are records of network activity — firewall logs (connection attempts and blocks), NetFlow records (who communicated with whom, protocol, volume), packet captures (payload content), DNS query logs (which domain names were resolved), and proxy logs (web traffic). They can reveal lateral movement between internal systems, data exfiltration to external IPs, command-and-control beaconing, unauthorized access attempts, and the scope of a network compromise.' },
+              { q: 'What is exigent circumstances as an evidence collection method and what justifies its use?', a: 'Exigent circumstances allow law enforcement or investigators to collect evidence without waiting for a warrant when there is an immediate risk that the evidence will be destroyed, altered, or lost before a warrant can be obtained. In digital investigations, this might apply when an attacker is actively deleting logs or an automated process is overwriting volatile memory. The bar for exigent circumstances is high — investigators must be able to demonstrate that the urgency was genuine and immediate.' },
+            ],
+          },
         ],
       },
       {
@@ -4879,6 +5986,20 @@ export const domains: Domain[] = [
               'Criminal Investigations — coordinated with law enforcement; highest evidentiary standard; chain of custody critical.',
               'Civil Investigations — legal disputes; discovery process applies.',
               'Regulatory Investigations — industry watchdogs (SEC, HIPAA); specific reporting requirements.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is chain of custody and why is it critical for legal admissibility?', a: 'Chain of custody is a documented, unbroken record of who had control of evidence, when, and under what conditions — from the moment of collection through analysis to courtroom presentation. It demonstrates that evidence has not been tampered with, altered, or contaminated between collection and presentation. A broken chain of custody can result in evidence being declared inadmissible, potentially collapsing a criminal or civil case regardless of the evidence\'s actual relevance.' },
+              { q: 'Why should investigators always create forensic images before analyzing digital evidence?', a: 'Forensic images are bit-for-bit copies of storage media. Investigators must work on the image, not the original, because even read operations on a live system can alter timestamps, update access logs, or trigger automatic processes. Working from an image preserves the original in an unaltered state. Both the original and the image are hashed (MD5, SHA-256) at creation, and matching hashes prove the image is a perfect copy — providing evidence integrity for legal proceedings.' },
+              { q: 'What is the difference between an interview and an interrogation in a forensic investigation?', a: 'An interview is a non-confrontational, fact-gathering conversation with a witness or person with relevant information — the goal is to gather facts. An interrogation is adversarial questioning of a suspect — the investigator believes the subject has information they are withholding or have provided falsely. Interrogations are typically conducted by law enforcement with legal constraints on techniques. Security professionals usually conduct interviews; interrogations are left to qualified law enforcement personnel.' },
+              { q: 'How does the evidentiary standard differ between criminal and civil investigations?', a: 'Criminal investigations require proof "beyond a reasonable doubt" — the highest legal standard, requiring the jury to have no reasonable alternative explanation for the evidence. Civil investigations (disputes between parties) require only a "preponderance of evidence" — meaning it is more likely than not (greater than 50%) that the claim is true. The lower civil standard means that the same evidence that would be insufficient for criminal conviction may be sufficient for civil liability.' },
+              { q: 'What is the eDiscovery process and when does it apply?', a: 'Electronic discovery (eDiscovery) is the process of identifying, collecting, reviewing, and producing electronically stored information (ESI) in response to a legal hold notice — typically triggered by litigation, regulatory investigation, or legal dispute. Organizations must preserve all potentially relevant ESI and produce it in a structured format for opposing counsel. Failure to preserve evidence after a legal hold is issued can result in sanctions for spoliation (destruction of evidence).' },
+              { q: 'What digital evidence types are most useful for reconstructing the timeline of a security incident?', a: 'The most useful timeline evidence includes: system event logs (authentication, process creation, privilege use with timestamps), file system metadata (creation, modification, and access timestamps — though access times may be unreliable on some systems), network logs (connection records with precise timestamps), email headers (routing timestamps through mail servers), and memory forensics (processes running at the time of capture). Correlating these across multiple sources — using NTP-synchronized timestamps — allows investigators to reconstruct the attack sequence.' },
+              { q: 'Why is testimonial evidence considered weaker than documentary or real evidence in digital investigations?', a: 'Testimonial evidence relies on human memory, which is fallible, subject to bias, and can be influenced by subsequent events. Witnesses may have limited technical knowledge, conflicting perspectives, or motivations to omit information. Digital logs and forensic images, by contrast, are objective records that capture what actually occurred. Courts generally treat technical documentary evidence as more reliable than recollections, especially over extended time periods.' },
+              { q: 'What makes digital evidence "competent" for legal purposes?', a: 'Digital evidence is competent when it was legally obtained (collected with proper authorization — warrant, consent, or lawful access), properly handled (chain of custody maintained, no contamination), technically sound (collected using forensically valid methods with hashes proving integrity), and presented by qualified personnel (expert witnesses who can explain the collection methodology and its reliability to a non-technical court).' },
+              { q: 'What is a legal hold and what are the consequences of failing to honor one?', a: 'A legal hold (litigation hold) is a directive issued when litigation is reasonably anticipated, requiring the organization to preserve all electronically stored information that may be relevant to the case — suspending normal deletion schedules. Failing to honor a legal hold and allowing relevant evidence to be deleted is called spoliation. Courts may impose sanctions including adverse inference instructions (telling the jury to assume the destroyed evidence was damaging), evidence preclusion, or in extreme cases case dismissal.' },
+              { q: 'What is the role of a forensic specialist in supporting a criminal investigation?', a: 'A forensic specialist provides technical expertise that law enforcement investigators may lack: acquiring forensic images using proper tools and procedures, recovering deleted files, analyzing malware, interpreting log files, reconstructing attack timelines, and explaining technical findings in terms a court can understand. They serve as expert witnesses, subject to examination and cross-examination on their methodology. Their credibility depends on documented procedures, validated tools, and certification/training credentials.' },
             ],
           },
         ],
@@ -4920,6 +6041,20 @@ export const domains: Domain[] = [
                 ['Syslog', 'Standard protocol for forwarding log messages from devices to a central server'],
               ],
             },
+          },
+          {
+            questions: [
+              { q: 'Why must logs be stored on separate, tamper-evident media?', a: 'An attacker who compromises a system will typically attempt to delete or alter logs to hide their activity. If logs are stored on the same system being monitored, a compromised system gives the attacker the ability to destroy the evidence trail. Forwarding logs immediately to a separate, write-protected (WORM) or append-only central logging system means that even a fully compromised endpoint cannot retroactively erase its log record.' },
+              { q: 'What is the purpose of NTP synchronization for logging and why does it matter for investigations?', a: 'NTP (Network Time Protocol) synchronizes all systems to a common time source. Without synchronized timestamps, log entries from different systems cannot be reliably correlated — an event in one system log at 14:32:01 and a related event in another system at 14:32:05 may appear unrelated if the clocks are even slightly out of sync. During incident investigations, accurate timeline reconstruction across multiple systems is essential, and timestamp drift can make this impossible.' },
+              { q: 'What is a SIEM correlation rule and what type of attack can it detect that individual logs cannot?', a: 'A SIEM correlation rule specifies a multi-event pattern that, when matched across multiple log sources, indicates a security threat. For example: failed authentication from IP X (firewall log) → successful authentication from same IP after 50 attempts (AD log) → new service account created (IAM log) → large data transfer to external IP (NetFlow). No individual log source shows the full attack; the SIEM correlates across all four to detect the credential-stuffing and exfiltration sequence.' },
+              { q: 'What is the difference between Wireshark and NetFlow for network security monitoring?', a: 'Wireshark performs full packet capture — it captures the complete payload of every network packet, enabling deep protocol analysis and content inspection. It is used for detailed forensic investigation but generates enormous data volumes and may capture sensitive content. NetFlow captures only traffic metadata (source/destination IP, port, protocol, volume, timestamp) without payload content. NetFlow is scalable for continuous monitoring of large networks; Wireshark is used for targeted, in-depth analysis of specific traffic of interest.' },
+              { q: 'What log retention requirements are imposed by common regulatory frameworks?', a: 'PCI DSS requires audit log retention for at least one year, with three months immediately available for analysis. HIPAA requires security event documentation for six years. GDPR does not specify exact retention periods but requires logs to be kept only as long as necessary and protected appropriately. SOC 2 typically requires 12 months of log availability. Organizations operating under multiple frameworks must retain logs for the longest applicable period and ensure logs from all covered systems are included.' },
+              { q: 'What is the purpose of SIEM dashboards and what types of alerts do they generate?', a: 'SIEM dashboards provide real-time visibility into the security posture across the entire environment — showing active alerts, trending metrics, geographic login maps, and system health. Alerts are generated when correlation rules match patterns (e.g., brute force threshold exceeded), when metrics cross configured thresholds (e.g., data transfer volume spike), or when specific high-fidelity indicators of compromise are detected. Dashboards allow analysts to investigate, triage, and escalate incidents from a single interface.' },
+              { q: 'What is SNMP and what security risk does it introduce if misconfigured?', a: 'SNMP (Simple Network Management Protocol) is used to monitor network device health — querying CPU usage, interface statistics, and error rates, and receiving trap alerts when thresholds are exceeded. SNMP v1 and v2c transmit community strings (effectively passwords) in cleartext, making them vulnerable to interception. Devices still configured with default community strings ("public", "private") can be read and sometimes written to by any attacker on the network. SNMP v3 adds authentication and encryption and should be used exclusively.' },
+              { q: 'What is the difference between log management and a SIEM?', a: 'Log management covers the collection, centralization, storage, and archival of log data — ensuring logs are available for retrieval. A SIEM adds intelligence on top of log management: normalization of different log formats into a common schema, real-time correlation of events across sources using detection rules, alerting, and dashboarding. A log management system stores logs; a SIEM analyzes them. Many modern platforms combine both functions, but the distinction matters when evaluating whether a tool provides detection capability or just storage.' },
+              { q: 'What security events should always generate immediate SIEM alerts?', a: 'High-priority alert triggers include: multiple failed authentication attempts followed by success (credential stuffing/brute force); privileged account creation outside of change management windows; authentication from impossible geographic locations; large outbound data transfers to external IPs; disabled security tools or stopped logging services; access to sensitive data outside normal business hours; and new administrator account creation. These events have high likelihood of representing active attacks or insider threats.' },
+              { q: 'What is the risk of collecting logs without a formal retention and disposal policy?', a: 'Without a retention policy, organizations risk two failure modes: retaining logs too long (creating unnecessary GDPR/privacy liability and storage costs, and expanding the blast radius of a data breach that reaches log stores) or deleting logs too soon (violating regulatory requirements like PCI DSS, destroying forensic evidence needed to investigate an incident, and making it impossible to demonstrate compliance during audits). Retention policies must align with the most stringent applicable regulatory requirement.' },
+            ],
           },
         ],
       },
@@ -4993,6 +6128,20 @@ export const domains: Domain[] = [
             ],
             note: 'SLA monitoring uses automated dashboards and SIEM tools; tied to KPIs like Mean Time to Detect (MTTD) and Mean Time to Respond (MTTR).',
           },
+          {
+            questions: [
+              { q: 'What is the difference between need-to-know and security clearance?', a: 'A security clearance verifies that an individual is trustworthy enough to access classified information at a given level — it is a background-check-based assessment of reliability. Need-to-know is an additional, independent requirement: even with a Top Secret clearance, a person may not access specific Top Secret information unless their current job function actually requires it. Clearance is a necessary but not sufficient condition; need-to-know is the operational access gate.' },
+              { q: 'What is two-person control and what risk does it mitigate?', a: 'Two-person control (also called dual control) requires two authorized individuals to simultaneously be present and both take action to complete a sensitive operation — for example, two people each entering a separate combination to open a nuclear safe, or two administrators each approving a production deployment. It mitigates insider threat and single-person error: no individual can perform a critical operation unilaterally, reducing the risk of fraud, sabotage, or critical mistakes.' },
+              { q: 'What is mandatory vacation and what security purpose does it serve?', a: 'Mandatory vacation policies require employees — particularly those in sensitive roles like system administrators or finance personnel — to take at least one consecutive period away from work each year. During that period, their work must be performed by someone else or reviewed. This disrupts any fraudulent schemes that require daily maintenance (e.g., skimming small amounts from transactions), exposes hidden bad practices or misconfigurations when a fresh pair of eyes steps in, and detects log tampering that would otherwise go unnoticed.' },
+              { q: 'What are the three most common PAM (Privileged Access Management) failures?', a: 'The three most common PAM failures are: (1) Password sharing — when multiple people know a privileged account\'s password, accountability is lost and individual actions cannot be attributed; (2) Overprovisioning — granting temporary elevated access for a project and never revoking it, causing privilege creep; (3) Neglected service accounts — applications run with high-privilege service accounts that are never rotated, reviewed, or monitored, creating persistent backdoor-equivalent access.' },
+              { q: 'Why does a security clearance not automatically grant access to information at that level?', a: 'Clearance levels address trustworthiness, not operational need. The principle of need-to-know restricts access further: a cleared individual may only access classified information their current assignment actually requires. This limits the damage from insider threats (a cleared malicious actor can only reach data their role touches) and from credential compromise (a stolen clearance credential does not grant access to all classified data, only what the account holder was authorized to see).' },
+              { q: 'What is job rotation and what dual benefit does it provide?', a: 'Job rotation periodically moves employees through different roles or responsibilities. The security benefits are dual: (1) Fraud prevention — employees are less likely to engage in fraud knowing a successor will review their work, and ongoing schemes are disrupted when the job changes hands; (2) Resilience and knowledge transfer — multiple people understand each critical function, eliminating single points of human failure and building organizational resilience when key personnel are unavailable.' },
+              { q: 'What is the difference between an SLR and an SLA?', a: 'A Service Level Requirement (SLR) is the organization\'s documented expectation of service performance and security — what they want from a vendor or service. It is not legally binding but forms the basis for negotiation. A Service Level Agreement (SLA) is the legally binding contract that formalizes the commitment — specifying measurable targets (uptime percentages, response times, patch windows) and penalties for non-compliance. SLRs precede SLAs; SLAs enforce SLRs.' },
+              { q: 'What are MTTD and MTTR and why are they important security operations metrics?', a: 'MTTD (Mean Time to Detect) measures the average time between when an attack begins and when the security team detects it. MTTR (Mean Time to Respond) measures the average time from detection to containment and resolution. Together they quantify the dwell time an attacker has in the environment and the effectiveness of the security operations center. Industry benchmarks show average dwell times of weeks to months — organizations should target MTTD in hours and MTTR in days for critical incidents.' },
+              { q: 'What types of accounts require Privileged Access Management (PAM) controls?', a: 'PAM controls apply to administrator accounts (with system-wide configuration rights), root accounts (Unix/Linux superuser with unlimited system access), domain administrator accounts (controlling entire Active Directory environments), service accounts (running applications and automated processes), database administrator accounts (full access to data stores), and emergency/break-glass accounts (used only during major incidents). These accounts share the characteristic that their compromise or misuse could cause catastrophic damage.' },
+              { q: 'How does separation of duties apply to security operations specifically?', a: 'In security operations, SoD prevents any single person from having unchecked control over critical security functions. Examples: the person who configures firewall rules should not be the only person who reviews firewall logs; the individual deploying a security patch should not be the same person who approves the change request; the security analyst responding to an incident should not also be the person approving forensic data collection decisions. SoD creates checks at every critical decision point.' },
+            ],
+          },
         ],
       },
       {
@@ -5026,6 +6175,20 @@ export const domains: Domain[] = [
               'MTTF (Mean Time To Failure) — for non-repairable items like SSDs.',
             ],
           },
+          {
+            questions: [
+              { q: 'What is the difference between clearing, purging, and destroying media?', a: 'Clearing overwrites media with random data and is suitable for internal reuse of non-sensitive media — it protects against casual recovery but not against advanced laboratory techniques. Purging uses multi-pass overwrites, degaussing (for magnetic media), or cryptographic erase — it protects against all known recovery techniques and is suitable for media leaving organizational control that will be reused. Destruction physically obliterates the media (shredding, incinerating, disintegrating) so no data can ever be recovered — required for classified data or when purging is not feasible.' },
+              { q: 'What NIST document governs media sanitization and what does it recommend?', a: 'NIST SP 800-88 Rev. 1 (Guidelines for Media Sanitization) provides recommendations for sanitizing different types of media. It establishes three sanitization categories (Clear, Purge, Destroy) and maps them to different media types and sensitivity levels. For SSDs, it recommends cryptographic erase (if the drive supports it) or purge-level sanitization rather than simple overwriting, because SSDs use wear leveling that prevents overwriting from reaching all physical storage locations.' },
+              { q: 'Why is simple deletion or formatting insufficient to sanitize sensitive media?', a: 'Standard deletion and formatting only remove file system pointers to data — the actual data remains on the physical media until the storage location is overwritten by new data. Freely available recovery tools can retrieve "deleted" files in minutes. Even formatted drives can be recovered with commercial forensic tools. For sensitive or classified data, the physical media must be sanitized using methods that overwrite, degauss, or physically destroy the actual storage medium.' },
+              { q: 'What is degaussing and what types of media can it be used on?', a: 'Degaussing exposes magnetic media to a powerful magnetic field that randomizes the magnetic domains storing data, making the data unrecoverable. It is effective on hard disk drives (HDDs), magnetic tape, and floppy disks. Degaussing does NOT work on SSDs, USB flash drives, CDs/DVDs, or optical media — these use non-magnetic storage mechanisms and require different destruction methods. After degaussing, HDDs are typically also rendered physically non-functional.' },
+              { q: 'What is the difference between labeling and marking media?', a: 'A label identifies the classification level of the media (e.g., "Confidential", "Secret") — it indicates how the media must be protected. A marking provides additional handling context (e.g., retention period, geographic handling restrictions, destruction date, data owner). Labels are machine-readable as well as human-readable in modern systems; markings are typically human-readable guidance for handlers. Both are required for media leaving a secure area or being transferred between parties.' },
+              { q: 'What is MTBF and how does it inform media replacement decisions?', a: 'MTBF (Mean Time Between Failures) is the average time a repairable device operates between failures — a statistical measure of reliability for devices like enterprise hard drives or network storage. Organizations use MTBF ratings to estimate when drives in a RAID array should be proactively replaced before failure probability rises dangerously. For example, if drives with a 50,000-hour MTBF are approaching that age, replacing them during a scheduled maintenance window is far preferable to waiting for a production failure.' },
+              { q: 'Why is mobile media (USB drives, laptops) a particular data security concern?', a: 'Mobile media combines high storage capacity with ease of transport and frequent loss or theft. A lost unencrypted USB drive containing sensitive data is a reportable data breach. Controls for mobile media include: mandatory full-disk encryption for all portable devices, DLP controls blocking unauthorized data transfers to USB, asset tracking and inventory for all portable media, remote wipe capability for laptops and mobile devices, and clear policies on prohibited media use in sensitive areas.' },
+              { q: 'What is cryptographic erase and when is it preferred over physical destruction?', a: 'Cryptographic erase destroys the encryption keys used to encrypt all data on a self-encrypting drive (SED) — making all stored data permanently unrecoverable without physically destroying the drive. It is preferred over physical destruction when the drive hardware will be reused (e.g., returned to a cloud provider or reassigned internally) because it achieves purge-level sanitization while preserving the hardware. It is only effective if the data was encrypted from the moment it was written, which requires purpose-built self-encrypting drives.' },
+              { q: 'What is data remanence and why is it a concern for SSDs specifically?', a: 'Data remanence is the residual representation of data that remains on a storage medium after it has been "erased" or "deleted." For SSDs, it is a particular concern because SSDs use wear-leveling algorithms that distribute writes across flash cells — meaning a standard overwrite operation may not actually overwrite all physical cells containing old data (the firmware redirects writes to new cells to balance wear). Forensic tools can potentially recover data from cells that were not overwritten. NIST SP 800-88 recommends cryptographic erase or physical destruction for SSD sanitization.' },
+              { q: 'When is physical destruction of media required rather than just purging?', a: 'Physical destruction is required when: (1) the media cannot be reliably purged (damaged media where sanitization tools cannot verify completeness); (2) the data sensitivity is so high that any theoretical recovery risk is unacceptable (Top Secret or SCI-classified data); (3) the media is leaving organizational control and cannot be returned (end-of-life hardware disposal to third-party recyclers); or (4) compliance requirements specifically mandate destruction for the data category involved.' },
+            ],
+          },
         ],
       },
       {
@@ -5044,6 +6207,72 @@ export const domains: Domain[] = [
             ],
           },
           {
+            diagram: {
+              caption: 'NIST SP 800-61 Incident Response Lifecycle — six phases from preparation through post-incident review',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 200" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="200" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">NIST SP 800-61 — Incident Response Lifecycle</text>
+  <!-- Phase 1: Preparation -->
+  <rect x="10" y="44" width="87" height="110" rx="7" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="53" y="64" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="10">1.</text>
+  <text x="53" y="78" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="11">Preparation</text>
+  <text x="53" y="96" text-anchor="middle" fill="#475569" font-size="9">IR policy</text>
+  <text x="53" y="110" text-anchor="middle" fill="#475569" font-size="9">Team &amp; tools</text>
+  <text x="53" y="124" text-anchor="middle" fill="#475569" font-size="9">Playbooks</text>
+  <text x="53" y="138" text-anchor="middle" fill="#475569" font-size="9">Comms plans</text>
+  <polygon points="97,99 108,93 108,105" fill="#3b82f6"/>
+  <!-- Phase 2: Detection -->
+  <rect x="108" y="44" width="87" height="110" rx="7" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="151" y="64" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="10">2.</text>
+  <text x="151" y="78" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">Detection</text>
+  <text x="151" y="96" text-anchor="middle" fill="#475569" font-size="9">Identify event</text>
+  <text x="151" y="110" text-anchor="middle" fill="#475569" font-size="9">Validate incident</text>
+  <text x="151" y="124" text-anchor="middle" fill="#475569" font-size="9">SIEM alerts</text>
+  <text x="151" y="138" text-anchor="middle" fill="#475569" font-size="9">Scope/severity</text>
+  <polygon points="195,99 206,93 206,105" fill="#22c55e"/>
+  <!-- Phase 3: Containment -->
+  <rect x="206" y="44" width="87" height="110" rx="7" fill="#fef3c7" stroke="#eab308" stroke-width="2"/>
+  <text x="249" y="64" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="10">3.</text>
+  <text x="249" y="78" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Containment</text>
+  <text x="249" y="96" text-anchor="middle" fill="#475569" font-size="9">Isolate systems</text>
+  <text x="249" y="110" text-anchor="middle" fill="#475569" font-size="9">Block spread</text>
+  <text x="249" y="124" text-anchor="middle" fill="#475569" font-size="9">Short-term fix</text>
+  <text x="249" y="138" text-anchor="middle" fill="#475569" font-size="9">Preserve evidence</text>
+  <polygon points="293,99 304,93 304,105" fill="#eab308"/>
+  <!-- Phase 4: Eradication -->
+  <rect x="304" y="44" width="87" height="110" rx="7" fill="#fef2f2" stroke="#f87171" stroke-width="2"/>
+  <text x="347" y="64" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="10">4.</text>
+  <text x="347" y="78" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="11">Eradication</text>
+  <text x="347" y="96" text-anchor="middle" fill="#475569" font-size="9">Remove malware</text>
+  <text x="347" y="110" text-anchor="middle" fill="#475569" font-size="9">Patch vulns</text>
+  <text x="347" y="124" text-anchor="middle" fill="#475569" font-size="9">Remove backdoors</text>
+  <text x="347" y="138" text-anchor="middle" fill="#475569" font-size="9">Root cause fix</text>
+  <polygon points="391,99 402,93 402,105" fill="#f87171"/>
+  <!-- Phase 5: Recovery -->
+  <rect x="402" y="44" width="87" height="110" rx="7" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="445" y="64" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="10">5.</text>
+  <text x="445" y="78" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="11">Recovery</text>
+  <text x="445" y="96" text-anchor="middle" fill="#475569" font-size="9">Restore systems</text>
+  <text x="445" y="110" text-anchor="middle" fill="#475569" font-size="9">Verify operation</text>
+  <text x="445" y="124" text-anchor="middle" fill="#475569" font-size="9">Monitor closely</text>
+  <text x="445" y="138" text-anchor="middle" fill="#475569" font-size="9">Back to production</text>
+  <polygon points="489,99 500,93 500,105" fill="#a855f7"/>
+  <!-- Phase 6: Post-Incident -->
+  <rect x="500" y="44" width="70" height="110" rx="7" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="535" y="64" text-anchor="middle" font-weight="bold" fill="#374151" font-size="10">6.</text>
+  <text x="535" y="78" text-anchor="middle" font-weight="bold" fill="#374151" font-size="11">Lessons</text>
+  <text x="535" y="92" text-anchor="middle" font-weight="bold" fill="#374151" font-size="11">Learned</text>
+  <text x="535" y="110" text-anchor="middle" fill="#475569" font-size="9">Report</text>
+  <text x="535" y="124" text-anchor="middle" fill="#475569" font-size="9">Update controls</text>
+  <text x="535" y="138" text-anchor="middle" fill="#475569" font-size="9">Improve plan</text>
+  <!-- Loop arrow back to 1 -->
+  <path d="M535,154 C535,172 53,172 53,154" stroke="#94a3b8" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#a6)"/>
+  <defs><marker id="a6" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#94a3b8"/></marker></defs>
+  <text x="290" y="185" text-anchor="middle" font-size="10" fill="#94a3b8">Continuous improvement cycle</text>
+</svg>`,
+            },
+          },
+          {
             heading: 'Common Incident Categories',
             list: [
               'Malware — viruses, ransomware, trojans, spyware.',
@@ -5051,6 +6280,20 @@ export const domains: Domain[] = [
               'Denial of Service (DoS/DDoS) — overwhelming resources to deny legitimate access.',
               'Data Breach — unauthorized disclosure of sensitive data.',
               'Insider Threat — malicious or negligent actions by employees.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What are the six phases of the NIST SP 800-61 incident response lifecycle?', a: 'The six phases are: (1) Preparation — establish IR policy, team, tools, playbooks, and communication plans before incidents occur; (2) Detection and Analysis — identify and validate that an incident has occurred, determine scope and severity; (3) Containment — stop the incident from spreading (short-term: isolate affected systems; long-term: maintain operations); (4) Eradication — remove the root cause (malware, vulnerabilities, attacker persistence mechanisms); (5) Recovery — restore systems, verify normal operation, monitor for re-infection; (6) Post-Incident Activity — lessons learned, documentation, update controls.' },
+              { q: 'What is the difference between short-term and long-term containment in incident response?', a: 'Short-term containment takes immediate action to stop the incident from spreading further — for example, isolating an infected host from the network, blocking a malicious IP at the firewall, or disabling a compromised account. Long-term containment involves more substantial measures that can be sustained while investigation and eradication proceed — for example, deploying a patched replacement system, redirecting traffic through a clean path, or implementing additional access controls. Long-term containment balances security with operational continuity.' },
+              { q: 'Why must eradication occur before recovery in the incident response lifecycle?', a: 'Eradication removes the root cause of the incident — malware, attacker persistence mechanisms (backdoors, scheduled tasks, new accounts), and exploited vulnerabilities. If recovery (restoring systems to operation) occurs before eradication, the attacker retains access and can immediately re-compromise recovered systems. Organizations that restore from backup but do not eradicate the initial access vector find themselves re-infected within hours.' },
+              { q: 'What is the purpose of the post-incident activity phase?', a: 'The post-incident activity phase — the "lessons learned" meeting — analyzes what happened, how the incident was detected, what went well, what failed, and what can be improved. It produces updated playbooks, improved detection rules, remediated vulnerabilities, strengthened controls, and management briefings. Without this phase, organizations repeat the same mistakes. It is also where documentation is finalized for regulatory reporting, legal proceedings, and insurance claims.' },
+              { q: 'What is the difference between an event, an incident, and a breach?', a: 'An event is any observable system action — logins, file accesses, network connections. An incident is an event (or set of events) that negatively impacts or threatens the confidentiality, integrity, or availability of information or systems — not all events are incidents. A breach is a specific type of incident involving confirmed unauthorized disclosure of protected information to unauthorized parties. Not all incidents become breaches, but all breaches are incidents.' },
+              { q: 'Why is preparation the most important phase of incident response?', a: 'Preparation is the most important phase because it determines the quality of every subsequent phase. During a live incident, there is no time to write playbooks, acquire tools, establish communication trees, or negotiate authority to isolate systems. Organizations with mature preparation have pre-authorized containment actions, pre-configured logging and detection, practiced response procedures, established legal and communications contacts, and tested backup and recovery paths. Underprepared organizations discover these gaps at the worst possible moment.' },
+              { q: 'What is an incident response playbook and why should organizations have multiple specialized ones?', a: 'An incident response playbook is a pre-documented, step-by-step procedure for responding to a specific type of security incident. Organizations should have specialized playbooks for different incident types (ransomware, data breach, insider threat, DDoS, account compromise) because each requires different technical actions, different notification obligations, different communication strategies, and different evidence preservation priorities. A generic procedure is less effective than one tailored to the specific threat scenario.' },
+              { q: 'What immediate actions should be taken when ransomware is detected?', a: 'Immediate actions include: (1) isolate affected systems from the network to prevent encryption spreading (disconnect network cables, disable Wi-Fi — do not simply shut down, as this may destroy volatile memory evidence); (2) identify the ransomware variant using known indicators; (3) determine which systems and data are affected; (4) notify the incident response team, legal, and management immediately; (5) preserve memory images of affected systems before powering down; (6) do NOT pay the ransom without executive and legal guidance — activate backup recovery processes instead.' },
+              { q: 'What are the notification obligations typically triggered by a data breach incident?', a: 'Notification obligations depend on the data type and jurisdiction: GDPR requires notification to the supervisory authority within 72 hours of discovering a breach involving personal data of EU residents; HIPAA requires notification to HHS and affected individuals within 60 days for breaches of PHI; PCI DSS requires notification to card brands and acquiring banks; many US states have breach notification laws with 30–72 hour windows. Organizations must pre-identify applicable regulations and pre-prepare notification templates.' },
+              { q: 'Why should affected systems not simply be shut down immediately upon incident detection?', a: 'Powering down a system immediately destroys volatile memory — RAM, running processes, open network connections, and encryption keys — that may be critical forensic evidence. In ransomware incidents, the encryption key may still be in memory. In APT incidents, malware may only exist in memory with no on-disk persistence. The correct approach is to capture a memory image and network state before any shutdown, unless the risk of continued operation outweighs the forensic value of that evidence.' },
             ],
           },
         ],
@@ -5098,6 +6341,20 @@ export const domains: Domain[] = [
               'Cloud intelligence — shared threat intelligence.',
             ],
           },
+          {
+            questions: [
+              { q: 'What is the difference between an IDS and an IPS?', a: 'An IDS (Intrusion Detection System) monitors network or host activity and generates alerts when suspicious patterns are detected — it is passive and does not block traffic. An IPS (Intrusion Prevention System) sits inline in the traffic path and can actively block, drop, or modify traffic when a threat is detected — it is active. An IPS provides faster response but risks blocking legitimate traffic (false positives); an IDS never disrupts traffic but requires human response to alerts.' },
+              { q: 'What is the limitation of signature-based intrusion detection?', a: 'Signature-based detection compares traffic or activity against a database of known threat patterns. It is fast and generates few false positives for known threats. However, it is completely blind to zero-day attacks and novel malware that have no existing signature. Attackers deliberately obfuscate or modify their tools to evade signature detection. Signature databases must be continuously updated, and there is always a lag between a new threat emerging and a signature being developed and deployed.' },
+              { q: 'What is anomaly-based detection and what is its primary trade-off?', a: 'Anomaly-based detection establishes a statistical baseline of normal behavior (network traffic patterns, login times, file access patterns) and alerts when observed behavior deviates significantly from that baseline. It can detect novel, zero-day threats with no known signature. The primary trade-off is a higher false positive rate — legitimate but unusual activity (a user working late, a new application generating different traffic) triggers alerts that must be investigated. Tuning the baseline and alert thresholds requires significant effort.' },
+              { q: 'What is a honeypot and what type of information does it gather?', a: 'A honeypot is a deliberately vulnerable decoy system designed to attract attackers and observe their behavior. When an attacker interacts with a honeypot, it records their techniques, tools, exploit attempts, lateral movement patterns, and objectives — intelligence that helps defenders understand current attack methods. Honeypots have no legitimate production use, so any interaction with them is almost certainly malicious. A honeynet extends this concept to a network of honeypots providing a more realistic deception environment.' },
+              { q: 'What is stateful protocol analysis and what attacks does it detect?', a: 'Stateful protocol analysis tracks the state of network protocol conversations and compares observed behavior to the defined specification of each protocol. It detects attacks that exploit protocol deviations — for example, unexpected command sequences in SMTP that could indicate a protocol tunnel, malformed HTTP headers used for injection, or FTP commands outside the expected flow. Unlike signature detection, stateful analysis understands the expected conversation context and flags anything that violates protocol norms.' },
+              { q: 'What is the difference between whitelisting and blacklisting for application and traffic control?', a: 'Whitelisting (allowlisting) uses a default-deny approach — only explicitly approved items (applications, IPs, domains) are permitted; everything else is blocked. It provides the strongest security in controlled environments but requires maintaining an up-to-date approved list and can impede legitimate new activity. Blacklisting (blocklisting) blocks known bad items while allowing everything else — easier to maintain in dynamic environments but fundamentally reactive: new threats are allowed until explicitly blocked.' },
+              { q: 'What is sandboxing in anti-malware and what types of threats does it detect?', a: 'Sandboxing executes suspicious files or URLs in an isolated virtual environment that cannot affect the production system, then observes the behavior in detail — file system changes, registry modifications, network connections, process creation, code injection attempts. It detects zero-day malware, polymorphic viruses that change their signature on each execution, and fileless malware that only operates in memory. Because it observes actual behavior rather than matching signatures, it can identify threats that bypass signature and heuristic engines.' },
+              { q: 'What is behavioral analysis in endpoint security and how does it differ from heuristics?', a: 'Heuristics use rule-based analysis of code characteristics to identify suspicious patterns (e.g., code that modifies its own execution path, code that attempts to disable security tools) — it evaluates the code before execution. Behavioral analysis monitors actual runtime behavior of processes: file system writes, registry access, network connections, memory injection, inter-process calls. Behavioral analysis can detect threats that disguise their static characteristics (polymorphic malware) by observing what they actually do when running.' },
+              { q: 'What is a network-based IDS (NIDS) vs a host-based IDS (HIDS)?', a: 'A NIDS monitors network traffic at a network boundary (typically a tap or span port) and analyzes packets for suspicious patterns across all systems on the segment — broad visibility but cannot see encrypted traffic content or activity that does not cross the monitored segment. A HIDS runs on individual endpoints and monitors local activity — system calls, file changes, log entries, process behavior — with full visibility into that host\'s activity including encrypted traffic (because it monitors the endpoint, not the wire). A comprehensive deployment uses both.' },
+              { q: 'Why do deception technologies like honeypots create low-noise, high-fidelity alerts?', a: 'Honeypots have no legitimate use — they are not real production resources, so no legitimate user or process should ever interact with them. Any connection or interaction is almost certainly from an attacker who has discovered the decoy through scanning or lateral movement. This means honeypot alerts have virtually no false positives: every alert represents genuine malicious activity. Contrast with SIEM alerts based on behavioral thresholds, which regularly trigger on legitimate but unusual behavior.' },
+            ],
+          },
         ],
       },
       {
@@ -5122,6 +6379,20 @@ export const domains: Domain[] = [
               '6. Continuous Monitoring — threat intelligence feeds, zero-day alerts, KPI dashboards.',
             ],
             note: 'Risk = Threat × Vulnerability × Impact. Not all vulnerabilities demand immediate patching, but all require visibility and documented risk treatment.',
+          },
+          {
+            questions: [
+              { q: 'What is the difference between patch management and vulnerability management?', a: 'Patch management is a specific subprocess focused on identifying, testing, and deploying vendor-supplied software updates. Vulnerability management is the broader discipline that encompasses identifying all weaknesses (whether patches exist or not), assessing their risk, prioritizing remediation, tracking status, and reporting. Some vulnerabilities have no patch available; vulnerability management includes compensating controls, configuration changes, and risk acceptance for those cases. Patch management is one tool within vulnerability management.' },
+              { q: 'What is the CISA KEV list and why should it drive patch prioritization?', a: 'The CISA Known Exploited Vulnerabilities (KEV) catalog lists vulnerabilities that have been confirmed as actively exploited in the wild by real threat actors. These vulnerabilities carry the highest remediation priority because they are not theoretical risks — attackers are using them right now. CISA directs US federal agencies to patch KEV entries within defined windows, and the list is widely used by private organizations to prioritize their remediation efforts above raw CVSS scores alone.' },
+              { q: 'Why must patches be tested in a staging environment before production deployment?', a: 'Patches can have unintended consequences — they may break application compatibility, conflict with other software, or cause system instability. Testing in a staging environment that mirrors production allows organizations to identify these issues before affecting live systems. Production patch failures can cause significant downtime. The testing window must be balanced against security urgency — critical zero-day patches may require compressed testing timelines with enhanced rollback procedures.' },
+              { q: 'What is a rollback procedure and why must it be defined before deploying a patch?', a: 'A rollback procedure is a documented, tested process for reverting a system to its pre-patch state if the patch causes problems. It must be defined before deployment because: (1) under the pressure of a production failure, improvised rollback attempts are risky and slow; (2) some patches modify data structures or databases that require specific unwind procedures; (3) change management requires a rollback plan to be in the approved change request. Rollback capability must be tested, not just documented.' },
+              { q: 'What should an organization do when a critical vulnerability affects a system that cannot be immediately patched?', a: 'When immediate patching is not feasible, the organization should implement compensating controls to reduce the risk: network isolation (VLAN segregation, firewall rules blocking exploitation paths), enhanced monitoring (specific detection rules for exploitation attempts), access restriction (limit which users and systems can reach the vulnerable service), and accelerated exception tracking with a documented remediation timeline. These controls must be formally documented, approved, and monitored until patching is completed.' },
+              { q: 'What is an authenticated vulnerability scan and why does it provide more complete results?', a: 'An authenticated scan uses valid credentials to log into target systems and examine their configuration, installed software versions, and security settings from the inside. An unauthenticated scan only observes what is externally visible (open ports, service banners). Authenticated scans find significantly more vulnerabilities — particularly missing patches on internal software, misconfigured system settings, and locally installed applications — because they have the same visibility an insider attacker would have after initial access.' },
+              { q: 'Why must an asset inventory be maintained as the foundation of vulnerability management?', a: 'Vulnerability scanners can only discover and assess assets they know to scan. Untracked assets — shadow IT systems, forgotten cloud instances, unmanaged IoT devices — will never be scanned and their vulnerabilities will never be remediated. The asset inventory ensures no system falls outside the vulnerability management program. The most dangerous vulnerabilities are often on forgotten systems that no one is monitoring precisely because they are untracked.' },
+              { q: 'What metrics should be tracked in a vulnerability management program?', a: 'Key metrics include: mean time to patch by severity category (Critical/High/Medium/Low), percentage of assets with current vulnerability scans, number of open critical/high vulnerabilities by age, vulnerability recurrence rate (patched but re-introduced), patch compliance rate (systems patched within SLA), and number of exceptions with their risk levels. Trending these metrics over time demonstrates program maturity and supports management reporting.' },
+              { q: 'What is the role of threat intelligence in vulnerability prioritization?', a: 'Threat intelligence provides real-world context that transforms vulnerability prioritization from a theoretical exercise to a practical one. Intelligence feeds reveal which vulnerabilities are being actively exploited in the wild (CISA KEV, vendor bulletins), which threat actors are targeting specific industries or technology stacks, and what exploitation techniques are being used. A vulnerability that appears low-priority by CVSS score alone becomes critical if intelligence indicates active exploitation targeting the organization\'s sector.' },
+              { q: 'How should vulnerability scan frequency be determined?', a: 'Scan frequency should be risk-based: internet-facing systems and critical infrastructure should be scanned continuously or weekly; internal systems at least monthly; systems in high-compliance environments (PCI DSS, FedRAMP) per their specific schedule requirements. Scans should also be triggered by significant events: major patches or software releases, new system deployments, significant architecture changes, and security incidents that may have involved exploitation of unknown vulnerabilities.' },
+            ],
           },
         ],
       },
@@ -5154,6 +6425,20 @@ export const domains: Domain[] = [
               ],
             },
           },
+          {
+            questions: [
+              { q: 'Why are unauthorized changes considered a security threat vector?', a: 'Unauthorized changes bypass the review process designed to catch security regressions. Any configuration modification can accidentally disable security controls, introduce new vulnerabilities, create logging blind spots, or place systems in a non-compliant state. Attackers who gain access often make changes to maintain persistence (new user accounts, scheduled tasks, firewall rule modifications). Change management creates the documented baseline needed to detect unauthorized modifications.' },
+              { q: 'What is the Change Advisory Board (CAB) and what is its role?', a: 'The CAB is a cross-functional group — typically including security, operations, application owners, and business stakeholders — that reviews, evaluates, and approves significant change requests before implementation. The CAB assesses the risk of proposed changes, verifies that rollback plans exist, ensures changes don\'t conflict with other scheduled work, and provides governance oversight. For emergency changes, an Emergency CAB (ECAB) or pre-authorized emergency change process allows rapid response with minimal delay.' },
+              { q: 'What is a Request for Change (RFC) and what must it contain?', a: 'An RFC is the formal documentation that initiates the change management process. It must contain: a description of the change and its business justification; the technical details of what will be modified; a risk assessment (what could go wrong and what is the impact?); a testing plan; a rollback plan (how to revert if the change fails); a scheduled implementation window; and identification of the change owner and approver. Without these elements, the CAB cannot evaluate the change adequately.' },
+              { q: 'What is the difference between a standard change and an emergency change?', a: 'A standard change is a pre-approved, low-risk change that follows a defined procedure — it has been assessed previously and can be implemented without individual CAB review (e.g., routine patching within a defined window). An emergency change must be implemented immediately to address an active security incident, critical failure, or zero-day vulnerability — the normal CAB review timeline is compressed, but documentation and approval must still occur, typically retrospectively or via an expedited ECAB process.' },
+              { q: 'What is configuration management and how does it relate to change management?', a: 'Configuration management tracks and maintains the documented state of all systems — what software versions are installed, what settings are configured, what network connections exist. Change management controls the process of making changes. They are complementary: configuration management provides the baseline (what the system looks like now), and change management ensures any deviation from that baseline is authorized, documented, and recoverable. Together they enable drift detection — identifying unauthorized changes by comparing actual state to documented baseline.' },
+              { q: 'What is configuration drift and how is it detected?', a: 'Configuration drift occurs when the actual state of a system gradually diverges from its documented, approved baseline — through unauthorized changes, failed change rollbacks, manual tweaks, or software auto-updates. It is detected through configuration compliance tools (CIS-CAT, Ansible, Chef InSpec) that continuously compare live system configurations to documented baselines and alert on deviations. Undetected drift creates security risks (disabled controls, misconfigured services) and compliance violations.' },
+              { q: 'What is a Configuration Management Database (CMDB) and why is it important?', a: 'A CMDB is a centralized repository that stores information about all configuration items (CIs) in the IT environment — hardware, software, network devices, services, and their interdependencies. It enables impact analysis before changes (understanding what else might be affected), supports incident investigation (knowing what changed recently when troubleshooting a failure), facilitates vulnerability management (knowing what software is installed where), and provides the authoritative source of truth for audit evidence.' },
+              { q: 'Why must post-implementation review be part of every change process?', a: 'Post-implementation review verifies that the change achieved its intended outcome, that no unintended side effects were introduced, that all rollback materials can be archived, and that any issues discovered are documented for future change planning. Without post-review, failed changes may be partially reverted, security controls may be unknowingly degraded, and the same problems may recur because no one documented the lessons. Change management without review is incomplete.' },
+              { q: 'How does change management intersect with incident response?', a: 'One of the first questions in incident response is "what changed recently?" — many incidents are caused by or facilitated by configuration changes (a firewall rule opened, a service account created, a patch that introduced a regression). A mature change management system provides an authoritative, timestamped record of all authorized changes, making it possible to quickly correlate incidents with changes. Unauthorized changes detected through drift monitoring may themselves constitute security incidents requiring response.' },
+              { q: 'What is a maintenance window and why are they important for security operations?', a: 'A maintenance window is a pre-scheduled, pre-approved period during which system changes (patches, upgrades, configuration modifications) may be performed. They allow operations teams, monitoring systems, and stakeholders to anticipate activity that would otherwise look suspicious (off-hours logins, service restarts, configuration changes). They enable coordination (multiple teams making changes simultaneously without conflict) and provide a predefined rollback deadline. Changes outside maintenance windows without emergency authorization should trigger security investigation.' },
+            ],
+          },
         ],
       },
       {
@@ -5168,6 +6453,46 @@ export const domains: Domain[] = [
               'MTD (Maximum Tolerable Downtime) — longest a business can survive without a critical system.',
               'WRT (Work Recovery Time) — time needed for testing before systems go live.',
             ],
+          },
+          {
+            diagram: {
+              caption: 'RTO, RPO, MTD — key recovery metrics that drive backup frequency, recovery site, and DR plan design',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 220" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="220" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Recovery Metrics — RTO, RPO, MTD</text>
+  <!-- Timeline -->
+  <line x1="30" y1="100" x2="550" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#a7)"/>
+  <!-- Last backup marker -->
+  <line x1="60" y1="85" x2="60" y2="115" stroke="#3b82f6" stroke-width="2"/>
+  <text x="60" y="78" text-anchor="middle" fill="#1d4ed8" font-size="10" font-weight="bold">Last</text>
+  <text x="60" y="66" text-anchor="middle" fill="#1d4ed8" font-size="10" font-weight="bold">Backup</text>
+  <!-- Disaster marker -->
+  <line x1="200" y1="75" x2="200" y2="125" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="200" y="68" text-anchor="middle" fill="#dc2626" font-weight="bold" font-size="12">⚡ Disaster</text>
+  <!-- System restored marker -->
+  <line x1="340" y1="85" x2="340" y2="115" stroke="#22c55e" stroke-width="2"/>
+  <text x="340" y="78" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">System</text>
+  <text x="340" y="66" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">Restored</text>
+  <!-- MTD marker -->
+  <line x1="480" y1="85" x2="480" y2="115" stroke="#f97316" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="480" y="78" text-anchor="middle" fill="#c2410c" font-size="10" font-weight="bold">MTD</text>
+  <text x="480" y="66" text-anchor="middle" fill="#c2410c" font-size="10" font-weight="bold">Deadline</text>
+  <!-- RPO brace -->
+  <path d="M60,130 L60,145 L200,145 L200,130" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+  <text x="130" y="160" text-anchor="middle" fill="#1d4ed8" font-weight="bold" font-size="11">RPO</text>
+  <text x="130" y="174" text-anchor="middle" fill="#3b82f6" font-size="10">Max data loss</text>
+  <!-- RTO brace -->
+  <path d="M200,130 L200,145 L340,145 L340,130" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+  <text x="270" y="160" text-anchor="middle" fill="#15803d" font-weight="bold" font-size="11">RTO</text>
+  <text x="270" y="174" text-anchor="middle" fill="#22c55e" font-size="10">Max downtime</text>
+  <!-- MTD brace -->
+  <path d="M200,183 L200,195 L480,195 L480,183" stroke="#f97316" stroke-width="1.5" fill="none"/>
+  <text x="340" y="210" text-anchor="middle" fill="#c2410c" font-weight="bold" font-size="11">MTD — Max Tolerable Downtime (RTO must be &lt; MTD)</text>
+  <!-- Time label -->
+  <text x="550" y="96" fill="#475569" font-size="11">Time →</text>
+  <defs><marker id="a7" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#475569"/></marker></defs>
+</svg>`,
+            },
           },
           {
             heading: 'Backup Storage Strategies',
@@ -5214,6 +6539,20 @@ export const domains: Domain[] = [
               'Simulation — tests specific scenarios without full activation.',
               'Parallel Test — alternate site activated alongside production.',
               'Full Interruption — production systems shut down; most thorough but most disruptive.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is the difference between RTO and RPO?', a: 'RTO (Recovery Time Objective) is the maximum acceptable time that a system may be unavailable after a disruption — the downtime budget. If an e-commerce site has an RTO of 4 hours, the business can tolerate up to 4 hours offline. RPO (Recovery Point Objective) is the maximum acceptable amount of data loss measured in time — how old can the most recent backup be? An RPO of 1 hour means no more than 1 hour of transactions can be lost. RTO drives recovery site and process design; RPO drives backup frequency.' },
+              { q: 'What is the difference between a hot site, warm site, and cold site?', a: 'A hot site is a fully operational alternate facility with real-time or near-real-time data replication — recovery in minutes to seconds, but most expensive. A warm site has pre-installed hardware and delayed data replication (hours to days of lag) — recovery in hours to a day, moderate cost. A cold site has only basic infrastructure (power, connectivity, physical space) with no pre-installed hardware or data — recovery in days to weeks, least expensive. Organizations choose based on their RTO: shorter RTO requires a hotter site.' },
+              { q: 'What is MTD (Maximum Tolerable Downtime) and how does it relate to RTO?', a: 'MTD is the absolute maximum time a business process can be unavailable before causing irreversible business damage — contract defaults, regulatory violations, loss of market position, or financial collapse. RTO must always be shorter than MTD; the gap between RTO and MTD is the safety margin. If MTD is 8 hours and RTO is 6 hours, there is a 2-hour safety margin. If RTO is set equal to MTD, any delay in recovery immediately causes irreversible harm.' },
+              { q: 'What is the 3-2-1 backup strategy and why does it address multiple failure modes?', a: 'The 3-2-1 strategy maintains 3 copies of data on 2 different media types with 1 copy offsite. It addresses: hardware failure (a second copy exists), media failure (two different media types avoid a single technology failure mode), and site-level disaster (an offsite copy survives facility destruction, flood, or fire). Without each component, a specific failure mode can destroy all copies simultaneously — fire destroys all onsite copies; SSD firmware bug corrupts all copies on the same model drive.' },
+              { q: 'What is Work Recovery Time (WRT) and how does it relate to RTO?', a: 'WRT is the time required to test, validate, and verify that a restored system is functioning correctly before returning it to production. Total recovery time equals the restoration time plus WRT. When setting RTO, organizations must account for WRT — if it takes 2 hours to restore data from backup but 1 hour to validate the restore, the total recovery time is 3 hours. RTO must include WRT or the system may be returned to production in a damaged or partially functional state.' },
+              { q: 'Why does a differential backup offer a faster restore than an incremental backup?', a: 'A differential backup captures all changes since the last full backup. To restore, you only need two items: the most recent full backup and the most recent differential backup. An incremental backup captures only changes since the last backup of any type. To restore, you need the most recent full backup and every incremental backup since that full — potentially many backup sets. Differential creates larger backup files but simpler, faster restoration; incremental creates smaller files but more complex restoration.' },
+              { q: 'What is a full interruption DR test and when should it be used?', a: 'A full interruption test completely shuts down production systems and activates the disaster recovery site as if a real disaster had occurred. It provides the highest confidence that the DR plan works — every step is executed for real including failover, data restoration, and system validation. It should be used when the organization needs the strongest assurance of DR capability, typically annually or after major infrastructure changes. It requires careful scheduling (off-peak windows) because production is genuinely offline during the test.' },
+              { q: 'What is fault tolerance and how does RAID provide it for storage?', a: 'Fault tolerance is the ability of a system to continue operating without interruption despite the failure of one or more components, through built-in redundancy. RAID (Redundant Array of Independent Disks) provides storage fault tolerance: RAID 1 (mirroring) writes identical data to two drives — if one fails, the other continues; RAID 5 distributes data and parity across three or more drives — any one drive can fail and the array continues; RAID 6 tolerates two simultaneous drive failures. RAID protects against hardware failure but not against data corruption, ransomware, or accidental deletion.' },
+              { q: 'What is "five nines" availability and how many minutes of downtime does it permit per year?', a: '"Five nines" (99.999%) availability allows 5.26 minutes of downtime per year. The availability tiers: 99% (three nines) = 87.6 hours/year downtime; 99.9% = 8.76 hours/year; 99.99% = 52.56 minutes/year; 99.999% = 5.26 minutes/year. Achieving high availability requires redundant components, automatic failover, no single points of failure, and extensive monitoring. Each additional nine of availability requires exponentially more infrastructure investment and operational complexity.' },
+              { q: 'What is the purpose of a Business Impact Analysis (BIA) in DR planning?', a: 'A BIA identifies which business processes are critical, what their dependencies are, and what the financial and operational impact of their unavailability would be at different time intervals. The BIA output drives RTO and RPO requirements: processes with high impact from short downtime need aggressive RTOs; processes tolerant of extended downtime can accept longer RTOs. BIA results prioritize which systems are restored first during DR, ensuring that recovery resources are applied where business impact is greatest.' },
             ],
           },
         ],
@@ -5267,6 +6606,15 @@ export const domains: Domain[] = [
             body: 'Lessons learned is the bridge to organizational maturity. Conduct post-incident reviews, stakeholder debriefs, root cause analysis, and recommend policy/technical improvements. Capture findings in a centralized repository to build institutional memory.',
             tip: 'Security is about resilience. Incidents will happen. What defines a mature organization is how it responds and learns from them.',
           },
+          {
+            questions: [
+              { q: 'What is the purpose of emergency response in a DR scenario?', a: 'Emergency response is the immediate, human-led reaction when an automated alert becomes a confirmed disaster. Its purpose is to execute pre-planned containment actions decisively and in a coordinated manner — not to improvise. It involves activating predefined roles, communicating through pre-designated channels, and applying playbook procedures. The quality of emergency response depends entirely on the quality of preparation done before the emergency.' },
+              { q: 'Why must DR plans include personnel redundancy?', a: 'A disaster may affect people as well as systems — key personnel may be injured, unavailable, or unable to reach the response site. Every critical role must have at least one trained alternate who can assume responsibilities immediately. Without redundancy, the absence of a single key person during a disaster can prevent recovery from proceeding. Personnel redundancy must be tested in drills, not just documented, because roles that exist only on paper are not real backup capability.' },
+              { q: 'What communication failures are common during major incidents and how can they be mitigated?', a: 'Common failures: relying on systems that are themselves unavailable (email servers down, VoIP dependent on failed infrastructure); using a single communication channel; absence of silence fueling speculation with no proactive updates; different spokespersons giving inconsistent messages to different audiences. Mitigations: pre-define backup communication channels (SMS, satellite phones, encrypted messaging apps); designate specific spokespersons for each audience (employees, media, regulators); establish update cadences; prepare template messages for common scenarios.' },
+              { q: 'Why should system restoration follow a phased, prioritized sequence rather than restoring everything simultaneously?', a: 'Restoring all systems simultaneously risks cascading failures — dependent systems may try to connect to services that aren\'t ready, generate error loops, or consume resources needed for higher-priority systems. Phased restoration follows the BIA priority order (most critical business functions first), allows each system to be validated before subsequent systems depend on it, and reduces the complexity of troubleshooting if issues arise during restoration.' },
+              { q: 'What is root cause analysis in the context of post-disaster lessons learned?', a: 'Root cause analysis identifies the underlying cause of the disaster or incident — not just the proximate cause (the server failed) but the systemic reason (the server was running unsupported firmware because the patch management process excluded legacy systems). Without root cause analysis, organizations fix symptoms rather than problems and experience recurrence. Root cause analysis uses techniques like the "5 Whys" to trace causal chains back to the organizational or process failure that allowed the incident to occur.' },
+            ],
+          },
         ],
       },
       {
@@ -5295,6 +6643,15 @@ export const domains: Domain[] = [
               'Tabletop exercises reveal decision-making gaps and communication breakdowns.',
               'Full interruption tests provide the highest confidence but require careful scheduling.',
               'Test frequency should be driven by the rate of organizational and infrastructure change.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What does a read-through DR test accomplish that other test types cannot?', a: 'A read-through (checklist) test has every participant carefully read through the plan and flag anything that is outdated, incorrect, or unclear — without performing any actual recovery actions. It reliably catches stale content: phone numbers for people who left, systems that have been decommissioned, procedures that reference tools no longer available, and steps that are technically infeasible given current infrastructure. It is the lowest-cost, lowest-risk test and should be performed first whenever a plan is updated.' },
+              { q: 'What is a parallel DR test and what does it validate that a tabletop cannot?', a: 'A parallel test activates the DR site alongside production — both run simultaneously. This validates that the DR environment actually functions (hardware is operational, data replication is current, applications start correctly) without actually cutting over production. Unlike a tabletop (which only tests discussion of procedures), a parallel test proves the technical infrastructure works. It does not validate full cutover procedures, which requires a full interruption test.' },
+              { q: 'How often should DR plans be tested and what events should trigger additional testing?', a: 'DR plans should be tested at minimum annually. Additional testing should be triggered by: major infrastructure changes (new systems, architecture redesign, cloud migration); significant organizational changes (mergers, acquisitions, new business lines); security incidents that activated the DR plan; changes to key DR personnel; and regulatory requirement updates. The plan is a living document — its validity degrades continuously as the environment changes around it.' },
+              { q: 'What information should be captured in a DR test report?', a: 'A DR test report should document: test type performed, date and participants, systems and processes tested, actual RTO achieved versus committed RTO, actual RPO achieved versus committed RPO, specific steps that failed or required deviation from the plan, issues identified (technical and procedural), corrective actions assigned with owners and deadlines, and overall assessment of DR readiness. This evidence is reviewed by auditors and management to confirm that DR capability is maintained.' },
+              { q: 'Why is a tabletop exercise insufficient as a sole DR test method?', a: 'A tabletop exercise reveals gaps in decision-making, communication, and procedural understanding — but it does not test whether systems actually recover, whether data can be restored, or whether the DR site infrastructure is operational. Teams may walk through steps confidently in discussion that would fail entirely in practice due to technical issues, access problems, or dependencies they were unaware of. Tabletops must be supplemented with at least simulation-level testing that exercises actual technical recovery procedures.' },
             ],
           },
         ],
@@ -5329,6 +6686,15 @@ export const domains: Domain[] = [
               'Facilitate communication between technical and business stakeholders.',
             ],
             note: 'COVID-19 demonstrated that theoretical plans require real-world validation and rapid adaptation capabilities — BCP exercises are essential muscle memory.',
+          },
+          {
+            questions: [
+              { q: 'What is the difference between BCP and DRP?', a: 'Business Continuity Planning (BCP) focuses on maintaining critical business functions during and after a disruption — it is broader in scope and addresses people, processes, and manual workarounds as well as technology. Disaster Recovery Planning (DRP) is specifically about restoring IT systems and infrastructure after a disruption. DRP is a subset of BCP; BCP answers "how does the business keep operating?" while DRP answers "how do we get IT back online?" A mature organization needs both.' },
+              { q: 'What is the purpose of a Business Impact Analysis (BIA) in BCP?', a: 'The BIA identifies which business processes are essential, what their technology dependencies are, what the financial and operational impact of their unavailability would be at different time intervals (1 hour, 4 hours, 24 hours, 1 week), and what the minimum acceptable resource requirements are to sustain them. BIA output drives RTO and RPO requirements, recovery site selection, and the prioritization of systems during restoration. Without BIA, recovery efforts may focus on wrong systems.' },
+              { q: 'What is a Continuity of Operations Plan (COOP) and how does it differ from a basic DR plan?', a: 'A COOP focuses on restoring mission-critical functions at an alternate location when the primary facility is unavailable — it addresses the human, operational, and governance continuity of the organization, not just IT systems. It includes: succession of authority (who leads if the CEO is unavailable), alternate facility procedures, delegation of authority, and inter-agency or inter-organizational coordination. A COOP is broader than a DRP in that it addresses organizational continuity, not just technology restoration.' },
+              { q: 'What are the four components of a comprehensive BCP?', a: 'The four BCP components are: (1) Occupant Emergency Plan (OEP) — physical emergency procedures for the facility (fire, evacuation, lockdown, shelter-in-place); (2) Cyber Incident Response Planning (CIRP) — detection, containment, and recovery processes for cyber-attacks; (3) Information System Contingency Plan (ISCP) — system-by-system recovery procedures and dependencies; (4) Continuity of Operations Plan (COOP) — restoring mission-critical functions at alternate locations when the primary site is unavailable.' },
+              { q: 'What is the security professional\'s unique contribution to BCP beyond IT recovery?', a: 'Security professionals bring capabilities that business continuity planners and IT operations teams may lack: understanding of system interdependencies and authentication mechanisms that affect which systems can be restored in which order; ability to challenge unrealistic RTOs based on actual infrastructure constraints; expertise to validate that backup systems are properly segmented and secured; assessment of whether security controls are maintained or inadvertently bypassed during recovery procedures; and threat modeling perspective on what scenarios should be planned for.' },
+            ],
           },
         ],
       },
@@ -5370,6 +6736,15 @@ export const domains: Domain[] = [
               'Travel Security — clean devices, VPN, awareness of jurisdiction-specific device search laws.',
               'Emergency Preparedness — evacuation plans, assembly points, documented emergency communication plans.',
               'Workplace Violence — policies and training for identifying and responding to threats.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is CPTED and how does it reduce physical security risk?', a: 'Crime Prevention Through Environmental Design (CPTED) uses architectural and landscaping decisions to naturally deter unauthorized entry — without relying solely on traditional security guards and fences. Techniques include: dense thorny bushes under windows (natural barrier), clear sightlines that eliminate concealment opportunities, well-lit pathways that deter loitering, and physical layout that naturally channels movement through monitored access points. CPTED reduces both opportunity and motivation for unauthorized access.' },
+              { q: 'What is a mantrap and why is it used at high-security entry points?', a: 'A mantrap (airlock) consists of two interlocked doors with a small enclosed area between them — only one door can open at a time. Visitors must badge through the first door, wait in the enclosed space for verification, and only then gain access through the second door. Mantraps prevent tailgating (following an authorized person through without credentials) and piggybacking (an authorized person intentionally allowing an unauthorized person to follow). They are used at data center entrances, server rooms, and secure facilities.' },
+              { q: 'What is the minimum fence height recommended for a basic security perimeter, and what enhancement deters climbing?', a: 'A basic security fence should be at minimum 7 feet (approximately 2 meters) tall — below this height, it functions more as a boundary marker than a deterrent. Adding barbed wire, razor wire, or anti-climb mesh at the top significantly increases the difficulty and time required to climb over, providing both a physical barrier and a psychological deterrent. Security lighting along the perimeter eliminates concealment during after-hours attempts.' },
+              { q: 'What is the security principle behind requiring escort policies for visitors and contractors?', a: 'Escort policies enforce need-to-know and access control in physical space: visitors and contractors are escorted by an authorized employee who can verify their identity, limit their access to only relevant areas, and observe their activities. Escorts also serve as witnesses and deterrents — the presence of a knowledgeable observer reduces the likelihood of deliberate data theft, casual snooping, or accidental exposure to sensitive information. Unescorted visitors may access areas beyond their authorization or observe sensitive operations.' },
+              { q: 'Why is physical security fundamental to cybersecurity, even in a cloud era?', a: 'Physical access to hardware can bypass virtually all logical security controls. An attacker with physical access to a server can remove its hard drives and extract data directly, boot from external media to bypass OS authentication, install hardware keyloggers, connect to out-of-band management interfaces, or simply destroy the hardware causing DoS. Even organizations with heavily cloud-based workloads have on-premises networking equipment, endpoint devices, and physical offices that store credentials and sensitive data — all requiring physical protection.' },
             ],
           },
         ],
@@ -5420,6 +6795,15 @@ export const domains: Domain[] = [
               'A culture where employees feel safe reporting concerns is the most effective deterrent.',
             ],
           },
+          {
+            questions: [
+              { q: 'What is a duress code and what threat does it address?', a: 'A duress code is a secondary PIN or passphrase that appears to function normally (e.g., grants access to a facility) but simultaneously sends a silent alert to security that the user is being coerced. It addresses the threat of robbery or physical coercion — where an attacker threatens an employee to gain access. Without a duress code, the victim has no way to signal for help without alerting the attacker. Duress codes are used in high-security facilities, ATMs, and alarm systems.' },
+              { q: 'What are the key security steps before an employee travels internationally?', a: 'Pre-travel security steps include: issuing a clean (freshly wiped and configured) device rather than the employee\'s regular laptop to limit exposure; enabling full-disk encryption; installing and configuring VPN; removing unnecessary sensitive data; briefing the employee on local surveillance laws and border search rules (some jurisdictions can compel device decryption); disabling auto-connect to open Wi-Fi networks; and configuring remote wipe capability in case of loss or seizure.' },
+              { q: 'What is MFA fatigue and how can it be mitigated?', a: 'MFA fatigue (also called MFA push bombing) is an attack where the attacker repeatedly sends MFA push notifications to a victim\'s phone until the victim approves one out of frustration, habit, or confusion. Mitigations include: number matching (the MFA app displays a code that the user must match to a number shown on the login screen — preventing blind approvals), application context (the push shows the login location and device), limiting the number of MFA attempts before locking, and user education about never approving unexpected push notifications.' },
+              { q: 'What security risks does social media create for organizational security?', a: 'Employees sharing on social media may inadvertently provide attackers with: technology stack information (photos of office whiteboards, mentions of software tools); personnel directories (LinkedIn connections revealing team structure); travel plans (enabling physical attacks during absences); project names and timelines (enabling targeted phishing); and facility information (photos revealing physical security controls, badge designs, or server room layouts). Organizations should provide social media security guidance covering what information should not be publicly shared.' },
+              { q: 'What are the four phases of emergency management and how do they apply to cybersecurity?', a: 'The four phases are: (1) Mitigation — reduce the likelihood or impact of emergencies before they occur (network segmentation, redundancy, fire suppression, intrusion detection); (2) Preparedness — training, exercises, documented plans, and pre-positioned resources (IR playbooks, DR tests, staff training); (3) Response — execute plans when an emergency occurs (activate IR team, contain incident, communicate with stakeholders); (4) Recovery — restore normal operations and support affected people (system restoration, lessons learned, employee support programs).' },
+            ],
+          },
         ],
       },
       {
@@ -5453,6 +6837,15 @@ export const domains: Domain[] = [
             heading: 'Human-AI Balance',
             body: 'AI provides speed, scale, and intelligence. Humans provide context, judgment, and oversight. Over-reliance on automation leads to blind trust; ignoring it leads to inefficiency. The modern SOC must operate as a hybrid system.',
           },
+          {
+            questions: [
+              { q: 'What is alert fatigue and how does AI help address it in the SOC?', a: 'Alert fatigue occurs when security analysts are overwhelmed by a high volume of alerts — many of which are false positives — causing them to become desensitized, miss real threats, or disable alerting entirely. AI addresses it by correlating hundreds of related alerts into a single, context-enriched incident, suppressing known false positives through learned baseline behavior, scoring alerts by confidence and severity, and surfacing only the highest-priority investigations to analysts. Analysts can then focus on real threats rather than triaging noise.' },
+              { q: 'What is SOAR and how does it complement a SIEM?', a: 'SOAR (Security Orchestration, Automation, and Response) platforms automate repetitive response actions that previously required manual analyst intervention — isolating an endpoint, blocking a malicious IP, disabling a compromised account, enriching an alert with threat intelligence. SOAR integrates with the SIEM (which detects and generates alerts) and takes automated action based on predefined playbooks. Together, SIEM detects and SOAR responds — compressing the time from detection to containment from hours to seconds for well-understood attack patterns.' },
+              { q: 'What is model drift in an AI security system and why is continuous monitoring required?', a: 'Model drift occurs when the real-world data a deployed AI security model encounters gradually diverges from its training data, causing its detection accuracy to degrade over time. In a security context, as the environment changes (new applications deployed, new user behaviors, infrastructure changes) and as attackers adapt their techniques, a model trained on historical data may generate increasing false negatives (missed threats) or false positives. Continuous monitoring of model performance metrics — detection rates, false positive rates, confidence scores — is required to identify drift before it affects security outcomes.' },
+              { q: 'What types of SOC tasks are best suited for AI automation versus human judgment?', a: 'Best suited for AI automation: log correlation and alert aggregation, known malware signature detection, IP/domain reputation enrichment, routine containment actions (block IP, quarantine endpoint), compliance report generation, vulnerability scan result normalization, and ticket creation. Best suited for human judgment: determining business context and risk acceptance, investigating novel attack patterns, making escalation decisions with legal or regulatory implications, communicating with stakeholders, developing new detection logic, and making attribution decisions. The most effective SOCs use AI to handle volume while preserving human judgment for decisions that require context.' },
+              { q: 'What is an adversarial attack on an AI-based security system and what makes it different from a traditional attack?', a: 'An adversarial attack against a security AI system attempts to manipulate its inputs or training data so it makes incorrect security decisions — for example, crafting malware to avoid detection by an AI-based EDR, or poisoning SIEM training data to create a blind spot for a specific attack pattern. This is fundamentally different from traditional attacks (which exploit software bugs or misconfigurations) because the "vulnerability" is in the model\'s learned statistical behavior. It cannot be patched like a CVE; it requires model retraining, adversarial input detection, or architectural changes.' },
+            ],
+          },
         ],
       },
     ],
@@ -5465,334 +6858,655 @@ export const domains: Domain[] = [
     id: 'd8',
     number: 8,
     title: 'Software Development Security',
-    summary: 'Covers SDLC security integration, development ecosystem controls, software security assessment, acquired software security, secure coding, and API security.',
+    summary: 'Covers SDLC security integration, development ecosystem controls, software security assessment, acquired software security, secure coding, and AI-assisted development security.',
     topics: [
+      // ── 8.1 ──────────────────────────────────────────────────────────────
       {
         id: 'd8t1',
         title: '8.1 Security in the SDLC',
         content: [
           {
-            heading: 'Development Methodologies',
+            body: 'Software is the primary attack surface of modern organizations. Vulnerabilities in applications — SQL injection, broken authentication, insecure deserialization — are the root cause of the majority of security breaches. The only sustainable defense is building security into software during development rather than attempting to retrofit it afterward. This is the core principle of integrating security into the Software Development Lifecycle (SDLC): security as a continuous discipline embedded in every phase of how software is designed, built, tested, and deployed.',
+          },
+          {
+            body: 'The cost of finding and fixing a vulnerability increases dramatically with the phase in which it is discovered. A design flaw caught during threat modeling costs orders of magnitude less than the same flaw discovered in production after exploitation. This economic reality drives the "shift left" movement — moving security activities as early as possible in the development process. CISSP candidates must understand both the security implications of different development methodologies and the maturity models used to measure how systematically security is integrated.',
+          },
+          {
+            heading: 'Development Methodologies and Security Implications',
             list: [
-              'Waterfall — sequential phases (requirements → design → implementation → testing → deployment → maintenance); strength: predictability and documentation for regulated environments; weakness: security changes discovered late are very costly.',
-              'Agile / Scrum — iterative 2-4 week sprints; strength: responsiveness to change; risk: security becomes secondary to speed; mitigation: embed security champions, integrate threat modeling into sprints.',
-              'Scaled Agile (SAFe) — four configuration levels: Essential SAFe, Large Solution SAFe, Portfolio SAFe, Full SAFe; challenge: scaling security governance across multiple Agile Release Trains.',
-              'Spiral — hybrid of Waterfall and iteration with risk as the core driver; formal risk assessment at each cycle; best for high-stakes systems (defense, critical infrastructure).',
-              'DevOps — continuous integration/delivery via automation; risk: unvetted code moves to production rapidly.',
-              'DevSecOps — embeds security scanners and policies directly into CI/CD pipeline; shift-left approach detects vulnerabilities early through SAST, DAST, and IaC scanning.',
+              'Waterfall — sequential phases (requirements → design → implementation → testing → deployment → maintenance). Security strength: comprehensive documentation and formal phase gates make it well-suited to regulated environments. Security weakness: vulnerabilities discovered late — during testing or after deployment — are very expensive to fix because earlier phases must be revisited.',
+              'Agile / Scrum — iterative 2–4 week sprints with working software delivered continuously. Security strength: rapid feedback and adaptability. Security risk: sprint pressure drives features over security; mitigation requires embedding security champions in each team and integrating threat modeling into sprint planning.',
+              'Scaled Agile (SAFe) — enterprise Agile framework with four configuration levels (Essential, Large Solution, Portfolio, Full SAFe). Security challenge: ensuring security governance is consistently applied across many parallel Agile Release Trains.',
+              'Spiral — a risk-driven hybrid of Waterfall and iteration; formal risk assessment occurs at every cycle. Best suited for high-stakes, high-risk systems such as defense, medical devices, and critical infrastructure where formal risk management is required.',
+              'DevOps — continuous integration and delivery through automation; reduces deployment cycle from weeks to hours. Security risk: speed of automation can propagate malicious or vulnerable code into production before human review occurs.',
+              'DevSecOps — extends DevOps by embedding security scanners, policy gates, and compliance checks directly into the CI/CD pipeline. The "shift left" approach integrates SAST, DAST, and Infrastructure-as-Code (IaC) security scanning into every build, so vulnerabilities are found and fixed before reaching production.',
             ],
           },
           {
+            diagram: {
+              caption: 'DevSecOps Pipeline — security gates embedded at every stage of continuous integration and delivery',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 200" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="200" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">DevSecOps — Security Gates in CI/CD Pipeline</text>
+  <!-- Plan -->
+  <rect x="8" y="38" width="82" height="110" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="49" y="57" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="11">Plan</text>
+  <text x="49" y="73" text-anchor="middle" fill="#475569" font-size="9">Threat</text>
+  <text x="49" y="85" text-anchor="middle" fill="#475569" font-size="9">Modeling</text>
+  <text x="49" y="99" text-anchor="middle" fill="#475569" font-size="9">Security</text>
+  <text x="49" y="111" text-anchor="middle" fill="#475569" font-size="9">Req'ts</text>
+  <text x="49" y="128" text-anchor="middle" fill="#1d4ed8" font-size="9" font-weight="bold">STRIDE</text>
+  <polygon points="90,93 100,87 100,99" fill="#3b82f6"/>
+  <!-- Code -->
+  <rect x="100" y="38" width="82" height="110" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="141" y="57" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">Code</text>
+  <text x="141" y="73" text-anchor="middle" fill="#475569" font-size="9">Secure</text>
+  <text x="141" y="85" text-anchor="middle" fill="#475569" font-size="9">Coding Stds</text>
+  <text x="141" y="99" text-anchor="middle" fill="#475569" font-size="9">IDE Security</text>
+  <text x="141" y="111" text-anchor="middle" fill="#475569" font-size="9">Plugins</text>
+  <text x="141" y="128" text-anchor="middle" fill="#15803d" font-size="9" font-weight="bold">Pre-commit</text>
+  <polygon points="182,93 192,87 192,99" fill="#22c55e"/>
+  <!-- Build -->
+  <rect x="192" y="38" width="82" height="110" rx="6" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="233" y="57" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Build</text>
+  <text x="233" y="73" text-anchor="middle" fill="#475569" font-size="9">SAST Scan</text>
+  <text x="233" y="85" text-anchor="middle" fill="#475569" font-size="9">SCA / SBOM</text>
+  <text x="233" y="99" text-anchor="middle" fill="#475569" font-size="9">Secret Scan</text>
+  <text x="233" y="111" text-anchor="middle" fill="#475569" font-size="9">Lint / IAST</text>
+  <text x="233" y="128" text-anchor="middle" fill="#92400e" font-size="9" font-weight="bold">CI Gate</text>
+  <polygon points="274,93 284,87 284,99" fill="#eab308"/>
+  <!-- Test -->
+  <rect x="284" y="38" width="82" height="110" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="325" y="57" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Test</text>
+  <text x="325" y="73" text-anchor="middle" fill="#475569" font-size="9">DAST Scan</text>
+  <text x="325" y="85" text-anchor="middle" fill="#475569" font-size="9">Pen Test</text>
+  <text x="325" y="99" text-anchor="middle" fill="#475569" font-size="9">Fuzz Testing</text>
+  <text x="325" y="111" text-anchor="middle" fill="#475569" font-size="9">IaC Security</text>
+  <text x="325" y="128" text-anchor="middle" fill="#c2410c" font-size="9" font-weight="bold">Quality Gate</text>
+  <polygon points="366,93 376,87 376,99" fill="#f97316"/>
+  <!-- Deploy -->
+  <rect x="376" y="38" width="82" height="110" rx="6" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="417" y="57" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="11">Deploy</text>
+  <text x="417" y="73" text-anchor="middle" fill="#475569" font-size="9">Signed</text>
+  <text x="417" y="85" text-anchor="middle" fill="#475569" font-size="9">Artifacts</text>
+  <text x="417" y="99" text-anchor="middle" fill="#475569" font-size="9">Immutable</text>
+  <text x="417" y="111" text-anchor="middle" fill="#475569" font-size="9">Infra</text>
+  <text x="417" y="128" text-anchor="middle" fill="#7c3aed" font-size="9" font-weight="bold">Approve Gate</text>
+  <polygon points="458,93 468,87 468,99" fill="#a855f7"/>
+  <!-- Monitor -->
+  <rect x="468" y="38" width="103" height="110" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="519" y="57" text-anchor="middle" font-weight="bold" fill="#374151" font-size="11">Monitor</text>
+  <text x="519" y="73" text-anchor="middle" fill="#475569" font-size="9">Runtime Alerts</text>
+  <text x="519" y="85" text-anchor="middle" fill="#475569" font-size="9">RASP / WAF</text>
+  <text x="519" y="99" text-anchor="middle" fill="#475569" font-size="9">SIEM / SOAR</text>
+  <text x="519" y="111" text-anchor="middle" fill="#475569" font-size="9">Vuln Mgmt</text>
+  <text x="519" y="128" text-anchor="middle" fill="#374151" font-size="9" font-weight="bold">Continuous</text>
+  <!-- Shift Left label -->
+  <text x="184" y="170" text-anchor="middle" font-size="11" fill="#dc2626" font-weight="bold">← Shift Left: find vulns earlier = cheaper to fix</text>
+  <text x="290" y="187" text-anchor="middle" font-size="11" fill="#64748b">Security fails CI/CD gate → build stops → developer fixes before merge</text>
+</svg>`,
+            },
+          },
+          {
             heading: 'Maturity Models',
+            body: 'Maturity models provide a structured framework for assessing how systematically an organization applies security practices and where it should invest to improve:',
             table: {
               headers: ['Model', 'Purpose', 'Structure', 'Use Case'],
               rows: [
-                ['CMM', 'General process maturity', '5 levels (Initial → Optimizing)', 'Organizational process improvement'],
-                ['SAMM', 'Secure software development', '4 Functions × 3 Practices × 5 Levels', 'Software security posture evaluation'],
-                ['IDEAL', 'Change management lifecycle', '5 phases (Initiating → Learning)', 'Security program transformation'],
+                ['CMM (Capability Maturity Model)', 'General software process maturity', '5 levels: Initial → Repeatable → Defined → Managed → Optimizing', 'Organizational process improvement benchmarking'],
+                ['SAMM (Software Assurance Maturity Model)', 'Secure software development practices', '4 Business Functions × 3 Security Practices each × 3 Maturity Levels', 'Evaluate and roadmap application security program'],
+                ['IDEAL', 'Change management for process improvement', '5 phases: Initiating → Diagnosing → Establishing → Acting → Learning', 'Planning and managing security program transformation'],
               ],
             },
           },
           {
             heading: 'CMM Levels',
             list: [
-              '1. Initial — ad hoc, unpredictable processes.',
-              '2. Repeatable — basic project management in place.',
-              '3. Defined — organization-wide standards established.',
-              '4. Managed — measured and controlled processes.',
-              '5. Optimizing — continuous improvement culture.',
+              '1. Initial — processes are ad hoc and chaotic; success depends on individual heroics rather than repeatable process.',
+              '2. Repeatable — basic project management practices are in place; similar projects can be executed consistently.',
+              '3. Defined — organization-wide standard processes are documented and tailored for each project.',
+              '4. Managed — processes are measured and controlled using quantitative metrics.',
+              '5. Optimizing — focus on continuous process improvement; defect prevention and innovation.',
             ],
+            note: 'From a security perspective, organizations at CMM Level 1 have unpredictable security outcomes; Level 3+ organizations have defined secure coding standards; Level 5 organizations continuously improve their security practices based on data.',
           },
           {
             heading: 'SAMM Business Functions',
+            body: 'SAMM organizes software security practices into four business functions, each with three security practices:',
             list: [
-              'Governance — Strategy & Metrics, Policy & Compliance, Education & Guidance.',
-              'Construction — Threat Assessment, Secure Architecture, Secure Build.',
-              'Verification — Security Testing, Code Review, Security Assessment.',
-              'Deployment — Environment Hardening, Operational Enablement, Defect Management.',
+              'Governance — Strategy & Metrics (measuring security program effectiveness), Policy & Compliance (defining and enforcing secure development standards), Education & Guidance (training developers in secure coding).',
+              'Construction — Threat Assessment (threat modeling, attack surface analysis), Secure Architecture (design principles, security patterns), Secure Build (SAST integration, dependency management, build hardening).',
+              'Verification — Architecture Assessment (review designs against security requirements), Requirements-Driven Testing (security test cases), Security Testing (DAST, penetration testing, fuzzing).',
+              'Operations — Incident Management (detection and response capability), Environment Hardening (production configuration security), Operational Management (patch management, change control).',
             ],
           },
           {
             heading: 'Integrated Product Team (IPT)',
-            body: 'A multidisciplinary group spanning development, architecture, testing, operations, security, legal, and compliance that collaborates throughout the product lifecycle.',
+            body: 'An Integrated Product Team is a multidisciplinary group that includes developers, architects, testers, operations engineers, security specialists, legal counsel, and compliance officers — all collaborating from the beginning of a project rather than sequentially handing off work.',
             list: [
-              'Security integrated from day one, not appended later.',
-              'Early identification of threats via cross-functional input.',
-              'Supports "shift left" by addressing risks during design.',
-              'Shared ownership reduces blame and accelerates continuous improvement.',
+              'Security is integrated from day one of requirements and design, not added as a final review before launch.',
+              'Cross-functional input during threat modeling identifies risks that siloed teams would miss.',
+              'Shared ownership means security findings are team responsibilities, not security team blockers.',
+              'IPTs naturally implement "shift left" by catching design flaws before any code is written.',
             ],
           },
           {
             heading: 'Change Management in SDLC',
             list: [
-              'Request Control — formal documentation of proposed changes.',
-              'Change Control — review, evaluation, and approval/rejection with risk assessment; segregation of duties: requestor ≠ approver ≠ deployer.',
-              'Release Control — deployment to live environment with testing and scheduling; every change requires a rollback plan.',
+              'Request Control — formal documentation of every proposed code or configuration change; establishes the basis for review.',
+              'Change Control — cross-functional review, risk assessment, and approval or rejection; enforces segregation of duties: the person requesting a change should not be the same person approving it or deploying it.',
+              'Release Control — controlled deployment to production with pre-deployment testing, scheduled maintenance windows, and mandatory rollback plans.',
             ],
-            note: 'Emergency changes still require streamlined approval and post-change review. Audit trails must document all modifications.',
+            note: 'Even emergency changes require streamlined approval and post-change review. Every change must leave an audit trail that documents what changed, when, by whom, and why.',
+          },
+          {
+            questions: [
+              { q: 'What is "shift left" in secure software development and why does it reduce cost?', a: 'Shift left means moving security activities — threat modeling, code review, SAST scanning, security requirements — to the earliest possible phases of the SDLC, rather than testing security only after development is complete. It reduces cost because vulnerabilities discovered at the design phase can be fixed with a document change; the same vulnerability found in production after exploitation requires code rewrites, emergency patches, incident response, regulatory notification, and potential litigation. The cost of fixing a defect grows by roughly 10x at each subsequent phase.' },
+              { q: 'What is the primary security risk of DevOps without security controls, and how does DevSecOps address it?', a: 'DevOps automates deployment pipelines to move code from commit to production in hours. Without security controls, malicious code, vulnerable dependencies, or misconfigured infrastructure can propagate to production automatically before any human review. DevSecOps addresses this by embedding security gates — SAST, SCA, IaC scanning, secrets detection — directly into the CI/CD pipeline as automated quality gates. Builds that fail security checks are blocked from promotion, making security enforcement continuous rather than periodic.' },
+              { q: 'What are the five levels of the Capability Maturity Model (CMM)?', a: 'Level 1 (Initial) — ad hoc, chaotic processes; Level 2 (Repeatable) — basic project management; Level 3 (Defined) — organization-wide documented processes; Level 4 (Managed) — quantitatively measured and controlled; Level 5 (Optimizing) — continuous improvement through data and innovation. Most organizations aim to reach Level 3 as a baseline for predictable security outcomes.' },
+              { q: 'What is the Spiral development model and why is it suited to high-risk systems?', a: 'The Spiral model is a risk-driven hybrid of Waterfall\'s structure and iterative development. Each cycle begins with risk identification and analysis before any work proceeds. This makes it ideal for high-stakes systems (defense, medical devices, critical infrastructure) where the cost of a security failure is catastrophic — formal risk assessment at every cycle ensures that the highest risks are addressed first and that the project can be terminated or redirected if risks become unacceptable.' },
+              { q: 'What is the purpose of separation of duties in SDLC change management?', a: 'Separation of duties in change management prevents any individual from being able to introduce unauthorized changes unilaterally. The person who writes the code should not be the same person who approves the change request; the person who approves should not be the same person who deploys to production. This creates multiple independent checkpoints that catch both malicious insertions (an insider adding a backdoor) and innocent errors (a developer deploying untested code).' },
+              { q: 'What are the four business functions of OWASP SAMM?', a: 'SAMM\'s four business functions are: (1) Governance — strategy, metrics, policy, compliance, and developer education; (2) Construction — threat assessment, secure architecture, and secure build practices; (3) Verification — architecture review, security testing (SAST, DAST, pen testing), and requirements-based test cases; (4) Operations — incident management, environment hardening, and patch/change management in production. Each function has three security practices, each measured on a three-level maturity scale.' },
+              { q: 'What security weakness does the Waterfall model have compared to Agile?', a: 'Waterfall\'s sequential structure means all testing — including security testing — occurs near the end of the project, after design and implementation are complete. Vulnerabilities found at this stage are expensive to fix because they may require changes to architecture, design decisions, or code already built upon. Security requirements also become rigid early on, making it difficult to respond to newly discovered threats. Agile\'s iterative model provides more frequent opportunities to identify and address security issues.' },
+              { q: 'What is an Integrated Product Team (IPT) and how does it improve software security outcomes?', a: 'An IPT is a multidisciplinary team where security specialists, developers, architects, testers, and operations engineers work together from the project start. This eliminates the "throw it over the wall to security" antipattern where developers build software and security reviews it only at the end. Security is embedded in requirements, design, and architecture decisions — finding design flaws before any code is written, when they are cheapest to fix. Shared ownership creates a culture where security is everyone\'s responsibility.' },
+              { q: 'What is the IDEAL model and how does it relate to security program improvement?', a: 'IDEAL is a five-phase improvement lifecycle: Initiating (establish sponsorship and goals), Diagnosing (assess current state against desired state), Establishing (plan the improvement initiative), Acting (implement changes and pilot improvements), Learning (analyze results, capture lessons, and feed into the next cycle). Applied to security programs, it provides a structured approach to transitioning from the current maturity level to a higher one — rather than ad hoc improvement efforts that lack clear milestones or success criteria.' },
+              { q: 'Why must emergency SDLC changes still follow some form of change control?', a: 'Emergency changes bypass the normal review timeline, but they introduce the same risks as any other change — potentially more, because they are made under pressure and with less review. Without even an expedited approval, emergency changes can introduce accidental vulnerabilities, disable security controls, create compliance violations, or be exploited by attackers who know organizations relax controls during incidents. Post-change reviews are mandatory so that the audit trail is complete and any issues introduced can be detected and corrected.' },
+            ],
           },
         ],
       },
+      // ── 8.2 ──────────────────────────────────────────────────────────────
       {
         id: 'd8t2',
         title: '8.2 Security Controls in Development Ecosystems',
         content: [
           {
+            body: 'Modern software development occurs within a complex ecosystem: source code repositories, integrated development environments, CI/CD pipelines, dependency registries, container platforms, and cloud infrastructure. Each component of this ecosystem is a potential attack vector. An attacker who compromises the build pipeline — rather than the deployed application — can inject malicious code into software that reaches millions of users, as demonstrated by the SolarWinds and XZ Utils supply chain attacks.',
+          },
+          {
+            body: 'Securing the development ecosystem requires applying the same security principles used for production systems — least privilege, segregation of duties, access control, logging, and vulnerability management — to the tools and infrastructure that create software. The CI/CD pipeline that builds and deploys production software should be treated with the same security rigor as production itself.',
+          },
+          {
             heading: 'Programming Language Security',
             list: [
-              'Memory Safety — C/C++ lack built-in protections, making buffer overflows common; Java/Python use safer runtime sandboxing.',
-              'Input Validation — critical for preventing injection attacks across all languages.',
-              'Mobile Security — Swift (iOS) and Kotlin (Android) operate in permission-controlled environments.',
-              'Supply Chain Risk — dependency hijacking: attackers register package names matching internal private dependencies.',
+              'Memory Safety — C and C++ do not have built-in bounds checking; improper pointer arithmetic and buffer operations are the root cause of a large proportion of high-severity vulnerabilities. Modern memory-safe languages (Rust, Go, Java, Python) handle memory management in ways that prevent these classes of bugs. The US CISA has issued guidance recommending migration away from memory-unsafe languages for critical software.',
+              'Input Validation — all languages require explicit input validation; there is no language that is immune to injection attacks if user input reaches an interpreter without sanitization.',
+              'Mobile Security — Swift (iOS) and Kotlin (Android) operate within platform-enforced permission models; applications must declare required permissions, and users may deny them. Security developers must handle permission denials gracefully and never assume permissions will be granted.',
+              'Supply Chain / Typosquatting — attackers register package names that closely resemble popular libraries or match internal private package names (dependency confusion attack). Any dependency installation without integrity verification risks installing malicious code.',
             ],
           },
           {
-            heading: 'Security Tool Categories',
+            heading: 'Security Tool Categories in Development',
             table: {
               headers: ['Category', 'Purpose', 'Security Relevance'],
               rows: [
-                ['Version Control', 'Track code changes', 'Provides accountability and traceability'],
-                ['SAST', 'Analyze source code', 'Identifies flaws early in development'],
-                ['DAST', 'Test running applications', 'Detects runtime vulnerabilities'],
-                ['Dependency Management', 'Manage external packages', 'Prevents supply chain attacks'],
-                ['Configuration Management', 'Standardize environments', 'Reduces configuration drift'],
-                ['Monitoring/Logging', 'Real-time data collection', 'Enables detection and forensic analysis'],
-                ['Test Automation', 'Automate testing', 'Ensures security fixes remain effective'],
-                ['Infrastructure-as-Code', 'Define infrastructure', 'Creates auditable, reproducible setups'],
+                ['Version Control (Git)', 'Track and manage code changes with full history', 'Accountability, traceability, audit trail for all modifications; branch protection prevents unauthorized merges'],
+                ['SAST', 'Static code analysis without execution', 'Finds vulnerabilities in code before deployment — injection flaws, hardcoded secrets, weak crypto'],
+                ['DAST', 'Dynamic testing of running applications', 'Finds runtime vulnerabilities — authentication bypass, session management issues, XSS, SSRF'],
+                ['SCA (Software Composition Analysis)', 'Analyze third-party and open source dependencies', 'Identifies known CVEs in libraries; generates SBOM; prevents supply chain compromise'],
+                ['Secrets Scanning', 'Detect credentials committed to repositories', 'Prevents accidental exposure of API keys, passwords, tokens in source code'],
+                ['IaC Scanning', 'Analyze infrastructure definitions (Terraform, CloudFormation)', 'Catches misconfigured infrastructure before deployment — open security groups, unencrypted storage'],
+                ['Container Scanning', 'Analyze container images for vulnerabilities', 'Finds OS-level and package vulnerabilities in Docker/Kubernetes images'],
+                ['IAST', 'Hybrid agent-based analysis during test execution', 'Real-time vulnerability detection with runtime context; fewer false positives than SAST alone'],
               ],
             },
           },
           {
-            heading: 'Application Security Testing Methods',
+            heading: 'Application Security Testing Comparison',
             table: {
-              headers: ['Method', 'Type', 'Key Strength', 'Key Limitation'],
+              headers: ['Method', 'Type', 'When Used', 'Key Strength', 'Key Limitation'],
               rows: [
-                ['SAST', 'White-box (code)', 'Early detection, deep logic inspection', 'High false positives, no runtime context'],
-                ['DAST', 'Black-box (runtime)', 'Realistic external attacker perspective', 'Limited internal insight'],
-                ['SCA', 'Dependency analysis', 'Identifies inherited vulnerability risks', 'Only analyzes third-party components'],
-                ['IAST', 'Hybrid (code + runtime)', 'Real-time insights with fewer false positives', 'Requires test environment setup'],
+                ['SAST', 'White-box static analysis', 'During development, pre-commit, in CI pipeline', 'Finds issues early; analyzes all code paths; no running app needed', 'High false positive rate; no runtime context; cannot find auth/business logic flaws'],
+                ['DAST', 'Black-box dynamic analysis', 'Testing/staging environment, pre-release', 'Realistic attacker perspective; finds runtime issues SAST misses', 'Cannot inspect source code; limited coverage of internal logic'],
+                ['SCA', 'Dependency vulnerability analysis', 'Throughout development, at build time', 'Identifies CVEs in all direct and transitive dependencies; generates SBOM', 'Only covers third-party components; cannot assess how dependencies are used'],
+                ['IAST', 'Hybrid agent-based', 'During functional testing (QA phase)', 'Combines code inspection with runtime context; very low false positive rate', 'Requires instrumented test environment; adds overhead to test execution'],
               ],
             },
           },
           {
             heading: 'IDE Security Risks',
             list: [
-              'Plugin Risks — compromised extensions can leak credentials or source code.',
-              'Credential Management — modern IDEs should warn about hardcoded secrets.',
-              'Debug Safety — debug modes must be disabled in production to prevent sensitive data exposure.',
-              'AI Code Suggestions — may introduce insecure patterns from training data.',
+              'Plugin Risks — IDE extensions have broad access to the development environment. A compromised extension can exfiltrate source code, credentials, API keys, and environment variables. Only install extensions from verified publishers; audit installed plugins regularly.',
+              'Credential Management — modern IDEs highlight hardcoded secrets and integrate with credential management tools. Developers should never hardcode credentials — use environment variables, secrets managers (HashiCorp Vault, AWS Secrets Manager), or IDE-integrated credential vaults.',
+              'Debug Safety — debug builds and debug modes expose detailed error information, stack traces, and sometimes remote debugging ports. Debug modes must be explicitly disabled for production builds, and production environments should never have remote debuggers enabled.',
+              'AI Code Suggestions — AI coding assistants (GitHub Copilot, Cursor) generate code based on training data that may include insecure historical patterns, deprecated cryptographic functions, or outdated security practices. All AI-generated suggestions must be reviewed with the same scrutiny as human-written code.',
             ],
           },
           {
             heading: 'Runtime Security',
             list: [
-              'RASP (Runtime Application Self-Protection) — embeds protection within applications to monitor and block attacks in real-time.',
-              'Memory Exploitation — buffer overflows enable arbitrary code execution; use bounds checking.',
-              'Resource Management — DoS attacks exploit memory leaks and resource exhaustion.',
-              'Least Privilege — applications should only have permissions necessary for their functions.',
+              'RASP (Runtime Application Self-Protection) — security instrumentation embedded inside the application that monitors and intercepts function calls and execution flow in real time. Can detect and block SQL injection, path traversal, and command injection attacks at the point of execution, without requiring changes to calling code.',
+              'Memory Exploitation — buffer overflow vulnerabilities allow attackers to overwrite adjacent memory, enabling arbitrary code execution. Mitigations: use memory-safe languages; apply compiler protections (stack canaries, ASLR, DEP/NX bit); use safe string/buffer functions.',
+              'Resource Management — memory leaks, file handle exhaustion, and thread pool starvation create DoS vulnerabilities. Applications must release resources explicitly (not rely on garbage collection timing) and implement rate limiting, timeouts, and connection pooling.',
+              'Least Privilege in Application Identity — applications should run as dedicated service accounts with the minimum OS and file system permissions required. An application running as root/SYSTEM has unlimited potential for damage if compromised.',
             ],
           },
           {
             heading: 'CI/CD Pipeline Security',
-            body: 'Treat CI servers as production-level assets due to their access to secrets and deployment pipelines. Automation enables consistent security but can rapidly propagate malicious code.',
+            body: 'CI/CD pipelines have privileged access to source code, secrets, deployment credentials, and production infrastructure. A compromised pipeline can deploy malicious code to every application the organization builds. Pipeline security requires the same rigor applied to production systems:',
             list: [
-              'Integrate SAST and SCA into pipeline gates (shift left).',
-              'Use secrets management — never hardcode credentials in pipelines.',
-              'Enforce RBAC on pipeline systems and audit all actions.',
-              'Use SBOMs and trusted registries to prevent compromised components from reaching production.',
+              'Security gate integration — SAST, SCA, secrets scanning, and IaC scanning must be automated pipeline gates that block promotion on failure.',
+              'Secrets management — pipeline credentials and deployment keys must be stored in dedicated secrets managers (not in pipeline configuration files, environment variables, or source code). Rotate pipeline credentials regularly.',
+              'RBAC on pipeline systems — limit who can modify pipeline definitions; any change to a pipeline definition should require the same approval as a change to production infrastructure.',
+              'SBOM generation — pipelines should automatically generate a Software Bill of Materials documenting every component in every build artifact.',
+              'Signed artifacts — sign build artifacts with a code signing key; verify signatures before deployment to ensure the artifact has not been tampered with between build and deploy.',
             ],
           },
           {
             heading: 'Code Repository Security',
             list: [
-              'Role-based access control with branch protections.',
-              'Commit signing to cryptographically verify developer identity.',
-              'Secret scanning to detect leaked credentials.',
-              'Mandatory pull request approval workflows and code reviews.',
-              'MFA enforcement on repository access.',
+              'Branch protection rules — require pull request approval before merging to main/protected branches; prevent direct pushes.',
+              'Commit signing — use GPG signing to cryptographically verify that commits were authored by the expected developer.',
+              'Secret scanning — automated scanning of every commit and pull request for committed credentials; alert immediately on detection.',
+              'Code ownership — define code owners for sensitive files; require their review before changes are merged.',
+              'MFA enforcement — require MFA for all repository access; compromise of a developer account is a common supply chain attack vector.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is a supply chain attack in software development and give a real-world example?', a: 'A software supply chain attack targets the tools, dependencies, or build infrastructure used to create software rather than the software itself — compromising the source rather than the product. The SolarWinds attack (2020) inserted malicious code into SolarWinds\' Orion software build process; the malicious update was digitally signed and delivered through the legitimate update mechanism to ~18,000 customers including US government agencies. The XZ Utils attack (2024) inserted a backdoor into a widely used compression library by a developer who spent two years earning maintainer trust.' },
+              { q: 'What is RASP and how does it differ from a Web Application Firewall (WAF)?', a: 'RASP (Runtime Application Self-Protection) is security instrumentation embedded inside the application itself — it monitors and intercepts function calls at the point of execution, with full knowledge of application context (who the user is, what data is being processed). A WAF sits outside the application, inspecting HTTP traffic at the network boundary without application context. RASP can detect semantic-level attacks that bypass WAF pattern matching because it sees the actual function call being attempted; WAF provides broader protection before traffic reaches the application.' },
+              { q: 'What is a dependency confusion attack and how is it prevented?', a: 'A dependency confusion attack exploits package managers that check both public and private registries. An attacker registers a package on the public registry (npm, PyPI) with the same name as a private internal package but a higher version number. When developers run package installation, the package manager may download the public malicious package instead of the internal legitimate one. Prevention: configure package managers to use private registries only for internal packages, pin specific versions, use registry namespace scoping, and verify package integrity hashes.' },
+              { q: 'What is an SBOM (Software Bill of Materials) and why is it important for security?', a: 'An SBOM is a complete, machine-readable inventory of all components in a software artifact — every library, framework, open source package, and their versions. From a security perspective, an SBOM enables: rapid identification of affected systems when a new CVE is disclosed in a dependency (e.g., Log4Shell — organizations with SBOMs could identify vulnerable systems in hours rather than days); supply chain transparency for customers evaluating vendor security; and automated vulnerability tracking against component inventory.' },
+              { q: 'What security risks do IDE plugins present and how should they be managed?', a: 'IDE plugins execute in the development environment with the same permissions as the developer\'s process — they can read source code, environment variables, stored credentials, SSH keys, and make network connections. A malicious or compromised plugin can exfiltrate the entire codebase and credentials without the developer\'s awareness. Management: only install plugins from verified publishers listed in official marketplace stores; regularly audit installed plugins; remove unused plugins; enforce MFA on IDE accounts; consider allow-listing approved plugins in enterprise environments.' },
+              { q: 'Why must CI/CD pipeline credentials be treated with the same security as production credentials?', a: 'CI/CD pipelines hold deployment credentials that have write access to production infrastructure — the ability to deploy code, modify configurations, and access secrets. A compromised pipeline is effectively a compromised production system with bonus access to the source code and build process. Attackers who compromise a pipeline can insert malicious code into every application built by the organization, affecting all customers. Pipeline credentials must be stored in secrets managers, rotated regularly, scoped to least privilege, and their use audited.' },
+              { q: 'What is the difference between SAST and SCA, and what type of vulnerability does each find?', a: 'SAST (Static Application Security Testing) analyzes the organization\'s own source code for security flaws — buffer overflows, SQL injection patterns, hardcoded secrets, insecure cryptography in code the developers wrote. SCA (Software Composition Analysis) analyzes third-party and open source components for known CVEs — it does not examine the organization\'s code but identifies which versions of external libraries are used and whether they have publicly disclosed vulnerabilities. Both are necessary: SAST finds what the team wrote wrong; SCA finds what the team inherited.' },
+              { q: 'What is branch protection and why is it a critical repository security control?', a: 'Branch protection rules prevent direct commits to designated branches (main, production) and require that all changes flow through pull requests with mandatory code review approval before merging. This prevents developers from accidentally or maliciously pushing untested or unapproved code directly to production-tracked branches. It also ensures that every change has an associated review record and that automated checks (SAST, tests, secrets scanning) run against every proposed change before it can be incorporated.' },
+              { q: 'What is commit signing and what attack does it prevent?', a: 'Commit signing uses GPG cryptography to attach a digital signature to every git commit, allowing anyone to verify that the commit was actually authored by the person it claims. It prevents identity impersonation in version control — without signing, the author information in a git commit can be trivially set to any name and email address. An attacker with repository write access (or a malicious insider) could create commits that appear to come from trusted developers. Signed commits provide a cryptographic chain of custody for every code change.' },
+              { q: 'What security risks do AI code suggestions introduce and how should developers handle them?', a: 'AI coding assistants generate code based on patterns from training data, which includes historical code that may be years old and may contain deprecated cryptographic functions, outdated API usage, insecure patterns, or vulnerabilities that were common at the time the training data was collected. AI does not understand security context — it predicts what code commonly looks like, not what is secure. Developers must review all AI-generated code with the same scrutiny applied to any external code: check for input validation, hardcoded secrets, correct use of cryptographic primitives, and run SAST against the generated output before committing.' },
             ],
           },
         ],
       },
+      // ── 8.3 ──────────────────────────────────────────────────────────────
       {
         id: 'd8t3',
         title: '8.3 Assess Software Security Effectiveness',
         content: [
           {
+            body: 'Building security controls into software is only the first step — measuring whether those controls actually work is equally important. Software security effectiveness assessment is the ongoing process of evaluating whether the security practices embedded in development are producing secure software. It combines quantitative measurement (metrics, test coverage, defect density), qualitative review (threat modeling validation, architecture review), and operational feedback (production incident analysis).',
+          },
+          {
+            body: 'Two foundational activities underpin software security assessment: logging (creating the evidence record that makes assessment possible) and risk analysis (systematic evaluation of what could go wrong and how severe the consequences would be). These activities must be continuous — security effectiveness is not a one-time measurement but an ongoing property that must be maintained as software evolves.',
+          },
+          {
             heading: 'Logging vs Auditing',
+            body: 'Logging and auditing are related but distinct activities that serve complementary security purposes:',
             table: {
               headers: ['Aspect', 'Logging', 'Auditing'],
               rows: [
-                ['Purpose', 'Record events and activities', 'Analyze logs to verify controls and detect anomalies'],
-                ['Timing', 'Continuous, real-time', 'Periodic, on-demand, scheduled'],
-                ['Tools', 'Syslog, CloudWatch, ELK stack', 'SIEMs, log analyzers, compliance tools'],
-                ['Focus', 'Visibility and traceability', 'Accountability, verification, investigation'],
+                ['Purpose', 'Record security-relevant events and application activity continuously', 'Analyze recorded events to verify control effectiveness and detect anomalies'],
+                ['Timing', 'Continuous and real-time; automated', 'Periodic, on-demand, or scheduled; may be automated or manual'],
+                ['What is captured', 'Authentication events, authorization decisions, errors, API calls, data access, configuration changes', 'Patterns, trends, policy compliance, unauthorized activity, control gaps'],
+                ['Tools', 'Application logging frameworks (Log4j, Winston), Syslog, CloudWatch, Splunk, ELK stack', 'SIEM correlation rules, compliance scanning tools, log analyzers'],
+                ['Output', 'Raw event records; time-stamped, structured log entries', 'Reports, alerts, findings, compliance evidence, incident timelines'],
               ],
             },
-            note: 'If it\'s not logged, it never happened. Logs must be immutable, timestamped, signed, and monitored.',
+            note: 'If it is not logged, it never happened — from a forensic and compliance perspective. Application logs must be immutable, centralized, cryptographically integrity-protected, timestamped with NTP-synchronized clocks, and monitored for anomalies.',
           },
           {
-            heading: 'Risk Analysis Process',
+            heading: 'What Applications Must Log',
             list: [
-              '1. Identify assets (customer data, credentials, financial records).',
-              '2. Examine threats (unauthorized access, data leakage, privilege escalation).',
-              '3. Assess vulnerabilities (weak validation, missing rate-limiting, hardcoded credentials).',
-              '4. Evaluate potential impact and likelihood of exploitation.',
-              '5. Apply mitigation strategies — patch, rewrite, add authentication, or deprecate.',
+              'Authentication events — all login attempts (success and failure), logout events, MFA challenges, account lockouts.',
+              'Authorization decisions — every access control check, especially denials; privilege escalation attempts.',
+              'Data access — reads and writes to sensitive data (PII, financial records, credentials); bulk data queries.',
+              'Input validation failures — rejected inputs that may indicate probing or injection attempts.',
+              'Errors and exceptions — application errors that could indicate exploitation attempts or system failures.',
+              'Configuration changes — any modification to security-relevant settings, access control rules, or encryption settings.',
+              'Session management — session creation, termination, token issuance and revocation.',
             ],
-            note: 'Risk is never eliminated, only managed. Even after mitigation, residual risk remains.',
+            warning: 'Applications must never log sensitive data in cleartext — passwords, credit card numbers, SSNs, session tokens. Logging sensitive data turns your log store into a high-value target for attackers and a GDPR/HIPAA liability.',
+          },
+          {
+            heading: 'Software Risk Analysis Process',
+            body: 'Risk analysis in the software context systematically evaluates what could go wrong with an application, what the consequences would be, and what the most effective mitigations are. It should occur at multiple stages of the SDLC:',
+            list: [
+              '1. Identify assets — what does the application process, store, or transmit that has value? (customer PII, financial records, authentication credentials, business logic, IP)',
+              '2. Identify threats — using frameworks like STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) or PASTA (Process for Attack Simulation and Threat Analysis), enumerate the ways attackers could harm those assets.',
+              '3. Assess vulnerabilities — examine the implementation for weaknesses: missing authentication checks, improper input validation, insecure dependencies, configuration gaps.',
+              '4. Evaluate impact and likelihood — for each threat-vulnerability combination, assess the business impact if exploited and the realistic probability of exploitation.',
+              '5. Apply controls — select mitigations that reduce risk to acceptable levels: redesign, patch, add authentication, encrypt, add logging, or accept with documented justification.',
+            ],
+            note: 'Risk is never eliminated, only managed. After applying mitigations, residual risk must be documented and formally accepted by appropriate authority. Undocumented residual risk is unmanaged risk.',
+          },
+          {
+            heading: 'Threat Modeling',
+            body: 'Threat modeling is a structured technique for identifying security requirements and potential attacks during the design phase — before any code is written. Common frameworks:',
+            list: [
+              'STRIDE — categorizes threats into six types: Spoofing identity, Tampering with data, Repudiation of actions, Information Disclosure, Denial of Service, Elevation of Privilege. Applied at the data-flow diagram level.',
+              'PASTA (Process for Attack Simulation and Threat Analysis) — seven-stage risk-centric methodology that aligns threat analysis with business objectives and asset valuation.',
+              'DREAD — rates threats on five dimensions: Damage potential, Reproducibility, Exploitability, Affected users, Discoverability. Provides a numerical risk score for threat prioritization.',
+              'Attack Trees — graphical representations of attack paths; root node is the attacker goal, branches are approaches. Useful for visualizing how multiple vulnerabilities combine.',
+            ],
+            tip: 'The question to ask at every design decision is: "How could an attacker misuse this feature?" rather than "Does this feature do what the requirements say?"',
+          },
+          {
+            diagram: {
+              caption: 'STRIDE Threat Model — six threat categories with CIA triad mapping and example countermeasures',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 310" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="310" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">STRIDE Threat Model</text>
+  <!-- Column headers -->
+  <rect x="10" y="36" width="560" height="22" rx="4" fill="#1e293b"/>
+  <text x="60" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Letter</text>
+  <text x="140" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Threat</text>
+  <text x="240" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Definition</text>
+  <text x="390" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Violates</text>
+  <text x="520" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Control Example</text>
+  <!-- S - Spoofing -->
+  <rect x="10" y="60" width="560" height="36" rx="3" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+  <text x="60" y="82" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="15">S</text>
+  <text x="140" y="82" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="11">Spoofing</text>
+  <text x="240" y="75" text-anchor="middle" fill="#374151" font-size="10">Attacker claims false</text>
+  <text x="240" y="89" text-anchor="middle" fill="#374151" font-size="10">identity</text>
+  <text x="390" y="82" text-anchor="middle" fill="#dc2626" font-size="10">Authentication</text>
+  <text x="520" y="82" text-anchor="middle" fill="#374151" font-size="10">MFA, digital signatures</text>
+  <!-- T - Tampering -->
+  <rect x="10" y="98" width="560" height="36" rx="3" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1"/>
+  <text x="60" y="120" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="15">T</text>
+  <text x="140" y="120" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">Tampering</text>
+  <text x="240" y="113" text-anchor="middle" fill="#374151" font-size="10">Unauthorized data</text>
+  <text x="240" y="127" text-anchor="middle" fill="#374151" font-size="10">modification</text>
+  <text x="390" y="120" text-anchor="middle" fill="#dc2626" font-size="10">Integrity</text>
+  <text x="520" y="120" text-anchor="middle" fill="#374151" font-size="10">Hashing, ACLs, signing</text>
+  <!-- R - Repudiation -->
+  <rect x="10" y="136" width="560" height="36" rx="3" fill="#fdf4ff" stroke="#ede9fe" stroke-width="1"/>
+  <text x="60" y="158" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="15">R</text>
+  <text x="140" y="158" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="11">Repudiation</text>
+  <text x="240" y="151" text-anchor="middle" fill="#374151" font-size="10">Deny performing</text>
+  <text x="240" y="165" text-anchor="middle" fill="#374151" font-size="10">an action</text>
+  <text x="390" y="158" text-anchor="middle" fill="#dc2626" font-size="10">Non-repudiation</text>
+  <text x="520" y="158" text-anchor="middle" fill="#374151" font-size="10">Audit logs, dig. sigs</text>
+  <!-- I - Information Disclosure -->
+  <rect x="10" y="174" width="560" height="36" rx="3" fill="#fef9c3" stroke="#fef08a" stroke-width="1"/>
+  <text x="60" y="196" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="15">I</text>
+  <text x="140" y="190" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Information</text>
+  <text x="140" y="204" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Disclosure</text>
+  <text x="240" y="189" text-anchor="middle" fill="#374151" font-size="10">Unauthorized data</text>
+  <text x="240" y="203" text-anchor="middle" fill="#374151" font-size="10">exposure</text>
+  <text x="390" y="196" text-anchor="middle" fill="#dc2626" font-size="10">Confidentiality</text>
+  <text x="520" y="196" text-anchor="middle" fill="#374151" font-size="10">Encryption, access ctrl</text>
+  <!-- D - Denial of Service -->
+  <rect x="10" y="212" width="560" height="36" rx="3" fill="#fff7ed" stroke="#fed7aa" stroke-width="1"/>
+  <text x="60" y="234" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="15">D</text>
+  <text x="140" y="228" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Denial of</text>
+  <text x="140" y="242" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Service</text>
+  <text x="240" y="228" text-anchor="middle" fill="#374151" font-size="10">Overwhelm or crash</text>
+  <text x="240" y="242" text-anchor="middle" fill="#374151" font-size="10">resources</text>
+  <text x="390" y="234" text-anchor="middle" fill="#dc2626" font-size="10">Availability</text>
+  <text x="520" y="234" text-anchor="middle" fill="#374151" font-size="10">Rate limiting, CDN</text>
+  <!-- E - Elevation of Privilege -->
+  <rect x="10" y="250" width="560" height="36" rx="3" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="60" y="272" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="15">E</text>
+  <text x="140" y="266" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="11">Elevation of</text>
+  <text x="140" y="280" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="11">Privilege</text>
+  <text x="240" y="266" text-anchor="middle" fill="#374151" font-size="10">Gain unauthorized</text>
+  <text x="240" y="280" text-anchor="middle" fill="#374151" font-size="10">permissions</text>
+  <text x="390" y="272" text-anchor="middle" fill="#dc2626" font-size="10">Authorization</text>
+  <text x="520" y="272" text-anchor="middle" fill="#374151" font-size="10">Least privilege, RBAC</text>
+  <text x="290" y="298" text-anchor="middle" font-size="11" fill="#64748b">Apply STRIDE to every component on a Data Flow Diagram (DFD) during design phase</text>
+</svg>`,
+            },
+          },
+          {
+            heading: 'Security Metrics for Software Effectiveness',
+            list: [
+              'Mean Time to Remediate (MTTR) by severity — how quickly are discovered vulnerabilities fixed?',
+              'Defect density — number of security vulnerabilities per thousand lines of code; tracks whether secure coding practices are improving over time.',
+              'False positive rate of security tools — high false positive rates cause developers to ignore findings; must be tuned.',
+              'Security debt — accumulated unresolved security findings; should trend downward.',
+              'Test coverage percentage — proportion of code paths exercised by security tests.',
+              'Open critical/high findings — absolute count of unresolved high-severity vulnerabilities.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'What is STRIDE and how is it used in threat modeling?', a: 'STRIDE is a threat categorization framework applied to data-flow diagrams of an application. Each letter represents a threat category: Spoofing identity, Tampering with data, Repudiation of actions, Information Disclosure, Denial of Service, and Elevation of Privilege. Threat modelers systematically ask "can this element be spoofed/tampered/repudiated/disclosed/denied/escalated?" for each component in the diagram. This produces a comprehensive list of threats that security requirements and controls must address.' },
+              { q: 'Why should applications never log sensitive data in cleartext?', a: 'Logging sensitive data (passwords, credit card numbers, session tokens, PII) in cleartext transforms the log store into a secondary high-value target for attackers — a single breach of the log aggregation system exposes all logged sensitive data across every application sending logs to it. It also creates compliance violations under GDPR, HIPAA, and PCI DSS, which explicitly prohibit storing certain data types in accessible form. Sensitive data should be masked, tokenized, or omitted from logs entirely.' },
+              { q: 'What is the difference between logging and auditing?', a: 'Logging is the continuous, automated recording of security-relevant events — authentication attempts, authorization decisions, errors, data access. It creates the raw evidence record. Auditing is the analysis of those records to verify that controls are working, detect anomalous patterns, investigate incidents, and demonstrate compliance. Logging provides the data; auditing extracts meaning from it. Both are necessary: logs without auditing are unused evidence; auditing without comprehensive logs is incomplete.' },
+              { q: 'What is residual risk in software security and what must be done with it?', a: 'Residual risk is the risk that remains after security controls have been applied — the risk that cannot or will not be fully mitigated. No control eliminates risk completely; every mitigation leaves some residual exposure. Residual risk must be formally documented in a risk register, quantified (or qualified), and formally accepted by an appropriate authority (typically a system owner or CISO). Undocumented residual risk is effectively unmanaged — it exists but no one has accepted responsibility for it.' },
+              { q: 'What is a software Bill of Materials (SBOM) and what security capability does it enable?', a: 'An SBOM is a complete, machine-readable inventory of every component in a software artifact — every library, framework, and package with their versions, licenses, and provenance. From a security perspective, it enables: rapid impact assessment when a new CVE is published (organizations with SBOMs could identify all systems containing the vulnerable Log4j version within hours during Log4Shell rather than days of manual inventory); supply chain transparency; and automated vulnerability tracking against the component inventory as part of vulnerability management.' },
+              { q: 'What is threat modeling and at what phase of the SDLC should it occur?', a: 'Threat modeling is a structured technique for identifying potential attacks and security requirements during software design — before code is written. It involves creating data-flow diagrams, identifying trust boundaries, and systematically enumerating threats using frameworks like STRIDE. It should occur during the design phase because: design-level findings are cheapest to fix (change a document, not code); it guides security requirements for implementation; and it produces architectural decisions that determine whether downstream testing will find anything exploitable.' },
+              { q: 'What security events must an application log to support incident investigation?', a: 'Applications must log: all authentication events (success, failure, lockout, MFA); all authorization decisions especially denials; data access events for sensitive data; input validation failures; configuration changes; session management events (creation, termination, token issuance); application errors and exceptions; and any privilege escalation events. Without these events, reconstructing the timeline of a security incident — determining how an attacker gained access, what they accessed, and when — is impossible.' },
+              { q: 'What is the purpose of measuring defect density over time in a security program?', a: 'Defect density — the number of security vulnerabilities discovered per thousand lines of code — measures whether secure coding practices are actually improving code quality over time. If defect density decreases over successive releases, the secure coding training, threat modeling, and SAST integration are working. If it remains constant or rises despite investment in security practices, the practices are not changing developer behavior. It provides objective evidence for the ROI of security training and tooling investments.' },
+              { q: 'What is the PASTA threat modeling methodology?', a: 'PASTA (Process for Attack Simulation and Threat Analysis) is a seven-stage risk-centric threat modeling methodology that aligns threat analysis with business objectives: Stage 1 (Define objectives), Stage 2 (Define technical scope), Stage 3 (Application decomposition — data flows, dependencies), Stage 4 (Threat analysis — attack scenarios), Stage 5 (Vulnerability analysis), Stage 6 (Attack enumeration — attack trees), Stage 7 (Risk and impact analysis). Unlike STRIDE (which categorizes threats by type), PASTA produces a risk-quantified threat model with business context.' },
+              { q: 'What does "security debt" mean and why is it a risk management concern?', a: 'Security debt is the accumulated backlog of unresolved security findings — vulnerabilities discovered by SAST, DAST, or pen tests that have not yet been remediated. Like technical debt, it compounds over time: unpatched vulnerabilities remain exploitable, new features build on insecure foundations, and the effort to remediate grows as code is built on top of vulnerable components. From a risk perspective, a large security debt represents a known, quantified risk profile that must be explicitly managed, tracked in a risk register, and resourced for systematic reduction.' },
+            ],
           },
         ],
       },
+      // ── 8.4 ──────────────────────────────────────────────────────────────
       {
         id: 'd8t4',
         title: '8.4 Assess Security Impact of Acquired Software',
         content: [
           {
-            heading: 'COTS (Commercial Off-the-Shelf) Software',
-            body: 'COTS shifts part of your trust boundary outside your organization. You are trusting not only the product but the vendor\'s entire supply chain. Key assessment areas:',
+            body: 'Modern applications are rarely built entirely from scratch. The average enterprise application consists of hundreds of open source libraries, commercial components, third-party APIs, and cloud services. Each acquired component extends the organization\'s attack surface and shifts part of its security responsibility to an external party. The critical insight is that acquiring software transfers some security risk but never transfers security accountability — organizations remain responsible for the security of data processed by third-party software on their behalf.',
+          },
+          {
+            body: 'Regulatory frameworks make this explicit: GDPR Article 28 requires that data processors (vendors) be bound by data processing agreements; HIPAA mandates Business Associate Agreements with covered entities\' service providers; PCI DSS Requirement 12.8 requires managing the security of third-party service providers. Procurement decisions are security decisions.',
+          },
+          {
+            heading: 'COTS (Commercial Off-the-Shelf) Software Assessment',
+            body: 'COTS software shifts part of the trust boundary outside the organization — you are trusting not only the product\'s security but the vendor\'s secure SDLC, their supply chain, and their responsiveness to vulnerabilities. Key assessment areas:',
             table: {
               headers: ['Assessment Area', 'Key Questions'],
               rows: [
-                ['Vendor Security', 'Do they follow secure SDLC? Can they provide pentest results and SBOM?'],
-                ['Patch Management', 'Average time to patch? Can patches be automated?'],
-                ['Configuration', 'Are default settings secure? Can the system be hardened effectively?'],
-                ['Access Controls', 'Integrates with IAM? Supports RBAC and MFA?'],
-                ['Logging & Monitoring', 'Logs compatible with your SIEM? Alerts for anomalies?'],
-                ['Data Protection', 'Encrypted at rest and in transit? Who controls the keys?'],
-                ['Contractual Safeguards', 'SLAs, breach notification, audit rights, exit clauses?'],
+                ['Vendor Security Practices', 'Do they follow a secure SDLC? Can they provide third-party penetration test results, SOC 2 report, or SBOM?'],
+                ['Patch Management', 'What is their average time from vulnerability disclosure to patch release? Can patches be automated?'],
+                ['Secure Configuration', 'Are default settings secure, or must hardening be applied before production use?'],
+                ['Access Control Integration', 'Does the product integrate with enterprise IAM? Support RBAC, MFA, and SSO?'],
+                ['Logging & Monitoring', 'Does the product generate logs compatible with your SIEM? Are security events surfaced?'],
+                ['Data Protection', 'Is data encrypted at rest and in transit? Who controls the encryption keys?'],
+                ['Contractual Safeguards', 'Does the contract include SLAs, breach notification requirements, audit rights, data ownership, and exit/portability clauses?'],
               ],
             },
-            warning: 'Just because a product is commercially supported does not mean it is securely configured out of the box. Default settings are for ease of use, not security.',
+            warning: 'Commercially supported does not mean securely configured. Many commercial products ship with authentication disabled, default admin passwords, or unnecessary services enabled for ease of initial deployment. Never deploy COTS products without reviewing and applying vendor hardening guides.',
           },
           {
-            heading: 'Open Source Software (OSS)',
+            heading: 'Open Source Software (OSS) Security',
+            body: 'Open source software powers the majority of modern applications. The visibility of source code provides the theoretical possibility of community review, but this does not mean vulnerabilities are found and fixed quickly:',
             list: [
-              '"Many eyes" myth — code being open does not mean anyone is actively auditing it; Heartbleed lived in OpenSSL for years.',
-              'Software Bill of Materials (SBOM) — inventory all OSS components and their versions; track CVEs in dependencies.',
-              'Supply Chain Risk — a single compromised NPM/PyPI package can affect thousands of applications.',
-              'Maintainership — assess who maintains the project; abandoned projects will not receive security patches.',
-              'Licensing — viral licenses (GPL) may require you to open your own source code upon integration.',
-              'Configuration — many OSS tools (Elasticsearch, MongoDB) shipped without authentication by default; harden before production.',
+              '"Many eyes" fallacy — the Heartbleed vulnerability existed in OpenSSL for over two years despite being in widely used, publicly visible code. Code being open does not mean anyone is actively auditing it for security.',
+              'SBOM and dependency tracking — every OSS component and version must be tracked; CVEs in dependencies must be monitored continuously using tools like Dependabot, Snyk, or OWASP Dependency-Check.',
+              'Supply chain risk — a single compromised NPM, PyPI, or Maven package can affect thousands of applications. The `event-stream` and `node-ipc` incidents demonstrated how malicious maintainers can introduce backdoors into widely used packages.',
+              'Maintainership risk — assess whether the project has active maintainers. Abandoned or minimally maintained projects will not receive security patches when vulnerabilities are discovered.',
+              'Licensing — GPL and LGPL licenses have viral properties that may require the organization to open-source code that incorporates them. Legal review is required before integrating GPL-licensed components into commercial products.',
+              'Default configuration — many OSS tools (MongoDB, Elasticsearch, Redis, Jupyter) historically shipped with no authentication enabled by default. Hardening documentation must be followed before production deployment.',
             ],
           },
           {
-            heading: 'Third-Party Software',
+            heading: 'Third-Party and Vendor Software',
             list: [
-              'Shadow IT — departments install tools without security review; asset discovery is the essential first step.',
-              'Integration Risk — every API, SSO connector, or file-sharing interface is a potential attack vector.',
-              'Patch Dependency — you cannot create your own fixes; you depend entirely on the vendor\'s responsiveness.',
-              'Contractual Protections — include breach notification, SLAs, audit rights, and termination clauses in vendor agreements.',
-              'Outsourcing ≠ Delegating Responsibility — GDPR, HIPAA, and PCI-DSS make clear that you remain accountable for data handled by third parties.',
+              'Shadow IT — business units procure tools without security review, creating undiscovered attack surface. Continuous asset discovery and a formalized software procurement review process are essential controls.',
+              'Integration risk — every integration point (API connector, SSO configuration, file-sharing interface, webhook) is a potential attack vector. Third-party integrations must be scoped to least privilege.',
+              'Patch dependency — when a third-party product has a vulnerability, the organization cannot create its own fix; it depends entirely on the vendor\'s responsiveness and patch release timeline. Contractual SLAs for critical vulnerability patching are essential.',
+              'Outsourcing ≠ Delegating Responsibility — GDPR, HIPAA, and PCI DSS are explicit: the organization that controls personal data remains accountable for its protection regardless of which vendor processes it. Vendor security failures become the customer\'s compliance failures.',
             ],
           },
           {
-            heading: 'Managed Services and Cloud (SaaS/PaaS/IaaS)',
+            heading: 'Cloud Service Models and Security Responsibility',
+            body: 'Cloud service models define a shared responsibility boundary — understanding exactly where the provider\'s responsibility ends and the customer\'s begins is fundamental to cloud security:',
             table: {
-              headers: ['Model', 'Customer Responsibility', 'Common Risk'],
+              headers: ['Model', 'Provider Manages', 'Customer Manages', 'Common Customer Failure'],
               rows: [
-                ['SaaS', 'User access, configurations, data protection, backup strategy', 'MFA not enforced; data retention misconfigured'],
-                ['PaaS', 'Application code, configs, data; DevSecOps maturity', 'Vulnerable app deployed on patched platform'],
-                ['IaaS', 'OS, applications, network, access controls, firewall rules', 'Misconfigured S3 buckets, open ports, weak IAM roles'],
+                ['SaaS', 'Everything below the application layer — infrastructure, OS, platform, application code', 'User access management, configurations, data governance, backup strategy', 'MFA not enforced on user accounts; data oversharing with external users; no data backup strategy'],
+                ['PaaS', 'Infrastructure, OS, runtime, middleware', 'Application code, configurations, data, DevSecOps practices', 'Deploying vulnerable application code on a secure platform; insecure API configurations'],
+                ['IaaS', 'Physical infrastructure, hypervisor, network hardware', 'OS, applications, network controls, firewall rules, IAM policies, all software', 'Misconfigured S3 buckets; open inbound security groups; weak IAM roles; unpatched OS'],
               ],
             },
-            note: 'Outsourcing services to a managed provider does not outsource security responsibility. Shared responsibility models define the boundary — and the customer always retains some obligations.',
+            note: 'The shared responsibility model means that as you move from IaaS to SaaS, the provider takes on more responsibility — but the customer never has zero responsibility. Even in SaaS, identity management, data governance, and access control remain customer obligations.',
+          },
+          {
+            questions: [
+              { q: 'Why does procuring software from a vendor not transfer security accountability to that vendor?', a: 'Regulatory frameworks (GDPR, HIPAA, PCI DSS) explicitly hold the data controller accountable for the security of data regardless of which vendor processes it. A vendor breach that exposes customer PII is a GDPR violation by the procuring organization, not just the vendor. The organization must conduct due diligence before procurement, bind the vendor contractually (DPA, BAA), and monitor vendor security posture continuously. The vendor can be held liable contractually, but the regulatory obligation to protect data remains with the controller.' },
+              { q: 'What is the "many eyes" fallacy in open source security?', a: 'The many eyes fallacy assumes that because open source code is publicly visible, security vulnerabilities will be quickly discovered and fixed by the community. The Heartbleed vulnerability in OpenSSL — used by the majority of secure web servers — existed for over two years before discovery despite being in visible code reviewed by thousands. The reality is that code review requires security expertise and deliberate effort, not just visibility. Organizations cannot assume that OSS components are secure simply because they are open source.' },
+              { q: 'What is shadow IT and why is it a security risk?', a: 'Shadow IT refers to software, services, and systems deployed by business units without IT or security review — employees using Dropbox for file sharing, Slack for team communication, or a SaaS tool for project management without going through the formal procurement process. It creates undiscovered attack surface (security cannot protect what it does not know exists), data governance failures (sensitive data may be stored in non-approved, non-compliant services), and integration risks (unauthorized connections to corporate systems). Continuous asset discovery is required to identify and manage shadow IT.' },
+              { q: 'What are the key contractual protections that must be included in third-party software agreements?', a: 'Critical contractual provisions include: (1) SLAs for critical vulnerability patching (e.g., vendor must patch CVSS 9+ within 72 hours); (2) breach notification requirements (vendor must notify within defined hours of discovering a breach affecting customer data); (3) audit rights (customer may audit vendor security controls); (4) data ownership and portability (customer retains ownership; data can be exported upon termination); (5) data deletion on termination (vendor must certify deletion); (6) subprocessor restrictions (vendor must notify before adding subprocessors).' },
+              { q: 'What is maintainership risk in open source software?', a: 'Maintainership risk is the risk that an OSS project has insufficient active maintainers to respond to security vulnerabilities, review contributions for malicious code, or keep the project current with evolving security requirements. Projects with a single maintainer (bus factor of 1), infrequent commits, or unreviewed pull request backlogs may have undiscovered vulnerabilities and no timely patch process. Organizations should assess project health metrics — commit frequency, number of active maintainers, issue response times — before adopting critical dependencies.' },
+              { q: 'In a SaaS deployment, what security responsibilities remain with the customer?', a: 'Even in SaaS where the provider manages all infrastructure and application code, the customer retains responsibility for: user identity and access management (who has accounts, what roles they hold, MFA enforcement); data governance (what data is uploaded, how long it is retained, who can access it); configuration security (application settings, sharing permissions, integration scopes); backup and export strategy (the provider\'s availability SLA does not guarantee data recovery in all scenarios); and compliance verification (confirming the SaaS provider meets regulatory requirements for the data being processed).' },
+              { q: 'What is a Business Associate Agreement (BAA) and when is it required?', a: 'A Business Associate Agreement is a contract required by HIPAA between a covered entity (healthcare provider, insurer) and any business associate (vendor, service provider) that creates, receives, maintains, or transmits protected health information (PHI) on the covered entity\'s behalf. The BAA contractually binds the vendor to HIPAA security requirements and assigns breach notification obligations. Without a BAA, a covered entity cannot lawfully use the vendor for PHI processing. Similar requirements exist under GDPR (Data Processing Agreements) and PCI DSS (Qualified Security Assessor agreements).' },
+              { q: 'How does the shared responsibility model differ between IaaS and PaaS?', a: 'In IaaS, the customer is responsible for the operating system, all applications, network controls (security groups, firewall rules), IAM policies, and all software above the hypervisor. In PaaS, the provider manages the OS, runtime, and middleware — the customer is only responsible for application code, configurations, and data. PaaS reduces the attack surface the customer must manage (no OS patching, no runtime security), but the customer still bears full responsibility for application-level security vulnerabilities in their own code.' },
+              { q: 'What tools are used for continuous OSS vulnerability monitoring?', a: 'Tools for continuous OSS dependency monitoring include: GitHub Dependabot — automatically opens pull requests when dependencies have published CVEs; Snyk — scans dependencies in code and CI/CD pipelines, prioritizes by reachability (is the vulnerable code path actually called?); OWASP Dependency-Check — generates reports of vulnerable components against the NVD CVE database; Mend (formerly WhiteSource) — enterprise-grade SCA with license compliance; and npm audit / pip audit — built-in package manager tools for quick dependency checks. These should be integrated into the CI/CD pipeline.' },
+              { q: 'What is the GPL license risk for commercial software development?', a: 'GPL (GNU General Public License) is a "copyleft" or "viral" license — any software that incorporates GPL-licensed code becomes subject to the GPL and must be released as open source under the same license. For commercial software that the organization does not intend to open source, incorporating GPL-licensed components can trigger an obligation to release the entire product\'s source code publicly. Legal review is required before incorporating any GPL-licensed component; LGPL and MIT/Apache-licensed components are generally safer for commercial use.' },
+            ],
           },
         ],
       },
+      // ── 8.5 ──────────────────────────────────────────────────────────────
       {
         id: 'd8t5',
         title: '8.5 Secure Coding Guidelines and Standards',
         content: [
           {
+            body: 'Secure coding is the practice of writing software that is resistant to attack by design — not through post-development patching. The fundamental insight is that the majority of real-world security vulnerabilities are not novel attacks requiring sophisticated techniques; they are the same categories of coding errors repeated across millions of lines of code: unvalidated input, improper authentication, insecure session management, and information disclosure. Following established secure coding guidelines systematically eliminates these entire vulnerability classes.',
+          },
+          {
+            body: 'OWASP (Open Web Application Security Project) maintains the most widely referenced standards for web application security, including the OWASP Top 10 and the OWASP API Security Top 10. CISSP candidates must understand the common vulnerability categories, the underlying coding defects that produce them, and the standard mitigations.',
+          },
+          {
             heading: 'Common Source-Code Vulnerabilities',
             table: {
-              headers: ['Risk Category', 'Description', 'Mitigation'],
+              headers: ['Vulnerability', 'Root Cause', 'Impact', 'Mitigation'],
               rows: [
-                ['Buffer Overflows', 'Fails to validate input length; enables code execution', 'Use safe functions; bounds checking; memory-safe languages'],
-                ['Input Validation Failures', 'Unsanitized input enables SQL injection, XSS', 'Parameterized queries; allow-lists; output encoding'],
-                ['Insecure Error Handling', 'Detailed errors expose system internals', 'Log internally; show generic messages to users'],
-                ['Hardcoded Secrets', 'Credentials embedded in code', 'Environment variables; secrets managers; pre-commit hooks'],
-                ['Logic Flaws', 'Business rules incorrectly implemented', 'Threat modeling; manual code review'],
-                ['Race Conditions', 'Multiple threads accessing shared resources simultaneously', 'Atomic operations; strong locking mechanisms'],
+                ['Buffer Overflow', 'No bounds checking on input length; memory written beyond allocated buffer', 'Arbitrary code execution; privilege escalation; crash', 'Use memory-safe languages; safe string functions; compiler protections (stack canaries, ASLR, NX)'],
+                ['SQL Injection', 'User input concatenated directly into SQL queries', 'Authentication bypass; data exfiltration; data destruction; command execution', 'Parameterized queries/prepared statements; ORM frameworks; input validation'],
+                ['Cross-Site Scripting (XSS)', 'User input rendered in HTML without encoding', 'Session hijacking; credential theft; malicious redirects; defacement', 'Output encoding; Content Security Policy; input validation; modern framework auto-escaping'],
+                ['Insecure Error Handling', 'Detailed exception information returned to users', 'Stack traces reveal architecture; paths expose server layout; version numbers indicate vulnerable software', 'Log detailed errors internally; return generic error messages; never expose stack traces'],
+                ['Hardcoded Secrets', 'Credentials, API keys, tokens embedded in source code', 'Immediate credential compromise when code is exposed or source control is accessed', 'Environment variables; dedicated secrets managers; pre-commit hooks scanning for secrets'],
+                ['Race Conditions', 'Multiple threads/processes accessing shared resources without proper synchronization', 'Privilege escalation (TOCTOU attacks); data corruption; inconsistent state', 'Atomic operations; mutex/lock mechanisms; avoid shared mutable state'],
+                ['Insecure Deserialization', 'Deserializing untrusted data without validation', 'Remote code execution; object injection; replay attacks', 'Avoid deserializing from untrusted sources; integrity checks (HMAC) on serialized data; use JSON instead of native serialization'],
               ],
             },
           },
           {
-            heading: 'API Security Principles',
+            heading: 'OWASP Top 10 Web Application Risks (2021)',
+            body: 'The OWASP Top 10 represents the most critical security risks to web applications, based on real-world prevalence and impact:',
             list: [
-              'Broken Object Level Authorization — validate authorization for every object access; "never trust the client."',
-              'Authentication on Every Endpoint — use OAuth 2.0 with proper scope; do not assume logged-in sessions suffice.',
-              'Input Validation — sanitize all JSON, XML, and query parameter inputs.',
-              'Minimal Data Exposure — return only the minimum necessary; least privilege in responses.',
-              'Rate Limiting and Throttling — protect against brute force, scraping, and DoS.',
-              'Error Handling — opaque responses to users; detailed logs internally.',
-              'API Lifecycle Management — deprecate old versions; keep documentation current.',
+              '1. Broken Access Control (most common) — users can perform actions or access data beyond their intended permissions; e.g., accessing another user\'s account by changing an ID in a URL. Mitigation: enforce access control server-side on every request; default deny.',
+              '2. Cryptographic Failures — sensitive data transmitted or stored without adequate encryption; use of deprecated algorithms (MD5, SHA-1, DES). Mitigation: TLS 1.2+ everywhere; AES-256 for data at rest; bcrypt/Argon2 for password hashing.',
+              '3. Injection (SQL, LDAP, OS, NoSQL) — untrusted data sent to an interpreter as part of a command or query. Mitigation: parameterized queries; allow-list validation; use of safe APIs.',
+              '4. Insecure Design — security vulnerabilities arising from missing or ineffective security controls in the design itself — not implementation bugs. Mitigation: threat modeling; secure design patterns; security requirements in user stories.',
+              '5. Security Misconfiguration — insecure default configurations; unnecessary features enabled; default credentials; detailed error messages. Mitigation: hardening guides; infrastructure-as-code with security checks; disable unused features.',
+              '6. Vulnerable and Outdated Components — libraries with known CVEs; unsupported software. Mitigation: SBOM; continuous SCA scanning; automated dependency updates.',
+              '7. Identification and Authentication Failures — weak passwords; no MFA; credential stuffing; predictable session tokens. Mitigation: MFA; secure session management; NIST password guidelines.',
+              '8. Software and Data Integrity Failures — CI/CD pipeline tampering; insecure deserialization; unsigned updates. Mitigation: code signing; signed pipeline artifacts; integrity verification.',
+              '9. Security Logging and Monitoring Failures — insufficient logging; no alerting on authentication failures; logs not monitored. Mitigation: comprehensive application logging; SIEM integration; tested incident response.',
+              '10. Server-Side Request Forgery (SSRF) — server makes HTTP requests to attacker-controlled URLs, potentially reaching internal services. Mitigation: allow-list outbound URLs; disable unnecessary URL redirect features; block internal IP ranges in outbound requests.',
+            ],
+          },
+          {
+            heading: 'API Security — OWASP API Security Top 10',
+            body: 'APIs have overtaken web applications as the primary attack surface. The OWASP API Security Top 10 highlights API-specific vulnerabilities:',
+            list: [
+              'Broken Object Level Authorization (BOLA/IDOR) — the most prevalent API vulnerability; attackers change object IDs in requests to access other users\' data. Validate authorization for every object access on the server side; never trust client-provided IDs.',
+              'Broken Authentication — weak API key schemes, missing token expiration, predictable tokens. Use OAuth 2.0 with proper scopes and short-lived tokens.',
+              'Broken Object Property Level Authorization — API returns more data properties than the consumer needs (over-expose), or allows consumers to modify properties they should not. Explicitly define and validate input/output schemas.',
+              'Unrestricted Resource Consumption — no rate limiting; attackers trigger large operations or make bulk requests. Implement rate limiting, throttling, and payload size limits.',
+              'Function Level Authorization — administrative API endpoints accessible to non-admin users. Enforce authorization on every endpoint; do not rely on obscurity.',
+              'Mass Assignment — API automatically binds request body properties to internal object fields, allowing attackers to set properties that should be read-only (e.g., account balance, admin flag). Explicitly whitelist bindable fields.',
+              'Security Misconfiguration — CORS misconfigured; TLS not enforced; debug endpoints exposed. API gateways should enforce TLS, proper CORS policies, and disable debug features.',
+              'Injection — SQL, NoSQL, OS command injection via API parameters. Same mitigations as web: parameterized queries, input validation.',
             ],
           },
           {
             heading: 'Secure Coding Core Practices',
             list: [
-              'Input Validation — validate type, length, format, and range; prefer allow-lists over deny-lists.',
-              'Output Encoding — encode user input before display to prevent XSS.',
-              'Authentication and Session Management — use proven libraries; strong password policies; session invalidation on logout.',
-              'Error Handling — log errors internally; display generic messages to users.',
-              'Least Privilege in Code — applications run with only necessary permissions.',
-              'Code Reuse and Dependencies — vet third-party libraries; use OWASP Dependency-Check and Snyk.',
+              'Input Validation — validate all input at every trust boundary: type, length, format, range, and character set. Use allow-lists (permitted values) rather than deny-lists (blocked values). Never trust client-supplied data.',
+              'Output Encoding — encode data before rendering in HTML, JavaScript, CSS, or other contexts to prevent XSS. Different encoding is required for different output contexts.',
+              'Parameterized Queries — use prepared statements or parameterized queries for all database interactions; never concatenate user input into SQL strings.',
+              'Authentication and Session Management — use proven, well-maintained authentication libraries; never roll your own crypto or session management. Invalidate sessions on logout; rotate session tokens on privilege changes.',
+              'Least Privilege in Code — the application process should run as a dedicated account with minimal OS permissions; database connections should use credentials with only required table access.',
+              'Dependency Vetting — every third-party library adds potential attack surface. Evaluate security history, maintenance status, and license before adoption. Use SCA tools to monitor for newly discovered CVEs in existing dependencies.',
             ],
           },
           {
-            heading: 'OWASP Top 10 Web Application Risks',
-            list: [
-              '1. Broken Access Control — users acting outside intended permissions.',
-              '2. Cryptographic Failures — weak encryption or unencrypted sensitive data.',
-              '3. Injection (SQL, LDAP, OS) — untrusted data sent to interpreters.',
-              '4. Insecure Design — missing or ineffective security controls at design level.',
-              '5. Security Misconfiguration — insecure default configurations.',
-              '6. Vulnerable and Outdated Components — libraries with known vulnerabilities.',
-              '7. Identification and Authentication Failures — weak session management or passwords.',
-              '8. Software and Data Integrity Failures — insecure deserialization, CI/CD tampering.',
-              '9. Security Logging and Monitoring Failures — inability to detect breaches.',
-              '10. Server-Side Request Forgery (SSRF) — server making requests to unintended locations.',
+            questions: [
+              { q: 'What is SQL injection and how is it prevented?', a: 'SQL injection occurs when user-controlled input is concatenated directly into a SQL query string, allowing an attacker to modify the query\'s logic — bypassing authentication (e.g., `\' OR \'1\'=\'1`), extracting database contents, modifying or deleting data, or even executing OS commands through the database. Prevention: always use parameterized queries (prepared statements) where user input is passed as a separate parameter that the database engine treats as data, never as SQL syntax. Input validation is a secondary defense; parameterization is the primary control.' },
+              { q: 'What is Cross-Site Scripting (XSS) and what are its three main types?', a: 'XSS occurs when user-supplied content is rendered in a browser without proper encoding, allowing attacker-controlled JavaScript to execute in the victim\'s browser context. Three types: (1) Reflected XSS — malicious script is in the request URL and reflected directly in the response; requires tricking the victim into clicking a crafted link. (2) Stored (Persistent) XSS — malicious script is stored in the database and served to all users who view the page — more dangerous as no user interaction beyond viewing is needed. (3) DOM-based XSS — the script is injected and executed through client-side JavaScript manipulation of the DOM. Prevention: output encoding; Content Security Policy; input validation.' },
+              { q: 'What is BOLA (Broken Object Level Authorization) in API security?', a: 'BOLA (also called Insecure Direct Object Reference, IDOR) is the most prevalent API vulnerability. It occurs when an API endpoint accepts an object ID (user ID, document ID, account number) from the client and accesses that object without verifying that the authenticated user is authorized to access it. An attacker who discovers the ID pattern can change it in requests to access other users\' data. Prevention: every object access must be validated server-side against the authenticated user\'s permissions — never assume the client will only request their own data.' },
+              { q: 'What is Server-Side Request Forgery (SSRF) and why is it particularly dangerous in cloud environments?', a: 'SSRF occurs when an attacker can cause the server to make HTTP requests to attacker-controlled URLs. In cloud environments, this is particularly dangerous because cloud instance metadata services (AWS IMDS at 169.254.169.254, Azure IMDS) return IAM credentials to any request from the instance. An attacker exploiting SSRF can make the server request the metadata endpoint, receive cloud IAM credentials, and use them to escalate privileges across cloud infrastructure. Prevention: allow-list permitted outbound URL destinations; block metadata service IP ranges in outbound firewall rules; require IMDSv2 (requires a PUT request first) in AWS.' },
+              { q: 'What is insecure deserialization and what impact can it have?', a: 'Deserialization converts serialized data (byte streams, JSON, XML) back into objects. Insecure deserialization occurs when untrusted data is deserialized without validation, allowing attackers to craft malicious serialized objects that, when deserialized, trigger arbitrary code execution (by exploiting gadget chains in deserialization libraries), inject unexpected objects, or bypass authentication. It is classified OWASP Top 10 #8. Prevention: avoid deserializing data from untrusted sources; use integrity checks (HMAC signatures) to verify serialized data authenticity; prefer data-only formats like JSON over native serialization; use allowlisted deserialization.' },
+              { q: 'What is a race condition vulnerability and how is the TOCTOU attack a specific form of it?', a: 'A race condition occurs when a program\'s behavior depends on the relative timing of events (threads, processes) operating on shared state without proper synchronization. A TOCTOU (Time-of-Check to Time-of-Use) attack exploits the time gap between when a security check is made (check) and when the resource is used (use) — an attacker modifies the resource in that gap to bypass the check. Example: a file permission check followed by file access, where the attacker swaps the file between check and access. Prevention: atomic check-and-act operations; file locking; reduce TOCTOU windows through proper use of synchronization primitives.' },
+              { q: 'Why is output encoding required in addition to input validation for XSS prevention?', a: 'Input validation checks that input conforms to expected format before it is processed — it may block obviously malicious input. However, input validation alone is insufficient for XSS because legitimate data (a person\'s name like "O\'Brien") can become dangerous when inserted into an HTML context without encoding. Output encoding transforms potentially dangerous characters into safe representations for the specific output context (e.g., < becomes &lt; in HTML). The correct prevention requires encoding at the point of output because the same data may be safe in one context (database storage) and dangerous in another (HTML rendering).' },
+              { q: 'What is mass assignment and how does it create a security vulnerability in APIs?', a: 'Mass assignment occurs when an API or framework automatically binds all properties from a request body to an internal object model — including properties that should not be user-settable. For example, if a user update endpoint uses mass assignment and the user object has an `isAdmin` property, an attacker can include `"isAdmin": true` in their request and elevate their own privileges. Prevention: explicitly define which properties can be bound from user input (allowlist binding); never expose internal object models directly; use separate input/output data transfer objects (DTOs) that only include the fields intended for client interaction.' },
+              { q: 'What is the difference between OWASP Top 10 #1 (Broken Access Control) and #5 (Security Misconfiguration)?', a: 'Broken Access Control is a design or implementation failure where the application does not correctly enforce what authenticated users are permitted to do — users can access other users\' data, perform administrative actions, or access resources without proper authorization. Security Misconfiguration is a deployment failure where security controls exist but are not correctly configured — default credentials left unchanged, unnecessary features enabled, verbose error messages exposed, or missing HTTP security headers. Broken Access Control is a flaw in authorization logic; Security Misconfiguration is a gap in operational hardening.' },
+              { q: 'What is the principle of "never trust the client" in secure API design?', a: 'Client-side controls (JavaScript validation, hidden form fields, UI restrictions) can be trivially bypassed using browser developer tools, intercepting proxies (Burp Suite), or direct API calls. Any data or claim sent by the client — object IDs, user roles, data values, permission flags — can be modified by an attacker before reaching the server. "Never trust the client" means all security-critical validation, authorization, and business logic must be enforced on the server side, regardless of what client-side controls exist. Client-side validation is a UX feature; server-side validation is a security control.' },
             ],
           },
         ],
       },
+      // ── 8.6 ──────────────────────────────────────────────────────────────
       {
         id: 'd8t6',
         title: '8.6 Securing AI-Assisted Development in the Modern SDLC',
         content: [
           {
-            heading: 'The New Reality: AI as a Coding Collaborator',
-            body: 'Developers increasingly rely on AI tools that generate entire functions and suggest architecture patterns. AI models do not truly understand code — they predict it based on patterns. This creates "insecure by suggestion" risk: AI may recommend outdated cryptographic functions, improper input validation, or unsafe dependencies that developers accept without scrutiny.',
+            body: 'AI-assisted development tools — GitHub Copilot, Cursor, Amazon CodeWhisperer, and similar systems — have rapidly become embedded in developer workflows. These tools can generate entire functions, suggest architectural patterns, and complete code blocks from natural language descriptions. Their widespread adoption changes the security calculus of software development in ways that are not yet fully understood by most organizations.',
+          },
+          {
+            body: 'The fundamental security challenge is that AI code generation tools do not "understand" security — they predict code based on statistical patterns in their training data. That training data includes vast amounts of historical code, much of which predates modern security standards, contains known vulnerabilities, or reflects deprecated practices. Organizations that adopt AI coding tools without appropriate governance are introducing a new unreviewed code contributor to their SDLC.',
+          },
+          {
+            heading: 'The "Insecure by Suggestion" Risk',
+            body: 'AI code generation models are pattern predictors, not security reasoners. Key risks:',
+            list: [
+              'Outdated patterns — AI models may suggest deprecated cryptographic functions (MD5 for password hashing, DES for encryption) because those patterns were common in their training data.',
+              'Insecure defaults — generated code may omit authentication checks, skip input validation, use hardcoded placeholders that developers leave in production, or fail to handle error conditions securely.',
+              'Context blindness — AI tools do not understand the security requirements of the specific application, threat model, or regulatory environment. They generate syntactically plausible code that may be semantically insecure.',
+              'Confidence amplification — developers may accept AI-generated code with less scrutiny than human-written code, particularly under time pressure, because it "looks right."',
+            ],
+            warning: 'Research has shown that developers using AI coding assistants are statistically more likely to introduce security vulnerabilities into their code than developers not using AI assistance, if those tools are not combined with security review tooling.',
           },
           {
             heading: 'Shift-Left for AI-Generated Code',
+            body: 'The principles of shift-left security apply with even greater urgency to AI-generated code, because the volume of code produced accelerates both productivity and potential vulnerabilities:',
             list: [
-              'Treat AI-generated code as untrusted input requiring the same review as third-party libraries.',
-              'Integrate SAST, DAST, and SCA tools into CI/CD pipelines that also analyze AI-generated components.',
-              'Every commit, merge, and deployment must pass automated security gates.',
-              'AI accelerates development — without automated controls, it also accelerates risk.',
+              'Treat AI-generated code as untrusted third-party code — it requires the same security review as any external library or contractor-written code.',
+              'Mandatory SAST on all AI-generated code — integrate SAST tools into the IDE and CI/CD pipeline to automatically scan all code regardless of origin.',
+              'SCA for AI-suggested dependencies — AI tools frequently suggest third-party libraries; every suggestion must be evaluated for known CVEs, active maintenance, and license compliance.',
+              'Security gates in CI/CD — every commit and pull request must pass automated security checks before merging; AI-generated code is not exempt.',
+              'Developer security training — developers must be trained to critically evaluate AI suggestions for security implications, not just functional correctness.',
             ],
           },
           {
             heading: 'AI Supply Chain Risks in Development',
+            body: 'AI tools themselves constitute a new software supply chain that must be secured:',
             table: {
               headers: ['Risk', 'Description', 'Mitigation'],
               rows: [
-                ['Model Hijacking', 'Attacker gains control over a model or manipulates its behavior via compromised dependencies', 'Verify model integrity; use trusted registries; monitor deployment pipelines'],
-                ['Inference Attacks', 'Analyzing model outputs to reconstruct sensitive training data', 'Limit query access; implement differential privacy; monitor query patterns'],
-                ['Poisoned Dependencies', 'Malicious ML libraries or datasets introduced into the development environment', 'SBOM for all AI components; pin dependency versions; scan before use'],
+                ['Model Hijacking', 'Attacker compromises an AI coding tool or its update mechanism to manipulate code suggestions', 'Use only approved, enterprise-licensed AI tools; verify tool integrity; monitor for behavioral changes in suggestions'],
+                ['Training Data Poisoning', 'Attacker contributes malicious code to public repositories that becomes training data, causing the model to suggest backdoored patterns', 'Review AI-generated code with security-focused SAST; do not treat AI suggestions as authoritative'],
+                ['Inference Attacks on AI Tools', 'Attackers probe AI tools to reconstruct sensitive code or credentials from training data', 'Do not use proprietary code or secrets as AI tool input without reviewing data handling policies'],
+                ['Poisoned Dependencies', 'AI tools suggest malicious or compromised packages from public registries', 'SCA scanning of all suggested dependencies; use approved package registries; verify package integrity'],
+                ['Data Exfiltration via AI Tools', 'Code pasted into cloud-based AI tools may be used for model training, exposing proprietary IP', 'Review data handling policies of AI tools; use self-hosted models for sensitive codebases; data classification policies for AI use'],
               ],
             },
           },
           {
             heading: 'Governing AI Tools in Development',
+            body: 'Organizations must establish explicit governance for AI development tool use — neither blanket prohibition (unrealistic) nor uncontrolled adoption (risky):',
             list: [
-              'Evaluate AI coding tools with the same rigor as third-party software — SBOM, vendor security practices, data handling.',
-              'Define policies for which AI tools are approved for development use (prevent shadow AI in pipelines).',
-              'Foster a culture of skepticism — developers should treat AI suggestions as starting points, not authoritative solutions.',
-              'Security must be a continuous process spanning design, development, testing, deployment, and maintenance when AI is involved.',
+              'Approved tool registry — define which AI coding tools are approved, under what conditions, and for what code sensitivity levels. Prevent unsanctioned AI tool use (shadow AI in pipelines).',
+              'Data handling review — understand what code data is sent to AI tool providers; whether it is used for model training; and whether it is encrypted in transit and at rest. For highly sensitive codebases, self-hosted models may be required.',
+              'Code review requirements — establish policy requiring security-focused code review for all AI-generated code above a defined risk threshold.',
+              'SBOM for AI components — if AI-generated code introduces new dependencies, they must appear in the SBOM.',
+              'Incident response for AI-specific failures — develop playbooks for responding to discovered backdoored AI-generated code, compromised AI tool credentials, or evidence that AI tools have been manipulated.',
+              'Culture of skepticism — train developers to treat AI suggestions as starting points that require reasoning and validation, not authoritative answers.',
+            ],
+          },
+          {
+            questions: [
+              { q: 'Why are developers statistically more likely to introduce vulnerabilities when using AI coding assistants without security tooling?', a: 'AI coding assistants generate syntactically plausible code based on statistical patterns, not security reasoning. They may suggest deprecated cryptographic functions, skip input validation, omit authentication checks, or use insecure defaults — patterns that were common in their training data. Developers under time pressure may accept suggestions without critical security review, trusting that AI-generated code is more reliable than it is. Research has confirmed this effect: AI assistance without complementary security tooling increases vulnerability introduction rates.' },
+              { q: 'What is the "insecure by suggestion" risk in AI-assisted development?', a: 'Insecure by suggestion describes the risk that AI coding tools recommend insecure code patterns because those patterns were prevalent in their training data. AI models predict what code typically looks like in similar contexts — they do not evaluate whether that code is secure for the current application, threat model, or regulatory requirement. Examples: suggesting MD5 for password hashing because MD5 was widely used historically; omitting error handling because many examples skip it; generating SQL string concatenation because it is syntactically simpler than parameterized queries.' },
+              { q: 'What is training data poisoning in the context of AI-assisted development?', a: 'Training data poisoning is an attack where an adversary deliberately contributes malicious code to public repositories (GitHub, Stack Overflow) with the goal of that code becoming part of the training data for AI coding tools. If successful, the poisoned patterns propagate into the tool\'s suggestions, causing it to recommend vulnerable or backdoored code patterns to developers who use the tool. The effect can be subtle — slightly weakening cryptographic implementations, adding nearly invisible logic errors — and is very difficult to detect without careful security review.' },
+              { q: 'Why should AI-generated code be treated as untrusted third-party code?', a: 'AI-generated code has the same characteristics that make third-party code risky: its provenance is opaque (based on patterns from unknown historical sources), its security properties are not guaranteed, it may contain patterns that were acceptable historically but are now known to be insecure, and it was not written with knowledge of the specific application\'s security requirements and threat model. Just as organizations scan and review third-party libraries before inclusion, AI-generated code should be subjected to SAST, security review, and the same quality gates as human-written code.' },
+              { q: 'What data handling risks exist when using cloud-based AI coding tools?', a: 'When developers paste code into cloud-based AI tools, that code may be: transmitted to the provider\'s servers (potentially logging or storing proprietary IP and business logic); used to train or fine-tune future model versions (making proprietary code available to other users through suggestions); or stored in ways not compliant with data residency requirements. Organizations with sensitive codebases (security tools, financial systems, classified projects) must review AI tool data handling policies, use enterprise agreements with data protection commitments, or deploy self-hosted models that do not transmit code externally.' },
+              { q: 'What is shadow AI in the development context and why is it a governance concern?', a: 'Shadow AI refers to AI coding tools, AI-powered code completion services, or AI-assisted development platforms adopted by developers or teams without organizational approval or security review. Like shadow IT broadly, shadow AI creates ungoverned risk: code generated by unapproved tools may have different data handling policies (proprietary code sent to third parties), produce code that bypasses approved security scanning tools, or introduce AI tool vulnerabilities into the pipeline. Organizations need an approved AI tool registry and policies preventing unauthorized tool use in development workflows.' },
+              { q: 'What is model hijacking in the AI development supply chain?', a: 'Model hijacking occurs when an attacker gains unauthorized control over an AI tool or its update mechanism, using that control to manipulate code suggestions — for example, causing the model to suggest code with subtle backdoors, weak cryptographic parameters, or malicious dependency recommendations. It is the AI equivalent of a supply chain compromise of a software package. Mitigations include: using only enterprise-licensed tools from verified providers; monitoring AI tool behavior for unexpected changes in suggestion patterns; verifying model integrity hashes; and treating any AI tool update as a potential supply chain event requiring review.' },
+              { q: 'What SBOM obligations apply to AI-generated code?', a: 'When AI-generated code introduces new third-party dependencies — through suggested import statements, library recommendations, or generated package management files — those dependencies become part of the application\'s software supply chain and must appear in the SBOM. The fact that a dependency was suggested by AI rather than chosen by a developer does not exempt it from inventory, CVE monitoring, or license compliance requirements. CI/CD pipelines should automatically regenerate the SBOM on every build to capture AI-introduced dependencies.' },
+              { q: 'What incident response capability should organizations develop specifically for AI-assisted development failures?', a: 'Organizations should develop playbooks for: (1) discovered backdoored AI-generated code — how to identify all code from a specific AI tool or time period, assess impact, and remove malicious patterns; (2) AI tool credential compromise — revoke access, audit recent code suggestions, assess whether malicious code was introduced during the compromise window; (3) evidence of AI tool manipulation — detect if suggestion patterns have changed unexpectedly, quarantine the tool, and assess impact of any manipulated suggestions that reached production; (4) proprietary code exposure through AI tools — assess what data was transmitted, invoke contractual notification requirements, and evaluate regulatory obligations.' },
+              { q: 'How should security training be adapted for developers using AI coding tools?', a: 'Developer security training must evolve beyond "here is how to write secure code" to include: evaluating AI suggestions specifically for security — what categories of vulnerability might appear in AI-generated code? How do you recognize outdated cryptographic patterns or missing validation? Developers must understand that AI suggestions are starting points requiring critical evaluation, not authoritative implementations. Training should include practical exercises identifying security flaws in AI-generated code samples, and developers should be familiar with the SAST and SCA tools integrated into their workflow that serve as the automated second line of defense.' },
             ],
           },
         ],
