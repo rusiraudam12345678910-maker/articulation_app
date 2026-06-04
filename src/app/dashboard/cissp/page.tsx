@@ -132,6 +132,23 @@ export default function CISSPPage() {
             <p className="text-sm text-zinc-500 dark:text-zinc-400">{activeDomain.summary}</p>
           </div>
 
+          {/* Topic navigation pills */}
+          <div className="flex gap-1.5 flex-wrap mb-6">
+            {activeDomain.topics.map((topic) => (
+              <button
+                key={topic.id}
+                onClick={() => setActiveTopic(topic)}
+                className={`rounded-full px-2.5 py-1 text-xs font-medium transition-colors whitespace-nowrap ${
+                  activeTopic.id === topic.id
+                    ? 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900'
+                    : 'border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                }`}
+              >
+                {topic.title}
+              </button>
+            ))}
+          </div>
+
           {/* Topic content */}
           <div className="flex flex-col gap-8">
             <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 border-b border-zinc-200 dark:border-zinc-800 pb-3">
