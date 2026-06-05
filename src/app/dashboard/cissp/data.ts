@@ -1450,6 +1450,22 @@ export const domains: Domain[] = [
             body: 'Quantitative analysis assigns tangible dollar values to asset losses, while qualitative analysis assesses subjective factors. Most organizations utilize a blend of both methodologies to prioritize risks based on asset-threat pairings and rank them in order of criticality, aiming to minimize the overall risk exposure. In the process of risk ranking, quantitative analysis involves determining the anticipated annual cost of risk to the organization, known as the Annualized Loss Expectancy (ALE). This can be computed using the formula:\n\nALE = SLE x ARO\nALE = (AV x EF) x ARO\n\nHere, the acronyms correspond to:\n- AV: Asset Value: The estimated financial worth or value of an asset within an organization.\n- EF: Exposure Factor: The percentage of asset value likely to be lost in the event of a security breach.\n- SLE: Single Loss Expectancy: The anticipated monetary loss from a single occurrence of a security incident.\n- ARO: Annualized Rate of Occurrence: The estimated frequency or likelihood of a security incident occurring within a year.\n- ALE: Annualized Loss Expectancy: The projected annual financial impact resulting from potential security incidents, calculated by multiplying the SLE by the ARO.',
           },
           {
+            heading: 'Qualitative vs. Quantitative Risk Analysis',
+            table: {
+              headers: ['Aspect', 'Quantitative', 'Qualitative'],
+              rows: [
+                ['Output', 'Dollar values (ALE, SLE, ARO)', 'Ratings or rankings (High/Medium/Low)'],
+                ['Data Required', 'Historical data, asset values, loss records', 'Expert judgment, interviews, surveys'],
+                ['Objectivity', 'Objective — based on numbers', 'Subjective — based on perception'],
+                ['Effort', 'High — complex calculations and data collection', 'Lower — faster to perform'],
+                ['Accuracy', 'Highly accurate when data is available', 'Less precise but useful when data is scarce'],
+                ['Best Used When', 'Data is available; justifying security budgets', 'Quick assessment; intangible assets involved'],
+                ['Example Techniques', 'ALE calculation, Monte Carlo simulation', 'Delphi technique, risk matrices, brainstorming'],
+              ],
+            },
+            tip: 'Monte Carlo simulation runs thousands of random scenarios to model risk probability distributions — useful when exact probabilities are unknown but ranges can be estimated.',
+          },
+          {
             questions: [
               { q: 'Briefly describe the two main approaches to risk analysis: quantitative and qualitative.', a: 'Quantitative risk analysis uses numerical data to determine the financial impact and probability of losses. Qualitative analysis considers subjective factors and the impact on intangible assets like reputation.' },
               { q: 'What does the acronym SLE stand for, and how is it calculated?', a: 'SLE stands for Single Loss Expectancy and represents the estimated monetary loss from a single security incident. It is calculated by multiplying the Asset Value (AV) by the Exposure Factor (EF): SLE = AV x EF.' },
@@ -2798,6 +2814,32 @@ export const domains: Domain[] = [
             body: 'Organizations can leverage several technologies and methodologies to strengthen their data protection strategies:\n1. Encryption: Transforms data into an unreadable format, making it incomprehensible to unauthorized individuals.\n2. Data Loss Prevention (DLP): DLP technologies and practices prevent sensitive data loss or unauthorized access. These solutions identify, classify, and protect data throughout its lifecycle, covering data at rest, in transit, and in use.\n3. Digital Rights Management (DRM): DRM focuses on controlling the use, modification, and distribution of intellectual property. It employs techniques like licensing, persistent online authentication, continuous audit trails, and automatic expiration.\n4. Information Rights Management (IRM): A related technology to DRM that protects sensitive data from unauthorized access by controlling who can view, copy, delete, or modify the data.\n5. Cloud Access Security Broker (CASB): CASBs act as intermediaries between cloud users and cloud services, monitoring and enforcing security policies for cloud-based data. There are three primary types: forward proxy, reverse proxy, and API-based.',
           },
           {
+            heading: 'DLP Deployment Modes',
+            table: {
+              headers: ['DLP Mode', 'Where Deployed', 'What It Protects', 'Example Use Case'],
+              rows: [
+                ['Network DLP', 'Network perimeter (proxy, gateway)', 'Data in transit — monitors traffic leaving the network', 'Block SSNs from being emailed outside the org'],
+                ['Endpoint DLP', 'Workstations, laptops, mobile devices', 'Data in use — monitors copy/paste, USB transfers, screenshots', 'Prevent copying sensitive files to a USB drive'],
+                ['Cloud DLP / CASB', 'Cloud applications and services', 'Data stored or shared in cloud platforms', 'Detect PII uploaded to personal cloud storage'],
+                ['Storage DLP', 'File servers, databases, SAN/NAS', 'Data at rest — scans stored files for sensitive content', 'Identify unencrypted credit card data in file shares'],
+              ],
+            },
+          },
+          {
+            heading: 'Data Masking Techniques',
+            table: {
+              headers: ['Technique', 'Description', 'Use Case'],
+              rows: [
+                ['Static Masking', 'Creates a masked copy of the database; original is unchanged', 'Development and testing environments'],
+                ['Dynamic Masking', 'Masks data in real-time at query time without altering stored data', 'Production environments where some roles see masked data'],
+                ['On-the-Fly Masking', 'Masks data during ETL (Extract-Transform-Load) processes', 'Moving data between systems or environments'],
+                ['Tokenization', 'Replaces sensitive values with non-sensitive tokens; mapping stored separately', 'Payment card processing (PCI DSS)'],
+                ['Anonymization', 'Irreversibly removes or transforms PII so individuals cannot be re-identified', 'Analytics, data sharing, AI training datasets'],
+                ['Pseudonymization', 'Replaces identifiers with pseudonyms; re-identification possible with key', 'GDPR-compliant processing where re-identification may be needed'],
+              ],
+            },
+          },
+          {
             note: 'A DLP system works by monitoring, detecting, and blocking the unauthorized transmission of sensitive data across networks or endpoints. It uses content inspection techniques such as pattern matching, keyword recognition, and contextual analysis to identify sensitive information.\n\nCloud Access Security Broker (CASB) solutions: Forward Proxy CASB sits between the user and the cloud application, intercepting user requests. Reverse Proxy CASB is deployed in front of cloud applications, controlling access. API-based CASB leverages APIs to interact directly with cloud services for deep visibility and control.',
           },
           {
@@ -3942,6 +3984,58 @@ export const domains: Domain[] = [
             tip: 'Mnemonic for OSI layers top-to-bottom: "All People Seem To Need Data Processing" (Application, Presentation, Session, Transport, Network, Data Link, Physical).',
           },
           {
+            heading: 'Network Types by Scope',
+            table: {
+              headers: ['Type', 'Name', 'Coverage', 'Typical Speed', 'Example'],
+              rows: [
+                ['PAN', 'Personal Area Network', 'Within ~10 meters', 'Up to 3 Mbps (Bluetooth)', 'Bluetooth headset, smartwatch'],
+                ['LAN', 'Local Area Network', 'Single building or campus', '1 Gbps–10 Gbps', 'Office network, home network'],
+                ['CAN', 'Campus Area Network', 'Multiple buildings in a campus', '1–10 Gbps', 'University campus, corporate campus'],
+                ['MAN', 'Metropolitan Area Network', 'City or metropolitan area', '10–100 Mbps–Gbps', 'City Wi-Fi, cable TV networks'],
+                ['WAN', 'Wide Area Network', 'Country or global', 'Varies (10 Mbps–100 Gbps leased lines)', 'The Internet, MPLS enterprise WAN'],
+                ['SAN', 'Storage Area Network', 'Data center (specialized)', '4–32 Gbps (Fibre Channel)', 'Block storage for servers'],
+                ['WLAN', 'Wireless LAN', 'Building/campus wireless', '54 Mbps–9.6 Gbps (Wi-Fi 6)', '802.11 corporate Wi-Fi'],
+              ],
+            },
+          },
+          {
+            heading: 'Common Network Ports Reference',
+            table: {
+              headers: ['Port', 'Protocol', 'Service', 'Security Note'],
+              rows: [
+                ['20/21', 'TCP', 'FTP (Data / Control)', 'Unencrypted — use SFTP (22) or FTPS instead'],
+                ['22', 'TCP', 'SSH / SFTP / SCP', 'Encrypted; change default port; use key-based auth'],
+                ['23', 'TCP', 'Telnet', 'Unencrypted — never use; replace with SSH'],
+                ['25', 'TCP', 'SMTP (Email send)', 'No authentication by default; configure SPF/DKIM/DMARC'],
+                ['53', 'TCP/UDP', 'DNS', 'UDP for queries; TCP for zone transfers — restrict zone transfers'],
+                ['67/68', 'UDP', 'DHCP (Server/Client)', 'Rogue DHCP attacks; use DHCP snooping on switches'],
+                ['69', 'UDP', 'TFTP', 'No authentication; use only on isolated networks'],
+                ['80', 'TCP', 'HTTP', 'Unencrypted; redirect all to HTTPS (443)'],
+                ['110', 'TCP', 'POP3', 'Unencrypted email retrieval; use POP3S (995)'],
+                ['119', 'TCP', 'NNTP', 'Usenet newsgroups; largely legacy'],
+                ['123', 'UDP', 'NTP (Time)', 'Amplification DDoS source; use authenticated NTP'],
+                ['135-139', 'TCP/UDP', 'NetBIOS / RPC', 'Common exploit target; block at perimeter'],
+                ['143', 'TCP', 'IMAP', 'Unencrypted; use IMAPS (993)'],
+                ['161/162', 'UDP', 'SNMP (Agent/Trap)', 'v1/v2 unencrypted; use SNMPv3 with authentication'],
+                ['389', 'TCP/UDP', 'LDAP', 'Unencrypted; use LDAPS (636) or STARTTLS'],
+                ['443', 'TCP', 'HTTPS', 'TLS-encrypted HTTP; verify certificate validity'],
+                ['445', 'TCP', 'SMB (Windows File Sharing)', 'EternalBlue, ransomware vector; block at perimeter'],
+                ['514', 'UDP', 'Syslog', 'Unencrypted; use TCP syslog with TLS'],
+                ['636', 'TCP', 'LDAPS (LDAP over TLS)', 'Encrypted LDAP'],
+                ['993', 'TCP', 'IMAPS', 'Encrypted IMAP'],
+                ['995', 'TCP', 'POP3S', 'Encrypted POP3'],
+                ['1433', 'TCP', 'MS SQL Server', 'Never expose to internet; restrict to app servers only'],
+                ['1521', 'TCP', 'Oracle Database', 'Never expose to internet'],
+                ['3306', 'TCP', 'MySQL / MariaDB', 'Never expose to internet'],
+                ['3389', 'TCP', 'RDP (Remote Desktop)', 'High-value attack target; use VPN + NLA + MFA'],
+                ['5432', 'TCP', 'PostgreSQL', 'Never expose to internet'],
+                ['5900', 'TCP', 'VNC', 'Often unencrypted; use VPN tunnel or SSH tunnel'],
+                ['8080/8443', 'TCP', 'HTTP/HTTPS Alternate', 'Web proxy or alternate web service'],
+              ],
+            },
+            tip: 'CISSP exam focuses on well-known ports (0–1023). Know which services are unencrypted and their encrypted alternatives.',
+          },
+          {
             heading: 'TCP/IP Model (DoD Model)',
             body: 'The practical model underlying the internet. Four layers that map to OSI layers.',
             table: {
@@ -4162,6 +4256,33 @@ export const domains: Domain[] = [
               ],
             },
             warning: 'Dual-stack networks must apply consistent security policies to both IPv4 and IPv6. Firewalls and IPS rules that only inspect IPv4 traffic leave IPv6 tunneling as a blind spot.',
+          },
+          {
+            heading: 'Converged Protocols',
+            body: 'Converged protocols combine multiple communication types over a single network infrastructure, reducing costs but introducing new security considerations.',
+            table: {
+              headers: ['Protocol', 'Description', 'Security Concern'],
+              rows: [
+                ['VoIP (Voice over IP)', 'Transmits voice calls over IP networks', 'Eavesdropping, toll fraud, VLAN separation required'],
+                ['iSCSI', 'Transmits SCSI storage commands over IP networks', 'No encryption by default; use IPSec or CHAP authentication'],
+                ['FCoE (Fibre Channel over Ethernet)', 'Fibre Channel storage traffic over Ethernet', 'Lossless Ethernet required; separate from data traffic'],
+                ['MPLS (Multiprotocol Label Switching)', 'Forwards packets using labels for QoS and traffic engineering', 'Does not encrypt; relies on provider security'],
+                ['ISDN (Integrated Services Digital Network)', 'Legacy digital phone network carrying voice and data', 'Largely replaced by VoIP; wardialing attacks'],
+              ],
+            },
+          },
+          {
+            heading: 'Kerberos Authentication Protocol',
+            body: 'Kerberos is a ticket-based authentication protocol used in Windows Active Directory and many Unix/Linux environments. It provides mutual authentication and single sign-on (SSO).',
+            list: [
+              'KDC (Key Distribution Center) — the trusted third party; contains the Authentication Server (AS) and Ticket-Granting Server (TGS).',
+              'Step 1 (AS Exchange): Client sends username to AS → AS returns an encrypted TGT (Ticket-Granting Ticket) and session key. Client decrypts with its password-derived key.',
+              'Step 2 (TGS Exchange): Client presents TGT to TGS with request for service ticket → TGS returns a Service Ticket for the target server.',
+              'Step 3 (CS Exchange): Client presents Service Ticket to the application server → server validates and grants access.',
+              'Mutual Authentication — client and server both prove identity; prevents impersonation.',
+              'Ticket lifetime — typically 8–10 hours; reduces exposure if ticket is stolen.',
+            ],
+            warning: 'Kerberoasting: attackers request service tickets for accounts with SPNs (Service Principal Names) and crack them offline. Mitigation: use strong service account passwords (25+ characters) and Managed Service Accounts.',
           },
           {
             heading: 'Software-Defined Networking (SDN)',
@@ -4402,6 +4523,41 @@ export const domains: Domain[] = [
               'DNS over HTTPS (DoH) / DNS over TLS (DoT) — encrypts DNS queries to prevent eavesdropping and tampering in transit.',
               'Split-Horizon DNS — different DNS responses for internal and external queries; prevents internal network topology disclosure.',
               'DNS Sinkholing — redirects malicious domain queries to a controlled server for blocking and threat intelligence.',
+            ],
+          },
+          {
+            heading: 'PBX Security and Voice Communications',
+            body: 'PBX (Private Branch Exchange) systems manage internal and external voice calls. Legacy PBX and modern IP-PBX systems face distinct threat landscapes.',
+            list: [
+              'PBX Toll Fraud — attacker gains unauthorized access to PBX to make free international calls at the organization\'s expense; often via default credentials or voicemail-to-PSTN forwarding.',
+              'Phreaking — historical term for phone system hacking; manipulating tone signaling to gain unauthorized access to phone networks.',
+              'IP-PBX Risks — SIP (Session Initiation Protocol) vulnerabilities, registration hijacking, eavesdropping on unencrypted VoIP calls.',
+              'Countermeasures: change all default PBX credentials, restrict international dialing by user role, enable call detail recording for anomaly detection, use SRTP (Secure RTP) for call encryption.',
+              'VLAN Segregation — place VoIP phones on dedicated voice VLAN, separate from data traffic, to prevent sniffing and QoS manipulation.',
+            ],
+            warning: 'PBX toll fraud can result in thousands of dollars in unexpected phone bills. Monitor call detail records for unusual international calls, especially to high-risk country codes.',
+          },
+          {
+            heading: 'Network Functions Virtualization (NFV)',
+            body: 'NFV replaces dedicated network hardware appliances (firewalls, load balancers, IDS) with software running on standard virtualized infrastructure.',
+            list: [
+              'Traditional networking: each function requires dedicated hardware (physical firewall, physical load balancer, etc.).',
+              'NFV: these functions become Virtual Network Functions (VNFs) running as VMs or containers on commodity servers.',
+              'Benefits: rapid deployment, cost reduction, elastic scaling, easier updates.',
+              'Security risks: hypervisor attacks (VM escape), shared resource contention, management plane exposure, software bugs in VNFs.',
+              'NFV Management and Orchestration (MANO) — the framework for deploying and managing VNFs; a high-value attack target.',
+              'Relationship to SDN: often deployed together; SDN manages traffic flow, NFV provides the security and network service functions that traffic flows through.',
+            ],
+          },
+          {
+            heading: 'Cloud Interconnects and Internet Exchange Points (IXPs)',
+            body: 'Understanding how organizations connect to cloud providers and the broader internet is essential for network security architecture.',
+            list: [
+              'Internet Exchange Point (IXP) — a physical location where multiple ISPs and networks exchange internet traffic directly, reducing latency and costs.',
+              'Direct Cloud Connect — dedicated private circuit to cloud provider (AWS Direct Connect, Azure ExpressRoute, Google Cloud Interconnect); does not traverse public internet; lower latency, higher cost.',
+              'CDN (Content Delivery Network) — distributes content across edge servers globally; reduces latency; DDoS mitigation capability; security concern: content integrity and cache poisoning.',
+              'Transit ISP — organization that carries traffic between other ISPs; BGP hijacking risk if routing security (RPKI) is not implemented.',
+              'RPKI (Resource Public Key Infrastructure) — cryptographic validation of BGP route origins; prevents BGP route hijacking (e.g., redirecting traffic to malicious networks).',
             ],
           },
           {
@@ -6424,6 +6580,70 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Firewall Types — Detailed Comparison',
+            table: {
+              headers: ['Firewall Type', 'OSI Layer', 'How It Works', 'Strengths', 'Limitations'],
+              rows: [
+                ['Packet Filtering', '3–4', 'Filters by source/dest IP, port, protocol; each packet evaluated independently', 'Fast, low overhead, simple', 'Stateless — cannot track sessions; easily spoofed'],
+                ['Stateful Inspection', '3–4', 'Tracks connection state table; validates packets against established session', 'Blocks out-of-state packets, SYN floods', 'Cannot inspect application payload'],
+                ['Application Layer / Proxy', '7', 'Terminates and re-initiates connections; full protocol understanding', 'Deep application inspection; content filtering', 'Higher latency; limited protocol support; complex'],
+                ['NGFW (Next-Gen Firewall)', '3–7', 'DPI + application identification + IPS + user awareness + SSL inspection', 'Most comprehensive; one device for multiple functions', 'Resource-intensive; SSL inspection raises privacy concerns'],
+                ['WAF (Web Application Firewall)', '7', 'HTTP/HTTPS focused; blocks OWASP Top 10, SQL injection, XSS, CSRF', 'Purpose-built for web app protection', 'Limited to HTTP/S; not a replacement for secure coding'],
+                ['Unified Threat Management (UTM)', '3–7', 'Combined firewall + IPS + antivirus + content filtering + VPN', 'Single appliance, simplified management', 'Single point of failure; may underperform vs dedicated devices'],
+              ],
+            },
+          },
+          {
+            heading: 'Malware Types — Comprehensive Reference',
+            table: {
+              headers: ['Type', 'Description', 'Propagation', 'Detection Difficulty'],
+              rows: [
+                ['Virus', 'Attaches to legitimate files; executes when host file runs', 'Requires user action to spread (copy file, run program)', 'Low–Medium — signature detection effective'],
+                ['Worm', 'Self-replicates across networks without user action', 'Exploits network vulnerabilities or email; spreads autonomously', 'Medium — fast spread; network anomaly detection'],
+                ['Trojan', 'Appears legitimate; carries hidden malicious payload', 'Disguised as software; user installs willingly', 'Medium — no self-replication; behavior analysis needed'],
+                ['Ransomware', 'Encrypts victim data; demands payment for decryption key', 'Phishing email, exploit kits, RDP brute force', 'Low–Medium — rapid file modification detectable'],
+                ['Spyware', 'Secretly monitors user activity; exfiltrates data', 'Bundled with free software; drive-by downloads', 'Medium — hides activity; network monitoring helps'],
+                ['Adware', 'Displays unwanted advertisements; may track browsing habits', 'Bundled with software installers', 'Low — visible behavior; often not malicious'],
+                ['Rootkit', 'Hides its presence by modifying OS at kernel or firmware level', 'Delivered via exploit or social engineering', 'High — hides from OS; requires specialized detection tools'],
+                ['Keylogger', 'Records keystrokes to capture credentials and sensitive data', 'Installed via trojan, physical access, or exploit', 'Medium — can be hardware or software-based'],
+                ['Botnet', 'Network of compromised devices controlled by C2 server', 'Malware infection; often used for DDoS, spam, mining', 'Medium — C2 traffic analysis; behavioral patterns'],
+                ['Logic Bomb', 'Malicious code dormant until triggered by specific condition or date', 'Planted by insider threat or malware', 'High — dormant until trigger; hard to detect proactively'],
+                ['Fileless Malware', 'Operates entirely in memory; no files written to disk', 'PowerShell, WMI, macro execution; LOLBins', 'High — evades file-based AV; requires memory/behavior analysis'],
+                ['Polymorphic Malware', 'Changes its code signature with each infection to evade detection', 'Same as original malware type but mutates', 'High — evades signature detection; behavioral analysis required'],
+              ],
+            },
+            tip: 'Logic bombs are often planted by disgruntled insiders. Separation of duties and code review help detect them before triggering.',
+          },
+          {
+            heading: 'Honeypot Complexity Levels',
+            table: {
+              headers: ['Type', 'Interaction Level', 'Description', 'Risk', 'Value'],
+              rows: [
+                ['Low-Interaction', 'Limited — simulated services only', 'Emulates specific ports/services; cannot be fully compromised', 'Low — attacker cannot gain real access', 'Detects scanning and initial probes'],
+                ['Medium-Interaction', 'Partial — realistic-looking environment', 'Simulates realistic OS behavior; may allow some attacker actions', 'Medium — bounded environment', 'Captures more attack techniques'],
+                ['High-Interaction', 'Full — real systems', 'Actual OS/applications; attacker can fully compromise it', 'High — attacker gets real system access', 'Maximum intelligence; captures full TTPs'],
+                ['Honeynet', 'Full — network of real systems', 'Multiple interconnected real systems mimicking production', 'High — real network at risk', 'Most realistic; captures lateral movement'],
+              ],
+            },
+            warning: 'High-interaction honeypots and honeynets must be carefully isolated — if an attacker pivots from a honeypot to production systems, the deception becomes a liability. Use strict egress filtering.',
+          },
+          {
+            heading: 'Advanced Security Operations Tools',
+            table: {
+              headers: ['Technology', 'Description', 'Primary Use Case'],
+              rows: [
+                ['SIEM', 'Security Information and Event Management — centralized log collection, correlation, and alerting', 'Threat detection, compliance reporting, forensic investigation'],
+                ['SOAR', 'Security Orchestration, Automation, and Response — automates incident response playbooks', 'Reduce analyst toil; accelerate response to common incidents'],
+                ['UEBA', 'User and Entity Behavior Analytics — ML-based baseline + anomaly detection per user/entity', 'Detect insider threats, compromised accounts, privilege abuse'],
+                ['NTA/NDR', 'Network Traffic Analysis / Network Detection and Response — deep behavioral analysis of network flows', 'Detect C2 traffic, lateral movement, data exfiltration'],
+                ['EDR', 'Endpoint Detection and Response — continuous endpoint monitoring and investigation capability', 'Detect and respond to endpoint compromises'],
+                ['XDR', 'Extended Detection and Response — correlates telemetry across endpoint, network, cloud, email', 'Unified threat detection across attack surface'],
+                ['TIP', 'Threat Intelligence Platform — aggregates and operationalizes threat intelligence feeds', 'IOC management, contextual enrichment of alerts'],
+                ['MSSP', 'Managed Security Service Provider — outsourced security operations (SOC, monitoring, response)', 'Organizations without resources for 24/7 in-house SOC'],
+              ],
+            },
+          },
+          {
             heading: 'Anti-Malware Layers',
             list: [
               'Signature detection — known malware patterns.',
@@ -6603,12 +6823,19 @@ export const domains: Domain[] = [
             },
           },
           {
-            heading: 'Recovery Sites',
-            list: [
-              'Hot Site — fully operational, near real-time data synchronization; recovery time: minutes to seconds; most expensive; requires continuous updates and licensing.',
-              'Warm Site — pre-installed systems with delayed data replication; recovery time: hours to one day; moderate cost; requires periodic maintenance.',
-              'Cold Site — basic infrastructure only, no pre-installed hardware or data; recovery time: days to weeks; most cost-effective; ideal for non-critical applications.',
-            ],
+            heading: 'Recovery Sites — Detailed Comparison',
+            table: {
+              headers: ['Site Type', 'What\'s There', 'RTO Capability', 'Data Lag', 'Relative Cost', 'Best For'],
+              rows: [
+                ['Hot Site', 'Full hardware + software + near-real-time data replication', 'Minutes to seconds', 'Minutes or seconds', 'Highest (≈ full duplicate data center)', 'Mission-critical systems; very short RTO requirements'],
+                ['Warm Site', 'Hardware and software pre-installed; periodic data replication', 'Hours to 1 day', 'Hours to days', 'Moderate', 'Important systems; can tolerate short data loss'],
+                ['Cold Site', 'Basic infrastructure only: power, cooling, network connectivity', 'Days to weeks', 'Days to weeks (manual restore from backup)', 'Lowest', 'Non-critical systems; organizations with limited budgets'],
+                ['Mobile Site', 'Self-contained trailer with equipment; deployable to any location', 'Hours', 'Varies', 'High (equipment + logistics)', 'Geographic disaster areas; remote operations'],
+                ['Cloud DR (DRaaS)', 'Cloud-based virtual infrastructure; automated failover', 'Minutes to hours', 'Minutes (with replication)', 'Variable (pay-as-you-go)', 'Organizations preferring opex over capex'],
+                ['Mirrored Site', 'Fully identical active-active site; both sites run simultaneously', 'Seconds (automatic failover)', 'Zero (synchronous)', 'Highest — double infrastructure', 'Highest availability requirements; financial/healthcare'],
+              ],
+            },
+            tip: 'The hotter the site, the shorter the RTO — but the higher the cost. Choose based on your BIA-defined RTO requirements for each system, not a blanket policy.',
           },
           {
             heading: 'System Resilience and High Availability',
@@ -7179,6 +7406,22 @@ export const domains: Domain[] = [
           },
           {
             body: 'Securing the development ecosystem requires applying the same security principles used for production systems — least privilege, segregation of duties, access control, logging, and vulnerability management — to the tools and infrastructure that create software. The CI/CD pipeline that builds and deploys production software should be treated with the same security rigor as production itself.',
+          },
+          {
+            heading: 'Security Libraries and Frameworks',
+            body: 'Using well-vetted security libraries reduces the risk of implementation errors in common security functions. Building custom implementations of cryptography, authentication, or session management from scratch is a leading cause of vulnerabilities.',
+            table: {
+              headers: ['Category', 'Examples', 'Why Use a Library'],
+              rows: [
+                ['Cryptography', 'OpenSSL, libsodium, Bouncy Castle, JCA/JCE', 'Avoid implementation errors in AES, RSA, hashing; libraries are peer-reviewed and attack-tested'],
+                ['Authentication / OAuth', 'Passport.js, Spring Security, OmniAuth, Keycloak', 'Correctly implement OAuth2/OIDC, session management, MFA — avoid common auth flaws'],
+                ['Input Validation / Sanitization', 'OWASP Java HTML Sanitizer, DOMPurify, Bleach', 'Prevent XSS, HTML injection; use allow-list validation rather than custom regex'],
+                ['Password Hashing', 'bcrypt, Argon2, scrypt, PBKDF2', 'Adaptive hashing with salting; resist GPU/ASIC brute-force attacks'],
+                ['Secure HTTP Headers', 'Helmet.js (Node.js), Django SecurityMiddleware', 'Automatically set HSTS, CSP, X-Frame-Options, referrer policy'],
+                ['Web Application Frameworks (WAF features)', 'Rails, Django, Spring — built-in CSRF tokens, parameterized queries', 'Framework features handle common attacks if used correctly'],
+              ],
+            },
+            warning: 'Even good libraries can be misused. Using AES-ECB from a crypto library is still cryptographically broken. Using a library does not remove the developer\'s responsibility to use it correctly.',
           },
           {
             heading: 'Programming Language Security',
