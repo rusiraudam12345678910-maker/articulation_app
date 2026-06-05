@@ -7092,6 +7092,45 @@ export const domains: Domain[] = [
             note: 'Even emergency changes require streamlined approval and post-change review. Every change must leave an audit trail that documents what changed, when, by whom, and why.',
           },
           {
+            diagram: {
+              caption: 'Change Management Process — three sequential control stages from request through deployment',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 180" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="180" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Change Management Process</text>
+  <!-- Request Control -->
+  <rect x="20" y="44" width="155" height="110" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="97" y="66" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="12">Request Control</text>
+  <text x="97" y="84" text-anchor="middle" fill="#374151" font-size="10">Formal submission</text>
+  <text x="97" y="98" text-anchor="middle" fill="#374151" font-size="10">and documentation</text>
+  <text x="97" y="114" text-anchor="middle" fill="#374151" font-size="10">Identifies the need</text>
+  <text x="97" y="128" text-anchor="middle" fill="#374151" font-size="10">(bug, feature, update)</text>
+  <text x="97" y="145" text-anchor="middle" fill="#1d4ed8" font-size="9" font-weight="bold">Change Request Submitted</text>
+  <!-- Arrow 1 -->
+  <polygon points="175,99 195,92 195,106" fill="#3b82f6"/>
+  <line x1="175" y1="99" x2="195" y2="99" stroke="#3b82f6" stroke-width="2"/>
+  <!-- Change Control -->
+  <rect x="195" y="44" width="155" height="110" rx="8" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+  <text x="272" y="66" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="12">Change Control</text>
+  <text x="272" y="84" text-anchor="middle" fill="#374151" font-size="10">Review, evaluation,</text>
+  <text x="272" y="98" text-anchor="middle" fill="#374151" font-size="10">approval / rejection</text>
+  <text x="272" y="114" text-anchor="middle" fill="#374151" font-size="10">Assesses impact,</text>
+  <text x="272" y="128" text-anchor="middle" fill="#374151" font-size="10">risks, and benefits</text>
+  <text x="272" y="145" text-anchor="middle" fill="#92400e" font-size="9" font-weight="bold">Change Approved &amp; Developed</text>
+  <!-- Arrow 2 -->
+  <polygon points="350,99 370,92 370,106" fill="#eab308"/>
+  <line x1="350" y1="99" x2="370" y2="99" stroke="#eab308" stroke-width="2"/>
+  <!-- Release Control -->
+  <rect x="370" y="44" width="190" height="110" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="465" y="66" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="12">Release Control</text>
+  <text x="465" y="84" text-anchor="middle" fill="#374151" font-size="10">Deployment into</text>
+  <text x="465" y="98" text-anchor="middle" fill="#374151" font-size="10">live environment</text>
+  <text x="465" y="114" text-anchor="middle" fill="#374151" font-size="10">Testing, scheduling,</text>
+  <text x="465" y="128" text-anchor="middle" fill="#374151" font-size="10">and communication</text>
+  <text x="465" y="145" text-anchor="middle" fill="#15803d" font-size="9" font-weight="bold">Safe Delivery with Rollback Plan</text>
+</svg>`,
+            },
+          },
+          {
             questions: [
               { q: 'What is "shift left" in secure software development and why does it reduce cost?', a: 'Shift left means moving security activities — threat modeling, code review, SAST scanning, security requirements — to the earliest possible phases of the SDLC, rather than testing security only after development is complete. It reduces cost because vulnerabilities discovered at the design phase can be fixed with a document change; the same vulnerability found in production after exploitation requires code rewrites, emergency patches, incident response, regulatory notification, and potential litigation. The cost of fixing a defect grows by roughly 10x at each subsequent phase.' },
               { q: 'What is the primary security risk of DevOps without security controls, and how does DevSecOps address it?', a: 'DevOps automates deployment pipelines to move code from commit to production in hours. Without security controls, malicious code, vulnerable dependencies, or misconfigured infrastructure can propagate to production automatically before any human review. DevSecOps addresses this by embedding security gates — SAST, SCA, IaC scanning, secrets detection — directly into the CI/CD pipeline as automated quality gates. Builds that fail security checks are blocked from promotion, making security enforcement continuous rather than periodic.' },
@@ -7185,6 +7224,55 @@ export const domains: Domain[] = [
             ],
           },
           {
+            diagram: {
+              caption: 'CI/CD Pipeline — Continuous Integration and Continuous Delivery phases with security controls',
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 280" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="580" height="280" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="290" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">CI/CD Pipeline — Security Controls</text>
+  <!-- CI Phase box -->
+  <rect x="15" y="38" width="265" height="225" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="147" y="58" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="13">Continuous Integration (CI)</text>
+  <!-- CI nodes -->
+  <rect x="30" y="68" width="235" height="30" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="147" y="87" text-anchor="middle" fill="#1d4ed8" font-size="10">Developers commit code frequently</text>
+  <polygon points="147,98 141,108 153,108" fill="#3b82f6"/>
+  <rect x="30" y="108" width="235" height="30" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="147" y="127" text-anchor="middle" fill="#1d4ed8" font-size="10">Automated build, tests, static analysis</text>
+  <polygon points="147,138 141,148 153,148" fill="#3b82f6"/>
+  <rect x="30" y="148" width="235" height="30" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="147" y="167" text-anchor="middle" fill="#1d4ed8" font-size="10">Detect bugs and vulnerabilities early</text>
+  <polygon points="147,178 141,188 153,188" fill="#3b82f6"/>
+  <rect x="30" y="188" width="235" height="30" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="147" y="207" text-anchor="middle" fill="#dc2626" font-size="10">Malicious code blocked if checks strong</text>
+  <polygon points="147,218 141,228 153,228" fill="#3b82f6"/>
+  <rect x="30" y="228" width="235" height="25" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="147" y="244" text-anchor="middle" fill="#1d4ed8" font-size="10">Protect CI environment, agents, secrets</text>
+  <!-- Arrow between phases -->
+  <polygon points="300,155 320,148 320,162" fill="#64748b"/>
+  <line x1="280" y1="155" x2="320" y2="155" stroke="#64748b" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- CD Phase box -->
+  <rect x="300" y="38" width="265" height="225" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="432" y="58" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="13">Continuous Delivery (CD)</text>
+  <!-- CD nodes -->
+  <rect x="315" y="68" width="235" height="30" rx="5" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+  <text x="432" y="87" text-anchor="middle" fill="#15803d" font-size="10">Software always in deployable state</text>
+  <polygon points="432,98 426,108 438,108" fill="#22c55e"/>
+  <rect x="315" y="108" width="235" height="30" rx="5" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+  <text x="432" y="127" text-anchor="middle" fill="#15803d" font-size="10">Automated or manual release trigger</text>
+  <polygon points="432,138 426,148 438,148" fill="#22c55e"/>
+  <rect x="315" y="148" width="235" height="30" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="432" y="162" text-anchor="middle" fill="#dc2626" font-size="10">Risk: attacker modifies infra or</text>
+  <text x="432" y="174" text-anchor="middle" fill="#dc2626" font-size="10">steals deployment secrets</text>
+  <polygon points="432,178 426,188 438,188" fill="#22c55e"/>
+  <rect x="315" y="188" width="235" height="30" rx="5" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+  <text x="432" y="207" text-anchor="middle" fill="#15803d" font-size="10">Secure service credentials and access</text>
+  <polygon points="432,218 426,228 438,228" fill="#22c55e"/>
+  <rect x="315" y="228" width="235" height="25" rx="5" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+  <text x="432" y="244" text-anchor="middle" fill="#15803d" font-size="10">Use RBAC, audit logs, secret management</text>
+</svg>`,
+            },
+          },
+          {
             heading: 'Code Repository Security',
             list: [
               'Branch protection rules — require pull request approval before merging to main/protected branches; prevent direct pushes.',
@@ -7275,68 +7363,95 @@ export const domains: Domain[] = [
           {
             diagram: {
               caption: 'STRIDE Threat Model — six threat categories with CIA triad mapping and example countermeasures',
-              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 310" font-family="ui-monospace,monospace" font-size="12">
-  <rect width="580" height="310" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="290" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">STRIDE Threat Model</text>
-  <!-- Column headers -->
-  <rect x="10" y="36" width="560" height="22" rx="4" fill="#1e293b"/>
-  <text x="60" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Letter</text>
-  <text x="140" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Threat</text>
-  <text x="240" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Definition</text>
-  <text x="390" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Violates</text>
-  <text x="520" y="51" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Control Example</text>
-  <!-- S - Spoofing -->
-  <rect x="10" y="60" width="560" height="36" rx="3" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
-  <text x="60" y="82" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="15">S</text>
-  <text x="140" y="82" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="11">Spoofing</text>
-  <text x="240" y="75" text-anchor="middle" fill="#374151" font-size="10">Attacker claims false</text>
-  <text x="240" y="89" text-anchor="middle" fill="#374151" font-size="10">identity</text>
-  <text x="390" y="82" text-anchor="middle" fill="#dc2626" font-size="10">Authentication</text>
-  <text x="520" y="82" text-anchor="middle" fill="#374151" font-size="10">MFA, digital signatures</text>
-  <!-- T - Tampering -->
-  <rect x="10" y="98" width="560" height="36" rx="3" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1"/>
-  <text x="60" y="120" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="15">T</text>
-  <text x="140" y="120" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">Tampering</text>
-  <text x="240" y="113" text-anchor="middle" fill="#374151" font-size="10">Unauthorized data</text>
-  <text x="240" y="127" text-anchor="middle" fill="#374151" font-size="10">modification</text>
-  <text x="390" y="120" text-anchor="middle" fill="#dc2626" font-size="10">Integrity</text>
-  <text x="520" y="120" text-anchor="middle" fill="#374151" font-size="10">Hashing, ACLs, signing</text>
-  <!-- R - Repudiation -->
-  <rect x="10" y="136" width="560" height="36" rx="3" fill="#fdf4ff" stroke="#ede9fe" stroke-width="1"/>
-  <text x="60" y="158" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="15">R</text>
-  <text x="140" y="158" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="11">Repudiation</text>
-  <text x="240" y="151" text-anchor="middle" fill="#374151" font-size="10">Deny performing</text>
-  <text x="240" y="165" text-anchor="middle" fill="#374151" font-size="10">an action</text>
-  <text x="390" y="158" text-anchor="middle" fill="#dc2626" font-size="10">Non-repudiation</text>
-  <text x="520" y="158" text-anchor="middle" fill="#374151" font-size="10">Audit logs, dig. sigs</text>
-  <!-- I - Information Disclosure -->
-  <rect x="10" y="174" width="560" height="36" rx="3" fill="#fef9c3" stroke="#fef08a" stroke-width="1"/>
-  <text x="60" y="196" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="15">I</text>
-  <text x="140" y="190" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Information</text>
-  <text x="140" y="204" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Disclosure</text>
-  <text x="240" y="189" text-anchor="middle" fill="#374151" font-size="10">Unauthorized data</text>
-  <text x="240" y="203" text-anchor="middle" fill="#374151" font-size="10">exposure</text>
-  <text x="390" y="196" text-anchor="middle" fill="#dc2626" font-size="10">Confidentiality</text>
-  <text x="520" y="196" text-anchor="middle" fill="#374151" font-size="10">Encryption, access ctrl</text>
-  <!-- D - Denial of Service -->
-  <rect x="10" y="212" width="560" height="36" rx="3" fill="#fff7ed" stroke="#fed7aa" stroke-width="1"/>
-  <text x="60" y="234" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="15">D</text>
-  <text x="140" y="228" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Denial of</text>
-  <text x="140" y="242" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Service</text>
-  <text x="240" y="228" text-anchor="middle" fill="#374151" font-size="10">Overwhelm or crash</text>
-  <text x="240" y="242" text-anchor="middle" fill="#374151" font-size="10">resources</text>
-  <text x="390" y="234" text-anchor="middle" fill="#dc2626" font-size="10">Availability</text>
-  <text x="520" y="234" text-anchor="middle" fill="#374151" font-size="10">Rate limiting, CDN</text>
-  <!-- E - Elevation of Privilege -->
-  <rect x="10" y="250" width="560" height="36" rx="3" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
-  <text x="60" y="272" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="15">E</text>
-  <text x="140" y="266" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="11">Elevation of</text>
-  <text x="140" y="280" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="11">Privilege</text>
-  <text x="240" y="266" text-anchor="middle" fill="#374151" font-size="10">Gain unauthorized</text>
-  <text x="240" y="280" text-anchor="middle" fill="#374151" font-size="10">permissions</text>
-  <text x="390" y="272" text-anchor="middle" fill="#dc2626" font-size="10">Authorization</text>
-  <text x="520" y="272" text-anchor="middle" fill="#374151" font-size="10">Least privilege, RBAC</text>
-  <text x="290" y="298" text-anchor="middle" font-size="11" fill="#64748b">Apply STRIDE to every component on a Data Flow Diagram (DFD) during design phase</text>
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 370" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="700" height="370" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="350" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">STRIDE Threat Model</text>
+  <!-- Column boundaries: Letter=10-70, Threat=70-180, Definition=180-330, Violates=330-460, Control=460-690 -->
+  <!-- Header -->
+  <rect x="10" y="36" width="680" height="24" rx="4" fill="#1e293b"/>
+  <text x="40"  y="52" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Letter</text>
+  <text x="125" y="52" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Threat</text>
+  <text x="255" y="52" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Definition</text>
+  <text x="395" y="52" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Violates</text>
+  <text x="575" y="52" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Control Example</text>
+  <!-- Row height = 46px each, starting y=62 -->
+  <!-- S - Spoofing y=62 -->
+  <rect x="10" y="62" width="680" height="46" rx="3" fill="#eff6ff" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="70"  y1="62" x2="70"  y2="108" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="180" y1="62" x2="180" y2="108" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="330" y1="62" x2="330" y2="108" stroke="#dbeafe" stroke-width="1"/>
+  <line x1="460" y1="62" x2="460" y2="108" stroke="#dbeafe" stroke-width="1"/>
+  <text x="40"  y="90" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="18">S</text>
+  <text x="125" y="90" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="11">Spoofing</text>
+  <text x="255" y="83" text-anchor="middle" fill="#374151" font-size="10">Attacker claims false</text>
+  <text x="255" y="97" text-anchor="middle" fill="#374151" font-size="10">identity</text>
+  <text x="395" y="90" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">Authentication</text>
+  <text x="575" y="90" text-anchor="middle" fill="#374151" font-size="10">MFA, digital signatures</text>
+  <!-- T - Tampering y=110 -->
+  <rect x="10" y="110" width="680" height="46" rx="3" fill="#f0fdf4" stroke="#dcfce7" stroke-width="1"/>
+  <line x1="70"  y1="110" x2="70"  y2="156" stroke="#dcfce7" stroke-width="1"/>
+  <line x1="180" y1="110" x2="180" y2="156" stroke="#dcfce7" stroke-width="1"/>
+  <line x1="330" y1="110" x2="330" y2="156" stroke="#dcfce7" stroke-width="1"/>
+  <line x1="460" y1="110" x2="460" y2="156" stroke="#dcfce7" stroke-width="1"/>
+  <text x="40"  y="138" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="18">T</text>
+  <text x="125" y="138" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="11">Tampering</text>
+  <text x="255" y="131" text-anchor="middle" fill="#374151" font-size="10">Unauthorized data</text>
+  <text x="255" y="145" text-anchor="middle" fill="#374151" font-size="10">modification</text>
+  <text x="395" y="138" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">Integrity</text>
+  <text x="575" y="138" text-anchor="middle" fill="#374151" font-size="10">Hashing, ACLs, signing</text>
+  <!-- R - Repudiation y=158 -->
+  <rect x="10" y="158" width="680" height="46" rx="3" fill="#fdf4ff" stroke="#ede9fe" stroke-width="1"/>
+  <line x1="70"  y1="158" x2="70"  y2="204" stroke="#ede9fe" stroke-width="1"/>
+  <line x1="180" y1="158" x2="180" y2="204" stroke="#ede9fe" stroke-width="1"/>
+  <line x1="330" y1="158" x2="330" y2="204" stroke="#ede9fe" stroke-width="1"/>
+  <line x1="460" y1="158" x2="460" y2="204" stroke="#ede9fe" stroke-width="1"/>
+  <text x="40"  y="186" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="18">R</text>
+  <text x="125" y="186" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="11">Repudiation</text>
+  <text x="255" y="179" text-anchor="middle" fill="#374151" font-size="10">Deny performing</text>
+  <text x="255" y="193" text-anchor="middle" fill="#374151" font-size="10">an action</text>
+  <text x="395" y="186" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">Non-repudiation</text>
+  <text x="575" y="186" text-anchor="middle" fill="#374151" font-size="10">Audit logs, dig. signatures</text>
+  <!-- I - Information Disclosure y=206 -->
+  <rect x="10" y="206" width="680" height="46" rx="3" fill="#fef9c3" stroke="#fef08a" stroke-width="1"/>
+  <line x1="70"  y1="206" x2="70"  y2="252" stroke="#fef08a" stroke-width="1"/>
+  <line x1="180" y1="206" x2="180" y2="252" stroke="#fef08a" stroke-width="1"/>
+  <line x1="330" y1="206" x2="330" y2="252" stroke="#fef08a" stroke-width="1"/>
+  <line x1="460" y1="206" x2="460" y2="252" stroke="#fef08a" stroke-width="1"/>
+  <text x="40"  y="234" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="18">I</text>
+  <text x="125" y="227" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Information</text>
+  <text x="125" y="241" text-anchor="middle" font-weight="bold" fill="#92400e" font-size="11">Disclosure</text>
+  <text x="255" y="227" text-anchor="middle" fill="#374151" font-size="10">Unauthorized data</text>
+  <text x="255" y="241" text-anchor="middle" fill="#374151" font-size="10">exposure</text>
+  <text x="395" y="234" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">Confidentiality</text>
+  <text x="575" y="234" text-anchor="middle" fill="#374151" font-size="10">Encryption, access controls</text>
+  <!-- D - Denial of Service y=254 -->
+  <rect x="10" y="254" width="680" height="46" rx="3" fill="#fff7ed" stroke="#fed7aa" stroke-width="1"/>
+  <line x1="70"  y1="254" x2="70"  y2="300" stroke="#fed7aa" stroke-width="1"/>
+  <line x1="180" y1="254" x2="180" y2="300" stroke="#fed7aa" stroke-width="1"/>
+  <line x1="330" y1="254" x2="330" y2="300" stroke="#fed7aa" stroke-width="1"/>
+  <line x1="460" y1="254" x2="460" y2="300" stroke="#fed7aa" stroke-width="1"/>
+  <text x="40"  y="282" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="18">D</text>
+  <text x="125" y="275" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Denial of</text>
+  <text x="125" y="289" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="11">Service</text>
+  <text x="255" y="275" text-anchor="middle" fill="#374151" font-size="10">Overwhelm or crash</text>
+  <text x="255" y="289" text-anchor="middle" fill="#374151" font-size="10">resources</text>
+  <text x="395" y="282" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">Availability</text>
+  <text x="575" y="282" text-anchor="middle" fill="#374151" font-size="10">Rate limiting, CDN</text>
+  <!-- E - Elevation of Privilege y=302 -->
+  <rect x="10" y="302" width="680" height="46" rx="3" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <line x1="70"  y1="302" x2="70"  y2="348" stroke="#fecaca" stroke-width="1"/>
+  <line x1="180" y1="302" x2="180" y2="348" stroke="#fecaca" stroke-width="1"/>
+  <line x1="330" y1="302" x2="330" y2="348" stroke="#fecaca" stroke-width="1"/>
+  <line x1="460" y1="302" x2="460" y2="348" stroke="#fecaca" stroke-width="1"/>
+  <text x="40"  y="330" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="18">E</text>
+  <text x="125" y="323" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="11">Elevation of</text>
+  <text x="125" y="337" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="11">Privilege</text>
+  <text x="255" y="323" text-anchor="middle" fill="#374151" font-size="10">Gain unauthorized</text>
+  <text x="255" y="337" text-anchor="middle" fill="#374151" font-size="10">permissions</text>
+  <text x="395" y="330" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="bold">Authorization</text>
+  <text x="575" y="330" text-anchor="middle" fill="#374151" font-size="10">Least privilege, RBAC</text>
+  <!-- Footer -->
+  <text x="350" y="362" text-anchor="middle" font-size="10" fill="#64748b">Apply STRIDE to every component on a Data Flow Diagram (DFD) during design phase</text>
 </svg>`,
             },
           },
