@@ -2981,38 +2981,35 @@ export const domains: Domain[] = [
           {
             diagram: {
               caption: 'Bell-LaPadula: No Read Up (NRU) · No Write Down (NWD) — protects CONFIDENTIALITY',
-              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="ui-monospace,monospace" font-size="13">
-  <!-- Background -->
-  <rect width="560" height="300" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
-  <!-- Title -->
-  <text x="280" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Bell-LaPadula Model — Confidentiality</text>
-  <!-- Levels -->
-  <rect x="30" y="50" width="500" height="52" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
-  <text x="280" y="72" text-anchor="middle" font-weight="bold" fill="#dc2626">TOP SECRET</text>
-  <text x="280" y="90" text-anchor="middle" font-size="11" fill="#ef4444">Highest Classification</text>
-  <rect x="30" y="115" width="500" height="52" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
-  <text x="280" y="137" text-anchor="middle" font-weight="bold" fill="#ea580c">SECRET</text>
-  <text x="280" y="155" text-anchor="middle" font-size="11" fill="#f97316">Intermediate Classification</text>
-  <rect x="30" y="180" width="500" height="52" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
-  <text x="280" y="202" text-anchor="middle" font-weight="bold" fill="#16a34a">UNCLASSIFIED</text>
-  <text x="280" y="220" text-anchor="middle" font-size="11" fill="#22c55e">Lowest Classification</text>
-  <!-- No Read Up arrow (blocked) -->
-  <text x="60" y="170" font-size="11" fill="#dc2626" font-weight="bold">✗ No Read Up</text>
-  <line x1="80" y1="175" x2="80" y2="125" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
-  <!-- No Write Down arrow (blocked) -->
-  <text x="380" y="170" font-size="11" fill="#dc2626" font-weight="bold">✗ No Write Down</text>
-  <line x1="460" y1="125" x2="460" y2="175" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowRed)"/>
-  <!-- Allowed Read Down -->
-  <text x="48" y="248" font-size="11" fill="#16a34a" font-weight="bold">✓ Read Down OK</text>
-  <line x1="80" y1="125" x2="80" y2="175" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)"/>
-  <!-- Allowed Write Up -->
-  <text x="370" y="248" font-size="11" fill="#16a34a" font-weight="bold">✓ Write Up OK</text>
-  <line x1="460" y1="175" x2="460" y2="125" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen)"/>
-  <!-- Legend -->
-  <text x="280" y="275" text-anchor="middle" font-size="11" fill="#64748b">Subject at lower level cannot READ higher · Subject at higher level cannot WRITE lower</text>
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 310" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="620" height="310" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="310" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Bell-LaPadula Model — Confidentiality</text>
+  <!-- Level bars -->
+  <rect x="30" y="48" width="560" height="54" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="310" y="72" text-anchor="middle" font-weight="bold" fill="#dc2626" font-size="13">TOP SECRET</text>
+  <text x="310" y="92" text-anchor="middle" font-size="11" fill="#ef4444">Highest Classification</text>
+  <rect x="30" y="116" width="560" height="54" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="310" y="140" text-anchor="middle" font-weight="bold" fill="#ea580c" font-size="13">SECRET</text>
+  <text x="310" y="160" text-anchor="middle" font-size="11" fill="#f97316">Intermediate Classification</text>
+  <rect x="30" y="184" width="560" height="54" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="310" y="208" text-anchor="middle" font-weight="bold" fill="#16a34a" font-size="13">UNCLASSIFIED</text>
+  <text x="310" y="228" text-anchor="middle" font-size="11" fill="#22c55e">Lowest Classification</text>
+  <!-- Left side: BLOCKED arrows (No Read Up) -->
+  <text x="75" y="112" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">✗ No Read Up</text>
+  <line x1="75" y1="182" x2="75" y2="122" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowRed1)"/>
+  <!-- Left side: ALLOWED arrows (Read Down OK) -->
+  <text x="75" y="253" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="bold">✓ Read Down OK</text>
+  <line x1="75" y1="116" x2="75" y2="182" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen1)"/>
+  <!-- Right side: BLOCKED arrows (No Write Down) -->
+  <text x="545" y="112" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">✗ No Write Down</text>
+  <line x1="545" y1="116" x2="545" y2="182" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowRed1)"/>
+  <!-- Right side: ALLOWED arrows (Write Up OK) -->
+  <text x="545" y="253" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="bold">✓ Write Up OK</text>
+  <line x1="545" y1="182" x2="545" y2="122" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowGreen1)"/>
+  <text x="310" y="282" text-anchor="middle" font-size="11" fill="#64748b">Subject at lower level cannot READ higher · Subject at higher level cannot WRITE lower</text>
   <defs>
-    <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#dc2626"/></marker>
-    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#16a34a"/></marker>
+    <marker id="arrowRed1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#dc2626"/></marker>
+    <marker id="arrowGreen1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#16a34a"/></marker>
   </defs>
 </svg>`,
             },
@@ -3029,31 +3026,31 @@ export const domains: Domain[] = [
           {
             diagram: {
               caption: 'Biba: No Read Down (NRD) · No Write Up (NWU) — protects INTEGRITY',
-              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" font-family="ui-monospace,monospace" font-size="13">
-  <rect width="560" height="300" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="280" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Biba Model — Integrity</text>
-  <rect x="30" y="50" width="500" height="52" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
-  <text x="280" y="72" text-anchor="middle" font-weight="bold" fill="#1d4ed8">HIGH INTEGRITY</text>
-  <text x="280" y="90" text-anchor="middle" font-size="11" fill="#3b82f6">Most Trusted Data (e.g. audited financial records)</text>
-  <rect x="30" y="115" width="500" height="52" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
-  <text x="280" y="137" text-anchor="middle" font-weight="bold" fill="#7c3aed">MEDIUM INTEGRITY</text>
-  <text x="280" y="155" text-anchor="middle" font-size="11" fill="#8b5cf6">Internal reviewed data</text>
-  <rect x="30" y="180" width="500" height="52" rx="6" fill="#fdf4ff" stroke="#e879f9" stroke-width="1.5"/>
-  <text x="280" y="202" text-anchor="middle" font-weight="bold" fill="#a21caf">LOW INTEGRITY</text>
-  <text x="280" y="220" text-anchor="middle" font-size="11" fill="#c026d3">Untrusted external input</text>
-  <!-- No Read Down (blocked) -->
-  <text x="48" y="170" font-size="11" fill="#dc2626" font-weight="bold">✗ No Read Down</text>
-  <line x1="80" y1="125" x2="80" y2="175" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowR2)"/>
-  <!-- No Write Up (blocked) -->
-  <text x="378" y="170" font-size="11" fill="#dc2626" font-weight="bold">✗ No Write Up</text>
-  <line x1="460" y1="175" x2="460" y2="125" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowR2)"/>
-  <!-- Allowed Read Up -->
-  <text x="48" y="248" font-size="11" fill="#16a34a" font-weight="bold">✓ Read Up OK</text>
-  <line x1="80" y1="175" x2="80" y2="125" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowG2)"/>
-  <!-- Allowed Write Down -->
-  <text x="368" y="248" font-size="11" fill="#16a34a" font-weight="bold">✓ Write Down OK</text>
-  <line x1="460" y1="125" x2="460" y2="175" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowG2)"/>
-  <text x="280" y="275" text-anchor="middle" font-size="11" fill="#64748b">Subject at higher level cannot READ lower · Subject at lower level cannot WRITE higher</text>
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 310" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="620" height="310" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="310" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Biba Model — Integrity</text>
+  <rect x="30" y="48" width="560" height="54" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="310" y="72" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="13">HIGH INTEGRITY</text>
+  <text x="310" y="92" text-anchor="middle" font-size="11" fill="#3b82f6">Most Trusted Data (e.g. audited financial records)</text>
+  <rect x="30" y="116" width="560" height="54" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <text x="310" y="140" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="13">MEDIUM INTEGRITY</text>
+  <text x="310" y="160" text-anchor="middle" font-size="11" fill="#8b5cf6">Internal reviewed data</text>
+  <rect x="30" y="184" width="560" height="54" rx="6" fill="#fdf4ff" stroke="#e879f9" stroke-width="1.5"/>
+  <text x="310" y="208" text-anchor="middle" font-weight="bold" fill="#a21caf" font-size="13">LOW INTEGRITY</text>
+  <text x="310" y="228" text-anchor="middle" font-size="11" fill="#c026d3">Untrusted external input</text>
+  <!-- Left: BLOCKED No Read Down -->
+  <text x="75" y="112" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">✗ No Read Down</text>
+  <line x1="75" y1="116" x2="75" y2="182" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowR2)"/>
+  <!-- Left: ALLOWED Read Up -->
+  <text x="75" y="253" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="bold">✓ Read Up OK</text>
+  <line x1="75" y1="182" x2="75" y2="122" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowG2)"/>
+  <!-- Right: BLOCKED No Write Up -->
+  <text x="545" y="112" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="bold">✗ No Write Up</text>
+  <line x1="545" y1="182" x2="545" y2="122" stroke="#dc2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowR2)"/>
+  <!-- Right: ALLOWED Write Down -->
+  <text x="545" y="253" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="bold">✓ Write Down OK</text>
+  <line x1="545" y1="116" x2="545" y2="182" stroke="#16a34a" stroke-width="2" marker-end="url(#arrowG2)"/>
+  <text x="310" y="282" text-anchor="middle" font-size="11" fill="#64748b">Subject at higher level cannot READ lower · Subject at lower level cannot WRITE higher</text>
   <defs>
     <marker id="arrowR2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#dc2626"/></marker>
     <marker id="arrowG2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#16a34a"/></marker>
@@ -3960,51 +3957,81 @@ export const domains: Domain[] = [
           {
             diagram: {
               caption: 'OSI Model — 7 layers with key protocols and attack vectors at each layer',
-              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 360" font-family="ui-monospace,monospace" font-size="12">
-  <rect width="580" height="360" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="290" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">OSI Model — 7 Layers</text>
-  <!-- Column headers -->
-  <text x="30" y="48" font-weight="bold" fill="#475569" font-size="11">Layer</text>
-  <text x="80" y="48" font-weight="bold" fill="#475569" font-size="11">Name</text>
-  <text x="200" y="48" font-weight="bold" fill="#475569" font-size="11">Protocols / Function</text>
-  <text x="430" y="48" font-weight="bold" fill="#475569" font-size="11">Attack Examples</text>
-  <!-- Layer rows - top to bottom (7 to 1) -->
-  <rect x="14" y="54" width="552" height="36" rx="4" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
-  <text x="30" y="76" font-weight="bold" fill="#be185d">7</text>
-  <text x="80" y="76" font-weight="bold" fill="#be185d">Application</text>
-  <text x="200" y="76" fill="#374151" font-size="11">HTTP/S, FTP, SMTP, DNS, SNMP</text>
-  <text x="430" y="76" fill="#be185d" font-size="11">Phishing, SQLi, DNS poison</text>
-  <rect x="14" y="93" width="552" height="36" rx="4" fill="#ede9fe" stroke="#c4b5fd" stroke-width="1"/>
-  <text x="30" y="115" font-weight="bold" fill="#7c3aed">6</text>
-  <text x="80" y="115" font-weight="bold" fill="#7c3aed">Presentation</text>
-  <text x="200" y="115" fill="#374151" font-size="11">SSL/TLS, encoding, compression</text>
-  <text x="430" y="115" fill="#7c3aed" font-size="11">SSL stripping, format exploits</text>
-  <rect x="14" y="132" width="552" height="36" rx="4" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
-  <text x="30" y="154" font-weight="bold" fill="#1d4ed8">5</text>
-  <text x="80" y="154" font-weight="bold" fill="#1d4ed8">Session</text>
-  <text x="200" y="154" fill="#374151" font-size="11">NetBIOS, RPC, SOCKS, session mgmt</text>
-  <text x="430" y="154" fill="#1d4ed8" font-size="11">Session hijacking, replay</text>
-  <rect x="14" y="171" width="552" height="36" rx="4" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
-  <text x="30" y="193" font-weight="bold" fill="#15803d">4</text>
-  <text x="80" y="193" font-weight="bold" fill="#15803d">Transport</text>
-  <text x="200" y="193" fill="#374151" font-size="11">TCP (reliable), UDP — ports, segmentation</text>
-  <text x="430" y="193" fill="#15803d" font-size="11">SYN flood, port scanning</text>
-  <rect x="14" y="210" width="552" height="36" rx="4" fill="#fff7ed" stroke="#fdba74" stroke-width="1"/>
-  <text x="30" y="232" font-weight="bold" fill="#c2410c">3</text>
-  <text x="80" y="232" font-weight="bold" fill="#c2410c">Network</text>
-  <text x="200" y="232" fill="#374151" font-size="11">IP, ICMP, IPSec, BGP, OSPF, routing</text>
-  <text x="430" y="232" fill="#c2410c" font-size="11">IP spoofing, route hijacking</text>
-  <rect x="14" y="249" width="552" height="36" rx="4" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
-  <text x="30" y="271" font-weight="bold" fill="#854d0e">2</text>
-  <text x="80" y="271" font-weight="bold" fill="#854d0e">Data Link</text>
-  <text x="200" y="271" fill="#374151" font-size="11">Ethernet, MAC, ARP, 802.11 WiFi, switches</text>
-  <text x="430" y="271" fill="#854d0e" font-size="11">ARP spoofing, MAC flooding</text>
-  <rect x="14" y="288" width="552" height="36" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-  <text x="30" y="310" font-weight="bold" fill="#475569">1</text>
-  <text x="80" y="310" font-weight="bold" fill="#475569">Physical</text>
-  <text x="200" y="310" fill="#374151" font-size="11">Cables, hubs, NIC, fiber, signals</text>
-  <text x="430" y="310" fill="#475569" font-size="11">Wiretapping, cable theft</text>
-  <text x="290" y="345" text-anchor="middle" font-size="11" fill="#64748b">Mnemonic: "All People Seem To Need Data Processing" (layers 7→1)</text>
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="700" height="360" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="350" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">OSI Model — 7 Layers</text>
+  <!-- Column boundaries: Layer=10-55, Name=55-185, Protocols=185-445, Attacks=445-690 -->
+  <!-- Header -->
+  <rect x="10" y="34" width="680" height="22" rx="4" fill="#1e293b"/>
+  <text x="32"  y="49" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Layer</text>
+  <text x="120" y="49" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Name</text>
+  <text x="315" y="49" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Protocols / Function</text>
+  <text x="567" y="49" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Attack Examples</text>
+  <!-- Row height = 38px, starting y=58 -->
+  <!-- Layer 7 -->
+  <rect x="10" y="58" width="680" height="38" rx="3" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
+  <line x1="55"  y1="58" x2="55"  y2="96" stroke="#f9a8d4" stroke-width="1"/>
+  <line x1="185" y1="58" x2="185" y2="96" stroke="#f9a8d4" stroke-width="1"/>
+  <line x1="445" y1="58" x2="445" y2="96" stroke="#f9a8d4" stroke-width="1"/>
+  <text x="32"  y="82" text-anchor="middle" font-weight="bold" fill="#be185d" font-size="14">7</text>
+  <text x="120" y="82" text-anchor="middle" font-weight="bold" fill="#be185d">Application</text>
+  <text x="315" y="82" text-anchor="middle" fill="#374151" font-size="11">HTTP/S, FTP, SMTP, DNS, SNMP</text>
+  <text x="567" y="82" text-anchor="middle" fill="#be185d" font-size="11">Phishing, SQLi, DNS poisoning</text>
+  <!-- Layer 6 -->
+  <rect x="10" y="98" width="680" height="38" rx="3" fill="#ede9fe" stroke="#c4b5fd" stroke-width="1"/>
+  <line x1="55"  y1="98" x2="55"  y2="136" stroke="#c4b5fd" stroke-width="1"/>
+  <line x1="185" y1="98" x2="185" y2="136" stroke="#c4b5fd" stroke-width="1"/>
+  <line x1="445" y1="98" x2="445" y2="136" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="32"  y="122" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="14">6</text>
+  <text x="120" y="122" text-anchor="middle" font-weight="bold" fill="#7c3aed">Presentation</text>
+  <text x="315" y="122" text-anchor="middle" fill="#374151" font-size="11">SSL/TLS, encoding, compression</text>
+  <text x="567" y="122" text-anchor="middle" fill="#7c3aed" font-size="11">SSL stripping, format exploits</text>
+  <!-- Layer 5 -->
+  <rect x="10" y="138" width="680" height="38" rx="3" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+  <line x1="55"  y1="138" x2="55"  y2="176" stroke="#93c5fd" stroke-width="1"/>
+  <line x1="185" y1="138" x2="185" y2="176" stroke="#93c5fd" stroke-width="1"/>
+  <line x1="445" y1="138" x2="445" y2="176" stroke="#93c5fd" stroke-width="1"/>
+  <text x="32"  y="162" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="14">5</text>
+  <text x="120" y="162" text-anchor="middle" font-weight="bold" fill="#1d4ed8">Session</text>
+  <text x="315" y="162" text-anchor="middle" fill="#374151" font-size="11">NetBIOS, RPC, SOCKS, session mgmt</text>
+  <text x="567" y="162" text-anchor="middle" fill="#1d4ed8" font-size="11">Session hijacking, replay</text>
+  <!-- Layer 4 -->
+  <rect x="10" y="178" width="680" height="38" rx="3" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+  <line x1="55"  y1="178" x2="55"  y2="216" stroke="#86efac" stroke-width="1"/>
+  <line x1="185" y1="178" x2="185" y2="216" stroke="#86efac" stroke-width="1"/>
+  <line x1="445" y1="178" x2="445" y2="216" stroke="#86efac" stroke-width="1"/>
+  <text x="32"  y="202" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="14">4</text>
+  <text x="120" y="202" text-anchor="middle" font-weight="bold" fill="#15803d">Transport</text>
+  <text x="315" y="202" text-anchor="middle" fill="#374151" font-size="11">TCP (reliable), UDP — ports, segmentation</text>
+  <text x="567" y="202" text-anchor="middle" fill="#15803d" font-size="11">SYN flood, port scanning</text>
+  <!-- Layer 3 -->
+  <rect x="10" y="218" width="680" height="38" rx="3" fill="#fff7ed" stroke="#fdba74" stroke-width="1"/>
+  <line x1="55"  y1="218" x2="55"  y2="256" stroke="#fdba74" stroke-width="1"/>
+  <line x1="185" y1="218" x2="185" y2="256" stroke="#fdba74" stroke-width="1"/>
+  <line x1="445" y1="218" x2="445" y2="256" stroke="#fdba74" stroke-width="1"/>
+  <text x="32"  y="242" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="14">3</text>
+  <text x="120" y="242" text-anchor="middle" font-weight="bold" fill="#c2410c">Network</text>
+  <text x="315" y="242" text-anchor="middle" fill="#374151" font-size="11">IP, ICMP, IPSec, BGP, OSPF, routing</text>
+  <text x="567" y="242" text-anchor="middle" fill="#c2410c" font-size="11">IP spoofing, route hijacking</text>
+  <!-- Layer 2 -->
+  <rect x="10" y="258" width="680" height="38" rx="3" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+  <line x1="55"  y1="258" x2="55"  y2="296" stroke="#fde047" stroke-width="1"/>
+  <line x1="185" y1="258" x2="185" y2="296" stroke="#fde047" stroke-width="1"/>
+  <line x1="445" y1="258" x2="445" y2="296" stroke="#fde047" stroke-width="1"/>
+  <text x="32"  y="282" text-anchor="middle" font-weight="bold" fill="#854d0e" font-size="14">2</text>
+  <text x="120" y="282" text-anchor="middle" font-weight="bold" fill="#854d0e">Data Link</text>
+  <text x="315" y="282" text-anchor="middle" fill="#374151" font-size="11">Ethernet, MAC, ARP, 802.11 WiFi, switches</text>
+  <text x="567" y="282" text-anchor="middle" fill="#854d0e" font-size="11">ARP spoofing, MAC flooding</text>
+  <!-- Layer 1 -->
+  <rect x="10" y="298" width="680" height="38" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="55"  y1="298" x2="55"  y2="336" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="185" y1="298" x2="185" y2="336" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="445" y1="298" x2="445" y2="336" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="32"  y="322" text-anchor="middle" font-weight="bold" fill="#475569" font-size="14">1</text>
+  <text x="120" y="322" text-anchor="middle" font-weight="bold" fill="#475569">Physical</text>
+  <text x="315" y="322" text-anchor="middle" fill="#374151" font-size="11">Cables, hubs, NIC, fiber, signals</text>
+  <text x="567" y="322" text-anchor="middle" fill="#475569" font-size="11">Wiretapping, cable theft</text>
+  <text x="350" y="350" text-anchor="middle" font-size="11" fill="#64748b">Mnemonic: "All People Seem To Need Data Processing" (layers 7→1)</text>
 </svg>`,
             },
           },
@@ -4684,60 +4711,60 @@ export const domains: Domain[] = [
           {
             diagram: {
               caption: 'Access Control Models — who makes the access decision and on what basis',
-              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 310" font-family="ui-monospace,monospace" font-size="12">
-  <rect width="580" height="310" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="290" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Access Control Models</text>
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 310" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="680" height="310" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="340" y="26" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Access Control Models</text>
   <!-- DAC -->
-  <rect x="14" y="44" width="128" height="120" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
-  <text x="78" y="64" text-anchor="middle" font-weight="bold" fill="#1d4ed8">DAC</text>
-  <text x="78" y="80" text-anchor="middle" fill="#374151" font-size="10">Discretionary</text>
-  <text x="78" y="94" text-anchor="middle" fill="#475569" font-size="10">Decision: Owner</text>
-  <rect x="26" y="102" width="104" height="18" rx="3" fill="#dbeafe"/>
-  <text x="78" y="115" text-anchor="middle" fill="#1e40af" font-size="10">UNIX chmod</text>
-  <rect x="26" y="124" width="104" height="18" rx="3" fill="#dbeafe"/>
-  <text x="78" y="137" text-anchor="middle" fill="#1e40af" font-size="10">Windows ACLs</text>
-  <text x="78" y="157" text-anchor="middle" fill="#dc2626" font-size="10">Risk: over-sharing</text>
+  <rect x="14" y="44" width="152" height="128" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="90" y="66" text-anchor="middle" font-weight="bold" fill="#1d4ed8" font-size="13">DAC</text>
+  <text x="90" y="82" text-anchor="middle" fill="#374151" font-size="10">Discretionary</text>
+  <text x="90" y="96" text-anchor="middle" fill="#475569" font-size="10">Decision: Owner</text>
+  <rect x="26" y="104" width="128" height="18" rx="3" fill="#dbeafe"/>
+  <text x="90" y="117" text-anchor="middle" fill="#1e40af" font-size="10">UNIX chmod</text>
+  <rect x="26" y="126" width="128" height="18" rx="3" fill="#dbeafe"/>
+  <text x="90" y="139" text-anchor="middle" fill="#1e40af" font-size="10">Windows ACLs</text>
+  <text x="90" y="162" text-anchor="middle" fill="#dc2626" font-size="10">Risk: over-sharing</text>
   <!-- MAC -->
-  <rect x="156" y="44" width="128" height="120" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
-  <text x="220" y="64" text-anchor="middle" font-weight="bold" fill="#7c3aed">MAC</text>
-  <text x="220" y="80" text-anchor="middle" fill="#374151" font-size="10">Mandatory</text>
-  <text x="220" y="94" text-anchor="middle" fill="#475569" font-size="10">Decision: System/Policy</text>
-  <rect x="168" y="102" width="104" height="18" rx="3" fill="#ede9fe"/>
-  <text x="220" y="115" text-anchor="middle" fill="#6d28d9" font-size="10">SELinux / MLS</text>
-  <rect x="168" y="124" width="104" height="18" rx="3" fill="#ede9fe"/>
-  <text x="220" y="137" text-anchor="middle" fill="#6d28d9" font-size="10">Gov/Military systems</text>
-  <text x="220" y="157" text-anchor="middle" fill="#dc2626" font-size="10">Rigid; high overhead</text>
+  <rect x="180" y="44" width="152" height="128" rx="8" fill="#fdf4ff" stroke="#a855f7" stroke-width="2"/>
+  <text x="256" y="66" text-anchor="middle" font-weight="bold" fill="#7c3aed" font-size="13">MAC</text>
+  <text x="256" y="82" text-anchor="middle" fill="#374151" font-size="10">Mandatory</text>
+  <text x="256" y="96" text-anchor="middle" fill="#475569" font-size="10">Decision: System/Policy</text>
+  <rect x="192" y="104" width="128" height="18" rx="3" fill="#ede9fe"/>
+  <text x="256" y="117" text-anchor="middle" fill="#6d28d9" font-size="10">SELinux / MLS</text>
+  <rect x="192" y="126" width="128" height="18" rx="3" fill="#ede9fe"/>
+  <text x="256" y="139" text-anchor="middle" fill="#6d28d9" font-size="10">Gov/Military systems</text>
+  <text x="256" y="162" text-anchor="middle" fill="#dc2626" font-size="10">Rigid; high overhead</text>
   <!-- RBAC -->
-  <rect x="298" y="44" width="128" height="120" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
-  <text x="362" y="64" text-anchor="middle" font-weight="bold" fill="#15803d">RBAC</text>
-  <text x="362" y="80" text-anchor="middle" fill="#374151" font-size="10">Role-Based</text>
-  <text x="362" y="94" text-anchor="middle" fill="#475569" font-size="10">Decision: Role</text>
-  <rect x="310" y="102" width="104" height="18" rx="3" fill="#dcfce7"/>
-  <text x="362" y="115" text-anchor="middle" fill="#14532d" font-size="10">Enterprise apps</text>
-  <rect x="310" y="124" width="104" height="18" rx="3" fill="#dcfce7"/>
-  <text x="362" y="137" text-anchor="middle" fill="#14532d" font-size="10">ERP / Databases</text>
-  <text x="362" y="157" text-anchor="middle" fill="#dc2626" font-size="10">Role explosion risk</text>
+  <rect x="346" y="44" width="152" height="128" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+  <text x="422" y="66" text-anchor="middle" font-weight="bold" fill="#15803d" font-size="13">RBAC</text>
+  <text x="422" y="82" text-anchor="middle" fill="#374151" font-size="10">Role-Based</text>
+  <text x="422" y="96" text-anchor="middle" fill="#475569" font-size="10">Decision: Role</text>
+  <rect x="358" y="104" width="128" height="18" rx="3" fill="#dcfce7"/>
+  <text x="422" y="117" text-anchor="middle" fill="#14532d" font-size="10">Enterprise apps</text>
+  <rect x="358" y="126" width="128" height="18" rx="3" fill="#dcfce7"/>
+  <text x="422" y="139" text-anchor="middle" fill="#14532d" font-size="10">ERP / Databases</text>
+  <text x="422" y="162" text-anchor="middle" fill="#dc2626" font-size="10">Role explosion risk</text>
   <!-- ABAC -->
-  <rect x="440" y="44" width="128" height="120" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
-  <text x="504" y="64" text-anchor="middle" font-weight="bold" fill="#c2410c">ABAC</text>
-  <text x="504" y="80" text-anchor="middle" fill="#374151" font-size="10">Attribute-Based</text>
-  <text x="504" y="94" text-anchor="middle" fill="#475569" font-size="10">Decision: Policy Engine</text>
-  <rect x="452" y="102" width="104" height="18" rx="3" fill="#fed7aa"/>
-  <text x="504" y="115" text-anchor="middle" fill="#9a3412" font-size="10">Cloud / Zero Trust</text>
-  <rect x="452" y="124" width="104" height="18" rx="3" fill="#fed7aa"/>
-  <text x="504" y="137" text-anchor="middle" fill="#9a3412" font-size="10">XACML policies</text>
-  <text x="504" y="157" text-anchor="middle" fill="#dc2626" font-size="10">Complex to manage</text>
+  <rect x="512" y="44" width="152" height="128" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="588" y="66" text-anchor="middle" font-weight="bold" fill="#c2410c" font-size="13">ABAC</text>
+  <text x="588" y="82" text-anchor="middle" fill="#374151" font-size="10">Attribute-Based</text>
+  <text x="588" y="96" text-anchor="middle" fill="#475569" font-size="10">Decision: Policy Engine</text>
+  <rect x="524" y="104" width="128" height="18" rx="3" fill="#fed7aa"/>
+  <text x="588" y="117" text-anchor="middle" fill="#9a3412" font-size="10">Cloud / Zero Trust</text>
+  <rect x="524" y="126" width="128" height="18" rx="3" fill="#fed7aa"/>
+  <text x="588" y="139" text-anchor="middle" fill="#9a3412" font-size="10">XACML policies</text>
+  <text x="588" y="162" text-anchor="middle" fill="#dc2626" font-size="10">Complex to manage</text>
   <!-- Subject → Decision → Object flow -->
-  <rect x="50" y="195" width="100" height="36" rx="6" fill="#1e293b"/>
-  <text x="100" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Subject (User)</text>
-  <line x1="150" y1="213" x2="210" y2="213" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
-  <rect x="210" y="195" width="160" height="36" rx="6" fill="#0369a1"/>
-  <text x="290" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Access Control Decision</text>
-  <line x1="370" y1="213" x2="430" y2="213" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
-  <rect x="430" y="195" width="120" height="36" rx="6" fill="#166534"/>
-  <text x="490" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Object (Resource)</text>
-  <text x="290" y="258" text-anchor="middle" font-size="11" fill="#475569">Identification → Authentication → Authorization → Accountability</text>
-  <text x="290" y="278" text-anchor="middle" font-size="11" fill="#64748b">Every access control model implements this flow — they differ in HOW authorization is decided</text>
+  <rect x="50" y="200" width="120" height="36" rx="6" fill="#1e293b"/>
+  <text x="110" y="223" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Subject (User)</text>
+  <line x1="170" y1="218" x2="228" y2="218" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
+  <rect x="228" y="200" width="180" height="36" rx="6" fill="#0369a1"/>
+  <text x="318" y="223" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Access Control Decision</text>
+  <line x1="408" y1="218" x2="466" y2="218" stroke="#64748b" stroke-width="2" marker-end="url(#a5)"/>
+  <rect x="466" y="200" width="148" height="36" rx="6" fill="#166534"/>
+  <text x="540" y="223" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Object (Resource)</text>
+  <text x="340" y="260" text-anchor="middle" font-size="11" fill="#475569">Identification → Authentication → Authorization → Accountability</text>
+  <text x="340" y="280" text-anchor="middle" font-size="10" fill="#64748b">Every access control model implements this flow — they differ in HOW authorization is decided</text>
   <defs><marker id="a5" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#64748b"/></marker></defs>
 </svg>`,
             },
@@ -6522,39 +6549,35 @@ export const domains: Domain[] = [
           {
             diagram: {
               caption: 'RTO, RPO, MTD — key recovery metrics that drive backup frequency, recovery site, and DR plan design',
-              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 220" font-family="ui-monospace,monospace" font-size="12">
-  <rect width="580" height="220" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
-  <text x="290" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Recovery Metrics — RTO, RPO, MTD</text>
+              svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 240" font-family="ui-monospace,monospace" font-size="12">
+  <rect width="620" height="240" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="310" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e293b">Recovery Metrics — RTO, RPO, MTD</text>
   <!-- Timeline -->
-  <line x1="30" y1="100" x2="550" y2="100" stroke="#475569" stroke-width="2" marker-end="url(#a7)"/>
-  <!-- Last backup marker -->
-  <line x1="60" y1="85" x2="60" y2="115" stroke="#3b82f6" stroke-width="2"/>
-  <text x="60" y="78" text-anchor="middle" fill="#1d4ed8" font-size="10" font-weight="bold">Last</text>
-  <text x="60" y="66" text-anchor="middle" fill="#1d4ed8" font-size="10" font-weight="bold">Backup</text>
+  <line x1="30" y1="110" x2="585" y2="110" stroke="#475569" stroke-width="2" marker-end="url(#a7)"/>
+  <text x="590" y="114" fill="#475569" font-size="11">Time →</text>
+  <!-- Last Backup marker -->
+  <line x1="70" y1="95" x2="70" y2="125" stroke="#3b82f6" stroke-width="2"/>
+  <text x="70" y="88" text-anchor="middle" fill="#1d4ed8" font-size="10" font-weight="bold">Last Backup</text>
   <!-- Disaster marker -->
-  <line x1="200" y1="75" x2="200" y2="125" stroke="#dc2626" stroke-width="2.5"/>
-  <text x="200" y="68" text-anchor="middle" fill="#dc2626" font-weight="bold" font-size="12">⚡ Disaster</text>
-  <!-- System restored marker -->
-  <line x1="340" y1="85" x2="340" y2="115" stroke="#22c55e" stroke-width="2"/>
-  <text x="340" y="78" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">System</text>
-  <text x="340" y="66" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">Restored</text>
-  <!-- MTD marker -->
-  <line x1="480" y1="85" x2="480" y2="115" stroke="#f97316" stroke-width="2" stroke-dasharray="5,3"/>
-  <text x="480" y="78" text-anchor="middle" fill="#c2410c" font-size="10" font-weight="bold">MTD</text>
-  <text x="480" y="66" text-anchor="middle" fill="#c2410c" font-size="10" font-weight="bold">Deadline</text>
+  <line x1="220" y1="88" x2="220" y2="132" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="220" y="80" text-anchor="middle" fill="#dc2626" font-weight="bold" font-size="12">⚡ Disaster</text>
+  <!-- System Restored marker -->
+  <line x1="370" y1="95" x2="370" y2="125" stroke="#22c55e" stroke-width="2"/>
+  <text x="370" y="88" text-anchor="middle" fill="#15803d" font-size="10" font-weight="bold">System Restored</text>
+  <!-- MTD Deadline marker -->
+  <line x1="520" y1="95" x2="520" y2="125" stroke="#f97316" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="520" y="88" text-anchor="middle" fill="#c2410c" font-size="10" font-weight="bold">MTD Deadline</text>
   <!-- RPO brace -->
-  <path d="M60,130 L60,145 L200,145 L200,130" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
-  <text x="130" y="160" text-anchor="middle" fill="#1d4ed8" font-weight="bold" font-size="11">RPO</text>
-  <text x="130" y="174" text-anchor="middle" fill="#3b82f6" font-size="10">Max data loss</text>
+  <path d="M70,132 L70,148 L220,148 L220,132" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+  <text x="145" y="164" text-anchor="middle" fill="#1d4ed8" font-weight="bold" font-size="11">RPO</text>
+  <text x="145" y="178" text-anchor="middle" fill="#3b82f6" font-size="10">Max acceptable data loss</text>
   <!-- RTO brace -->
-  <path d="M200,130 L200,145 L340,145 L340,130" stroke="#22c55e" stroke-width="1.5" fill="none"/>
-  <text x="270" y="160" text-anchor="middle" fill="#15803d" font-weight="bold" font-size="11">RTO</text>
-  <text x="270" y="174" text-anchor="middle" fill="#22c55e" font-size="10">Max downtime</text>
+  <path d="M220,132 L220,148 L370,148 L370,132" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+  <text x="295" y="164" text-anchor="middle" fill="#15803d" font-weight="bold" font-size="11">RTO</text>
+  <text x="295" y="178" text-anchor="middle" fill="#22c55e" font-size="10">Max acceptable downtime</text>
   <!-- MTD brace -->
-  <path d="M200,183 L200,195 L480,195 L480,183" stroke="#f97316" stroke-width="1.5" fill="none"/>
-  <text x="340" y="210" text-anchor="middle" fill="#c2410c" font-weight="bold" font-size="11">MTD — Max Tolerable Downtime (RTO must be &lt; MTD)</text>
-  <!-- Time label -->
-  <text x="550" y="96" fill="#475569" font-size="11">Time →</text>
+  <path d="M220,195 L220,208 L520,208 L520,195" stroke="#f97316" stroke-width="1.5" fill="none"/>
+  <text x="370" y="224" text-anchor="middle" fill="#c2410c" font-weight="bold" font-size="11">MTD — Max Tolerable Downtime (RTO must be &lt; MTD)</text>
   <defs><marker id="a7" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#475569"/></marker></defs>
 </svg>`,
             },
