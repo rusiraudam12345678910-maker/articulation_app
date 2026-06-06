@@ -3619,6 +3619,16 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Zero-Knowledge Proof',
+            body: 'A Zero-Knowledge Proof (ZKP) is a cryptographic protocol that allows one party (the prover) to prove to another party (the verifier) that they know a secret value — without revealing the secret itself. The verifier gains certainty that the claim is true without learning any information about the actual value.',
+            list: [
+              'Properties — Completeness (an honest prover with the secret will always convince the verifier), Soundness (a dishonest prover without the secret cannot convince the verifier, except with negligible probability), Zero-knowledge (the verifier learns nothing about the secret beyond the fact that the claim is true).',
+              'Example — proving knowledge of a password without transmitting the password; proving membership in a group without revealing identity.',
+              'Applications — privacy-preserving authentication, anonymous credentials, blockchain transaction privacy (zk-SNARKs used in Zcash), age verification without revealing birthdate.',
+              'CISSP relevance — ZKPs are an advanced authentication mechanism enabling privacy-preserving identity verification; increasingly relevant in digital identity and privacy-by-design contexts.',
+            ],
+          },
+          {
             heading: 'Symmetric Encryption',
             body: 'Both parties use the same key for encryption and decryption. Fast and efficient for bulk data; key distribution is the main challenge.',
             table: {
@@ -6088,6 +6098,18 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Misuse Case Testing',
+            body: 'Misuse case testing (also called abuse case testing) extends traditional use case testing by systematically considering how an adversary could misuse system features. While a use case describes what a legitimate user can do, a misuse case describes what an attacker will try to do. This adversarial perspective drives security test cases that functional testing alone would never generate.',
+            list: [
+              'Process — for each legitimate use case, create a corresponding misuse case: identify the attacker, their goal, the attack vector, and the harm if successful.',
+              'Example — Use case: "User submits order form." Misuse case: "Attacker submits SQL injection payload in the order form to extract the customer database."',
+              'Example — Use case: "Admin resets a user password." Misuse case: "Attacker uses the password reset flow to take over any account via predictable reset tokens."',
+              'Outcome — misuse cases directly generate security test cases, which are then used to verify that security controls prevent the misuse from succeeding.',
+              'Standard — OWASP encourages misuse case testing as part of threat modeling integration into the SDLC. Pairs naturally with STRIDE (each STRIDE threat category generates misuse cases).',
+            ],
+            tip: 'The question to ask for every feature: "How could an attacker misuse this?" is the core of misuse case thinking — and the mindset that separates security-aware developers from functional-only developers.',
+          },
+          {
             heading: 'Breach and Attack Simulation (BAS)',
             body: 'Breach and Attack Simulation (BAS) continuously simulates realistic cyberattacks in production or near-production environments to validate whether security controls detect and respond as expected. Unlike vulnerability scanning (which identifies weaknesses) or annual pen tests (which are point-in-time), BAS provides continuous, automated validation of detection and response capabilities.',
             list: [
@@ -8201,6 +8223,18 @@ export const domains: Domain[] = [
             warning: 'Applications must never log sensitive data in cleartext — passwords, credit card numbers, SSNs, session tokens. Logging sensitive data turns your log store into a high-value target for attackers and a GDPR/HIPAA liability.',
           },
           {
+            heading: 'FAIR — Factor Analysis of Information Risk',
+            body: 'FAIR (Factor Analysis of Information Risk) is a quantitative risk analysis model that produces financially meaningful risk estimates expressed in monetary terms (e.g., "$2.3M expected annual loss from a data breach"). Unlike qualitative models (High/Medium/Low), FAIR enables organizations to compare risk to cost of mitigation and make economically rational security investment decisions.',
+            list: [
+              'Two top-level factors — Risk = Probable Frequency of Loss Events × Probable Magnitude of Loss.',
+              'Loss Event Frequency (LEF) — how often will a threat agent act against an asset AND succeed? Decomposed into: Threat Event Frequency (TEF) × Vulnerability (ratio of events that succeed).',
+              'Loss Magnitude (LM) — what is the financial impact when a loss event occurs? Includes: Primary Losses (direct cost to the organization: response, recovery, fines) and Secondary Losses (reputation, customer attrition, regulatory consequences).',
+              'Monte Carlo simulation — FAIR uses probabilistic ranges rather than point estimates; Monte Carlo runs thousands of scenarios to produce a distribution of possible loss outcomes.',
+              'Application — FAIR is used to prioritize security investments (does the cost of the control reduce expected loss by more than the control costs?), justify security budgets to executive leadership in business terms, and rank risks in the risk register by expected annual loss.',
+            ],
+            note: 'FAIR does not tell you what controls to implement — it tells you which risks cost the most in expected terms, enabling economically rational prioritization. It is maintained by the Open FAIR standard from The Open Group.',
+          },
+          {
             heading: 'Software Risk Analysis Process',
             body: 'Risk analysis in the software context systematically evaluates what could go wrong with an application, what the consequences would be, and what the most effective mitigations are. It should occur at multiple stages of the SDLC:',
             list: [
@@ -8489,6 +8523,19 @@ export const domains: Domain[] = [
               'Least Privilege in Code — the application process should run as a dedicated account with minimal OS permissions; database connections should use credentials with only required table access.',
               'Dependency Vetting — every third-party library adds potential attack surface. Evaluate security history, maintenance status, and license before adoption. Use SCA tools to monitor for newly discovered CVEs in existing dependencies.',
             ],
+          },
+          {
+            heading: 'Software-Defined Security (SDS)',
+            body: 'Software-Defined Security (SDS) decouples security policy from the underlying hardware and enforcement mechanisms, managing security controls programmatically through software — the same architectural shift that SDN applied to networking. SDS enables security to be as agile and scalable as the applications it protects.',
+            list: [
+              'Control plane / data plane separation — security intelligence (policy decisions) is separated from enforcement (blocking, allowing, logging). The control plane defines rules; the data plane enforces them at wire speed.',
+              'Policy as Code — security policies are defined in machine-readable, version-controlled files (YAML, HCL, Rego/OPA) rather than manual firewall rule configurations. Policies are tested, peer-reviewed, and deployed through CI/CD pipelines like application code.',
+              'Workload microsegmentation — SDS enables security policies to follow workloads (containers, microservices, VMs) regardless of where they run. Instead of perimeter firewalls, each workload has its own identity-aware policy enforced at the process level.',
+              'Identity as the new perimeter — in SDS, the security boundary is the workload identity (cryptographic certificate, service account) rather than the network segment. East-west traffic between microservices is authenticated and authorized based on workload identity, not source IP.',
+              'Automated enforcement — security policies are applied automatically when workloads are deployed; no manual firewall rule creation; security scales with the environment.',
+              'Examples — Open Policy Agent (OPA), Istio service mesh with mTLS, AWS Security Groups as Code (Terraform), Kubernetes NetworkPolicy, HashiCorp Sentinel.',
+            ],
+            note: 'SDS is the security architecture that makes Zero Trust practical at scale — it provides the automated, code-driven policy enforcement layer that allows every connection to be authenticated and authorized without manual intervention.',
           },
           {
             questions: [
