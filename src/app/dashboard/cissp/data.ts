@@ -1657,7 +1657,7 @@ export const domains: Domain[] = [
             body: 'A risk framework serves as a structured approach outlining how risks are assessed, addressed, and monitored. Notably, NIST has established two pivotal frameworks: the Risk Management Framework (RMF) and the Cybersecurity Framework (CSF). The CSF provides guidelines for mitigating cybersecurity risks within organizations, drawing upon existing standards, guidelines, and practices. On the other hand, the RMF functions as a risk management process designed to identify and respond to threats, delineated across three core Special Publications: SP 800-37 Rev 2, SP 800-39, and SP 800-30 Rev 1. The RMF encompasses seven steps and six cyclical phases, beginning with preparation at both organizational and system levels and culminating in continuous monitoring to assess control effectiveness and report on the system\'s security and privacy posture.',
           },
           {
-            body: 'The CSF revolves around a core framework comprising five functions: Identify, Protect, Detect, Respond, and Recover. Rather than a mere checklist or procedural guide, it serves as a directive for ongoing operational activities aimed at enhancing security progressively.',
+            body: 'The CSF revolves around a core framework comprising five functions: Identify, Protect, Detect, Respond, and Recover. Rather than a mere checklist or procedural guide, it serves as a directive for ongoing operational activities aimed at enhancing security progressively. NIST CSF 2.0 (released February 2024) added a sixth function — Govern — which sits at the center of the framework and addresses organizational context, risk management strategy, roles and responsibilities, policies, and oversight. CSF 2.0 also expanded scope beyond critical infrastructure to all organizations and added supply chain risk management guidance.',
           },
           {
             body: "COBIT is a framework that helps organizations make sure their IT and security activities support business goals instead of operating in isolation. The COBIT framework is built around six governance system principles: Provide stakeholder value – IT and security activities must create value for the business. Holistic approach – Effective governance requires people, technology, information, culture, policies, and organizational structures to work together. Dynamic governance system – The system must adapt when business goals, risks, regulations, or technologies change. Governance distinct from management – Leadership sets direction and risk tolerance, while management plans, builds, runs, and monitors. Tailored to enterprise needs – COBIT should be adapted based on the organization's size, industry, risk profile, and strategy. End-to-end governance system – Governance applies across the entire organization.",
@@ -1739,8 +1739,9 @@ export const domains: Domain[] = [
               { q: 'What is the primary purpose of a risk framework?', a: 'A risk framework provides a structured approach for assessing, addressing, and monitoring risks.' },
               { q: 'Differentiate between the NIST RMF and CSF in terms of their focus and application.', a: 'The RMF is a comprehensive risk management process focused on identifying and responding to threats, while the CSF provides guidelines specifically for mitigating cybersecurity risks.' },
               { q: 'Outline the seven steps involved in the NIST RMF process.', a: 'The seven steps of the RMF are: Prepare, Categorize, Select, Implement, Assess, Authorize, and Monitor.' },
-              { q: 'Describe the core functions that constitute the NIST CSF.', a: 'The five core functions of the CSF are: Identify, Protect, Detect, Respond, and Recover.' },
-              { q: 'Why is the NIST CSF considered more of a directive than a checklist?', a: 'The CSF emphasizes ongoing operational activities for continuous security enhancement rather than a static set of procedures.' },
+              { q: 'Describe the core functions that constitute the NIST CSF.', a: 'The original CSF 1.1 had five core functions: Identify, Protect, Detect, Respond, and Recover. NIST CSF 2.0 (released February 2024) added a sixth function — Govern — which addresses organizational context, risk management strategy, roles and responsibilities, policies, and cybersecurity oversight. Govern sits at the center of the wheel diagram because good governance underpins all other functions.' },
+              { q: 'Why is the NIST CSF considered more of a directive than a checklist?', a: 'The CSF emphasizes ongoing operational activities for continuous security enhancement rather than a static set of procedures. Organizations use it to understand their current security posture, define a target state, and prioritize improvements — not to check boxes.' },
+              { q: 'What was added in NIST CSF 2.0 compared to version 1.1?', a: 'CSF 2.0 (February 2024) added: (1) A new Govern function addressing organizational context, risk management strategy, roles/responsibilities, and oversight; (2) Expanded scope from critical infrastructure to all organizations regardless of size or sector; (3) Enhanced supply chain risk management (C-SCRM) guidance; (4) Simplified implementation tiers and profiles guidance.' },
               { q: 'Explain the role of continuous monitoring within the NIST RMF.', a: "Continuous monitoring ensures the effectiveness of security controls and provides insights into the system's security and privacy posture." },
               { q: 'What is the significance of Special Publications 800-37, 800-39, and 800-30 in the context of the RMF?', a: 'These Special Publications provide detailed guidance on implementing the RMF, managing risk, and conducting risk assessments, respectively.' },
               { q: 'How does the NIST RMF integrate security, privacy, and cyber supply chain risk management?', a: 'The RMF considers these three aspects throughout the system development life cycle, ensuring a holistic approach to risk management.' },
@@ -3779,6 +3780,14 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Cryptographic API Standards',
+            list: [
+              'PKCS #11 (Cryptoki) — OASIS standard API for interacting with cryptographic tokens such as Hardware Security Modules (HSMs), smart cards, and USB security keys. Provides a device-independent interface so applications can perform cryptographic operations (key generation, signing, encryption) without direct access to key material. Widely used in PKI, code signing, and token-based authentication systems.',
+              'KMIP (Key Management Interoperability Protocol) — OASIS standard protocol enabling centralized key management across heterogeneous systems (different vendors, clouds, and HSMs). A KMIP-compliant key management server can create, retrieve, activate, revoke, and destroy keys for any KMIP-compliant client, regardless of vendor. Eliminates key management silos in enterprise and multi-cloud environments.',
+            ],
+            note: 'Both PKCS #11 and KMIP are vendor-neutral standards critical for large-scale PKI deployments. HSMs typically expose both interfaces: PKCS #11 for application-level crypto operations and KMIP for centralized key lifecycle management.',
+          },
+          {
             heading: 'Perfect Forward Secrecy (PFS)',
             body: 'PFS ensures that compromise of the server\'s long-term private key cannot decrypt previously recorded sessions. Achieved using ephemeral session keys that are discarded after each session.',
             list: [
@@ -3843,6 +3852,7 @@ export const domains: Domain[] = [
               'Kerberoasting — requests Kerberos service tickets for service accounts, then cracks them offline; exploits weak service account passwords.',
               'Golden Ticket Attack — forges Kerberos tickets using the krbtgt account hash; provides unlimited, persistent domain access.',
               'Man-in-the-Middle (MITM) — intercepts and possibly modifies communications; defeated by certificate validation and mutual TLS.',
+              'Bleichenbacher Attack (PKCS#1 v1.5 Padding Oracle) — exploits RSA PKCS#1 v1.5 padding validation in TLS/SSL servers. Attacker sends crafted ciphertexts and observes whether the server returns a "padding error" or a "decryption error" — different error responses act as an oracle that leaks information about the plaintext. By sending millions of crafted messages, the attacker can recover the full plaintext (e.g., the pre-master secret in TLS). Mitigation: use RSA-OAEP padding instead of PKCS#1 v1.5; return identical error messages for all failure modes; or switch to ECDHE which avoids RSA encryption entirely.',
             ],
           },
           {
@@ -6025,8 +6035,10 @@ export const domains: Domain[] = [
             list: [
               'CVE (Common Vulnerabilities and Exposures) — a standardized dictionary of publicly known vulnerabilities, each assigned a unique identifier (e.g., CVE-2021-44228). Maintained by MITRE; used by all major vulnerability scanners.',
               'CVSS (Common Vulnerability Scoring System) — a standardized 0–10 severity scoring system based on exploitability metrics (attack vector, privileges required, user interaction) and impact metrics (confidentiality, integrity, availability). Version 3.1 is current.',
-              'SCAP (Security Content Automation Protocol) — a suite of specifications from NIST that enables automated vulnerability scanning, configuration checking, and reporting using standardized data formats.',
+              'SCAP (Security Content Automation Protocol) — a suite of specifications from NIST that enables automated vulnerability scanning, configuration checking, and reporting using standardized data formats. The six SCAP components are: CVE (vulnerability identifiers), CVSS (severity scores), CCE (Common Configuration Enumeration — unique identifiers for system configuration issues), CPE (platform enumeration), XCCDF (Extensible Configuration Checklist Description Format — XML format for security checklists and benchmarks), and OVAL (Open Vulnerability and Assessment Language — machine-readable definitions for system state assessment).',
               'CPE (Common Platform Enumeration) — a standardized naming scheme for hardware, operating systems, and applications; used to match CVEs to the specific products installed in an environment.',
+              'CCE (Common Configuration Enumeration) — assigns unique identifiers to system configuration guidance items, enabling consistent reference to configuration issues across tools and checklists.',
+              'XCCDF (Extensible Configuration Checklist Description Format) — XML-based language for writing security checklists, benchmarks, and configuration guides; the format used by NIST NVD checklists and CIS Benchmarks.',
             ],
           },
           {
@@ -6599,6 +6611,27 @@ export const domains: Domain[] = [
               'Materiality — significant importance to the investigation outcome.',
               'Competence — legally collected and properly handled; chain of custody maintained.',
             ],
+          },
+          {
+            heading: 'Legal Evidence Rules',
+            list: [
+              'Parol Evidence Rule — a contract law principle stating that prior or contemporaneous oral agreements cannot be used to contradict or modify the terms of a fully integrated written contract. In cybersecurity and legal proceedings, this means that written agreements (SLAs, NDAs, contracts) govern; verbal agreements made before signing do not override written terms. Security professionals must ensure all security obligations are captured in writing.',
+              'Best Evidence Rule — courts prefer original documents over copies; secondary evidence (copies, transcripts) is only admissible when the original is unavailable and its absence can be explained.',
+              'Hearsay Rule — out-of-court statements offered to prove the truth of the matter asserted are generally inadmissible; computer-generated records may qualify under the business records exception if properly authenticated.',
+            ],
+          },
+          {
+            heading: 'Six Pillars of Credible Evidence',
+            body: 'For evidence to be considered credible and usable in legal or disciplinary proceedings, it must satisfy six qualities:',
+            list: [
+              'Accuracy — the evidence faithfully represents what it purports to show; no distortion, manipulation, or gaps.',
+              'Authenticity — the evidence is genuine and can be proven to be what it claims; verified via hash values, digital signatures, or chain of custody documentation.',
+              'Comprehensibility — the evidence can be understood by the trier of fact (judge, jury, hearing officer); complex technical evidence must be presented with clear expert explanation.',
+              'Convincing Quality — the evidence is persuasive and logically supports the conclusion being drawn; corroborated by other evidence where possible.',
+              'Objectivity — the evidence is factual and free from bias; collection methodology was neutral and documented.',
+              'Admissibility — the evidence was collected legally and handled properly; it meets the procedural requirements of the relevant legal system.',
+            ],
+            note: 'NIST SP 800-86 (Guide to Integrating Forensic Techniques into Incident Response) provides authoritative guidance on the forensic process, evidence collection, and analysis techniques for digital evidence.',
           },
           {
             heading: 'Legal Evidence Acquisition Methods',
