@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { domains, Domain, Topic } from './data'
 
 const DOMAIN_COLORS: Record<number, string> = {
@@ -14,16 +14,133 @@ const DOMAIN_COLORS: Record<number, string> = {
   8: 'bg-teal-100 text-teal-700 dark:bg-teal-900 dark:text-teal-300',
 }
 
+type SearchResult = {
+  domain: Domain
+  topic: Topic
+  matchText: string
+  sectionType: string
+}
+
+function getTopicText(topic: Topic): string {
+  const parts: string[] = [topic.title]
+  for (const section of topic.content) {
+    if (section.heading) parts.push(section.heading)
+    if (section.subheading) parts.push(section.subheading)
+    if (section.body) parts.push(section.body)
+    if (section.note) parts.push(section.note)
+    if (section.tip) parts.push(section.tip)
+    if (section.warning) parts.push(section.warning)
+    if (section.list) parts.push(...section.list)
+    if (section.table) {
+      parts.push(...section.table.headers)
+      for (const row of section.table.rows) parts.push(...row)
+    }
+    if (section.questions) {
+      for (const q of section.questions) {
+        parts.push(q.q)
+        parts.push(q.a)
+      }
+    }
+  }
+  return parts.join(' ')
+}
+
+function highlight(text: string, query: string): React.ReactNode {
+  if (!query) return text
+  const idx = text.toLowerCase().indexOf(query.toLowerCase())
+  if (idx === -1) return text
+  const before = text.slice(0, idx)
+  const match = text.slice(idx, idx + query.length)
+  const after = text.slice(idx + query.length)
+  return (
+    <>
+      {before}
+      <mark className="bg-yellow-200 dark:bg-yellow-700 text-zinc-900 dark:text-zinc-50 rounded px-0.5">{match}</mark>
+      {after}
+    </>
+  )
+}
+
+function getSnippet(topic: Topic, query: string): { text: string; type: string } {
+  const q = query.toLowerCase()
+  for (const section of topic.content) {
+    const fields: { text: string; type: string }[] = []
+    if (section.heading) fields.push({ text: section.heading, type: 'heading' })
+    if (section.body) fields.push({ text: section.body, type: 'body' })
+    if (section.note) fields.push({ text: section.note, type: 'note' })
+    if (section.tip) fields.push({ text: section.tip, type: 'tip' })
+    if (section.list) section.list.forEach(t => fields.push({ text: t, type: 'list' }))
+    if (section.table) {
+      section.table.rows.forEach(r => r.forEach(c => fields.push({ text: c, type: 'table' })))
+    }
+    if (section.questions) {
+      section.questions.forEach(sq => {
+        fields.push({ text: sq.q, type: 'question' })
+        fields.push({ text: sq.a, type: 'answer' })
+      })
+    }
+    for (const f of fields) {
+      if (f.text.toLowerCase().includes(q)) {
+        const idx = f.text.toLowerCase().indexOf(q)
+        const start = Math.max(0, idx - 60)
+        const end = Math.min(f.text.length, idx + query.length + 80)
+        const snippet = (start > 0 ? '…' : '') + f.text.slice(start, end) + (end < f.text.length ? '…' : '')
+        return { text: snippet, type: f.type }
+      }
+    }
+  }
+  return { text: topic.title, type: 'title' }
+}
+
 export default function CISSPPage() {
   const [activeDomain, setActiveDomain] = useState<Domain>(domains[0])
   const [activeTopic, setActiveTopic] = useState<Topic>(domains[0].topics[0])
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [pillsOpen, setPillsOpen] = useState(true)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchOpen, setSearchOpen] = useState(false)
+  const searchRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   function selectDomain(domain: Domain) {
     setActiveDomain(domain)
     setActiveTopic(domain.topics[0])
   }
+
+  function selectResult(result: SearchResult) {
+    setActiveDomain(result.domain)
+    setActiveTopic(result.topic)
+    setSearchQuery('')
+    setSearchOpen(false)
+  }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setSearchOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [])
+
+  const searchResults = useMemo<SearchResult[]>(() => {
+    const q = searchQuery.trim()
+    if (q.length < 2) return []
+    const results: SearchResult[] = []
+    for (const domain of domains) {
+      for (const topic of domain.topics) {
+        const text = getTopicText(topic)
+        if (text.toLowerCase().includes(q.toLowerCase())) {
+          const { text: snippet, type } = getSnippet(topic, q)
+          results.push({ domain, topic, matchText: snippet, sectionType: type })
+          if (results.length >= 20) return results
+        }
+      }
+    }
+    return results
+  }, [searchQuery])
 
   return (
     <div className="flex gap-0 min-h-screen">
@@ -87,6 +204,71 @@ export default function CISSPPage() {
       {/* Main reading area */}
       <div className="flex-1 overflow-y-auto">
         <div className="w-full px-8 py-10">
+
+          {/* Search box */}
+          <div className="mb-6" ref={searchRef}>
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </span>
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Search all CISSP content…"
+                value={searchQuery}
+                onChange={e => { setSearchQuery(e.target.value); setSearchOpen(true) }}
+                onFocus={() => setSearchOpen(true)}
+                className="w-full pl-9 pr-9 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-sm text-zinc-800 dark:text-zinc-200 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-all"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => { setSearchQuery(''); setSearchOpen(false); inputRef.current?.focus() }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+
+            {/* Search results dropdown */}
+            {searchOpen && searchQuery.trim().length >= 2 && (
+              <div className="absolute z-50 mt-1 w-full max-w-2xl rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-xl overflow-hidden">
+                {searchResults.length === 0 ? (
+                  <div className="px-4 py-6 text-sm text-zinc-400 text-center">No results for &ldquo;{searchQuery}&rdquo;</div>
+                ) : (
+                  <>
+                    <div className="px-4 py-2 text-xs text-zinc-400 border-b border-zinc-100 dark:border-zinc-800">
+                      {searchResults.length} result{searchResults.length !== 1 ? 's' : ''}{searchResults.length === 20 ? ' (showing top 20)' : ''}
+                    </div>
+                    <ul className="max-h-80 overflow-y-auto divide-y divide-zinc-100 dark:divide-zinc-800">
+                      {searchResults.map((result, i) => (
+                        <li key={i}>
+                          <button
+                            onClick={() => selectResult(result)}
+                            className="w-full text-left px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                          >
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${DOMAIN_COLORS[result.domain.number]}`}>
+                                D{result.domain.number}
+                              </span>
+                              <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300 truncate">
+                                {highlight(result.topic.title, searchQuery)}
+                              </span>
+                            </div>
+                            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-2">
+                              {highlight(result.matchText, searchQuery)}
+                            </p>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
 
           {/* Attribution banner */}
           <div className="mb-8 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950 px-5 py-4">
