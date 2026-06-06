@@ -1960,6 +1960,16 @@ export const domains: Domain[] = [
           {
             body: 'Allocating resources, including both time and finances, is essential for assessing the effectiveness of the company\'s security awareness and training initiatives. Key performance indicators, such as the percentage of employees clicking on simulated phishing campaign links, should be diligently monitored. It\'s crucial to analyze whether the awareness and training efforts are successfully reducing these clicks over time. If not, a reassessment of the strategies may be warranted.',
           },
+          {
+            heading: 'Microtraining',
+            body: 'Microtraining (also called microlearning) delivers security education in very short, focused modules — typically under 5 minutes — targeting a single concept or skill. This format addresses two key problems with traditional annual training: information overload (employees cannot retain hours of content) and temporal decay (learning from January training is forgotten by July).',
+            list: [
+              'Format examples — 2-minute video on spotting phishing indicators; a 10-question quiz on social engineering; a brief scenario-based simulation triggered after a security event.',
+              'Advantages — higher engagement rates than long-form training; just-in-time delivery (triggered when relevant — e.g., phishing simulation failure triggers immediate microtraining); lower friction for employees.',
+              'Frequency — monthly or quarterly microtraining modules between annual full training cycles maintain awareness without creating training fatigue.',
+              'Measurement — completion rate, quiz score, and behavioral metrics (phishing click rates following module delivery) measure microtraining effectiveness.',
+            ],
+          },
         ],
       },
       // ── 1.13 ─────────────────────────────────────────────────────────────
@@ -2968,6 +2978,17 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'ISO/IEC 19249 — Five Design Principles',
+            body: 'Complementing the five architectural principles, ISO/IEC 19249 also specifies five design principles that govern how individual components should be built:',
+            list: [
+              'Least Privilege — every component and user receives only the minimum permissions required to perform its function; excess privilege is the primary enabler of lateral movement.',
+              'Attack Surface Minimization — reduce the number of exposed entry points, interfaces, services, and protocols; every unnecessary component is potential attack surface.',
+              'Centralized Parameter Validation — validate all input at a single, shared validation layer rather than in each component separately; inconsistent validation across components creates bypass opportunities.',
+              'Centralized General Security Services — authentication, authorization, cryptography, session management, and logging should be implemented once in shared libraries and reused; multiple independent implementations of these functions lead to inconsistent protection.',
+              'Preparing for Error and Exception Handling — security must be maintained when errors occur; error paths must deny access, log the event, and not disclose sensitive information; exceptions must be caught and handled explicitly.',
+            ],
+          },
+          {
             heading: 'Core Secure Design Principles',
             list: [
               'Least Privilege — grant only the minimum access rights necessary to perform a specific function; revoke when no longer needed.',
@@ -3121,6 +3142,19 @@ export const domains: Domain[] = [
               'Rule of Least Power — use the least powerful language or tool capable of accomplishing the task. A static HTML page is safer than a dynamic server-side application for the same content.',
               'Defense in Depth — layer multiple independent controls so that the failure of any single control does not result in a complete compromise.',
             ],
+          },
+          {
+            heading: 'Security Composition Theories',
+            body: 'When multiple systems interact, their combined security properties may not equal the sum of each individual system\'s security. Security Composition Theories describe how security properties propagate and combine across system boundaries — a critical concern for interconnected enterprise architectures.',
+            table: {
+              headers: ['Theory', 'Description', 'Risk', 'Example'],
+              rows: [
+                ['Cascading', 'Output of System A becomes input of System B. Security properties flow downstream — a weakness in A can corrupt B\'s security even if B is internally secure.', 'A compromised upstream system poisons all downstream systems that trust its output.', 'Log aggregator (A) trusted by SIEM (B) — attacker injects false log entries into A to manipulate B\'s alerts.'],
+                ['Feedback', 'Systems mutually influence each other bidirectionally. System A\'s output affects B, and B\'s output feeds back into A.', 'A vulnerability in either system can propagate in both directions, creating circular compromise.', 'IDS (A) and firewall (B) share threat intelligence — attacker that compromises A can feed false intelligence to B, causing B to block legitimate traffic.'],
+                ['Hook-up', 'Two systems interact via a third intermediary system C. A and B do not communicate directly — all data passes through C.', 'System C becomes a high-value single point of failure; a compromise of C affects both A and B without either being directly attacked.', 'Both trading system (A) and reporting system (B) rely on a data broker (C) — broker compromise affects both without touching either.'],
+              ],
+            },
+            note: 'Security composition theories explain why the security of a composed system must be explicitly analyzed — you cannot simply assume that two individually secure systems, when combined, produce a secure combined system. This is a foundational concern in supply chain security, third-party integrations, and enterprise architecture reviews.',
           },
           {
             heading: 'Why Security Models Matter',
@@ -5177,8 +5211,20 @@ export const domains: Domain[] = [
                 ['ABAC (Attribute-Based Access Control)', 'Policy Engine (Attributes)', 'Access decisions based on combinations of user, resource, environment, and action attributes; most flexible', 'Cloud services, zero-trust architectures'],
                 ['Rule-Based Access Control', 'Explicit Rules/ACLs', 'Fixed allow/deny conditions regardless of identity; used for network filtering', 'Firewalls, routers, network ACLs'],
                 ['Risk-Based Access Control', 'Real-time Risk Score', 'Dynamically adjusts access based on current threat intelligence, behavior anomalies, and context', 'Adaptive authentication systems, SASE'],
+                ['TBAC (Task-Based Access Control)', 'Task/Workflow Engine', 'Access granted for the duration of a specific task or workflow step; automatically revoked when the task is complete', 'Workflow systems, BPM platforms, temporary approval processes'],
               ],
             },
+          },
+          {
+            heading: 'Task-Based Access Control (TBAC)',
+            body: 'TBAC grants permissions dynamically in relation to specific tasks or workflow steps rather than to static roles. Unlike RBAC where a user\'s permissions are determined by their role, TBAC permissions are attached to a task instance and exist only while that task is active.',
+            list: [
+              'Dynamic grant — a user receives elevated permissions when they are assigned to a task (e.g., approve a payment), and those permissions are automatically revoked when the task completes.',
+              'Context-aware — permissions depend not just on who the user is, but on what task is being performed, its current state, and the workflow context.',
+              'Use case — a financial auditor receives read access to transaction records only for the specific audit engagement currently assigned to them; access expires when the engagement closes.',
+              'Advantage over RBAC — TBAC reduces standing privilege; the access exists only as long as the task exists, limiting the window of exposure for privilege abuse.',
+              'Relationship to JIT — TBAC is closely related to Just-in-Time access; both provide time- or context-bounded access as an alternative to standing permissions.',
+            ],
           },
           {
             diagram: {
@@ -7479,6 +7525,22 @@ export const domains: Domain[] = [
             },
           },
           {
+            heading: 'DR Communication — Audience Matrix',
+            body: 'Different stakeholders need different information during a disaster. Pre-defining messages by audience ensures consistency and prevents conflicting statements or information leakage.',
+            table: {
+              headers: ['Audience', 'Message Focus', 'Channel', 'Tone'],
+              rows: [
+                ['Internal Staff', 'Actionable guidance: what to do, what not to do, status updates, expected timeline', 'Internal messaging app, SMS, all-staff email, manager cascade', 'Clear, calm, directive'],
+                ['IT Teams', 'Technical directives: priority order, access credentials, system states, escalation contacts', 'Incident bridge call, ticketing system, out-of-band ops channel', 'Precise, procedural'],
+                ['Executive Leadership', 'Business impact, recovery options, resource needs, risk decisions required', 'Executive bridge call, secure email, in-person if available', 'Concise, risk-framed, decision-oriented'],
+                ['Regulators', 'Compliance updates: nature of incident, affected data, steps taken, expected resolution', 'Formal notification per regulatory requirement (e.g., GDPR 72h, HIPAA 60d)', 'Formal, factual, legally reviewed'],
+                ['Customers', 'Transparency: service disruption, what is affected, expected restoration, protective steps', 'Status page, email, support portal, social media', 'Empathetic, transparent, no speculation'],
+                ['Media', 'Organized narrative: confirmed facts only, no speculation, single spokesperson', 'Press statement, media spokesperson only', 'Measured, controlled, legally reviewed'],
+              ],
+            },
+            warning: 'Never let different spokespersons give inconsistent messages to different audiences — conflicting public and internal statements create legal exposure and destroy trust. All external communications should be cleared by legal counsel before release.',
+          },
+          {
             heading: 'Restoration',
             list: [
               'Prioritization — critical systems first; sequence is defined in the BIA during calm planning time.',
@@ -7614,6 +7676,18 @@ export const domains: Domain[] = [
               ],
             },
             note: 'CPTED (Crime Prevention Through Environmental Design) — landscape design with thorny bushes and strategic walkways naturally discourages unauthorized movement.',
+          },
+          {
+            heading: 'Risk Zoning',
+            body: 'Risk Zoning is the practice of dividing a facility into concentric security zones with increasingly restrictive controls as you move toward higher-value assets. Each zone boundary requires additional authentication and authorization to cross — creating a layered defense where an attacker must defeat multiple independent controls to reach the most sensitive areas.',
+            list: [
+              'Public Zone — exterior, lobbies, reception; accessible to any visitor; monitored but not access-controlled.',
+              'Semi-Public Zone — common areas, conference rooms; badge access required; escorted visitors permitted.',
+              'Private Zone — offices, general workspaces; employee badge access only; visitor escort mandatory.',
+              'Restricted Zone — server rooms, data centers, security operations; multi-factor access (badge + PIN or biometric); strict need-to-know access list.',
+              'High-Security Zone — vaults, key management rooms, network operations core; dual control required (two-person rule); air-gapped or physically isolated.',
+            ],
+            note: 'Classic example: a bank (public lobby → teller area → back office → vault). Each zone transition requires additional credentials. A breach of the outer zone does not grant access to inner zones — each must be defeated independently.',
           },
           {
             heading: 'Internal Security Controls',
@@ -8089,6 +8163,22 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Static vs. Dynamic Libraries',
+            body: 'Libraries contain reusable code that applications depend on. How that code is linked into the application has direct security implications.',
+            table: {
+              headers: ['Dimension', 'Static Library (.lib / .a)', 'Dynamic Library (.dll / .so)'],
+              rows: [
+                ['Linking time', 'Compile time — library code is copied into the executable', 'Runtime — library is loaded from disk when the application starts'],
+                ['File size', 'Larger executable — all library code is included', 'Smaller executable — library code is separate'],
+                ['Patching', 'Requires recompiling and redeploying the application when library is patched', 'Library can be patched independently; all applications using it get the fix immediately on next run'],
+                ['Attack surface', 'No runtime dependency; immune to DLL/so hijacking attacks', 'Vulnerable to DLL injection / hijacking — attacker places malicious DLL in a path the application searches'],
+                ['Vulnerability impact', 'Vulnerable library version is embedded; only affects this binary', 'Vulnerable library affects all applications linked to it simultaneously'],
+                ['SBOM relevance', 'Static libraries must be explicitly inventoried; versions are frozen at compile time', 'Dynamic libraries can be updated independently; version drift can create unexpected incompatibilities'],
+              ],
+            },
+            warning: 'DLL injection and DLL hijacking are significant attack vectors: malware places a malicious DLL named identically to a legitimate one in a location the application searches first (often the application directory). When the application starts, it loads the malicious DLL instead of the legitimate system DLL, executing attacker code in the application\'s security context.',
+          },
+          {
             heading: 'Runtime Security',
             list: [
               'RASP (Runtime Application Self-Protection) — security instrumentation embedded inside the application that monitors and intercepts function calls and execution flow in real time. Can detect and block SQL injection, path traversal, and command injection attacks at the point of execution, without requiring changes to calling code.',
@@ -8511,6 +8601,17 @@ export const domains: Domain[] = [
               'Mass Assignment — API automatically binds request body properties to internal object fields, allowing attackers to set properties that should be read-only (e.g., account balance, admin flag). Explicitly whitelist bindable fields.',
               'Security Misconfiguration — CORS misconfigured; TLS not enforced; debug endpoints exposed. API gateways should enforce TLS, proper CORS policies, and disable debug features.',
               'Injection — SQL, NoSQL, OS command injection via API parameters. Same mitigations as web: parameterized queries, input validation.',
+              'XXE (XML External Entity) Injection — XML parsers that process external entity references allow attackers to read arbitrary files, perform SSRF, or execute denial-of-service by referencing external entities. Mitigation: disable external entity processing in all XML parsers; use JSON instead of XML where possible; use allow-lists for XML content.',
+            ],
+          },
+          {
+            heading: 'API Lifecycle Security: Deprecation and Versioning',
+            body: 'APIs accumulate security risk as they age — legacy API versions with known vulnerabilities remain exploitable if not properly retired. API versioning and deprecation are security lifecycle concerns, not just engineering convenience.',
+            list: [
+              'Versioning — maintain explicit API versions (v1, v2, v3); each version has defined security properties, supported authentication methods, and a defined end-of-life date.',
+              'Deprecation policy — announce end-of-support dates well in advance; enforce migration to newer versions; do not silently keep old versions running after their end-of-support date.',
+              'Security risk — deprecated API versions may lack current security controls (e.g., v1 endpoints with no rate limiting, weak authentication, or known vulnerabilities that were fixed in v2).',
+              'Discovery — attackers enumerate API versions through path manipulation (/api/v1/, /api/v0/) looking for older, less-hardened endpoints. Inventory all active API versions and enforce decommissioning.',
             ],
           },
           {
