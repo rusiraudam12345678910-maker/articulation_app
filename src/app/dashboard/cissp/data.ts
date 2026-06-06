@@ -3406,6 +3406,69 @@ export const domains: Domain[] = [
         title: '3.6 Cryptographic Solutions',
         content: [
           {
+            heading: 'Boolean / Logical Operations in Cryptography',
+            body: 'Cryptographic algorithms are built on fundamental Boolean and modular arithmetic operations. Understanding these building blocks helps explain how modern ciphers achieve confusion and diffusion.',
+            table: {
+              headers: ['Operation', 'Symbol', 'Rule', 'Crypto Relevance'],
+              rows: [
+                ['AND', '∧ or &', '1 AND 1 = 1; all other combinations = 0', 'Masking bits; used in cipher key scheduling'],
+                ['OR', '∨ or |', '0 OR 0 = 0; any 1 gives 1', 'Combining bit patterns; flag operations'],
+                ['NOT', '¬ or ~', 'NOT 1 = 0; NOT 0 = 1 (bit flip)', 'Bit inversion; complement operations in S-boxes'],
+                ['XOR', '⊕ or ^', '1 XOR 1 = 0; 0 XOR 0 = 0; mixed = 1 (different = 1)', 'Core cipher operation — XOR with key; self-inverse (A⊕K⊕K = A)'],
+                ['NAND', '↑', 'NOT AND — opposite of AND; 1 NAND 1 = 0', 'Universal gate — can construct any other logic gate'],
+                ['NOR', '↓', 'NOT OR — opposite of OR; 0 NOR 0 = 1', 'Universal gate; used in hardware cipher implementations'],
+              ],
+            },
+            tip: 'XOR is the most important operation in cryptography. It is fast, reversible, and used in AES rounds, stream cipher keystream application, CBC chaining, and OTP (One-Time Pad).',
+          },
+          {
+            heading: 'Modular Arithmetic in Cryptography',
+            body: 'Modular arithmetic ("clock arithmetic") is the mathematical foundation of public-key cryptography. All operations are performed within a finite set of integers modulo n.',
+            table: {
+              headers: ['Operation', 'Notation', 'Example (mod 7)', 'Crypto Relevance'],
+              rows: [
+                ['Addition mod n', '(a + b) mod n', '(5 + 4) mod 7 = 2', 'Key mixing, hash chaining steps'],
+                ['Subtraction mod n', '(a − b) mod n', '(2 − 5) mod 7 = 4', 'Inverse operations in cipher rounds'],
+                ['Multiplication mod n', '(a × b) mod n', '(3 × 5) mod 7 = 1', 'Core of RSA, Diffie-Hellman, ECC'],
+                ['Modular Inverse', 'a⁻¹ mod n where a × a⁻¹ ≡ 1 (mod n)', '3⁻¹ mod 7 = 5 (since 3×5=15≡1)', 'RSA decryption key derivation'],
+                ['Modular Exponentiation', 'aᵉ mod n', '2⁴ mod 7 = 16 mod 7 = 2', 'RSA encryption/decryption; Diffie-Hellman key exchange'],
+              ],
+            },
+            note: 'The discrete logarithm problem (finding x given gˣ mod p = y) is computationally infeasible for large p — this is the security foundation of Diffie-Hellman and ElGamal.',
+          },
+          {
+            heading: 'Stream Cipher vs Block Cipher',
+            table: {
+              headers: ['Aspect', 'Stream Cipher', 'Block Cipher'],
+              rows: [
+                ['Encryption method', 'Encrypts one bit or byte at a time', 'Encrypts fixed-size blocks (e.g., 128 bits)'],
+                ['Key usage', 'Generates a keystream; XORed with plaintext', 'Same key applied to each block (with mode of operation)'],
+                ['Performance', 'Very fast; low hardware overhead', 'Slower; but parallelizable in some modes (CTR, GCM)'],
+                ['Modes', 'Not applicable — inherently stream-oriented', 'Requires mode (ECB, CBC, CTR, GCM) to handle multiple blocks'],
+                ['Diffusion / Error handling', 'Bit error affects only that bit', 'Bit error can propagate to entire block (CBC) or remain isolated (CTR)'],
+                ['Use cases', 'Real-time communications, TLS (ChaCha20), VoIP', 'File encryption, disk encryption, TLS (AES-GCM), VPN'],
+                ['Examples', 'RC4 (broken), ChaCha20, Salsa20', 'AES, DES, 3DES, Blowfish, Twofish'],
+              ],
+            },
+            warning: 'RC4 is a broken stream cipher — never use it. ChaCha20 is the modern stream cipher of choice (used in TLS 1.3 and WireGuard).',
+          },
+          {
+            heading: 'Substitution Cipher vs Transposition Cipher',
+            table: {
+              headers: ['Aspect', 'Substitution Cipher', 'Transposition Cipher'],
+              rows: [
+                ['What changes', 'Values/characters are replaced with different values', 'Position of characters is rearranged; values unchanged'],
+                ['Confusion/Diffusion', 'Provides confusion (hides relationship between key and ciphertext)', 'Provides diffusion (spreads plaintext structure across ciphertext)'],
+                ['Example cipher', 'Caesar cipher, ROT13, Vigenère', 'Rail fence cipher, columnar transposition'],
+                ['Example plaintext', 'HELLO WORLD', 'HELLO WORLD'],
+                ['Example ciphertext', 'KHOOR ZRUOG (Caesar +3)', 'HLWRDELLO O (rearranged positions)'],
+                ['Modern use', 'S-boxes in AES provide substitution', 'Permutation layers in AES/DES provide transposition'],
+                ['Weakness alone', 'Vulnerable to frequency analysis', 'Vulnerable to anagramming attacks'],
+              ],
+            },
+            note: 'Modern block ciphers like AES combine both substitution (S-boxes) and transposition (ShiftRows, MixColumns permutation) — this combination resists both frequency analysis and anagramming.',
+          },
+          {
             heading: 'Four Goals of Cryptography',
             list: [
               'Confidentiality — ensures only authorized parties can read the data (encryption).',
@@ -4139,6 +4202,74 @@ export const domains: Domain[] = [
               'SYN Flood Attack — attacker sends many SYN packets with spoofed source IPs; server allocates state for each; table fills up; legitimate connections are refused.',
               'Mitigation: SYN cookies — server does not allocate state until the three-way handshake is complete.',
             ],
+          },
+          {
+            heading: '4.1.6 Transport Architecture',
+            body: 'Understanding transport architecture clarifies how data moves across a network infrastructure and how forwarding decisions are made.',
+            table: {
+              headers: ['Concept', 'Description', 'Security Relevance'],
+              rows: [
+                ['Data Plane', 'The forwarding plane — actually moves packets based on tables built by the control plane', 'Target for packet injection and spoofing attacks'],
+                ['Control Plane', 'Makes routing and forwarding decisions; runs protocols (OSPF, BGP, STP)', 'High-value attack target — compromising control plane disrupts all routing'],
+                ['Management Plane', 'Out-of-band administration: SSH, SNMP, HTTPS management interfaces', 'Must be isolated; use dedicated management VLAN or OOB network'],
+                ['Cut-Through Switching', 'Forwards frame after reading only the destination MAC (low latency)', 'May forward malformed frames — less filtering opportunity'],
+                ['Store-and-Forward Switching', 'Receives entire frame, checks FCS for errors, then forwards', 'More reliable; drops corrupted frames; higher latency'],
+              ],
+            },
+          },
+          {
+            heading: '4.1.7 Performance Metrics',
+            body: 'Network performance metrics directly affect security — degraded performance can mask attacks or be caused by them (DDoS).',
+            table: {
+              headers: ['Metric', 'Definition', 'Security Implication'],
+              rows: [
+                ['Bandwidth', 'Maximum data transfer rate of a link (Mbps/Gbps)', 'Bandwidth exhaustion = DoS; monitor for sudden consumption spikes'],
+                ['Throughput', 'Actual data transfer rate achieved (always ≤ bandwidth)', 'Low throughput despite high bandwidth may indicate interference or attack'],
+                ['Latency', 'Time for a packet to travel from source to destination', 'Unusually high latency can indicate routing attacks or network tapping'],
+                ['Jitter', 'Variation in packet delay over time', 'High jitter disrupts VoIP/video; can indicate congestion or QoS attack'],
+                ['Packet Loss', 'Percentage of packets that fail to arrive', 'Unexpected packet loss may indicate active dropping attack or hardware failure'],
+                ['Signal-to-Noise Ratio (SNR)', 'Ratio of signal strength to background interference (wireless)', 'Low SNR enables easier eavesdropping; jamming attacks reduce SNR'],
+              ],
+            },
+          },
+          {
+            heading: '4.1.8 Traffic Flows',
+            body: 'Understanding traffic flow direction is essential for designing security controls and detecting lateral movement.',
+            table: {
+              headers: ['Traffic Flow', 'Direction', 'Description', 'Security Focus'],
+              rows: [
+                ['North-South', 'Vertical — between client and server across perimeter', 'Traffic entering or leaving the data center / network boundary', 'Traditional perimeter firewalls, DLP, IPS — well-understood controls'],
+                ['East-West', 'Horizontal — between servers/workloads within the same tier or data center', 'Server-to-server, microservice-to-microservice internal traffic', 'Lateral movement detection; microsegmentation; Zero Trust policies'],
+              ],
+            },
+            warning: 'Modern attacks increasingly move east-west after initial compromise. Traditional perimeter-only defenses miss lateral movement entirely. Microsegmentation and Zero Trust address this gap.',
+          },
+          {
+            heading: '4.1.9 Physical Segmentation',
+            body: 'Physical segmentation separates networks using distinct hardware rather than logical configuration.',
+            table: {
+              headers: ['Type', 'Description', 'Use Case', 'Security Strength'],
+              rows: [
+                ['In-Band Management', 'Management traffic shares the same network as production data traffic', 'Small environments; lower cost', 'Lower — management traffic exposed to same threats as data traffic'],
+                ['Out-of-Band (OOB) Management', 'Dedicated separate physical network for device management', 'Data centers; critical infrastructure; enterprise environments', 'Higher — management plane isolated from attacks on data plane'],
+                ['Air Gap', 'Complete physical isolation; no network connection to untrusted systems', 'Nuclear control systems, classified networks, industrial control systems', 'Maximum — no network-based attack path; physical access required'],
+              ],
+            },
+            tip: 'Air-gapped systems have been compromised via USB drops (Stuxnet), acoustic signals, and RF emanations (TEMPEST). Physical security and strict media control are essential even for air-gapped systems.',
+          },
+          {
+            heading: '4.1.10 Logical Segmentation',
+            body: 'Logical segmentation divides networks using software and configuration rather than physical infrastructure.',
+            table: {
+              headers: ['Method', 'How It Works', 'Security Benefit', 'Key Risk'],
+              rows: [
+                ['VLANs', 'IEEE 802.1Q tags separate broadcast domains on shared switches', 'Isolates traffic between departments without physical separation', 'VLAN hopping attacks if trunking not properly configured'],
+                ['VPNs', 'Encrypted tunnels create logical private networks over public infrastructure', 'Secure remote access; site-to-site WAN privacy', 'VPN concentrator is single point of failure; credential attacks'],
+                ['Virtual Routing (VRF)', 'Multiple independent routing tables on one physical router', 'Complete routing isolation between tenants on shared infrastructure', 'Misconfiguration can leak routes between VRFs'],
+                ['Virtual Domains (VDOM)', 'Firewall partitioned into multiple independent virtual firewalls', 'Separate security policies per business unit or tenant', 'Resource contention; shared management plane'],
+                ['Software-Defined Perimeter (SDP)', 'Network access granted per-session after identity verification; infrastructure hidden', 'Zero Trust architecture; eliminates network-level attack surface', 'Relies on identity provider availability and security'],
+              ],
+            },
           },
           {
             heading: 'Network Segmentation Strategies',
@@ -5078,6 +5209,28 @@ export const domains: Domain[] = [
               'Single Sign-On (SSO) — allows a user to authenticate once and gain access to multiple systems via assertion-passing protocols (SAML, OIDC). Reduces password fatigue but creates a high-value target.',
               'Continuous Authentication — monitors behavioral signals throughout a session and revokes access or triggers re-authentication if anomalies are detected, even after initial login.',
             ],
+          },
+          {
+            heading: '5.2.8 Just-In-Time (JIT) Access',
+            body: 'Just-In-Time access is a privileged access management (PAM) approach where elevated permissions are granted only when needed, for the minimum required duration, and revoked automatically when the task is complete. It replaces standing privileged accounts that provide persistent, always-on access.',
+            list: [
+              'Standing Privilege Problem — traditional admin accounts have persistent elevated access 24/7, creating a large attack window. An attacker who compromises a standing admin account immediately has full privilege.',
+              'JIT eliminates standing privilege — a user requests elevated access, the request is approved (manually or via policy), access is granted for a defined window (e.g., 1 hour), and automatically revoked afterwards.',
+              'PAM Broker-and-Remove Pattern — the PAM system (e.g., CyberArk, BeyondTrust, HashiCorp Vault) brokers the privileged session, adds the user to a group or injects credentials at session start, and removes them at session end.',
+              'Ephemeral Accounts — temporary accounts created for a specific task and destroyed immediately afterwards; no persistent identity with elevated rights.',
+              'Privileged Identity Management (PIM) — Microsoft Azure PIM is a common JIT implementation; users request activation of privileged roles with justification and approval workflow.',
+            ],
+            table: {
+              headers: ['Aspect', 'Standing Privilege', 'Just-In-Time Access'],
+              rows: [
+                ['Privilege duration', 'Always-on — 24/7 persistent', 'Time-limited — minutes to hours only'],
+                ['Attack window', 'Large — persistent privilege available to exploit', 'Minimal — privilege exists only during approved window'],
+                ['Lateral movement risk', 'High — compromised account has immediate full privilege', 'Low — attacker must wait for or trigger a JIT request'],
+                ['Audit trail', 'Harder to attribute — always-on access', 'Full approval and session audit trail per access event'],
+                ['Implementation', 'Group membership, persistent role assignment', 'PAM platform, PIM, ephemeral account generation'],
+              ],
+            },
+            tip: 'JIT is a key Zero Trust control — "never trust, always verify, minimize privilege duration." Combine JIT with session recording for full privileged access accountability.',
           },
           {
             questions: [
@@ -6303,6 +6456,28 @@ export const domains: Domain[] = [
               { q: 'What security events should always generate immediate SIEM alerts?', a: 'High-priority alert triggers include: multiple failed authentication attempts followed by success (credential stuffing/brute force); privileged account creation outside of change management windows; authentication from impossible geographic locations; large outbound data transfers to external IPs; disabled security tools or stopped logging services; access to sensitive data outside normal business hours; and new administrator account creation. These events have high likelihood of representing active attacks or insider threats.' },
               { q: 'What is the risk of collecting logs without a formal retention and disposal policy?', a: 'Without a retention policy, organizations risk two failure modes: retaining logs too long (creating unnecessary GDPR/privacy liability and storage costs, and expanding the blast radius of a data breach that reaches log stores) or deleting logs too soon (violating regulatory requirements like PCI DSS, destroying forensic evidence needed to investigate an incident, and making it impossible to demonstrate compliance during audits). Retention policies must align with the most stringent applicable regulatory requirement.' },
             ],
+          },
+          {
+            heading: '7.2.8 User and Entity Behavior Analytics (UEBA)',
+            body: 'UEBA applies machine learning and statistical analysis to establish baselines of normal behavior for users and entities (devices, applications, services), then detects anomalies that may indicate insider threats, compromised accounts, or advanced persistent threats (APTs) that evade signature-based detection.',
+            list: [
+              'Behavioral Baseline — UEBA first learns what "normal" looks like for each user and entity: typical login times, accessed resources, data volumes, geographic locations, and peer group behavior.',
+              'Anomaly Scoring — deviations from baseline are scored; a single anomaly may be low-risk but a combination of anomalies (unusual login time + large file download + email to external address) generates a high-risk alert.',
+              'Insider Threat Detection — UEBA is particularly effective against insider threats who have legitimate credentials but use them in unusual ways — impossible to detect with firewall or signature-based tools.',
+              'Compromised Account Detection — if an attacker steals credentials and logs in from a new location, UEBA flags the behavioral change even though the credentials are valid.',
+              'Entity Behavior — UEBA also monitors non-user entities: a server suddenly making external network connections, a service account accessing unusual file shares, or a database querying far more records than baseline.',
+            ],
+            table: {
+              headers: ['Threat Type', 'How UEBA Detects It', 'Example Anomaly'],
+              rows: [
+                ['Insider Threat', 'Behavioral change vs. personal baseline', 'Employee downloads 10GB of files the week before resignation'],
+                ['Compromised Account', 'Login from impossible geography or new device', 'VPN login from two countries within 30 minutes (impossible travel)'],
+                ['Privilege Abuse', 'Access to resources outside normal peer group behavior', 'Admin accesses HR database never accessed in 2 years'],
+                ['Data Exfiltration', 'Spike in outbound data volume vs. baseline', 'Service account transfers 50GB to cloud storage at 2am'],
+                ['APT Lateral Movement', 'Internal east-west traffic anomalies', 'Workstation connects to 200 internal IPs in one hour'],
+              ],
+            },
+            note: 'UEBA does not replace SIEM — it enhances it. SIEM collects logs; UEBA adds behavioral intelligence on top of that log data to detect subtle, multi-step attacks that rule-based SIEM correlation misses.',
           },
         ],
       },
