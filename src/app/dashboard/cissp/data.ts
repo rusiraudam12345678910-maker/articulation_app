@@ -2568,6 +2568,35 @@ export const domains: Domain[] = [
             body: 'E-discovery, the process of producing electronically stored information (ESI) relevant to a legal proceeding, can be streamlined with robust data retention policies. The Electronic Discovery Reference Model (EDRM) outlines eight steps: 1. Identification of relevant data. 2. Preservation of data to prevent destruction. 3. Collection of data from various storage locations. 4. Processing to ensure correct data and metadata format. 5. Review for relevance. 6. Analysis for context. 7. Production of the final data set. 8. Presentation.',
           },
           {
+            heading: 'EDRM — Electronic Discovery Reference Model (8 Steps)',
+            table: {
+              headers: ['Step', 'Stage', 'Description', 'Key Concern'],
+              rows: [
+                ['1', 'Information Governance', 'Establish policies for data storage, retention, and deletion before litigation', 'Ensures defensible disposition and reduces discovery burden'],
+                ['2', 'Identification', 'Locate all potentially relevant electronically stored information (ESI)', 'Scope definition; over-preservation wastes resources'],
+                ['3', 'Preservation', 'Implement legal holds; prevent destruction of relevant ESI', 'Failure triggers spoliation sanctions; must be timely'],
+                ['4', 'Collection', 'Gather ESI from custodians and data sources in forensically sound manner', 'Maintain chain of custody; avoid altering metadata'],
+                ['5', 'Processing', 'Convert ESI to reviewable format; de-duplicate; extract text and metadata', 'Accuracy of culling; ensure metadata is preserved'],
+                ['6', 'Review', 'Attorneys review documents for relevance, privilege, and responsiveness', 'Most expensive step; use TAR/predictive coding to reduce volume'],
+                ['7', 'Analysis', 'Identify patterns, key players, timelines from the reviewed set', 'Contextual understanding for case strategy'],
+                ['8', 'Production', 'Deliver relevant ESI to opposing party in agreed format (TIFF, native, load files)', 'Format compliance; privilege log for withheld documents'],
+              ],
+            },
+          },
+          {
+            heading: 'Big Data — The 5 V\'s',
+            table: {
+              headers: ['V', 'Characteristic', 'Description', 'Security Implication'],
+              rows: [
+                ['Volume', 'Scale of data', 'Petabytes or exabytes of data from sensors, transactions, logs', 'Large attack surface; need scalable DLP and encryption'],
+                ['Velocity', 'Speed of data generation', 'Data created and processed in real time (streaming)', 'Traditional security tools cannot analyze at ingestion speed'],
+                ['Variety', 'Diversity of formats', 'Structured (databases), semi-structured (JSON/XML), unstructured (images, text)', 'Classification and policy enforcement difficult across formats'],
+                ['Veracity', 'Reliability and accuracy', 'Data quality varies; dirty or noisy data affects analysis', 'Decisions based on poisoned data lead to incorrect outcomes'],
+                ['Value', 'Business usefulness', 'Meaningful insights extracted from raw data', 'High-value datasets attract attackers; drives retention decisions'],
+              ],
+            },
+          },
+          {
             body: 'Regulations such as FISMA and HIPAA impose specific data retention requirements. FISMA, through NIST SP 800-53, mandates a minimum retention period of three years for federal agencies. HIPAA requires covered entities to retain HIPAA-related data for at least six years from creation. The GDPR emphasizes data minimization, requiring organizations to retain personal data only as long as necessary to fulfill the original purpose of collection.',
             warning: 'For data, as with assets, an approach based on "keep it just in case it may serve in future" is not acceptable.',
           },
@@ -3003,9 +3032,96 @@ export const domains: Domain[] = [
         ],
       },
       {
+        id: 'd3t1-sase',
+        title: '3.1.11 SASE — Secure Access Service Edge',
+        content: [
+          {
+            body: 'SASE (pronounced "sassy") is a cloud-delivered architecture that converges wide-area networking (WAN) capabilities with a comprehensive suite of network security functions into a single, unified cloud service. Defined by Gartner in 2019, SASE moves security enforcement from the data center perimeter to the cloud edge — closest to the user, device, or application — regardless of location.',
+          },
+          {
+            heading: 'Why SASE Emerged',
+            body: 'Traditional perimeter security was designed for an era when users, applications, and data resided inside the corporate network. SASE addresses three shifts that broke that model:',
+            list: [
+              'Workforce mobility — remote workers access resources from anywhere; castle-and-moat security cannot follow them.',
+              'Cloud adoption — workloads moved from data centers to SaaS/IaaS; backhauling cloud traffic through a data center for inspection creates latency and wastes bandwidth.',
+              'Application proliferation — thousands of SaaS apps mean the perimeter is effectively everywhere and nowhere.',
+            ],
+          },
+          {
+            heading: 'SASE Four Key Principles',
+            table: {
+              headers: ['Principle', 'Description'],
+              rows: [
+                ['Cloud-Native Architecture', 'All security services delivered from the cloud; no on-premises hardware required; elastic scaling; globally distributed points of presence (PoPs)'],
+                ['Zero Trust Network Access (ZTNA)', 'Access granted based on identity, device posture, and context — not network location; replaces VPN for application access'],
+                ['Security Convergence', 'Multiple security functions delivered from one platform, reducing complexity and eliminating policy gaps between siloed point products'],
+                ['Global Reach', 'Security enforcement happens at the edge PoP nearest the user, minimising latency while maximising coverage'],
+              ],
+            },
+          },
+          {
+            heading: 'SASE Component Technologies',
+            table: {
+              headers: ['Component', 'Acronym', 'Function'],
+              rows: [
+                ['Zero Trust Network Access', 'ZTNA', 'Identity-verified, least-privilege application access; hides applications from the internet'],
+                ['Secure Web Gateway', 'SWG', 'URL filtering, malware inspection, SSL inspection for web traffic'],
+                ['Cloud Access Security Broker', 'CASB', 'Visibility and control over cloud application usage; DLP for cloud data'],
+                ['Firewall as a Service', 'FWaaS', 'Cloud-based next-gen firewall; stateful inspection and IPS for all traffic'],
+                ['Data Loss Prevention', 'DLP', 'Identifies and blocks exfiltration of sensitive data across all channels'],
+                ['SD-WAN', 'SD-WAN', 'Intelligent traffic routing across multiple transport types (MPLS, broadband, LTE)'],
+              ],
+            },
+            note: 'SASE is not a single product — it is an architectural framework. Vendors such as Palo Alto Prisma Access, Zscaler, Netskope, and Cisco+ Secure Connect implement SASE by combining these component technologies in a cloud-delivered platform.',
+          },
+          {
+            questions: [
+              { q: 'What problem does SASE solve that traditional perimeter security cannot?', a: 'Traditional perimeter security assumes users and applications are inside the corporate network. SASE addresses the reality that users work from anywhere and applications live in the cloud. It delivers security inspection and policy enforcement at the cloud edge, closest to the user, eliminating the need to backhaul all traffic through a central data center.' },
+              { q: 'How does ZTNA differ from a traditional VPN?', a: 'A VPN grants network-level access — once connected, a user can reach any resource on the network segment. ZTNA grants application-level access only — a user is authorized to access specific applications based on identity and device posture, and the network itself remains invisible. ZTNA also hides applications from the internet (no publicly exposed IPs), significantly reducing attack surface compared to VPN.' },
+              { q: 'What is the relationship between SASE and Zero Trust?', a: 'Zero Trust is the security principle (never trust implicitly, always verify). SASE is an architecture that implements Zero Trust principles at the network and access layer — specifically through ZTNA for application access and continuous identity/posture verification for every session. SASE is not the only way to implement Zero Trust, but it is the primary architectural pattern for delivering Zero Trust at scale for distributed workforces.' },
+            ],
+          },
+        ],
+      },
+      {
         id: 'd3t2',
         title: '3.2 Security Models',
         content: [
+          {
+            heading: 'Foundational Concepts: Subjects, Objects, and Transitive Trust',
+            body: 'Security models operate on the relationship between subjects and objects. These terms have precise meanings in formal security models.',
+            list: [
+              'Subject — an active entity that requests access to resources: a user, process, program, or service acting on behalf of a user. Subjects generate access requests.',
+              'Object — a passive entity that contains or receives information: a file, database record, memory segment, port, or hardware device. Objects are the targets of access.',
+              'Access right — the permission a subject has to perform a specific operation on an object (read, write, execute, delete, append).',
+              'Transitive Trust — if A trusts B and B trusts C, does A trust C? Not necessarily. Transitive trust is dangerous in security architectures because trust granted to one party may propagate to untrusted third parties. Zero-trust architectures explicitly reject transitive trust — every entity must independently prove its trustworthiness regardless of who vouches for it.',
+            ],
+          },
+          {
+            heading: 'Fail-Open vs. Fail-Secure',
+            body: 'Security systems must define their behavior when they encounter an error condition, loss of connectivity, or system failure.',
+            table: {
+              headers: ['Behavior', 'Fail-Open (Fail-Safe)', 'Fail-Secure (Fail-Closed)'],
+              rows: [
+                ['Default failure state', 'Allow access when system fails', 'Deny access when system fails'],
+                ['Security posture', 'Availability-prioritized — access continues during failures', 'Confidentiality/integrity-prioritized — access stops during failures'],
+                ['Example', 'Hospital door that unlocks on fire alarm (life safety)', 'Firewall that blocks all traffic if rule engine crashes'],
+                ['Risk', 'Attacker may deliberately trigger failure to gain access', 'Legitimate users denied access during system failures'],
+                ['CISSP rule of thumb', 'Physical safety systems often fail-open', 'Security controls should generally fail-secure'],
+                ['Common exam trap', 'Fail-safe sounds like it means "safe from attack" — it means safe for life safety (i.e., open)', 'Fail-secure is the correct default for security controls'],
+              ],
+            },
+          },
+          {
+            heading: 'Design Principles: KISS, YAGNI, DRY, and Related',
+            list: [
+              'KISS (Keep It Simple, Stupid) — simpler designs have fewer attack surfaces, are easier to audit, and have fewer unintended interactions. Complexity is the enemy of security.',
+              'YAGNI (You Aren\'t Gonna Need It) — don\'t implement functionality until it is needed. Unused code is a liability: it may contain vulnerabilities and cannot be tested against real-world usage.',
+              'DRY (Don\'t Repeat Yourself) — eliminate duplicate logic; a vulnerability in duplicated code must be patched everywhere. Centralize security functions (authentication, validation) in a single authoritative library.',
+              'Rule of Least Power — use the least powerful language or tool capable of accomplishing the task. A static HTML page is safer than a dynamic server-side application for the same content.',
+              'Defense in Depth — layer multiple independent controls so that the failure of any single control does not result in a complete compromise.',
+            ],
+          },
           {
             heading: 'Why Security Models Matter',
             body: 'Security models provide a formal mathematical framework for defining and enforcing security policies. The CISSP exam tests your ability to identify which model applies to a given scenario — especially confidentiality vs integrity focus.',
@@ -3364,6 +3480,31 @@ export const domains: Domain[] = [
                 ['Microservices', 'Lateral movement between services, API exposure', 'Zero trust between services, mTLS, API gateway'],
                 ['Containers', 'Container escape, vulnerable base images', 'Rootless containers, image scanning, runtime security'],
                 ['Virtualization', 'VM escape, hypervisor vulnerabilities', 'Hypervisor patching, VM isolation, disable guest-to-host comms'],
+              ],
+            },
+          },
+          {
+            heading: 'Database-Specific Security Attacks',
+            table: {
+              headers: ['Attack', 'Description', 'Mitigation'],
+              rows: [
+                ['SQL Injection', 'Attacker inserts SQL into user-supplied input to manipulate queries; can read, modify, or delete database content', 'Parameterized queries (prepared statements); stored procedures; input validation; WAF'],
+                ['Aggregation', 'Combining multiple low-sensitivity data items to derive information classified at a higher sensitivity level (e.g., combining names + job titles + schedules reveals classified movements)', 'Data classification at the field level; restrict access to combinations of fields; cell suppression'],
+                ['Inference', 'Deducing confidential information from observable data and query results (e.g., deducing a salary by asking what it is NOT)', 'Polyinstantiation — store different values for different classification levels; query auditing; noise injection in results'],
+                ['Concurrency / TOCTOU', 'Race condition between check and use; two transactions simultaneously modify data causing inconsistency', 'Serializable transaction isolation level; row-level locking; optimistic concurrency control'],
+                ['Privilege Escalation', 'User gains higher database privileges than granted, possibly via stored procedure injection or misconfigured grants', 'Least privilege; regular privilege audits; disable dynamic SQL in stored procedures'],
+                ['Data Inference via Timing', 'Observing response time differences to deduce existence of records or values', 'Uniform query response times; blind SQL injection mitigations'],
+              ],
+            },
+          },
+          {
+            heading: 'Distributed Computing: RPC, CORBA, and DCOM',
+            table: {
+              headers: ['Technology', 'Full Name', 'Description', 'Security Concern'],
+              rows: [
+                ['RPC', 'Remote Procedure Call', 'Protocol allowing a program to execute a procedure on a remote system as if it were local; fundamental to client-server architecture', 'Unauthenticated RPC calls; parameter injection; insecure deserialization of arguments; firewall bypass (high random ports)'],
+                ['CORBA', 'Common Object Request Broker Architecture', 'OMG standard for language-neutral distributed object communication using an Object Request Broker (ORB) as intermediary', 'Weak authentication; object reference manipulation; IIOP protocol firewalling challenges; legacy implementations unpatched'],
+                ['DCOM', 'Distributed Component Object Model', 'Microsoft extension of COM for remote object invocation across networks; used in Windows enterprise environments', 'Wide port range requirements; NTLM relay attacks; privilege escalation via misconfigured DCOM permissions; legacy exposure'],
               ],
             },
           },
@@ -3730,6 +3871,20 @@ export const domains: Domain[] = [
             ],
           },
           {
+            heading: 'Second-Generation CPTED',
+            body: 'While first-generation CPTED focuses on physical design elements, second-generation CPTED recognizes that social and community factors equally influence security outcomes. It adds four principles focused on the human dimension of secure environments:',
+            table: {
+              headers: ['Principle', 'Description', 'Application'],
+              rows: [
+                ['Social Cohesion', 'Strong community relationships naturally deter criminal behaviour — people watch out for each other', 'Tenant engagement programs, community security liaisons, shared responsibility culture in offices'],
+                ['Community Culture', 'Shared values and norms about acceptable behaviour reduce deviance', 'Security awareness campaigns, ethics training, visible commitment from leadership'],
+                ['Connectivity', 'Well-connected spaces reduce isolation where crime can hide unobserved', 'Open common areas, clear sightlines between departments, no dead-end corridors'],
+                ['Threshold Capacity', 'Environments designed to avoid overcrowding or under-use that increases risk', 'Right-sized spaces, occupancy monitoring, after-hours access controls for under-used areas'],
+              ],
+            },
+            note: 'First-generation CPTED addresses the physical environment; second-generation addresses the social environment. Both are needed for comprehensive physical security design.',
+          },
+          {
             heading: 'Defense Zones — Concentric Ring Model',
             body: 'Physical security is implemented in concentric layers, each with progressively stricter access controls.',
             table: {
@@ -3770,6 +3925,26 @@ export const domains: Domain[] = [
         id: 'd3t9',
         title: '3.9 Facility Security Controls',
         content: [
+          {
+            heading: '3.9.1 Wiring Closets and Intermediate Distribution Facilities (IDFs)',
+            body: 'Wiring closets and IDFs house network cabling infrastructure, patch panels, switches, and sometimes servers. Though often overlooked, they are high-value physical security targets — direct network access can be gained by plugging into a patch panel.',
+            list: [
+              'Physical access control — lock all wiring closets; badge or key access with logs; never prop doors open.',
+              'Inventory and labelling — all cables, ports, and equipment labelled per TIA/EIA-606 standards; enables rapid identification of unauthorized connections.',
+              'No public access — wiring closets should never be used as storage or pass-through areas for non-IT staff.',
+              'Environmental — maintain temperature, humidity, and airflow even in small closets; equipment failure from heat is a common IDF issue.',
+              'Camera coverage — CCTV on IDF doors; any access event should be recorded.',
+              'Relevant standards: TIA/EIA-568 (cabling standards), TIA/EIA-569 (pathways and spaces), ANSI/TIA-606 (administration standard), NFPA 70 (electrical code), IEEE 802.3 (Ethernet), UL 514C (fittings).',
+            ],
+            table: {
+              headers: ['Location Type', 'Description', 'Security Priority'],
+              rows: [
+                ['MDF (Main Distribution Facility)', 'Central wiring hub — connects to ISP and distributes to IDFs', 'Critical — compromise gives access to entire network backbone'],
+                ['IDF (Intermediate Distribution Facility)', 'Floor or zone-level wiring hub connecting workstations to MDF', 'High — compromise gives access to that floor or segment'],
+                ['Wiring Closet', 'Small enclosure housing patch panels and switches for a small area', 'High — direct physical network access point'],
+              ],
+            },
+          },
           {
             heading: 'Data Center Physical Security',
             body: 'Data centers require layered physical controls at every level from the building perimeter to the individual equipment rack.',
@@ -5187,6 +5362,48 @@ export const domains: Domain[] = [
             warning: 'FAR and FRR are inversely related — tuning a biometric system to lower FAR (increase security) will raise FRR (reduce usability), and vice versa. The CER represents the optimal balance point.',
           },
           {
+            heading: '5.2.3 Session Management',
+            body: 'Session management governs how authenticated sessions are created, maintained, and terminated. Poor session management is one of the most exploited vulnerability categories (OWASP Top 10 #7).',
+            list: [
+              'Session creation — generate a new, cryptographically random session token after successful authentication; never reuse tokens across sessions.',
+              'Session token properties — minimum 128-bit entropy; stored in httpOnly, Secure, SameSite cookies; never in URLs or local storage.',
+              'Schedule Limitations — restrict login times by role; prevent login outside business hours for accounts that should never access systems at night.',
+              'Login Restrictions — limit concurrent sessions; restrict login to approved devices or IP ranges; enforce location-based policies.',
+              'Timeouts — idle timeout (e.g., 15 minutes) and absolute session timeout (e.g., 8 hours) regardless of activity; require re-authentication for sensitive operations.',
+              'Screensavers — lock workstations after inactivity; require password to resume; enforced via Group Policy or MDM.',
+              'Session termination — invalidate server-side session on logout; clear all cookies; revoke associated tokens.',
+            ],
+            table: {
+              headers: ['Attack', 'Description', 'Mitigation'],
+              rows: [
+                ['Session Hijacking', 'Attacker steals a valid session token to impersonate authenticated user', 'Encrypt all traffic (HTTPS); httpOnly/Secure cookies; IP binding; short session lifetime'],
+                ['Session Fixation', 'Attacker sets a known session ID before authentication; user logs in with attacker\'s ID', 'Always generate new session token after authentication; never accept session IDs from URLs'],
+                ['CSRF (Cross-Site Request Forgery)', 'Malicious site tricks authenticated user\'s browser into making requests to target site', 'CSRF tokens; SameSite=Strict cookies; verify Origin/Referer headers'],
+                ['Privilege Escalation via Session', 'Session token not updated after privilege change; attacker uses stale low-privilege token with elevated rights', 'Rotate session token on any privilege change; re-authenticate for sensitive operations'],
+              ],
+            },
+          },
+          {
+            heading: '5.2.6 Credential Management Systems',
+            body: 'Credential management systems store, organize, and protect credentials. They reduce password reuse, enable strong unique passwords per service, and provide audit trails for credential access.',
+            list: [
+              'Password Managers — Bitwarden, 1Password, LastPass, KeePass; encrypt vault with master password; zero-knowledge architecture means provider cannot see vault contents.',
+              'Enterprise Secrets Managers — HashiCorp Vault, AWS Secrets Manager, Azure Key Vault; manage API keys, database credentials, certificates; provide dynamic secrets and automatic rotation.',
+              'W3C Credential Management API — browser-native API allowing websites to interact with the user\'s credential store; enables passwordless flows and passkey support.',
+              'WebAuthn / FIDO2 — W3C standard for phishing-resistant authentication using public-key cryptography; private key never leaves the device; replaces passwords with passkeys.',
+              'FedCM (Federated Credential Management) — privacy-preserving federated identity API; replaces third-party cookie-based SSO.',
+            ],
+            table: {
+              headers: ['Solution Type', 'Examples', 'Key Security Feature', 'Best For'],
+              rows: [
+                ['Personal Password Manager', 'Bitwarden, 1Password, KeePass', 'Zero-knowledge encryption; offline vault option', 'Individual users; small teams'],
+                ['Enterprise Password Manager', 'CyberArk Password Vault, Delinea, BeyondTrust', 'Privileged access management; session recording; checkout workflow', 'Privileged accounts; IT administrators'],
+                ['Secrets Manager', 'HashiCorp Vault, AWS Secrets Manager', 'Dynamic secrets; automatic rotation; fine-grained access policies', 'Application credentials; API keys; certificates'],
+                ['Hardware Security Key', 'YubiKey, Google Titan', 'Private key never leaves device; phishing-resistant', 'High-assurance MFA; admin accounts'],
+              ],
+            },
+          },
+          {
             heading: 'Password Policies and Management',
             body: 'Passwords remain the most widely used authentication factor despite well-known weaknesses. Organizations must establish password policies that balance security with usability:',
             list: [
@@ -6134,6 +6351,33 @@ export const domains: Domain[] = [
             ],
           },
           {
+            table: {
+              headers: ['Framework', 'Governing Body', 'Scope', 'Output', 'Who Uses It'],
+              rows: [
+                ['SSAE 18 / SOC 1,2,3', 'AICPA (American Institute of CPAs)', 'Service organization controls (financial reporting, security)', 'SOC report (Type 1 or Type 2)', 'Cloud providers, SaaS companies, outsourced service providers'],
+                ['ISO/IEC 27001', 'ISO / IEC', 'Information security management system (ISMS) — entire organization', 'Certification valid 3 years with annual surveillance audits', 'Enterprises seeking international ISMS credibility'],
+                ['ISO/IEC 15408 (Common Criteria)', 'ISO / national bodies (e.g., NIAP)', 'Security properties of specific IT products', 'EAL rating (EAL1–EAL7); certification', 'Government procurement; high-assurance product evaluation'],
+                ['NIST SP 800-53A', 'NIST', 'US federal information systems; aligned to SP 800-53 controls', 'Security Assessment Report (SAR)', 'US federal agencies; ATO (Authority to Operate) process'],
+                ['FedRAMP', 'GSA / US federal government', 'Cloud service providers serving US federal agencies', 'FedRAMP Authorization; P-ATO or ATO', 'Cloud providers wanting to sell to US federal government'],
+                ['PCI DSS', 'PCI Security Standards Council', 'Cardholder data environments; payment processing', 'Report on Compliance (ROC); Self-Assessment Questionnaire (SAQ)', 'Merchants, payment processors, card brands'],
+                ['COBIT', 'ISACA', 'IT governance and management; alignment to business goals', 'Maturity assessment; governance framework', 'Enterprises aligning IT with governance objectives'],
+              ],
+            },
+          },
+          {
+            heading: 'Audit Sampling Types',
+            table: {
+              headers: ['Sampling Type', 'Method', 'Best For', 'Limitation'],
+              rows: [
+                ['Random', 'Each item in the population has equal probability of selection; selected using random number generator', 'Statistically representative conclusions about the whole population', 'May miss high-risk minority groups if sample size is small'],
+                ['Stratified', 'Population divided into subgroups (strata) by risk or attribute; samples drawn from each stratum', 'Ensuring all important subgroups (e.g., privileged accounts, critical systems) are represented', 'Requires advance knowledge of population structure to define strata'],
+                ['Judgmental / Purposive', 'Auditor selects items based on professional judgment about risk or significance', 'Efficiently targeting high-risk areas; when population is small', 'Cannot be statistically extrapolated; introduces auditor bias'],
+                ['Attribute', 'Determines whether a control attribute is present or absent (yes/no)', 'Testing whether controls consistently exist (e.g., change tickets for all production changes)', 'Does not measure degree — only presence or absence'],
+                ['Variable', 'Measures the magnitude or amount of a characteristic in a population', 'Financial audits; measuring average error amount; quantitative risk analysis', 'Requires larger sample sizes for statistical precision'],
+              ],
+            },
+          },
+          {
             heading: 'Audit Cycle Phases',
             list: [
               '1. Planning — define audit scope, objectives, criteria, and team; risk-assess the subject area; develop the audit plan.',
@@ -6706,6 +6950,56 @@ export const domains: Domain[] = [
             ],
           },
           {
+            subheading: '7.6.1 Indicators of Compromise vs. Indicators of Attack',
+          },
+          {
+            heading: 'IOC vs. IOA',
+            body: 'Indicators of Compromise (IOC) are forensic artifacts that suggest a system has already been compromised. Indicators of Attack (IOA) are behavioral signals that suggest an attack is in progress — often detected before a full compromise occurs. IOAs shift detection from reactive (post-breach) to proactive (in-progress).',
+          },
+          {
+            table: {
+              headers: ['Dimension', 'IOC (Indicator of Compromise)', 'IOA (Indicator of Attack)'],
+              rows: [
+                ['Timing', 'Post-compromise — evidence of past breach', 'In-progress — attack behavior occurring now'],
+                ['Focus', 'Artifacts: file hashes, IP addresses, registry keys', 'Behavior: lateral movement, privilege escalation, C2 comms'],
+                ['Value', 'Confirms breach; supports forensics', 'Enables real-time intervention before breach completes'],
+                ['Example', 'Known malware hash found on disk', 'Process spawning cmd.exe with encoded PowerShell'],
+                ['Decay', 'Rapidly outdated as attackers change IOCs', 'More durable — attacker behavior changes more slowly'],
+                ['Detection tool', 'AV signatures, threat intel feeds', 'EDR behavioral engines, UEBA, SIEM correlation rules'],
+              ],
+            },
+          },
+          {
+            subheading: '7.6.2 Containment Framework: I.C.E.',
+          },
+          {
+            heading: 'I.C.E. Containment Model',
+            list: [
+              'Isolate — immediately segment affected systems from the network; prevent lateral spread; preserve volatile evidence.',
+              'Contain — implement longer-term controls (ACLs, VLAN changes, additional monitoring) that sustain operations while investigation continues.',
+              'Evaluate — assess scope and impact; determine attacker dwell time, affected data, lateral movement paths, and persistence mechanisms.',
+            ],
+          },
+          {
+            note: 'Time-to-Containment (TTC) is a key IR metric: the elapsed time from incident detection to successful containment. Lower TTC correlates strongly with lower breach cost. IBM Cost of a Data Breach reports that breaches contained in under 200 days cost significantly less than those taking longer.',
+          },
+          {
+            subheading: '7.6.3 Mitigation vs. Remediation',
+          },
+          {
+            table: {
+              headers: ['Dimension', 'Mitigation', 'Remediation'],
+              rows: [
+                ['Goal', 'Reduce immediate risk and limit damage', 'Permanently fix the root cause'],
+                ['Timeframe', 'Short-term; implemented within hours', 'Medium-to-long term; may take days or weeks'],
+                ['Example', 'Block attacker IP, isolate compromised host', 'Patch the exploited vulnerability, rebuild the host'],
+                ['Scope', 'Addresses symptoms and immediate threat vector', 'Addresses underlying vulnerability and all affected systems'],
+                ['Completeness', 'Incomplete — root cause still present', 'Complete — vulnerability no longer exploitable'],
+                ['Outcome', 'Incident contained but risk remains', 'Risk eliminated; system hardened against recurrence'],
+              ],
+            },
+          },
+          {
             questions: [
               { q: 'What are the six phases of the NIST SP 800-61 incident response lifecycle?', a: 'The six phases are: (1) Preparation — establish IR policy, team, tools, playbooks, and communication plans before incidents occur; (2) Detection and Analysis — identify and validate that an incident has occurred, determine scope and severity; (3) Containment — stop the incident from spreading (short-term: isolate affected systems; long-term: maintain operations); (4) Eradication — remove the root cause (malware, vulnerabilities, attacker persistence mechanisms); (5) Recovery — restore systems, verify normal operation, monitor for re-infection; (6) Post-Incident Activity — lessons learned, documentation, update controls.' },
               { q: 'What is the difference between short-term and long-term containment in incident response?', a: 'Short-term containment takes immediate action to stop the incident from spreading further — for example, isolating an infected host from the network, blocking a malicious IP at the firewall, or disabling a compromised account. Long-term containment involves more substantial measures that can be sustained while investigation and eradication proceed — for example, deploying a patched replacement system, redirecting traffic through a clean path, or implementing additional access controls. Long-term containment balances security with operational continuity.' },
@@ -6746,6 +7040,19 @@ export const domains: Domain[] = [
               'Whitelisting — default deny; only explicitly approved items allowed; high security in controlled environments.',
               'Blacklisting — blocks known threats; allows everything else; better for dynamic environments.',
             ],
+          },
+          {
+            table: {
+              headers: ['Dimension', 'Whitelisting (Allow-list)', 'Blacklisting (Block-list)'],
+              rows: [
+                ['Default stance', 'Default deny — everything blocked unless explicitly approved', 'Default allow — everything permitted unless explicitly blocked'],
+                ['Security level', 'Higher — unknown items cannot execute', 'Lower — zero-day threats not yet on list can pass'],
+                ['Management overhead', 'High — every approved item must be catalogued', 'Lower — only known bad items must be tracked'],
+                ['Best environment', 'Fixed-function systems (ATMs, POS, ICS/SCADA)', 'Dynamic enterprise environments with frequent software changes'],
+                ['False positive risk', 'High — legitimate software may be blocked', 'Low — legitimate software rarely blocked by accident'],
+                ['Bypass method', 'Attackers use signed/trusted binaries (LOLBins)', 'Attackers use novel malware not yet on the list'],
+              ],
+            },
           },
           {
             heading: 'Deception Technologies',
@@ -6827,6 +7134,73 @@ export const domains: Domain[] = [
               'Sandboxing — isolated execution to observe behavior.',
               'Cloud intelligence — shared threat intelligence.',
             ],
+          },
+          {
+            subheading: '7.7.5 Sandboxing',
+          },
+          {
+            heading: 'Sandboxing Methods',
+            body: 'Sandboxing executes suspicious code in a controlled, isolated environment to observe its behavior without risking production systems. Three primary isolation methods exist, each with different trade-offs.',
+          },
+          {
+            table: {
+              headers: ['Method', 'Isolation Mechanism', 'Evasion Techniques', 'Monitoring Capability'],
+              rows: [
+                ['VM-based', 'Full virtual machine; separate kernel', 'VM fingerprinting (CPUID, RDTSC timing), sleep/delay loops to outlast analysis', 'Full system call trace, memory analysis, network capture'],
+                ['Container-based', 'OS-level namespace isolation; shared kernel', 'Namespace escape exploits; kernel version checks', 'Process monitoring, filesystem, network; limited kernel visibility'],
+                ['Emulation-based', 'CPU/OS emulator simulates execution environment', 'Emulator artifact detection (timing, API behavior differences)', 'Instruction-level trace; complete control flow visibility'],
+              ],
+            },
+          },
+          {
+            note: 'Sophisticated malware uses anti-sandbox techniques: checking for human interaction (mouse movement, keystrokes), counting running processes, verifying realistic system uptime (>10 minutes), or checking for sandbox-specific artifacts (specific file paths, registry keys, MAC address prefixes).',
+          },
+          {
+            subheading: '7.7.8 ML/AI-Based Detection Tools',
+          },
+          {
+            heading: 'Machine Learning in Security Detection',
+            body: 'Machine learning enhances detection capabilities by identifying patterns that humans and signatures cannot. Two primary ML paradigms apply to security detection.',
+          },
+          {
+            table: {
+              headers: ['ML Type', 'How It Works', 'Security Use Case', 'Limitation'],
+              rows: [
+                ['Supervised', 'Trained on labeled data (known malicious vs. benign); learns to classify new samples', 'Malware classification, phishing URL detection, spam filtering', 'Requires large labeled dataset; adversarial samples can evade classifier'],
+                ['Unsupervised', 'Identifies clusters and anomalies in unlabeled data; no prior examples needed', 'Insider threat detection, network anomaly detection, UEBA baseline', 'High false positive rate; results require human interpretation'],
+              ],
+            },
+          },
+          {
+            list: [
+              'Alert Fatigue — ML models generating too many alerts cause analysts to miss real threats; threshold tuning and SOAR automation are essential.',
+              'Explainability — "black-box" models (deep neural networks) cannot explain why they flagged an event; analysts need interpretable models for incident investigation.',
+              'Adversarial ML — attackers deliberately craft inputs to fool classifiers (adversarial examples); model robustness testing is required.',
+              'Data Poisoning — if attackers can influence training data, they can cause the model to misclassify threats as benign.',
+            ],
+          },
+          {
+            subheading: '7.7.4 Third-Party Security Services',
+          },
+          {
+            heading: 'Managed Security Service Providers (MSSP)',
+            body: 'MSSPs provide outsourced security operations for organizations lacking the resources or expertise to maintain 24/7 in-house security functions.',
+          },
+          {
+            table: {
+              headers: ['MSSP Service', 'Description', 'Best Practice'],
+              rows: [
+                ['Managed SOC', '24/7 monitoring, alert triage, and Level 1-2 incident response', 'Define clear escalation paths; require SLA on MTTR'],
+                ['Managed SIEM', 'Log collection, correlation rule management, and tuning', 'Retain log ownership; ensure right to audit MSSP access'],
+                ['Managed EDR', 'Endpoint monitoring and response on behalf of client', 'Agree on automated response actions vs. approval-required actions'],
+                ['Threat Intelligence', 'Curated, contextualized threat feeds relevant to client industry', 'Specify feed sources, formats (STIX/TAXII), and integration points'],
+                ['Vulnerability Management', 'Continuous scanning, prioritization, and remediation tracking', 'Establish scope boundaries; validate scan coverage quarterly'],
+                ['Penetration Testing', 'Scheduled adversarial testing; red team exercises', 'Require scope agreement and rules of engagement in writing'],
+              ],
+            },
+          },
+          {
+            warning: 'Engaging an MSSP creates a third-party risk relationship. Perform due diligence on MSSP security posture, background-check their analysts, define data handling in contracts, and ensure right-to-audit clauses. An MSSP with broad access to your environment is itself a high-value target.',
           },
           {
             questions: [
@@ -7498,6 +7872,17 @@ export const domains: Domain[] = [
             ],
           },
           {
+            table: {
+              headers: ['Business Function', 'Security Practices (×3 each)', 'Maturity Levels', 'Key Objective'],
+              rows: [
+                ['Governance', 'Strategy & Metrics, Policy & Compliance, Education & Guidance', 'L0 (none) → L1 (ad-hoc) → L2 (structured) → L3 (optimized)', 'Define direction, measure effectiveness, train teams'],
+                ['Construction', 'Threat Assessment, Secure Architecture, Secure Build', 'L0 → L1 → L2 → L3', 'Design and build security in from the start'],
+                ['Verification', 'Architecture Assessment, Requirements-Driven Testing, Security Testing', 'L0 → L1 → L2 → L3', 'Confirm security requirements are met before release'],
+                ['Operations', 'Incident Management, Environment Hardening, Operational Management', 'L0 → L1 → L2 → L3', 'Maintain security posture in production environments'],
+              ],
+            },
+          },
+          {
             heading: 'Integrated Product Team (IPT)',
             body: 'An Integrated Product Team is a multidisciplinary group that includes developers, architects, testers, operations engineers, security specialists, legal counsel, and compliance officers — all collaborating from the beginning of a project rather than sequentially handing off work.',
             list: [
@@ -7605,6 +7990,43 @@ export const domains: Domain[] = [
               'Input Validation — all languages require explicit input validation; there is no language that is immune to injection attacks if user input reaches an interpreter without sanitization.',
               'Mobile Security — Swift (iOS) and Kotlin (Android) operate within platform-enforced permission models; applications must declare required permissions, and users may deny them. Security developers must handle permission denials gracefully and never assume permissions will be granted.',
               'Supply Chain / Typosquatting — attackers register package names that closely resemble popular libraries or match internal private package names (dependency confusion attack). Any dependency installation without integrity verification risks installing malicious code.',
+            ],
+          },
+          {
+            subheading: '8.2.1 Compiled vs. Interpreted Language Security',
+          },
+          {
+            table: {
+              headers: ['Dimension', 'Compiled Languages (C, C++, Rust, Go)', 'Interpreted Languages (Python, Ruby, JavaScript)'],
+              rows: [
+                ['Memory management', 'Manual (C/C++) or ownership system (Rust); buffer overflows possible in C/C++', 'Automatic garbage collection; buffer overflows rare but not impossible (native extensions)'],
+                ['Vulnerability profile', 'Buffer overflow, integer overflow, format string, use-after-free', 'Injection, deserialization, prototype pollution, SSRF, logic flaws'],
+                ['Reverse engineering', 'Compiled binary; harder to reverse without symbols', 'Source code often accessible or easily decompiled; IP exposure risk'],
+                ['Performance', 'Faster; used in OS kernels, embedded systems, high-performance applications', 'Slower; suitable for web applications, scripting, data analysis'],
+                ['Security auditing', 'Requires specialized binary analysis tools (IDA Pro, Ghidra)', 'Source code analysis; SAST tools widely available (Bandit, Semgrep)'],
+                ['Risk example', 'OpenSSL Heartbleed — C buffer over-read; read beyond allocated buffer', 'Log4Shell — Java deserialization; JNDI injection via log message formatting'],
+              ],
+            },
+          },
+          {
+            subheading: '8.2.2 Dependency Security: Hijacking and License Risks',
+          },
+          {
+            heading: 'Dependency Hijacking',
+            list: [
+              'Typosquatting — attacker registers a package with a name similar to a popular one (e.g., "reqeusts" instead of "requests"); developers with typos in their commands install the malicious package.',
+              'Dependency Confusion — attacker publishes a public package with the same name as an internal private package at a higher version number; package managers that check public registries first install the attacker\'s version.',
+              'Account Takeover — attacker compromises a legitimate package maintainer\'s account and pushes a malicious update; all consumers of that package receive malicious code without any change on their part.',
+              'Mitigation — pin all dependencies to specific versions; verify integrity with checksums (lock files); use a private registry that proxies public packages; run SCA tools on all dependencies.',
+            ],
+          },
+          {
+            heading: 'Open Source License Risks',
+            list: [
+              'GPL / AGPL (Copyleft) — if you incorporate GPL-licensed code into your software, your entire codebase may need to be open-sourced. AGPL extends this to network-delivered software (SaaS). Using these licenses without legal review creates IP liability.',
+              'MIT / Apache 2.0 (Permissive) — allows commercial use with attribution; Apache 2.0 includes explicit patent grant. Generally safe for commercial software.',
+              'Unlicensed code — code with no license cannot legally be used in commercial products without permission from the author; treat as proprietary.',
+              'SCA tools identify license type for all dependencies; organizations should define a license policy (allowed, restricted, prohibited categories) enforced in CI/CD.',
             ],
           },
           {
