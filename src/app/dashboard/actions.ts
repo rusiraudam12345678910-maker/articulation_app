@@ -93,6 +93,18 @@ export async function incrementPractice(id: string, current: number) {
   revalidatePath('/dashboard')
 }
 
+export async function savePhraseExamples(phrase: string, examples: string[]) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) redirect('/login')
+
+  await supabase.from('phrase_examples').upsert(
+    { phrase: phrase.toLowerCase(), examples, saved_by: user.id },
+    { onConflict: 'phrase' }
+  )
+  revalidatePath('/dashboard')
+}
+
 export async function saveDefinition(word: string, part_of_speech: string, definition: string, example: string | null) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()

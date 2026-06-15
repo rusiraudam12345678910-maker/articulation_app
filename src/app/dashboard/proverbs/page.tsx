@@ -18,7 +18,7 @@ export default async function ProverbsPage() {
   return (
     <>
       {(entries?.length ?? 0) > 0 && <Flashcard entries={entries ?? []} />}
-      <EntriesList entries={entries ?? []} categories={categories ?? []} users={users} definitionsByWord={definitionsByWord} />
+      <EntriesList entries={entries ?? []} categories={categories ?? []} users={users} definitionsByWord={definitionsByWord} examplesByPhrase={{}} />
     </>
   )
 }

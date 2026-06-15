@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { deleteEntry, updateEntry, toggleFavorite, toggleMastered, toggleStudied, setTier } from './actions'
 import { updateEntryCategory, addCategory, deleteCategory } from './category-actions'
 import DefinitionButton from './definition-modal'
+import PhraseExamples from './phrase-examples'
 
 const TYPE_LABELS: Record<string, string> = {
   word: 'Word',
@@ -61,7 +62,7 @@ type SavedDefinition = {
   example: string | null
 }
 
-export default function EntriesList({ entries, categories, users, definitionsByWord }: { entries: Entry[], categories: Category[], users: User[], definitionsByWord: Record<string, SavedDefinition> }) {
+export default function EntriesList({ entries, categories, users, definitionsByWord, examplesByPhrase }: { entries: Entry[], categories: Category[], users: User[], definitionsByWord: Record<string, SavedDefinition>, examplesByPhrase: Record<string, string[]> }) {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
   const [tierFilter, setTierFilter] = useState('all')
@@ -368,6 +369,12 @@ export default function EntriesList({ entries, categories, users, definitionsByW
                       {definitionsByWord[entry.content.toLowerCase()].definition}
                     </span>
                   </div>
+                )}
+                {entry.type === 'phrase' && (
+                  <PhraseExamples
+                    phrase={entry.content.toLowerCase()}
+                    saved={examplesByPhrase[entry.content.toLowerCase()]}
+                  />
                 )}
                 <div className="flex items-center gap-2 flex-wrap">
                   {/* Tier selector */}

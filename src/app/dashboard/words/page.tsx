@@ -18,7 +18,7 @@ export default async function WordsPage() {
   return (
     <>
       {(entries?.length ?? 0) > 0 && <Flashcard entries={entries ?? []} />}
-      <EntriesList entries={entries ?? []} categories={categories ?? []} users={users} definitionsByWord={definitionsByWord} />
+      <EntriesList entries={entries ?? []} categories={categories ?? []} users={users} definitionsByWord={definitionsByWord} examplesByPhrase={{}} />
     </>
   )
 }
