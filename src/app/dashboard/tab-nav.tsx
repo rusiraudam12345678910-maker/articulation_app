@@ -12,6 +12,7 @@ const tabs = [
   { label: 'Proverbs', href: '/dashboard/proverbs' },
   { label: '+ Add', href: '/dashboard/add' },
   { label: '🎙 Practice', href: '/dashboard/practice' },
+  { label: '👂 Listen & Repeat', href: '/dashboard/listen' },
   { label: '📚 CISSP', href: '/dashboard/cissp' },
 ]
 
