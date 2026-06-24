@@ -11,6 +11,7 @@ const tabs = [
   { label: 'Topics', href: '/dashboard/topics' },
   { label: 'Proverbs', href: '/dashboard/proverbs' },
   { label: '+ Add', href: '/dashboard/add' },
+  { label: '🎙 Practice', href: '/dashboard/practice' },
   { label: '📚 CISSP', href: '/dashboard/cissp' },
 ]
 

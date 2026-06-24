@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { deleteEntry, updateEntry, toggleFavorite, toggleMastered, toggleStudied, setTier } from './actions'
 import { updateEntryCategory, addCategory, deleteCategory } from './category-actions'
 import DefinitionButton from './definition-modal'
@@ -373,7 +374,7 @@ export default function EntriesList({ entries, categories, users, definitionsByW
                 {entry.type === 'phrase' && (
                   <PhraseExamples
                     phrase={entry.content.toLowerCase()}
-                    saved={examplesByPhrase[entry.content.toLowerCase()]}
+                    saved={examplesByPhrase[entry.content.toLowerCase()] ?? []}
                   />
                 )}
                 <div className="flex items-center gap-2 flex-wrap">
@@ -461,6 +462,13 @@ export default function EntriesList({ entries, categories, users, definitionsByW
                 >
                   ✓
                 </button>
+                <Link
+                  href={`/dashboard/practice/${entry.id}`}
+                  className="text-zinc-400 hover:text-red-500 transition-colors text-sm"
+                  title="Practice this entry"
+                >
+                  🎙
+                </Link>
                 <button onClick={() => startEdit(entry)} className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors text-sm">✎</button>
                 <button onClick={() => deleteEntry(entry.id)} className="text-zinc-400 hover:text-red-500 transition-colors text-sm">✕</button>
               </div>
