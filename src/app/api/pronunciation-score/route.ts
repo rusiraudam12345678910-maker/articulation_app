@@ -1,5 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+async function getAzureToken(key: string, region: string): Promise<string | null> {
+  try {
+    const res = await fetch(`https://${region}.api.cognitive.microsoft.com/sts/v1.0/issuetoken`, {
+      method: 'POST',
+      headers: { 'Ocp-Apim-Subscription-Key': key, 'Content-Length': '0' },
+    })
+    if (!res.ok) return null
+    return await res.text()
+  } catch {
+    return null
+  }
+}
+
 export async function POST(req: NextRequest) {
   const key = process.env.AZURE_SPEECH_KEY
   const region = process.env.AZURE_SPEECH_REGION
@@ -29,10 +42,17 @@ export async function POST(req: NextRequest) {
 
   const url = `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed`
 
+  // Try subscription key first, fall back to bearer token
+  const token = await getAzureToken(key, region)
+
+  const authHeaders: Record<string, string> = token
+    ? { 'Authorization': `Bearer ${token}` }
+    : { 'Ocp-Apim-Subscription-Key': key }
+
   const response = await fetch(url, {
     method: 'POST',
     headers: {
-      'Ocp-Apim-Subscription-Key': key,
+      ...authHeaders,
       'Content-Type': 'audio/wav',
       'Pronunciation-Assessment': assessmentConfig,
     },
@@ -42,13 +62,16 @@ export async function POST(req: NextRequest) {
   const result = await response.json()
 
   if (!response.ok) {
-    return NextResponse.json({ error: 'Azure error', status: response.status, raw: result }, { status: 502 })
+    return NextResponse.json({
+      error: `Azure error ${response.status}`,
+      raw: result,
+      tokenObtained: !!token,
+    }, { status: 502 })
   }
 
-  // RecognitionStatus other than Success means Azure heard nothing
   if (result.RecognitionStatus !== 'Success') {
     return NextResponse.json({
-      error: `Azure recognition failed: ${result.RecognitionStatus}`,
+      error: `Recognition failed: ${result.RecognitionStatus}`,
       raw: result,
     }, { status: 422 })
   }
