@@ -5,17 +5,6 @@ import { createClient } from '@/utils/supabase/server'
 
 export type ListenItem = { id: string; content: string; category: string; created_at: string }
 
-export const CATEGORIES = [
-  'Tongue Twisters',
-  'Confusing Words',
-  'Minimal Pairs',
-  'Word Twisters',
-  'Difficult Pronunciation',
-  'Uncategorized',
-] as const
-
-export type Category = typeof CATEGORIES[number]
-
 export async function getListenItems(): Promise<ListenItem[]> {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()

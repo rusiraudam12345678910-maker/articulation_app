@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { addListenItem, bulkAddListenItems, updateListenItem, deleteListenItem, type ListenItem, CATEGORIES, type Category } from './actions'
+import { addListenItem, bulkAddListenItems, updateListenItem, deleteListenItem, type ListenItem } from './actions'
+import { CATEGORIES, type Category } from './categories'
 
 const WAVE_BAR_COUNT = 48
 
