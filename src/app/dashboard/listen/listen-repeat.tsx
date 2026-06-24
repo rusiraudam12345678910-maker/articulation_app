@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { addListenItem, bulkAddListenItems, updateListenItem, deleteListenItem, type ListenItem } from './actions'
+import { addListenItem, bulkAddListenItems, updateListenItem, deleteListenItem, type ListenItem, CATEGORIES, type Category } from './actions'
 
 const WAVE_BAR_COUNT = 48
 
@@ -394,9 +394,12 @@ function CompareRecorder({
 export default function ListenRepeat({ initialItems }: { initialItems: ListenItem[] }) {
   const [items, setItems] = useState<ListenItem[]>(initialItems)
   const [activeId, setActiveId] = useState<string | null>(null)
+  const [activeCategory, setActiveCategory] = useState<Category | 'All'>('All')
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editContent, setEditContent] = useState('')
+  const [editCategory, setEditCategory] = useState<Category>('Uncategorized')
   const [newContent, setNewContent] = useState('')
+  const [newCategory, setNewCategory] = useState<Category>('Tongue Twisters')
   const [bulkMode, setBulkMode] = useState(false)
   const [bulkText, setBulkText] = useState('')
   const [bulkAdding, setBulkAdding] = useState(false)
@@ -406,7 +409,9 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
   const [view, setView] = useState<'drill' | 'manage'>('drill')
 
   const refUrlCleanupRef = useRef<string | null>(null)
-  const activeIndex = items.findIndex(i => i.id === activeId)
+
+  const filteredItems = activeCategory === 'All' ? items : items.filter(i => i.category === activeCategory)
+  const activeIndex = filteredItems.findIndex(i => i.id === activeId)
 
   async function speak(text: string, id: string) {
     window.speechSynthesis.cancel()
@@ -453,22 +458,31 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
   }
 
   function goNext() {
-    if (!items.length) return
-    setActiveId(items[(activeIndex + 1) % items.length].id)
+    if (!filteredItems.length) return
+    setActiveId(filteredItems[(activeIndex + 1) % filteredItems.length].id)
     setRecorderKey(k => k + 1)
     setReferenceUrl(null)
   }
 
   function goPrev() {
-    if (!items.length) return
-    setActiveId(items[(activeIndex - 1 + items.length) % items.length].id)
+    if (!filteredItems.length) return
+    setActiveId(filteredItems[(activeIndex - 1 + filteredItems.length) % filteredItems.length].id)
     setRecorderKey(k => k + 1)
     setReferenceUrl(null)
   }
 
+  // when category changes, reset active to first item in that category
   useEffect(() => {
-    if (items.length && !activeId) setActiveId(items[0].id)
-  }, [items, activeId])
+    const first = filteredItems[0]?.id ?? null
+    setActiveId(first)
+    setRecorderKey(k => k + 1)
+    setReferenceUrl(null)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeCategory])
+
+  useEffect(() => {
+    if (filteredItems.length && !activeId) setActiveId(filteredItems[0].id)
+  }, [filteredItems, activeId])
 
   useEffect(() => {
     return () => { if (refUrlCleanupRef.current) URL.revokeObjectURL(refUrlCleanupRef.current) }
@@ -479,10 +493,10 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
     const c = newContent.trim()
     if (!c) return
     const tempId = `temp-${Date.now()}`
-    setItems(prev => [{ id: tempId, content: c, created_at: new Date().toISOString() }, ...prev])
+    setItems(prev => [{ id: tempId, content: c, category: newCategory, created_at: new Date().toISOString() }, ...prev])
     setNewContent('')
     if (!activeId) setActiveId(tempId)
-    await addListenItem(c)
+    await addListenItem(c, newCategory)
   }
 
   async function handleBulkAdd() {
@@ -490,30 +504,30 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
     if (!lines.length) return
     setBulkAdding(true)
     const now = new Date().toISOString()
-    const tempItems: ListenItem[] = lines.map((l, i) => ({ id: `temp-${Date.now()}-${i}`, content: l, created_at: now }))
+    const tempItems: ListenItem[] = lines.map((l, i) => ({ id: `temp-${Date.now()}-${i}`, content: l, category: newCategory, created_at: now }))
     setItems(prev => [...tempItems, ...prev])
     if (!activeId && tempItems.length) setActiveId(tempItems[0].id)
     setBulkText('')
     setBulkMode(false)
-    await bulkAddListenItems(lines)
+    await bulkAddListenItems(lines, newCategory)
     setBulkAdding(false)
   }
 
   async function handleSaveEdit(id: string) {
     const c = editContent.trim()
     if (!c) return
-    setItems(prev => prev.map(i => i.id === id ? { ...i, content: c } : i))
+    setItems(prev => prev.map(i => i.id === id ? { ...i, content: c, category: editCategory } : i))
     setEditingId(null)
-    await updateListenItem(id, c)
+    await updateListenItem(id, c, editCategory)
   }
 
   async function handleDelete(id: string) {
     setItems(prev => prev.filter(i => i.id !== id))
-    if (activeId === id) setActiveId(items.filter(i => i.id !== id)[0]?.id ?? null)
+    if (activeId === id) setActiveId(filteredItems.filter(i => i.id !== id)[0]?.id ?? null)
     await deleteListenItem(id)
   }
 
-  const activeItem = items.find(i => i.id === activeId) ?? null
+  const activeItem = filteredItems.find(i => i.id === activeId) ?? null
 
   return (
     <div className="flex flex-col gap-5 max-w-5xl">
@@ -530,12 +544,35 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
         </div>
       </div>
 
+      {/* Category tabs */}
+      <div className="flex gap-1.5 flex-wrap">
+        {(['All', ...CATEGORIES] as const).map(cat => {
+          const count = cat === 'All' ? items.length : items.filter(i => i.category === cat).length
+          return (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat as Category | 'All')}
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                activeCategory === cat
+                  ? 'bg-red-600 text-white'
+                  : 'border border-zinc-300 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+              }`}
+            >
+              {cat} {count > 0 && <span className="opacity-60">({count})</span>}
+            </button>
+          )
+        })}
+      </div>
+
       {/* ── DRILL VIEW ── */}
       {view === 'drill' && (
         <>
-          {items.length === 0 ? (
+          {filteredItems.length === 0 ? (
             <div className="text-sm text-zinc-400 py-12 text-center">
-              No items yet — <button onClick={() => setView('manage')} className="text-red-400 underline">add some words or phrases</button> to start.
+              {items.length === 0
+                ? <><button onClick={() => setView('manage')} className="text-red-400 underline">Add some words or phrases</button> to start.</>
+                : <>No items in <strong>{activeCategory}</strong> yet — <button onClick={() => setView('manage')} className="text-red-400 underline">add some</button>.</>
+              }
             </div>
           ) : activeItem ? (
             <>
@@ -559,14 +596,14 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
                 </p>
                 <div className="flex items-center justify-between mt-6 flex-wrap gap-3">
                   <div className="flex gap-1.5 flex-wrap">
-                    {items.slice(0, Math.min(items.length, 20)).map(item => (
+                    {filteredItems.slice(0, Math.min(filteredItems.length, 20)).map(item => (
                       <div
                         key={item.id}
                         onClick={() => { setActiveId(item.id); setRecorderKey(k => k + 1); setReferenceUrl(null) }}
                         className={`w-1.5 h-1.5 rounded-full cursor-pointer transition-all ${item.id === activeId ? 'bg-red-500 scale-150' : 'bg-zinc-300 dark:bg-zinc-700'}`}
                       />
                     ))}
-                    {items.length > 20 && <span className="font-mono text-xs text-zinc-400 ml-1">+{items.length - 20}</span>}
+                    {filteredItems.length > 20 && <span className="font-mono text-xs text-zinc-400 ml-1">+{filteredItems.length - 20}</span>}
                   </div>
                   <div className="flex gap-2">
                     <button onClick={goPrev} className="rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold px-3.5 py-1.5 transition-colors">← Prev</button>
@@ -589,24 +626,43 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
       {/* ── MANAGE VIEW ── */}
       {view === 'manage' && (
         <>
-          <div className="flex flex-col gap-2">
+          {/* Category + add form */}
+          <div className="flex flex-col gap-3 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-5 py-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Add entries</span>
+              <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Add to category</span>
               <button onClick={() => { setBulkMode(b => !b); setBulkText(''); setNewContent('') }} className="text-xs text-red-500 hover:text-red-400 transition-colors font-mono">
                 {bulkMode ? '← Single' : 'Bulk add ↓'}
               </button>
             </div>
+
+            {/* Category picker */}
+            <div className="flex gap-1.5 flex-wrap">
+              {CATEGORIES.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setNewCategory(cat)}
+                  className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
+                    newCategory === cat
+                      ? 'bg-red-600 text-white'
+                      : 'border border-zinc-300 dark:border-zinc-700 text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
             {bulkMode ? (
               <div className="flex flex-col gap-2">
                 <textarea
                   value={bulkText}
                   onChange={e => setBulkText(e.target.value)}
                   placeholder={"One word or phrase per line:\nThe quick brown fox\nPeter Piper picked\nShe sells seashells"}
-                  rows={6}
+                  rows={5}
                   className="rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 resize-y font-mono"
                 />
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-zinc-400 font-mono">{bulkText.split('\n').filter(l => l.trim()).length} phrase{bulkText.split('\n').filter(l => l.trim()).length !== 1 ? 's' : ''} ready</span>
+                  <span className="text-xs text-zinc-400 font-mono">{bulkText.split('\n').filter(l => l.trim()).length} phrase{bulkText.split('\n').filter(l => l.trim()).length !== 1 ? 's' : ''} → {newCategory}</span>
                   <button onClick={handleBulkAdd} disabled={bulkAdding || !bulkText.trim()} className="rounded-lg bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white text-sm font-semibold px-4 py-2 transition-colors">
                     {bulkAdding ? 'Adding...' : 'Add All'}
                   </button>
@@ -614,32 +670,50 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
               </div>
             ) : (
               <form onSubmit={handleAdd} className="flex gap-2">
-                <input value={newContent} onChange={e => setNewContent(e.target.value)} placeholder="Add a word or phrase..." className="flex-1 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500" />
+                <input value={newContent} onChange={e => setNewContent(e.target.value)} placeholder={`Add to ${newCategory}...`} className="flex-1 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500" />
                 <button type="submit" disabled={!newContent.trim()} className="rounded-lg bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white text-sm font-semibold px-4 py-2 transition-colors">Add</button>
               </form>
             )}
           </div>
 
+          {/* Items grouped by category */}
           {items.length === 0 ? (
             <p className="text-sm text-zinc-400 py-6 text-center">No items yet. Add your first word or phrase above.</p>
           ) : (
-            <div className="flex flex-col gap-2">
-              {items.map(item => (
-                <div key={item.id} className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex items-center gap-3">
-                  {editingId === item.id ? (
-                    <>
-                      <input value={editContent} onChange={e => setEditContent(e.target.value)} autoFocus className="flex-1 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-1.5 text-sm text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-red-500" />
-                      <button onClick={() => handleSaveEdit(item.id)} className="rounded-full bg-zinc-900 dark:bg-zinc-50 px-3 py-1 text-xs font-semibold text-white dark:text-zinc-900 hover:bg-zinc-700 transition-colors">Save</button>
-                      <button onClick={() => setEditingId(null)} className="rounded-full border border-zinc-300 dark:border-zinc-700 px-3 py-1 text-xs font-semibold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Cancel</button>
-                    </>
-                  ) : (
-                    <>
-                      <span className="flex-1 text-sm text-zinc-900 dark:text-zinc-50">{item.content}</span>
-                      <button onClick={() => speak(item.content, item.id)} className="text-blue-500 hover:text-blue-400 transition-colors text-base" title="Preview">{speaking === item.id ? '🔊' : '▶'}</button>
-                      <button onClick={() => { setEditingId(item.id); setEditContent(item.content) }} className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors text-sm" title="Edit">✎</button>
-                      <button onClick={() => handleDelete(item.id)} className="text-zinc-400 hover:text-red-500 transition-colors text-sm" title="Delete">✕</button>
-                    </>
-                  )}
+            <div className="flex flex-col gap-5">
+              {CATEGORIES.filter(cat => items.some(i => i.category === cat)).map(cat => (
+                <div key={cat}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs font-mono uppercase tracking-widest text-red-500">{cat}</span>
+                    <span className="text-xs text-zinc-400">({items.filter(i => i.category === cat).length})</span>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    {items.filter(i => i.category === cat).map(item => (
+                      <div key={item.id} className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex items-center gap-3">
+                        {editingId === item.id ? (
+                          <>
+                            <input value={editContent} onChange={e => setEditContent(e.target.value)} autoFocus className="flex-1 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-1.5 text-sm text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-red-500" />
+                            <select
+                              value={editCategory}
+                              onChange={e => setEditCategory(e.target.value as Category)}
+                              className="rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-2 py-1.5 text-xs text-zinc-900 dark:text-zinc-50 focus:outline-none"
+                            >
+                              {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
+                            </select>
+                            <button onClick={() => handleSaveEdit(item.id)} className="rounded-full bg-zinc-900 dark:bg-zinc-50 px-3 py-1 text-xs font-semibold text-white dark:text-zinc-900 hover:bg-zinc-700 transition-colors">Save</button>
+                            <button onClick={() => setEditingId(null)} className="rounded-full border border-zinc-300 dark:border-zinc-700 px-3 py-1 text-xs font-semibold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Cancel</button>
+                          </>
+                        ) : (
+                          <>
+                            <span className="flex-1 text-sm text-zinc-900 dark:text-zinc-50">{item.content}</span>
+                            <button onClick={() => speak(item.content, item.id)} className="text-blue-500 hover:text-blue-400 transition-colors text-base" title="Preview">{speaking === item.id ? '🔊' : '▶'}</button>
+                            <button onClick={() => { setEditingId(item.id); setEditContent(item.content); setEditCategory(item.category as Category) }} className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors text-sm" title="Edit">✎</button>
+                            <button onClick={() => handleDelete(item.id)} className="text-zinc-400 hover:text-red-500 transition-colors text-sm" title="Delete">✕</button>
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
