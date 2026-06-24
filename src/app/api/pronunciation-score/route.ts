@@ -31,18 +31,21 @@ export async function POST(req: NextRequest) {
 
   const audioBuffer = await audio.arrayBuffer()
 
+  // Azure REST API works most reliably with audio/wav (PCM 16kHz mono)
+  // The client sends a WAV blob already converted from webm
   const url = `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed`
 
   const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Ocp-Apim-Subscription-Key': key,
-      'Content-Type': 'audio/webm;codecs=opus',
+      'Content-Type': 'audio/wav; codecs=audio/pcm; samplerate=16000',
       'Pronunciation-Assessment': assessmentConfig,
     },
     body: audioBuffer,
   })
 
+  // log raw response for debugging
   if (!response.ok) {
     const errText = await response.text()
     console.error('Azure Speech error:', response.status, errText)
@@ -50,6 +53,7 @@ export async function POST(req: NextRequest) {
   }
 
   const result = await response.json()
+  console.log('Azure raw result:', JSON.stringify(result))
 
   // Extract scores from Azure response
   const nBest = result?.NBest?.[0]

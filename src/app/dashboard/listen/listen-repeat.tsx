@@ -5,6 +5,50 @@ import { addListenItem, bulkAddListenItems, updateListenItem, deleteListenItem, 
 
 const WAVE_BAR_COUNT = 48
 
+// Convert webm/opus blob → 16kHz mono WAV (PCM) for Azure Speech API
+async function toWav(blob: Blob): Promise<Blob> {
+  const arrayBuf = await blob.arrayBuffer()
+  const ctx = new AudioContext()
+  const decoded = await ctx.decodeAudioData(arrayBuf)
+  await ctx.close()
+
+  const TARGET_SAMPLE_RATE = 16000
+  const offline = new OfflineAudioContext(1, Math.ceil(decoded.duration * TARGET_SAMPLE_RATE), TARGET_SAMPLE_RATE)
+  const src = offline.createBufferSource()
+  src.buffer = decoded
+  src.connect(offline.destination)
+  src.start(0)
+  const rendered = await offline.startRendering()
+
+  const pcm = rendered.getChannelData(0)
+  const int16 = new Int16Array(pcm.length)
+  for (let i = 0; i < pcm.length; i++) {
+    int16[i] = Math.max(-32768, Math.min(32767, Math.round(pcm[i] * 32767)))
+  }
+
+  // Build WAV file with header
+  const dataLen = int16.buffer.byteLength
+  const wavBuf = new ArrayBuffer(44 + dataLen)
+  const view = new DataView(wavBuf)
+  const write = (off: number, val: string) => { for (let i = 0; i < val.length; i++) view.setUint8(off + i, val.charCodeAt(i)) }
+  write(0, 'RIFF')
+  view.setUint32(4, 36 + dataLen, true)
+  write(8, 'WAVE')
+  write(12, 'fmt ')
+  view.setUint32(16, 16, true)
+  view.setUint16(20, 1, true)          // PCM
+  view.setUint16(22, 1, true)          // mono
+  view.setUint32(24, TARGET_SAMPLE_RATE, true)
+  view.setUint32(28, TARGET_SAMPLE_RATE * 2, true)  // byte rate
+  view.setUint16(32, 2, true)          // block align
+  view.setUint16(34, 16, true)         // bits per sample
+  write(36, 'data')
+  view.setUint32(40, dataLen, true)
+  new Uint8Array(wavBuf).set(new Uint8Array(int16.buffer), 44)
+
+  return new Blob([wavBuf], { type: 'audio/wav' })
+}
+
 // ── Types ───────────────────────────────────────────────────────────────────
 type WordScore = {
   word: string
@@ -182,8 +226,9 @@ function CompareRecorder({
     setScoring(true)
     setScoreError(null)
     try {
+      const wavBlob = await toWav(blob)
       const fd = new FormData()
-      fd.append('audio', blob, 'recording.webm')
+      fd.append('audio', wavBlob, 'recording.wav')
       fd.append('referenceText', referenceText)
       const res = await fetch('/api/pronunciation-score', { method: 'POST', body: fd })
       if (!res.ok) {
