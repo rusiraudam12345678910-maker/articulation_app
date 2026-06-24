@@ -5,22 +5,33 @@ import { addListenItem, bulkAddListenItems, updateListenItem, deleteListenItem, 
 
 const WAVE_BAR_COUNT = 48
 
-// ── Waveform recorder (inline, no shared component needed here) ─────────────
-function Recorder({ onReset }: { onReset?: () => void }) {
+// ── Compare Recorder ────────────────────────────────────────────────────────
+// Shows reference (TTS) and user recording side by side for comparison.
+function CompareRecorder({
+  referenceUrl,
+  onReset,
+}: {
+  referenceUrl: string | null
+  onReset?: () => void
+}) {
   const [recording, setRecording] = useState(false)
   const [hasRec, setHasRec] = useState(false)
-  const [status, setStatus] = useState('Tap to record your attempt')
+  const [status, setStatus] = useState('Record yourself saying it')
   const [elapsed, setElapsed] = useState('0:00')
+  const [playingRef, setPlayingRef] = useState(false)
+  const [playingMine, setPlayingMine] = useState(false)
 
   const mrRef = useRef<MediaRecorder | null>(null)
   const chunksRef = useRef<Blob[]>([])
-  const urlRef = useRef<string | null>(null)
+  const myUrlRef = useRef<string | null>(null)
   const streamRef = useRef<MediaStream | null>(null)
   const ctxRef = useRef<AudioContext | null>(null)
   const animRef = useRef<number>(0)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const startRef = useRef(0)
   const barRefs = useRef<(HTMLDivElement | null)[]>([])
+  const refAudioRef = useRef<HTMLAudioElement | null>(null)
+  const myAudioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => () => cleanup(), [])
 
@@ -29,17 +40,23 @@ function Recorder({ onReset }: { onReset?: () => void }) {
     cancelAnimationFrame(animRef.current)
     ctxRef.current?.close()
     streamRef.current?.getTracks().forEach(t => t.stop())
-    if (urlRef.current) URL.revokeObjectURL(urlRef.current)
+    if (myUrlRef.current) URL.revokeObjectURL(myUrlRef.current)
+    refAudioRef.current?.pause()
+    myAudioRef.current?.pause()
   }
 
   function reset() {
     cleanup()
     setRecording(false)
     setHasRec(false)
-    setStatus('Tap to record your attempt')
+    setStatus('Record yourself saying it')
     setElapsed('0:00')
-    urlRef.current = null
-    barRefs.current.forEach(b => { if (b) { b.style.height = '3px'; b.className = 'w-[3px] min-h-[3px] bg-zinc-600 rounded-sm transition-[height] duration-[50ms]' } })
+    setPlayingRef(false)
+    setPlayingMine(false)
+    myUrlRef.current = null
+    barRefs.current.forEach(b => {
+      if (b) { b.style.height = '3px'; b.className = 'w-[3px] min-h-[3px] bg-zinc-600 rounded-sm transition-[height] duration-[50ms]' }
+    })
     onReset?.()
   }
 
@@ -48,8 +65,30 @@ function Recorder({ onReset }: { onReset?: () => void }) {
     return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
   }
 
+  function playAudio(url: string, isRef: boolean) {
+    // stop any playing audio first
+    refAudioRef.current?.pause()
+    myAudioRef.current?.pause()
+    setPlayingRef(false)
+    setPlayingMine(false)
+
+    const audio = new Audio(url)
+    if (isRef) {
+      refAudioRef.current = audio
+      setPlayingRef(true)
+      audio.onended = () => setPlayingRef(false)
+      audio.onerror = () => setPlayingRef(false)
+    } else {
+      myAudioRef.current = audio
+      setPlayingMine(true)
+      audio.onended = () => setPlayingMine(false)
+      audio.onerror = () => setPlayingMine(false)
+    }
+    audio.play()
+  }
+
   // HTTPS or localhost required for MediaRecorder mic access
-  async function start() {
+  async function startRecording() {
     try { streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true }) }
     catch { setStatus('Microphone access needed — check browser permissions'); return }
 
@@ -59,10 +98,10 @@ function Recorder({ onReset }: { onReset?: () => void }) {
     mr.ondataavailable = e => chunksRef.current.push(e.data)
     mr.onstop = () => {
       const blob = new Blob(chunksRef.current, { type: 'audio/webm' })
-      if (urlRef.current) URL.revokeObjectURL(urlRef.current)
-      urlRef.current = URL.createObjectURL(blob)
+      if (myUrlRef.current) URL.revokeObjectURL(myUrlRef.current)
+      myUrlRef.current = URL.createObjectURL(blob)
       setHasRec(true)
-      setStatus('Done — listen back and compare')
+      setStatus('Compare — play reference then yours')
       streamRef.current?.getTracks().forEach(t => t.stop())
     }
     mr.start()
@@ -93,7 +132,7 @@ function Recorder({ onReset }: { onReset?: () => void }) {
     timerRef.current = setInterval(() => setElapsed(fmt(Date.now() - startRef.current)), 200)
   }
 
-  function stop() {
+  function stopRecording() {
     if (mrRef.current?.state !== 'inactive') mrRef.current?.stop()
     setRecording(false)
     if (timerRef.current) clearInterval(timerRef.current)
@@ -102,11 +141,13 @@ function Recorder({ onReset }: { onReset?: () => void }) {
   }
 
   return (
-    <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-4 mt-4">
+    <div className="bg-zinc-800 border border-zinc-700 rounded-xl p-5 flex flex-col gap-4">
+
+      {/* Waveform + record button */}
       <div className="flex items-center gap-4">
         <button
-          onClick={() => recording ? stop() : start()}
-          aria-label={recording ? 'Stop' : 'Record'}
+          onClick={() => recording ? stopRecording() : startRecording()}
+          aria-label={recording ? 'Stop recording' : 'Start recording'}
           className={`w-12 h-12 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-all ${
             recording ? 'border-red-500 bg-red-500 animate-pulse' : 'border-red-500 bg-transparent hover:bg-red-500/10'
           }`}
@@ -119,13 +160,60 @@ function Recorder({ onReset }: { onReset?: () => void }) {
           ))}
         </div>
       </div>
-      <div className="flex justify-between mt-2 font-mono text-xs text-zinc-400">
-        <span>{status}</span><span>{elapsed}</span>
+
+      <div className="flex justify-between font-mono text-xs text-zinc-400">
+        <span>{status}</span>
+        <span>{elapsed}</span>
       </div>
+
+      {/* Side-by-side comparison buttons */}
       {hasRec && (
-        <div className="flex gap-2 mt-3">
-          <button onClick={() => urlRef.current && new Audio(urlRef.current).play()} className="rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold px-3.5 py-1.5 transition-colors">▶ Play back</button>
-          <button onClick={reset} className="rounded-lg border border-zinc-600 text-zinc-300 hover:bg-zinc-700 text-xs font-semibold px-3.5 py-1.5 transition-colors">Discard</button>
+        <div className="grid grid-cols-2 gap-3 pt-1">
+          {/* Reference */}
+          <div className="flex flex-col gap-1.5">
+            <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest">Reference</span>
+            <button
+              onClick={() => referenceUrl && playAudio(referenceUrl, true)}
+              disabled={!referenceUrl}
+              className={`flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all disabled:opacity-30 ${
+                playingRef
+                  ? 'bg-blue-600 text-white scale-95'
+                  : 'bg-blue-500 hover:bg-blue-600 text-white'
+              }`}
+            >
+              <span>{playingRef ? '🔊' : '▶'}</span>
+              {playingRef ? 'Playing...' : 'Play reference'}
+            </button>
+            <p className="text-xs text-zinc-500 text-center">How it should sound</p>
+          </div>
+
+          {/* Mine */}
+          <div className="flex flex-col gap-1.5">
+            <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest">Your recording</span>
+            <button
+              onClick={() => myUrlRef.current && playAudio(myUrlRef.current, false)}
+              className={`flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-semibold transition-all ${
+                playingMine
+                  ? 'bg-emerald-600 text-white scale-95'
+                  : 'bg-emerald-700 hover:bg-emerald-600 text-white'
+              }`}
+            >
+              <span>{playingMine ? '🔊' : '▶'}</span>
+              {playingMine ? 'Playing...' : 'Play mine'}
+            </button>
+            <p className="text-xs text-zinc-500 text-center">How you said it</p>
+          </div>
+        </div>
+      )}
+
+      {hasRec && (
+        <div className="flex gap-2 pt-1 border-t border-zinc-700">
+          <button
+            onClick={reset}
+            className="rounded-lg border border-zinc-600 text-zinc-300 hover:bg-zinc-700 text-xs font-semibold px-3.5 py-1.5 transition-colors"
+          >
+            Try again
+          </button>
         </div>
       )}
     </div>
@@ -143,20 +231,62 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
   const [bulkText, setBulkText] = useState('')
   const [bulkAdding, setBulkAdding] = useState(false)
   const [speaking, setSpeaking] = useState<string | null>(null)
+  const [referenceUrl, setReferenceUrl] = useState<string | null>(null)
   const [recorderKey, setRecorderKey] = useState(0)
   const [view, setView] = useState<'drill' | 'manage'>('drill')
 
-  // drill navigation
+  const refUrlCleanupRef = useRef<string | null>(null)
   const activeIndex = items.findIndex(i => i.id === activeId)
 
-  function speak(text: string, id: string) {
+  // Capture TTS audio via AudioContext + MediaStreamDestination
+  // then store the blob URL as the reference for comparison
+  async function speak(text: string, id: string) {
     window.speechSynthesis.cancel()
+
+    // clean up previous reference
+    if (refUrlCleanupRef.current) {
+      URL.revokeObjectURL(refUrlCleanupRef.current)
+      refUrlCleanupRef.current = null
+      setReferenceUrl(null)
+    }
+
+    // Use AudioContext to capture what speechSynthesis renders
+    // by routing it through a MediaStreamDestination and recording it
+    let captureCtx: AudioContext | null = null
+    let mr: MediaRecorder | null = null
+    const chunks: Blob[] = []
+
+    try {
+      captureCtx = new AudioContext()
+      const dest = captureCtx.createMediaStreamDestination()
+      mr = new MediaRecorder(dest.stream)
+      mr.ondataavailable = e => chunks.push(e.data)
+      mr.onstop = () => {
+        const blob = new Blob(chunks, { type: 'audio/webm' })
+        const url = URL.createObjectURL(blob)
+        refUrlCleanupRef.current = url
+        setReferenceUrl(url)
+        captureCtx?.close()
+      }
+      mr.start()
+    } catch {
+      // AudioContext capture not supported — fall back, reference won't be available
+      captureCtx = null
+    }
+
     const utt = new SpeechSynthesisUtterance(text)
     utt.lang = 'en-US'
-    utt.rate = 0.85   // slightly slower for clarity
+    utt.rate = 0.85
     utt.onstart = () => setSpeaking(id)
-    utt.onend = () => setSpeaking(null)
-    utt.onerror = () => setSpeaking(null)
+    utt.onend = () => {
+      setSpeaking(null)
+      // stop recording ~200ms after speech ends to catch the tail
+      setTimeout(() => mr?.stop(), 200)
+    }
+    utt.onerror = () => {
+      setSpeaking(null)
+      mr?.stop()
+    }
     window.speechSynthesis.speak(utt)
   }
 
@@ -165,6 +295,7 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
     const next = (activeIndex + 1) % items.length
     setActiveId(items[next].id)
     setRecorderKey(k => k + 1)
+    setReferenceUrl(null)
   }
 
   function goPrev() {
@@ -172,12 +303,19 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
     const prev = (activeIndex - 1 + items.length) % items.length
     setActiveId(items[prev].id)
     setRecorderKey(k => k + 1)
+    setReferenceUrl(null)
   }
 
-  // set first item active on load
   useEffect(() => {
     if (items.length && !activeId) setActiveId(items[0].id)
   }, [items, activeId])
+
+  // cleanup reference URL on unmount
+  useEffect(() => {
+    return () => {
+      if (refUrlCleanupRef.current) URL.revokeObjectURL(refUrlCleanupRef.current)
+    }
+  }, [])
 
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault()
@@ -235,7 +373,7 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Listen & Repeat</h1>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Hear it, then say it back — record yourself to compare</p>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">Hear it · repeat it · compare side by side</p>
         </div>
         <div className="flex gap-2">
           <button
@@ -267,15 +405,15 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
               <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-6 py-6">
                 <div className="font-mono text-xs uppercase tracking-widest text-red-500 mb-3">Listen & Repeat</div>
 
-                {/* Word/phrase — large */}
                 <div className="font-mono text-2xl sm:text-3xl leading-snug text-zinc-900 dark:text-zinc-50 mb-5">
                   {activeItem.content}
                 </div>
 
-                {/* Play button */}
+                {/* Listen button */}
                 <button
                   onClick={() => speak(activeItem.content, activeItem.id)}
-                  className={`flex items-center gap-3 rounded-xl px-5 py-3 font-semibold text-sm transition-all ${
+                  disabled={speaking === activeItem.id}
+                  className={`flex items-center gap-3 rounded-xl px-5 py-3 font-semibold text-sm transition-all disabled:cursor-not-allowed ${
                     speaking === activeItem.id
                       ? 'bg-blue-600 text-white scale-95'
                       : 'bg-blue-500 hover:bg-blue-600 text-white'
@@ -284,17 +422,20 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
                   <span className="text-lg">{speaking === activeItem.id ? '🔊' : '▶'}</span>
                   {speaking === activeItem.id ? 'Playing...' : 'Listen'}
                 </button>
-                <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-2">
-                  Listen, then record yourself saying it below.
+
+                <p className="text-xs text-zinc-400 mt-2">
+                  {referenceUrl
+                    ? '✓ Reference captured — now record yourself below to compare.'
+                    : 'Press Listen, then record yourself saying it below.'}
                 </p>
 
                 {/* Progress dots + nav */}
                 <div className="flex items-center justify-between mt-6 flex-wrap gap-3">
                   <div className="flex gap-1.5 flex-wrap">
-                    {items.slice(0, Math.min(items.length, 20)).map((item, i) => (
+                    {items.slice(0, Math.min(items.length, 20)).map((item) => (
                       <div
                         key={item.id}
-                        onClick={() => { setActiveId(item.id); setRecorderKey(k => k + 1) }}
+                        onClick={() => { setActiveId(item.id); setRecorderKey(k => k + 1); setReferenceUrl(null) }}
                         className={`w-1.5 h-1.5 rounded-full cursor-pointer transition-all ${
                           item.id === activeId ? 'bg-red-500 scale-150' : 'bg-zinc-300 dark:bg-zinc-700'
                         }`}
@@ -309,8 +450,12 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
                 </div>
               </div>
 
-              {/* Recorder */}
-              <Recorder key={recorderKey} onReset={() => setRecorderKey(k => k + 1)} />
+              {/* Compare recorder */}
+              <CompareRecorder
+                key={recorderKey}
+                referenceUrl={referenceUrl}
+                onReset={() => setRecorderKey(k => k + 1)}
+              />
             </>
           ) : null}
         </>
@@ -319,7 +464,6 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
       {/* ── MANAGE VIEW ── */}
       {view === 'manage' && (
         <>
-          {/* Add form — single or bulk */}
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Add entries</span>
@@ -372,7 +516,6 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
             )}
           </div>
 
-          {/* List */}
           {items.length === 0 ? (
             <p className="text-sm text-zinc-400 py-6 text-center">No items yet. Add your first word or phrase above.</p>
           ) : (
