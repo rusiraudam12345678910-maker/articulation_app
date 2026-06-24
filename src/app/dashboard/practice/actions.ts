@@ -3,6 +3,34 @@
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/utils/supabase/server'
 
+export async function addSlowDrillWord(word: string) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user || !word.trim()) return
+  await supabase.from('slow_drill_words').upsert({ user_id: user.id, word: word.trim().toLowerCase() }, { onConflict: 'user_id,word' })
+  revalidatePath('/dashboard/practice')
+}
+
+export async function deleteSlowDrillWord(id: string) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return
+  await supabase.from('slow_drill_words').delete().eq('id', id).eq('user_id', user.id)
+  revalidatePath('/dashboard/practice')
+}
+
+export async function getSlowDrillWords() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return []
+  const { data } = await supabase
+    .from('slow_drill_words')
+    .select('id, word')
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: true })
+  return (data ?? []) as { id: string; word: string }[]
+}
+
 export async function logPractice(entryId: string | null, mode: string, drillText: string) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
