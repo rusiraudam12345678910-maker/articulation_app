@@ -229,7 +229,7 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
   const activeItem = items.find(i => i.id === activeId) ?? null
 
   return (
-    <div className="flex flex-col gap-5 max-w-2xl">
+    <div className="flex flex-col gap-5 max-w-5xl">
 
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-3">

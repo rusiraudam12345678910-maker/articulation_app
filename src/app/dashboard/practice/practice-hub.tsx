@@ -315,7 +315,7 @@ export default function PracticeHub({
   const meta = MODE_META[mode]
 
   return (
-    <div className="flex flex-col gap-5 max-w-2xl">
+    <div className="flex flex-col gap-5 max-w-5xl">
 
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-3">

@@ -40,7 +40,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
       </div>
 
       <main className="flex flex-1 flex-col items-center px-6 py-10">
-        <div className="w-full max-w-2xl flex flex-col gap-8">
+        <div className="w-full max-w-5xl flex flex-col gap-8">
           {children}
         </div>
       </main>
