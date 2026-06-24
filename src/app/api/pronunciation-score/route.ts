@@ -77,26 +77,33 @@ export async function POST(req: NextRequest) {
   }
 
   const nBest = result?.NBest?.[0]
-  const pronAssessment = nBest?.PronunciationAssessment
 
-  if (!pronAssessment) {
-    return NextResponse.json({ error: 'No pronunciation assessment in response', raw: result }, { status: 422 })
+  if (!nBest) {
+    return NextResponse.json({ error: 'No NBest in response', raw: result }, { status: 422 })
   }
+
+  // Azure returns scores either nested under PronunciationAssessment or directly on the word/nBest object
+  const pronAssessment = nBest.PronunciationAssessment
+  const overallAccuracy = pronAssessment?.AccuracyScore ?? nBest.AccuracyScore ?? 0
+  const fluency = pronAssessment?.FluencyScore ?? nBest.FluencyScore ?? 0
+  const completeness = pronAssessment?.CompletenessScore ?? nBest.CompletenessScore ?? 0
+  const pronScore = pronAssessment?.PronScore ?? nBest.PronScore ?? overallAccuracy
 
   const words = (nBest?.Words ?? []).map((w: {
     Word: string
+    AccuracyScore?: number
     PronunciationAssessment?: { AccuracyScore: number; ErrorType: string }
   }) => ({
     word: w.Word,
-    accuracyScore: w.PronunciationAssessment?.AccuracyScore ?? 0,
+    accuracyScore: w.PronunciationAssessment?.AccuracyScore ?? w.AccuracyScore ?? 0,
     errorType: w.PronunciationAssessment?.ErrorType ?? 'None',
   }))
 
   return NextResponse.json({
-    accuracyScore: Math.round(pronAssessment.AccuracyScore ?? 0),
-    fluencyScore: Math.round(pronAssessment.FluencyScore ?? 0),
-    completenessScore: Math.round(pronAssessment.CompletenessScore ?? 0),
-    pronunciationScore: Math.round(pronAssessment.PronScore ?? 0),
+    accuracyScore: Math.round(overallAccuracy),
+    fluencyScore: Math.round(fluency),
+    completenessScore: Math.round(completeness),
+    pronunciationScore: Math.round(pronScore),
     words,
   })
 }
