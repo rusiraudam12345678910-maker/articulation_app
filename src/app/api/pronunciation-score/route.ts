@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// Azure Speech REST API pronunciation assessment
-// Docs: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/rest-speech-to-text-short
-
 export async function POST(req: NextRequest) {
   const key = process.env.AZURE_SPEECH_KEY
   const region = process.env.AZURE_SPEECH_REGION
@@ -19,48 +16,48 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing audio or referenceText' }, { status: 400 })
   }
 
-  // Pronunciation assessment config — JSON encoded in base64
   const assessmentConfig = Buffer.from(
     JSON.stringify({
       ReferenceText: referenceText,
       GradingSystem: 'HundredMark',
-      Granularity: 'Word',       // word-level scores
-      EnableMiscue: true,        // detect mispronounced / missing / extra words
+      Granularity: 'Word',
+      EnableMiscue: true,
     })
   ).toString('base64')
 
   const audioBuffer = await audio.arrayBuffer()
 
-  // Azure REST API works most reliably with audio/wav (PCM 16kHz mono)
-  // The client sends a WAV blob already converted from webm
   const url = `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed`
 
   const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Ocp-Apim-Subscription-Key': key,
-      'Content-Type': 'audio/wav; codecs=audio/pcm; samplerate=16000',
+      'Content-Type': 'audio/wav',
       'Pronunciation-Assessment': assessmentConfig,
     },
     body: audioBuffer,
   })
 
-  // log raw response for debugging
+  const result = await response.json()
+
   if (!response.ok) {
-    const errText = await response.text()
-    console.error('Azure Speech error:', response.status, errText)
-    return NextResponse.json({ error: 'Azure Speech API error', detail: errText }, { status: 502 })
+    return NextResponse.json({ error: 'Azure error', status: response.status, raw: result }, { status: 502 })
   }
 
-  const result = await response.json()
-  console.log('Azure raw result:', JSON.stringify(result))
+  // RecognitionStatus other than Success means Azure heard nothing
+  if (result.RecognitionStatus !== 'Success') {
+    return NextResponse.json({
+      error: `Azure recognition failed: ${result.RecognitionStatus}`,
+      raw: result,
+    }, { status: 422 })
+  }
 
-  // Extract scores from Azure response
   const nBest = result?.NBest?.[0]
   const pronAssessment = nBest?.PronunciationAssessment
 
   if (!pronAssessment) {
-    return NextResponse.json({ error: 'No pronunciation assessment in response', raw: result }, { status: 502 })
+    return NextResponse.json({ error: 'No pronunciation assessment in response', raw: result }, { status: 422 })
   }
 
   const words = (nBest?.Words ?? []).map((w: {
@@ -69,7 +66,7 @@ export async function POST(req: NextRequest) {
   }) => ({
     word: w.Word,
     accuracyScore: w.PronunciationAssessment?.AccuracyScore ?? 0,
-    errorType: w.PronunciationAssessment?.ErrorType ?? 'None',  // None | Mispronunciation | Omission | Insertion
+    errorType: w.PronunciationAssessment?.ErrorType ?? 'None',
   }))
 
   return NextResponse.json({

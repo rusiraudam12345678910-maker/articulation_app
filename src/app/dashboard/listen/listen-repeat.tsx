@@ -233,7 +233,7 @@ function CompareRecorder({
       const res = await fetch('/api/pronunciation-score', { method: 'POST', body: fd })
       if (!res.ok) {
         const err = await res.json()
-        setScoreError(err?.error ?? 'Scoring failed')
+        setScoreError(`${err?.error ?? 'Scoring failed'} — ${JSON.stringify(err?.raw ?? err?.detail ?? '')}`)
       } else {
         const data = await res.json()
         setPronScore(data)
