@@ -33,6 +33,19 @@ export async function updateListenItem(id: string, content: string) {
   revalidatePath('/dashboard/listen')
 }
 
+export async function bulkAddListenItems(lines: string[]) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return
+  const rows = lines
+    .map(l => l.trim())
+    .filter(l => l.length > 0)
+    .map(l => ({ user_id: user.id, content: l }))
+  if (rows.length === 0) return
+  await supabase.from('listen_repeat_items').insert(rows)
+  revalidatePath('/dashboard/listen')
+}
+
 export async function deleteListenItem(id: string) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()

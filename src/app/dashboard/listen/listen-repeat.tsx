@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { addListenItem, updateListenItem, deleteListenItem, type ListenItem } from './actions'
+import { addListenItem, bulkAddListenItems, updateListenItem, deleteListenItem, type ListenItem } from './actions'
 
 const WAVE_BAR_COUNT = 48
 
@@ -139,6 +139,9 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editContent, setEditContent] = useState('')
   const [newContent, setNewContent] = useState('')
+  const [bulkMode, setBulkMode] = useState(false)
+  const [bulkText, setBulkText] = useState('')
+  const [bulkAdding, setBulkAdding] = useState(false)
   const [speaking, setSpeaking] = useState<string | null>(null)
   const [recorderKey, setRecorderKey] = useState(0)
   const [view, setView] = useState<'drill' | 'manage'>('drill')
@@ -186,6 +189,24 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
     setNewContent('')
     if (!activeId) setActiveId(tempId)
     await addListenItem(c)
+  }
+
+  async function handleBulkAdd() {
+    const lines = bulkText.split('\n').map(l => l.trim()).filter(l => l.length > 0)
+    if (!lines.length) return
+    setBulkAdding(true)
+    const now = new Date().toISOString()
+    const tempItems: ListenItem[] = lines.map((l, i) => ({
+      id: `temp-${Date.now()}-${i}`,
+      content: l,
+      created_at: now,
+    }))
+    setItems(prev => [...tempItems, ...prev])
+    if (!activeId && tempItems.length) setActiveId(tempItems[0].id)
+    setBulkText('')
+    setBulkMode(false)
+    await bulkAddListenItems(lines)
+    setBulkAdding(false)
   }
 
   async function handleSaveEdit(id: string) {
@@ -298,22 +319,58 @@ export default function ListenRepeat({ initialItems }: { initialItems: ListenIte
       {/* ── MANAGE VIEW ── */}
       {view === 'manage' && (
         <>
-          {/* Add form */}
-          <form onSubmit={handleAdd} className="flex gap-2">
-            <input
-              value={newContent}
-              onChange={e => setNewContent(e.target.value)}
-              placeholder="Add a word or phrase..."
-              className="flex-1 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500"
-            />
-            <button
-              type="submit"
-              disabled={!newContent.trim()}
-              className="rounded-lg bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white text-sm font-semibold px-4 py-2 transition-colors"
-            >
-              Add
-            </button>
-          </form>
+          {/* Add form — single or bulk */}
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Add entries</span>
+              <button
+                onClick={() => { setBulkMode(b => !b); setBulkText(''); setNewContent('') }}
+                className="text-xs text-red-500 hover:text-red-400 transition-colors font-mono"
+              >
+                {bulkMode ? '← Single' : 'Bulk add ↓'}
+              </button>
+            </div>
+
+            {bulkMode ? (
+              <div className="flex flex-col gap-2">
+                <textarea
+                  value={bulkText}
+                  onChange={e => setBulkText(e.target.value)}
+                  placeholder={"One word or phrase per line:\nThe quick brown fox\nPeter Piper picked\nShe sells seashells"}
+                  rows={6}
+                  className="rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 resize-y font-mono"
+                />
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-zinc-400 font-mono">
+                    {bulkText.split('\n').filter(l => l.trim()).length} phrase{bulkText.split('\n').filter(l => l.trim()).length !== 1 ? 's' : ''} ready
+                  </span>
+                  <button
+                    onClick={handleBulkAdd}
+                    disabled={bulkAdding || !bulkText.trim()}
+                    className="rounded-lg bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white text-sm font-semibold px-4 py-2 transition-colors"
+                  >
+                    {bulkAdding ? 'Adding...' : 'Add All'}
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleAdd} className="flex gap-2">
+                <input
+                  value={newContent}
+                  onChange={e => setNewContent(e.target.value)}
+                  placeholder="Add a word or phrase..."
+                  className="flex-1 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+                />
+                <button
+                  type="submit"
+                  disabled={!newContent.trim()}
+                  className="rounded-lg bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white text-sm font-semibold px-4 py-2 transition-colors"
+                >
+                  Add
+                </button>
+              </form>
+            )}
+          </div>
 
           {/* List */}
           {items.length === 0 ? (
