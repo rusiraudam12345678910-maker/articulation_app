@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback, useEffect, useRef } from 'react'
-import { addPracticeItem, deletePracticeItem, type PracticeItem } from './actions'
+import { addPracticeItem, updatePracticeItem, deletePracticeItem, type PracticeItem } from './actions'
 
 const WAVE_BAR_COUNT = 48
 
@@ -173,6 +173,9 @@ export default function PracticeHub({ initialItems }: { initialItems: PracticeIt
   const [newContent, setNewContent] = useState('')
   const [newType, setNewType] = useState<'word' | 'sentence'>('word')
   const [adding, setAdding] = useState(false)
+  const [editingId, setEditingId] = useState<string | null>(null)
+  const [editContent, setEditContent] = useState('')
+  const [editType, setEditType] = useState<'word' | 'sentence'>('word')
 
   const current = items[index] ?? null
 
@@ -198,6 +201,20 @@ export default function PracticeHub({ initialItems }: { initialItems: PracticeIt
     setNewContent('')
     await addPracticeItem(c, newType)
     setAdding(false)
+  }
+
+  function startEdit(item: PracticeItem) {
+    setEditingId(item.id)
+    setEditContent(item.content)
+    setEditType(item.type as 'word' | 'sentence')
+  }
+
+  async function handleSaveEdit(id: string) {
+    const c = editContent.trim()
+    if (!c) return
+    setItems(prev => prev.map(i => i.id === id ? { ...i, content: c, type: editType } : i))
+    setEditingId(null)
+    await updatePracticeItem(id, c, editType)
   }
 
   async function handleDelete(id: string) {
@@ -306,12 +323,43 @@ export default function PracticeHub({ initialItems }: { initialItems: PracticeIt
           ) : (
             <div className="flex flex-col gap-2">
               {items.map(item => (
-                <div key={item.id} className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex items-center gap-3">
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm text-zinc-900 dark:text-zinc-50">{item.content}</div>
-                    <div className="text-xs text-zinc-400 capitalize mt-0.5">{item.type}</div>
-                  </div>
-                  <button onClick={() => handleDelete(item.id)} className="text-zinc-400 hover:text-red-500 transition-colors text-sm flex-shrink-0">✕</button>
+                <div key={item.id} className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex items-start gap-3">
+                  {editingId === item.id ? (
+                    <div className="flex-1 flex flex-col gap-2">
+                      <textarea
+                        value={editContent}
+                        onChange={e => setEditContent(e.target.value)}
+                        autoFocus
+                        rows={2}
+                        className="rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
+                      />
+                      <div className="flex items-center gap-2">
+                        <div className="flex gap-1.5">
+                          {(['word', 'sentence'] as const).map(t => (
+                            <button
+                              key={t}
+                              type="button"
+                              onClick={() => setEditType(t)}
+                              className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors capitalize ${editType === t ? 'bg-red-600 text-white' : 'border border-zinc-300 dark:border-zinc-700 text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800'}`}
+                            >
+                              {t}
+                            </button>
+                          ))}
+                        </div>
+                        <button onClick={() => handleSaveEdit(item.id)} className="rounded-full bg-zinc-900 dark:bg-zinc-50 px-3 py-1 text-xs font-semibold text-white dark:text-zinc-900 hover:bg-zinc-700 transition-colors">Save</button>
+                        <button onClick={() => setEditingId(null)} className="rounded-full border border-zinc-300 dark:border-zinc-700 px-3 py-1 text-xs font-semibold text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">Cancel</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-sm text-zinc-900 dark:text-zinc-50">{item.content}</div>
+                        <div className="text-xs text-zinc-400 capitalize mt-0.5">{item.type}</div>
+                      </div>
+                      <button onClick={() => startEdit(item)} className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors text-sm flex-shrink-0">✎</button>
+                      <button onClick={() => handleDelete(item.id)} className="text-zinc-400 hover:text-red-500 transition-colors text-sm flex-shrink-0">✕</button>
+                    </>
+                  )}
                 </div>
               ))}
             </div>

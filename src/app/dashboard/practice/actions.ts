@@ -25,6 +25,14 @@ export async function addPracticeItem(content: string, type: string) {
   revalidatePath('/dashboard/practice')
 }
 
+export async function updatePracticeItem(id: string, content: string, type: string) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user || !content.trim()) return
+  await supabase.from('practice_items').update({ content: content.trim(), type }).eq('id', id).eq('user_id', user.id)
+  revalidatePath('/dashboard/practice')
+}
+
 export async function deletePracticeItem(id: string) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
