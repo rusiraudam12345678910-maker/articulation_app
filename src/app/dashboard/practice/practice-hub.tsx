@@ -3,6 +3,23 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { addPracticeItem, updatePracticeItem, deletePracticeItem, type PracticeItem } from './actions'
 
+function useSpeaker() {
+  const [speaking, setSpeaking] = useState(false)
+
+  function speak(text: string) {
+    window.speechSynthesis.cancel()
+    const utt = new SpeechSynthesisUtterance(text)
+    utt.lang = 'en-US'
+    utt.rate = 0.85
+    utt.onstart = () => setSpeaking(true)
+    utt.onend = () => setSpeaking(false)
+    utt.onerror = () => setSpeaking(false)
+    window.speechSynthesis.speak(utt)
+  }
+
+  return { speaking, speak }
+}
+
 const WAVE_BAR_COUNT = 48
 
 function Recorder({ drillText }: { drillText: string }) {
@@ -169,6 +186,7 @@ export default function PracticeHub({ initialItems }: { initialItems: PracticeIt
   const [items, setItems] = useState<PracticeItem[]>(initialItems)
   const [index, setIndex] = useState(0)
   const [recorderKey, setRecorderKey] = useState(0)
+  const { speaking, speak } = useSpeaker()
   const [view, setView] = useState<'drill' | 'manage'>('drill')
   const [newContent, setNewContent] = useState('')
   const [newType, setNewType] = useState<'word' | 'sentence'>('word')
@@ -254,6 +272,17 @@ export default function PracticeHub({ initialItems }: { initialItems: PracticeIt
                   {current.content}
                 </div>
                 <div className="mt-1 font-mono text-xs text-zinc-400 capitalize">{current.type}</div>
+
+                <button
+                  onClick={() => speak(current.content)}
+                  disabled={speaking}
+                  className={`mt-5 flex items-center gap-3 rounded-xl px-5 py-3 font-semibold text-sm transition-all disabled:cursor-not-allowed ${
+                    speaking ? 'bg-blue-600 text-white scale-95' : 'bg-blue-500 hover:bg-blue-600 text-white'
+                  }`}
+                >
+                  <span className="text-lg">{speaking ? '🔊' : '▶'}</span>
+                  {speaking ? 'Playing...' : 'Listen'}
+                </button>
 
                 <div className="flex items-center justify-between mt-6 flex-wrap gap-3">
                   <div className="flex gap-1.5 flex-wrap">
