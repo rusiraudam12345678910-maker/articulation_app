@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { deleteEntry, updateEntry, toggleFavorite, toggleMastered, toggleStudied, setTier } from './actions'
+import { deleteEntry, updateEntry, toggleFavorite, toggleMastered, toggleStudied, setTier, bulkDeleteEntries } from './actions'
 import { updateEntryCategory, addCategory, deleteCategory } from './category-actions'
 import DefinitionButton from './definition-modal'
 import PhraseExamples from './phrase-examples'
@@ -74,6 +74,8 @@ export default function EntriesList({ entries, categories, users, definitionsByW
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editContent, setEditContent] = useState('')
   const [editType, setEditType] = useState('')
+  const [selected, setSelected] = useState<Set<string>>(new Set())
+  const [bulkDeleting, setBulkDeleting] = useState(false)
 
   function startEdit(entry: Entry) {
     setEditingId(entry.id)
@@ -84,6 +86,30 @@ export default function EntriesList({ entries, categories, users, definitionsByW
   async function saveEdit(id: string) {
     await updateEntry(id, editContent, editType)
     setEditingId(null)
+  }
+
+  function toggleSelect(id: string) {
+    setSelected(prev => {
+      const next = new Set(prev)
+      next.has(id) ? next.delete(id) : next.add(id)
+      return next
+    })
+  }
+
+  function toggleSelectAll() {
+    if (selected.size === filtered.length) {
+      setSelected(new Set())
+    } else {
+      setSelected(new Set(filtered.map(e => e.id)))
+    }
+  }
+
+  async function handleBulkDelete() {
+    if (!selected.size) return
+    setBulkDeleting(true)
+    await bulkDeleteEntries(Array.from(selected))
+    setSelected(new Set())
+    setBulkDeleting(false)
   }
 
   const TIER_ORDER: Record<string, number> = { '$10': 1, '$100': 2, '$1000': 3 }
@@ -292,12 +318,33 @@ export default function EntriesList({ entries, categories, users, definitionsByW
         </div>
       )}
 
-      {/* Results count */}
-      <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
-        {search || typeFilter !== 'all' || tierFilter !== 'all' || categoryFilter !== 'all' || showFavoritesOnly
-          ? `${filtered.length} result${filtered.length !== 1 ? 's' : ''}`
-          : `Your entries${entries.length ? ` (${entries.length})` : ''}`}
-      </h2>
+      {/* Results count + bulk actions */}
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
+          {search || typeFilter !== 'all' || tierFilter !== 'all' || categoryFilter !== 'all' || showFavoritesOnly
+            ? `${filtered.length} result${filtered.length !== 1 ? 's' : ''}`
+            : `Your entries${entries.length ? ` (${entries.length})` : ''}`}
+        </h2>
+        {filtered.length > 0 && (
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleSelectAll}
+              className="rounded-full border border-zinc-300 dark:border-zinc-700 px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+            >
+              {selected.size === filtered.length && filtered.length > 0 ? 'Deselect all' : 'Select all'}
+            </button>
+            {selected.size > 0 && (
+              <button
+                onClick={handleBulkDelete}
+                disabled={bulkDeleting}
+                className="rounded-full bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white text-xs font-semibold px-3 py-1 transition-colors"
+              >
+                {bulkDeleting ? 'Deleting...' : `Delete ${selected.size} selected`}
+              </button>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* Entries */}
       {!filtered.length ? (
@@ -308,14 +355,23 @@ export default function EntriesList({ entries, categories, users, definitionsByW
         filtered.map((entry) => (
           <div
             key={entry.id}
-            className={`flex items-start justify-between gap-4 bg-white dark:bg-zinc-900 rounded-xl border px-4 py-3 ${
-              entry.is_mastered
+            className={`flex items-start gap-3 bg-white dark:bg-zinc-900 rounded-xl border px-4 py-3 ${
+              selected.has(entry.id)
+                ? 'border-red-400 dark:border-red-600'
+                : entry.is_mastered
                 ? 'border-green-200 dark:border-green-900'
                 : entry.is_studied
                 ? 'border-blue-200 dark:border-blue-900'
                 : 'border-zinc-200 dark:border-zinc-800'
             }`}
           >
+            <input
+              type="checkbox"
+              checked={selected.has(entry.id)}
+              onChange={() => toggleSelect(entry.id)}
+              className="mt-1 flex-shrink-0 accent-red-600 w-4 h-4 cursor-pointer"
+            />
+            <div className="flex flex-1 items-start justify-between gap-4 min-w-0">
             {editingId === entry.id ? (
               <div className="flex flex-col gap-2 flex-1">
                 <textarea
@@ -473,6 +529,7 @@ export default function EntriesList({ entries, categories, users, definitionsByW
                 <button onClick={() => deleteEntry(entry.id)} className="text-zinc-400 hover:text-red-500 transition-colors text-sm">✕</button>
               </div>
             )}
+            </div>
           </div>
         ))
       )}

@@ -33,6 +33,13 @@ export async function deleteEntry(id: string) {
   revalidatePath('/dashboard')
 }
 
+export async function bulkDeleteEntries(ids: string[]) {
+  if (!ids.length) return
+  const supabase = await createClient()
+  await supabase.from('entries').delete().in('id', ids)
+  revalidatePath('/dashboard', 'layout')
+}
+
 export async function bulkAddEntries(formData: FormData) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
