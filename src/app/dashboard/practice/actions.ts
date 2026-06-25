@@ -3,6 +3,36 @@
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/utils/supabase/server'
 
+export type PracticeItem = { id: string; content: string; type: string; created_at: string }
+
+export async function getPracticeItems(): Promise<PracticeItem[]> {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return []
+  const { data } = await supabase
+    .from('practice_items')
+    .select('id, content, type, created_at')
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false })
+  return (data ?? []) as PracticeItem[]
+}
+
+export async function addPracticeItem(content: string, type: string) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user || !content.trim()) return
+  await supabase.from('practice_items').insert({ user_id: user.id, content: content.trim(), type })
+  revalidatePath('/dashboard/practice')
+}
+
+export async function deletePracticeItem(id: string) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return
+  await supabase.from('practice_items').delete().eq('id', id).eq('user_id', user.id)
+  revalidatePath('/dashboard/practice')
+}
+
 export async function addSlowDrillWord(word: string) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()

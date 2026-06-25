@@ -1,14 +1,9 @@
 'use client'
 
 import { useState, useCallback, useEffect, useRef } from 'react'
+import { addPracticeItem, deletePracticeItem, type PracticeItem } from './actions'
 
 const WAVE_BAR_COUNT = 48
-
-type Entry = {
-  id: string
-  content: string
-  type: string
-}
 
 function Recorder({ drillText }: { drillText: string }) {
   const [recording, setRecording] = useState(false)
@@ -29,7 +24,6 @@ function Recorder({ drillText }: { drillText: string }) {
   const playingAudioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => () => cleanup(), [])
-
   useEffect(() => { reset() }, [drillText])
 
   function cleanup() {
@@ -171,63 +165,157 @@ function Recorder({ drillText }: { drillText: string }) {
   )
 }
 
-export default function PracticeHub({ entries }: { entries: Entry[] }) {
+export default function PracticeHub({ initialItems }: { initialItems: PracticeItem[] }) {
+  const [items, setItems] = useState<PracticeItem[]>(initialItems)
   const [index, setIndex] = useState(0)
   const [recorderKey, setRecorderKey] = useState(0)
+  const [view, setView] = useState<'drill' | 'manage'>('drill')
+  const [newContent, setNewContent] = useState('')
+  const [newType, setNewType] = useState<'word' | 'sentence'>('word')
+  const [adding, setAdding] = useState(false)
 
-  const current = entries[index] ?? null
+  const current = items[index] ?? null
 
   const goNext = useCallback(() => {
-    setIndex(i => (i + 1) % entries.length)
+    if (!items.length) return
+    setIndex(i => (i + 1) % items.length)
     setRecorderKey(k => k + 1)
-  }, [entries.length])
+  }, [items.length])
 
   const goPrev = useCallback(() => {
-    setIndex(i => (i - 1 + entries.length) % entries.length)
+    if (!items.length) return
+    setIndex(i => (i - 1 + items.length) % items.length)
     setRecorderKey(k => k + 1)
-  }, [entries.length])
+  }, [items.length])
 
-  if (entries.length === 0) {
-    return (
-      <div className="text-sm text-zinc-400 py-12 text-center">
-        No entries yet — add some words or phrases first.
-      </div>
-    )
+  async function handleAdd(e: React.FormEvent) {
+    e.preventDefault()
+    const c = newContent.trim()
+    if (!c) return
+    setAdding(true)
+    const tempItem: PracticeItem = { id: `temp-${Date.now()}`, content: c, type: newType, created_at: new Date().toISOString() }
+    setItems(prev => [tempItem, ...prev])
+    setNewContent('')
+    await addPracticeItem(c, newType)
+    setAdding(false)
+  }
+
+  async function handleDelete(id: string) {
+    setItems(prev => {
+      const next = prev.filter(i => i.id !== id)
+      if (index >= next.length) setIndex(Math.max(0, next.length - 1))
+      return next
+    })
+    setRecorderKey(k => k + 1)
+    await deletePracticeItem(id)
   }
 
   return (
     <div className="flex flex-col gap-5 max-w-2xl">
-      <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Practice</h1>
 
-      {current && (
+      {/* Header */}
+      <div className="flex items-center justify-between flex-wrap gap-3">
+        <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Practice</h1>
+        <div className="flex gap-2">
+          <button onClick={() => setView('drill')} className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${view === 'drill' ? 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900' : 'border border-zinc-300 dark:border-zinc-700 text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800'}`}>Drill</button>
+          <button onClick={() => setView('manage')} className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-colors ${view === 'manage' ? 'bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900' : 'border border-zinc-300 dark:border-zinc-700 text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800'}`}>Manage</button>
+        </div>
+      </div>
+
+      {/* DRILL VIEW */}
+      {view === 'drill' && (
         <>
-          {/* Word card */}
-          <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-6 py-6">
-            <div className="font-mono text-xs uppercase tracking-widest text-red-500 mb-3">Say it out loud</div>
-            <div className="font-mono text-2xl sm:text-3xl leading-snug text-zinc-900 dark:text-zinc-50">
-              {current.content}
+          {items.length === 0 ? (
+            <div className="text-sm text-zinc-400 py-12 text-center">
+              No items yet — <button onClick={() => setView('manage')} className="text-red-400 underline">add some words or sentences</button> to start.
             </div>
+          ) : current ? (
+            <>
+              <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-6 py-6">
+                <div className="font-mono text-xs uppercase tracking-widest text-red-500 mb-3">Say it out loud</div>
+                <div className="font-mono text-2xl sm:text-3xl leading-snug text-zinc-900 dark:text-zinc-50">
+                  {current.content}
+                </div>
+                <div className="mt-1 font-mono text-xs text-zinc-400 capitalize">{current.type}</div>
 
-            {/* Progress dots + nav */}
-            <div className="flex items-center justify-between mt-6 flex-wrap gap-3">
-              <div className="flex gap-1.5 flex-wrap">
-                {entries.slice(0, Math.min(entries.length, 20)).map((_, i) => (
-                  <div
-                    key={i}
-                    onClick={() => { setIndex(i); setRecorderKey(k => k + 1) }}
-                    className={`w-1.5 h-1.5 rounded-full cursor-pointer transition-all ${i === index ? 'bg-red-500 scale-150' : 'bg-zinc-300 dark:bg-zinc-700'}`}
-                  />
-                ))}
-                {entries.length > 20 && <span className="font-mono text-xs text-zinc-400 ml-1">+{entries.length - 20}</span>}
+                <div className="flex items-center justify-between mt-6 flex-wrap gap-3">
+                  <div className="flex gap-1.5 flex-wrap">
+                    {items.slice(0, Math.min(items.length, 20)).map((_, i) => (
+                      <div
+                        key={i}
+                        onClick={() => { setIndex(i); setRecorderKey(k => k + 1) }}
+                        className={`w-1.5 h-1.5 rounded-full cursor-pointer transition-all ${i === index ? 'bg-red-500 scale-150' : 'bg-zinc-300 dark:bg-zinc-700'}`}
+                      />
+                    ))}
+                    {items.length > 20 && <span className="font-mono text-xs text-zinc-400 ml-1">+{items.length - 20}</span>}
+                  </div>
+                  <div className="flex gap-2">
+                    <button onClick={goPrev} className="rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold px-3.5 py-1.5 transition-colors">← Prev</button>
+                    <button onClick={goNext} className="rounded-lg bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 hover:bg-zinc-700 text-xs font-semibold px-3.5 py-1.5 transition-colors">Next →</button>
+                  </div>
+                </div>
               </div>
-              <div className="flex gap-2">
-                <button onClick={goPrev} className="rounded-lg border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold px-3.5 py-1.5 transition-colors">← Prev</button>
-                <button onClick={goNext} className="rounded-lg bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 hover:bg-zinc-700 text-xs font-semibold px-3.5 py-1.5 transition-colors">Next →</button>
+
+              <Recorder key={recorderKey} drillText={current.content} />
+            </>
+          ) : null}
+        </>
+      )}
+
+      {/* MANAGE VIEW */}
+      {view === 'manage' && (
+        <>
+          {/* Add form */}
+          <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-5 py-4 flex flex-col gap-3">
+            <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Add item</span>
+            <form onSubmit={handleAdd} className="flex flex-col gap-3">
+              <textarea
+                value={newContent}
+                onChange={e => setNewContent(e.target.value)}
+                placeholder="Enter a word or sentence..."
+                rows={3}
+                className="rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
+              />
+              <div className="flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  {(['word', 'sentence'] as const).map(t => (
+                    <button
+                      key={t}
+                      type="button"
+                      onClick={() => setNewType(t)}
+                      className={`rounded-full px-3 py-1 text-xs font-semibold transition-colors capitalize ${newType === t ? 'bg-red-600 text-white' : 'border border-zinc-300 dark:border-zinc-700 text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-800'}`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  type="submit"
+                  disabled={adding || !newContent.trim()}
+                  className="ml-auto rounded-lg bg-red-600 hover:bg-red-500 disabled:opacity-40 text-white text-sm font-semibold px-4 py-2 transition-colors"
+                >
+                  {adding ? 'Adding...' : 'Add'}
+                </button>
               </div>
-            </div>
+            </form>
           </div>
 
-          <Recorder key={recorderKey} drillText={current.content} />
+          {/* Items list */}
+          {items.length === 0 ? (
+            <p className="text-sm text-zinc-400 py-6 text-center">No items yet.</p>
+          ) : (
+            <div className="flex flex-col gap-2">
+              {items.map(item => (
+                <div key={item.id} className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 px-4 py-3 flex items-center gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm text-zinc-900 dark:text-zinc-50">{item.content}</div>
+                    <div className="text-xs text-zinc-400 capitalize mt-0.5">{item.type}</div>
+                  </div>
+                  <button onClick={() => handleDelete(item.id)} className="text-zinc-400 hover:text-red-500 transition-colors text-sm flex-shrink-0">✕</button>
+                </div>
+              ))}
+            </div>
+          )}
         </>
       )}
     </div>
