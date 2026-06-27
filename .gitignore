@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# CISSP PDF (62MB — too large for GitHub)
+site/*.pdf
+
+# Temp files
+tmp_*.txt
+missing.txt
+data/
+
+# Claude memory / session files
+.claude/

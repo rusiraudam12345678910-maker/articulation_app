@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossary &middot; CISSP All-in-One Exam Guide</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.glossary-alpha-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 1.2rem 2rem;
+  background: #f0f4f8;
+  border-bottom: 1px solid #dce3ea;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.alpha-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #c5cdd6;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #1a2332;
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+}
+.alpha-link:hover {
+  background: #1a5276;
+  color: #fff;
+  border-color: #1a5276;
+}
+.glossary-letter {
+  padding: 0 2rem 0.5rem;
+}
+.letter-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a2332;
+  border-bottom: 3px solid #1a5276;
+  padding-bottom: 0.4rem;
+  margin: 2.5rem 0 1rem;
+  scroll-margin-top: 60px;
+}
+.glossary-list {
+  margin: 0;
+  padding: 0;
+}
+.glossary-entry {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eef0f3;
+}
+.glossary-entry:last-child {
+  border-bottom: none;
+}
+dt {
+  font-weight: 700;
+  font-style: italic;
+  color: #14284a;
+  font-size: 1.02rem;
+  margin-bottom: 0.25rem;
+}
+dd {
+  margin: 0;
+  color: #2c2c2c;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.glossary-page-header {
+  padding: 2rem 2rem 0;
+  border-bottom: 1px solid #eef0f3;
+  margin-bottom: 0;
+}
+.glossary-page-header h1 {
+  font-size: 2rem;
+  margin: 0 0 0.4rem;
+  color: #1a2332;
+}
+.glossary-page-header p {
+  color: #666;
+  margin: 0 0 1.2rem;
+  font-size: 0.9rem;
+}
+</style>
+</head>
+<body data-chapter="glossary" data-base="./">
+<button class="mobile-nav-toggle" id="mobileNavToggle">&#9776; Contents &amp; Search</button>
+<div class="shell">
+<aside class="sidebar">
+<div class="sidebar-header">
+  <a href="index.html" style="text-decoration:none;color:inherit">
+    <p class="book-title">CISSP All-in-One<br>Exam Guide</p>
+    <p class="book-sub">7th Edition &middot; Reference</p>
+  </a>
+</div>
+<div class="search-box-wrap">
+  <span class="search-icon">&#128269;</span>
+  <input id="searchInput" type="text" placeholder="Search the book&hellip;" autocomplete="off">
+  <div class="search-results" id="searchResults"></div>
+</div>
+<nav class="nav-tree">
+  <div class="nav-domain" data-chapter="ch01"><span class="badge">1</span><span>Security &amp; Risk Management</span></div>
+  <ul class="nav-sections"><li><a href="chapters/ch01.html">Chapter 1</a></li></ul>
+  <div class="nav-domain" data-chapter="ch02"><span class="badge">2</span><span>Asset Security</span></div>
+  <ul class="nav-sections"><li><a href="chapters/ch02.html">Chapter 2</a></li></ul>
+  <div class="nav-domain" data-chapter="ch03"><span class="badge">3</span><span>Security Engineering</span></div>
+  <ul class="nav-sections"><li><a href="chapters/ch03.html">Chapter 3</a></li></ul>
+  <div class="nav-domain" data-chapter="ch04"><span class="badge">4</span><span>Communication &amp; Network Security</span></div>
+  <ul class="nav-sections"><li><a href="chapters/ch04.html">Chapter 4</a></li></ul>
+  <div class="nav-domain" data-chapter="ch05"><span class="badge">5</span><span>Identity &amp; Access Management</span></div>
+  <ul class="nav-sections"><li><a href="chapters/ch05.html">Chapter 5</a></li></ul>
+  <div class="nav-domain" data-chapter="ch06"><span class="badge">6</span><span>Security Assessment &amp; Testing</span></div>
+  <ul class="nav-sections"><li><a href="chapters/ch06.html">Chapter 6</a></li></ul>
+  <div class="nav-domain" data-chapter="ch07"><span class="badge">7</span><span>Security Operations</span></div>
+  <ul class="nav-sections"><li><a href="chapters/ch07.html">Chapter 7</a></li></ul>
+  <div class="nav-domain" data-chapter="ch08"><span class="badge">8</span><span>Software Development Security</span></div>
+  <ul class="nav-sections"><li><a href="chapters/ch08.html">Chapter 8</a></li></ul>
+  <div class="nav-domain" data-chapter="appA"><span class="badge">A</span><span>Practice Questions</span></div>
+  <ul class="nav-sections"><li><a href="chapters/appA.html">Appendix A</a></li></ul>
+  <div class="nav-domain" data-chapter="appB"><span class="badge">B</span><span>About the CD-ROM</span></div>
+  <ul class="nav-sections"><li><a href="chapters/appB.html">Appendix B</a></li></ul>
+  <div class="nav-domain nav-active" data-chapter="glossary"><span class="badge">G</span><span>Glossary</span></div>
+  <ul class="nav-sections"><li><a href="glossary.html" class="active">Glossary (223 terms)</a></li></ul>
+</nav>
+</aside>
+<main class="content">
+  <div class="glossary-page-header">
+    <h1>Glossary</h1>
+    <p>223 terms &middot; CISSP All-in-One Exam Guide, 7th Edition</p>
+  </div>
+  <div class="glossary-alpha-nav" role="navigation" aria-label="Jump to letter">
+    <a href="#letter-A" class="alpha-link">A</a>
+    <a href="#letter-B" class="alpha-link">B</a>
+    <a href="#letter-C" class="alpha-link">C</a>
+    <a href="#letter-D" class="alpha-link">D</a>
+    <a href="#letter-E" class="alpha-link">E</a>
+    <a href="#letter-F" class="alpha-link">F</a>
+    <a href="#letter-G" class="alpha-link">G</a>
+    <a href="#letter-H" class="alpha-link">H</a>
+    <a href="#letter-I" class="alpha-link">I</a>
+    <a href="#letter-K" class="alpha-link">K</a>
+    <a href="#letter-L" class="alpha-link">L</a>
+    <a href="#letter-M" class="alpha-link">M</a>
+    <a href="#letter-N" class="alpha-link">N</a>
+    <a href="#letter-O" class="alpha-link">O</a>
+    <a href="#letter-P" class="alpha-link">P</a>
+    <a href="#letter-Q" class="alpha-link">Q</a>
+    <a href="#letter-R" class="alpha-link">R</a>
+    <a href="#letter-S" class="alpha-link">S</a>
+    <a href="#letter-T" class="alpha-link">T</a>
+    <a href="#letter-U" class="alpha-link">U</a>
+    <a href="#letter-V" class="alpha-link">V</a>
+    <a href="#letter-W" class="alpha-link">W</a>
+  </div>
+
+  <section class="glossary-letter" id="letter-A">
+    <h2 class="letter-heading">A</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-access">
+        <dt>access</dt>
+        <dd>A subject&#8217;s ability to view, modify, or communicate with an object. Access enables the flow of information between the subject and the object.</dd>
+      </div>
+      <div class="glossary-entry" id="g-access-control">
+        <dt>access control</dt>
+        <dd>Mechanisms, controls, and methods of limiting access to resources to authorized subjects only.</dd>
+      </div>
+      <div class="glossary-entry" id="g-access-control-list-acl">
+        <dt>access control list (ACL)</dt>
+        <dd>A list of subjects that are authorized to access a particular object. Typically, the types of access are read, write, execute, append, modify, delete, and create.</dd>
+      </div>
+      <div class="glossary-entry" id="g-access-control-mechanism">
+        <dt>access control mechanism</dt>
+        <dd>Administrative, physical, or technical control that is designed to detect and prevent unauthorized access to a resource or environment.</dd>
+      </div>
+      <div class="glossary-entry" id="g-accountability">
+        <dt>accountability</dt>
+        <dd>A security principle indicating that individuals must be identifiable and must be held responsible for their actions.</dd>
+      </div>
+      <div class="glossary-entry" id="g-accredited">
+        <dt>accredited</dt>
+        <dd>A computer system or network that has received official authorization and approval to process sensitive data in a specific operational environment. There must be a security evaluation of the system&#8217;s hardware, software, configurations, and controls by technical personnel.</dd>
+      </div>
+      <div class="glossary-entry" id="g-add-on-security">
+        <dt>add-on security</dt>
+        <dd>Security protection mechanisms that are hardware or software retrofitted to a system to increase that system&#8217;s protection level.</dd>
+      </div>
+      <div class="glossary-entry" id="g-administrative-cont-rols">
+        <dt>administrative cont rols</dt>
+        <dd>Security mechanisms that are management&#8217;s responsibility and referred to as &#8220;soft&#8221; controls. These controls include the development and publication of policies, standards, procedures, and guidelines; the screening of personnel; security-awareness training; the monitoring of system activity; and change control procedures.</dd>
+      </div>
+      <div class="glossary-entry" id="g-aggregation">
+        <dt>aggregation</dt>
+        <dd>The act of combining information from separate sources of a lower classification level that results in the creation of information of a higher classification level, which the subject does not have the necessary rights to access.</dd>
+      </div>
+      <div class="glossary-entry" id="g-aic-triad">
+        <dt>AIC triad</dt>
+        <dd>The three security principles: availability, integrity, and confidentiality.</dd>
+      </div>
+      <div class="glossary-entry" id="g-annualized-loss-expectancy-ale">
+        <dt>annualized loss expectancy (ALE)</dt>
+        <dd>A dollar amount that estimates the loss potential from a risk in a span of a year. single loss expectancy (SLE) × annualized rate of occurrence (ARO) = ALE</dd>
+      </div>
+      <div class="glossary-entry" id="g-antimalware">
+        <dt>antimalware</dt>
+        <dd>Software whose principal functions include the identification and mitigation of malware; also known as antivirus, although this term could be specific to only one type of malware.</dd>
+      </div>
+      <div class="glossary-entry" id="g-annualized-rate-of-occurrence-aro">
+        <dt>annualized rate of occurrence (ARO)</dt>
+        <dd>The value that represents the estimated possibility of a specific threat taking place within a one-year timeframe.</dd>
+      </div>
+      <div class="glossary-entry" id="g-assurance">
+        <dt>assurance</dt>
+        <dd>A measurement of confidence in the level of protection that a specific security control delivers and the degree to which it enforces the security policy.</dd>
+      </div>
+      <div class="glossary-entry" id="g-attack">
+        <dt>attack</dt>
+        <dd>An attempt to bypass security controls in a system with the mission of using that system or compromising it. An attack is usually accomplished by exploiting a current vulnerability.</dd>
+      </div>
+      <div class="glossary-entry" id="g-audit-trail">
+        <dt>audit trail</dt>
+        <dd>A chronological set of logs and records used to provide evidence of a system&#8217;s performance or activity that took place on the system. These logs and records can be used to attempt to reconstruct past events and track the activities that took place, and possibly detect and identify intruders.</dd>
+      </div>
+      <div class="glossary-entry" id="g-authenticate">
+        <dt>authenticate</dt>
+        <dd>To verify the identity of a subject requesting the use of a system and/ or access to network resources. The steps to giving a subject access to an object should be identification, authentication, and authorization.</dd>
+      </div>
+      <div class="glossary-entry" id="g-authorization">
+        <dt>authorization</dt>
+        <dd>Granting access to an object after the subject has been properly identified and authenticated.</dd>
+      </div>
+      <div class="glossary-entry" id="g-availability">
+        <dt>availability</dt>
+        <dd>The reliability and accessibility of data and resources to authorized individuals in a timely manner.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-B">
+    <h2 class="letter-heading">B</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-back-door">
+        <dt>back door</dt>
+        <dd>An undocumented way of gaining access to a computer system. After a system is compromised, an attacker may load a program that listens on a port (back door) so that the attacker can enter the system at any time. A back door is also referred to as atrapdoor.</dd>
+      </div>
+      <div class="glossary-entry" id="g-back-up">
+        <dt>back up</dt>
+        <dd>Copy and move data to a medium so that it may be restored if the original data is corrupted or destroyed. A full backup copies all the data from the system to the backup medium. An incremental backup copies only the files that have been modified since the previous backup. A differential backup backs up all files since the last full backup.</dd>
+      </div>
+      <div class="glossary-entry" id="g-baseline">
+        <dt>baseline</dt>
+        <dd>The minimum level of security necessary to support and enforce a security policy.</dd>
+      </div>
+      <div class="glossary-entry" id="g-bell-lapadula-model">
+        <dt>Bell-LaPadula model</dt>
+        <dd>The model uses a formal state transition model that describes its access controls and how they should perform. When the system must transition from one state to another, the security of the system should never be lowered or compromised. See also multilevel security, simple security property, and star property (*-property).</dd>
+      </div>
+      <div class="glossary-entry" id="g-biba-model">
+        <dt>Biba model</dt>
+        <dd>A formal state transition system of computer security policy that describes a set of access control rules designed to ensure data integrity.</dd>
+      </div>
+      <div class="glossary-entry" id="g-biometrics">
+        <dt>biometrics</dt>
+        <dd>When used within computer security, identifies individuals by physiological characteristics, such as a fingerprint, hand geometry, or pattern in the iris.</dd>
+      </div>
+      <div class="glossary-entry" id="g-blacklist">
+        <dt>blacklist</dt>
+        <dd>A set of known bad resources such as IP addresses, domain names, or applications.</dd>
+      </div>
+      <div class="glossary-entry" id="g-br-owsing">
+        <dt>br owsing</dt>
+        <dd>Searching through storage media looking for specific information without necessarily knowing what format the information is in. A browsing attack is one in which the attacker looks around a computer system either to see what looks interesting or to find specific information.</dd>
+      </div>
+      <div class="glossary-entry" id="g-brute-force-attack">
+        <dt>brute-force attack</dt>
+        <dd>An attack that continually tries different inputs to achieve a predefined goal, which can be used to obtain credentials for unauthorized access.</dd>
+      </div>
+      <div class="glossary-entry" id="g-business-impact-analysis-bia">
+        <dt>business impact analysis (BIA)</dt>
+        <dd>A functional analysis in which a team collects data, documents business functions, develops a hierarchy of business functions, and applies a classification scheme to indicate each individual function&#8217;s criticality level.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-C">
+    <h2 class="letter-heading">C</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-callback">
+        <dt>callback</dt>
+        <dd>A procedure for identifying a system that accessed an environment remotely. In a callback, the host system disconnects the caller and then dials the authorized telephone number of the remote terminal in order to reestablish the connection. Synonymous with dialback.</dd>
+      </div>
+      <div class="glossary-entry" id="g-capability">
+        <dt>capability</dt>
+        <dd>A capability outlines the objects a subject can access and the operations the subject can carry out on the different objects. It indicates the access rights for a specific subject; many times, the capability is in the form of a ticket.</dd>
+      </div>
+      <div class="glossary-entry" id="g-capability-maturity-model-integration-cmmi">
+        <dt>capability maturity model integration (CMMI)</dt>
+        <dd>Aprocessmodelthat captures the organization&#8217;s maturity and fosters continuous improvement.</dd>
+      </div>
+      <div class="glossary-entry" id="g-certification">
+        <dt>certification</dt>
+        <dd>The technical evaluation of the security components and their compliance for the purpose of accreditation. A certification process can use safeguard evaluation, risk analysis, verification, testing, and auditing techniques to assess the appropriateness of a specific system processing a certain level of information within a particular environment. The certification is the testing of the security component or system, and the accreditation is the approval from management of the security component or system. A method used to verify the identity of a subject</dd>
+      </div>
+      <div class="glossary-entry" id="g-challengeresponse-method">
+        <dt>challenge/response method</dt>
+        <dd>by sending the subject an unpredictable or random value. If the subject responds with the expected value in return, the subject is authenticated.</dd>
+      </div>
+      <div class="glossary-entry" id="g-ciphertext">
+        <dt>ciphertext</dt>
+        <dd>Data that has been encrypted and is unreadable until it has been converted into plaintext.</dd>
+      </div>
+      <div class="glossary-entry" id="g-clark-wilson-model">
+        <dt>Clark-Wilson model</dt>
+        <dd>An integrity model that addresses all three integrity goals: prevent unauthorized users from making modifications, prevent authorized users from making improper modifications, and maintain internal and external consistency through auditing.</dd>
+      </div>
+      <div class="glossary-entry" id="g-classification">
+        <dt>classification</dt>
+        <dd>A systematic arrangement of objects into groups or categories according to a set of established criteria. Data and resources can be assigned a level of sensitivity as they are being created, amended, enhanced, stored, or transmitted. The classification level then determines the extent to which the resource needs to be controlled and secured, and is indicative of its value in terms of information assets. In data communications, cleartext is the form of a message or data, which</dd>
+      </div>
+      <div class="glossary-entry" id="g-cleartext">
+        <dt>cleartext</dt>
+        <dd>is transferred or stored without cryptographic protection.</dd>
+      </div>
+      <div class="glossary-entry" id="g-cloud-computing">
+        <dt>cloud computing</dt>
+        <dd>The use of shared remote computing devices for the purpose of providing improved efficiencies, performance, reliability, scalability, and security.</dd>
+      </div>
+      <div class="glossary-entry" id="g-collusion">
+        <dt>collusion</dt>
+        <dd>Two or more people working together to carry out a fraudulent activity. More than one person would need to work together to cause some type of destruction or fraud; this drastically reduces its probability.</dd>
+      </div>
+      <div class="glossary-entry" id="g-communications-security">
+        <dt>communications security</dt>
+        <dd>Controls in place to protect information as it is being transmitted, especially by telecommunications mechanisms.</dd>
+      </div>
+      <div class="glossary-entry" id="g-compartment">
+        <dt>compartment</dt>
+        <dd>A class of information that has need-to-know access controls beyond those normally provided for access to confidential, secret, or top-secret information. Acompartment is the same thing as a category within a security label. Just because a subject has the proper classification, that does not mean it has a need to know. The category, or compartment, of the security label enforces the subject&#8217;s need to know.</dd>
+      </div>
+      <div class="glossary-entry" id="g-compensating-controls">
+        <dt>compensating controls</dt>
+        <dd>Controls that are alternative procedures designed to reduce the risk. They are used to &#8220;counterbalance&#8221; the effects of an internal control weakness.</dd>
+      </div>
+      <div class="glossary-entry" id="g-compromise">
+        <dt>compromise</dt>
+        <dd>A violation of the security policy of a system or an organization such that unauthorized disclosure or modification of sensitive information occurs.</dd>
+      </div>
+      <div class="glossary-entry" id="g-computer-fraud">
+        <dt>computer fraud</dt>
+        <dd>Computer-related crimes involving deliberate misrepresentation, modification, or disclosure of data in order to compromise a system or obtain something of value.</dd>
+      </div>
+      <div class="glossary-entry" id="g-confidentiality">
+        <dt>confidentiality</dt>
+        <dd>A security principle that works to ensure that information is not disclosed to unauthorized subjects.</dd>
+      </div>
+      <div class="glossary-entry" id="g-configu-ration-management">
+        <dt>configu ration management</dt>
+        <dd>The identification, control, accounting, and documentation of all changes that take place to system hardware, software, firmware, supporting documentation, and test results throughout the lifespan of the system.</dd>
+      </div>
+      <div class="glossary-entry" id="g-confinement">
+        <dt>confinement</dt>
+        <dd>Controlling information in a manner that prevents sensitive data from being leaked from a program to another program, subject, or object in an unauthorized manner.</dd>
+      </div>
+      <div class="glossary-entry" id="g-contingency-plan">
+        <dt>contingency plan</dt>
+        <dd>A plan put in place before any potential emergencies, with the mission of dealing with possible future emergencies. It pertains to training personnel, performing backups, preparing critical facilities, and recovering from an emergency or disaster so that business operations can continue.</dd>
+      </div>
+      <div class="glossary-entry" id="g-control-zone">
+        <dt>control zone</dt>
+        <dd>The space within a facility that is used to protect sensitive processing equipment. Controls are in place to protect equipment from physical or technical unauthorized entry or compromise. The zone can also be used to prevent electrical waves carrying sensitive data from leaving the area. A legal right that protects the expression of ideas.</dd>
+      </div>
+      <div class="glossary-entry" id="g-costbenefit-analysis">
+        <dt>cost/benefit analysis</dt>
+        <dd>An assessment that is performed to ensure that the cost of a safeguard does not outweigh the benefit of the safeguard. Spending more to protect an asset than the asset is actually worth does not make good business sense. All possible safeguards must be evaluated to ensure that the most security-effective and cost-effective choice is made.</dd>
+      </div>
+      <div class="glossary-entry" id="g-countermeasure">
+        <dt>countermeasure</dt>
+        <dd>A control, method, technique, or procedure that is put into place to prevent a threat agent from exploiting a vulnerability. A countermeasure is put into place to mitigate risk. Also called a safeguard or control.</dd>
+      </div>
+      <div class="glossary-entry" id="g-covert-channel">
+        <dt>covert channel</dt>
+        <dd>A communications path that enables a process to transmit information in a way that violates the system&#8217;s security policy.</dd>
+      </div>
+      <div class="glossary-entry" id="g-covert-storage-channel">
+        <dt>covert storage channel</dt>
+        <dd>A covert channel that involves writing to a storage location by one process and the direct or indirect reading of the storage location by another process. Covert storage channels typically involve a resource (for example, sectors on a disk) that is shared by two subjects at different security levels.</dd>
+      </div>
+      <div class="glossary-entry" id="g-covert-timing-channel">
+        <dt>covert timing channel</dt>
+        <dd>A covert channel in which one process modulates its system resource (for example, CPU cycles), which is interpreted by a second process as some type of communication.</dd>
+      </div>
+      <div class="glossary-entry" id="g-cryptanalysis">
+        <dt>cryptanalysis</dt>
+        <dd>The practice of breaking cryptosystems and algorithms used in encryption and decryption processes.</dd>
+      </div>
+      <div class="glossary-entry" id="g-c-ryptography">
+        <dt>c ryptography</dt>
+        <dd>The science of secret writing that enables storage and transmission of data in a form that is available only to the intended individuals.</dd>
+      </div>
+      <div class="glossary-entry" id="g-cryptology">
+        <dt>cryptology</dt>
+        <dd>The study of cryptography and cryptanalysis.</dd>
+      </div>
+      <div class="glossary-entry" id="g-cryptosystem">
+        <dt>cryptosystem</dt>
+        <dd>The hardware or software implementation of cryptography.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-D">
+    <h2 class="letter-heading">D</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-data-at-rest">
+        <dt>data at rest</dt>
+        <dd>Data that resides in external or auxiliary storage devices such as hard disk drives, solid-state drives, or DVDs.</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-classification">
+        <dt>data classification</dt>
+        <dd>Assignments to data that indicate the level of availability, integrity, and confidentiality that is required for each type of information.</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-custodian">
+        <dt>data custodian</dt>
+        <dd>An individual who is responsible for the maintenance and protection of the data. This role is usually filled by the IT department (usually the network administrator). The duties include performing regular backups of the data; implementing security mechanisms; periodically validating the integrity of the data; restoring data from backup media; and fulfilling the requirements specified in the company&#8217;s security policy, standards, and guidelines that pertain to information security and data protection. Symmetric key encryption algorithm that</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-encryption-standard-des">
+        <dt>Data Encryption Standard (DES)</dt>
+        <dd>was adopted by the government as a federal standard for protecting sensitive unclassified information. DES was later replaced with Advanced Encryption Standard (AES).</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-in-transit-or-data-in-motion">
+        <dt>data in transit (or data in motion)</dt>
+        <dd>Data that is moving between computing nodes over a data network such as the Internet.</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-in-use">
+        <dt>data in use</dt>
+        <dd>Data that temporarily resides in primary storage such as registers, caches, or RAM while the CPU is using it.</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-leak-prevention-dlp">
+        <dt>data leak prevention (DLP)</dt>
+        <dd>The actions that organizations take to prevent unauthorized external parties from gaining access to sensitive data.</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-mining">
+        <dt>data mining</dt>
+        <dd>The analysis of the data held in data warehouses in order to produce new and useful information.</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-remanence">
+        <dt>data remanence</dt>
+        <dd>A measure of the magnetic flux density remaining after removal of the applied magnetic force, which is used to erase data. Refers to any data remaining on magnetic storage media.</dd>
+      </div>
+      <div class="glossary-entry" id="g-data-warehousing">
+        <dt>data warehousing</dt>
+        <dd>The process of combining data from multiple databases or data sources into a large data store for the purpose of providing more extensive information retrieval and data analysis.</dd>
+      </div>
+      <div class="glossary-entry" id="g-database-shadowing">
+        <dt>database shadowing</dt>
+        <dd>A mirroring technology used in databases, in which information is written to at least two hard drives for the purpose of redundancy.</dd>
+      </div>
+      <div class="glossary-entry" id="g-declassification">
+        <dt>declassification</dt>
+        <dd>An administrative decision or procedure to remove or reduce the security classification information.</dd>
+      </div>
+      <div class="glossary-entry" id="g-dedicated-security-mode">
+        <dt>dedicated security mode</dt>
+        <dd>The mode in which a system operates if all users have the clearance or authorization to access, and the need to know about, all data processed within the system. All users have been given formal access approval for all information on the system and have signed nondisclosure agreements pertaining to this information.</dd>
+      </div>
+      <div class="glossary-entry" id="g-degauss">
+        <dt>degauss</dt>
+        <dd>Process that demagnetizes magnetic media so that a very low residue of magnetic induction is left on the media. Used to effectively erase data from media.</dd>
+      </div>
+      <div class="glossary-entry" id="g-delphi-technique">
+        <dt>Delphi technique</dt>
+        <dd>A group decision method used to ensure that each member of a group gives an honest and anonymous opinion pertaining to the company&#8217;s risks.</dd>
+      </div>
+      <div class="glossary-entry" id="g-denial-of-service-dos">
+        <dt>denial of service (DoS)</dt>
+        <dd>Any action, or series of actions, that prevents a system, or its resources, from functioning in accordance with its intended purpose.</dd>
+      </div>
+      <div class="glossary-entry" id="g-devops">
+        <dt>DevOps</dt>
+        <dd>The practice of incorporating developers and members of operations and quality assurance (QA) staff into software development projects to align their incentives and enable frequent, efficient, and reliable releases of software products.</dd>
+      </div>
+      <div class="glossary-entry" id="g-dial-up">
+        <dt>dial-up</dt>
+        <dd>The service whereby a computer terminal can use telephone lines, usually via a modem, to initiate and continue communication with another computer system.</dd>
+      </div>
+      <div class="glossary-entry" id="g-dictionary-attack">
+        <dt>dictionary attack</dt>
+        <dd>A form of attack in which an attacker uses a large set of likely combinations to guess a secret, usually a password.</dd>
+      </div>
+      <div class="glossary-entry" id="g-digital-signature">
+        <dt>digital signature</dt>
+        <dd>An electronic signature based upon cryptographic methods of originator authentication, computed by using a set of rules and a set of parameters such that the identity of the signer and the integrity of the data can be verified.</dd>
+      </div>
+      <div class="glossary-entry" id="g-disaster-recovery-plan">
+        <dt>disaster recovery plan</dt>
+        <dd>A plan developed to help a company recover from a disaster. It provides procedures for emergency response, extended backup operations, and post-disaster recovery when an organization suffers a loss of computer processing capability or resources and physical facilities.</dd>
+      </div>
+      <div class="glossary-entry" id="g-discretionary-access-control-d-ac">
+        <dt>discretionary access control (D AC)</dt>
+        <dd>An access control model and policy that restricts access to objects based on the identity of the subjects and the groups to which those subjects belong. The data owner has the discretion of allowing or denying others access to the resources it owns.</dd>
+      </div>
+      <div class="glossary-entry" id="g-distributed-network-protocol-3dnp3">
+        <dt>Distributed Network Protocol 3(DNP3)</dt>
+        <dd>Acommunicationsprotocol designed for use in SCADA systems, particularly those within the power sector, that does not include routing functionality.</dd>
+      </div>
+      <div class="glossary-entry" id="g-domain">
+        <dt>domain</dt>
+        <dd>The set of objects that a subject is allowed to access. Within this domain, all subjects and objects share a common security policy, procedures, and rules, and they are managed by the same management system.</dd>
+      </div>
+      <div class="glossary-entry" id="g-due-care">
+        <dt>due care</dt>
+        <dd>Steps taken to show that a company has taken responsibility for the activities that occur within the corporation and has taken the necessary steps to help protect the company, its resources, and employees.</dd>
+      </div>
+      <div class="glossary-entry" id="g-due-diligence">
+        <dt>due diligence</dt>
+        <dd>The process of systematically evaluating information to identify vulnerabilities, threats, and issues relating to an organization&#8217;s overall risk.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-E">
+    <h2 class="letter-heading">E</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-electronic-discovery-e-discovery">
+        <dt>electronic discovery (e-discovery)</dt>
+        <dd>The process of producing for a court or external attorney all electronically stored information pertinent to a legal proceeding.</dd>
+      </div>
+      <div class="glossary-entry" id="g-electronic-vaulting">
+        <dt>electronic vaulting</dt>
+        <dd>The transfer of backup data to an offsite location. This process is primarily a batch process of transmitting data through communications lines to a server at an alternative location.</dd>
+      </div>
+      <div class="glossary-entry" id="g-eman-ations">
+        <dt>eman ations</dt>
+        <dd>Electrical and electromagnetic signals emitted from electrical equipment that can transmit through the airwaves. These signals carry information that can be captured and deciphered, which can cause a security breach. These are also called emissions.</dd>
+      </div>
+      <div class="glossary-entry" id="g-encr-yption">
+        <dt>encr yption</dt>
+        <dd>The transformation of plaintext into unreadable ciphertext.</dd>
+      </div>
+      <div class="glossary-entry" id="g-end-to-end-encryption">
+        <dt>end-to-end encryption</dt>
+        <dd>A technology that encrypts the data payload of a packet.</dd>
+      </div>
+      <div class="glossary-entry" id="g-exposure">
+        <dt>exposure</dt>
+        <dd>An instance of being exposed to losses from a threat. A weakness or vulnerability can cause an organization to be exposed to possible damages.</dd>
+      </div>
+      <div class="glossary-entry" id="g-e-xposure-factor">
+        <dt>e xposure factor</dt>
+        <dd>The percentage of loss a realized threat could have on a certain asset.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-F">
+    <h2 class="letter-heading">F</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-failover">
+        <dt>failover</dt>
+        <dd>A backup operation that automatically switches to a standby system if the primary system fails or is taken offline. It is an important fault-tolerant function that provides system availability.</dd>
+      </div>
+      <div class="glossary-entry" id="g-fail-safe">
+        <dt>fail-safe</dt>
+        <dd>A functionality that ensures that when software or a system fails for any reason, it does not end up in a vulnerable state. After a failure, software might default to no access instead of allowing full control, which would be an example of a fail-safe measure.</dd>
+      </div>
+      <div class="glossary-entry" id="g-fibre-channel-over-ethernet-fcoe">
+        <dt>Fibre Channel over Ethernet (FCoE)</dt>
+        <dd>A converged protocol that allows Fibre Channel frames to ride over Ethernet networks.</dd>
+      </div>
+      <div class="glossary-entry" id="g-firmwa-re">
+        <dt>firmwa re</dt>
+        <dd>Software instructions that have been written into read-only memory (ROM) or a programmable ROM (PROM) chip.</dd>
+      </div>
+      <div class="glossary-entry" id="g-formal-security-policy-model">
+        <dt>formal security policy model</dt>
+        <dd>A mathematical statement of a security policy. When an operating system is created, it can be built upon a predeveloped model that lays out how all activities will take place in each and every situation. This model can be expressed mathematically, which is then translated into a programming language.</dd>
+      </div>
+      <div class="glossary-entry" id="g-formal-verification">
+        <dt>formal verification</dt>
+        <dd>Validating and testing of highly trusted systems. The tests are designed to show design verification, consistency between the formal specifications and the formal security policy model, implementation verification, consistency between the formal specifications, and the actual implementation of the product.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-G">
+    <h2 class="letter-heading">G</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-gateway">
+        <dt>gateway</dt>
+        <dd>A system or device that connects two unlike environments or systems. The gateway is usually required to translate between different types of applications or protocols.</dd>
+      </div>
+      <div class="glossary-entry" id="g-guidelines">
+        <dt>guidelines</dt>
+        <dd>Recommended actions and operational guides for users, IT staff, operations staff, and others when a specific standard does not apply.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-H">
+    <h2 class="letter-heading">H</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-handshaking-procedure">
+        <dt>handshaking procedure</dt>
+        <dd>A dialog between two entities for the purpose of identifying and authenticating the entities to one another. The dialog can take place between two computers or two applications residing on different computers. It is an activity that usually takes place within a protocol.</dd>
+      </div>
+      <div class="glossary-entry" id="g-honeynet">
+        <dt>honeynet</dt>
+        <dd>A network connecting two or more honeypots that is created for the sole purpose of luring an attacker in order to compromise it.</dd>
+      </div>
+      <div class="glossary-entry" id="g-honeypot">
+        <dt>honeypot</dt>
+        <dd>A computer set up as a sacrificial lamb on the network in the hope that attackers will attack this system instead of actual production systems.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-I">
+    <h2 class="letter-heading">I</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-identification">
+        <dt>identification</dt>
+        <dd>A subject provides some type of data to an authentication service. Identification is the first step in the authentication process.</dd>
+      </div>
+      <div class="glossary-entry" id="g-inference">
+        <dt>inference</dt>
+        <dd>The ability to derive information not explicitly available.</dd>
+      </div>
+      <div class="glossary-entry" id="g-information-owner">
+        <dt>information owner</dt>
+        <dd>The person who has final corporate responsibility of data protection and would be the one held liable for any negligence when it comes to protecting the company&#8217;s information assets. The person who holds this role&mdash;usually a senior executive within the management group of the company&mdash;is responsible for assigning a classification to the information and dictating how the information should be protected. A multidisciplinary software development team</dd>
+      </div>
+      <div class="glossary-entry" id="g-integrated-product-team-ipt">
+        <dt>Integrated Product Team (IPT)</dt>
+        <dd>with representatives from many or all the stakeholder populations.</dd>
+      </div>
+      <div class="glossary-entry" id="g-integrity">
+        <dt>integrity</dt>
+        <dd>A security principle that makes sure that information and systems are not modified maliciously or accidentally.</dd>
+      </div>
+      <div class="glossary-entry" id="g-internet-small-computer-system-interface-iscsi">
+        <dt>Internet Small Computer System Interface (iSCSI)</dt>
+        <dd>A converged protocol that encapsulates SCSI data in TCP segments in order to allow peripherals to be connected to computers across networks.</dd>
+      </div>
+      <div class="glossary-entry" id="g-intrusion-detection-system-ids">
+        <dt>intrusion detection system (IDS)</dt>
+        <dd>Software employed to monitor and detect possible attacks and behaviors that vary from the normal and expected activity. The IDS can be network based, which monitors network traffic, or host based, which monitors activities of a specific system and protects system files and control mechanisms.</dd>
+      </div>
+      <div class="glossary-entry" id="g-isola-tion">
+        <dt>isola tion</dt>
+        <dd>The containment of processes in a system in such a way that they are separated from one another to ensure integrity and confidentiality.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-K">
+    <h2 class="letter-heading">K</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-kernel">
+        <dt>kernel</dt>
+        <dd>The core of an operating system, a kernel manages the machine&#8217;s hardware resources (including the processor and the memory) and provides and controls the way any other software component accesses these resources.</dd>
+      </div>
+      <div class="glossary-entry" id="g-key">
+        <dt>key</dt>
+        <dd>A discrete data set that controls the operation of a cryptography algorithm. In encryption, a key specifies the particular transformation of plaintext into ciphertext, or vice versa, during decryption. Keys are also used in other cryptographic algorithms, such as digital signature schemes and keyed-hash functions (also known as HMACs), which are often used for authentication and integrity.</dd>
+      </div>
+      <div class="glossary-entry" id="g-keyst-roke-monitoring">
+        <dt>keyst roke monitoring</dt>
+        <dd>A type of auditing that can review or record keystrokes entered by a user during an active session.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-L">
+    <h2 class="letter-heading">L</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-lattice-based-access-control-model">
+        <dt>lattice-based access control model</dt>
+        <dd>A mathematical model that allows a system to easily represent the different security levels and control access attempts based on those levels. Every pair of elements has a highest lower bound and a lowest upper bound of access rights. The classes stemmed from military designations.</dd>
+      </div>
+      <div class="glossary-entry" id="g-least-privilege">
+        <dt>least privilege</dt>
+        <dd>The security principle that requires each subject to be granted the most restrictive set of privileges needed for the performance of authorized tasks. The application of this principle limits the damage that can result from accident, error, or unauthorized use.</dd>
+      </div>
+      <div class="glossary-entry" id="g-life-cycle-assurance">
+        <dt>life-cycle assurance</dt>
+        <dd>Confidence that a trusted system is designed, developed, and maintained with formal designs and controls. This includes design specification and verification, implementation, testing, configuration management, and distribution.</dd>
+      </div>
+      <div class="glossary-entry" id="g-lightweight-directory-access-protocol-ldap">
+        <dt>Lightweight Directory Access Protocol (LDAP)</dt>
+        <dd>A directory service based on a subset of the X.500 standard that allows users and applications to interact with a directory.</dd>
+      </div>
+      <div class="glossary-entry" id="g-link-encryption">
+        <dt>link encryption</dt>
+        <dd>A type of encryption technology that encrypts packets&#8217; headers, trailers, and the data payload. Each network communications node, or hop, must decrypt the packets to read its address and routing information and then re-encrypt the packets. This is different fromend-to-end encryption. A malicious program that is triggered by a specific event or condition.</dd>
+      </div>
+      <div class="glossary-entry" id="g-loss-potential">
+        <dt>loss potential</dt>
+        <dd>The potential losses that can be accrued if a threat agent actually exploits a vulnerability.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-M">
+    <h2 class="letter-heading">M</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-maintenance-hook">
+        <dt>maintenance hook</dt>
+        <dd>Instructions within a program&#8217;s code that enable the developer or maintainer to enter the program without having to go through the usual access control and authentication processes. Maintenance hooks should be removed from the code before it is released to production; otherwise, they can cause serious security risks. Also called trapdoor or back door.</dd>
+      </div>
+      <div class="glossary-entry" id="g-malware">
+        <dt>malware</dt>
+        <dd>Malicious software. Code written to perform activities that circumvent the security policy of a system. Examples are viruses, malicious applets, Trojan horses, logical bombs, and worms.</dd>
+      </div>
+      <div class="glossary-entry" id="g-mandatory-access-cont-rol-mac">
+        <dt>mandatory access cont rol (MAC)</dt>
+        <dd>An access policy that restricts subjects&#8217; access to objects based on the security clearance of the subject and the classification of the object. The system enforces the security policy, and users cannot share their files with other users.</dd>
+      </div>
+      <div class="glossary-entry" id="g-masque-rading">
+        <dt>masque rading</dt>
+        <dd>Impersonating another user, usually with the intention of gaining unauthorized access to a system.</dd>
+      </div>
+      <div class="glossary-entry" id="g-message-authentication-code-mac">
+        <dt>message authentication code (MAC)</dt>
+        <dd>In cryptography, a message authentication code (MAC) is a generated value used to authenticate a message. A MAC can be generated by HMAC or CBC-MAC methods. The MAC protects both a message&#8217;s integrity (by ensuring that a different MAC will be produced if the message has changed) and its authenticity, because only someone who knows the secret key could have modified the message. A class of systems containing information with different</dd>
+      </div>
+      <div class="glossary-entry" id="g-multilevel-security">
+        <dt>multilevel security</dt>
+        <dd>classifications. Access decisions are based on the subject&#8217;s security clearances, need to know, and formal approval.</dd>
+      </div>
+      <div class="glossary-entry" id="g-multiprotocol-label-switching-mpls">
+        <dt>Multiprotocol Label Switching (MPLS)</dt>
+        <dd>A converged data communications protocol designed to improve the routing speed of high-performance networks.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-N">
+    <h2 class="letter-heading">N</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-need-to-know">
+        <dt>need to know</dt>
+        <dd>A security principle stating that users should have access only to the information and resources necessary to complete their tasks that fulfill their roles within an organization. Need to know is commonly used in access control criteria by operating systems and applications.</dd>
+      </div>
+      <div class="glossary-entry" id="g-node">
+        <dt>node</dt>
+        <dd>A system that is connected to a network.</dd>
+      </div>
+      <div class="glossary-entry" id="g-nonrepudiation">
+        <dt>nonrepudiation</dt>
+        <dd>A service that ensures the sender cannot later falsely deny sending a message.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-O">
+    <h2 class="letter-heading">O</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-object">
+        <dt>object</dt>
+        <dd>A passive entity that contains or receives information. Access to an object potentially implies access to the information that it contains. Examples of objects include records, pages, memory segments, files, directories, directory trees, and programs.</dd>
+      </div>
+      <div class="glossary-entry" id="g-object-reuse">
+        <dt>object reuse</dt>
+        <dd>Reassigning to a subject media that previously contained information. Object reuse is a security concern because if insufficient measures were taken to erase the information on the media, the information may be disclosed to unauthorized personnel.</dd>
+      </div>
+      <div class="glossary-entry" id="g-one-time-pad">
+        <dt>one-time pad</dt>
+        <dd>A method of encryption in which the plaintext is combined with a random &#8220;pad,&#8221; which should be the same length as the plaintext. This encryption process uses a nonrepeating set of random bits that are combined bitwise (XOR) with the message to produce ciphertext. A one-time pad is a perfect encryption scheme because it is unbreakable and each pad is used exactly once, but it is impractical because of all of the required overhead. A level of confidence of a trusted system&#8217;s architecture</dd>
+      </div>
+      <div class="glossary-entry" id="g-operational-assurance">
+        <dt>operational assurance</dt>
+        <dd>and implementation that enforces the system&#8217;s security policy. This can include system architecture, covert channel analysis, system integrity, and trusted recovery.</dd>
+      </div>
+      <div class="glossary-entry" id="g-operational-goals">
+        <dt>operational goals</dt>
+        <dd>Daily goals to be accomplished to ensure the proper operation of an environment.</dd>
+      </div>
+      <div class="glossary-entry" id="g-opera-tor">
+        <dt>opera tor</dt>
+        <dd>An individual who supports the operations of computer systems&mdash;usually a mainframe. The individual may monitor the execution of the system, control the flow of jobs, and develop and schedule batch jobs.</dd>
+      </div>
+      <div class="glossary-entry" id="g-overt-channel">
+        <dt>overt channel</dt>
+        <dd>A path within a computer system or network that is designed for the authorized transfer of data.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-P">
+    <h2 class="letter-heading">P</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-password">
+        <dt>password</dt>
+        <dd>A sequence of characters used to prove one&#8217;s identity. It is used during a logon process and should be highly protected.</dd>
+      </div>
+      <div class="glossary-entry" id="g-payment-card-industry-data-security-standard-pci-dss">
+        <dt>payment card industry data security standard (PCI DSS)</dt>
+        <dd>An information security standard for organizations that are involved in payment card transactions.</dd>
+      </div>
+      <div class="glossary-entry" id="g-penetration">
+        <dt>penetration</dt>
+        <dd>A successful attempt at circumventing security controls and gaining access to a system.</dd>
+      </div>
+      <div class="glossary-entry" id="g-penetration-testing">
+        <dt>penetration testing</dt>
+        <dd>Penetration testing is a method of evaluating the security of a computer system or network by simulating an attack that a malicious hacker would carry out. This is done so that vulnerabilities and weaknesses can be uncovered.</dd>
+      </div>
+      <div class="glossary-entry" id="g-permissions">
+        <dt>permissions</dt>
+        <dd>The type of authorized interactions that a subject can have with an object. Examples include read, write, execute, add, modify, and delete.</dd>
+      </div>
+      <div class="glossary-entry" id="g-personnel-security">
+        <dt>personnel security</dt>
+        <dd>The procedures that are established to ensure that all personnel who have access to sensitive information have the required authority as well as appropriate clearances. Procedures confirm a person&#8217;s background and provide assurance of necessary trustworthiness.</dd>
+      </div>
+      <div class="glossary-entry" id="g-physical-controls">
+        <dt>physical controls</dt>
+        <dd>Controls that pertain to controlling individual access into the facility and different departments, locking systems and removing unnecessary floppy or CD-ROM drives, protecting the perimeter of the facility, monitoring for intrusion, and checking environmental controls.</dd>
+      </div>
+      <div class="glossary-entry" id="g-physical-security">
+        <dt>physical security</dt>
+        <dd>Controls and procedures put into place to prevent intruders from physically accessing a system or facility. The controls enforce access control and authorized access.</dd>
+      </div>
+      <div class="glossary-entry" id="g-piggyback">
+        <dt>piggyback</dt>
+        <dd>Unauthorized access to a system by using another user&#8217;s legitimate credentials.</dd>
+      </div>
+      <div class="glossary-entry" id="g-plaintext">
+        <dt>plaintext</dt>
+        <dd>In cryptography, the original readable text before it is encrypted.</dd>
+      </div>
+      <div class="glossary-entry" id="g-playback-attack">
+        <dt>playback attack</dt>
+        <dd>Capturing data and resending the data at a later time in the hope of tricking the receiving system. This is usually carried out to obtain unauthorized access to specific resources.</dd>
+      </div>
+      <div class="glossary-entry" id="g-privacy">
+        <dt>privacy</dt>
+        <dd>A security principle that protects an individual&#8217;s information and employs controls to ensure that this information is not disseminated or accessed in an unauthorized manner.</dd>
+      </div>
+      <div class="glossary-entry" id="g-procedure">
+        <dt>procedure</dt>
+        <dd>Detailed step-by-step instructions to achieve a certain task, which are used by users, IT staff, operations staff, security members, and others.</dd>
+      </div>
+      <div class="glossary-entry" id="g-protection-ring">
+        <dt>protection ring</dt>
+        <dd>An architecture that provides hierarchies of privileged operation modes of a system, which gives certain access rights to processes that are authorized to operate in that mode. Supports the integrity and confidentiality requirements of multitasking operating systems and enables the operating system to protect itself from user programs and rogue processes.</dd>
+      </div>
+      <div class="glossary-entry" id="g-protocol">
+        <dt>protocol</dt>
+        <dd>A set of rules and formats that enables the standardized exchange of information between different systems.</dd>
+      </div>
+      <div class="glossary-entry" id="g-pseudo-flaw">
+        <dt>pseudo-flaw</dt>
+        <dd>An apparent loophole deliberately implanted in an operating system or program as a trap for intruders.</dd>
+      </div>
+      <div class="glossary-entry" id="g-pu-blic-key-encryption">
+        <dt>pu blic key encryption</dt>
+        <dd>A type of encryption that uses two mathematically related keys to encrypt and decrypt messages. The private key is known only to the owner, and the public key is available to anyone.</dd>
+      </div>
+      <div class="glossary-entry" id="g-public-key-infrastructurepki">
+        <dt>public key infrastructure(PKI)</dt>
+        <dd>Aframeworkofprograms,procedures, communication protocols, and public key cryptography that enables a diverse group of individuals to communicate securely.</dd>
+      </div>
+      <div class="glossary-entry" id="g-pu-rge">
+        <dt>pu rge</dt>
+        <dd>The removal of sensitive data from a system, storage device, or peripheral device with storage capacity at the end of a processing period. This action is performed in such a way that there is assurance proportional to the sensitivity of the data that the data cannot be reconstructed.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-Q">
+    <h2 class="letter-heading">Q</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-qualitative-risk-analysis">
+        <dt>qualitative risk analysis</dt>
+        <dd>A risk analysis method that uses intuition and experience to judge an organization&#8217;s exposure to risks. It uses scenarios and ratings systems. Compare to quantitative risk analysis.</dd>
+      </div>
+      <div class="glossary-entry" id="g-quantitative-risk-analysis">
+        <dt>quantitative risk analysis</dt>
+        <dd>A risk analysis method that attempts to use percentages in damage estimations and assigns real numbers to the costs of countermeasures for particular risks and the amount of damage that could result from the risk. Compare to qualitative risk analysis.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-R">
+    <h2 class="letter-heading">R</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-radiusremote-authentication-dial-in-user-service">
+        <dt>RADIUS(Remote Authentication Dial-in User Service)</dt>
+        <dd>Asecurity service that authenticates and authorizes dial-up users and is a centralized access control mechanism.</dd>
+      </div>
+      <div class="glossary-entry" id="g-read">
+        <dt>read</dt>
+        <dd>An operation that results in the flow of information from an object to a subject and does not give the subject the ability to modify the object or the data within the object.</dd>
+      </div>
+      <div class="glossary-entry" id="g-recovery-planning">
+        <dt>recovery planning</dt>
+        <dd>The advance planning and preparations that are necessary to minimize loss and to ensure the availability of the critical information systems of an organization after a disruption in service or a disaster.</dd>
+      </div>
+      <div class="glossary-entry" id="g-recovery-point-objective">
+        <dt>recovery point objective</dt>
+        <dd>The acceptable amount of data loss measured in time.</dd>
+      </div>
+      <div class="glossary-entry" id="g-recovery-time-objective">
+        <dt>recovery time objective</dt>
+        <dd>The maximum time period within which a business process must be restored to a designated service level after a disaster to avoid unacceptable consequences.</dd>
+      </div>
+      <div class="glossary-entry" id="g-reference-monitor-concept">
+        <dt>reference monitor concept</dt>
+        <dd>An access control concept that refers to an abstract machine that mediates all accesses to objects by subjects. The security kernel enforces the reference monitor concept.</dd>
+      </div>
+      <div class="glossary-entry" id="g-reliability">
+        <dt>reliability</dt>
+        <dd>The assurance of a given system, or individual component, performing its mission adequately for a specified period of time under the expected operating conditions.</dd>
+      </div>
+      <div class="glossary-entry" id="g-remote-journaling">
+        <dt>remote journaling</dt>
+        <dd>A method of transmitting changes to data to an offsite facility. This takes place as parallel processing of transactions, meaning that changes to the data are saved locally and to an off-site facility. These activities take place in real time and provide redundancy and fault tolerance.</dd>
+      </div>
+      <div class="glossary-entry" id="g-repudiation">
+        <dt>repudiation</dt>
+        <dd>When the sender of a message denies sending the message. The countermeasure to this is to implement digital signatures.</dd>
+      </div>
+      <div class="glossary-entry" id="g-residual-risk">
+        <dt>residual risk</dt>
+        <dd>The remaining risk after the security controls have been applied. The conceptual formulas that explain the difference between total and residual risk are threats × vulnerability × asset value = total risk (threats × vulnerability × asset value) × controls gap = residual risk</dd>
+      </div>
+      <div class="glossary-entry" id="g-risk">
+        <dt>risk</dt>
+        <dd>The likelihood of a threat agent taking advantage of a vulnerability and the resulting business impact. A risk is the loss potential, or probability, that a threat will exploit a vulnerability.</dd>
+      </div>
+      <div class="glossary-entry" id="g-risk-analysis">
+        <dt>risk analysis</dt>
+        <dd>A method of identifying risks and assessing the possible damage that could be caused in order to justify security safeguards.</dd>
+      </div>
+      <div class="glossary-entry" id="g-risk-management">
+        <dt>risk management</dt>
+        <dd>The process of identifying, assessing, and reducing the risk to an acceptable level and implementing the right mechanisms to maintain that level of risk.</dd>
+      </div>
+      <div class="glossary-entry" id="g-role-based-access-control-rb-ac">
+        <dt>role-based access control (RB AC)</dt>
+        <dd>Type of model that provides access to resources based on the role the user holds within the company or the tasks that the user has been assigned.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-S">
+    <h2 class="letter-heading">S</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-safeguard">
+        <dt>safeguard</dt>
+        <dd>A software configuration, hardware, or procedure that eliminates a vulnerability or reduces the risk of a threat agent from being able to exploit a vulnerability. Also called a countermeasure or control.</dd>
+      </div>
+      <div class="glossary-entry" id="g-sandboxing">
+        <dt>sandboxing</dt>
+        <dd>A type of control that isolates processes from the operating system to prevent security violations.</dd>
+      </div>
+      <div class="glossary-entry" id="g-secure-configur-ation-management">
+        <dt>secure configur ation management</dt>
+        <dd>Implementing the set of appropriate procedures to control the life cycle of an application, document the necessary change control activities, and ensure that the changes will not violate the security policy.</dd>
+      </div>
+      <div class="glossary-entry" id="g-security-assertion-markup-language-saml">
+        <dt>Security Assertion Markup Language (SAML)</dt>
+        <dd>An XML standard that allows the exchange of authentication and authorization data to be shared between security domains.</dd>
+      </div>
+      <div class="glossary-entry" id="g-security-evaluation">
+        <dt>security evaluation</dt>
+        <dd>Assesses the degree of trust and assurance that can be placed in systems for the secure handling of sensitive information.</dd>
+      </div>
+      <div class="glossary-entry" id="g-security-kernel">
+        <dt>security kernel</dt>
+        <dd>The hardware, firmware, and software elements of a trusted computing base (TCB) that implement the reference monitor concept. The kernel must mediate all access between subjects and objects, be protected from modification, and be verifiable as correct.</dd>
+      </div>
+      <div class="glossary-entry" id="g-security-label">
+        <dt>security label</dt>
+        <dd>An identifier that represents the security level of an object.</dd>
+      </div>
+      <div class="glossary-entry" id="g-security-perimeter">
+        <dt>security perimeter</dt>
+        <dd>An imaginary boundary between the components within the trusted computing base (TCB) and mechanisms that do not fall within the TCB. It is the distinction between trusted and untrusted processes.</dd>
+      </div>
+      <div class="glossary-entry" id="g-security-policy">
+        <dt>security policy</dt>
+        <dd>Documentation that describes senior management&#8217;s directives toward the role that security plays within the organization. It provides a framework within which an organization establishes needed levels of information security to achieve the desired confidentiality, availability, and integrity goals. A policy is a statement of information values, protection responsibilities, and organization commitment managing risks. Testing all security mechanisms and features within a system to</dd>
+      </div>
+      <div class="glossary-entry" id="g-security-testing">
+        <dt>security testing</dt>
+        <dd>determine the level of protection they provide. Security testing can include penetration testing, formal design and implementation verification, and functional testing.</dd>
+      </div>
+      <div class="glossary-entry" id="g-sensitive-inform-ation">
+        <dt>sensitive inform ation</dt>
+        <dd>Information that would cause a negative effect on the company if it were lost or compromised.</dd>
+      </div>
+      <div class="glossary-entry" id="g-sensitivity-label">
+        <dt>sensitivity label</dt>
+        <dd>A piece of information that represents the security level of an object. Sensitivity labels are used by the TCB as the basis for mandatory access control (MAC) decisions.</dd>
+      </div>
+      <div class="glossary-entry" id="g-separation-of-duties">
+        <dt>separation of duties</dt>
+        <dd>A security principle that splits up a critical task among two or more individuals to ensure that one person cannot complete a risky task by himself.</dd>
+      </div>
+      <div class="glossary-entry" id="g-shoulder-surfing">
+        <dt>shoulder surfing</dt>
+        <dd>When a person looks over another person&#8217;s shoulder and watches keystrokes or watches data as it appears on the screen in order to uncover information in an unauthorized manner.</dd>
+      </div>
+      <div class="glossary-entry" id="g-simple-security-pr-operty">
+        <dt>simple security pr operty</dt>
+        <dd>A Bell-LaPadula security model rule that stipulates that a subject cannot read data at a higher security level.</dd>
+      </div>
+      <div class="glossary-entry" id="g-single-loss-expectancy-sle">
+        <dt>single loss expectancy (SLE)</dt>
+        <dd>A dollar amount that is assigned to a single event that represents the company&#8217;s potential loss amount if a specific threat were to take place. asset value × exposure factor = SLE</dd>
+      </div>
+      <div class="glossary-entry" id="g-single-sign-on-sso">
+        <dt>single sign-on (SSO)</dt>
+        <dd>A technology that allows a user to authenticate one time and then access resources in the environment without needing to reauthenticate.</dd>
+      </div>
+      <div class="glossary-entry" id="g-social-engineering">
+        <dt>social engineering</dt>
+        <dd>The act of tricking another person into providing confidential information by posing as an individual who is authorized to receive that information.</dd>
+      </div>
+      <div class="glossary-entry" id="g-software-defined-networking-sdn">
+        <dt>software-defined networking (SDN)</dt>
+        <dd>An approach to networking that relies on distributed software to provide improved agility and efficiency by centralizing the configuration and control of networking devices.</dd>
+      </div>
+      <div class="glossary-entry" id="g-spoofing">
+        <dt>spoofing</dt>
+        <dd>Presenting false information, usually within packets, to trick other systems and hide the origin of the message. This is usually done by hackers so that their identity cannot be successfully uncovered.</dd>
+      </div>
+      <div class="glossary-entry" id="g-standards">
+        <dt>standards</dt>
+        <dd>Rules indicating how hardware and software should be implemented, used, and maintained. Standards provide a means to ensure that specific technologies, applications, parameters, and procedures are carried out in a uniform way across the organization. They are compulsory.</dd>
+      </div>
+      <div class="glossary-entry" id="g-star-property-pr-operty">
+        <dt>star property (*-pr operty)</dt>
+        <dd>A Bell-LaPadula security model rule that stipulates that a subject cannot write data to an object at a lower security level.</dd>
+      </div>
+      <div class="glossary-entry" id="g-strategic-goals">
+        <dt>strategic goals</dt>
+        <dd>Long-term goals that are broad, general statements of intent. Operational and tactical goals support strategic goals and all are a part of a planning horizon.</dd>
+      </div>
+      <div class="glossary-entry" id="g-subject">
+        <dt>subject</dt>
+        <dd>An active entity, generally in the form of a person, process, or device, that causes information to flow among objects or that changes the system state.</dd>
+      </div>
+      <div class="glossary-entry" id="g-supervisor-state">
+        <dt>supervisor state</dt>
+        <dd>One of several states in which an operating system may operate, and the only one in which privileged instructions may be executed by the CPU.</dd>
+      </div>
+      <div class="glossary-entry" id="g-supervisory-control-and-data-acquisition-scada">
+        <dt>supervisory control and data acquisition (SCADA)</dt>
+        <dd>A system for remotely monitoring and controlling physical systems such as power and manufacturing plants.</dd>
+      </div>
+      <div class="glossary-entry" id="g-synthetic-transaction">
+        <dt>synthetic transaction</dt>
+        <dd>A transaction that is executed in real time by a software agent to test or monitor the performance of a distributed system.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-T">
+    <h2 class="letter-heading">T</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-tacacs-terminal-access-controller-access-control-system">
+        <dt>TACACS (Terminal Access Controller Access Control System)</dt>
+        <dd>A client/ server authentication protocol that provides the same type of functionality as RADIUS and is used as a central access control mechanism mainly for remote users.</dd>
+      </div>
+      <div class="glossary-entry" id="g-tactical-goals">
+        <dt>tactical goals</dt>
+        <dd>Midterm goals to accomplish. These may be milestones to accomplish within a project or specific projects to accomplish in a year. Strategic, tactical, and operational goals make up a planning horizon.</dd>
+      </div>
+      <div class="glossary-entry" id="g-technical-controls">
+        <dt>technical controls</dt>
+        <dd>These controls, also called logical access control mechanisms, work in software to provide confidentiality, integrity, or availability protection. Some examples are passwords, identification and authentication methods, security devices, auditing, and the configuration of the network.</dd>
+      </div>
+      <div class="glossary-entry" id="g-tempest">
+        <dt>Tempest</dt>
+        <dd>The study and control of spurious electronic signals emitted by electrical equipment. Tempest equipment is implemented to prevent intruders from picking up information through the airwaves with listening devices.</dd>
+      </div>
+      <div class="glossary-entry" id="g-threat">
+        <dt>threat</dt>
+        <dd>Any potential danger that a vulnerability will be exploited by a threat agent.</dd>
+      </div>
+      <div class="glossary-entry" id="g-top-d-own-approach">
+        <dt>top-d own approach</dt>
+        <dd>An approach in which the initiation, support, and direction for a project come from top management and work their way down through middle management and then to staff members.</dd>
+      </div>
+      <div class="glossary-entry" id="g-topology">
+        <dt>topology</dt>
+        <dd>The physical construction of how nodes are connected to form a network.</dd>
+      </div>
+      <div class="glossary-entry" id="g-total-risk">
+        <dt>total risk</dt>
+        <dd>When a safeguard is not implemented, an organization is faced with the total risk of that particular vulnerability.</dd>
+      </div>
+      <div class="glossary-entry" id="g-trademark">
+        <dt>trademark</dt>
+        <dd>A legal right that protects a word, name, product shape, symbol, color, or a combination of these used to identify a product or a company.</dd>
+      </div>
+      <div class="glossary-entry" id="g-trojan-horse">
+        <dt>Trojan horse</dt>
+        <dd>A computer program that has an apparently or actually useful function, but that also contains hidden malicious capabilities to exploit a vulnerability and/or provide unauthorized access into a system.</dd>
+      </div>
+      <div class="glossary-entry" id="g-trusted-computer-system">
+        <dt>trusted computer system</dt>
+        <dd>A system that has the necessary controls to ensure that the security policy will not be compromised and that can process a range of sensitive or classified information simultaneously.</dd>
+      </div>
+      <div class="glossary-entry" id="g-trusted-computing-base-tcb">
+        <dt>trusted computing base (TCB)</dt>
+        <dd>All of the protection mechanisms within a computer system (software, hardware, and firmware) that are responsible for enforcing a security policy.</dd>
+      </div>
+      <div class="glossary-entry" id="g-trusted-path">
+        <dt>trusted path</dt>
+        <dd>A mechanism within the system that enables the user to communicate directly with the TCB. This mechanism can be activated only by the user or the TCB and not by an untrusted mechanism or process.</dd>
+      </div>
+      <div class="glossary-entry" id="g-trusted-recovery">
+        <dt>trusted recovery</dt>
+        <dd>A set of procedures that restores a system and its data in a trusted manner after the system has been disrupted or a system failure has occurred.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-U">
+    <h2 class="letter-heading">U</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-user">
+        <dt>user</dt>
+        <dd>A person or process that is accessing a computer system.</dd>
+      </div>
+      <div class="glossary-entry" id="g-user-id">
+        <dt>user ID</dt>
+        <dd>A unique set of characters or code that is used to identify a specific user to a system.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-V">
+    <h2 class="letter-heading">V</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-validation">
+        <dt>validation</dt>
+        <dd>The act of performing tests and evaluations to test a system&#8217;s security level to see if it complies with security specifications and requirements.</dd>
+      </div>
+      <div class="glossary-entry" id="g-virus">
+        <dt>virus</dt>
+        <dd>A small application, or string of code, that infects applications. The main function of a virus is to reproduce, and it requires a host application to do this. It can damage data directly or degrade system performance.</dd>
+      </div>
+      <div class="glossary-entry" id="g-vulnerability">
+        <dt>vulnerability</dt>
+        <dd>The absence or weakness of a safeguard that could be exploited.</dd>
+      </div>
+    </dl>
+  </section>
+  <section class="glossary-letter" id="letter-W">
+    <h2 class="letter-heading">W</h2>
+    <dl class="glossary-list">
+      <div class="glossary-entry" id="g-war-dialing">
+        <dt>war dialing</dt>
+        <dd>An attack in which a long list of phone numbers is inserted into a war-dialing program in the hope of finding a modem that can be exploited to gain unauthorized access.</dd>
+      </div>
+      <div class="glossary-entry" id="g-whitelist">
+        <dt>whitelist</dt>
+        <dd>A set of known good resources such as IP addresses, domain names, or applications.</dd>
+      </div>
+      <div class="glossary-entry" id="g-work-factor">
+        <dt>work factor</dt>
+        <dd>The estimated time and effort required for an attacker to overcome a security control.</dd>
+      </div>
+      <div class="glossary-entry" id="g-worm">
+        <dt>worm</dt>
+        <dd>An independent program that can reproduce by copying itself from one system to another. It may damage data directly or degrade system performance by tying up resources.</dd>
+      </div>
+      <div class="glossary-entry" id="g-write">
+        <dt>write</dt>
+        <dd>An operation that results in the flow of information from a subject to an object.</dd>
+      </div>
+    </dl>
+  </section>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
