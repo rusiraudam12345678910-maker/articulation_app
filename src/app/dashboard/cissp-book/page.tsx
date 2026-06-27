@@ -77,20 +77,6 @@ const chapters = [
 
 const extras = [
   {
-    file: 'appA.html',
-    icon: '📝',
-    title: 'Comprehensive Questions',
-    summary: 'Full-length practice exam questions covering all 8 CISSP domains.',
-    color: 'bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700',
-  },
-  {
-    file: 'appB.html',
-    icon: '💿',
-    title: 'About the CD-ROM',
-    summary: 'Practice exam software, additional resources, and how to use them.',
-    color: 'bg-zinc-50 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700',
-  },
-  {
     file: '../glossary.html',
     icon: '📖',
     title: 'Glossary',
