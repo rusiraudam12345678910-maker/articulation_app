@@ -107,6 +107,142 @@ function runSearch(query) {
   });
 }
 
+// ===== Text-to-Speech Reader =====
+(function () {
+  if (!window.speechSynthesis) return;
+
+  var synth    = window.speechSynthesis;
+  var chunks   = [];   // array of { el, text }
+  var current  = -1;
+  var utterance = null;
+  var playing  = false;
+  var rate     = 1;
+
+  // ── Build the floating player bar ──────────────────────────────────────
+  var bar = document.createElement('div');
+  bar.id  = 'tts-bar';
+  bar.innerHTML =
+    '<button id="tts-play" title="Play / Pause">&#9654;</button>' +
+    '<button id="tts-stop" title="Stop">&#9632;</button>' +
+    '<span id="tts-label">Read aloud</span>' +
+    '<label for="tts-speed" style="font-size:0.75rem;color:#8d9bb5">Speed</label>' +
+    '<select id="tts-speed">' +
+      '<option value="0.75">0.75×</option>' +
+      '<option value="1" selected>1×</option>' +
+      '<option value="1.25">1.25×</option>' +
+      '<option value="1.5">1.5×</option>' +
+      '<option value="2">2×</option>' +
+    '</select>' +
+    '<label for="tts-voice" style="font-size:0.75rem;color:#8d9bb5">Voice</label>' +
+    '<select id="tts-voice" style="max-width:140px"></select>';
+  document.body.appendChild(bar);
+
+  var btnPlay   = document.getElementById('tts-play');
+  var btnStop   = document.getElementById('tts-stop');
+  var selSpeed  = document.getElementById('tts-speed');
+  var selVoice  = document.getElementById('tts-voice');
+  var labelEl   = document.getElementById('tts-label');
+
+  // ── Populate voice list ─────────────────────────────────────────────────
+  function populateVoices() {
+    var voices = synth.getVoices().filter(function (v) { return v.lang.startsWith('en'); });
+    if (!voices.length) voices = synth.getVoices();
+    selVoice.innerHTML = voices.map(function (v, i) {
+      return '<option value="' + i + '">' + v.name + '</option>';
+    }).join('');
+  }
+  populateVoices();
+  if (synth.onvoiceschanged !== undefined) synth.onvoiceschanged = populateVoices;
+
+  // ── Collect readable content elements ───────────────────────────────────
+  function buildChunks() {
+    chunks = [];
+    var main = document.querySelector('.content-wrap') || document.querySelector('main') || document.body;
+    var els  = main.querySelectorAll('h1,h2,h3,h4,p,li,.callout p');
+    els.forEach(function (el) {
+      var text = el.innerText.trim();
+      if (text.length > 2) chunks.push({ el: el, text: text });
+    });
+  }
+
+  // ── Highlight / unhighlight ─────────────────────────────────────────────
+  function highlight(idx) {
+    chunks.forEach(function (c) { c.el.classList.remove('tts-active'); });
+    if (idx >= 0 && idx < chunks.length) {
+      chunks[idx].el.classList.add('tts-active');
+      chunks[idx].el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // ── Speak one chunk ─────────────────────────────────────────────────────
+  function speakChunk(idx) {
+    if (idx >= chunks.length) { stop(); return; }
+    current = idx;
+    highlight(idx);
+
+    var voices = synth.getVoices().filter(function (v) { return v.lang.startsWith('en'); });
+    if (!voices.length) voices = synth.getVoices();
+    var voiceIdx = parseInt(selVoice.value) || 0;
+
+    utterance            = new SpeechSynthesisUtterance(chunks[idx].text);
+    utterance.rate       = rate;
+    utterance.voice      = voices[voiceIdx] || null;
+    utterance.onend      = function () { if (playing) speakChunk(idx + 1); };
+    utterance.onerror    = function () { if (playing) speakChunk(idx + 1); };
+    synth.speak(utterance);
+
+    labelEl.textContent = (idx + 1) + ' / ' + chunks.length;
+  }
+
+  // ── Controls ────────────────────────────────────────────────────────────
+  function play() {
+    if (playing) {
+      synth.pause();
+      playing = false;
+      btnPlay.innerHTML = '&#9654;';
+      bar.classList.remove('tts-playing');
+      return;
+    }
+    playing = true;
+    btnPlay.innerHTML = '&#10074;&#10074;';
+    bar.classList.add('tts-playing');
+
+    if (synth.paused && utterance) {
+      synth.resume();
+    } else {
+      buildChunks();
+      speakChunk(current < 0 ? 0 : current);
+    }
+  }
+
+  function stop() {
+    playing  = false;
+    current  = -1;
+    utterance = null;
+    synth.cancel();
+    btnPlay.innerHTML = '&#9654;';
+    bar.classList.remove('tts-playing');
+    labelEl.textContent = 'Read aloud';
+    chunks.forEach(function (c) { c.el.classList.remove('tts-active'); });
+  }
+
+  btnPlay.addEventListener('click', play);
+  btnStop.addEventListener('click', stop);
+
+  selSpeed.addEventListener('change', function () {
+    rate = parseFloat(selSpeed.value);
+    if (playing && utterance) {
+      var idx = current;
+      synth.cancel();
+      setTimeout(function () { speakChunk(idx); }, 50);
+    }
+  });
+
+  // Stop when navigating away
+  window.addEventListener('beforeunload', function () { synth.cancel(); });
+})();
+
+// ===== Search =====
 document.addEventListener('DOMContentLoaded', function () {
   var input = document.getElementById('searchInput');
   if (!input) return;
