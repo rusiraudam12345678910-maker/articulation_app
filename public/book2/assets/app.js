@@ -261,7 +261,9 @@ const App = (() => {
       }
       if (block.type === 'list') {
         const items = block.items.map(it => `<li>${wrapWords(escHtml(it))}</li>`).join('');
-        return `<ul class="content-list">${items}</ul>`;
+        return block.ordered
+          ? `<ol class="content-list content-list-ordered">${items}</ol>`
+          : `<ul class="content-list">${items}</ul>`;
       }
       if (block.type === 'quote') {
         // Last line starting with — is attribution, rest is quote text

@@ -85,8 +85,11 @@ function parseTextToSections(rawText, domainNum) {
 
   function flushBullets() {
     if (!bulletBuffer.length) return;
-    if (currentSection) currentSection.content.push({ type: 'list', items: [...bulletBuffer] });
+    const block = { type: 'list', items: [...bulletBuffer] };
+    if (bulletBuffer._ordered) block.ordered = true;
+    if (currentSection) currentSection.content.push(block);
     bulletBuffer = [];
+    bulletBuffer._ordered = false;
   }
 
   function flushQuote() {
@@ -147,16 +150,69 @@ function parseTextToSections(rawText, domainNum) {
     // Also skip if it matches any DOMAIN_MARKERS title (chapter title line)
     if (DOMAIN_MARKERS.some(m => m.titlePattern.test(line))) continue;
 
-    // ── Bullet point line (starts with • or – used as bullet)
-    if (/^[•\-–]\s+/.test(rawLine)) {
-      flushParagraph(); // flush any preceding paragraph first
-      const itemText = rawLine.replace(/^[•\-–]\s+/, '').trim();
+    // ── Numbered list item (e.g. "1. ", "2. ", "10. ")
+    const numberedMatch = rawLine.match(/^(\d{1,2})\.\s+(.+)$/);
+    if (numberedMatch) {
+      flushParagraph();
+      // Collect continuation lines (wrapped text without a number prefix)
+      let itemText = numberedMatch[2].trim();
+      while (i + 1 < lines.length) {
+        const nextRaw = lines[i + 1].trim();
+        // Stop if blank line — peek ahead to decide
+        if (!nextRaw) {
+          // Skip blank and look at first non-blank line after it
+          let peekIdx = i + 2;
+          while (peekIdx < lines.length && !lines[peekIdx].trim()) peekIdx++;
+          const peekLine = lines[peekIdx]?.trim() || '';
+          // If next non-blank line is a numbered item or bullet → still in list, skip blank
+          if (/^\d{1,2}\.\s+/.test(peekLine) || /^[•\-–]\s+/.test(peekLine)) {
+            i++; // skip blank
+            continue;
+          }
+          // If next non-blank is a regular sentence AND the line after THAT is a numbered item
+          // it's a continuation sentence within the current step — grab it too
+          const peekLine2 = lines[peekIdx + 1]?.trim() || '';
+          if (peekLine && !/^\d{1,2}\.\s+/.test(peekLine) && /^\d{1,2}\.\s+/.test(peekLine2)) {
+            i++; // skip blank
+            continue; // will pick up peekLine as continuation on next loop iteration
+          }
+          break;
+        }
+        // Stop if next line is itself a numbered item or bullet
+        if (/^\d{1,2}\.\s+/.test(nextRaw) || /^[•\-–]\s+/.test(nextRaw)) break;
+        // Stop if next line looks like a heading (Title Case, short)
+        const nextClean = cleanLine(nextRaw);
+        const isNextHeading = detectHeadingLevel(nextClean, false, false, itemText, domainNum);
+        if (isNextHeading) break;
+        i++;
+        itemText += ' ' + cleanLine(lines[i]);
+      }
+      // Mark as ordered if not already collecting an unordered list
+      if (!bulletBuffer._ordered && !bulletBuffer.length) bulletBuffer._ordered = true;
       bulletBuffer.push(itemText);
       continue;
     }
 
-    // If we were collecting bullets and hit a non-bullet, flush them
-    if (bulletBuffer.length && !/^[•\-–]\s+/.test(rawLine)) {
+    // ── Bullet point line (starts with • or – used as bullet)
+    if (/^[•\-–]\s+/.test(rawLine)) {
+      flushParagraph(); // flush any preceding paragraph first
+      // Collect wrapped continuation of bullet (only if next line is lowercase-starting, i.e. a wrap)
+      let itemText = rawLine.replace(/^[•\-–]\s+/, '').trim();
+      while (i + 1 < lines.length) {
+        const nextRaw = lines[i + 1].trim();
+        if (!nextRaw) break;
+        if (/^[•\-–]\s+/.test(nextRaw) || /^\d{1,2}\.\s+/.test(nextRaw)) break;
+        // Only continue if starts with lowercase (genuine line wrap)
+        if (/^[A-Z]/.test(nextRaw)) break;
+        i++;
+        itemText += ' ' + cleanLine(lines[i]);
+      }
+      bulletBuffer.push(itemText);
+      continue;
+    }
+
+    // If we were collecting bullets and hit a non-bullet/non-numbered, flush them
+    if (bulletBuffer.length && !/^[•\-–]\s+/.test(rawLine) && !numberedMatch) {
       flushBullets();
     }
 

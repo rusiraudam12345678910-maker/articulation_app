@@ -276,16 +276,7 @@
             "What is the process of revoking access?",
             "How is access controlled and monitored centrally?",
             "Why do employees have eight passwords to remember?",
-            "We have five different operating platforms. How do we centralize access when each"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "platform (and application) requires its own type of credential set?"
-        },
-        {
-          "type": "list",
-          "items": [
+            "We have five different operating platforms. How do we centralize access when each platform (and application) requires its own type of credential set?",
             "How do we control access for our employees, customers, and partners?",
             "How do we make sure we are compliant with the necessary regulations?"
           ]
@@ -339,7 +330,7 @@
         {
           "type": "list",
           "items": [
-            "The directory has a tree structure to organize the entries using a parent-child",
+            "The directory has a tree structure to organize the entries using a parent-child configuration.",
             "Each entry has a unique name made up of attributes of a specific object.",
             "The attributes used in the directory are dictated by the defined schema.",
             "The unique identifiers are called distinguished names."
@@ -377,27 +368,18 @@
           "text": "Web Access Management Web access management (WAM) software controls what users can access when using a web browser to interact with web-based enterprise assets. This type of technology is continually becoming more robust and experiencing increased deployment. This is because of the increased use of e-commerce, online banking, content providing, web services, and more. The Internet only continues to grow, and its importance to businesses and individuals increases as more and more functionality is provided. We just can’t seem to get enough of it. Figure 5-5 shows the basic components and activities in a web access control management process."
         },
         {
-          "type": "paragraph",
-          "text": "1. User sends in credentials to web server. 2. Web server requests the WAM platform to authenticate the user. WAM authenticates against the LDAP directory and retrieves authorizations from the policy database. 3. User requests to access a resource (object). 4. Web server verifies that object access is authorized and allows access to the requested resource."
-        },
-        {
-          "type": "figure",
-          "figNum": "5-5",
-          "caption": "A basic example of web access control",
-          "domain": 5,
-          "num": 5
-        },
-        {
-          "type": "paragraph",
-          "text": "This is a simple example. More complexity comes in with all the different ways a user can authenticate (password, digital certificate, token, and others); the resources and services that may be available to the user (transfer funds, purchase product, update profile, and so forth); and the necessary infrastructure components. The infrastructure is usually made up of a web server farm (many servers), a directory that contains the users’ accounts and attributes, a database, a couple of firewalls, and some routers, all laid out in a tiered architecture. But let’s keep it simple right now."
+          "type": "list",
+          "items": [
+            "User sends in credentials to web server.",
+            "Web server requests the WAM platform to authenticate the user. WAM authenticates against the LDAP directory and retrieves authorizations from the policy database.",
+            "User requests to access a resource (object).",
+            "Web server verifies that object access is authorized and allows access to the requested resource. Figure 5-5 A basic example of web access control This is a simple example. More complexity comes in with all the different ways a user can authenticate (password, digital certificate, token, and others); the resources and services that may be available to the user (transfer funds, purchase product, update profile, and so forth); and the necessary infrastructure components. The infrastructure is usually made up of a web server farm (many servers), a directory that contains the users’ accounts and attributes, a database, a couple of firewalls, and some routers, all laid out in a tiered architecture. But let’s keep it simple right now. The WAM software is the main gateway between users and the corporate web-based resources. It is commonly a plug-in for a web server, so it works as a front-end process. When a user makes a request for access, the web server software will query a directory, an authentication server, and potentially a back-end database before serving up the resource the user requested. The WAM console allows the administrator to configure access levels, authentication requirements, and account setup workflow steps and to perform overall maintenance. WAM tools usually also provide a single sign-on capability so that once a user is authenticated at a website, she can access different web-based applications and resources without having to log in multiple times. When a product provides a single sign-on capability in a web environment, the product must keep track of the user’s authentication state and security context as the user moves from one resource to the next. For example, if Kathy logs on to her online bank website, the communication is taking place"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "The WAM software is the main gateway between users and the corporate web-based resources. It is commonly a plug-in for a web server, so it works as a front-end process. When a user makes a request for access, the web server software will query a directory, an authentication server, and potentially a back-end database before serving up the resource the user requested. The WAM console allows the administrator to configure access levels, authentication requirements, and account setup workflow steps and to perform overall maintenance. WAM tools usually also provide a single sign-on capability so that once a user is authenticated at a website, she can access different web-based applications and resources without having to log in multiple times. When a product provides a single sign-on capability in a web environment, the product must keep track of the user’s authentication state and security context as the user moves from one resource to the next."
-        },
-        {
-          "type": "paragraph",
-          "text": "For example, if Kathy logs on to her online bank website, the communication is taking place over the HTTP protocol. This protocol itself is stateless, which means it will allow a web server to pass a web page to a user without keeping track of the user or the transaction. Many web servers work in a stateless mode because they have so many requests to fulfill and they are just providing users with web pages. Keeping a constant session with each and every user who is requesting to see a web page would sometimes needlessly tie up the web server’s resources. When a user has to log on to a website is when “keeping the user’s state” is required and a continuous session is needed."
+          "text": "over the HTTP protocol. This protocol itself is stateless, which means it will allow a web server to pass a web page to a user without keeping track of the user or the transaction. Many web servers work in a stateless mode because they have so many requests to fulfill and they are just providing users with web pages. Keeping a constant session with each and every user who is requesting to see a web page would sometimes needlessly tie up the web server’s resources. When a user has to log on to a website is when “keeping the user’s state” is required and a continuous session is needed."
         },
         {
           "type": "paragraph",
@@ -734,48 +716,21 @@
         {
           "type": "list",
           "items": [
-            "Electronic monitoring Listening to network traffic to capture information, especially"
+            "Electronic monitoring Listening to network traffic to capture information, especially when a user is sending her password to an authentication server. The password can be copied and reused by the attacker at another time, which is called a replay attack.",
+            "Access the password file Usually done on the authentication server. The password file contains many users’ passwords and, if compromised, can be the source of a lot of damage."
           ]
         },
         {
           "type": "paragraph",
-          "text": "when a user is sending her password to an authentication server. The password can be copied and reused by the attacker at another time, which is called a replay attack."
+          "text": "This file should be protected with access control mechanisms and encryption."
         },
         {
           "type": "list",
           "items": [
-            "Access the password file Usually done on the authentication server. The password file"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "contains many users’ passwords and, if compromised, can be the source of a lot of damage. This file should be protected with access control mechanisms and encryption."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Brute-force attacks Performed with tools that cycle through many possible character,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "number, and symbol combinations to uncover a password."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Dictionary attacks Files of thousands of words are compared to the user’s password until",
-            "Social engineering An attacker falsely convinces an individual that she has the necessary"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "authorization to access specific resources."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Rainbow table An attacker uses a table that contains all possible passwords already in a"
+            "Brute-force attacks Performed with tools that cycle through many possible character, number, and symbol combinations to uncover a password.",
+            "Dictionary attacks Files of thousands of words are compared to the user’s password until a match is found.",
+            "Social engineering An attacker falsely convinces an individual that she has the necessary authorization to access specific resources.",
+            "Rainbow table An attacker uses a table that contains all possible passwords already in a hash format."
           ]
         },
         {
@@ -1172,22 +1127,20 @@
         },
         {
           "type": "paragraph",
-          "text": "Here are the exact steps: 1. Emily comes in to work and enters her username and password into her workstation at 8:00 A.M. The Kerberos software on Emily’s computer sends the username to the authentication service (AS) on the KDC, which in turn sends Emily a ticket granting ticket (TGT) that is encrypted with the TGS’s secret key. 2. If Emily has entered her correct password, then this TGT is decrypted and Emily gains access to her local workstation desktop. 3. When Emily needs to send a print job to the print server, her system sends the TGT to the TGS, which runs on the KDC, and a request to access the print server. (The TGT allows Emily to prove she has been authenticated and allows her to request access to the print server.) 4. The TGS creates and sends a second ticket to Emily, which she will use to authenticate to the print server. This second ticket contains two instances of the same session key, one encrypted with Emily’s secret key and the other encrypted with the print server’s secret key. The second ticket also contains an authenticator, which contains identification information on Emily, her system’s IP address, sequence number, and a timestamp. 5. Emily’s system receives the second ticket, decrypts and extracts the embedded session key, adds a second authenticator set of identification information to the ticket, and sends the ticket on to the print server. 6. The print server receives the ticket, decrypts and extracts the session key, and decrypts and extracts the two authenticators in the ticket. If the print server can decrypt and extract the session key, it knows the KDC created the ticket, because only the KDC has the secret key used to encrypt the session key. If the authenticator information that the KDC and the user put into the ticket matches, then the print server knows it received the ticket from the correct principal. 7. Once this is completed, it means Emily has been properly authenticated to the print server and the server prints her document."
+          "text": "Here are the exact steps:"
         },
         {
-          "type": "paragraph",
-          "text": "This is an extremely simplistic overview of what is going on in any Kerberos exchange, but it gives you an idea of the dance taking place behind the scenes whenever you interact with any network service in an environment that uses Kerberos. Figure 5-10 provides a simplistic view of this process."
-        },
-        {
-          "type": "figure",
-          "figNum": "5-10",
-          "caption": "The user must receive a ticket from the KDC before being able to use the requested",
-          "domain": 5,
-          "num": 10
-        },
-        {
-          "type": "paragraph",
-          "text": "The authentication service is the part of the KDC that authenticates a principal, and the TGS is the part of the KDC that makes the tickets and hands them out to the principals. TGTs are used so the user does not have to enter his password each time he needs to communicate with another principal. After the user enters his password, it is temporarily stored on his system, and any time the user needs to communicate with another principal, he just reuses the TGT."
+          "type": "list",
+          "items": [
+            "Emily comes in to work and enters her username and password into her workstation at 8:00 A.M. The Kerberos software on Emily’s computer sends the username to the authentication service (AS) on the KDC, which in turn sends Emily a ticket granting ticket (TGT) that is encrypted with the TGS’s secret key.",
+            "If Emily has entered her correct password, then this TGT is decrypted and Emily gains access to her local workstation desktop.",
+            "When Emily needs to send a print job to the print server, her system sends the TGT to the TGS, which runs on the KDC, and a request to access the print server. (The TGT allows Emily to prove she has been authenticated and allows her to request access to the print server.)",
+            "The TGS creates and sends a second ticket to Emily, which she will use to authenticate to the print server. This second ticket contains two instances of the same session key, one encrypted with Emily’s secret key and the other encrypted with the print server’s secret key. The second ticket also contains an authenticator, which contains identification information on Emily, her system’s IP address, sequence number, and a timestamp.",
+            "Emily’s system receives the second ticket, decrypts and extracts the embedded session key, adds a second authenticator set of identification information to the ticket, and sends the ticket on to the print server.",
+            "The print server receives the ticket, decrypts and extracts the session key, and decrypts and extracts the two authenticators in the ticket. If the print server can decrypt and extract the session key, it knows the KDC created the ticket, because only the KDC has the secret key used to encrypt the session key. If the authenticator information that the KDC and the user put into the ticket matches, then the print server knows it received the ticket from the correct principal.",
+            "Once this is completed, it means Emily has been properly authenticated to the print server and the server prints her document. This is an extremely simplistic overview of what is going on in any Kerberos exchange, but it gives you an idea of the dance taking place behind the scenes whenever you interact with any network service in an environment that uses Kerberos. Figure 5-10 provides a simplistic view of this process. Figure 5-10 The user must receive a ticket from the KDC before being able to use the requested resource. The authentication service is the part of the KDC that authenticates a principal, and the TGS is the part of the KDC that makes the tickets and hands them out to the principals. TGTs are used so the user does not have to enter his password each time he needs to communicate with another principal. After the user enters his password, it is temporarily stored on his system, and any time the user needs to communicate with another principal, he just reuses the TGT."
+          ],
+          "ordered": true
         },
         {
           "type": "exam_tip",
@@ -1204,47 +1157,11 @@
         {
           "type": "list",
           "items": [
-            "The KDC can be a single point of failure. If the KDC goes down, no one can access needed"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "resources. Redundancy is necessary for the KDC."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The KDC must be able to handle the number of requests it receives in a timely manner. It",
-            "Secret keys are temporarily stored on the users’ workstations, which means it is possible"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "for an intruder to obtain these cryptographic keys."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Session keys are decrypted and reside on the users’ workstations, either in a cache or in a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "key table. Again, an intruder can capture these keys."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Kerberos is vulnerable to password guessing. The KDC does not know if a dictionary"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "attack is taking place."
-        },
-        {
-          "type": "list",
-          "items": [
+            "The KDC can be a single point of failure. If the KDC goes down, no one can access needed resources. Redundancy is necessary for the KDC.",
+            "The KDC must be able to handle the number of requests it receives in a timely manner. It must be scalable.",
+            "Secret keys are temporarily stored on the users’ workstations, which means it is possible for an intruder to obtain these cryptographic keys.",
+            "Session keys are decrypted and reside on the users’ workstations, either in a cache or in a key table. Again, an intruder can capture these keys.",
+            "Kerberos is vulnerable to password guessing. The KDC does not know if a dictionary attack is taking place.",
             "Network traffic is not protected by Kerberos if encryption is not enabled.",
             "If the keys are too short, they can be vulnerable to brute-force attacks.",
             "Kerberos needs all client and server clocks to be synchronized."
@@ -1337,28 +1254,10 @@
         {
           "type": "list",
           "items": [
-            "Kerberos Authentication protocol that uses a KDC and tickets, and is based on"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "symmetric key cryptography"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Security domains Resources working under the same security policy and managed by",
-            "Directory services Technology that allows resources to be named in a standardized"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "manner and access control to be maintained centrally"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Thin clients Terminals that rely upon a central server for access control, processing, and"
+            "Kerberos Authentication protocol that uses a KDC and tickets, and is based on symmetric key cryptography",
+            "Security domains Resources working under the same security policy and managed by the same group",
+            "Directory services Technology that allows resources to be named in a standardized manner and access control to be maintained centrally",
+            "Thin clients Terminals that rely upon a central server for access control, processing, and storage"
           ]
         }
       ]
@@ -1517,16 +1416,7 @@
             "Username, user ID, account number",
             "Verifying the identification information",
             "Passphrase, PIN value, thumbprint, smart card, one-time password",
-            "Using the identity of the subject together with other criteria to make a determination of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "operations that a subject can carry out on objects"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Using the identity of the subject together with other criteria to make a determination of operations that a subject can carry out on objects",
             "“I know who you are, now what am I going to allow you to do?”",
             "Audit logs and monitoring to track subject activities with objects"
           ]
@@ -1553,32 +1443,10 @@
         {
           "type": "list",
           "items": [
-            "Timeout When sessions are established, the endpoints typically agree on how long they"
+            "Timeout When sessions are established, the endpoints typically agree on how long they will last. You should be careful to make this time window as short as possible without unduly impacting the business. For example, a VPN concentrator could enforce sessions of no more than eight hours for your teleworkers.",
+            "Inactivity Some sessions could go on for very long periods of time, provided that the user is active. Sessions that are terminated for inactivity tend to have a shorter window than those that are triggered only by total duration (i.e., timeout). For example, many workstations will lock the screen if the user doesn’t use the mouse or keyboard for 15 minutes.",
+            "Anomaly Usually, anomaly detection is an additional control added to a session that is triggered by timeouts or inactivity (or both). This control looks for suspicious behaviors in the session, such as requests for data that are much larger than usual or communication with unusual or forbidden destinations. These can be indicators of session hijacking."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "will last. You should be careful to make this time window as short as possible without unduly impacting the business. For example, a VPN concentrator could enforce sessions of no more than eight hours for your teleworkers."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Inactivity Some sessions could go on for very long periods of time, provided that the user"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "is active. Sessions that are terminated for inactivity tend to have a shorter window than those that are triggered only by total duration (i.e., timeout). For example, many workstations will lock the screen if the user doesn’t use the mouse or keyboard for 15 minutes."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Anomaly Usually, anomaly detection is an additional control added to a session that is"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "triggered by timeouts or inactivity (or both). This control looks for suspicious behaviors in the session, such as requests for data that are much larger than usual or communication with unusual or forbidden destinations. These can be indicators of session hijacking."
         }
       ]
     },
@@ -1735,12 +1603,12 @@
           "items": [
             "End user The user who wants to be authenticated in order to use a resource",
             "Relying party The server that owns the resource that the end user is trying to access",
-            "OpenID provider The IdP (e.g., Google) in which the end user already has an account and"
+            "OpenID provider The IdP (e.g., Google) in which the end user already has an account and which will authenticate the user to the relying party"
           ]
         },
         {
           "type": "paragraph",
-          "text": "which will authenticate the user to the relying party You have probably encountered OpenID if you’ve ever tried to access a website and were presented with the option to log in using your Google identity. (Oftentimes you see an option for Google and one for Facebook in the same window, but Facebook uses its own protocol called Facebook Connect.) In a typical use case, depicted in Figure 5-16, a user wants to visit a protected website. The user’s agent (typically a web browser) requests the protected resource from the relying party. The relying party connects to the OpenID provider and creates a shared secret for this transaction. The server then redirects the user agent to the OpenID provider for authentication. Upon authentication by the provider, the user agent receives a redirect (containing an authentication token, also known as the user’s OpenID) to the relying party. The token contains a field signed with the shared secret, so the relying party is assured that the user is authenticated."
+          "text": "You have probably encountered OpenID if you’ve ever tried to access a website and were presented with the option to log in using your Google identity. (Oftentimes you see an option for Google and one for Facebook in the same window, but Facebook uses its own protocol called Facebook Connect.) In a typical use case, depicted in Figure 5-16, a user wants to visit a protected website. The user’s agent (typically a web browser) requests the protected resource from the relying party. The relying party connects to the OpenID provider and creates a shared secret for this transaction. The server then redirects the user agent to the OpenID provider for authentication. Upon authentication by the provider, the user agent receives a redirect (containing an authentication token, also known as the user’s OpenID) to the relying party. The token contains a field signed with the shared secret, so the relying party is assured that the user is authenticated."
         },
         {
           "type": "figure",
@@ -1760,33 +1628,11 @@
         {
           "type": "list",
           "items": [
-            "Client A process that requests access to a protected resource. It is worth noting that this"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "term describes the relationship of an entity with a resource provider in a client/server architecture. This means the “client” could actually be a web service (e.g., LinkedIn) that makes requests from another web service (e.g., Google)."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Client A process that requests access to a protected resource. It is worth noting that this term describes the relationship of an entity with a resource provider in a client/server architecture. This means the “client” could actually be a web service (e.g., LinkedIn) that makes requests from another web service (e.g., Google).",
             "Resource server The server that controls the resource that the client is trying to access.",
-            "Authorization server The system that keeps track of which clients are allowed to use"
+            "Authorization server The system that keeps track of which clients are allowed to use which resources, and issues access tokens to those clients.",
+            "Resource owner Whoever owns a protected resource and is able to grant permissions for others to use it. These permissions are usually granted through a consent dialog box. The resource owner is typically an end user, but could be an application or service."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "which resources, and issues access tokens to those clients."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Resource owner Whoever owns a protected resource and is able to grant permissions for"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "others to use it. These permissions are usually granted through a consent dialog box. The resource owner is typically an end user, but could be an application or service."
         },
         {
           "type": "figure",
@@ -1824,16 +1670,7 @@
         {
           "type": "list",
           "items": [
-            "Authorization code flow The relying party is provided an authorization code (or token)"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and must use it to directly request the ID token containing user information from the IdP."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Authorization code flow The relying party is provided an authorization code (or token) and must use it to directly request the ID token containing user information from the IdP.",
             "Implicit flow The relying party receives the ID token containing user information with the"
           ]
         },
@@ -2139,7 +1976,7 @@
           "items": [
             "Reflects organizational structures and functional delineations.",
             "Supports two types of hierarchies:",
-            "Limited hierarchies Only one level of hierarchy is allowed (Role 1 inherits from Role 2",
+            "Limited hierarchies Only one level of hierarchy is allowed (Role 1 inherits from Role 2 and no other role)",
             "General hierarchies Allows for many levels of hierarchies (Role 1 inherits Role 2’s and"
           ]
         },
@@ -2150,48 +1987,21 @@
         {
           "type": "list",
           "items": [
-            "Static Separation of Duty (SSD) Relations through RBAC This would be used to deter"
+            "Static Separation of Duty (SSD) Relations through RBAC This would be used to deter fraud by constraining the combination of privileges (such as, the user cannot be a member of both the Cashier and Accounts Receivable groups).",
+            "Dynamic Separation of Duties (DSD) Relations through RBAC This would be used to deter fraud by constraining the combination of privileges that can be activated in any session (for instance, the user cannot be in both the Cashier and Cashier Supervisor roles at the same time, but the user can be a member of both). This one is a little more confusing. It means José is a member of both the Cashier and Cashier Supervisor roles. If he logs in as a"
           ]
         },
         {
           "type": "paragraph",
-          "text": "fraud by constraining the combination of privileges (such as, the user cannot be a member of both the Cashier and Accounts Receivable groups)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Dynamic Separation of Duties (DSD) Relations through RBAC This would be used to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "deter fraud by constraining the combination of privileges that can be activated in any session (for instance, the user cannot be in both the Cashier and Cashier Supervisor roles at the same time, but the user can be a member of both). This one is a little more confusing. It means José is a member of both the Cashier and Cashier Supervisor roles. If he logs in as a Cashier, the Supervisor role is unavailable to him during that session. If he logs in as Cashier Supervisor, the Cashier role is unavailable to him during that session."
+          "text": "Cashier, the Supervisor role is unavailable to him during that session. If he logs in as Cashier Supervisor, the Cashier role is unavailable to him during that session."
         },
         {
           "type": "list",
           "items": [
             "Role-based access control can be managed in the following ways:",
             "Non-RBAC Users are mapped directly to applications and no roles are used.",
-            "Limited RBAC Users are mapped to multiple roles and mapped directly to other types"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "of applications that do not have role-based access functionality."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Hybrid RBAC Users are mapped to multiapplication roles with only selected rights"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "assigned to those roles."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Limited RBAC Users are mapped to multiple roles and mapped directly to other types of applications that do not have role-based access functionality.",
+            "Hybrid RBAC Users are mapped to multiapplication roles with only selected rights assigned to those roles.",
             "Full RBAC Users are mapped to enterprise roles."
           ]
         },
@@ -2247,26 +2057,8 @@
         {
           "type": "list",
           "items": [
-            "Subjects Clearance, position title, department, years with the company, training"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "certification on a specific platform, member of a project team, location"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Objects Classification, files pertaining to a particular project, HR records, location,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "security system component"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Subjects Clearance, position title, department, years with the company, training certification on a specific platform, member of a project team, location",
+            "Objects Classification, files pertaining to a particular project, HR records, location, security system component",
             "Actions Review, approve, comment, archive, configure, restart",
             "Context Time of day, project status (open/closed), fiscal year, ongoing audit"
           ]
@@ -2289,20 +2081,11 @@
         {
           "type": "list",
           "items": [
-            "DAC Data owners decide who has access to resources, and ACLs are used to enforce"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "these access decisions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "MAC Operating systems enforce the system’s security policy through the use of security",
+            "DAC Data owners decide who has access to resources, and ACLs are used to enforce these access decisions.",
+            "MAC Operating systems enforce the system’s security policy through the use of security labels.",
             "RBAC Access decisions are based on each subject’s role and/or functional position.",
             "RB-RBAC Adds on to RBAC by imposing rules that further restrict access decisions.",
-            "ABAC Access decisions are based on attributes of any component of or action on the"
+            "ABAC Access decisions are based on attributes of any component of or action on the system."
           ]
         }
       ]
@@ -2958,7 +2741,7 @@
             "Remove redundant resource rules from accounts and group memberships.",
             "Remove redundant user IDs, accounts, and role-based accounts from resource access lists.",
             "Enforce password rotation.",
-            "Enforce password requirements (length, contents, lifetime, distribution, storage, and",
+            "Enforce password requirements (length, contents, lifetime, distribution, storage, and transmission).",
             "Audit system and user events and actions, and review reports periodically.",
             "Protect audit logs."
           ]
@@ -3125,11 +2908,17 @@
         },
         {
           "type": "paragraph",
-          "text": "Specific state changes (activities) take place with specific types of attacks. If an attacker will carry out a remote buffer overflow, then the following state changes will occur: 1. The remote user connects to the system. 2. The remote user sends data to an application (the data exceeds the allocated buffer for this empty variable). 3. The data is executed and overwrites the buffer and possibly other memory segments. 4. A malicious code executes."
+          "text": "Specific state changes (activities) take place with specific types of attacks. If an attacker will carry out a remote buffer overflow, then the following state changes will occur:"
         },
         {
-          "type": "paragraph",
-          "text": "So, state is a snapshot of an operating system’s values in volatile, semipermanent, and permanent memory locations. In a state-based IDS, the initial state is the state prior to the execution of an attack, and the compromised state is the state after successful penetration. The IDS has rules that outline which state transition sequences should sound an alarm. The activity that takes place between the initial and compromised state is what the state-based IDS looks for, and it sends an alert if any of the state-transition sequences match its preconfigured rules. This type of IDS scans for attack signatures in the context of a stream of activity instead of just looking at individual packets. It can only identify known attacks and requires frequent updates of its signatures."
+          "type": "list",
+          "items": [
+            "The remote user connects to the system.",
+            "The remote user sends data to an application (the data exceeds the allocated buffer for this empty variable).",
+            "The data is executed and overwrites the buffer and possibly other memory segments.",
+            "A malicious code executes. So, state is a snapshot of an operating system’s values in volatile, semipermanent, and permanent memory locations. In a state-based IDS, the initial state is the state prior to the execution of an attack, and the compromised state is the state after successful penetration. The IDS has rules that outline which state transition sequences should sound an alarm. The activity that takes place between the initial and compromised state is what the state-based IDS looks for, and it sends an alert if any of the state-transition sequences match its preconfigured rules. This type of IDS scans for attack signatures in the context of a stream of activity instead of just looking at individual packets. It can only identify known attacks and requires frequent updates of its signatures."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -3269,12 +3058,12 @@
             "Can detect new attacks",
             "Also called behavior- or heuristic-based",
             "Three types:",
-            "Statistical anomaly–based Creates a profile of “normal” and compares activities to",
+            "Statistical anomaly–based Creates a profile of “normal” and compares activities to this profile",
             "Protocol anomaly–based Identifies protocols used outside of their common bounds",
             "Traffic anomaly–based Identifies unusual activity in network traffic",
             "Use of IF/THEN rule-based programming within expert systems",
             "Use of an expert system allows for artificial intelligence characteristics",
-            "The more complex the rules, the more demands on software and hardware processing",
+            "The more complex the rules, the more demands on software and hardware processing requirements",
             "Cannot detect new attacks"
           ]
         },
@@ -3485,7 +3274,7 @@
           "items": [
             "Perform brute-force attacks to find weaknesses and hanging modems.",
             "Make sure only necessary phone numbers are made public.",
-            "Provide stringent access control methods that would make brute-force attacks less",
+            "Provide stringent access control methods that would make brute-force attacks less successful.",
             "Monitor and audit for such activity.",
             "Employ an IDS to watch for suspicious activity.",
             "Set lockout thresholds."
@@ -3568,28 +3357,10 @@
         {
           "type": "list",
           "items": [
-            "Be skeptical of e-mails indicating you must make changes to your accounts, or warnings"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "stating an account will be terminated if you don’t perform some online activity."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Be skeptical of e-mails indicating you must make changes to your accounts, or warnings stating an account will be terminated if you don’t perform some online activity.",
             "Call the legitimate company to find out if this is a fraudulent message.",
             "Review the address bar to see if the domain name is correct.",
-            "When submitting any type of financial information or credential data, a TLS connection"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "should be set up, which may be indicated in the address bar (https://) or as a closed-padlock icon in the browser."
-        },
-        {
-          "type": "list",
-          "items": [
+            "When submitting any type of financial information or credential data, a TLS connection should be set up, which may be indicated in the address bar (https://) or as a closed-padlock icon in the browser.",
             "Do not click an HTML link within an e-mail. Type the URL out manually instead.",
             "Do not accept e-mail in HTML format."
           ]
@@ -3629,193 +3400,31 @@
             "Access is a flow of information between a subject and an object.",
             "A subject is an active entity that requests access to an object, which is a passive entity.",
             "A subject can be a user, program, or process.",
-            "Some security mechanisms that provide confidentiality are encryption, logical and physical"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "access control, transmission protocols, database views, and controlled traffic flow."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Identity management (IdM) solutions include directories, web access management,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "password management, legacy single sign-on, account management, and profile update."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Password synchronization reduces the complexity of keeping up with different passwords"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "for different systems."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Self-service password reset reduces help-desk call volumes by allowing users to reset their",
-            "Assisted password reset reduces the resolution process for password issues for the help-",
-            "IdM directories contain all resource information, users’ attributes, authorization profiles,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "roles, and possibly access control policies so other IdM applications have one centralized resource from which to gather this information."
-        },
-        {
-          "type": "list",
-          "items": [
-            "An automated workflow component is common in account management products that"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "provide IdM solutions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "User provisioning refers to the creation, maintenance, and deactivation of user objects and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "attributes as they exist in one or more systems, directories, or applications."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Some security mechanisms that provide confidentiality are encryption, logical and physical access control, transmission protocols, database views, and controlled traffic flow.",
+            "Identity management (IdM) solutions include directories, web access management, password management, legacy single sign-on, account management, and profile update.",
+            "Password synchronization reduces the complexity of keeping up with different passwords for different systems.",
+            "Self-service password reset reduces help-desk call volumes by allowing users to reset their own passwords.",
+            "Assisted password reset reduces the resolution process for password issues for the help- desk department.",
+            "IdM directories contain all resource information, users’ attributes, authorization profiles, roles, and possibly access control policies so other IdM applications have one centralized resource from which to gather this information.",
+            "An automated workflow component is common in account management products that provide IdM solutions.",
+            "User provisioning refers to the creation, maintenance, and deactivation of user objects and attributes as they exist in one or more systems, directories, or applications.",
             "User access reviews ensure there are no active accounts that are no longer needed.",
-            "The HR database is usually considered the authoritative source for user identities because"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "that is where each user’s identity is first developed and properly maintained."
-        },
-        {
-          "type": "list",
-          "items": [
-            "There are five main access control models: discretionary, mandatory, role based, rule"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "based, and attribute based."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Discretionary access control (DAC) enables data owners to dictate what subjects have"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "access to the files and resources they own."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The mandatory access control (MAC) model uses a security label system. Users have"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "clearances, and resources have security labels that contain data classifications. MAC systems compare these two attributes to determine access control capabilities."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Role-based access control (RBAC) is based on the user’s role and responsibilities (tasks)",
-            "Rule-based RBAC (RB-RBAC) builds on RBAC by adding Boolean logic in the form of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "rules or policies that further restrict access."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Attribute-based access control (ABAC) is based on attributes of any component of the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "system. It is the most granular of the access control models."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Three main types of constrained user interface measurements exist: menus and shells,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "database views, and physically constrained interfaces."
-        },
-        {
-          "type": "list",
-          "items": [
+            "The HR database is usually considered the authoritative source for user identities because that is where each user’s identity is first developed and properly maintained.",
+            "There are five main access control models: discretionary, mandatory, role based, rule based, and attribute based.",
+            "Discretionary access control (DAC) enables data owners to dictate what subjects have access to the files and resources they own.",
+            "The mandatory access control (MAC) model uses a security label system. Users have clearances, and resources have security labels that contain data classifications. MAC systems compare these two attributes to determine access control capabilities.",
+            "Role-based access control (RBAC) is based on the user’s role and responsibilities (tasks) within the company.",
+            "Rule-based RBAC (RB-RBAC) builds on RBAC by adding Boolean logic in the form of rules or policies that further restrict access.",
+            "Attribute-based access control (ABAC) is based on attributes of any component of the system. It is the most granular of the access control models.",
+            "Three main types of constrained user interface measurements exist: menus and shells, database views, and physically constrained interfaces.",
             "Access control lists are bound to objects and indicate what subjects can use them.",
             "A capability table is bound to a subject and lists what objects it can access.",
             "Some examples of remote access control technologies are RADIUS, TACACS+, and",
-            "Examples of administrative controls are a security policy, personnel controls, supervisory"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "structure, security awareness training, and testing."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Examples of physical controls are network segregation, perimeter security, computer"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "controls, work area separation, and cable."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Examples of technical controls are system access, network architecture, network access,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "encryption and protocols, and auditing."
-        },
-        {
-          "type": "list",
-          "items": [
-            "For a subject to be able to access a resource, it must be identified, authenticated, and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "authorized, and should be held accountable for its actions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Authentication can be accomplished by biometrics, a password, a passphrase, a cognitive"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "password, a one-time password, or a token."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Examples of administrative controls are a security policy, personnel controls, supervisory structure, security awareness training, and testing.",
+            "Examples of physical controls are network segregation, perimeter security, computer controls, work area separation, and cable.",
+            "Examples of technical controls are system access, network architecture, network access, encryption and protocols, and auditing.",
+            "For a subject to be able to access a resource, it must be identified, authenticated, and authorized, and should be held accountable for its actions.",
+            "Authentication can be accomplished by biometrics, a password, a passphrase, a cognitive password, a one-time password, or a token.",
             "A Type I error in biometrics means the system rejected an authorized individual, and a"
           ]
         },
@@ -3826,339 +3435,56 @@
         {
           "type": "list",
           "items": [
-            "A memory card cannot process information, but a smart card can through the use of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "integrated circuits and processors."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Least-privilege and need-to-know principles limit users’ rights to only what is needed to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "perform tasks of their job."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Single sign-on capabilities can be accomplished through Kerberos, domains, and thin",
-            "The Kerberos user receives a ticket granting ticket (TGT), which allows him to request"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "access to resources through the ticket granting service (TGS). The TGS generates a new ticket with the session keys."
-        },
-        {
-          "type": "list",
-          "items": [
+            "A memory card cannot process information, but a smart card can through the use of integrated circuits and processors.",
+            "Least-privilege and need-to-know principles limit users’ rights to only what is needed to perform tasks of their job.",
+            "Single sign-on capabilities can be accomplished through Kerberos, domains, and thin clients.",
+            "The Kerberos user receives a ticket granting ticket (TGT), which allows him to request access to resources through the ticket granting service (TGS). The TGS generates a new ticket with the session keys.",
             "Keystroke monitoring is a type of auditing that tracks each keystroke made by a user.",
-            "Object reuse can unintentionally disclose information by assigning media to a subject"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "before it is properly erased."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Just removing pointers to files (deleting file, formatting hard drive) is not always enough"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "protection for proper object reuse."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Information can be obtained via electrical signals in airwaves. The ways to combat this"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "type of intrusion are TEMPEST, white noise, and control zones."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Object reuse can unintentionally disclose information by assigning media to a subject before it is properly erased.",
+            "Just removing pointers to files (deleting file, formatting hard drive) is not always enough protection for proper object reuse.",
+            "Information can be obtained via electrical signals in airwaves. The ways to combat this type of intrusion are TEMPEST, white noise, and control zones.",
             "User authentication is accomplished by what someone knows, is, or has.",
-            "One-time password-generating token devices can use synchronous (time, event) or"
+            "One-time password-generating token devices can use synchronous (time, event) or asynchronous (challenge-based) methods.",
+            "Strong authentication requires two of the three user authentication attributes (what someone knows, is, or has).",
+            "The following are weaknesses of Kerberos: the KDC is a single point of failure; it is susceptible to password guessing; session and secret keys are locally stored; KDC needs to always be available; and there must be management of secret keys.",
+            "Phishing is a type of social engineering with the goal of obtaining personal information, credentials, credit card numbers, or financial data.",
+            "A race condition is possible when two or more processes use a shared resource and the access steps could take place out of sequence.",
+            "Mutual authentication is when two entities must authenticate to each other before sending data back and forth. Also referred to as two-way authentication.",
+            "A directory service is a software component that stores, organizes, and provides access to resources, which are listed in a directory (listing) of resources. Individual resources are assigned names within a namespace.",
+            "A cookie is data that is held permanently on a hard drive in the format of a text file or held temporarily in memory. It can be used to store browsing habits, authentication data, or protocol state information.",
+            "A federated identity is a portable identity, and its associated entitlements, that can be used across business boundaries without the need to synchronize or consolidate directory information.",
+            "Extensible Markup Language (XML) is a set of rules for encoding documents in machine- readable form to allow for interoperability between various web-based technologies.",
+            "Service Provisioning Markup Language (SPML) is an XML-based framework being developed by OASIS for exchanging user, resource, and service provisioning information between cooperating organizations.",
+            "Extensible Access Control Markup Language (XACML), which is both a declarative access control policy language implemented in XML and a processing model, describes how to interpret security policies.",
+            "Replay attack is a form of network attack in which a valid data transmission is maliciously or fraudulently repeated with the goal of obtaining unauthorized access.",
+            "Clipping level is a threshold value. Once a threshold value is passed, the activity is considered to be an event that is logged, investigated, or both.",
+            "A rainbow table is a set of precomputed hash values that represents password combinations. Rainbow tables are used in password attack processes and usually produce results more quickly than dictionary or brute-force attacks.",
+            "Cognitive passwords are fact- or opinion-based information used to verify an individual’s identity.",
+            "Smart cards can require physical interaction with a reader (contact) or no physical interaction with the reader (contactless architectures). Two contactless architectures are combi (one chip) and hybrid (two chips).",
+            "A side channel attack is carried out by gathering data pertaining to how something works and using that data to attack it or crack it, as in differential power analysis or"
           ]
         },
         {
           "type": "paragraph",
-          "text": "asynchronous (challenge-based) methods."
+          "text": "electromagnetic analysis."
         },
         {
           "type": "list",
           "items": [
-            "Strong authentication requires two of the three user authentication attributes (what someone",
-            "The following are weaknesses of Kerberos: the KDC is a single point of failure; it is"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "susceptible to password guessing; session and secret keys are locally stored; KDC needs to always be available; and there must be management of secret keys."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Phishing is a type of social engineering with the goal of obtaining personal information,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "credentials, credit card numbers, or financial data."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A race condition is possible when two or more processes use a shared resource and the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "access steps could take place out of sequence."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Mutual authentication is when two entities must authenticate to each other before sending"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "data back and forth. Also referred to as two-way authentication."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A directory service is a software component that stores, organizes, and provides access to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "resources, which are listed in a directory (listing) of resources. Individual resources are assigned names within a namespace."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A cookie is data that is held permanently on a hard drive in the format of a text file or held"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "temporarily in memory. It can be used to store browsing habits, authentication data, or protocol state information."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A federated identity is a portable identity, and its associated entitlements, that can be used"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "across business boundaries without the need to synchronize or consolidate directory information."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Extensible Markup Language (XML) is a set of rules for encoding documents in machine-"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "readable form to allow for interoperability between various web-based technologies."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Service Provisioning Markup Language (SPML) is an XML-based framework being"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "developed by OASIS for exchanging user, resource, and service provisioning information between cooperating organizations."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Extensible Access Control Markup Language (XACML), which is both a declarative"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "access control policy language implemented in XML and a processing model, describes how to interpret security policies."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Replay attack is a form of network attack in which a valid data transmission is maliciously"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "or fraudulently repeated with the goal of obtaining unauthorized access."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Clipping level is a threshold value. Once a threshold value is passed, the activity is"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "considered to be an event that is logged, investigated, or both."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A rainbow table is a set of precomputed hash values that represents password"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "combinations. Rainbow tables are used in password attack processes and usually produce results more quickly than dictionary or brute-force attacks."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Cognitive passwords are fact- or opinion-based information used to verify an individual’s",
-            "Smart cards can require physical interaction with a reader (contact) or no physical"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "interaction with the reader (contactless architectures). Two contactless architectures are combi (one chip) and hybrid (two chips)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A side channel attack is carried out by gathering data pertaining to how something works"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and using that data to attack it or crack it, as in differential power analysis or electromagnetic analysis."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Authorization creep takes place when a user gains too much access rights and permissions",
-            "Security information and event management implements data mining and analysis"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "functionality to be carried out on centralized logs for situational awareness capabilities."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Intrusion detection systems are either host or network based and provide behavioral"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "(statistical) or signature (knowledge) types of functionality."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Phishing is a type of social engineering attack. If it is crafted for a specific individual, it is"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "called spear-phishing. If a DNS server is poisoned and points users to a malicious website, this is referred to as pharming."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A web portal is commonly made up of portlets, which are pluggable user interface software"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "components that present information and services from other systems."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The Service Provisioning Markup Language (SPML) allows for the automation of user"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "management (account creation, amendments, revocation) and access entitlement configuration related to electronically published services across multiple provisioning systems."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The Security Assertion Markup Language (SAML) allows for the exchange of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "authentication and authorization data to be shared between security domains."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Authorization creep takes place when a user gains too much access rights and permissions over time.",
+            "Security information and event management implements data mining and analysis functionality to be carried out on centralized logs for situational awareness capabilities.",
+            "Intrusion detection systems are either host or network based and provide behavioral (statistical) or signature (knowledge) types of functionality.",
+            "Phishing is a type of social engineering attack. If it is crafted for a specific individual, it is called spear-phishing. If a DNS server is poisoned and points users to a malicious website, this is referred to as pharming.",
+            "A web portal is commonly made up of portlets, which are pluggable user interface software components that present information and services from other systems.",
+            "The Service Provisioning Markup Language (SPML) allows for the automation of user management (account creation, amendments, revocation) and access entitlement configuration related to electronically published services across multiple provisioning systems.",
+            "The Security Assertion Markup Language (SAML) allows for the exchange of authentication and authorization data to be shared between security domains.",
             "OpenID is an open standard and protocol that allows third-party authentication of a user.",
-            "OAuth is an open standard that allows a user to grant authority to some web resource, like a"
+            "OAuth is an open standard that allows a user to grant authority to some web resource, like a contacts database, to a third party.",
+            "OpenID Connect is an authentication layer built on the OAuth 2.0 protocol that allows transparent authentication and authorization of client resource requests.",
+            "The Simple Object Access Protocol (SOAP) is a protocol specification for exchanging structured information in the implementation of web services and networked environments.",
+            "Service-oriented architecture (SOA) environments allow for a suite of interoperable services to be used within multiple, separate systems from several business domains.",
+            "Radio-frequency identification (RFID) is a technology that provides data communication through the use of radio waves."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "contacts database, to a third party."
-        },
-        {
-          "type": "list",
-          "items": [
-            "OpenID Connect is an authentication layer built on the OAuth 2.0 protocol that allows"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "transparent authentication and authorization of client resource requests."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The Simple Object Access Protocol (SOAP) is a protocol specification for exchanging"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "structured information in the implementation of web services and networked environments."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Service-oriented architecture (SOA) environments allow for a suite of interoperable"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "services to be used within multiple, separate systems from several business domains."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Radio-frequency identification (RFID) is a technology that provides data communication"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "through the use of radio waves."
         }
       ]
     },
@@ -4169,27 +3495,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list. 1. Which of the following statements correctly describes biometric methods?"
+          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list."
         },
         {
-          "type": "paragraph",
-          "text": "A. They are the least expensive and provide the most protection."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. They are the most expensive and provide the least protection."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. They are the least expensive and provide the least protection."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. They are the most expensive and provide the most protection. 2. Which of the following statements correctly describes passwords?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. They are the least expensive and most secure."
+          "type": "list",
+          "items": [
+            "Which of the following statements correctly describes biometric methods? A. They are the least expensive and provide the most protection. B. They are the most expensive and provide the least protection. C. They are the least expensive and provide the least protection. D. They are the most expensive and provide the most protection.",
+            "Which of the following statements correctly describes passwords? A. They are the least expensive and most secure."
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
@@ -4201,19 +3515,15 @@
         },
         {
           "type": "paragraph",
-          "text": "D. They are the most expensive and most secure. 3. How is a challenge/response protocol utilized with token device implementations? A. This protocol is not used; cryptography is used."
+          "text": "D. They are the most expensive and most secure."
         },
         {
-          "type": "paragraph",
-          "text": "B. An authentication service generates a challenge, and the smart token generates a response based on the challenge."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. The token challenges the user for a username and password."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. The token challenges the user’s password against a database of stored credentials. 4. Which access control method is considered user directed?"
+          "type": "list",
+          "items": [
+            "How is a challenge/response protocol utilized with token device implementations? A. This protocol is not used; cryptography is used. B. An authentication service generates a challenge, and the smart token generates a response based on the challenge. C. The token challenges the user for a username and password. D. The token challenges the user’s password against a database of stored credentials.",
+            "Which access control method is considered user directed?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4224,11 +3534,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Mandatory C. Identity-based D. Discretionary 5. Which item is not part of a Kerberos authentication implementation?"
+          "text": "B. Mandatory C. Identity-based D. Discretionary"
         },
         {
-          "type": "paragraph",
-          "text": "A. Message authentication code B. Ticket granting service C. Authentication service D. Users, programs, and services 6. If a company has a high turnover rate, which access control structure is best?"
+          "type": "list",
+          "items": [
+            "Which item is not part of a Kerberos authentication implementation? A. Message authentication code B. Ticket granting service C. Authentication service D. Users, programs, and services",
+            "If a company has a high turnover rate, which access control structure is best?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4239,11 +3553,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Decentralized C. Rule-based D. Discretionary 7. The process of mutual authentication involves _______________."
+          "text": "B. Decentralized C. Rule-based D. Discretionary"
         },
         {
-          "type": "paragraph",
-          "text": "A. a user authenticating to a system and the system authenticating to the user B. a user authenticating to two systems at the same time C. a user authenticating to a server and then to a process D. a user authenticating, receiving a ticket, and then authenticating to a service 8. In discretionary access control security, who has delegation authority to grant access to data?"
+          "type": "list",
+          "items": [
+            "The process of mutual authentication involves _______________. A. a user authenticating to a system and the system authenticating to the user B. a user authenticating to two systems at the same time C. a user authenticating to a server and then to a process D. a user authenticating, receiving a ticket, and then authenticating to a service",
+            "In discretionary access control security, who has delegation authority to grant access to data?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4254,11 +3572,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Security officer C. Security policy D. Owner 9. Which could be considered a single point of failure within a single sign-on implementation?"
+          "text": "B. Security officer C. Security policy D. Owner"
         },
         {
-          "type": "paragraph",
-          "text": "A. Authentication server B. User’s workstation C. Logon credentials D. RADIUS 10. What role does biometrics play in access control?"
+          "type": "list",
+          "items": [
+            "Which could be considered a single point of failure within a single sign-on implementation? A. Authentication server B. User’s workstation C. Logon credentials D. RADIUS",
+            "What role does biometrics play in access control?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4269,7 +3591,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "C. Authentication D. Accountability 11. Who or what determines if an organization is going to operate under a discretionary, mandatory, or nondiscretionary access control model?"
+          "text": "C. Authentication D. Accountability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Who or what determines if an organization is going to operate under a discretionary, mandatory, or nondiscretionary access control model?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4280,51 +3609,30 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Security policy C. Culture D. Security levels 12. Which of the following best describes what role-based access control offers companies in reducing administrative burdens?"
+          "text": "B. Security policy C. Culture D. Security levels"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following best describes what role-based access control offers companies in reducing administrative burdens? A. It allows entities closer to the resources to make decisions about who can and cannot access resources. B. It provides a centralized approach for access control, which frees up department managers. C. User membership in roles can be easily revoked and new ones established as job assignments dictate. D. It enforces enterprise-wide security policies, standards, and guidelines.",
+            "Which of the following is the best description of directories that are used in identity management technology? A. Most are hierarchical and follow the X.500 standard. B. Most have a flat architecture and follow the X.400 standard. C. Most have moved away from LDAP. D. Many use LDAP.",
+            "Which of the following is not part of user provisioning? A. Creation and deactivation of user accounts B. Business process implementation C. Maintenance and deactivation of user objects and attributes D. Delegating user administration",
+            "What is the technology that allows a user to remember just one password? A. Password generation B. Password dictionaries C. Password rainbow tables D. Password synchronization",
+            "Which of the following is not considered an anomaly-based intrusion protection system? A. Statistical anomaly–based B. Protocol anomaly–based C. Temporal anomaly–based D. Traffic anomaly–based",
+            "This graphic covers which of the following?"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. It allows entities closer to the resources to make decisions about who can and cannot access resources."
+          "text": "A. Crossover error rate B. Identity verification C. Authorization rates D. Authentication error rates"
         },
         {
-          "type": "paragraph",
-          "text": "B. It provides a centralized approach for access control, which frees up department managers."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. User membership in roles can be easily revoked and new ones established as job assignments dictate."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. It enforces enterprise-wide security policies, standards, and guidelines. 13. Which of the following is the best description of directories that are used in identity management technology?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Most are hierarchical and follow the X.500 standard."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Most have a flat architecture and follow the X.400 standard."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Most have moved away from LDAP."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Many use LDAP. 14. Which of the following is not part of user provisioning?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Creation and deactivation of user accounts B. Business process implementation C. Maintenance and deactivation of user objects and attributes D. Delegating user administration 15. What is the technology that allows a user to remember just one password?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Password generation B. Password dictionaries C. Password rainbow tables D. Password synchronization 16. Which of the following is not considered an anomaly-based intrusion protection system? A. Statistical anomaly–based B. Protocol anomaly–based C. Temporal anomaly–based D. Traffic anomaly–based 17. This graphic covers which of the following?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Crossover error rate B. Identity verification C. Authorization rates D. Authentication error rates 18. The diagram shown here explains which of the following concepts?"
+          "type": "list",
+          "items": [
+            "The diagram shown here explains which of the following concepts?"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
@@ -4336,11 +3644,15 @@
         },
         {
           "type": "paragraph",
-          "text": "D. Biometrics is a high acceptance technology. 19. The graphic shown here illustrates how which of the following works?"
+          "text": "D. Biometrics is a high acceptance technology."
         },
         {
-          "type": "paragraph",
-          "text": "A. Rainbow tables B. Dictionary attack C. One-time password D. Strong authentication 20. Which of the following has the correct term-to-definition mapping? i. Brute-force attacks: Performed with tools that cycle through many possible character, number, and symbol combinations to uncover a password. ii. Dictionary attacks: Files of thousands of words are compared to the user’s password until a match is found. iii. Social engineering: An attacker falsely convinces an individual that she has the necessary authorization to access specific resources. iv. Rainbow table: An attacker uses a table that contains all possible passwords already in a hash format."
+          "type": "list",
+          "items": [
+            "The graphic shown here illustrates how which of the following works? A. Rainbow tables B. Dictionary attack C. One-time password D. Strong authentication",
+            "Which of the following has the correct term-to-definition mapping? i. Brute-force attacks: Performed with tools that cycle through many possible character, number, and symbol combinations to uncover a password. ii. Dictionary attacks: Files of thousands of words are compared to the user’s password until a match is found. iii. Social engineering: An attacker falsely convinces an individual that she has the necessary authorization to access specific resources. iv. Rainbow table: An attacker uses a table that contains all possible passwords already in a hash format."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4351,7 +3663,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. i, ii, iv C. i, ii, iii, iv D. i, ii, iii 21. George is responsible for setting and tuning the thresholds for his company’s behavior- based IDS. Which of the following outlines the possibilities of not doing this activity properly?"
+          "text": "B. i, ii, iv C. i, ii, iii, iv D. i, ii, iii"
+        },
+        {
+          "type": "list",
+          "items": [
+            "George is responsible for setting and tuning the thresholds for his company’s behavior- based IDS. Which of the following outlines the possibilities of not doing this activity properly?"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
@@ -4371,31 +3690,28 @@
         },
         {
           "type": "paragraph",
-          "text": "Use the following scenario to answer Questions 22–24. Tom is a new security manager for a retail company, which currently has an identity management system (IdM) in place. The data within the various identity stores updates more quickly than the current IdM software can keep up with, so some access decisions are made based upon obsolete information. While the IdM currently provides centralized access control of internal network assets, it is not tied into the web-based access control components that are embedded within the company’s partner portals. Tom also notices that help-desk technicians are spending too much time resetting passwords for internal employees. 22. Which of the following changes would be best for Tom’s team to implement?"
+          "text": "Use the following scenario to answer Questions 22–24. Tom is a new security manager for a retail company, which currently has an identity management system (IdM) in place. The data within the various identity stores updates more quickly than the current IdM software can keep up with, so some access decisions are made based upon obsolete information. While the IdM currently provides centralized access control of internal network assets, it is not tied into the web-based access control components that are embedded within the company’s partner portals. Tom also notices that help-desk technicians are spending too much time resetting passwords for internal employees."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following changes would be best for Tom’s team to implement? A. Move from namespaces to distinguished names. B. Move from meta-directories to virtual directories. C. Move from RADIUS to TACACS+. D. Move from a centralized to a decentralized control model.",
+            "Which of the following components should Tom make sure his team puts into place? A. Single sign-on module B. LDAP directory service synchronization C. Web access management D. X.500 database",
+            "Tom has been told that he has to reduce staff from the help-desk team. Which of the following technologies can help with the company’s help-desk budgetary issues? A. Self-service password support B. RADIUS implementation C. Reduction of authoritative IdM sources D. Implement a role-based access control model Use the following scenario to answer Questions 25–27. Lenny is a new security manager for a retail company that is expanding its functionality to its partners and customers. The company’s CEO wants to allow its partners’ customers to be able to purchase items through the company’s web stores as easily as possible. The CEO also wants the company’s partners to be able to manage inventory across companies more easily. The CEO wants to be able to understand the network traffic and activities in a holistic manner, and he wants to know from Lenny what type"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. Move from namespaces to distinguished names."
+          "text": "of technology should be put into place to allow for a more proactive approach to stopping malicious traffic if it enters the network. The company is a high-profile entity constantly dealing with zero-day attacks."
         },
         {
-          "type": "paragraph",
-          "text": "B. Move from meta-directories to virtual directories."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Move from RADIUS to TACACS+."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Move from a centralized to a decentralized control model. 23. Which of the following components should Tom make sure his team puts into place? A. Single sign-on module B. LDAP directory service synchronization C. Web access management D. X.500 database 24. Tom has been told that he has to reduce staff from the help-desk team. Which of the following technologies can help with the company’s help-desk budgetary issues?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Self-service password support B. RADIUS implementation C. Reduction of authoritative IdM sources D. Implement a role-based access control model Use the following scenario to answer Questions 25–27. Lenny is a new security manager for a retail company that is expanding its functionality to its partners and customers. The company’s CEO wants to allow its partners’ customers to be able to purchase items through the company’s web stores as easily as possible. The CEO also wants the company’s partners to be able to manage inventory across companies more easily. The CEO wants to be able to understand the network traffic and activities in a holistic manner, and he wants to know from Lenny what type of technology should be put into place to allow for a more proactive approach to stopping malicious traffic if it enters the network. The company is a high-profile entity constantly dealing with zero-day attacks. 25. Which of the following is the best identity management technology that Lenny should consider implementing to accomplish some of the company’s needs?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. LDAP directories for authoritative sources B. Digital identity provisioning C. Active Directory D. Federated identity 26. Lenny has a meeting with the internal software developers who are responsible for implementing the necessary functionality within the web-based system. Which of the following best describes the two items that Lenny needs to be prepared to discuss with this team?"
+          "type": "list",
+          "items": [
+            "Which of the following is the best identity management technology that Lenny should consider implementing to accomplish some of the company’s needs? A. LDAP directories for authoritative sources B. Digital identity provisioning C. Active Directory D. Federated identity",
+            "Lenny has a meeting with the internal software developers who are responsible for implementing the necessary functionality within the web-based system. Which of the following best describes the two items that Lenny needs to be prepared to discuss with this team?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4406,11 +3722,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Language B. Standard Generalized Markup Language and the Generalized Markup Language C. Extensible Markup Language and the Hypertext Markup Language D. Service Provisioning Markup Language and the Generalized Markup Language 27. Pertaining to the CEO’s security concerns, what should Lenny suggest the company put into place?"
+          "text": "Language B. Standard Generalized Markup Language and the Generalized Markup Language C. Extensible Markup Language and the Hypertext Markup Language D. Service Provisioning Markup Language and the Generalized Markup Language"
         },
         {
-          "type": "paragraph",
-          "text": "A. Security event management software, an intrusion prevention system, and behavior- based intrusion detection B. Security information and event management software, an intrusion detection system, and signature-based protection C. An intrusion prevention system, security event management software, and malware protection D. An intrusion prevention system, security event management software, and war-dialing protection Use the following scenario to answer Questions 28–29. Robbie is the security administrator of a company that needs to extend its remote access functionality. Employees travel around the world, but still need to be able to gain access to corporate assets such as databases, servers, and network-based devices. Also, while the company has had a VoIP telephony solution in place for two years, it has not been integrated into a centralized access control solution. Currently the network administrators have to maintain access control separately for internal resources, external entities, and VoIP end systems. Robbie has also been asked to look into some suspicious e-mails that the CIO’s secretary has been receiving, and her boss has asked her to remove some old modems that are no longer being used for remote dial-in purposes. 28. Which of the following is the best remote access technology for this situation?"
+          "type": "list",
+          "items": [
+            "Pertaining to the CEO’s security concerns, what should Lenny suggest the company put into place? A. Security event management software, an intrusion prevention system, and behavior- based intrusion detection B. Security information and event management software, an intrusion detection system, and signature-based protection C. An intrusion prevention system, security event management software, and malware protection D. An intrusion prevention system, security event management software, and war-dialing protection Use the following scenario to answer Questions 28–29. Robbie is the security administrator of a company that needs to extend its remote access functionality. Employees travel around the world, but still need to be able to gain access to corporate assets such as databases, servers, and network-based devices. Also, while the company has had a VoIP telephony solution in place for two years, it has not been integrated into a centralized access control solution. Currently the network administrators have to maintain access control separately for internal resources, external entities, and VoIP end systems. Robbie has also been asked to look into some suspicious e-mails that the CIO’s secretary has been receiving, and her boss has asked her to remove some old modems that are no longer being used for remote dial-in purposes.",
+            "Which of the following is the best remote access technology for this situation?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4431,20 +3751,14 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "29. What are the two main security concerns Robbie is most likely being asked to identify and mitigate?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Social engineering and spear-phishing B. War dialing and pharming C. Spear-phishing and war dialing D. Pharming and spear-phishing Use the following scenario to answer Questions 30–32. Tanya is working with the company’s internal software development team. Before a user of an application can access files located on the company’s centralized server, the user must present a valid one-time password, which is generated through a challenge/response mechanism. The company needs to tighten access control for these files and reduce the number of users who can access each and every file. The company is looking to Tanya and her team for solutions to better protect the data that has been classified and deemed critical to the company’s missions. Tanya has also been asked to implement a single sign-on technology for all internal users, but she does not have the budget to implement a public key infrastructure. 30. Which of the following best describes what is currently in place?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Capability-based access system B. Synchronous tokens that generate one-time passwords C. RADIUS D. Kerberos 31. Which of the following is one of the easiest and best solutions Tanya can consider for proper data protection?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Implementation of mandatory access control B. Implementation of access control lists C. Implementation of digital signatures D. Implementation of multilevel security 32. Which of the following is the best single sign-on technology for this situation?"
+          "type": "list",
+          "items": [
+            "What are the two main security concerns Robbie is most likely being asked to identify and mitigate? A. Social engineering and spear-phishing B. War dialing and pharming C. Spear-phishing and war dialing D. Pharming and spear-phishing Use the following scenario to answer Questions 30–32. Tanya is working with the company’s internal software development team. Before a user of an application can access files located on the company’s centralized server, the user must present a valid one-time password, which is generated through a challenge/response mechanism. The company needs to tighten access control for these files and reduce the number of users who can access each and every file. The company is looking to Tanya and her team for solutions to better protect the data that has been classified and deemed critical to the company’s missions. Tanya has also been asked to implement a single sign-on technology for all internal users, but she does not have the budget to implement a public key infrastructure.",
+            "Which of the following best describes what is currently in place? A. Capability-based access system B. Synchronous tokens that generate one-time passwords C. RADIUS D. Kerberos",
+            "Which of the following is one of the easiest and best solutions Tanya can consider for proper data protection? A. Implementation of mandatory access control B. Implementation of access control lists C. Implementation of digital signatures D. Implementation of multilevel security",
+            "Which of the following is the best single sign-on technology for this situation?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4455,7 +3769,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Kerberos C. RADIUS D. TACACS+ Use the following scenario to answer Questions 33–35. Harry is overseeing a team that has to integrate various business services provided by different company departments into one web portal for both internal employees and external partners. His company has a diverse and heterogeneous environment with different types of systems providing customer relationship management, inventory control, e-mail, and help-desk ticketing capabilities. His team needs to allow different users access to these different services in a secure manner. 33. Which of the following best describes the type of environment Harry’s team needs to set up?"
+          "text": "B. Kerberos C. RADIUS D. TACACS+ Use the following scenario to answer Questions 33–35. Harry is overseeing a team that has to integrate various business services provided by different company departments into one web portal for both internal employees and external partners. His company has a diverse and heterogeneous environment with different types of systems providing customer relationship management, inventory control, e-mail, and help-desk ticketing capabilities. His team needs to allow different users access to these different services in a secure manner."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following best describes the type of environment Harry’s team needs to set up?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4466,11 +3787,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Service-oriented architecture C. Public key infrastructure D. Web services 34. Which of the following best describes the types of languages and/or protocols that Harry needs to ensure are implemented?"
+          "text": "B. Service-oriented architecture C. Public key infrastructure D. Web services"
         },
         {
-          "type": "paragraph",
-          "text": "A. Security Assertion Markup Language, Extensible Access Control Markup Language, Service Provisioning Markup Language B. Service Provisioning Markup Language, Simple Object Access Protocol, Extensible Access Control Markup Language C. Extensible Access Control Markup Language, Security Assertion Markup Language, Simple Object Access Protocol D. Service Provisioning Markup Language, Security Association Markup Language 35. The company’s partners need to integrate compatible authentication functionality into their web portals to allow for interoperability across the different company boundaries. Which of the following will deal with this issue?"
+          "type": "list",
+          "items": [
+            "Which of the following best describes the types of languages and/or protocols that Harry needs to ensure are implemented? A. Security Assertion Markup Language, Extensible Access Control Markup Language, Service Provisioning Markup Language B. Service Provisioning Markup Language, Simple Object Access Protocol, Extensible Access Control Markup Language C. Extensible Access Control Markup Language, Security Assertion Markup Language, Simple Object Access Protocol D. Service Provisioning Markup Language, Security Association Markup Language",
+            "The company’s partners need to integrate compatible authentication functionality into their web portals to allow for interoperability across the different company boundaries. Which of the following will deal with this issue?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -4481,23 +3806,48 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Simple Object Access Protocol C. Extensible Access Control Markup Language D. Security Assertion Markup Language Answers 1. D. Compared with the other available authentication mechanisms, biometric methods provide the highest level of protection and are the most expensive. 2. C. Passwords provide the least amount of protection, but are the cheapest because they do not require extra readers (as with smart cards and memory cards), do not require devices (as do biometrics), and do not require a lot of overhead in processing (as in cryptography). Passwords are the most common type of authentication method used today. 3. B. An asynchronous token device is based on challenge/response mechanisms. The authentication service sends the user a challenge value, which the user enters into the token. The token encrypts or hashes this value, and the user uses this as her one-time password. 4. D. The DAC model allows users, or data owners, the discretion of letting other users access their resources. DAC is implemented by ACLs, which the data owner can configure. 5. A. Message authentication code (MAC) is a cryptographic function and is not a key component of Kerberos. Kerberos is made up of a KDC, a realm of principals (users, services, applications, and devices), an authentication service, tickets, and a ticket granting service. 6. A. A role-based structure is easier on the administrator because she only has to create one role, assign all of the necessary rights and permissions to that role, and plug a user into that role when needed. Otherwise, she would need to assign and extract permissions and rights on all systems as each individual came and left the company. 7. A. Mutual authentication means it is happening in both directions. Instead of just the user having to authenticate to the server, the server also must authenticate to the user. 8. D. This question may seem a little confusing if you were stuck between user and owner."
-        },
-        {
-          "type": "paragraph",
-          "text": "Only the data owner can decide who can access the resources she owns. She may or may not be a user. A user is not necessarily the owner of the resource. Only the actual owner of the resource can dictate what subjects can actually access the resource. 9. A. In a single sign-on technology, all users are authenticating to one source. If that source goes down, authentication requests cannot be processed. 10. C. Biometrics is a technology that validates an individual’s identity by reading a physical attribute. In some cases, biometrics can be used for identification, but that was not listed as an answer choice. 11. B. The security policy sets the tone for the whole security program. It dictates the level of risk that management and the company are willing to accept. This in turn dictates the type of controls and mechanisms to put in place to ensure this level of risk is not exceeded. 12. C. An administrator does not need to revoke and reassign permissions to individual users as they change jobs. Instead, the administrator assigns permissions and rights to a role, and users are plugged into those roles. 13. A. Most enterprises have some type of directory that contains information pertaining to the company’s network resources and users. Most directories follow a hierarchical database format, based on the X.500 standard, and a type of protocol, as in Lightweight Directory Access Protocol (LDAP), that allows subjects and applications to interact with the directory. Applications can request information about a particular user by making an LDAP request to the directory, and users can request information about a specific resource by using a similar request. 14. B. User provisioning refers to the creation, maintenance, and deactivation of user objects and attributes as they exist in one or more systems, directories, or applications, in response to business processes. User provisioning software may include one or more of the following components: change propagation, self-service workflow, consolidated user administration, delegated user administration, and federated change control. User objects may represent employees, contractors, vendors, partners, customers, or other recipients of a service. Services may include electronic mail, access to a database, access to a file server or mainframe, and so on. 15. D. Password synchronization technologies can allow a user to maintain just one password across multiple systems. The product will synchronize the password to other systems and applications, which happens transparently to the user. 16. C. An anomaly-based IPS is a behavioral-based system that learns the “normal” activities of an environment. The three types are listed next:"
+          "text": "B. Simple Object Access Protocol C. Extensible Access Control Markup Language D. Security Assertion Markup Language Answers"
         },
         {
           "type": "list",
           "items": [
-            "Statistical anomaly–based Creates a profile of “normal” and compares activities to this",
-            "Protocol anomaly–based Identifies protocols used outside of their common bounds",
-            "Traffic anomaly–based Identifies unusual activity in network traffic"
-          ]
+            "D. Compared with the other available authentication mechanisms, biometric methods provide the highest level of protection and are the most expensive.",
+            "C. Passwords provide the least amount of protection, but are the cheapest because they do not require extra readers (as with smart cards and memory cards), do not require devices (as do biometrics), and do not require a lot of overhead in processing (as in cryptography). Passwords are the most common type of authentication method used today.",
+            "B. An asynchronous token device is based on challenge/response mechanisms. The authentication service sends the user a challenge value, which the user enters into the token. The token encrypts or hashes this value, and the user uses this as her one-time password.",
+            "D. The DAC model allows users, or data owners, the discretion of letting other users access their resources. DAC is implemented by ACLs, which the data owner can configure.",
+            "A. Message authentication code (MAC) is a cryptographic function and is not a key component of Kerberos. Kerberos is made up of a KDC, a realm of principals (users, services, applications, and devices), an authentication service, tickets, and a ticket granting service.",
+            "A. A role-based structure is easier on the administrator because she only has to create one role, assign all of the necessary rights and permissions to that role, and plug a user into that role when needed. Otherwise, she would need to assign and extract permissions and rights on all systems as each individual came and left the company.",
+            "A. Mutual authentication means it is happening in both directions. Instead of just the user having to authenticate to the server, the server also must authenticate to the user.",
+            "D. This question may seem a little confusing if you were stuck between user and owner."
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "17. B. These steps are taken to convert the biometric input for identity verification: i. A software application identifies specific points of data as match points. ii. An algorithm is used to process the match points and translate that information into a numeric value. iii. Authentication is approved or denied when the database value is compared with the end user input entered into the scanner. 18. A. This rating is stated as a percentage and represents the point at which the false rejection rate equals the false acceptance rate. This rating is the most important measurement when determining a biometric system’s accuracy."
+          "text": "Only the data owner can decide who can access the resources she owns. She may or may not be a user. A user is not necessarily the owner of the resource. Only the actual owner of the resource can dictate what subjects can actually access the resource."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A. In a single sign-on technology, all users are authenticating to one source. If that source goes down, authentication requests cannot be processed.",
+            "C. Biometrics is a technology that validates an individual’s identity by reading a physical attribute. In some cases, biometrics can be used for identification, but that was not listed as an answer choice.",
+            "B. The security policy sets the tone for the whole security program. It dictates the level of risk that management and the company are willing to accept. This in turn dictates the type of controls and mechanisms to put in place to ensure this level of risk is not exceeded.",
+            "C. An administrator does not need to revoke and reassign permissions to individual users as they change jobs. Instead, the administrator assigns permissions and rights to a role, and users are plugged into those roles.",
+            "A. Most enterprises have some type of directory that contains information pertaining to the company’s network resources and users. Most directories follow a hierarchical database format, based on the X.500 standard, and a type of protocol, as in Lightweight Directory Access Protocol (LDAP), that allows subjects and applications to interact with the directory. Applications can request information about a particular user by making an LDAP request to the directory, and users can request information about a specific resource by using a similar request.",
+            "B. User provisioning refers to the creation, maintenance, and deactivation of user objects and attributes as they exist in one or more systems, directories, or applications, in response to business processes. User provisioning software may include one or more of the following components: change propagation, self-service workflow, consolidated user administration, delegated user administration, and federated change control. User objects may represent employees, contractors, vendors, partners, customers, or other recipients of a service. Services may include electronic mail, access to a database, access to a file server or mainframe, and so on.",
+            "D. Password synchronization technologies can allow a user to maintain just one password across multiple systems. The product will synchronize the password to other systems and applications, which happens transparently to the user.",
+            "C. An anomaly-based IPS is a behavioral-based system that learns the “normal” activities of an environment. The three types are listed next:",
+            "Statistical anomaly–based Creates a profile of “normal” and compares activities to this profile",
+            "Protocol anomaly–based Identifies protocols used outside of their common bounds",
+            "Traffic anomaly–based Identifies unusual activity in network traffic",
+            "B. These steps are taken to convert the biometric input for identity verification: i. A software application identifies specific points of data as match points. ii. An algorithm is used to process the match points and translate that information into a numeric value. iii. Authentication is approved or denied when the database value is compared with the end user input entered into the scanner.",
+            "A. This rating is stated as a percentage and represents the point at which the false rejection"
+          ],
+          "ordered": true
+        },
+        {
+          "type": "paragraph",
+          "text": "rate equals the false acceptance rate. This rating is the most important measurement when determining a biometric system’s accuracy."
         },
         {
           "type": "list",
@@ -4505,37 +3855,38 @@
             "Type I error Rejects authorized individual",
             "False rejection rate (FRR)",
             "Type II error Accepts impostor",
-            "False acceptance rate (FAR)"
+            "False acceptance rate (FAR)",
+            "C. Different types of one-time passwords are used for authentication. This graphic illustrates a synchronous token device, which synchronizes with the authentication service by using time or a counter as the core piece of the authentication process.",
+            "C. The list has all the correct term-to-definition mappings.",
+            "C. If the threshold is set too high, nonintrusive activities are considered attacks (false positives). If the threshold is set too low, malicious activities are not identified (false negatives).",
+            "B. A meta-directory within an IdM physically contains the identity information within an identity store. It allows identity information to be pulled from various locations and be stored in one local system (identity store). The data within the identity store is updated through a replication process, which may take place weekly, daily, or hourly depending upon configuration. Virtual directories use pointers to where the identity data resides on the original system; thus, no replication processes are necessary. Virtual directories usually provide the most up-to-date identity information since they point to the original source of the data.",
+            "C. Web access management (WAM) is a component of most IdM products that allows for identity management of web-based activities to be integrated and managed centrally.",
+            "A. If help-desk staff is spending too much time with password resetting, then a technology should be implemented to reduce the amount of time paid staff is spending on this task. The more tasks that can be automated through technology, the less that has to be spent on staff. The following are password management functionalities that are included in most IdM products:",
+            "Password synchronization Reduces the complexity of keeping up with different passwords for different systems.",
+            "Self-service password reset Reduces help-desk call volumes by allowing users to reset their own passwords.",
+            "Assisted password reset Reduces the resolution process for password issues for the help desk. This may include authentication with other types of authentication mechanisms (biometrics, tokens).",
+            "D. Federation identification allows for the company and its partners to share customer authentication information. When a customer authenticates to a partner website, that authentication information can be passed to the retail company, so when the customer visits the retail company’s website, the user has to submit less user profile information and the authentication steps the user has to go through during the purchase process could potentially be reduced. If the companies have a set trust model and share the same or similar federated identity management software and settings, this type of structure and functionality is possible.",
+            "A. The Service Provisioning Markup Language (SPML) allows company interfaces to pass service requests, and the receiving company provisions (allows) access to these services."
           ]
         },
         {
           "type": "paragraph",
-          "text": "19. C. Different types of one-time passwords are used for authentication. This graphic illustrates a synchronous token device, which synchronizes with the authentication service by using time or a counter as the core piece of the authentication process. 20. C. The list has all the correct term-to-definition mappings. 21. C. If the threshold is set too high, nonintrusive activities are considered attacks (false positives). If the threshold is set too low, malicious activities are not identified (false negatives). 22. B. A meta-directory within an IdM physically contains the identity information within an identity store. It allows identity information to be pulled from various locations and be stored in one local system (identity store). The data within the identity store is updated through a replication process, which may take place weekly, daily, or hourly depending upon configuration. Virtual directories use pointers to where the identity data resides on the original system; thus, no replication processes are necessary. Virtual directories usually provide the most up-to-date identity information since they point to the original source of the data. 23. C. Web access management (WAM) is a component of most IdM products that allows for identity management of web-based activities to be integrated and managed centrally. 24. A. If help-desk staff is spending too much time with password resetting, then a technology should be implemented to reduce the amount of time paid staff is spending on this task. The more tasks that can be automated through technology, the less that has to be spent on staff. The following are password management functionalities that are included in most IdM products:"
+          "text": "Both the sending and receiving companies need to be following the XML standard, which will allow this type of interoperability to take place. When using the Extensible Access Control Markup Language (XACML), application security policies can be shared with other applications to ensure that both are following the same security rules. The developers need to integrate both of these language types to allow for their partner employees to interact with their inventory systems without having to conduct a second authentication step. The use of the languages can reduce the complexity of inventory control between the different companies."
         },
         {
           "type": "list",
           "items": [
-            "Password synchronization Reduces the complexity of keeping up with different"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "passwords for different systems."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Self-service password reset Reduces help-desk call volumes by allowing users to reset",
-            "Assisted password reset Reduces the resolution process for password issues for the help"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "desk. This may include authentication with other types of authentication mechanisms (biometrics, tokens). 25. D. Federation identification allows for the company and its partners to share customer authentication information. When a customer authenticates to a partner website, that authentication information can be passed to the retail company, so when the customer visits the retail company’s website, the user has to submit less user profile information and the authentication steps the user has to go through during the purchase process could potentially be reduced. If the companies have a set trust model and share the same or similar federated identity management software and settings, this type of structure and functionality is possible. 26. A. The Service Provisioning Markup Language (SPML) allows company interfaces to pass service requests, and the receiving company provisions (allows) access to these services."
-        },
-        {
-          "type": "paragraph",
-          "text": "Both the sending and receiving companies need to be following the XML standard, which will allow this type of interoperability to take place. When using the Extensible Access Control Markup Language (XACML), application security policies can be shared with other applications to ensure that both are following the same security rules. The developers need to integrate both of these language types to allow for their partner employees to interact with their inventory systems without having to conduct a second authentication step. The use of the languages can reduce the complexity of inventory control between the different companies. 27. A. Security event management software allows for network traffic to be viewed holistically by gathering log data centrally and analyzing it. The intrusion prevention system allows for proactive measures to be put into place to help in stopping malicious traffic from entering the network. Behavior-based intrusion detection can identify new types of attacks (zero day) compared to signature-based intrusion detection. 28. C. The Diameter protocol extends the RADIUS protocol to allow for various types of authentication to take place with a variety of different technologies (PPP, VoIP, Ethernet, etc.). It has extensive flexibility and allows for the centralized administration of access control. 29. C. Spear-phishing is a targeted social engineering attack, which is what the CIO’s secretary is most likely experiencing. War dialing is a brute-force attack against devices that use phone numbers, as in modems. If the modems can be removed, the risk of war-dialing attacks decreases. 30. A. A capability-based access control system means that the subject (user) has to present something, which outlines what it can access. The item can be a ticket, token, or key. A capability is tied to the subject for access control purposes. A synchronous token is not being used, because the scenario specifically states that a challenge\\response mechanism is being used, which indicates an asynchronous token. 31. B. Systems that provide mandatory access control (MAC) and multilevel security are very specialized, require extensive administration, are expensive, and reduce user functionality. Implementing these types of systems is not the easiest approach out of the list. Since there is no budget for a PKI, digital signatures cannot be used because they require a PKI. In most environments access control lists (ACLs) are in place and can be modified to provide tighter access control. ACLs are bound to objects and outline what operations specific subjects can carry out on them. 32. B. The scenario specifies that PKI cannot be used, so the first option is not correct. Kerberos is based upon symmetric cryptography; thus, it does not need a PKI. RADIUS and TACACS+ are remote centralized access control protocols. 33. B. A service-oriented architecture (SOA) will allow Harry’s team to create a centralized web portal and offer the various services needed by internal and external entities. 34. C. The most appropriate languages and protocols for the purpose laid out in the scenario are Extensible Access Control Markup Language, Security Assertion Markup Language, and Simple Object Access Protocol. Harry’s group is not necessarily overseeing account provisioning, so the Service Provisioning Markup Language is not necessary, and there is no language called “Security Association Markup Language.” 35. D. Security Assertion Markup Language allows the exchange of authentication and authorization data to be shared between security domains. It is one of the most commonly used approaches to allow for single sign-on capabilities within a web-based environment."
+            "A. Security event management software allows for network traffic to be viewed holistically by gathering log data centrally and analyzing it. The intrusion prevention system allows for proactive measures to be put into place to help in stopping malicious traffic from entering the network. Behavior-based intrusion detection can identify new types of attacks (zero day) compared to signature-based intrusion detection.",
+            "C. The Diameter protocol extends the RADIUS protocol to allow for various types of authentication to take place with a variety of different technologies (PPP, VoIP, Ethernet, etc.). It has extensive flexibility and allows for the centralized administration of access control.",
+            "C. Spear-phishing is a targeted social engineering attack, which is what the CIO’s secretary is most likely experiencing. War dialing is a brute-force attack against devices that use phone numbers, as in modems. If the modems can be removed, the risk of war-dialing attacks decreases.",
+            "A. A capability-based access control system means that the subject (user) has to present something, which outlines what it can access. The item can be a ticket, token, or key. A capability is tied to the subject for access control purposes. A synchronous token is not being used, because the scenario specifically states that a challenge\\response mechanism is being used, which indicates an asynchronous token.",
+            "B. Systems that provide mandatory access control (MAC) and multilevel security are very specialized, require extensive administration, are expensive, and reduce user functionality. Implementing these types of systems is not the easiest approach out of the list. Since there is no budget for a PKI, digital signatures cannot be used because they require a PKI. In most environments access control lists (ACLs) are in place and can be modified to provide tighter access control. ACLs are bound to objects and outline what operations specific subjects can carry out on them.",
+            "B. The scenario specifies that PKI cannot be used, so the first option is not correct. Kerberos is based upon symmetric cryptography; thus, it does not need a PKI. RADIUS and TACACS+ are remote centralized access control protocols.",
+            "B. A service-oriented architecture (SOA) will allow Harry’s team to create a centralized web portal and offer the various services needed by internal and external entities.",
+            "C. The most appropriate languages and protocols for the purpose laid out in the scenario are Extensible Access Control Markup Language, Security Assertion Markup Language, and Simple Object Access Protocol. Harry’s group is not necessarily overseeing account provisioning, so the Service Provisioning Markup Language is not necessary, and there is no language called “Security Association Markup Language.”",
+            "D. Security Assertion Markup Language allows the exchange of authentication and authorization data to be shared between security domains. It is one of the most commonly used approaches to allow for single sign-on capabilities within a web-based environment."
+          ],
+          "ordered": true
         }
       ]
     }

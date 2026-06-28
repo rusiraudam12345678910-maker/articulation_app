@@ -48,6 +48,7 @@ const DOMAIN_H2 = {
   2: [
     'Information Life Cycle',
     'Classification',
+    'Classification Procedures',
     'Layers of Responsibility',
     'Retention Policies',
     'Protecting Privacy',

@@ -224,23 +224,10 @@
         {
           "type": "list",
           "items": [
-            "Simplex Communication takes place in one direction, though in practice this is very",
-            "Half-duplex Communication takes place in both directions, but only one application can"
+            "Simplex Communication takes place in one direction, though in practice this is very seldom the case.",
+            "Half-duplex Communication takes place in both directions, but only one application can send information at a time.",
+            "Full-duplex Communication takes place in both directions, and both applications can send information at the same time."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "send information at a time."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Full-duplex Communication takes place in both directions, and both applications can send"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "information at the same time."
         },
         {
           "type": "paragraph",
@@ -432,7 +419,7 @@
           "type": "list",
           "items": [
             "RS/EIA/TIA-422, RS/EIA/TIA-423, RS/EIA/TIA-449, RS/EIA/TIA-485",
-            "10Base-T, 10Base2, 10Base5, 100Base-TX, 100Base-FX, 100Base-T, 1000Base-T,",
+            "10Base-T, 10Base2, 10Base5, 100Base-TX, 100Base-FX, 100Base-T, 1000Base-T, 1000Base-SX",
             "Integrated Services Digital Network (ISDN)",
             "Digital subscriber line (DSL)",
             "Synchronous Optical Networking (SONET)"
@@ -760,62 +747,13 @@
         {
           "type": "list",
           "items": [
-            "IPv6 increases the IP address size from 32 bits to 128 bits to support more levels of"
+            "IPv6 increases the IP address size from 32 bits to 128 bits to support more levels of addressing hierarchy, a much greater number of addressable nodes, and simpler autoconfiguration of addresses.",
+            "The scalability of multicast routing is improved by adding a “scope” field to multicast addresses. Also, a new type of address called an anycast address is defined, which is used to send a packet to any one of a group of nodes.",
+            "Some IPv4 header fields have been dropped or made optional to reduce the common-case processing cost of packet handling and to limit the bandwidth cost of the IPv6 header. This is illustrated in Figure 4-16.",
+            "Changes in the way IP header options are encoded allow for more efficient forwarding, less stringent limits on the length of options, and greater flexibility for introducing new options",
+            "A new capability is added to enable the labeling of packets belonging to particular traffic “flows” for which the sender requests special handling, such as nondefault QoS or “real- time” service.",
+            "Extensions to support authentication, data integrity, and (optional) data confidentiality are also specified for IPv6."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "addressing hierarchy, a much greater number of addressable nodes, and simpler autoconfiguration of addresses."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The scalability of multicast routing is improved by adding a “scope” field to multicast"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "addresses. Also, a new type of address called an anycast address is defined, which is used to send a packet to any one of a group of nodes."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Some IPv4 header fields have been dropped or made optional to reduce the common-case"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "processing cost of packet handling and to limit the bandwidth cost of the IPv6 header. This is illustrated in Figure 4-16."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Changes in the way IP header options are encoded allow for more efficient forwarding, less"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "stringent limits on the length of options, and greater flexibility for introducing new options in the future."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A new capability is added to enable the labeling of packets belonging to particular traffic"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "“flows” for which the sender requests special handling, such as nondefault QoS or “real- time” service."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Extensions to support authentication, data integrity, and (optional) data confidentiality are"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "also specified for IPv6."
         },
         {
           "type": "paragraph",
@@ -905,16 +843,7 @@
         {
           "type": "list",
           "items": [
-            "Multiprotocol Label Switching (MPLS) MPLS was originally developed to improve"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "routing performance, but is frequently used for its ability to create VPNs over a variety of layer 2 protocols. It has elements of both layer 2 (data link) and layer 3 (networking), and so is commonly referred to as a layer 2.5 protocol. MPLS is considered a converged protocol because it can encapsulate any higher-layer protocol and tunnel it over a variety of links."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Multiprotocol Label Switching (MPLS) MPLS was originally developed to improve routing performance, but is frequently used for its ability to create VPNs over a variety of layer 2 protocols. It has elements of both layer 2 (data link) and layer 3 (networking), and so is commonly referred to as a layer 2.5 protocol. MPLS is considered a converged protocol because it can encapsulate any higher-layer protocol and tunnel it over a variety of links.",
             "Internet Small Computer System Interface (iSCSI) iSCSI encapsulates SCSI data in"
           ]
         },
@@ -950,22 +879,9 @@
         {
           "type": "list",
           "items": [
-            "Optical fibers transmit data that is encoded in the wavelength (color), phase, or polarization"
+            "Optical fibers transmit data that is encoded in the wavelength (color), phase, or polarization of the light. The light is generated by either an LED or a laser diode. As with electrical wires, we usually bundle multiple fibers into cables for longer distances.",
+            "Free space is the medium we use for wireless communications. Any electromagnetic signal can travel through it even outside our atmosphere. We tend to use mostly radio signals in free space, but every now and then you may find a system that uses light, such as infrared laser beams."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "of the light. The light is generated by either an LED or a laser diode. As with electrical wires, we usually bundle multiple fibers into cables for longer distances."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Free space is the medium we use for wireless communications. Any electromagnetic signal"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "can travel through it even outside our atmosphere. We tend to use mostly radio signals in free space, but every now and then you may find a system that uses light, such as infrared laser beams."
         }
       ]
     },
@@ -1207,22 +1123,13 @@
         {
           "type": "list",
           "items": [
-            "Single mode Small glass core, and are used for high-speed data transmission over long"
+            "Single mode Small glass core, and are used for high-speed data transmission over long distances. They are less susceptible to attenuation than multimode fibers.",
+            "Multimode Large glass cores, and are able to carry more data than single-core fibers, though they are best for shorter distances because of their higher attenuation levels."
           ]
         },
         {
           "type": "paragraph",
-          "text": "distances. They are less susceptible to attenuation than multimode fibers."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Multimode Large glass cores, and are able to carry more data than single-core fibers,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "though they are best for shorter distances because of their higher attenuation levels. Light detector Converts light signal back into electrical signal."
+          "text": "Light detector Converts light signal back into electrical signal."
         }
       ]
     },
@@ -1373,12 +1280,8 @@
           "type": "list",
           "items": [
             "FHSS moves data by changing frequencies.",
-            "DSSS takes a different approach by applying sub-bits to a message and uses all of the"
+            "DSSS takes a different approach by applying sub-bits to a message and uses all of the available frequencies at the same time."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "available frequencies at the same time."
         }
       ]
     },
@@ -1727,18 +1630,9 @@
           "type": "list",
           "items": [
             "Use separate VLANs for each class of users, just as you would on a wired LAN.",
-            "If you must support unauthenticated users (e.g., visitors), ensure they are connected to an"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "untrusted VLAN that remains outside your network’s perimeter."
-        },
-        {
-          "type": "list",
-          "items": [
+            "If you must support unauthenticated users (e.g., visitors), ensure they are connected to an untrusted VLAN that remains outside your network’s perimeter.",
             "Deploy a wireless intrusion detection system (WIDS).",
-            "Physically put the AP at the center of the building. The AP has a specific zone of coverage",
+            "Physically put the AP at the center of the building. The AP has a specific zone of coverage it can provide.",
             "Logically put the AP in a DMZ with a firewall between the DMZ and internal network."
           ]
         },
@@ -1749,17 +1643,8 @@
         {
           "type": "list",
           "items": [
-            "Implement VPN for wireless devices to use. This adds another layer of protection for data",
-            "Configure the AP to allow only known MAC addresses into the network. Allow only"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "known devices to authenticate. But remember that these MAC addresses are sent in cleartext, so an attacker could capture them and masquerade himself as an authenticated device."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Implement VPN for wireless devices to use. This adds another layer of protection for data being transmitted.",
+            "Configure the AP to allow only known MAC addresses into the network. Allow only known devices to authenticate. But remember that these MAC addresses are sent in cleartext, so an attacker could capture them and masquerade himself as an authenticated device.",
             "Carry out penetration tests on the WLAN. Use the tools described in this section to identify"
           ]
         },
@@ -2384,24 +2269,15 @@
         {
           "type": "list",
           "items": [
-            "Single-attachment station (SAS) Attaches to only one ring (the primary) through a",
-            "Dual-attachment station (DAS) Has two ports and each port provides a connection for"
+            "Single-attachment station (SAS) Attaches to only one ring (the primary) through a concentrator",
+            "Dual-attachment station (DAS) Has two ports and each port provides a connection for both the primary and the secondary rings",
+            "Single-attached concentrator (SAC) Concentrator that connects an SAS device to the primary ring",
+            "Dual-attached concentrator (DAC) Concentrator that connects DAS, SAS, and SAC devices to both rings"
           ]
         },
         {
           "type": "paragraph",
-          "text": "both the primary and the secondary rings"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Single-attached concentrator (SAC) Concentrator that connects an SAS device to the",
-            "Dual-attached concentrator (DAC) Concentrator that connects DAS, SAS, and SAC"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "devices to both rings The different FDDI device types are illustrated in Figure 4-35."
+          "text": "The different FDDI device types are illustrated in Figure 4-35."
         },
         {
           "type": "figure",
@@ -2905,11 +2781,14 @@
         },
         {
           "type": "paragraph",
-          "text": "Spamming usually is illegal, so the people doing the spamming do not want the traffic to seem as though it originated from their equipment. They will find mail servers on the Internet, or within company DMZs, that have loosely configured relaying mechanisms and use these servers to send their spam. If relays are configured “wide open” on a mail server, the mail server can be used to receive any mail message and send it on to any intended recipients, as shown in Figure 4- 41. This means that if a company does not properly configure its mail relaying, its server can be used to distribute advertisements for other companies, spam messages, and pornographic material. It is important that mail servers have proper antispam features enabled, which are actually antirelaying features. A company’s mail server should only accept mail destined for its domain and should not forward messages to other mail servers and domains that may be suspicious."
+          "text": "Spamming usually is illegal, so the people doing the spamming do not want the traffic to seem as though it originated from their equipment. They will find mail servers on the Internet, or within company DMZs, that have loosely configured relaying mechanisms and use these servers to send their spam. If relays are configured “wide open” on a mail server, the mail server can be used to receive any mail message and send it on to any intended recipients, as shown in Figure 4-"
         },
         {
-          "type": "paragraph",
-          "text": "Many companies also employ antivirus and content-filtering applications on their mail servers to try and stop the spread of malicious code and not allow unacceptable messages through the e- mail gateway. It is important to filter both incoming and outgoing messages. This helps ensure that inside employees are not spreading viruses or sending out messages that are against company policy."
+          "type": "list",
+          "items": [
+            "This means that if a company does not properly configure its mail relaying, its server can be used to distribute advertisements for other companies, spam messages, and pornographic material. It is important that mail servers have proper antispam features enabled, which are actually antirelaying features. A company’s mail server should only accept mail destined for its domain and should not forward messages to other mail servers and domains that may be suspicious. Many companies also employ antivirus and content-filtering applications on their mail servers to try and stop the spread of malicious code and not allow unacceptable messages through the e- mail gateway. It is important to filter both incoming and outgoing messages. This helps ensure that inside employees are not spreading viruses or sending out messages that are against company policy."
+          ],
+          "ordered": true
         },
         {
           "type": "figure",
@@ -2987,32 +2866,32 @@
         {
           "type": "list",
           "items": [
-            "Static mapping The NAT software has a pool of public IP addresses configured. Each"
+            "Static mapping The NAT software has a pool of public IP addresses configured. Each private address is statically mapped to a specific public address. So computer A always receives the public address x, computer B always receives the public address y, and so on."
           ]
         },
         {
           "type": "paragraph",
-          "text": "private address is statically mapped to a specific public address. So computer A always receives the public address x, computer B always receives the public address y, and so on. This is generally used for servers that need to keep the same public address at all times."
+          "text": "This is generally used for servers that need to keep the same public address at all times."
         },
         {
           "type": "list",
           "items": [
-            "Dynamic mapping The NAT software has a pool of IP addresses, but instead of statically"
+            "Dynamic mapping The NAT software has a pool of IP addresses, but instead of statically mapping a public address to a specific private address, it works on a first-come, first-served basis. So if Bob needs to communicate over the Internet, his system makes a request to the"
           ]
         },
         {
           "type": "paragraph",
-          "text": "mapping a public address to a specific private address, it works on a first-come, first-served basis. So if Bob needs to communicate over the Internet, his system makes a request to the NAT server. The NAT server takes the first IP address on the list and maps it to Bob’s private address. The balancing act is to estimate how many computers will most likely need to communicate outside the internal network at one time. This estimate is the number of public addresses the company purchases, instead of purchasing one public address for each computer."
+          "text": "NAT server. The NAT server takes the first IP address on the list and maps it to Bob’s private address. The balancing act is to estimate how many computers will most likely need to communicate outside the internal network at one time. This estimate is the number of public addresses the company purchases, instead of purchasing one public address for each computer."
         },
         {
           "type": "list",
           "items": [
-            "Port address translation (PAT) The company owns and uses only one public IP address"
+            "Port address translation (PAT) The company owns and uses only one public IP address for all systems that need to communicate outside the internal network. How in the world could all computers use the exact same IP address? Good question. Here’s an example: The"
           ]
         },
         {
           "type": "paragraph",
-          "text": "for all systems that need to communicate outside the internal network. How in the world could all computers use the exact same IP address? Good question. Here’s an example: The NAT device has an IP address of 127.50.41.3. When computer A needs to communicate with a system on the Internet, the NAT device documents this computer’s private address and source port number (10.10.44.3; port 43,887). The NAT device changes the IP address in the computer’s packet header to 127.50.41.3, with the source port 40,000. When computer B also needs to communicate with a system on the Internet, the NAT device documents the private address and source port number (10.10.44.15; port 23,398) and changes the header information to 127.50.41.3 with source port 40,001. So when a system responds to computer A, the packet first goes to the NAT device, which looks up the port number 40,000 and sees that it maps to computer A’s real information. So the NAT device changes the header information to address 10.10.44.3 and port 43,887 and sends it to computer A for processing. A company can save a lot more money by using PAT because the company needs to buy only a few public IP addresses, which are used by all systems in the network."
+          "text": "NAT device has an IP address of 127.50.41.3. When computer A needs to communicate with a system on the Internet, the NAT device documents this computer’s private address and source port number (10.10.44.3; port 43,887). The NAT device changes the IP address in the computer’s packet header to 127.50.41.3, with the source port 40,000. When computer B also needs to communicate with a system on the Internet, the NAT device documents the private address and source port number (10.10.44.15; port 23,398) and changes the header information to 127.50.41.3 with source port 40,001. So when a system responds to computer A, the packet first goes to the NAT device, which looks up the port number 40,000 and sees that it maps to computer A’s real information. So the NAT device changes the header information to address 10.10.44.3 and port 43,887 and sends it to computer A for processing. A company can save a lot more money by using PAT because the company needs to buy only a few public IP addresses, which are used by all systems in the network."
         },
         {
           "type": "paragraph",
@@ -3096,62 +2975,40 @@
         {
           "type": "list",
           "items": [
-            "Routing Information Protocol RIP is a standard that outlines how routers exchange"
+            "Routing Information Protocol RIP is a standard that outlines how routers exchange routing table data and is considered a distance-vector protocol, which means it calculates the shortest distance between the source and destination. It is considered a legacy protocol because of its slow performance and lack of functionality. It should only be used in small networks. RIP version 1 has no authentication, and RIP version 2 sends passwords in cleartext or hashed with MD5. RIPng is the third generation of this venerable protocol. It is very similar to the version 2, but is designed for IPv6 routing.",
+            "Open Shortest Path First OSPF uses link-state algorithms to send out routing table information. The use of these algorithms allows for smaller, more frequent routing table updates to take place. This provides a more stable network than RIP, but requires more"
           ]
         },
         {
           "type": "paragraph",
-          "text": "routing table data and is considered a distance-vector protocol, which means it calculates the shortest distance between the source and destination. It is considered a legacy protocol because of its slow performance and lack of functionality. It should only be used in small networks. RIP version 1 has no authentication, and RIP version 2 sends passwords in cleartext or hashed with MD5. RIPng is the third generation of this venerable protocol. It is very similar to the version 2, but is designed for IPv6 routing."
+          "text": "memory and CPU resources to support this extra processing. OSPF allows for a hierarchical routing network that has a backbone link connecting all subnets together. OSPF has replaced RIP in many networks today. Authentication can take place with cleartext passwords or hashed passwords, or you can choose to configure no authentication on the routers using this protocol. The latest OSPF is version 3. Though it was designed to support IPv6, it also supports IPv4. Among the most important improvements is that OSPFv3 uses IPSec for authentication."
         },
         {
           "type": "list",
           "items": [
-            "Open Shortest Path First OSPF uses link-state algorithms to send out routing table"
+            "Interior Gateway Routing Protocol IGRP is a distance-vector routing protocol that was developed by, and is proprietary to, Cisco Systems. Whereas RIP uses one criterion to find the best path between the source and destination, IGRP uses five criteria to make a “best route” decision. A network administrator can set weights on these different metrics so that the protocol works best in that specific environment.",
+            "Enhanced Interior Gateway Routing Protocol EIGRP is a Cisco-proprietary and advanced distance-vector routing protocol. It allows for faster router table updates than its predecessor IGRP and minimizes routing instability, which can occur after topology changes. Routers exchange messages that contain information about bandwidth, delay, load, reliability, and MTU of the path to each destination as known by the advertising router. The latest version is 4, which is able to support multiple network protocols such as"
           ]
         },
         {
           "type": "paragraph",
-          "text": "information. The use of these algorithms allows for smaller, more frequent routing table updates to take place. This provides a more stable network than RIP, but requires more memory and CPU resources to support this extra processing. OSPF allows for a hierarchical routing network that has a backbone link connecting all subnets together. OSPF has replaced RIP in many networks today. Authentication can take place with cleartext passwords or hashed passwords, or you can choose to configure no authentication on the routers using this protocol. The latest OSPF is version 3. Though it was designed to support IPv6, it also supports IPv4. Among the most important improvements is that OSPFv3 uses IPSec for authentication."
+          "text": "IPv4, IPv6, IPX, and AppleTalk."
         },
         {
           "type": "list",
           "items": [
-            "Interior Gateway Routing Protocol IGRP is a distance-vector routing protocol that was"
+            "Virtual Router Redundancy Protocol VRRP is used in networks that require high availability where routers as points of failure cannot be tolerated. It is designed to increase the availability of the default gateway by advertising a “virtual router” as a default gateway."
           ]
         },
         {
           "type": "paragraph",
-          "text": "developed by, and is proprietary to, Cisco Systems. Whereas RIP uses one criterion to find the best path between the source and destination, IGRP uses five criteria to make a “best route” decision. A network administrator can set weights on these different metrics so that the protocol works best in that specific environment."
+          "text": "Two physical routers (primary and secondary) are mapped to one virtual router. If one of the physical routers fails, the other router takes over the workload."
         },
         {
           "type": "list",
           "items": [
-            "Enhanced Interior Gateway Routing Protocol EIGRP is a Cisco-proprietary and"
+            "Intermediate System to Intermediate System IS-IS is a link-state protocol that allows each router to independently build a database of a network’s topology. Similar to the OSPF protocol, it computes the best path for traffic to travel. It is a classless and hierarchical routing protocol that is vendor neutral. Unlike other protocols (e.g., RIP and OSPF), IS-IS does not use IP addresses. Instead, it uses ISO addresses, which means that the protocol didn’t have to be redesigned to support IPv6."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "advanced distance-vector routing protocol. It allows for faster router table updates than its predecessor IGRP and minimizes routing instability, which can occur after topology changes. Routers exchange messages that contain information about bandwidth, delay, load, reliability, and MTU of the path to each destination as known by the advertising router. The latest version is 4, which is able to support multiple network protocols such as IPv4, IPv6, IPX, and AppleTalk."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Virtual Router Redundancy Protocol VRRP is used in networks that require high"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "availability where routers as points of failure cannot be tolerated. It is designed to increase the availability of the default gateway by advertising a “virtual router” as a default gateway. Two physical routers (primary and secondary) are mapped to one virtual router. If one of the physical routers fails, the other router takes over the workload."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Intermediate System to Intermediate System IS-IS is a link-state protocol that allows"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "each router to independently build a database of a network’s topology. Similar to the OSPF protocol, it computes the best path for traffic to travel. It is a classless and hierarchical routing protocol that is vendor neutral. Unlike other protocols (e.g., RIP and OSPF), IS-IS does not use IP addresses. Instead, it uses ISO addresses, which means that the protocol didn’t have to be redesigned to support IPv6."
         },
         {
           "type": "paragraph",
@@ -3275,7 +3132,7 @@
             "Uses filtering based on MAC addresses.",
             "Joins different types of network links while retaining the same broadcast domain.",
             "Isolates collision domains within the same broadcast domain.",
-            "Bridging functionality can take place locally within a LAN or remotely to connect two",
+            "Bridging functionality can take place locally within a LAN or remotely to connect two distant LANs.",
             "Can translate between protocol types."
           ]
         },
@@ -3335,7 +3192,20 @@
         },
         {
           "type": "paragraph",
-          "text": "What actually happens inside the router when it receives a packet? Let’s follow the steps: 1. A packet is received on one of the interfaces of a router. The router views the routing data. 2. The router retrieves the destination IP network address from the packet. 3. The router looks at its routing table to see which port matches the requested destination IP network address. 4. If the router does not have information in its table about the destination address, it sends out an ICMP error message to the sending computer indicating that the message could not reach its destination. 5. If the router does have a route in its routing table for this destination, it decrements the TTL value and sees whether the MTU is different for the destination network. If the destination network requires a smaller MTU, the router fragments the datagram. 6. The router changes header information in the packet so the packet can go to the next correct router, or if the destination computer is on a connecting network, the changes made enable the packet to go directly to the destination computer. 7. The router sends the packet to its output queue for the necessary interface."
+          "text": "What actually happens inside the router when it receives a packet? Let’s follow the steps:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A packet is received on one of the interfaces of a router. The router views the routing data.",
+            "The router retrieves the destination IP network address from the packet.",
+            "The router looks at its routing table to see which port matches the requested destination IP network address.",
+            "If the router does not have information in its table about the destination address, it sends out an ICMP error message to the sending computer indicating that the message could not reach its destination.",
+            "If the router does have a route in its routing table for this destination, it decrements the TTL value and sees whether the MTU is different for the destination network. If the destination network requires a smaller MTU, the router fragments the datagram.",
+            "The router changes header information in the packet so the packet can go to the next correct router, or if the destination computer is on a connecting network, the changes made enable the packet to go directly to the destination computer.",
+            "The router sends the packet to its output queue for the necessary interface."
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
@@ -3723,16 +3593,7 @@
           "type": "list",
           "items": [
             "Maintains a state table that tracks each and every communication session",
-            "Provides a high degree of security and does not introduce the performance hit that"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "application proxy firewalls introduce"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Provides a high degree of security and does not introduce the performance hit that application proxy firewalls introduce",
             "Is scalable and transparent to users",
             "Provides data for tracking connectionless protocols such as UDP and ICMP",
             "Stores and updates the state and context of the data within the packets"
@@ -3807,32 +3668,10 @@
         {
           "type": "list",
           "items": [
-            "They have extensive logging capabilities due to the firewall being able to examine the"
+            "They have extensive logging capabilities due to the firewall being able to examine the entire network packet rather than just the network addresses and ports.",
+            "They are capable of authenticating users directly, as opposed to packet-filtering firewalls and stateful-inspection firewalls, which can usually only carry out system authentication.",
+            "Since they are not simply layer 3 devices, they can address spoofing attacks and other sophisticated attacks."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "entire network packet rather than just the network addresses and ports."
-        },
-        {
-          "type": "list",
-          "items": [
-            "They are capable of authenticating users directly, as opposed to packet-filtering firewalls"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and stateful-inspection firewalls, which can usually only carry out system authentication."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Since they are not simply layer 3 devices, they can address spoofing attacks and other"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sophisticated attacks."
         },
         {
           "type": "paragraph",
@@ -3843,7 +3682,7 @@
           "items": [
             "They are not generally well suited to high-bandwidth or real-time applications.",
             "They tend to be limited in terms of support for new network applications and protocols.",
-            "They create performance issues because of the necessary per-packet processing"
+            "They create performance issues because of the necessary per-packet processing requirements."
           ]
         },
         {
@@ -3885,7 +3724,7 @@
           "items": [
             "Each protocol that is to be monitored must have a unique proxy.",
             "They provide more protection than circuit-level proxy firewalls.",
-            "They require more processing per packet and thus are slower than circuit-level proxy"
+            "They require more processing per packet and thus are slower than circuit-level proxy firewalls."
           ]
         },
         {
@@ -3896,7 +3735,7 @@
           "type": "list",
           "items": [
             "They do not require a proxy for each and every protocol.",
-            "They do not provide the deep-inspection capabilities of an application-level proxy",
+            "They do not provide the deep-inspection capabilities of an application-level proxy firewall.",
             "They provide security for a wider range of protocols."
           ]
         }
@@ -4115,14 +3954,10 @@
           "items": [
             "A single computer with separate NICs connected to each network.",
             "Used to divide an internal trusted network from an external untrusted network.",
-            "Must disable a computer’s forwarding and routing functionality so the two networks are",
+            "Must disable a computer’s forwarding and routing functionality so the two networks are truly segregated.",
             "A router filters (screens) traffic before it is passed to the firewall.",
-            "An external router filters (screens) traffic before it enters the subnet. Traffic headed"
+            "An external router filters (screens) traffic before it enters the subnet. Traffic headed toward the internal network then goes through two firewalls."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "toward the internal network then goes through two firewalls."
         },
         {
           "type": "paragraph",
@@ -4161,23 +3996,10 @@
         {
           "type": "list",
           "items": [
-            "IP fragmentation Fragmentation and reassembly flaws within IP are exploited, which",
-            "Teardrop attack Malformed fragments are created by the attacker, and once they are"
+            "IP fragmentation Fragmentation and reassembly flaws within IP are exploited, which causes DoS.",
+            "Teardrop attack Malformed fragments are created by the attacker, and once they are reassembled, they could cause the victim system to become unstable.",
+            "Overlapping fragment attack Used to subvert packet filters that do not reassemble packet fragments before inspection. A malicious fragment overwrites a previously approved fragment and executes an attack on the victim’s system."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "reassembled, they could cause the victim system to become unstable."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Overlapping fragment attack Used to subvert packet filters that do not reassemble"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "packet fragments before inspection. A malicious fragment overwrites a previously approved fragment and executes an attack on the victim’s system."
         },
         {
           "type": "paragraph",
@@ -4190,24 +4012,11 @@
         {
           "type": "list",
           "items": [
-            "Silent rule Drops “noisy” traffic without logging it. This reduces log sizes by not"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "responding to packets that are deemed unimportant."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Silent rule Drops “noisy” traffic without logging it. This reduces log sizes by not responding to packets that are deemed unimportant.",
             "Stealth rule Disallows access to firewall software from unauthorized systems.",
-            "Cleanup rule Last rule in rule base, drops and logs any traffic that does not meet preceding",
-            "Negate rule Used instead of the broad and permissive “any rules,” provides tighter"
+            "Cleanup rule Last rule in rule base, drops and logs any traffic that does not meet preceding rules.",
+            "Negate rule Used instead of the broad and permissive “any rules,” provides tighter permission rights by specifying what system can be accessed and how."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "permission rights by specifying what system can be accessed and how."
         },
         {
           "type": "paragraph",
@@ -4220,33 +4029,11 @@
         {
           "type": "list",
           "items": [
-            "Most of the time a distributed approach needs to be used to control all network access"
+            "Most of the time a distributed approach needs to be used to control all network access points, which cannot happen through the use of just one firewall.",
+            "Firewalls can present a potential bottleneck to the flow of traffic and a single point of failure threat.",
+            "Some firewalls do not provide protection from malware and can be fooled by the more sophisticated attack types.",
+            "Firewalls do not protect against sniffers or rogue wireless access points and provide little protection against insider attacks."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "points, which cannot happen through the use of just one firewall."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Firewalls can present a potential bottleneck to the flow of traffic and a single point of",
-            "Some firewalls do not provide protection from malware and can be fooled by the more"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sophisticated attack types."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Firewalls do not protect against sniffers or rogue wireless access points and provide little"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "protection against insider attacks."
         },
         {
           "type": "paragraph",
@@ -4324,22 +4111,9 @@
           "type": "list",
           "items": [
             "Single point of failure for traffic Some type of redundancy should be put into place.",
-            "Single point of compromise If the UTM is successfully hacked, there may not be other"
+            "Single point of compromise If the UTM is successfully hacked, there may not be other layers deployed for protection.",
+            "Performance issues Latency and bandwidth issues can arise since this is a “choke point” device that requires a lot of processing."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "layers deployed for protection."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Performance issues Latency and bandwidth issues can arise since this is a “choke point”"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "device that requires a lot of processing."
         },
         {
           "type": "figure",
@@ -4430,32 +4204,10 @@
         {
           "type": "list",
           "items": [
-            "Open The SDN approach championed by the Open Networking Foundation (ONF)"
+            "Open The SDN approach championed by the Open Networking Foundation (ONF) (https://www.opennetworking.org) is, by most accounts, the most common. It relies on open-source code and standards to develop the building blocks of an SDN solution. The controller communicates with the switches using OpenFlow. OpenFlow is a standardized, open-source communications interface between controllers and network devices in an SDN architecture. It allows the devices implementing the forwarding plane to provide information (such as utilization data) to the controller, while allowing the controller to update the flow tables (akin to traditional routing tables) on the devices. Applications communicate with the controller using the RESTful or Java APIs.",
+            "API Another approach to SDN, and one that is championed by Cisco, is built on the premise that OpenFlow is not sufficient to fully leverage the promise of SDN in the enterprise. In addition to OpenFlow, this approach leverages a rich API on proprietary switches that allows greater control over traffic in an SDN. Among the perceived shortcomings that are corrected are the inability of OpenFlow to do deep packet inspection and manipulation, and its reliance on a centralized control plane. This proprietary API approach to SDN is seen as enriching rather than replacing ONF’s SDN approach.",
+            "Overlays Finally, one can imagine a virtualized network architecture as an overlay on a traditional one. In this approach, we virtualize all network nodes, including switches, routers, and servers, and treat them independently of the physical networks upon which this virtualized infrastructure exists. The SDN exists simply as a virtual overlay on top of a physical (underlay) network."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "(https://www.opennetworking.org) is, by most accounts, the most common. It relies on open-source code and standards to develop the building blocks of an SDN solution. The controller communicates with the switches using OpenFlow. OpenFlow is a standardized, open-source communications interface between controllers and network devices in an SDN architecture. It allows the devices implementing the forwarding plane to provide information (such as utilization data) to the controller, while allowing the controller to update the flow tables (akin to traditional routing tables) on the devices. Applications communicate with the controller using the RESTful or Java APIs."
-        },
-        {
-          "type": "list",
-          "items": [
-            "API Another approach to SDN, and one that is championed by Cisco, is built on the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "premise that OpenFlow is not sufficient to fully leverage the promise of SDN in the enterprise. In addition to OpenFlow, this approach leverages a rich API on proprietary switches that allows greater control over traffic in an SDN. Among the perceived shortcomings that are corrected are the inability of OpenFlow to do deep packet inspection and manipulation, and its reliance on a centralized control plane. This proprietary API approach to SDN is seen as enriching rather than replacing ONF’s SDN approach."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Overlays Finally, one can imagine a virtualized network architecture as an overlay on a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "traditional one. In this approach, we virtualize all network nodes, including switches, routers, and servers, and treat them independently of the physical networks upon which this virtualized infrastructure exists. The SDN exists simply as a virtual overlay on top of a physical (underlay) network."
         }
       ]
     },
@@ -4853,22 +4605,9 @@
         {
           "type": "list",
           "items": [
-            "Transmits several types of data simultaneously across a single transmission cable or line"
+            "Transmits several types of data simultaneously across a single transmission cable or line (such as a T1 or T3 line).",
+            "STDM analyzes statistics related to the typical workload of each input device (printer, fax, computer) and determines in real time how much time each device should be allocated for data transmission."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "(such as a T1 or T3 line)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "STDM analyzes statistics related to the typical workload of each input device (printer,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "fax, computer) and determines in real time how much time each device should be allocated for data transmission."
         },
         {
           "type": "paragraph",
@@ -4878,12 +4617,8 @@
           "type": "list",
           "items": [
             "An available wireless spectrum is used to move data.",
-            "Available frequency band is divided into narrow frequency bands and used to have"
+            "Available frequency band is divided into narrow frequency bands and used to have multiple parallel channels for data transfer."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "multiple parallel channels for data transfer."
         },
         {
           "type": "paragraph",
@@ -5076,42 +4811,11 @@
         {
           "type": "list",
           "items": [
-            "Constant bit rate (CBR) A connection-oriented channel that provides a consistent data"
+            "Constant bit rate (CBR) A connection-oriented channel that provides a consistent data throughput for time-sensitive applications, such as voice and video applications. Customers specify the necessary bandwidth requirement at connection setup.",
+            "Variable bit rate (VBR) A connection-oriented channel best used for delay-insensitive applications because the data throughput flow is uneven. Customers specify their required peak and sustained rate of data throughput.",
+            "Unspecified bit rate (UBR) A connectionless channel that does not promise a specific data throughput rate. Customers cannot, and do not need to, control their traffic rate.",
+            "Available bit rate (ABR) A connection-oriented channel that allows the bit rate to be adjusted. Customers are given the bandwidth that remains after a guaranteed service rate has been met."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "throughput for time-sensitive applications, such as voice and video applications. Customers specify the necessary bandwidth requirement at connection setup."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Variable bit rate (VBR) A connection-oriented channel best used for delay-insensitive"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "applications because the data throughput flow is uneven. Customers specify their required peak and sustained rate of data throughput."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Unspecified bit rate (UBR) A connectionless channel that does not promise a specific data"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "throughput rate. Customers cannot, and do not need to, control their traffic rate."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Available bit rate (ABR) A connection-oriented channel that allows the bit rate to be"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "adjusted. Customers are given the bandwidth that remains after a guaranteed service rate has been met."
         },
         {
           "type": "paragraph",
@@ -5124,32 +4828,10 @@
         {
           "type": "list",
           "items": [
-            "Best-effort service No guarantee of throughput, delay, or delivery. Traffic that has priority"
+            "Best-effort service No guarantee of throughput, delay, or delivery. Traffic that has priority classifications goes before traffic that has been assigned this classification. Most of the traffic that travels on the Internet has this classification.",
+            "Differentiated service Compared to best-effort service, traffic that is assigned this classification has more bandwidth, shorter delays, and fewer dropped frames.",
+            "Guaranteed service Ensures specific data throughput at a guaranteed speed. Time- sensitive traffic (voice and video) is assigned this classification."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "classifications goes before traffic that has been assigned this classification. Most of the traffic that travels on the Internet has this classification."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Differentiated service Compared to best-effort service, traffic that is assigned this"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "classification has more bandwidth, shorter delays, and fewer dropped frames."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Guaranteed service Ensures specific data throughput at a guaranteed speed. Time-"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sensitive traffic (voice and video) is assigned this classification."
         },
         {
           "type": "paragraph",
@@ -5347,22 +5029,9 @@
         {
           "type": "list",
           "items": [
-            "The term “VoIP” is widely used to refer to the actual services offered: caller ID, QoS,"
+            "The term “VoIP” is widely used to refer to the actual services offered: caller ID, QoS, voicemail, and so on.",
+            "IP telephony is an umbrella term for all real-time applications over IP, including voice over instant messaging (IM) and videoconferencing."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "voicemail, and so on."
-        },
-        {
-          "type": "list",
-          "items": [
-            "IP telephony is an umbrella term for all real-time applications over IP, including voice"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "over instant messaging (IM) and videoconferencing."
         },
         {
           "type": "paragraph",
@@ -5482,13 +5151,13 @@
             "The voicemail server",
             "The gateway server",
             "Identify unidentified or rogue telephony devices:",
-            "Implement authentication so only authorized telephony devices are working on the",
+            "Implement authentication so only authorized telephony devices are working on the network",
             "Install and maintain:",
             "Stateful firewalls",
             "VPN for sensitive voice data",
             "Intrusion detection",
             "Disable unnecessary ports and services on routers, switches, PCs, and IP telephones",
-            "Employ real-time monitoring that looks for attacks, tunneling, and abusive call patterns",
+            "Employ real-time monitoring that looks for attacks, tunneling, and abusive call patterns through IDS/IPS:",
             "Employ content monitoring",
             "Use encryption when data (voice, fax, video) cross an untrusted network",
             "Use a two-factor authentication technology",
@@ -5549,19 +5218,10 @@
         {
           "type": "list",
           "items": [
-            "Configure the remote access server to call back the initiating phone number to ensure it is a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "valid and approved number."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Configure the remote access server to call back the initiating phone number to ensure it is a valid and approved number.",
             "Disable or remove modems if not in use.",
             "Consolidate all modems into one location and manage them centrally, if possible.",
-            "Implement use of two-factor authentication, VPNs, and personal firewalls for remote"
+            "Implement use of two-factor authentication, VPNs, and personal firewalls for remote access connections."
           ]
         },
         {
@@ -5601,32 +5261,23 @@
         {
           "type": "list",
           "items": [
-            "Basic Rate Interface (BRI) ISDN This implementation operates over existing copper"
+            "Basic Rate Interface (BRI) ISDN This implementation operates over existing copper lines at the local loop and provides digital voice and data channels. It uses two B (at 64"
           ]
         },
         {
           "type": "paragraph",
-          "text": "lines at the local loop and provides digital voice and data channels. It uses two B (at 64 Kbps each) channels and one D (at 16 Kbps) channel with a combined bandwidth of 144 Kbps and is generally used for home and small office subscribers."
+          "text": "Kbps each) channels and one D (at 16 Kbps) channel with a combined bandwidth of 144 Kbps and is generally used for home and small office subscribers."
         },
         {
           "type": "list",
           "items": [
-            "Primary Rate Interface (PRI) ISDN This implementation has up to 23 B channels and"
+            "Primary Rate Interface (PRI) ISDN This implementation has up to 23 B channels and 1 D channel, at 64 Kbps per channel. The total bandwidth is equivalent to a T1, which is 1.544 Mbps. This would be more suitable for a company that requires a higher amount of bandwidth compared to BRI ISDN.",
+            "Broadband ISDN (BISDN) This implementation can handle many different types of services simultaneously and is mainly used within telecommunications carrier backbones. When BISDN is used within a backbone, ATM is commonly employed to encapsulate data at the data link layer into cells, which travel over a SONET network."
           ]
         },
         {
           "type": "paragraph",
-          "text": "1 D channel, at 64 Kbps per channel. The total bandwidth is equivalent to a T1, which is 1.544 Mbps. This would be more suitable for a company that requires a higher amount of bandwidth compared to BRI ISDN."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Broadband ISDN (BISDN) This implementation can handle many different types of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "services simultaneously and is mainly used within telecommunications carrier backbones. When BISDN is used within a backbone, ATM is commonly employed to encapsulate data at the data link layer into cells, which travel over a SONET network. Analog telecommunication signals use a full channel for communication, but ISDN can break up this channel into multiple channels to move various types of data, and provide full-duplex communication and a higher level of control and error handling. ISDN provides two basic services: Basic Rate Interface (BRI) and Primary Rate Interface (PRI)."
+          "text": "Analog telecommunication signals use a full channel for communication, but ISDN can break up this channel into multiple channels to move various types of data, and provide full-duplex communication and a higher level of control and error handling. ISDN provides two basic services: Basic Rate Interface (BRI) and Primary Rate Interface (PRI)."
         },
         {
           "type": "paragraph",
@@ -5668,42 +5319,29 @@
         {
           "type": "list",
           "items": [
-            "Asymmetric DSL (ADSL) Data travels downstream faster than upstream. Upstream"
+            "Asymmetric DSL (ADSL) Data travels downstream faster than upstream. Upstream speeds are 128 Kbps to 384 Kbps, and downstream speeds can be as fast as 768 Kbps."
           ]
         },
         {
           "type": "paragraph",
-          "text": "speeds are 128 Kbps to 384 Kbps, and downstream speeds can be as fast as 768 Kbps. Generally used by residential users."
+          "text": "Generally used by residential users."
         },
         {
           "type": "list",
           "items": [
-            "High-bit-rate DSL (HDSL) Provides T1 (1.544 Mbps) speeds over regular copper"
+            "High-bit-rate DSL (HDSL) Provides T1 (1.544 Mbps) speeds over regular copper phone wire without the use of repeaters. Requires two twisted pairs of wires, which many voice-grade UTP lines do not have.",
+            "Very High-Data-Rate Digital Subscriber Line (VDSL) VDSL is basically ADSL at much higher data rates (13 Mbps downstream and 2 Mbps upstream). It is capable of"
           ]
         },
         {
           "type": "paragraph",
-          "text": "phone wire without the use of repeaters. Requires two twisted pairs of wires, which many voice-grade UTP lines do not have."
+          "text": "supporting high-bandwidth applications such as HDTV, telephone services (voice over IP), and general Internet access over a single connection."
         },
         {
           "type": "list",
           "items": [
-            "Very High-Data-Rate Digital Subscriber Line (VDSL) VDSL is basically ADSL at"
+            "Rate-Adaptive Digital Subscriber Line (RADSL) Rate-adaptive feature that will adjust the transmission speed to match the quality and the length of the line."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "much higher data rates (13 Mbps downstream and 2 Mbps upstream). It is capable of supporting high-bandwidth applications such as HDTV, telephone services (voice over IP), and general Internet access over a single connection."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Rate-Adaptive Digital Subscriber Line (RADSL) Rate-adaptive feature that will"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "adjust the transmission speed to match the quality and the length of the line."
         }
       ]
     },
@@ -5800,38 +5438,21 @@
         },
         {
           "type": "paragraph",
-          "text": "It can get confusing when several protocols are involved with various levels of encapsulation, but if you do not understand how they work together, you cannot identify if certain traffic links lack security. To figure out if you understand how these protocols work together and why, ask yourself these questions: 1. If the Internet is an IP-based network, why do we even need PPP? 2. If PPTP and L2TP do not actually secure data themselves, then why do they exist? 3. If PPTP and L2TP basically do the same thing, why choose L2TP over PPTP? 4. If a connection is using IP, PPP, and L2TP, where does IPSec come into play?"
+          "text": "It can get confusing when several protocols are involved with various levels of encapsulation, but if you do not understand how they work together, you cannot identify if certain traffic links lack security. To figure out if you understand how these protocols work together and why, ask yourself these questions:"
         },
         {
-          "type": "paragraph",
-          "text": "Let’s go through the answers together. Let’s say that you are a remote user and work from your home office. You do not have a dedicated link from your house to your company’s network; instead, your traffic needs to go through the Internet to be able to communicate with the corporate network. The line between your house and your ISP is a point-to-point telecommunications link, one point being your home router and the other point being the ISP’s switch, as shown in Figure 4-77. Point-to-point telecommunication devices do not understand IP, so your router has to encapsulate your traffic in a protocol the ISP’s device will understand— PPP. Now your traffic is not headed toward some website on the Internet; instead, it has a target of your company’s corporate network. This means that your traffic has to be “carried through” the Internet to its ultimate destination through a tunnel. The Internet does not understand PPP, so your PPP traffic has to be encapsulated with a protocol that can work on the Internet and create the needed tunnel, as in PPTP or L2TP. If the connection between your ISP and the corporate network will not happen over the regular Internet (IP-based network), but instead over a WAN- based connection (ATM, frame relay), then L2TP has to be used for this PPP tunnel because PPTP cannot travel over non-IP networks."
-        },
-        {
-          "type": "paragraph",
-          "text": "So your IP packets are wrapped up in PPP, which are then wrapped up in L2TP. But you still have no encryption involved, so your data is actually not protected. This is where IPSec comes in. IPSec is used to encrypt the data that will pass through the L2TP tunnel. Once your traffic gets to the corporate network’s perimeter device, it will decrypt the packets, take off the L2TP and PPP headers, add the necessary Ethernet headers, and send these packets to their ultimate destination."
-        },
-        {
-          "type": "figure",
-          "figNum": "4-77",
-          "caption": "IP, PPP, L2TP, and IPSec can work together.",
-          "domain": 4,
-          "num": 77
-        },
-        {
-          "type": "paragraph",
-          "text": "So here are the answers to our questions: 1. If the Internet is an IP-based network, why do we even need PPP?"
-        },
-        {
-          "type": "paragraph",
-          "text": "Answer: The point-to-point line devices that connect individual systems to the Internet do not understand IP, so the traffic that travels over these links has to be encapsulated in PPP. 2. If PPTP and L2TP do not actually secure data themselves, then why do they exist? Answer: They extend PPP connections by providing a tunnel through networks that do not understand PPP. 3. If PPTP and L2TP basically do the same thing, why choose L2TP over PPTP?"
-        },
-        {
-          "type": "paragraph",
-          "text": "Answer: PPTP only works over IP-based networks. L2TP works over IP-based and WAN- based (ATM, frame relay) connections. If a PPP connection needs to be extended over a WAN-based connection, L2TP must be used. 4. If a connection is using IP, PPP, and L2TP, where does IPSec come into play?"
-        },
-        {
-          "type": "paragraph",
-          "text": "Answer: IPSec provides the encryption, data integrity, and system-based authentication. So here is another question. Does all of this PPP, PPTP, L2TP, and IPSec encapsulation have to happen for every single VPN used on the Internet? No, only when connections over point-to- point connections are involved. When two gateway routers are connected over the Internet and provide VPN functionality, they only have to use IPSec."
+          "type": "list",
+          "items": [
+            "If the Internet is an IP-based network, why do we even need PPP?",
+            "If PPTP and L2TP do not actually secure data themselves, then why do they exist?",
+            "If PPTP and L2TP basically do the same thing, why choose L2TP over PPTP?",
+            "If a connection is using IP, PPP, and L2TP, where does IPSec come into play? Let’s go through the answers together. Let’s say that you are a remote user and work from your home office. You do not have a dedicated link from your house to your company’s network; instead, your traffic needs to go through the Internet to be able to communicate with the corporate network. The line between your house and your ISP is a point-to-point telecommunications link, one point being your home router and the other point being the ISP’s switch, as shown in Figure 4-77. Point-to-point telecommunication devices do not understand IP, so your router has to encapsulate your traffic in a protocol the ISP’s device will understand— PPP. Now your traffic is not headed toward some website on the Internet; instead, it has a target of your company’s corporate network. This means that your traffic has to be “carried through” the Internet to its ultimate destination through a tunnel. The Internet does not understand PPP, so your PPP traffic has to be encapsulated with a protocol that can work on the Internet and create the needed tunnel, as in PPTP or L2TP. If the connection between your ISP and the corporate network will not happen over the regular Internet (IP-based network), but instead over a WAN- based connection (ATM, frame relay), then L2TP has to be used for this PPP tunnel because PPTP cannot travel over non-IP networks. So your IP packets are wrapped up in PPP, which are then wrapped up in L2TP. But you still have no encryption involved, so your data is actually not protected. This is where IPSec comes in. IPSec is used to encrypt the data that will pass through the L2TP tunnel. Once your traffic gets to the corporate network’s perimeter device, it will decrypt the packets, take off the L2TP and PPP headers, add the necessary Ethernet headers, and send these packets to their ultimate destination. Figure 4-77 IP, PPP, L2TP, and IPSec can work together. So here are the answers to our questions:",
+            "If the Internet is an IP-based network, why do we even need PPP? Answer: The point-to-point line devices that connect individual systems to the Internet do not understand IP, so the traffic that travels over these links has to be encapsulated in PPP.",
+            "If PPTP and L2TP do not actually secure data themselves, then why do they exist? Answer: They extend PPP connections by providing a tunnel through networks that do not understand PPP.",
+            "If PPTP and L2TP basically do the same thing, why choose L2TP over PPTP? Answer: PPTP only works over IP-based networks. L2TP works over IP-based and WAN- based (ATM, frame relay) connections. If a PPP connection needs to be extended over a WAN-based connection, L2TP must be used.",
+            "If a connection is using IP, PPP, and L2TP, where does IPSec come into play? Answer: IPSec provides the encryption, data integrity, and system-based authentication. So here is another question. Does all of this PPP, PPTP, L2TP, and IPSec encapsulation have to happen for every single VPN used on the Internet? No, only when connections over point-to- point connections are involved. When two gateway routers are connected over the Internet and provide VPN functionality, they only have to use IPSec."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -5851,36 +5472,9 @@
         {
           "type": "list",
           "items": [
-            "Authentication Header (AH) Provides data integrity, data-origin authentication, and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "protection from replay attacks"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Encapsulating Security Payload (ESP) Provides confidentiality, data-origin"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "authentication, and data integrity"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Internet Security Association and Key Management Protocol (ISAKMP) Provides a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "framework for security association creation and key exchange"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Authentication Header (AH) Provides data integrity, data-origin authentication, and protection from replay attacks",
+            "Encapsulating Security Payload (ESP) Provides confidentiality, data-origin authentication, and data integrity",
+            "Internet Security Association and Key Management Protocol (ISAKMP) Provides a framework for security association creation and key exchange",
             "Internet Key Exchange (IKE) Provides authenticated keying material for use with"
           ]
         },
@@ -5929,22 +5523,9 @@
         {
           "type": "list",
           "items": [
-            "TLS portal VPN An individual uses a single standard TLS connection to a website to"
+            "TLS portal VPN An individual uses a single standard TLS connection to a website to securely access multiple network services. The website accessed is typically called a portal because it is a single location that provides access to other resources. The remote user accesses the TLS VPN gateway using a web browser, is authenticated, and is then presented with a web page that acts as the portal to the other services.",
+            "TLS tunnel VPN An individual uses a web browser to securely access multiple network services, including applications and protocols that are not web-based, through a TLS tunnel. This commonly requires custom programming to allow the services to be accessible through a web-based connection."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "securely access multiple network services. The website accessed is typically called a portal because it is a single location that provides access to other resources. The remote user accesses the TLS VPN gateway using a web browser, is authenticated, and is then presented with a web page that acts as the portal to the other services."
-        },
-        {
-          "type": "list",
-          "items": [
-            "TLS tunnel VPN An individual uses a web browser to securely access multiple network"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "services, including applications and protocols that are not web-based, through a TLS tunnel. This commonly requires custom programming to allow the services to be accessible through a web-based connection."
         }
       ]
     },
@@ -6011,7 +5592,7 @@
           "items": [
             "PPTP is used when a PPP connection needs to be extended through an IP-based network.",
             "L2TP is used when a PPP connection needs to be extended through a non–",
-            "IPSec is used to protect IP-based traffic and is commonly used in gateway-to-gateway",
+            "IPSec is used to protect IP-based traffic and is commonly used in gateway-to-gateway connections.",
             "TLS VPN is used when a specific application layer traffic type needs protection."
           ]
         },
@@ -6124,16 +5705,7 @@
           "type": "list",
           "items": [
             "It provides more flexibility to the user in choosing what gets encrypted and how.",
-            "Higher granularity of functionality is available because each application or user can choose"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "specific configurations."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Higher granularity of functionality is available because each application or user can choose specific configurations.",
             "Each hop device on the network does not need to have a key to decrypt each packet."
           ]
         },
@@ -6183,16 +5755,7 @@
         {
           "type": "list",
           "items": [
-            "Key distribution and management are more complex because each hop device must receive"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "a key, and when the keys change, each must be updated."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Key distribution and management are more complex because each hop device must receive a key, and when the keys change, each must be updated.",
             "Packets are decrypted at each hop; thus, more points of vulnerability exist."
           ]
         }
@@ -6479,25 +6042,16 @@
         {
           "type": "list",
           "items": [
-            "Keep your software’s security patches up to date. Ideally, all your software gets patched",
+            "Keep your software’s security patches up to date. Ideally, all your software gets patched automatically.",
             "Use host-based antimalware software and ensure the signatures are up to date.",
             "Use spam filters for your e-mail.",
-            "Never open attachments from unknown sources. As a matter of fact, even if you know the"
+            "Never open attachments from unknown sources. As a matter of fact, even if you know the source, don’t open unexpected attachments without first checking with that person. (It is way too easy to spoof an e-mail’s source address.)",
+            "Before clicking a link in an e-mail, float your mouse over it (or right-click the link) to see where it will actually take you. If in doubt (and you trust the site), type the URL in the web"
           ]
         },
         {
           "type": "paragraph",
-          "text": "source, don’t open unexpected attachments without first checking with that person. (It is way too easy to spoof an e-mail’s source address.)"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Before clicking a link in an e-mail, float your mouse over it (or right-click the link) to see"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "where it will actually take you. If in doubt (and you trust the site), type the URL in the web browser yourself rather than clicking the link."
+          "text": "browser yourself rather than clicking the link."
         },
         {
           "type": "list",
@@ -6534,32 +6088,19 @@
         {
           "type": "list",
           "items": [
-            "Host based Conceptually, this is the simplest hijacking attack in that the adversary just"
+            "Host based Conceptually, this is the simplest hijacking attack in that the adversary just changes the IP settings of the victim’s computer to point to the rogue DNS server."
           ]
         },
         {
           "type": "paragraph",
-          "text": "changes the IP settings of the victim’s computer to point to the rogue DNS server. Obviously, this requires physical or logical access to the target and typically calls for administrator privileges on it."
+          "text": "Obviously, this requires physical or logical access to the target and typically calls for administrator privileges on it."
         },
         {
           "type": "list",
           "items": [
-            "Network based In this approach, the adversary is in your network, but not in the client or"
+            "Network based In this approach, the adversary is in your network, but not in the client or the DNS server. He could use a technique such as ARP table cache poisoning, described earlier in this chapter, to redirect DNS traffic to his own server.",
+            "Server based If the legitimate DNS server is not configured properly, an attacker can tell this server that his own rouge server is the authoritative one for whatever domains he wants to hijack. Thereafter, whenever the legitimate server receives a request for the hijacked domains, it will forward it to the rogue server automatically."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the DNS server. He could use a technique such as ARP table cache poisoning, described earlier in this chapter, to redirect DNS traffic to his own server."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Server based If the legitimate DNS server is not configured properly, an attacker can tell"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "this server that his own rouge server is the authoritative one for whatever domains he wants to hijack. Thereafter, whenever the legitimate server receives a request for the hijacked domains, it will forward it to the rogue server automatically."
         },
         {
           "type": "paragraph",
@@ -6572,32 +6113,10 @@
         {
           "type": "list",
           "items": [
-            "Host based Again, the standard defensive measures we’ve covered before for end-user"
+            "Host based Again, the standard defensive measures we’ve covered before for end-user computers apply here. The attackers need to compromise your computer first, so if you can keep them out, then this vector is more difficult for them.",
+            "Network based Since this attack relies on manipulating network traffic with techniques such as ARP poisoning, watching your network is your best bet. Every popular network intrusion detection system (NIDS) available today has the ability to detect this.",
+            "Server based A properly configured DNS server will be a lot more resistant to this sort of attack. If you are unfamiliar with the ins and outs of DNS configuration, find a friend who is or hire a contractor. It will be worth it! Better yet, implement DNSSEC in your organization to drive the risk even lower."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "computers apply here. The attackers need to compromise your computer first, so if you can keep them out, then this vector is more difficult for them."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Network based Since this attack relies on manipulating network traffic with techniques"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "such as ARP poisoning, watching your network is your best bet. Every popular network intrusion detection system (NIDS) available today has the ability to detect this."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Server based A properly configured DNS server will be a lot more resistant to this sort of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "attack. If you are unfamiliar with the ins and outs of DNS configuration, find a friend who is or hire a contractor. It will be worth it! Better yet, implement DNSSEC in your organization to drive the risk even lower."
         }
       ]
     },
@@ -6640,36 +6159,9 @@
           "type": "list",
           "items": [
             "A protocol is a set of rules that dictates how computers communicate over networks.",
-            "The application layer, layer 7, has services and protocols required by the user’s applications"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "for networking functionality."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The presentation layer, layer 6, formats data into a standardized format and deals with the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "syntax of the data, not the meaning."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The session layer, layer 5, sets up, maintains, and breaks down the dialog (session) between"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "two applications. It controls the dialog organization and synchronization."
-        },
-        {
-          "type": "list",
-          "items": [
+            "The application layer, layer 7, has services and protocols required by the user’s applications for networking functionality.",
+            "The presentation layer, layer 6, formats data into a standardized format and deals with the syntax of the data, not the meaning.",
+            "The session layer, layer 5, sets up, maintains, and breaks down the dialog (session) between two applications. It controls the dialog organization and synchronization.",
             "The transport layer, layer 4, provides end-to-end transmissions.",
             "The network layer, layer 3, provides routing, addressing, and fragmentation of packets."
           ]
@@ -6682,26 +6174,8 @@
           "type": "list",
           "items": [
             "Routers work at the network layer, layer 3.",
-            "The data link layer, layer 2, prepares data for the network medium by framing it. This is"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "where the different LAN and WAN technologies work."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The physical layer, layer 1, provides physical connections for transmission and performs"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the electrical encoding of data. This layer transforms bits to electrical signals."
-        },
-        {
-          "type": "list",
-          "items": [
+            "The data link layer, layer 2, prepares data for the network medium by framing it. This is where the different LAN and WAN technologies work.",
+            "The physical layer, layer 1, provides physical connections for transmission and performs the electrical encoding of data. This layer transforms bits to electrical signals.",
             "TCP/IP is a suite of protocols that is the de facto standard for transmitting data across the"
           ]
         },
@@ -6712,37 +6186,10 @@
         {
           "type": "list",
           "items": [
-            "Data is encapsulated as it travels down the network stack on the source computer, and the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "process is reversed on the destination computer. During encapsulation, each layer adds its own information so the corresponding layer on the destination computer knows how to process the data."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Data is encapsulated as it travels down the network stack on the source computer, and the process is reversed on the destination computer. During encapsulation, each layer adds its own information so the corresponding layer on the destination computer knows how to process the data.",
             "Two main protocols at the transport layer are TCP and UDP.",
-            "UDP is a connectionless protocol that does not send or receive acknowledgments when a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "datagram is received. It does not ensure data arrives at its destination. It provides “best- effort” delivery."
-        },
-        {
-          "type": "list",
-          "items": [
-            "TCP is a connection-oriented protocol that sends and receives acknowledgments. It ensures"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "data arrives at the destination."
-        },
-        {
-          "type": "list",
-          "items": [
+            "UDP is a connectionless protocol that does not send or receive acknowledgments when a datagram is received. It does not ensure data arrives at its destination. It provides “best- effort” delivery.",
+            "TCP is a connection-oriented protocol that sends and receives acknowledgments. It ensures data arrives at the destination.",
             "ARP translates the IP address into a MAC address (physical Ethernet address), while"
           ]
         },
@@ -6753,16 +6200,7 @@
         {
           "type": "list",
           "items": [
-            "ICMP works at the network layer and informs hosts, routers, and devices of network or"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "computer problems. It is the major component of the ping utility."
-        },
-        {
-          "type": "list",
-          "items": [
+            "ICMP works at the network layer and informs hosts, routers, and devices of network or computer problems. It is the major component of the ping utility.",
             "DNS resolves hostnames into IP addresses and has distributed databases all over the"
           ]
         },
@@ -6783,320 +6221,41 @@
         {
           "type": "list",
           "items": [
-            "Packet filtering (screening routers) is accomplished by ACLs and is a first-generation"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "firewall. Traffic can be filtered by addresses, ports, and protocol types."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Tunneling protocols move frames from one network to another by placing them inside of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "routable encapsulated frames."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Packet filtering provides application independence, high performance, and scalability, but it"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "provides low security and no protection above the network layer."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Dual-homed firewalls can be bypassed if the operating system does not have packet"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "forwarding or routing disabled."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Firewalls that use proxies transfer an isolated copy of each approved packet from one"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "network to another network."
-        },
-        {
-          "type": "list",
-          "items": [
-            "An application proxy requires a proxy for each approved service and can understand and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "make access decisions on the protocols used and the commands within those protocols."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Circuit-level firewalls also use proxies but at a lower layer. Circuit-level firewalls do not"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "look as deep within the packet as application proxies do."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A proxy firewall is the middleman in communication. It does not allow anyone to connect"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "directly to a protected host within the internal network. Proxy firewalls are second- generation firewalls."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Application proxy firewalls provide high security and have full application-layer"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "awareness, but they can have poor performance, limited application support, and poor scalability."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Stateful inspection keeps track of each communication session. It must maintain a state"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "table that contains data about each connection. It is a third-generation firewall."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Packet filtering (screening routers) is accomplished by ACLs and is a first-generation firewall. Traffic can be filtered by addresses, ports, and protocol types.",
+            "Tunneling protocols move frames from one network to another by placing them inside of routable encapsulated frames.",
+            "Packet filtering provides application independence, high performance, and scalability, but it provides low security and no protection above the network layer.",
+            "Dual-homed firewalls can be bypassed if the operating system does not have packet forwarding or routing disabled.",
+            "Firewalls that use proxies transfer an isolated copy of each approved packet from one network to another network.",
+            "An application proxy requires a proxy for each approved service and can understand and make access decisions on the protocols used and the commands within those protocols.",
+            "Circuit-level firewalls also use proxies but at a lower layer. Circuit-level firewalls do not look as deep within the packet as application proxies do.",
+            "A proxy firewall is the middleman in communication. It does not allow anyone to connect directly to a protected host within the internal network. Proxy firewalls are second- generation firewalls.",
+            "Application proxy firewalls provide high security and have full application-layer awareness, but they can have poor performance, limited application support, and poor scalability.",
+            "Stateful inspection keeps track of each communication session. It must maintain a state table that contains data about each connection. It is a third-generation firewall.",
             "VPN can use PPTP, L2TP, TLS, or IPSec as tunneling protocols.",
-            "PPTP works at the data link layer and can only handle one connection. IPSec works at the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "network layer and can handle multiple tunnels at the same time."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Dedicated links are usually the most expensive type of WAN connectivity method because"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the fee is based on the distance between the two destinations rather than on the amount of bandwidth used. T1 and T3 are examples of dedicated links."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Frame relay and X.25 are packet-switched WAN technologies that use virtual circuits"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "instead of dedicated ones."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A switch in star topologies serves as the central meeting place for all cables from"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "computers and devices."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A switch is a device with combined repeater and bridge technology. It works at the data"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "link layer and understands MAC addresses."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Routers link two or more network segments, where each segment can function as an"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "independent network. A router works at the network layer, works with IP addresses, and has more network knowledge than bridges, switches, or repeaters."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A bridge filters by MAC addresses and forwards broadcast traffic. A router filters by IP"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "addresses and does not forward broadcast traffic."
-        },
-        {
-          "type": "list",
-          "items": [
+            "PPTP works at the data link layer and can only handle one connection. IPSec works at the network layer and can handle multiple tunnels at the same time.",
+            "Dedicated links are usually the most expensive type of WAN connectivity method because the fee is based on the distance between the two destinations rather than on the amount of bandwidth used. T1 and T3 are examples of dedicated links.",
+            "Frame relay and X.25 are packet-switched WAN technologies that use virtual circuits instead of dedicated ones.",
+            "A switch in star topologies serves as the central meeting place for all cables from computers and devices.",
+            "A switch is a device with combined repeater and bridge technology. It works at the data link layer and understands MAC addresses.",
+            "Routers link two or more network segments, where each segment can function as an independent network. A router works at the network layer, works with IP addresses, and has more network knowledge than bridges, switches, or repeaters.",
+            "A bridge filters by MAC addresses and forwards broadcast traffic. A router filters by IP addresses and does not forward broadcast traffic.",
             "Layer 3 switching combines switching and routing technology.",
             "Attenuation is the loss of signal strength when a cable exceeds its maximum length.",
-            "STP and UTP are twisted-pair cabling types that are the most popular, cheapest, and easiest"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "to work with. However, they are the easiest to tap into, have crosstalk issues, and are vulnerable to EMI and RFI."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Fiber-optic cabling carries data as light waves, is expensive, can transmit data at high"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "speeds, is difficult to tap into, and is resistant to EMI and RFI. If security is extremely important, fiber-optic cabling should be used."
-        },
-        {
-          "type": "list",
-          "items": [
-            "ATM transfers data in fixed cells, is a WAN technology, and transmits data at very high"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "rates. It supports voice, data, and video applications."
-        },
-        {
-          "type": "list",
-          "items": [
-            "FDDI is a LAN and MAN technology, usually used for backbones, that uses token-passing"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "technology and has redundant rings in case the primary ring goes down."
-        },
-        {
-          "type": "list",
-          "items": [
+            "STP and UTP are twisted-pair cabling types that are the most popular, cheapest, and easiest to work with. However, they are the easiest to tap into, have crosstalk issues, and are vulnerable to EMI and RFI.",
+            "Fiber-optic cabling carries data as light waves, is expensive, can transmit data at high speeds, is difficult to tap into, and is resistant to EMI and RFI. If security is extremely important, fiber-optic cabling should be used.",
+            "ATM transfers data in fixed cells, is a WAN technology, and transmits data at very high rates. It supports voice, data, and video applications.",
+            "FDDI is a LAN and MAN technology, usually used for backbones, that uses token-passing technology and has redundant rings in case the primary ring goes down.",
             "Token Ring, 802.5, is an older LAN implementation that uses a token-passing technology.",
-            "Ethernet uses CSMA/CD, which means all computers compete for the shared network"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "cable, listen to learn when they can transmit data, and are susceptible to data collisions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Circuit-switching technologies set up a circuit that will be used during a data transmission"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "session. Packet-switching technologies do not set up circuits—instead, packets can travel along many different routes to arrive at the same destination."
-        },
-        {
-          "type": "list",
-          "items": [
-            "ISDN has a BRI rate that uses two B channels and one D channel, and a PRI rate that uses"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "up to 23 B channels and one D channel. They support voice, data, and video."
-        },
-        {
-          "type": "list",
-          "items": [
-            "PPP is an encapsulation protocol for telecommunication connections. It replaced SLIP and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "is ideal for connecting different types of devices over serial lines."
-        },
-        {
-          "type": "list",
-          "items": [
-            "PAP sends credentials in cleartext, and CHAP authenticates using a challenge/response"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "mechanism and therefore does not send passwords over the network."
-        },
-        {
-          "type": "list",
-          "items": [
-            "SOCKS is a proxy-based firewall solution. It is a circuit-based proxy firewall and does not"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "use application-based proxies."
-        },
-        {
-          "type": "list",
-          "items": [
-            "IPSec tunnel mode protects the payload and header information of a packet, while IPSec"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "transport mode protects only the payload."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A screened-host firewall lies between the perimeter router and the LAN, and a screened"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "subnet is a DMZ created by two physical firewalls."
-        },
-        {
-          "type": "list",
-          "items": [
-            "NAT is used when companies do not want systems to know internal hosts’ addresses, and it"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "enables companies to use private, nonroutable IP addresses."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The 802.15 standard outlines wireless personal area network (WPAN) technologies, and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "802.16 addresses wireless MAN technologies."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Ethernet uses CSMA/CD, which means all computers compete for the shared network cable, listen to learn when they can transmit data, and are susceptible to data collisions.",
+            "Circuit-switching technologies set up a circuit that will be used during a data transmission session. Packet-switching technologies do not set up circuits—instead, packets can travel along many different routes to arrive at the same destination.",
+            "ISDN has a BRI rate that uses two B channels and one D channel, and a PRI rate that uses up to 23 B channels and one D channel. They support voice, data, and video.",
+            "PPP is an encapsulation protocol for telecommunication connections. It replaced SLIP and is ideal for connecting different types of devices over serial lines.",
+            "PAP sends credentials in cleartext, and CHAP authenticates using a challenge/response mechanism and therefore does not send passwords over the network.",
+            "SOCKS is a proxy-based firewall solution. It is a circuit-based proxy firewall and does not use application-based proxies.",
+            "IPSec tunnel mode protects the payload and header information of a packet, while IPSec transport mode protects only the payload.",
+            "A screened-host firewall lies between the perimeter router and the LAN, and a screened subnet is a DMZ created by two physical firewalls.",
+            "NAT is used when companies do not want systems to know internal hosts’ addresses, and it enables companies to use private, nonroutable IP addresses.",
+            "The 802.15 standard outlines wireless personal area network (WPAN) technologies, and 802.16 addresses wireless MAN technologies.",
             "Environments can be segmented into different WLANs by using different SSIDs.",
             "The 802.11b standard works in the 2.4-GHz range at 11 Mbps, and 802.11a works in the 5-"
           ]
@@ -7108,161 +6267,35 @@
         {
           "type": "list",
           "items": [
-            "IPv4 uses 32 bits for its addresses, whereas IPv6 uses 128 bits; thus, IPv6 provides more"
+            "IPv4 uses 32 bits for its addresses, whereas IPv6 uses 128 bits; thus, IPv6 provides more possible addresses with which to work.",
+            "Subnetting allows large IP ranges to be divided into smaller, logical, and easier-to-maintain network segments.",
+            "SIP (Session Initiation Protocol) is a signaling protocol widely used for VoIP communications sessions.",
+            "Open relay is an SMTP server that is configured in such a way that it can transmit e-mail messages from any source to any destination.",
+            "SNMP uses agents and managers. Agents collect and maintain device-oriented data, which is held in management information bases. Managers poll the agents using community string"
           ]
         },
         {
           "type": "paragraph",
-          "text": "possible addresses with which to work."
+          "text": "values for authentication purposes."
         },
         {
           "type": "list",
           "items": [
-            "Subnetting allows large IP ranges to be divided into smaller, logical, and easier-to-maintain",
-            "SIP (Session Initiation Protocol) is a signaling protocol widely used for VoIP"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "communications sessions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Open relay is an SMTP server that is configured in such a way that it can transmit e-mail"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "messages from any source to any destination."
-        },
-        {
-          "type": "list",
-          "items": [
-            "SNMP uses agents and managers. Agents collect and maintain device-oriented data, which"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "is held in management information bases. Managers poll the agents using community string values for authentication purposes."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Three main types of multiplexing are statistical time division, frequency division, and wave",
-            "Real-time Transport Protocol (RTP) provides a standardized packet format for delivering"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "audio and video over IP networks. It works with RTP Control Protocol, which provides out-of-band statistics and control information to provide feedback on QoS levels."
-        },
-        {
-          "type": "list",
-          "items": [
-            "802.1AR provides a unique ID for a device. 802.1AE provides data encryption, integrity,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and origin authentication functionality at the data link level. 802.1AF carries out key agreement functions for the session keys used for data encryption. Each of these standards provides specific parameters to work within an 802.1X EAP-TLS framework."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Lightweight EAP was developed by Cisco and was the first implementation of EAP and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "802.1X for wireless networks. It uses preshared keys and MS-CHAP to authenticate client and server to each other."
-        },
-        {
-          "type": "list",
-          "items": [
-            "In EAP-TLS the client and server authenticate to each other using digital certificates. The"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "client generates a pre-master secret key by encrypting a random number with the server’s public key and sends it to the server."
-        },
-        {
-          "type": "list",
-          "items": [
-            "EAP-TTLS is similar to EAP-TLS, but only the server must use a digital certification for"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "authentication to the client. The client can use any other EAP authentication method or legacy PAP or CHAP methods."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Network convergence means the combining of server, storage, and network capabilities"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "into a single framework."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Mobile telephony has gone through different generations and multiple access technologies:"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "1G (FDMA), 2G (TDMA), 3G (CDMA), and 4G (OFDM)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Link encryption is limited to two directly connected devices, so the message must be"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "decrypted (and potentially re-encrypted) at each hop."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Three main types of multiplexing are statistical time division, frequency division, and wave division.",
+            "Real-time Transport Protocol (RTP) provides a standardized packet format for delivering audio and video over IP networks. It works with RTP Control Protocol, which provides out-of-band statistics and control information to provide feedback on QoS levels.",
+            "802.1AR provides a unique ID for a device. 802.1AE provides data encryption, integrity, and origin authentication functionality at the data link level. 802.1AF carries out key agreement functions for the session keys used for data encryption. Each of these standards provides specific parameters to work within an 802.1X EAP-TLS framework.",
+            "Lightweight EAP was developed by Cisco and was the first implementation of EAP and 802.1X for wireless networks. It uses preshared keys and MS-CHAP to authenticate client and server to each other.",
+            "In EAP-TLS the client and server authenticate to each other using digital certificates. The client generates a pre-master secret key by encrypting a random number with the server’s public key and sends it to the server.",
+            "EAP-TTLS is similar to EAP-TLS, but only the server must use a digital certification for authentication to the client. The client can use any other EAP authentication method or legacy PAP or CHAP methods.",
+            "Network convergence means the combining of server, storage, and network capabilities into a single framework.",
+            "Mobile telephony has gone through different generations and multiple access technologies: 1G (FDMA), 2G (TDMA), 3G (CDMA), and 4G (OFDM).",
+            "Link encryption is limited to two directly connected devices, so the message must be decrypted (and potentially re-encrypted) at each hop.",
             "The Point-to-Point Tunneling Protocol is an example of a link encryption technology.",
-            "End-to-end encryption involves the source and destination nodes, so the message is not"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "decrypted by intermediate nodes."
-        },
-        {
-          "type": "list",
-          "items": [
+            "End-to-end encryption involves the source and destination nodes, so the message is not decrypted by intermediate nodes.",
             "Transport Layer Security (TLS) is an example of an end-to-end encryption technology.",
-            "Multipurpose Internet Mail Extensions (MIME) is a technical specification indicating how"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "multimedia data and e-mail binary attachments are to be transferred."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Secure MIME (S/MIME) is a standard for encrypting and digitally signing e-mail and for"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "providing secure data transmissions using public key infrastructure (PKI)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Pretty Good Privacy (PGP) is a freeware e-mail security program that uses PKI based on a",
+            "Multipurpose Internet Mail Extensions (MIME) is a technical specification indicating how multimedia data and e-mail binary attachments are to be transferred.",
+            "Secure MIME (S/MIME) is a standard for encrypting and digitally signing e-mail and for providing secure data transmissions using public key infrastructure (PKI).",
+            "Pretty Good Privacy (PGP) is a freeware e-mail security program that uses PKI based on a web of trust.",
             "S/MIME and PGP are incompatible because the former uses centralized, hierarchical"
           ]
         },
@@ -7284,26 +6317,8 @@
           "type": "list",
           "items": [
             "SSL was formally deprecated in June of 2015.",
-            "Cookies are text files that a browser maintains on a user’s hard drive or memory segment in"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "order to remember the user or maintain the state of a web application."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Secure Shell (SSH) functions as a type of tunneling mechanism that provides terminal-like"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "access to remote computers."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Cookies are text files that a browser maintains on a user’s hard drive or memory segment in order to remember the user or maintain the state of a web application.",
+            "Secure Shell (SSH) functions as a type of tunneling mechanism that provides terminal-like access to remote computers.",
             "A denial-of-service (DoS) attack results in a service or resource being degraded or made"
           ]
         },
@@ -7314,8 +6329,8 @@
         {
           "type": "list",
           "items": [
-            "DNS hijacking is an attack that forces the victim to use a malicious DNS server instead of",
-            "DNS hijacking is an attack that forces the victim to use a malicious DNS server instead of"
+            "DNS hijacking is an attack that forces the victim to use a malicious DNS server instead of the legitimate one.",
+            "DNS hijacking is an attack that forces the victim to use a malicious DNS server instead of the legitimate one."
           ]
         }
       ]
@@ -7327,51 +6342,17 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list. 1. How does TKIP provide more protection for WLAN environments?"
+          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list."
         },
         {
-          "type": "paragraph",
-          "text": "A. It uses the AES algorithm."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It decreases the IV size and uses the AES algorithm."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It adds more keying material."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. It uses MAC and IP filtering. 2. Which of the following is not a characteristic of the IEEE 802.11a standard?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. It works in the 5-GHz range."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It uses the OFDM spread spectrum technology."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It provides 52 Mbps in bandwidth."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. It covers a smaller distance than 802.11b. 3. Why are switched infrastructures safer environments than routed networks?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. It is more difficult to sniff traffic since the computers have virtual private connections. B. They are just as unsafe as nonswitched environments."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. The data link encryption does not permit wiretapping."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Switches are more intelligent than bridges and implement security mechanisms. 4. Which of the following protocols is considered connection-oriented?"
+          "type": "list",
+          "items": [
+            "How does TKIP provide more protection for WLAN environments? A. It uses the AES algorithm. B. It decreases the IV size and uses the AES algorithm. C. It adds more keying material. D. It uses MAC and IP filtering.",
+            "Which of the following is not a characteristic of the IEEE 802.11a standard? A. It works in the 5-GHz range. B. It uses the OFDM spread spectrum technology. C. It provides 52 Mbps in bandwidth. D. It covers a smaller distance than 802.11b.",
+            "Why are switched infrastructures safer environments than routed networks? A. It is more difficult to sniff traffic since the computers have virtual private connections. B. They are just as unsafe as nonswitched environments. C. The data link encryption does not permit wiretapping. D. Switches are more intelligent than bridges and implement security mechanisms.",
+            "Which of the following protocols is considered connection-oriented?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7382,7 +6363,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. ICMP C. UDP D. TCP 5. Which of the following can take place if an attacker can insert tagging values into network- and switch-based protocols with the goal of manipulating traffic at the data link layer? A. Open relay manipulation B. VLAN hopping attack C. Hypervisor denial-of-service attack D. Smurf attack 6. Which of the following proxies cannot make access decisions based upon protocol commands?"
+          "text": "B. ICMP C. UDP D. TCP"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following can take place if an attacker can insert tagging values into network- and switch-based protocols with the goal of manipulating traffic at the data link layer? A. Open relay manipulation B. VLAN hopping attack C. Hypervisor denial-of-service attack D. Smurf attack",
+            "Which of the following proxies cannot make access decisions based upon protocol commands?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7392,64 +6381,17 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "D. Stateful 7. Which of the following is a bridge-mode technology that can monitor individual traffic links between virtual machines or can be integrated within a hypervisor component? A. Orthogonal frequency division B. Unified threat management modem C. Virtual firewall D. Internet Security Association and Key Management Protocol 8. Which of the following shows the layer sequence as layers 2, 5, 7, 4, and 3?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Data link, session, application, transport, and network B. Data link, transport, application, session, and network C. Network, session, application, network, and transport D. Network, transport, application, session, and presentation 9. Which of the following technologies integrates previously independent security solutions with the goal of providing simplicity, centralized control, and streamlined processes? A. Network convergence B. Security as a service C. Unified threat management D. Integrated convergence management 10. Metro Ethernet is a MAN protocol that can work in network infrastructures made up of access, aggregation, metro, and core layers. Which of the following best describes these network infrastructure layers?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. The access layer connects the customer’s equipment to a service provider’s aggregation network. Aggregation occurs on a core network. The metro layer is the metropolitan area network. The core connects different metro networks."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. The access layer connects the customer’s equipment to a service provider’s core network. Aggregation occurs on a distribution network at the core. The metro layer is the metropolitan area network."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. The access layer connects the customer’s equipment to a service provider’s aggregation network. Aggregation occurs on a distribution network. The metro layer is the metropolitan area network. The core connects different access layers."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. The access layer connects the customer’s equipment to a service provider’s aggregation network. Aggregation occurs on a distribution network. The metro layer is the metropolitan area network. The core connects different metro networks. 11. Which of the following provides an incorrect definition of the specific component or protocol that makes up IPSec?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Authentication Header protocol provides data integrity, data origin authentication, and protection from replay attacks."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Encapsulating Security Payload protocol provides confidentiality, data origin authentication, and data integrity."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Internet Security Association and Key Management Protocol provides a framework for security association creation and key exchange."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Internet Key Exchange provides authenticated keying material for use with encryption algorithms."
-        },
-        {
-          "type": "paragraph",
-          "text": "12. Systems that are built on the OSI framework are considered open systems. What does this mean?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. They do not have authentication mechanisms configured by default."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. They have interoperability issues."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. They are built with internationally accepted protocols and standards so they can easily communicate with other systems."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. They are built with international protocols and standards so they can choose what types of systems they will communicate with. 13. Which of the following protocols work in the following layers: application, data link, network, and transport?"
+          "type": "list",
+          "items": [
+            "Which of the following is a bridge-mode technology that can monitor individual traffic links between virtual machines or can be integrated within a hypervisor component? A. Orthogonal frequency division B. Unified threat management modem C. Virtual firewall D. Internet Security Association and Key Management Protocol",
+            "Which of the following shows the layer sequence as layers 2, 5, 7, 4, and 3? A. Data link, session, application, transport, and network B. Data link, transport, application, session, and network C. Network, session, application, network, and transport D. Network, transport, application, session, and presentation",
+            "Which of the following technologies integrates previously independent security solutions with the goal of providing simplicity, centralized control, and streamlined processes? A. Network convergence B. Security as a service C. Unified threat management D. Integrated convergence management",
+            "Metro Ethernet is a MAN protocol that can work in network infrastructures made up of access, aggregation, metro, and core layers. Which of the following best describes these network infrastructure layers? A. The access layer connects the customer’s equipment to a service provider’s aggregation network. Aggregation occurs on a core network. The metro layer is the metropolitan area network. The core connects different metro networks. B. The access layer connects the customer’s equipment to a service provider’s core network. Aggregation occurs on a distribution network at the core. The metro layer is the metropolitan area network. C. The access layer connects the customer’s equipment to a service provider’s aggregation network. Aggregation occurs on a distribution network. The metro layer is the metropolitan area network. The core connects different access layers. D. The access layer connects the customer’s equipment to a service provider’s aggregation network. Aggregation occurs on a distribution network. The metro layer is the metropolitan area network. The core connects different metro networks.",
+            "Which of the following provides an incorrect definition of the specific component or protocol that makes up IPSec? A. Authentication Header protocol provides data integrity, data origin authentication, and protection from replay attacks. B. Encapsulating Security Payload protocol provides confidentiality, data origin authentication, and data integrity. C. Internet Security Association and Key Management Protocol provides a framework for security association creation and key exchange. D. Internet Key Exchange provides authenticated keying material for use with encryption algorithms.",
+            "Systems that are built on the OSI framework are considered open systems. What does this mean? A. They do not have authentication mechanisms configured by default. B. They have interoperability issues. C. They are built with internationally accepted protocols and standards so they can easily communicate with other systems. D. They are built with international protocols and standards so they can choose what types of systems they will communicate with.",
+            "Which of the following protocols work in the following layers: application, data link, network, and transport?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7460,23 +6402,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. FTP, ICMP, IP, and UDP C. TFTP, ARP, IP, and UDP D. TFTP, RARP, IP, and ICMP 14. What takes place at the data link layer?"
+          "text": "B. FTP, ICMP, IP, and UDP C. TFTP, ARP, IP, and UDP D. TFTP, RARP, IP, and ICMP"
         },
         {
-          "type": "paragraph",
-          "text": "A. End-to-end connection B. Dialog control C. Framing D. Data syntax 15. What takes place at the session layer?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Dialog control B. Routing C. Packet sequencing D. Addressing 16. Which best describes the IP protocol?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. A connectionless protocol that deals with dialog establishment, maintenance, and destruction B. A connectionless protocol that deals with the addressing and routing of packets C. A connection-oriented protocol that deals with the addressing and routing of packets D. A connection-oriented protocol that deals with sequencing, error detection, and flow control 17. Which of the following is not a characteristic of the Protected Extensible Authentication Protocol?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Authentication protocol used in wireless networks and point-to-point connections B. Designed to provide authentication for 802.11 WLANs C. Designed to support 802.1X port access control and Transport Layer Security D. Designed to support password-protected connections 18. The ______________ is an IETF-defined signaling protocol, widely used for controlling multimedia communication sessions such as voice and video calls over IP."
+          "type": "list",
+          "items": [
+            "What takes place at the data link layer? A. End-to-end connection B. Dialog control C. Framing D. Data syntax",
+            "What takes place at the session layer? A. Dialog control B. Routing C. Packet sequencing D. Addressing",
+            "Which best describes the IP protocol? A. A connectionless protocol that deals with dialog establishment, maintenance, and destruction B. A connectionless protocol that deals with the addressing and routing of packets C. A connection-oriented protocol that deals with the addressing and routing of packets D. A connection-oriented protocol that deals with sequencing, error detection, and flow control",
+            "Which of the following is not a characteristic of the Protected Extensible Authentication Protocol? A. Authentication protocol used in wireless networks and point-to-point connections B. Designed to provide authentication for 802.11 WLANs C. Designed to support 802.1X port access control and Transport Layer Security D. Designed to support password-protected connections",
+            "The ______________ is an IETF-defined signaling protocol, widely used for controlling multimedia communication sessions such as voice and video calls over IP."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7497,8 +6434,11 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "19. Which of the following is not one of the stages of the DHCP lease process?"
+          "type": "list",
+          "items": [
+            "Which of the following is not one of the stages of the DHCP lease process?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7509,47 +6449,31 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "ii. Offer iii. Request iv. Acknowledgment A. All of them B. None of them C. i, ii D. ii, iii 20. An effective method to shield networks from unauthenticated DHCP clients is through the use of _______________ on network switches."
+          "text": "ii. Offer iii. Request iv. Acknowledgment A. All of them B. None of them C. i, ii D. ii, iii"
+        },
+        {
+          "type": "list",
+          "items": [
+            "An effective method to shield networks from unauthenticated DHCP clients is through the use of _______________ on network switches. A. DHCP snooping B. DHCP protection C. DHCP shielding D. DHCP caching Use the following scenario to answer Questions 21–23. Don is a security manager of a large medical institution. One of his groups develops proprietary software that provides distributed computing through a client/server model. He has found out that some of the systems that maintain the proprietary software have been experiencing half-open denial-of-service attacks. Some of the software is antiquated and still uses basic remote procedure calls, which has allowed for masquerading attacks to take place.",
+            "What type of client ports should Don make sure the institution’s software is using when client-to-server communication needs to take place? A. Well known B. Registered C. Dynamic D. Free",
+            "Which of the following is a cost-effective countermeasure that Don’s team should implement? A. Stateful firewall B. Network address translation C. SYN proxy D. IPv6",
+            "What should Don’s team put into place to stop the masquerading attacks that have been taking place? A. Dynamic packet-filtering firewall B. ARP spoofing protection C. Disable unnecessary ICMP traffic at edge routers D. SRPC Use the following scenario to answer Questions 24–26. Grace is a security administrator for a medical institution and is responsible for many different teams. One team has reported that when their main FDDI connection failed, three critical systems went offline even though the"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. DHCP snooping B. DHCP protection C. DHCP shielding D. DHCP caching Use the following scenario to answer Questions 21–23. Don is a security manager of a large medical institution. One of his groups develops proprietary software that provides distributed computing through a client/server model. He has found out that some of the systems that maintain the proprietary software have been experiencing half-open denial-of-service attacks. Some of the software is antiquated and still uses basic remote procedure calls, which has allowed for masquerading attacks to take place. 21. What type of client ports should Don make sure the institution’s software is using when client-to-server communication needs to take place?"
+          "text": "connection was supposed to provide redundancy. Grace has to also advise her team on the type of fiber that should be implemented for campus building-to-building connectivity. Since this is a medical training facility, many surgeries are video recorded and that data must continuously travel from one building to the next. One other thing that has been reported to Grace is that periodic DoS attacks take place against specific servers within the internal network. The attacker sends excessive ICMP Echo Request packets to all the hosts on a specific subnet, which is aimed at one specific server."
         },
         {
-          "type": "paragraph",
-          "text": "A. Well known B. Registered C. Dynamic D. Free 22. Which of the following is a cost-effective countermeasure that Don’s team should implement?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Stateful firewall B. Network address translation C. SYN proxy D. IPv6 23. What should Don’s team put into place to stop the masquerading attacks that have been taking place?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Dynamic packet-filtering firewall B. ARP spoofing protection C. Disable unnecessary ICMP traffic at edge routers D. SRPC Use the following scenario to answer Questions 24–26. Grace is a security administrator for a medical institution and is responsible for many different teams. One team has reported that when their main FDDI connection failed, three critical systems went offline even though the connection was supposed to provide redundancy. Grace has to also advise her team on the type of fiber that should be implemented for campus building-to-building connectivity. Since this is a medical training facility, many surgeries are video recorded and that data must continuously travel from one building to the next. One other thing that has been reported to Grace is that periodic DoS attacks take place against specific servers within the internal network. The attacker sends excessive ICMP Echo Request packets to all the hosts on a specific subnet, which is aimed at one specific server. 24. Which of the following is most likely the issue that Grace’s team experienced when their systems went offline?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Three critical systems were connected to a dual-attached station."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Three critical systems were connected to a single-attached station."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. The secondary FDDI ring was overwhelmed with traffic and dropped the three critical systems."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. The FDDI ring is shared in a metropolitan environment and only allows each company to have a certain number of systems connected to both rings. 25. Which of the following is the best type of fiber that should be implemented in this scenario?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Single mode B. Multimode C. Optical carrier D. SONET 26. Which of the following is the best and most cost-effective countermeasure for Grace’s team to put into place?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Network address translation B. Disallowing unnecessary ICMP traffic coming from untrusted networks C. Application-based proxy firewall D. Screened subnet using two firewalls from two different vendors Use the following scenario to answer Questions 27–29. John is the manager of the security team within his company. He has learned that attackers have installed sniffers throughout the network without the company’s knowledge. Along with this issue his team has also found out that two DNS servers had no record replication restrictions put into place and the servers have been caching suspicious name resolution data. 27. Which of the following is the best countermeasure to put into place to help reduce the threat of network sniffers viewing network management traffic?"
+          "type": "list",
+          "items": [
+            "Which of the following is most likely the issue that Grace’s team experienced when their systems went offline? A. Three critical systems were connected to a dual-attached station. B. Three critical systems were connected to a single-attached station. C. The secondary FDDI ring was overwhelmed with traffic and dropped the three critical systems. D. The FDDI ring is shared in a metropolitan environment and only allows each company to have a certain number of systems connected to both rings.",
+            "Which of the following is the best type of fiber that should be implemented in this scenario? A. Single mode B. Multimode C. Optical carrier D. SONET",
+            "Which of the following is the best and most cost-effective countermeasure for Grace’s team to put into place? A. Network address translation B. Disallowing unnecessary ICMP traffic coming from untrusted networks C. Application-based proxy firewall D. Screened subnet using two firewalls from two different vendors Use the following scenario to answer Questions 27–29. John is the manager of the security team within his company. He has learned that attackers have installed sniffers throughout the network without the company’s knowledge. Along with this issue his team has also found out that two DNS servers had no record replication restrictions put into place and the servers have been caching suspicious name resolution data.",
+            "Which of the following is the best countermeasure to put into place to help reduce the threat of network sniffers viewing network management traffic?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7560,7 +6484,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. L2TP C. CHAP D. Dynamic packet-filtering firewall 28. Which of the following unauthorized activities have most likely been taking place in this situation?"
+          "text": "B. L2TP C. CHAP D. Dynamic packet-filtering firewall"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following unauthorized activities have most likely been taking place in this situation? A. DNS querying B. Phishing"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7570,8 +6501,11 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "D. Zone transfer 29. Which of the following is the best countermeasure that John’s team should implement to protect from improper caching issues?"
+          "type": "list",
+          "items": [
+            "Which of the following is the best countermeasure that John’s team should implement to protect from improper caching issues?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7582,35 +6516,28 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. DHCP snooping C. ARP protection D. DNSSEC Use the following scenario to answer Questions 30–32. Sean is the new security administrator for a large financial institution. There are several issues that Sean is made aware of the first week he is in his new position. First, spurious packets seem to arrive at critical servers even though each network has tightly configured firewalls at each gateway position to control traffic to and from these servers. One of Sean’s team members complains that the current firewall logs are excessively large and full of useless data. He also tells Sean that the team needs to be using fewer permissive rules instead of the current “any-any” rule type in place. Sean has also found out that some team members want to implement tarpits on some of the most commonly attacked systems. 30. Which of the following is most likely taking place to allow spurious packets to gain unauthorized access to critical servers?"
+          "text": "B. DHCP snooping C. ARP protection D. DNSSEC Use the following scenario to answer Questions 30–32. Sean is the new security administrator for a large financial institution. There are several issues that Sean is made aware of the first week he is in his new position. First, spurious packets seem to arrive at critical servers even though each network has tightly configured firewalls at each gateway position to control traffic to and from these servers. One of Sean’s team members complains that the current firewall logs are excessively large and full of useless data. He also tells Sean that the team needs to be using fewer permissive rules instead of the current “any-any” rule type in place. Sean has also found out that some team members want to implement tarpits on some of the most commonly attacked systems."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following is most likely taking place to allow spurious packets to gain unauthorized access to critical servers? A. TCP sequence hijacking is taking place. B. Source routing is not restricted. C. Fragment attacks are underway. D. Attacker is tunneling communication through PPP.",
+            "Which of the following best describes the firewall configuration issues Sean’s team member is describing? A. Clean-up rule, stealth rule B. Stealth rule, silent rule C. Silent rule, negate rule D. Stealth rule, silent rule",
+            "Which of the following best describes why Sean’s team wants to put in the mentioned countermeasure for the most commonly attacked systems? A. Prevent production system hijacking B. Reduce DoS attack effects C. Gather statistics during the process of an attack D. Increase forensic capabilities Use the following scenario to answer Questions 33–35. Tom’s company has been experiencing many issues with unauthorized sniffers being installed on the network. One reason is because employees can plug their laptops, smartphones, and other mobile devices into the network, any of which may be infected and have a running sniffer that the owner is not aware of. Implementing VPNs will not work because all of the network devices would need to be configured for specific VPNs, and some devices, as in their switches, do not have this type of functionality available. Another issue Tom’s team is dealing with is how to secure internal"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. TCP sequence hijacking is taking place."
+          "text": "wireless traffic. While the wireless access points can be configured with digital certificates for authentication, pushing out and maintaining certificates on each wireless user device is cost prohibitive and will place too much of a burden on the network team. Tom’s boss has also told him that the company needs to move from a landline metropolitan area network solution to a wireless solution."
         },
         {
-          "type": "paragraph",
-          "text": "B. Source routing is not restricted."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Fragment attacks are underway."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Attacker is tunneling communication through PPP. 31. Which of the following best describes the firewall configuration issues Sean’s team member is describing?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Clean-up rule, stealth rule B. Stealth rule, silent rule C. Silent rule, negate rule D. Stealth rule, silent rule 32. Which of the following best describes why Sean’s team wants to put in the mentioned countermeasure for the most commonly attacked systems?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Prevent production system hijacking B. Reduce DoS attack effects C. Gather statistics during the process of an attack D. Increase forensic capabilities Use the following scenario to answer Questions 33–35. Tom’s company has been experiencing many issues with unauthorized sniffers being installed on the network. One reason is because employees can plug their laptops, smartphones, and other mobile devices into the network, any of which may be infected and have a running sniffer that the owner is not aware of. Implementing VPNs will not work because all of the network devices would need to be configured for specific VPNs, and some devices, as in their switches, do not have this type of functionality available. Another issue Tom’s team is dealing with is how to secure internal wireless traffic. While the wireless access points can be configured with digital certificates for authentication, pushing out and maintaining certificates on each wireless user device is cost prohibitive and will place too much of a burden on the network team. Tom’s boss has also told him that the company needs to move from a landline metropolitan area network solution to a wireless solution. 33. What should Tom’s team implement to provide source authentication and data encryption at the data link level?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. IEEE 802.1AR B. IEEE 802.1AE C. IEEE 802.1AF D. IEEE 802.1X 34. Which of the following solutions is best to meet the company’s need to protect wireless traffic?"
+          "type": "list",
+          "items": [
+            "What should Tom’s team implement to provide source authentication and data encryption at the data link level? A. IEEE 802.1AR B. IEEE 802.1AE C. IEEE 802.1AF D. IEEE 802.1X",
+            "Which of the following solutions is best to meet the company’s need to protect wireless traffic?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7621,7 +6548,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. EAP-PEAP C. LEAP D. EAP-TTLS 35. Which of the following is the best solution to meet the company’s need for broadband wireless connectivity?"
+          "text": "B. EAP-PEAP C. LEAP D. EAP-TTLS"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following is the best solution to meet the company’s need for broadband wireless connectivity?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7632,15 +6566,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. IEEE 802.12 C. WPA2 D. IEEE 802.15 Use the following scenario to answer Questions 36–38. Lance has been brought in as a new security officer for a large medical equipment company. He has been told that many of the firewalls and IDS products have not been configured to filter IPv6 traffic; thus, many attacks have been taking place without the knowledge of the security team. While the network team has attempted to implement an automated tunneling feature to take care of this issue, they have continually run into problems with the network’s NAT device. Lance has also found out that caching attacks have been successful against the company’s public-facing DNS server. He has also identified that extra authentication is necessary for current LDAP requests, but the current technology only provides password-based authentication options. 36. Based upon the information in the scenario, what should the network team implement as it pertains to IPv6 tunneling?"
+          "text": "B. IEEE 802.12 C. WPA2 D. IEEE 802.15 Use the following scenario to answer Questions 36–38. Lance has been brought in as a new security officer for a large medical equipment company. He has been told that many of the firewalls and IDS products have not been configured to filter IPv6 traffic; thus, many attacks have been taking place without the knowledge of the security team. While the network team has attempted to implement an automated tunneling feature to take care of this issue, they have continually run into problems with the network’s NAT device. Lance has also found out that caching attacks have been successful against the company’s public-facing DNS server. He has also identified that extra authentication is necessary for current LDAP requests, but the current technology only provides password-based authentication options."
         },
         {
-          "type": "paragraph",
-          "text": "A. Teredo should be configured on IPv6-aware hosts that reside behind the NAT device. B. 6to4 should be configured on IPv6-aware hosts that reside behind the NAT device. C. Intra-Site Automatic Tunnel Addressing Protocol should be configured on IPv6-aware hosts that reside behind the NAT device."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. IPv6 should be disabled on all systems. 37. Which of the following is the best countermeasure for the attack type addressed in the scenario?"
+          "type": "list",
+          "items": [
+            "Based upon the information in the scenario, what should the network team implement as it pertains to IPv6 tunneling? A. Teredo should be configured on IPv6-aware hosts that reside behind the NAT device. B. 6to4 should be configured on IPv6-aware hosts that reside behind the NAT device. C. Intra-Site Automatic Tunnel Addressing Protocol should be configured on IPv6-aware hosts that reside behind the NAT device. D. IPv6 should be disabled on all systems.",
+            "Which of the following is the best countermeasure for the attack type addressed in the scenario?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7651,7 +6585,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "C. Split server configurations D. Disabling zone transfers 38. Which of the following technologies should Lance’s team investigate for increased authentication efforts?"
+          "text": "C. Split server configurations D. Disabling zone transfers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following technologies should Lance’s team investigate for increased authentication efforts?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7662,7 +6603,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Simple Authentication and Security Layer C. IEEE 802.2AB D. EAP-SSL 39. Wireless LAN technologies have gone through different versions over the years to address some of the inherent security issues within the original IEEE 802.11 standard. Which of the following provides the correct characteristics of Wi-Fi Protected Access 2 (WPA2)? A. IEEE 802.1X, WEP, MAC B. IEEE 802.1X, EAP, TKIP C. IEEE 802.1X, EAP, WEP D. IEEE 802.1X, EAP, CCMP 40. Alice wants to send a message to Bob, who is several network hops away from her. What is the best approach to protecting the confidentiality of the message?"
+          "text": "B. Simple Authentication and Security Layer C. IEEE 802.2AB D. EAP-SSL"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wireless LAN technologies have gone through different versions over the years to address some of the inherent security issues within the original IEEE 802.11 standard. Which of the following provides the correct characteristics of Wi-Fi Protected Access 2 (WPA2)? A. IEEE 802.1X, WEP, MAC B. IEEE 802.1X, EAP, TKIP C. IEEE 802.1X, EAP, WEP D. IEEE 802.1X, EAP, CCMP",
+            "Alice wants to send a message to Bob, who is several network hops away from her. What is the best approach to protecting the confidentiality of the message?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7673,23 +6622,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. S/MIME C. Link encryption D. SSH 41. Charlie uses PGP on his Linux-based e-mail client. His friend Dave uses S/MIME on his Windows-based e-mail. Charlie is unable to send an encrypted e-mail to Dave. What is the likely reason?"
+          "text": "B. S/MIME C. Link encryption D. SSH"
         },
         {
-          "type": "paragraph",
-          "text": "A. PGP and S/MIME are incompatible."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Each has a different secret key."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Each is using a different CA."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. There is not enough information to determine the likely reason."
+          "type": "list",
+          "items": [
+            "Charlie uses PGP on his Linux-based e-mail client. His friend Dave uses S/MIME on his Windows-based e-mail. Charlie is unable to send an encrypted e-mail to Dave. What is the likely reason? A. PGP and S/MIME are incompatible. B. Each has a different secret key. C. Each is using a different CA. D. There is not enough information to determine the likely reason."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -7699,51 +6639,73 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "1. C. The TKIP protocol actually works with WEP by feeding it keying material, which is data to be used for generating random keystreams. TKIP increases the IV size, ensures it is random for each packet, and adds the sender’s MAC address to the keying material. 2. C. The IEEE standard 802.11a uses the OFDM spread spectrum technology, works in the 5-GHz frequency band, and provides bandwidth of up to 54 Mbps. The operating range is smaller because it works at a higher frequency. 3. A. Switched environments use switches to allow different network segments and/or systems to communicate. When this communication takes place, a virtual connection is set up between the communicating devices. Since it is a dedicated connection, broadcast and collision data are not available to other systems, as in an environment that uses only bridges and routers."
+          "type": "list",
+          "items": [
+            "C. The TKIP protocol actually works with WEP by feeding it keying material, which is data to be used for generating random keystreams. TKIP increases the IV size, ensures it is random for each packet, and adds the sender’s MAC address to the keying material.",
+            "C. The IEEE standard 802.11a uses the OFDM spread spectrum technology, works in the 5-GHz frequency band, and provides bandwidth of up to 54 Mbps. The operating range is smaller because it works at a higher frequency.",
+            "A. Switched environments use switches to allow different network segments and/or systems to communicate. When this communication takes place, a virtual connection is set up between the communicating devices. Since it is a dedicated connection, broadcast and collision data are not available to other systems, as in an environment that uses only bridges and routers.",
+            "D. TCP is the only connection-oriented protocol listed. A connection-oriented protocol provides reliable connectivity and data transmission, while a connectionless protocol provides unreliable connections and does not promise or ensure data transmission.",
+            "B. VLAN hopping attacks allow attackers to gain access to traffic in various VLAN segments. An attacker can have a system act as though it is a switch. The system understands the tagging values being used in the network and the trunking protocols, and can insert itself between other VLAN devices and gain access to the traffic going back and forth. Attackers can also insert tagging values to manipulate the control of traffic at this data link layer.",
+            "C. Application and circuit are the only types of proxy-based firewall solutions listed here. The others do not use proxies. Circuit-based proxy firewalls make decisions based on header information, not the protocol’s command structure. Application-based proxies are the only ones that understand this level of granularity about the individual protocols.",
+            "C. Virtual firewalls can be bridge-mode products, which monitor individual traffic links between virtual machines, or they can be integrated within the hypervisor. The hypervisor is the software component that carries out virtual machine management and oversees guest system software execution. If the firewall is embedded within the hypervisor, then it can “see” and monitor all the activities taking place within the one system.",
+            "A. The OSI model is made up of seven layers: application (layer 7), presentation (layer 6), session (layer 5), transport (layer 4), network (layer 3), data link (layer 2), and physical (layer 1).",
+            "C. It has become very challenging to manage the long laundry list of security solutions almost every network needs to have in place. The list includes, but is not limited to, firewalls, antimalware, antispam, IDS\\IPS, content filtering, data leak prevention, VPN capabilities, and continuous monitoring and reporting. Unified threat management (UTM) appliance products have been developed that provide all (or many) of these functionalities in a single network appliance. The goals of UTM are simplicity, streamlined installation and maintenance, centralized control, and the ability to understand a network’s security from a holistic point of view.",
+            "D. The access layer connects the customer’s equipment to a service provider’s aggregation network. Aggregation occurs on a distribution network. The metro layer is the metropolitan area network. The core connects different metro networks.",
+            "D. Authentication Header protocol provides data integrity, data origin authentication, and protection from replay attacks. Encapsulating Security Payload protocol provides confidentiality, data origin authentication, and data integrity. Internet Security Association and Key Management Protocol provides a framework for security association creation and key exchange. Internet Key Exchange provides authenticated keying material for use with ISAKMP.",
+            "C. An open system is a system that has been developed based on standardized protocols and interfaces. Following these standards allows the systems to interoperate more effectively with other systems that follow the same standards.",
+            "C. Different protocols have different functionalities. The OSI model is an attempt to describe conceptually where these different functionalities take place in a networking stack. The model attempts to draw boxes around reality to help people better understand the stack. Each layer has a specific functionality and has several different protocols that can live at that layer and carry out that specific functionality. These listed protocols work at"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "4. D. TCP is the only connection-oriented protocol listed. A connection-oriented protocol provides reliable connectivity and data transmission, while a connectionless protocol provides unreliable connections and does not promise or ensure data transmission. 5. B. VLAN hopping attacks allow attackers to gain access to traffic in various VLAN segments. An attacker can have a system act as though it is a switch. The system understands the tagging values being used in the network and the trunking protocols, and can insert itself between other VLAN devices and gain access to the traffic going back and forth. Attackers can also insert tagging values to manipulate the control of traffic at this data link layer. 6. C. Application and circuit are the only types of proxy-based firewall solutions listed here. The others do not use proxies. Circuit-based proxy firewalls make decisions based on header information, not the protocol’s command structure. Application-based proxies are the only ones that understand this level of granularity about the individual protocols. 7. C. Virtual firewalls can be bridge-mode products, which monitor individual traffic links between virtual machines, or they can be integrated within the hypervisor. The hypervisor is the software component that carries out virtual machine management and oversees guest system software execution. If the firewall is embedded within the hypervisor, then it can “see” and monitor all the activities taking place within the one system. 8. A. The OSI model is made up of seven layers: application (layer 7), presentation (layer 6), session (layer 5), transport (layer 4), network (layer 3), data link (layer 2), and physical (layer 1). 9. C. It has become very challenging to manage the long laundry list of security solutions almost every network needs to have in place. The list includes, but is not limited to, firewalls, antimalware, antispam, IDS\\IPS, content filtering, data leak prevention, VPN capabilities, and continuous monitoring and reporting. Unified threat management (UTM) appliance products have been developed that provide all (or many) of these functionalities in a single network appliance. The goals of UTM are simplicity, streamlined installation and maintenance, centralized control, and the ability to understand a network’s security from a holistic point of view. 10. D. The access layer connects the customer’s equipment to a service provider’s aggregation network. Aggregation occurs on a distribution network. The metro layer is the metropolitan area network. The core connects different metro networks. 11. D. Authentication Header protocol provides data integrity, data origin authentication, and protection from replay attacks. Encapsulating Security Payload protocol provides confidentiality, data origin authentication, and data integrity. Internet Security Association and Key Management Protocol provides a framework for security association creation and key exchange. Internet Key Exchange provides authenticated keying material for use with ISAKMP. 12. C. An open system is a system that has been developed based on standardized protocols and interfaces. Following these standards allows the systems to interoperate more effectively with other systems that follow the same standards. 13. C. Different protocols have different functionalities. The OSI model is an attempt to describe conceptually where these different functionalities take place in a networking stack. The model attempts to draw boxes around reality to help people better understand the stack. Each layer has a specific functionality and has several different protocols that can live at that layer and carry out that specific functionality. These listed protocols work at these associated layers: TFTP (application), ARP (data link), IP (network), and UDP (transport). 14. C. The data link layer, in most cases, is the only layer that understands the environment in which the system is working, whether it be Ethernet, Token Ring, wireless, or a connection to a WAN link. This layer adds the necessary headers and trailers to the frame. Other systems on the same type of network using the same technology understand only the specific header and trailer format used in their data link technology. 15. A. The session layer is responsible for controlling how applications communicate, not how computers communicate. Not all applications use protocols that work at the session layer, so this layer is not always used in networking functions. A session layer protocol will set up the connection to the other application logically and control the dialog going back and forth. Session layer protocols allow applications to keep track of the dialog. 16. B. The IP protocol is connectionless and works at the network layer. It adds source and destination addresses to a packet as it goes through its data encapsulation process. IP can also make routing decisions based on the destination address. 17. D. PEAP is a version of EAP and is an authentication protocol used in wireless networks and point-to-point connections. PEAP is designed to provide authentication for 802.11 WLANs, which support 802.1X port access control and TLS. It is a protocol that encapsulates EAP within a potentially encrypted and authenticated TLS tunnel. 18. A. The Session Initiation Protocol (SIP) is an IETF-defined signaling protocol, widely used for controlling multimedia communication sessions such as voice and video calls over IP. The protocol can be used for creating, modifying, and terminating two-party (unicast) or multiparty (multicast) sessions consisting of one or several media streams. 19. B. The four-step DHCP lease process is 1. DHCPDISCOVER message: This message is used to request an IP address lease from a DHCP server. 2. DHCPOFFER message: This message is a response to a DHCPDISCOVER message, and is sent by one or numerous DHCP servers. 3. DHCPREQUEST message: The client sends this message to the initial DHCP server that responded to its request. 4. DHCPACK message: This message is sent by the DHCP server to the DHCP client and is the process whereby the DHCP server assigns the IP address lease to the DHCP client. 20. A. DHCP snooping ensures that DHCP servers can assign IP addresses to only selected systems, identified by their MAC addresses. Also, advance network switches now have the capability to direct clients toward legitimate DHCP servers to get IP addresses and to restrict rogue systems from becoming DHCP servers on the network. 21. C. Well-known ports are mapped to commonly used services (HTTP, FTP, etc.)."
-        },
-        {
-          "type": "paragraph",
-          "text": "Registered ports are 1,024 to 49,151, and vendors register specific ports to map to their proprietary software. Dynamic ports (private ports) are available for use by any application. 22. C. A half-open attack is a type of DoS that is also referred to as a SYN flood. To thwart this type of attack, Don’s team can use SYN proxies, which limit the number of open and abandoned network connections. The SYN proxy is a piece of software that resides between the sender and receiver, and only sends TCP traffic to the receiving system if the TCP handshake process completes successfully."
-        },
-        {
-          "type": "paragraph",
-          "text": "23. D. Basic RPC does not have authentication capabilities, which allows for masquerading attacks to take place. Secure RPC (SRPC) can be implemented, which requires authentication to take place before remote systems can communicate with each other. Authentication can take place using shared secrets, public keys, or Kerberos tickets. 24. B. A single-attachment station (SAS) is attached to only one ring (the primary) through a concentrator. If the primary goes down, it is not connected to the backup secondary ring. A dual-attachment station (DAS) has two ports and each port provides a connection for both the primary and the secondary rings. 25. B. In single mode, a small glass core is used for high-speed data transmission over long distances. This scenario specifies campus building-to-building connections, which are usually short distances. In multimode, a large glass core is used and is able to carry more data than single-mode fibers, though they are best for shorter distances because of their higher attenuation levels. 26. B. The attack description is a smurf attack. In this situation the attacker sends an ICMP Echo Request packet with a spoofed source address to a victim’s network broadcast address. This means that each system on the victim’s subnet receives an ICMP Echo Request packet. Each system then replies to that request with an ICMP Echo Response packet to the spoof address provided in the packets—which is the victim’s address. All of these response packets go to the victim system and overwhelm it because it is being bombarded with packets it does not necessarily know how to process. Filtering out unnecessary ICMP traffic is the cheapest solution. 27. A. SNMP versions 1 and 2 send their community string values in cleartext, but with version 3, cryptographic functionality has been added, which provides encryption, message integrity, and authentication security. So the sniffers that are installed on the network cannot sniff SNMP traffic. 28. D. The primary and secondary DNS servers synchronize their information through a zone transfer. After changes take place to the primary DNS server, those changes must be replicated to the secondary DNS server. It is important to configure the DNS server to allow zone transfers to take place only between the specific servers. Attackers can carry out zone transfers to gather very useful network information from victims’ DNS servers. Unauthorized zone transfers can take place if the DNS servers are not properly configured to restrict this type of activity. 29. D. When a DNS server receives an improper (potentially malicious) name resolution response, it will cache it and provide it to all the hosts it serves unless DNSSEC is implemented. If DNSSEC were enabled on a DNS server, then the server would, upon receiving a response, validate the digital signature on the message before accepting the information to make sure that the response is from an authorized DNS server. 30. B. Source routing means the packet decides how to get to its destination, not the routers in between the source and destination computer. Source routing moves a packet throughout a network on a predetermined path. To make sure none of this misrouting happens, many firewalls are configured to check for source routing information within the packet and deny it if it is present. 31. C. The following describes the different firewall rule types:"
+          "text": "these associated layers: TFTP (application), ARP (data link), IP (network), and UDP (transport)."
         },
         {
           "type": "list",
           "items": [
-            "Silent rule Drops “noisy” traffic without logging it. This reduces log sizes by not"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "responding to packets that are deemed unimportant."
-        },
-        {
-          "type": "list",
-          "items": [
+            "C. The data link layer, in most cases, is the only layer that understands the environment in which the system is working, whether it be Ethernet, Token Ring, wireless, or a connection to a WAN link. This layer adds the necessary headers and trailers to the frame. Other systems on the same type of network using the same technology understand only the specific header and trailer format used in their data link technology.",
+            "A. The session layer is responsible for controlling how applications communicate, not how computers communicate. Not all applications use protocols that work at the session layer, so this layer is not always used in networking functions. A session layer protocol will set up the connection to the other application logically and control the dialog going back and forth. Session layer protocols allow applications to keep track of the dialog.",
+            "B. The IP protocol is connectionless and works at the network layer. It adds source and destination addresses to a packet as it goes through its data encapsulation process. IP can also make routing decisions based on the destination address.",
+            "D. PEAP is a version of EAP and is an authentication protocol used in wireless networks and point-to-point connections. PEAP is designed to provide authentication for 802.11 WLANs, which support 802.1X port access control and TLS. It is a protocol that encapsulates EAP within a potentially encrypted and authenticated TLS tunnel.",
+            "A. The Session Initiation Protocol (SIP) is an IETF-defined signaling protocol, widely used for controlling multimedia communication sessions such as voice and video calls over IP. The protocol can be used for creating, modifying, and terminating two-party (unicast) or multiparty (multicast) sessions consisting of one or several media streams.",
+            "B. The four-step DHCP lease process is",
+            "DHCPDISCOVER message: This message is used to request an IP address lease from a DHCP server.",
+            "DHCPOFFER message: This message is a response to a DHCPDISCOVER message, and is sent by one or numerous DHCP servers.",
+            "DHCPREQUEST message: The client sends this message to the initial DHCP server that responded to its request.",
+            "DHCPACK message: This message is sent by the DHCP server to the DHCP client and is the process whereby the DHCP server assigns the IP address lease to the DHCP client.",
+            "A. DHCP snooping ensures that DHCP servers can assign IP addresses to only selected systems, identified by their MAC addresses. Also, advance network switches now have the capability to direct clients toward legitimate DHCP servers to get IP addresses and to restrict rogue systems from becoming DHCP servers on the network.",
+            "C. Well-known ports are mapped to commonly used services (HTTP, FTP, etc.). Registered ports are 1,024 to 49,151, and vendors register specific ports to map to their proprietary software. Dynamic ports (private ports) are available for use by any application.",
+            "C. A half-open attack is a type of DoS that is also referred to as a SYN flood. To thwart this type of attack, Don’s team can use SYN proxies, which limit the number of open and abandoned network connections. The SYN proxy is a piece of software that resides between the sender and receiver, and only sends TCP traffic to the receiving system if the TCP handshake process completes successfully.",
+            "D. Basic RPC does not have authentication capabilities, which allows for masquerading attacks to take place. Secure RPC (SRPC) can be implemented, which requires authentication to take place before remote systems can communicate with each other. Authentication can take place using shared secrets, public keys, or Kerberos tickets.",
+            "B. A single-attachment station (SAS) is attached to only one ring (the primary) through a concentrator. If the primary goes down, it is not connected to the backup secondary ring. A dual-attachment station (DAS) has two ports and each port provides a connection for both the primary and the secondary rings.",
+            "B. In single mode, a small glass core is used for high-speed data transmission over long distances. This scenario specifies campus building-to-building connections, which are usually short distances. In multimode, a large glass core is used and is able to carry more data than single-mode fibers, though they are best for shorter distances because of their higher attenuation levels.",
+            "B. The attack description is a smurf attack. In this situation the attacker sends an ICMP Echo Request packet with a spoofed source address to a victim’s network broadcast address. This means that each system on the victim’s subnet receives an ICMP Echo Request packet. Each system then replies to that request with an ICMP Echo Response packet to the spoof address provided in the packets—which is the victim’s address. All of these response packets go to the victim system and overwhelm it because it is being bombarded with packets it does not necessarily know how to process. Filtering out unnecessary ICMP traffic is the cheapest solution.",
+            "A. SNMP versions 1 and 2 send their community string values in cleartext, but with version 3, cryptographic functionality has been added, which provides encryption, message integrity, and authentication security. So the sniffers that are installed on the network cannot sniff SNMP traffic.",
+            "D. The primary and secondary DNS servers synchronize their information through a zone transfer. After changes take place to the primary DNS server, those changes must be replicated to the secondary DNS server. It is important to configure the DNS server to allow zone transfers to take place only between the specific servers. Attackers can carry out zone transfers to gather very useful network information from victims’ DNS servers. Unauthorized zone transfers can take place if the DNS servers are not properly configured to restrict this type of activity.",
+            "D. When a DNS server receives an improper (potentially malicious) name resolution response, it will cache it and provide it to all the hosts it serves unless DNSSEC is implemented. If DNSSEC were enabled on a DNS server, then the server would, upon receiving a response, validate the digital signature on the message before accepting the information to make sure that the response is from an authorized DNS server.",
+            "B. Source routing means the packet decides how to get to its destination, not the routers in between the source and destination computer. Source routing moves a packet throughout a network on a predetermined path. To make sure none of this misrouting happens, many firewalls are configured to check for source routing information within the packet and deny it if it is present.",
+            "C. The following describes the different firewall rule types:",
+            "Silent rule Drops “noisy” traffic without logging it. This reduces log sizes by not responding to packets that are deemed unimportant.",
             "Stealth rule Disallows access to firewall software from unauthorized systems.",
-            "Cleanup rule The last rule in the rule base, which drops and logs any traffic that does"
-          ]
+            "Cleanup rule The last rule in the rule base, which drops and logs any traffic that does not meet the preceding rules.",
+            "Negate rule Used instead of the broad and permissive “any rules.” Negate rules provide tighter permission rights by specifying what system can be accessed and how.",
+            "B. A tarpit is commonly a piece of software configured to emulate a vulnerable, running service. Once the attackers start to send packets to this “service,” the connection to the victim system seems to be live and ongoing, but the response from the victim system is slow and the connection may time out. Most attacks and scanning activities take place through automated tools that require quick responses from their victim systems. If the victim systems do not reply or are very slow to reply, the automated tools may not be successful because the protocol connection times out. This can reduce the effects of a DoS attack.",
+            "D. IEEE 802.1AR provides a unique ID for a device. IEEE 802.1AE provides data encryption, integrity, and origin authentication functionality. IEEE 802.1AF carries out key agreement functions for the session keys used for data encryption. Each of these standards provides specific parameters to work within an IEEE 802.1X EAP-TLS framework. A recent version (802.1X-2010) has integrated IEEE 802.1AE and IEEE 802.1AR to support service identification and optional point-to-point encryption.",
+            "D. EAP-Tunneled Transport Layer Security (EAP-TTLS) is an EAP protocol that extends TLS. EAP-TTLS is designed to provide authentication that is as strong as EAP-TLS, but it does not require that each wireless device be issued a certificate. Instead, only the authentication servers are issued certificates. User authentication is performed by password, but the password credentials are transported in a securely encrypted tunnel established based upon the server certificates.",
+            "A. IEEE 802.16 is a MAN wireless standard that allows for wireless traffic to cover a wide geographical area. This technology is also referred to as broadband wireless access. The commercial name for 802.16 is WiMAX.",
+            "A. Teredo encapsulates IPv6 packets within UDP datagrams with IPv4 addressing. IPv6- aware systems behind the NAT device can be used as Teredo tunnel endpoints even if they do not have a dedicated public IPv4 address.",
+            "A. DNSSEC protects DNS servers from forged DNS information, which is commonly used to carry out DNS cache poisoning attacks. If DNSSEC is implemented, then all responses that the server receives will be verified through digital signatures. This helps ensure that an attacker cannot provide a DNS server with incorrect information, which would point the victim to a malicious website.",
+            "B. Simple Authentication and Security Layer is a protocol-independent authentication framework. This means that any protocol that knows how to interact with SASL can use its various authentication mechanisms without having to actually embed the authentication mechanisms within its code.",
+            "D. Wi-Fi Protected Access 2 requires IEEE 802.1X or preshared keys for access control, EAP or preshared keys for authentication, and AES algorithm in counter mode with CBC- MAC Protocol (CCMP) for encryption.",
+            "B. Secure Multipurpose Internet Mail Extensions (S/MIME) is a standard for encrypting and digitally signing e-mail and for providing secure data transmissions using public key infrastructure (PKI).",
+            "A. PGP uses a decentralized web of trust for its PKI, while S/MIME relies on centralized"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "not meet the preceding rules."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Negate rule Used instead of the broad and permissive “any rules.” Negate rules provide"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "tighter permission rights by specifying what system can be accessed and how. 32. B. A tarpit is commonly a piece of software configured to emulate a vulnerable, running service. Once the attackers start to send packets to this “service,” the connection to the victim system seems to be live and ongoing, but the response from the victim system is slow and the connection may time out. Most attacks and scanning activities take place through automated tools that require quick responses from their victim systems. If the victim systems do not reply or are very slow to reply, the automated tools may not be successful because the protocol connection times out. This can reduce the effects of a DoS attack. 33. D. IEEE 802.1AR provides a unique ID for a device. IEEE 802.1AE provides data encryption, integrity, and origin authentication functionality. IEEE 802.1AF carries out key agreement functions for the session keys used for data encryption. Each of these standards provides specific parameters to work within an IEEE 802.1X EAP-TLS framework. A recent version (802.1X-2010) has integrated IEEE 802.1AE and IEEE 802.1AR to support service identification and optional point-to-point encryption. 34. D. EAP-Tunneled Transport Layer Security (EAP-TTLS) is an EAP protocol that extends TLS. EAP-TTLS is designed to provide authentication that is as strong as EAP-TLS, but it does not require that each wireless device be issued a certificate. Instead, only the authentication servers are issued certificates. User authentication is performed by password, but the password credentials are transported in a securely encrypted tunnel established based upon the server certificates. 35. A. IEEE 802.16 is a MAN wireless standard that allows for wireless traffic to cover a wide geographical area. This technology is also referred to as broadband wireless access. The commercial name for 802.16 is WiMAX. 36. A. Teredo encapsulates IPv6 packets within UDP datagrams with IPv4 addressing. IPv6- aware systems behind the NAT device can be used as Teredo tunnel endpoints even if they do not have a dedicated public IPv4 address. 37. A. DNSSEC protects DNS servers from forged DNS information, which is commonly used to carry out DNS cache poisoning attacks. If DNSSEC is implemented, then all responses that the server receives will be verified through digital signatures. This helps ensure that an attacker cannot provide a DNS server with incorrect information, which would point the victim to a malicious website. 38. B. Simple Authentication and Security Layer is a protocol-independent authentication framework. This means that any protocol that knows how to interact with SASL can use its various authentication mechanisms without having to actually embed the authentication mechanisms within its code. 39. D. Wi-Fi Protected Access 2 requires IEEE 802.1X or preshared keys for access control, EAP or preshared keys for authentication, and AES algorithm in counter mode with CBC- MAC Protocol (CCMP) for encryption. 40. B. Secure Multipurpose Internet Mail Extensions (S/MIME) is a standard for encrypting and digitally signing e-mail and for providing secure data transmissions using public key infrastructure (PKI). 41. A. PGP uses a decentralized web of trust for its PKI, while S/MIME relies on centralized CAs. The two systems are, therefore, incompatible with each other."
+          "text": "CAs. The two systems are, therefore, incompatible with each other."
         }
       ]
     }

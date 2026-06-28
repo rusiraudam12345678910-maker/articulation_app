@@ -1,7 +1,7 @@
 {
   "domain": 6,
   "title": "Security Assessment and Testing",
-  "totalSections": 66,
+  "totalSections": 65,
   "sections": [
     {
       "id": "domain-6-intro",
@@ -70,48 +70,22 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "1. Determine the goals, because everything else hinges on this. 2. Involve the right business unit leaders to ensure the needs of the business are identified and addressed. 3. Determine the scope, because not everything can be tested. 4. Choose the audit team, which may consist of internal or external personnel, depending on the goals, scope, budget, and available expertise. 5. Plan the audit to ensure all goals are met on time and on budget. 6. Conduct the audit while sticking to the plan and documenting any deviations therefrom. 7. Document the results, because the wealth of information generated is both valuable and volatile. 8. Communicate the results to the right leaders in order to achieve and sustain a strong security posture."
-        },
-        {
-          "type": "paragraph",
-          "text": "Having decided who will actually conduct our audit, we are now in a position to plan the event. The plan is important for a variety of reasons:"
-        },
-        {
           "type": "list",
           "items": [
-            "We must ensure that we are able to address whatever risks we may be introducing into the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "business processes. Without a plan, these risks are unknown and not easily mitigated."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Documenting the plan ensures that we meet each of our audit goals. Audit teams sometimes"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "attempt to follow their own scripted plan, which may or may not address all of the organization’s goals for a specific audit."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Documenting the plan will help us remember the items that were not in the scope of the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "assessment. Recall that we already acknowledged that we can’t possibly test everything, so this specifies the things we did not test."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Determine the goals, because everything else hinges on this.",
+            "Involve the right business unit leaders to ensure the needs of the business are identified and addressed.",
+            "Determine the scope, because not everything can be tested.",
+            "Choose the audit team, which may consist of internal or external personnel, depending on the goals, scope, budget, and available expertise.",
+            "Plan the audit to ensure all goals are met on time and on budget.",
+            "Conduct the audit while sticking to the plan and documenting any deviations therefrom.",
+            "Document the results, because the wealth of information generated is both valuable and volatile.",
+            "Communicate the results to the right leaders in order to achieve and sustain a strong security posture. Having decided who will actually conduct our audit, we are now in a position to plan the event. The plan is important for a variety of reasons:",
+            "We must ensure that we are able to address whatever risks we may be introducing into the business processes. Without a plan, these risks are unknown and not easily mitigated.",
+            "Documenting the plan ensures that we meet each of our audit goals. Audit teams sometimes attempt to follow their own scripted plan, which may or may not address all of the organization’s goals for a specific audit.",
+            "Documenting the plan will help us remember the items that were not in the scope of the assessment. Recall that we already acknowledged that we can’t possibly test everything, so this specifies the things we did not test.",
             "The plan ensures that the audit process is repeatable. Like any good science experiment, we"
-          ]
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
@@ -182,26 +156,8 @@
         {
           "type": "list",
           "items": [
-            "Mark your calendars Nothing takes the wind out of your audit’s sails quicker than not"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "having all key personnel and resources available. Book them early."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Prepare the auditors Rehearse the process with the auditors so everyone is on the same"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sheet of music. Ensure everyone knows the relevant policies and procedures."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Mark your calendars Nothing takes the wind out of your audit’s sails quicker than not having all key personnel and resources available. Book them early.",
+            "Prepare the auditors Rehearse the process with the auditors so everyone is on the same sheet of music. Ensure everyone knows the relevant policies and procedures.",
             "Document everything Consider having note-takers follow the auditors around"
           ]
         },
@@ -212,12 +168,8 @@
         {
           "type": "list",
           "items": [
-            "Make the report easy to read Keep in mind that you will have at least two audiences:"
+            "Make the report easy to read Keep in mind that you will have at least two audiences: managers and technical personnel. Make the report easy to read for both."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "managers and technical personnel. Make the report easy to read for both."
         }
       ]
     },
@@ -252,36 +204,9 @@
         {
           "type": "list",
           "items": [
-            "Learn the contract An external audit, by definition, is scoped to include only the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "contractual obligations of an organization. Be sure the audit doesn’t get out of control."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Schedule in- and out-briefs Schedule an in-brief to occur right before the audit starts to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "bring all stakeholders together. Schedule an out-brief to occur immediately after the audit is complete to give the audited organization a chance to address any misconceptions or errors."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Travel in pairs Ensure the organization being audited has someone accompanying each"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "team of auditors. This will make things go smoother and help avoid misunderstandings."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Learn the contract An external audit, by definition, is scoped to include only the contractual obligations of an organization. Be sure the audit doesn’t get out of control.",
+            "Schedule in- and out-briefs Schedule an in-brief to occur right before the audit starts to bring all stakeholders together. Schedule an out-brief to occur immediately after the audit is complete to give the audited organization a chance to address any misconceptions or errors.",
+            "Travel in pairs Ensure the organization being audited has someone accompanying each team of auditors. This will make things go smoother and help avoid misunderstandings.",
             "Keep it friendly The whole goal of this process is to engender trust."
           ]
         }
@@ -330,52 +255,12 @@
         {
           "type": "list",
           "items": [
-            "Know the requirements Go through the audit requirements line by line to ensure you"
+            "Know the requirements Go through the audit requirements line by line to ensure you know exactly what the third-party auditor will be looking at. Call the auditor if you have any questions.",
+            "Pre-audit Conduct your own internal audit using the same list of requirements to minimize the number of surprises.",
+            "Lock in schedules Ensure the right staff will be available when the auditors show up, even if there’s only a small chance they’ll be needed.",
+            "Get organized The audit team will likely need access to a large and diverse set of resources, so make sure you have them all assembled in one place and organized.",
+            "Keep the boss informed A third-party audit, by definition, is an important event for the organization, and we all know that bad news doesn’t get better with time. Be sure to keep the senior managers informed, especially of any potential deficiency areas."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "know exactly what the third-party auditor will be looking at. Call the auditor if you have any questions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Pre-audit Conduct your own internal audit using the same list of requirements to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "minimize the number of surprises."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Lock in schedules Ensure the right staff will be available when the auditors show up,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "even if there’s only a small chance they’ll be needed."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Get organized The audit team will likely need access to a large and diverse set of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "resources, so make sure you have them all assembled in one place and organized."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Keep the boss informed A third-party audit, by definition, is an important event for the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "organization, and we all know that bad news doesn’t get better with time. Be sure to keep the senior managers informed, especially of any potential deficiency areas."
         }
       ]
     },
@@ -430,53 +315,26 @@
           "type": "list",
           "items": [
             "Evaluate the true security posture of an environment (don’t cry wolf, as discussed earlier).",
-            "Identify as many vulnerabilities as possible, with honest evaluations and prioritizations of",
-            "Test how systems react to certain circumstances and attacks, to learn not only what the"
+            "Identify as many vulnerabilities as possible, with honest evaluations and prioritizations of each.",
+            "Test how systems react to certain circumstances and attacks, to learn not only what the known vulnerabilities are (such as this version of the database, that version of the operating system, or a user ID with no password set), but also how the unique elements of the environment might be abused (SQL injection attacks, buffer overflows, and process design flaws that facilitate social engineering).",
+            "Before the scope of the test is decided and agreed upon, the tester must explain the testing ramifications. Vulnerable systems could be knocked offline by some of the tests, and production could be negatively affected by the loads the tests place on the systems."
           ]
         },
         {
           "type": "paragraph",
-          "text": "known vulnerabilities are (such as this version of the database, that version of the operating system, or a user ID with no password set), but also how the unique elements of the environment might be abused (SQL injection attacks, buffer overflows, and process design flaws that facilitate social engineering)."
+          "text": "Management must understand that results from the test are just a “snapshot in time.” As the environment changes, new vulnerabilities can arise. Management should also understand that various types of assessments are possible, each one able to expose different kinds of vulnerabilities in the environment, and each one limited in the completeness of results it can offer:"
         },
         {
           "type": "list",
           "items": [
-            "Before the scope of the test is decided and agreed upon, the tester must explain the testing"
+            "Personnel testing includes reviewing employee tasks and thus identifying vulnerabilities in the standard practices and procedures that employees are instructed to follow, demonstrating social engineering attacks and the value of training users to detect and resist such attacks, and reviewing employee policies and procedures to ensure those security risks that cannot be reduced through physical and logical controls are met with the final control category: administrative.",
+            "Physical testing includes reviewing facility and perimeter protection mechanisms. For instance, do the doors actually close automatically, and does an alarm sound if a door is held open too long? Are the interior protection mechanisms of server rooms, wiring closets, sensitive systems, and assets appropriate? (For example, is the badge reader working, and does it really limit access to only authorized personnel?) Is dumpster diving a threat? (In other words, is sensitive information being discarded without proper destruction?) And what about protection mechanisms for manmade, natural, or technical threats? Is there a fire suppression system? Does it work, and is it safe for the people and the equipment in the building? Are sensitive electronics kept above raised floors so they survive a minor flood?",
+            "System and network testing are perhaps what most people think of when discussing information security vulnerability testing. For efficiency, an automated scanning product identifies known system vulnerabilities, and some may (if management has signed off on the performance impact and the risk of disruption) attempt to exploit vulnerabilities."
           ]
         },
         {
           "type": "paragraph",
-          "text": "ramifications. Vulnerable systems could be knocked offline by some of the tests, and production could be negatively affected by the loads the tests place on the systems. Management must understand that results from the test are just a “snapshot in time.” As the environment changes, new vulnerabilities can arise. Management should also understand that various types of assessments are possible, each one able to expose different kinds of vulnerabilities in the environment, and each one limited in the completeness of results it can offer:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Personnel testing includes reviewing employee tasks and thus identifying vulnerabilities in"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the standard practices and procedures that employees are instructed to follow, demonstrating social engineering attacks and the value of training users to detect and resist such attacks, and reviewing employee policies and procedures to ensure those security risks that cannot be reduced through physical and logical controls are met with the final control category: administrative."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Physical testing includes reviewing facility and perimeter protection mechanisms. For"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "instance, do the doors actually close automatically, and does an alarm sound if a door is held open too long? Are the interior protection mechanisms of server rooms, wiring closets, sensitive systems, and assets appropriate? (For example, is the badge reader working, and does it really limit access to only authorized personnel?) Is dumpster diving a threat? (In other words, is sensitive information being discarded without proper destruction?) And what about protection mechanisms for manmade, natural, or technical threats? Is there a fire suppression system? Does it work, and is it safe for the people and the equipment in the building? Are sensitive electronics kept above raised floors so they survive a minor flood? And so on."
-        },
-        {
-          "type": "list",
-          "items": [
-            "System and network testing are perhaps what most people think of when discussing"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "information security vulnerability testing. For efficiency, an automated scanning product identifies known system vulnerabilities, and some may (if management has signed off on the performance impact and the risk of disruption) attempt to exploit vulnerabilities. Because a security assessment is a point-in-time snapshot of the state of an environment, assessments should be performed regularly. Lower-priority, better-protected, and less-at-risk parts of the environment may be scanned once or twice a year. High-priority, more vulnerable targets, such as e-commerce web server complexes and the middleware just behind them, should be scanned nearly continuously."
+          "text": "Because a security assessment is a point-in-time snapshot of the state of an environment, assessments should be performed regularly. Lower-priority, better-protected, and less-at-risk parts of the environment may be scanned once or twice a year. High-priority, more vulnerable targets, such as e-commerce web server complexes and the middleware just behind them, should be scanned nearly continuously."
         },
         {
           "type": "paragraph",
@@ -500,32 +358,10 @@
         {
           "type": "list",
           "items": [
-            "Black box testing treats the system being tested as completely opaque. This means that"
+            "Black box testing treats the system being tested as completely opaque. This means that the tester has no a priori knowledge of the internal design or features of the system. All knowledge will come to the tester only through the assessment itself. This approach simulates an external attacker best and may yield insights into information leaks that can give an adversary better information on attack vectors. The disadvantage of black box testing is that it will probably not cover all of the internal controls since some of them are unlikely to be discovered in the course of the audit. Another issue is that, with no knowledge of the innards of the system, the test team may inadvertently target a subsystem that is critical to daily operations.",
+            "White box testing affords the auditor complete knowledge of the inner workings of the system even before the first scan is performed. This approach allows the test team to target specific internal controls and features and should yield a more complete assessment of the system. The downside is that white box testing may not be representative of the behaviors of an external attacker, though it may be a more accurate depiction of an insider threat.",
+            "Gray box testing meets somewhere between the other two approaches. Some, but not all, information on the internal workings is provided to the test team. This helps guide their tactics toward areas we want to have thoroughly tested, while also allowing for a degree of realism in terms of discovering other features of the system. This approach mitigates the issues with both white and black box testing."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the tester has no a priori knowledge of the internal design or features of the system. All knowledge will come to the tester only through the assessment itself. This approach simulates an external attacker best and may yield insights into information leaks that can give an adversary better information on attack vectors. The disadvantage of black box testing is that it will probably not cover all of the internal controls since some of them are unlikely to be discovered in the course of the audit. Another issue is that, with no knowledge of the innards of the system, the test team may inadvertently target a subsystem that is critical to daily operations."
-        },
-        {
-          "type": "list",
-          "items": [
-            "White box testing affords the auditor complete knowledge of the inner workings of the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "system even before the first scan is performed. This approach allows the test team to target specific internal controls and features and should yield a more complete assessment of the system. The downside is that white box testing may not be representative of the behaviors of an external attacker, though it may be a more accurate depiction of an insider threat."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Gray box testing meets somewhere between the other two approaches. Some, but not all,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "information on the internal workings is provided to the test team. This helps guide their tactics toward areas we want to have thoroughly tested, while also allowing for a degree of realism in terms of discovering other features of the system. This approach mitigates the issues with both white and black box testing."
         }
       ]
     },
@@ -582,7 +418,7 @@
             "The identification of active and vulnerable services (ports) on hosts",
             "The identification of applications and banner grabbing",
             "The identification of operating systems",
-            "The identification of vulnerabilities associated with discovered operating systems and",
+            "The identification of vulnerabilities associated with discovered operating systems and applications",
             "The identification of misconfigured settings",
             "Test for compliance with host applications’ usage/security policies",
             "The establishment of a foundation for penetration testing"
@@ -602,12 +438,27 @@
         },
         {
           "type": "paragraph",
-          "text": "When performing a penetration test, the team goes through a five-step process: 1. Discovery Footprinting and gathering information about the target 2. Enumeration Performing port scans and resource identification methods 3. Vulnerability mapping Identifying vulnerabilities in identified systems and resources 4. Exploitation Attempting to gain unauthorized access by exploiting vulnerabilities 5. Report to management Delivering to management documentation of test findings along with suggested countermeasures The penetration testing team can have varying degrees of knowledge about the penetration target before the tests are actually carried out:"
+          "text": "When performing a penetration test, the team goes through a five-step process:"
         },
         {
           "type": "list",
           "items": [
-            "Zero knowledge The team does not have any knowledge of the target and must start from",
+            "Discovery Footprinting and gathering information about the target",
+            "Enumeration Performing port scans and resource identification methods",
+            "Vulnerability mapping Identifying vulnerabilities in identified systems and resources",
+            "Exploitation Attempting to gain unauthorized access by exploiting vulnerabilities",
+            "Report to management Delivering to management documentation of test findings along with suggested countermeasures"
+          ],
+          "ordered": true
+        },
+        {
+          "type": "paragraph",
+          "text": "The penetration testing team can have varying degrees of knowledge about the penetration target before the tests are actually carried out:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Zero knowledge The team does not have any knowledge of the target and must start from ground zero.",
             "Partial knowledge The team has some information about the target.",
             "Full knowledge The team has intimate knowledge of the target."
           ]
@@ -703,42 +554,38 @@
         {
           "type": "list",
           "items": [
-            "Kernel flaws These are problems that occur below the level of the user interface, deep"
+            "Kernel flaws These are problems that occur below the level of the user interface, deep inside the operating system. Any flaw in the kernel that can be reached by an attacker, if exploitable, gives the attacker the most powerful level of control over the system."
           ]
         },
         {
           "type": "paragraph",
-          "text": "inside the operating system. Any flaw in the kernel that can be reached by an attacker, if exploitable, gives the attacker the most powerful level of control over the system. Countermeasure: Ensure that security patches to operating systems—after sufficient testing—are promptly deployed in the environment to keep the window of vulnerability as small as possible."
+          "text": "Countermeasure: Ensure that security patches to operating systems—after sufficient testing—are promptly deployed in the environment to keep the window of vulnerability as small as possible."
         },
         {
           "type": "list",
           "items": [
-            "Buffer overflows Poor programming practices, or sometimes bugs in libraries, allow more"
+            "Buffer overflows Poor programming practices, or sometimes bugs in libraries, allow more input than the program has allocated space to store it. This overwrites data or program memory after the end of the allocated buffer, and sometimes allows the attacker to inject program code and then cause the processor to execute it. This gives the attacker the same level of access as that held by the program that was attacked. If the program was run as an administrative user or by the system itself, this can mean complete access to the system."
           ]
         },
         {
           "type": "paragraph",
-          "text": "input than the program has allocated space to store it. This overwrites data or program memory after the end of the allocated buffer, and sometimes allows the attacker to inject program code and then cause the processor to execute it. This gives the attacker the same level of access as that held by the program that was attacked. If the program was run as an administrative user or by the system itself, this can mean complete access to the system. Countermeasure: Good programming practices and developer education, automated source code scanners, enhanced programming libraries, and strongly typed languages that disallow buffer overflows are all ways of reducing this extremely common vulnerability."
+          "text": "Countermeasure: Good programming practices and developer education, automated source code scanners, enhanced programming libraries, and strongly typed languages that disallow buffer overflows are all ways of reducing this extremely common vulnerability."
         },
         {
           "type": "list",
           "items": [
-            "Symbolic links Though the attacker may be properly blocked from seeing or changing the"
+            "Symbolic links Though the attacker may be properly blocked from seeing or changing the content of sensitive system files and data, if a program follows a symbolic link (a stub file"
           ]
         },
         {
           "type": "paragraph",
-          "text": "content of sensitive system files and data, if a program follows a symbolic link (a stub file that redirects the access to another place) and the attacker can compromise the symbolic link, then the attacker may be able to gain unauthorized access. (Symbolic links are used in Unix and Linux systems.) This may allow the attacker to damage important data and/or gain privileged access to the system. A historical example of this was to use a symbolic link to cause a program to delete a password database, or replace a line in the password database with characters that, in essence, created a password-less root-equivalent account. Countermeasure: Programs, and especially scripts, must be written to ensure that the full path to the file cannot be circumvented."
+          "text": "that redirects the access to another place) and the attacker can compromise the symbolic link, then the attacker may be able to gain unauthorized access. (Symbolic links are used in Unix and Linux systems.) This may allow the attacker to damage important data and/or gain privileged access to the system. A historical example of this was to use a symbolic link to cause a program to delete a password database, or replace a line in the password database with characters that, in essence, created a password-less root-equivalent account. Countermeasure: Programs, and especially scripts, must be written to ensure that the full path to the file cannot be circumvented."
         },
         {
           "type": "list",
           "items": [
-            "File descriptor attacks File descriptors are numbers many operating systems use to"
+            "File descriptor attacks File descriptors are numbers many operating systems use to represent open files in a process. Certain file descriptor numbers are universal, meaning the same thing to all programs. If a program makes unsafe use of a file descriptor, an attacker may be able to cause unexpected input to be provided to the program, or cause output to go to an unexpected place with the privileges of the executing program."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "represent open files in a process. Certain file descriptor numbers are universal, meaning the same thing to all programs. If a program makes unsafe use of a file descriptor, an attacker may be able to cause unexpected input to be provided to the program, or cause output to go to an unexpected place with the privileges of the executing program."
         },
         {
           "type": "paragraph",
@@ -747,12 +594,12 @@
         {
           "type": "list",
           "items": [
-            "Race conditions Race conditions exist when the design of a program puts it in a vulnerable"
+            "Race conditions Race conditions exist when the design of a program puts it in a vulnerable condition before ensuring that those vulnerable conditions are mitigated. Examples include opening temporary files without first ensuring the files cannot be read or written to by unauthorized users or processes, and running in privileged mode or instantiating dynamic load library functions without first verifying that the dynamic load library path is secure."
           ]
         },
         {
           "type": "paragraph",
-          "text": "condition before ensuring that those vulnerable conditions are mitigated. Examples include opening temporary files without first ensuring the files cannot be read or written to by unauthorized users or processes, and running in privileged mode or instantiating dynamic load library functions without first verifying that the dynamic load library path is secure. Either of these may allow an attacker to cause the program (with its elevated privileges) to read or write unexpected data or to perform unauthorized commands. An example of a race condition is a time-of-check/time-of-use attack, discussed in Chapter 3."
+          "text": "Either of these may allow an attacker to cause the program (with its elevated privileges) to read or write unexpected data or to perform unauthorized commands. An example of a race condition is a time-of-check/time-of-use attack, discussed in Chapter 3."
         },
         {
           "type": "paragraph",
@@ -761,12 +608,8 @@
         {
           "type": "list",
           "items": [
-            "File and directory permissions Many of the previously described attacks rely on"
+            "File and directory permissions Many of the previously described attacks rely on inappropriate file or directory permissions—that is, an error in the access control of some part of the system, on which a more secure part of the system depends. Also, if a system administrator makes a mistake that results in decreasing the security of the permissions on a critical file, such as making a password database accessible to regular users, an attacker can take advantage of this to add an unauthorized user to the password database or an untrusted directory to the dynamic load library search path."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "inappropriate file or directory permissions—that is, an error in the access control of some part of the system, on which a more secure part of the system depends. Also, if a system administrator makes a mistake that results in decreasing the security of the permissions on a critical file, such as making a password database accessible to regular users, an attacker can take advantage of this to add an unauthorized user to the password database or an untrusted directory to the dynamic load library search path."
         },
         {
           "type": "paragraph",
@@ -844,52 +687,12 @@
         {
           "type": "list",
           "items": [
-            "Remote logging When attackers compromise a device, they often gain sufficient"
+            "Remote logging When attackers compromise a device, they often gain sufficient privileges to modify or erase the log files on that device. Putting the log files on a separate box will require the attackers to target that box too, which at the very least buys you some time to notice the intrusion.",
+            "Simplex communication Some high-security environments use one-way (or simplex) communications between the reporting devices and the central log repository. This is easily accomplished by severing the “receive” pairs on an Ethernet cable. The term data diode is sometimes used to refer to this approach to physically ensuring a one-way path.",
+            "Replication It is never a good idea to keep a single copy of such an important resource as the consolidated log entries. By making multiple copies and keeping them in different locations, you make it harder for attackers to alter the log files, particularly if at least one of the locations is not accessible from the network (e.g., a removable device).",
+            "Write-once media If one of the locations to which you back up your log files can be written to only once, you make it impossible for attackers to tamper with that copy of the data. Of course, they can still try to physically steal the media, but now you force them to move into the physical domain, which many attackers (particularly ones overseas) will not do.",
+            "Cryptographic hash chaining A powerful technique for ensuring events that are modified or deleted are easily noticed is to use cryptographic hash chaining. In this technique, each event is appended the cryptographic hash (e.g., SHA-256) of the preceding event. This creates a chain that can attest to the completeness and the integrity of every event in it."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "privileges to modify or erase the log files on that device. Putting the log files on a separate box will require the attackers to target that box too, which at the very least buys you some time to notice the intrusion."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Simplex communication Some high-security environments use one-way (or simplex)"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "communications between the reporting devices and the central log repository. This is easily accomplished by severing the “receive” pairs on an Ethernet cable. The term data diode is sometimes used to refer to this approach to physically ensuring a one-way path."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Replication It is never a good idea to keep a single copy of such an important resource"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "as the consolidated log entries. By making multiple copies and keeping them in different locations, you make it harder for attackers to alter the log files, particularly if at least one of the locations is not accessible from the network (e.g., a removable device)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Write-once media If one of the locations to which you back up your log files can be"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "written to only once, you make it impossible for attackers to tamper with that copy of the data. Of course, they can still try to physically steal the media, but now you force them to move into the physical domain, which many attackers (particularly ones overseas) will not do."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Cryptographic hash chaining A powerful technique for ensuring events that are"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "modified or deleted are easily noticed is to use cryptographic hash chaining. In this technique, each event is appended the cryptographic hash (e.g., SHA-256) of the preceding event. This creates a chain that can attest to the completeness and the integrity of every event in it."
         },
         {
           "type": "paragraph",
@@ -997,28 +800,23 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "1. Identify the code to be reviewed (usually a specific function or file). 2. The team leader organizes the inspection and makes sure everyone has access to the correct version of the source code, along with all supporting artifacts. 3. Everyone prepares for inspection by reading through the code and making notes. 4. All the obvious errors are collated offline (not in a meeting) so they don’t have to be discussed during the inspection meeting (which would be a waste of time). 5. If everyone agrees the code is ready for inspection, then the meeting goes ahead. 6. The team leader displays the code (with line numbers) via an overhead projector so everyone can read through it. Everyone discusses bugs, design issues, and anything else that comes up about the code. A scribe (not the author of the code) writes everything down. 7. At the end of the meeting, everyone agrees on a “disposition” for the code:"
-        },
-        {
           "type": "list",
           "items": [
+            "Identify the code to be reviewed (usually a specific function or file).",
+            "The team leader organizes the inspection and makes sure everyone has access to the correct version of the source code, along with all supporting artifacts.",
+            "Everyone prepares for inspection by reading through the code and making notes.",
+            "All the obvious errors are collated offline (not in a meeting) so they don’t have to be discussed during the inspection meeting (which would be a waste of time).",
+            "If everyone agrees the code is ready for inspection, then the meeting goes ahead.",
+            "The team leader displays the code (with line numbers) via an overhead projector so everyone can read through it. Everyone discusses bugs, design issues, and anything else that comes up about the code. A scribe (not the author of the code) writes everything down.",
+            "At the end of the meeting, everyone agrees on a “disposition” for the code:",
             "Passed: Code is good to go",
             "Passed with rework: Code is good so long as small changes are fixed",
-            "Reinspect: Fix problems and have another inspection"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "8. After the meeting, the author fixes any mistakes and checks in the new version. 9. If the disposition of the code in step 7 was passed with rework, the team leader checks off the bugs that the scribe wrote down and makes sure they’re all fixed."
-        },
-        {
-          "type": "paragraph",
-          "text": "10. If the disposition of the code in step 7 was reinspect, the team leader goes back to step 2 and starts over again."
-        },
-        {
-          "type": "paragraph",
-          "text": "Defensive programming is a best practice that all software development operations should adopt. In a nutshell, it means that as you develop or review the code, you are constantly looking for opportunities for things to go badly. Perhaps the best example of defensive programming is the practice of treating all inputs, whether they come from a keyboard, a file, or the network, as untrusted until proven otherwise. This user input validation can be a bit trickier than it sounds, because you must understand the context surrounding the input. Are you expecting a numerical value? If so, what is the acceptable range for that value? Can this range change over time? These and many other questions need to be answered before we can decide whether the inputs are valid. Keep in mind that many of the oft-exploited vulnerabilities we see have a lack of input validation as their root cause."
+            "Reinspect: Fix problems and have another inspection",
+            "After the meeting, the author fixes any mistakes and checks in the new version.",
+            "If the disposition of the code in step 7 was passed with rework, the team leader checks off the bugs that the scribe wrote down and makes sure they’re all fixed.",
+            "If the disposition of the code in step 7 was reinspect, the team leader goes back to step 2 and starts over again. Defensive programming is a best practice that all software development operations should adopt. In a nutshell, it means that as you develop or review the code, you are constantly looking for opportunities for things to go badly. Perhaps the best example of defensive programming is the practice of treating all inputs, whether they come from a keyboard, a file, or the network, as untrusted until proven otherwise. This user input validation can be a bit trickier than it sounds, because you must understand the context surrounding the input. Are you expecting a numerical value? If so, what is the acceptable range for that value? Can this range change over time? These and many other questions need to be answered before we can decide whether the inputs are valid. Keep in mind that many of the oft-exploited vulnerabilities we see have a lack of input validation as their root cause."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -1105,32 +903,19 @@
         {
           "type": "list",
           "items": [
-            "Windows operating systems allow you to right-click any program and select Run As to"
+            "Windows operating systems allow you to right-click any program and select Run As to elevate your privileges. From the command prompt, you can use the command runas /user:<AccountName> to accomplish the same goal.",
+            "In Linux operating systems, you can simply type sudo<SomeCommand> at the command line to run a program as the super (or root) user. If the program is a GUI one, you need to start it from the command line using the command gksudo (or kdesudo for Kubuntu)."
           ]
         },
         {
           "type": "paragraph",
-          "text": "elevate your privileges. From the command prompt, you can use the command runas /user:<AccountName> to accomplish the same goal."
+          "text": "Linux has no way to run a program with elevated privileges directly from the GUI; you must start from the command line."
         },
         {
           "type": "list",
           "items": [
-            "In Linux operating systems, you can simply type sudo<SomeCommand> at the command"
+            "In macOS, you use sudo from the Terminal app just like you would do from a Linux terminal. However, if you want to run a GUI app with elevated privileges, you need to use sudo open –a <AppName> since there is no gksudo or kdesudo command."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "line to run a program as the super (or root) user. If the program is a GUI one, you need to start it from the command line using the command gksudo (or kdesudo for Kubuntu). Linux has no way to run a program with elevated privileges directly from the GUI; you must start from the command line."
-        },
-        {
-          "type": "list",
-          "items": [
-            "In macOS, you use sudo from the Terminal app just like you would do from a Linux"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "terminal. However, if you want to run a GUI app with elevated privileges, you need to use sudo open –a <AppName> since there is no gksudo or kdesudo command."
         }
       ]
     },
@@ -1229,19 +1014,10 @@
         {
           "type": "list",
           "items": [
-            "Develop scenarios that capture specific sets of events that are representative of the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "threats facing the organization."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Develop scenarios that capture specific sets of events that are representative of the threats facing the organization.",
             "Develop a plan that tests all the mission-critical data backups in each of the scenarios.",
-            "Leverage automation to minimize the effort required by the auditors and ensure tests",
-            "Minimize impact on business processes of the data backup test plan so that it can be",
+            "Leverage automation to minimize the effort required by the auditors and ensure tests happen periodically.",
+            "Minimize impact on business processes of the data backup test plan so that it can be executed regularly.",
             "Ensure coverage so that every system is tested, though not necessarily in the same test.",
             "Document the results so you know what is working and what needs to be worked on.",
             "Fix or improve any issues you documented."
@@ -1392,7 +1168,7 @@
             "Make business continuity a part of every business decision.",
             "Insert the maintenance responsibilities into job descriptions.",
             "Include maintenance in personnel evaluations.",
-            "Perform internal audits that include disaster recovery and continuity documentation and",
+            "Perform internal audits that include disaster recovery and continuity documentation and procedures.",
             "Perform regular drills that use the plan.",
             "Integrate the BCP into the current change management process.",
             "Incorporate lessons learned from actual incidents into the plan."
@@ -1580,42 +1356,20 @@
         {
           "type": "list",
           "items": [
-            "Measurement The value of a factor at a particular point in time. In other words, this is raw"
+            "Measurement The value of a factor at a particular point in time. In other words, this is raw data. Two examples of measurements would be 356 IDS alerts in the last 24 hours and 42 verified events investigated by IR teams in the month of January.",
+            "Baseline An arbitrary value for a factor that provides a point of reference or denotes that some condition is met by achieving some threshold value. For example, a baseline could be the historic trend in the number of IDS alerts over the past 12 months (a reference line) or a goal that IR teams will investigate 100 events or less in any given month (a threshold value).",
+            "Metric A derived value that is generated by comparing multiple measurements against each other or against a baseline. Metrics are, by their very nature, comparative. Building upon the previous examples, an effective metric could be the ratio of verified incidents to"
           ]
         },
         {
           "type": "paragraph",
-          "text": "data. Two examples of measurements would be 356 IDS alerts in the last 24 hours and 42 verified events investigated by IR teams in the month of January."
+          "text": "IDS alerts during a 30-day period."
         },
         {
           "type": "list",
           "items": [
-            "Baseline An arbitrary value for a factor that provides a point of reference or denotes that"
+            "Indicator An interpretation of one or more metrics that describes an element of the effectiveness of the ISMS. In other words, indicators are meaningful to management. If one of management’s goals is to tune the organization’s sensors so as to reduce the error rate (and hence utilize its IR team more effectively), then an indicator could be a green traffic light showing that a threshold ratio of no more than 30 percent false or undetected (by IDS) events has been met for a reporting period."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "some condition is met by achieving some threshold value. For example, a baseline could be the historic trend in the number of IDS alerts over the past 12 months (a reference line) or a goal that IR teams will investigate 100 events or less in any given month (a threshold value)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Metric A derived value that is generated by comparing multiple measurements against"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "each other or against a baseline. Metrics are, by their very nature, comparative. Building upon the previous examples, an effective metric could be the ratio of verified incidents to IDS alerts during a 30-day period."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Indicator An interpretation of one or more metrics that describes an element of the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "effectiveness of the ISMS. In other words, indicators are meaningful to management. If one of management’s goals is to tune the organization’s sensors so as to reduce the error rate (and hence utilize its IR team more effectively), then an indicator could be a green traffic light showing that a threshold ratio of no more than 30 percent false or undetected (by IDS) events has been met for a reporting period."
         },
         {
           "type": "paragraph",
@@ -1623,7 +1377,22 @@
         },
         {
           "type": "paragraph",
-          "text": "The process by which we choose KPIs is really driven by organizational goals. In an ideal case, the senior leadership sets (or perhaps approves) goals for the security of the organization. The ISMS team then gets to work on how to show whether we are moving toward or away from those goals. The process can be summarized as follows. 1. Choose the factors that can show the state of our security. In doing this, we want to strike a balance between the number of data sources and the resources required to capture all their data. 2. Define baselines for some or all of the factors under consideration. As we do this, it is helpful to consider which measurements will be compared to each other and which to some baseline. Keep in mind that a given baseline may apply to multiple factors’ measurements. 3. Develop a plan for periodically capturing the values of these factors, and fix the sampling period. Ideally, we use automated means of gathering this data so as to ensure the periodicity and consistency of the process. 4. Analyze and interpret the data. While some analysis can (and probably should) be automated, there will be situations that require human involvement. In some cases, we’ll be able to take the data at face value, while in others we will have to dig into it and get more information before reaching a conclusion about it. 5. Communicate the indicators to all stakeholders. In the end, we need to package the findings in a way that is understandable by a broad range of stakeholders. A common approach is to start with a nontechnical summary that is supported by increasingly detailed layers of supporting technical information. On the summary side of this continuum is where we select and put our KPIs."
+          "text": "The process by which we choose KPIs is really driven by organizational goals. In an ideal case, the senior leadership sets (or perhaps approves) goals for the security of the organization. The ISMS team then gets to work on how to show whether we are moving toward or away from those goals. The process can be summarized as follows."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Choose the factors that can show the state of our security. In doing this, we want to strike a balance between the number of data sources and the resources required to capture all their data.",
+            "Define baselines for some or all of the factors under consideration. As we do this, it is helpful to consider which measurements will be compared to each other and which to some baseline. Keep in mind that a given baseline may apply to multiple factors’ measurements.",
+            "Develop a plan for periodically capturing the values of these factors, and fix the sampling period. Ideally, we use automated means of gathering this data so as to ensure the periodicity and consistency of the process.",
+            "Analyze and interpret the data. While some analysis can (and probably should) be automated, there will be situations that require human involvement. In some cases, we’ll be able to take the data at face value, while in others we will have to dig into it and get more information before reaching a conclusion about it.",
+            "Communicate the indicators to all stakeholders. In the end, we need to package the findings in a way that is understandable by a broad range of stakeholders. A common approach is to start with a nontechnical summary that is supported by increasingly detailed layers of"
+          ],
+          "ordered": true
+        },
+        {
+          "type": "paragraph",
+          "text": "supporting technical information. On the summary side of this continuum is where we select and put our KPIs."
         },
         {
           "type": "paragraph",
@@ -1712,62 +1481,17 @@
         {
           "type": "list",
           "items": [
-            "Executive Summary We’ll get into the weeds of this in the next section, but you should"
+            "Executive Summary We’ll get into the weeds of this in the next section, but you should always consider that some readers may not be able to devote more than a few minutes to your report. Preface it with a hard-hitting summary of key take-aways.",
+            "Background Explain why you conducted the experiment/test/assessment/audit in the first place. Describe the scope of the event, which should be tied to the reason for doing it in the first place. This is a good place to list any relevant references such as policies, industry standards, regulations, or statutes.",
+            "Methodology As most of us learned in our science classes, experiments (and audits) must be repeatable. Describe the process by which you conducted the study. This is also a good section in which to list the personnel who participated, dates, times, locations, and any parts of the system that were excluded (and why).",
+            "Findings You should group your findings to make them easier to search and read for your audience. If the readers are mostly senior managers, you may want to group your findings by business impact. Technologists may prefer groupings by class of system. Each finding should include the answer to “so what?” from your analysis.",
+            "Recommendations This section should mirror the organization of your Findings and provide the “now what?” from your analysis. This is the actionable part of the report, so you should make it compelling. When writing it, you should consider how each key reader will react to your recommendations. For instance, if you know the CFO is reluctant to make new capital investments, then you could frame expensive recommendations in terms of operational costs instead.",
+            "Appendices You should include as much raw data as possible, but you certainly want to include enough to justify your recommendations. Pay attention to how you organize the appendices so that readers can easily find whatever data they may be looking for."
           ]
         },
         {
           "type": "paragraph",
-          "text": "always consider that some readers may not be able to devote more than a few minutes to your report. Preface it with a hard-hitting summary of key take-aways."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Background Explain why you conducted the experiment/test/assessment/audit in the first"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "place. Describe the scope of the event, which should be tied to the reason for doing it in the first place. This is a good place to list any relevant references such as policies, industry standards, regulations, or statutes."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Methodology As most of us learned in our science classes, experiments (and audits) must"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "be repeatable. Describe the process by which you conducted the study. This is also a good section in which to list the personnel who participated, dates, times, locations, and any parts of the system that were excluded (and why)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Findings You should group your findings to make them easier to search and read for your"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "audience. If the readers are mostly senior managers, you may want to group your findings by business impact. Technologists may prefer groupings by class of system. Each finding should include the answer to “so what?” from your analysis."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Recommendations This section should mirror the organization of your Findings and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "provide the “now what?” from your analysis. This is the actionable part of the report, so you should make it compelling. When writing it, you should consider how each key reader will react to your recommendations. For instance, if you know the CFO is reluctant to make new capital investments, then you could frame expensive recommendations in terms of operational costs instead."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Appendices You should include as much raw data as possible, but you certainly want to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "include enough to justify your recommendations. Pay attention to how you organize the appendices so that readers can easily find whatever data they may be looking for. If you are on the receiving end of this process, always be wary of reports that look auto- generated since they usually point to an ineffective auditing team. Also be careful about reports that, having failed to find any significant vulnerabilities, overemphasize the importance of less"
+          "text": "If you are on the receiving end of this process, always be wary of reports that look auto- generated since they usually point to an ineffective auditing team. Also be careful about reports that, having failed to find any significant vulnerabilities, overemphasize the importance of less"
         },
         {
           "type": "note",
@@ -1791,32 +1515,10 @@
         {
           "type": "list",
           "items": [
-            "The cost approach simply looks at the cost of acquiring or replacing the asset. This is the"
+            "The cost approach simply looks at the cost of acquiring or replacing the asset. This is the approach we oftentimes take to valuating our IT assets (minus information, of course). How might it be applied to information? Well, if an information asset is a file containing a threat intelligence report that cost the organization $10,000, then the cost approach would attach that value to this asset.",
+            "The income approach considers the expected contribution of the asset to the firm’s revenue stream. The general formula is value equals expected (or potential) income divided by capitalization rate. The capitalization rate is the actual net income divided by the value of the asset. So, for instance, if that $10,000 threat intelligence report brought in $1,000 in net income last year (so the capitalization rate is 0.10) and our projections are that it will bring in $2,000 this year, then its present value would be $2,000 ÷ 0.10, or $20,000. As you should be able to see, the advantage of this approach is that it takes into account the past and expected business conditions.",
+            "The market approach is based on determining how much other firms are paying for a similar asset in the marketplace. It requires a fair amount of transparency in terms of what other organizations are doing. For instance, if we have no way of knowing how much others paid for that threat intelligence report, then we couldn’t use a market approach to valuating it. If, on the other hand, we were able to find out that the going rate for the report is actually $12,000, then we can use that value for our report (asset) and celebrate that we got a really good deal."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "approach we oftentimes take to valuating our IT assets (minus information, of course). How might it be applied to information? Well, if an information asset is a file containing a threat intelligence report that cost the organization $10,000, then the cost approach would attach that value to this asset."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The income approach considers the expected contribution of the asset to the firm’s revenue"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "stream. The general formula is value equals expected (or potential) income divided by capitalization rate. The capitalization rate is the actual net income divided by the value of the asset. So, for instance, if that $10,000 threat intelligence report brought in $1,000 in net income last year (so the capitalization rate is 0.10) and our projections are that it will bring in $2,000 this year, then its present value would be $2,000 ÷ 0.10, or $20,000. As you should be able to see, the advantage of this approach is that it takes into account the past and expected business conditions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The market approach is based on determining how much other firms are paying for a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "similar asset in the marketplace. It requires a fair amount of transparency in terms of what other organizations are doing. For instance, if we have no way of knowing how much others paid for that threat intelligence report, then we couldn’t use a market approach to valuating it. If, on the other hand, we were able to find out that the going rate for the report is actually $12,000, then we can use that value for our report (asset) and celebrate that we got a really good deal."
         },
         {
           "type": "paragraph",
@@ -1948,88 +1650,16 @@
           "items": [
             "An audit is a systematic assessment of the security controls of an information system.",
             "Setting a clear set of goals is probably the most important step of planning a security audit.",
-            "Internal audits benefit from the auditors’ familiarity with the systems, but may be hindered"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "by a lack of exposure to how others attack and defend systems."
-        },
-        {
-          "type": "list",
-          "items": [
-            "External audits happen when organizations have a contract in place that includes security"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "provisions. The contracting party can demand to audit the contractor to ensure those provisions are being met."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Third-party audits typically bring a much broader background of experience that can"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "provide fresh insights, but can be expensive."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Test coverage is a measure of how much of a system is examined by a specific test (or",
-            "A vulnerability test is an examination of a system for the purpose of identifying, defining,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and ranking its vulnerabilities."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Internal audits benefit from the auditors’ familiarity with the systems, but may be hindered by a lack of exposure to how others attack and defend systems.",
+            "External audits happen when organizations have a contract in place that includes security provisions. The contracting party can demand to audit the contractor to ensure those provisions are being met.",
+            "Third-party audits typically bring a much broader background of experience that can provide fresh insights, but can be expensive.",
+            "Test coverage is a measure of how much of a system is examined by a specific test (or group of tests).",
+            "A vulnerability test is an examination of a system for the purpose of identifying, defining, and ranking its vulnerabilities.",
             "Black box testing treats the system being tested as completely opaque.",
-            "White box testing affords the auditor complete knowledge of the inner workings of the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "system even before the first scan is performed."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Gray box testing gives the auditor some, but not all, information about the internal"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "workings of the system."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Penetration testing is the process of simulating attacks on a network and its systems at the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "request of the owner."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A blind test is one in which the assessors only have publicly available data to work with"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and the network security staff is aware that the testing will occur."
-        },
-        {
-          "type": "list",
-          "items": [
+            "White box testing affords the auditor complete knowledge of the inner workings of the system even before the first scan is performed.",
+            "Gray box testing gives the auditor some, but not all, information about the internal workings of the system.",
+            "Penetration testing is the process of simulating attacks on a network and its systems at the request of the owner.",
+            "A blind test is one in which the assessors only have publicly available data to work with and the network security staff is aware that the testing will occur.",
             "A double-blind test (stealth assessment) is a blind test in which the network security staff is"
           ]
         },
@@ -2040,159 +1670,29 @@
         {
           "type": "list",
           "items": [
-            "War dialing allows attackers and administrators to dial large blocks of phone numbers in"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "search of available modems."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A log review is the examination of system log files to detect security events or to verify the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "effectiveness of security controls."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Synthetic transactions are scripted events that mimic the behaviors of real users and allow"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "security professionals to systematically test the performance of critical services."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A misuse case is a use case that includes threat actors and the tasks they want to perform on",
-            "A code review is a systematic examination of the instructions that comprise a piece of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "software, performed by someone other than the author of that code."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Interface testing is the systematic evaluation of a given set of exchange points for data"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "between systems and/or users."
-        },
-        {
-          "type": "list",
-          "items": [
+            "War dialing allows attackers and administrators to dial large blocks of phone numbers in search of available modems.",
+            "A log review is the examination of system log files to detect security events or to verify the effectiveness of security controls.",
+            "Synthetic transactions are scripted events that mimic the behaviors of real users and allow security professionals to systematically test the performance of critical services.",
+            "A misuse case is a use case that includes threat actors and the tasks they want to perform on the system.",
+            "A code review is a systematic examination of the instructions that comprise a piece of software, performed by someone other than the author of that code.",
+            "Interface testing is the systematic evaluation of a given set of exchange points for data between systems and/or users.",
             "Administrative controls are implemented primarily through policies or procedures.",
-            "Privileged user accounts pose significant risk to the organization and should be carefully"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "managed and controlled."
-        },
-        {
-          "type": "list",
-          "items": [
-            "User accounts should be promptly suspended whenever the user departs the organization"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "permanently or for an extended period."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Data backups should not be considered reliable unless they have been verified to be usable",
-            "A business continuity plan (BCP) ensures that the critical business processes of an"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "organization remain uninterrupted or are quickly restored after a serious event."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A disaster recovery plan (DRP) ensures that the information systems supporting critical"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "business processes remain operational or are quickly restored in the event of a disaster."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The BCP and DRP both need to be evaluated regularly to ensure they remain effective in"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the face of environmental changes in and around the organization."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Security training is the process of teaching a skill or set of skills that will allow people to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "better perform specific functions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Security awareness training is the process of exposing people to security issues so that they"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "may be able to recognize them and better respond to them."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Social engineering, in the context of information security, is the process of manipulating"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "individuals so that they perform actions that violate security protocols."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Privileged user accounts pose significant risk to the organization and should be carefully managed and controlled.",
+            "User accounts should be promptly suspended whenever the user departs the organization permanently or for an extended period.",
+            "Data backups should not be considered reliable unless they have been verified to be usable to restore data.",
+            "A business continuity plan (BCP) ensures that the critical business processes of an organization remain uninterrupted or are quickly restored after a serious event.",
+            "A disaster recovery plan (DRP) ensures that the information systems supporting critical business processes remain operational or are quickly restored in the event of a disaster.",
+            "The BCP and DRP both need to be evaluated regularly to ensure they remain effective in the face of environmental changes in and around the organization.",
+            "Security training is the process of teaching a skill or set of skills that will allow people to better perform specific functions.",
+            "Security awareness training is the process of exposing people to security issues so that they may be able to recognize them and better respond to them.",
+            "Social engineering, in the context of information security, is the process of manipulating individuals so that they perform actions that violate security protocols.",
             "Phishing is social engineering conducted through a digital communication.",
-            "A drive-by download is an automatic attack that is triggered simply by visiting a malicious",
-            "Key performance indicators (KPIs) measure the effectiveness of an organization in"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "performing a given task at a given point in time."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Key risk indicators (KRIs) measure the risk inherent in performing a given action or set of",
+            "A drive-by download is an automatic attack that is triggered simply by visiting a malicious website.",
+            "Key performance indicators (KPIs) measure the effectiveness of an organization in performing a given task at a given point in time.",
+            "Key risk indicators (KRIs) measure the risk inherent in performing a given action or set of actions.",
             "Reports must be written with a specific audience in mind if they are to be effective.",
-            "A management review is a formal meeting in which senior organizational leaders determine"
+            "A management review is a formal meeting in which senior organizational leaders determine whether the information security management systems are effectively accomplishing their goals."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "whether the information security management systems are effectively accomplishing their goals."
         }
       ]
     },
@@ -2203,122 +1703,46 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list. 1. Internal audits are the preferred approach when which of the following is true? A. The organization lacks the organic expertise to conduct them."
+          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Internal audits are the preferred approach when which of the following is true? A. The organization lacks the organic expertise to conduct them. B. Regulatory requirements dictate the use of a third-party auditor. C. The budget for security testing is limited or nonexistent. D. There is concern over the spillage of proprietary or confidential information.",
+            "All of the following are steps in the security audit process except A. Document the results. B. Convene a management review. C. Involve the right business unit leaders. D. Determine the scope.",
+            "Which of the following is an advantage of using third-party auditors? A. They may have knowledge that an organization wouldn’t otherwise be able to leverage. B. Their cost. C. The requirement for NDAs and supervision. D. Their use of automated scanners and reports.",
+            "Choose the term that describes an audit performed to demonstrate that an organization is complying with its contractual obligations to another organization. A. Internal audit B. Third-party audit C. External audit D. Compliance audit",
+            "Which of the following is true of a vulnerability assessment? A. The aim is to identify as many vulnerabilities as possible. B. It is not concerned with the effects of the assessment on other systems. C. It is a predictive test aimed at assessing the future performance of a system. D. Ideally the assessment is fully automated with no human involvement.",
+            "An assessment whose goal is to assess the susceptibility of an organization to social engineering attacks is best classified as A. Physical testing B. Personnel testing C. Vulnerability testing D. Network testing",
+            "Which of the following is an assessment that affords the auditor detailed knowledge of the system’s architecture before conducting the test? A. White box testing B. Gray box testing C. Black box testing D. Zero knowledge testing",
+            "Vulnerability scans normally involve all of the following except A. The identification of active hosts on the network B. The identification of malware on all hosts C. The identification of misconfigured settings D. The identification of operating systems",
+            "Security event logs can best be protected from tampering by which of the following? A. Encrypting the contents using asymmetric key encryption B. Ensuring every user has administrative rights on their own workstations C. Using remote logging over simplex communications media D. Storing the event logs on DVD-RW",
+            "Synthetic transactions are best described as A. Real user monitoring (RUM) B. Transactions that fall outside the normal purpose of a system C. Transactions that are synthesized from multiple users’ interactions with the system D. A way to test the behavior and performance of critical services",
+            "Suppose you want to study the actions an adversary may attempt against your system and test the effectiveness of the controls you have emplaced to mitigate the associated risks. Which of the following approaches would best allow you to accomplish this goal? A. Misuse case testing B. Use case testing C. Real user monitoring (RUM) D. Fuzzing",
+            "Code reviews include all of the following except A. Ensuring the code conforms to applicable coding standards B. Discussing bugs, design issues, and anything else that comes up about the code C. Agreeing on a “disposition” for the code D. Fuzzing the code",
+            "Interface testing could involve which of the following? A. The application programming interface (API) B. The graphical user interface (GUI) C. Both of the above D. None of the above",
+            "One of the actions that attackers typically attempt after compromising a system is to acquire the ability to mimic a normal privileged user. What is one way in which they may accomplish this? A. Rebooting the compromised host B. Exporting the password hash table C. Pivoting from the compromised host to another target D. Adding a privileged user account",
+            "Which of the following is not normally an element of user accounts management audits? A. Password hashing B. Signed AUPs"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "B. Regulatory requirements dictate the use of a third-party auditor."
+          "text": "C. Privileged accounts D. Suspended accounts"
         },
         {
-          "type": "paragraph",
-          "text": "C. The budget for security testing is limited or nonexistent."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. There is concern over the spillage of proprietary or confidential information. 2. All of the following are steps in the security audit process except A. Document the results."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Convene a management review."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Involve the right business unit leaders."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Determine the scope. 3. Which of the following is an advantage of using third-party auditors?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. They may have knowledge that an organization wouldn’t otherwise be able to leverage. B. Their cost."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. The requirement for NDAs and supervision."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Their use of automated scanners and reports. 4. Choose the term that describes an audit performed to demonstrate that an organization is complying with its contractual obligations to another organization."
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Internal audit B. Third-party audit C. External audit D. Compliance audit 5. Which of the following is true of a vulnerability assessment?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. The aim is to identify as many vulnerabilities as possible."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It is not concerned with the effects of the assessment on other systems."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It is a predictive test aimed at assessing the future performance of a system. D. Ideally the assessment is fully automated with no human involvement. 6. An assessment whose goal is to assess the susceptibility of an organization to social engineering attacks is best classified as A. Physical testing B. Personnel testing C. Vulnerability testing D. Network testing 7. Which of the following is an assessment that affords the auditor detailed knowledge of the system’s architecture before conducting the test?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. White box testing B. Gray box testing C. Black box testing D. Zero knowledge testing 8. Vulnerability scans normally involve all of the following except A. The identification of active hosts on the network B. The identification of malware on all hosts C. The identification of misconfigured settings D. The identification of operating systems 9. Security event logs can best be protected from tampering by which of the following? A. Encrypting the contents using asymmetric key encryption B. Ensuring every user has administrative rights on their own workstations C. Using remote logging over simplex communications media D. Storing the event logs on DVD-RW 10. Synthetic transactions are best described as A. Real user monitoring (RUM) B. Transactions that fall outside the normal purpose of a system C. Transactions that are synthesized from multiple users’ interactions with the system D. A way to test the behavior and performance of critical services 11. Suppose you want to study the actions an adversary may attempt against your system and test the effectiveness of the controls you have emplaced to mitigate the associated risks. Which of the following approaches would best allow you to accomplish this goal?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Misuse case testing B. Use case testing C. Real user monitoring (RUM) D. Fuzzing 12. Code reviews include all of the following except A. Ensuring the code conforms to applicable coding standards B. Discussing bugs, design issues, and anything else that comes up about the code C. Agreeing on a “disposition” for the code D. Fuzzing the code 13. Interface testing could involve which of the following?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. The application programming interface (API) B. The graphical user interface (GUI) C. Both of the above D. None of the above 14. One of the actions that attackers typically attempt after compromising a system is to acquire the ability to mimic a normal privileged user. What is one way in which they may accomplish this?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Rebooting the compromised host B. Exporting the password hash table C. Pivoting from the compromised host to another target D. Adding a privileged user account 15. Which of the following is not normally an element of user accounts management audits? A. Password hashing"
-        }
-      ]
-    },
-    {
-      "id": "b-signed-aups",
-      "title": "B. Signed AUPs",
-      "level": 3,
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "C. Privileged accounts D. Suspended accounts 16. How might one test adherence to the user accounts policy?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. User self-reporting B. Penetration testing C. Management review D. User records auditing 17. Which operating systems allows users to temporarily elevate their privileges in order to launch an application at a higher privilege level?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. All major desktop operating systems B. Recent versions of Windows C. Linux and Windows D. Recent versions of macOS 18. All of the following are normally legitimate reasons to suspend rather than delete user accounts except A. Regulatory compliance B. Protection of the user’s privacy C. Investigation of a subsequently discovered event D. Data retention policy 19. Data backup verification efforts should A. Have the smallest scope possible B. Be based on the threats to the organization C. Maximize impact on business D. Focus on user data 20. Why would an organization need to periodically test disaster recovery and business continuity plans if they’ve already been shown to work?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Environmental changes may render them ineffective over time."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It has low confidence in the abilities of the testers."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. To appease senior leadership."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Resources may not be available in the future to test again. 21. All of the following are types of tests for disaster recovery and business continuity plans except A. Structured walk-through test B. Simulation test C. Null hypothesis test D. Full-interruption test 22. What is the difference between security training and security awareness training? A. Security training is focused on skills, while security awareness training is focused on recognizing and responding to issues."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Security training must be performed, while security awareness training is an aspirational goal."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Security awareness training is focused on security personnel, while security training is geared toward all users."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. There is no difference. These terms refer to the same process. 23. Which of the following is not a form of social engineering?"
+          "type": "list",
+          "items": [
+            "How might one test adherence to the user accounts policy? A. User self-reporting B. Penetration testing C. Management review D. User records auditing",
+            "Which operating systems allows users to temporarily elevate their privileges in order to launch an application at a higher privilege level? A. All major desktop operating systems B. Recent versions of Windows C. Linux and Windows D. Recent versions of macOS",
+            "All of the following are normally legitimate reasons to suspend rather than delete user accounts except A. Regulatory compliance B. Protection of the user’s privacy C. Investigation of a subsequently discovered event D. Data retention policy",
+            "Data backup verification efforts should A. Have the smallest scope possible B. Be based on the threats to the organization C. Maximize impact on business D. Focus on user data",
+            "Why would an organization need to periodically test disaster recovery and business continuity plans if they’ve already been shown to work? A. Environmental changes may render them ineffective over time. B. It has low confidence in the abilities of the testers. C. To appease senior leadership. D. Resources may not be available in the future to test again.",
+            "All of the following are types of tests for disaster recovery and business continuity plans except A. Structured walk-through test B. Simulation test C. Null hypothesis test D. Full-interruption test",
+            "What is the difference between security training and security awareness training? A. Security training is focused on skills, while security awareness training is focused on recognizing and responding to issues. B. Security training must be performed, while security awareness training is an aspirational goal. C. Security awareness training is focused on security personnel, while security training is geared toward all users. D. There is no difference. These terms refer to the same process.",
+            "Which of the following is not a form of social engineering?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -2329,39 +1753,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Fishing C. Whaling D. Blackmailing 24. What is a key performance indicator (KPI)?"
+          "text": "B. Fishing C. Whaling D. Blackmailing"
         },
         {
-          "type": "paragraph",
-          "text": "A. Any attribute of the ISMS that can be described as a value B. The value of a factor at a particular point in time C. A derived value that is generated by comparing multiple measurements against each other or against a baseline D. An interpretation of one or more metrics that describes the effectiveness of the ISMS 25. Which of the following is true about key risk indicators (KRIs)?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. They tell managers where an organization stands with regard to its goals."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. They are inputs to the calculation of single loss expectancy (SLE)."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. They tell managers where an organization stands with regard to its risk appetite. D. An interpretation of one or more metrics that describes the effectiveness of the ISMS. 26. Which of the following is true of management reviews?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. They happen periodically and include results of audits as a key input."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. They happen in an ad hoc manner as the needs of the organization dictate."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. They are normally conducted by mid-level managers, but their reports are presented to the key business leaders."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. They are focused on assessing the management of the information systems."
+          "type": "list",
+          "items": [
+            "What is a key performance indicator (KPI)? A. Any attribute of the ISMS that can be described as a value B. The value of a factor at a particular point in time C. A derived value that is generated by comparing multiple measurements against each other or against a baseline D. An interpretation of one or more metrics that describes the effectiveness of the ISMS",
+            "Which of the following is true about key risk indicators (KRIs)? A. They tell managers where an organization stands with regard to its goals. B. They are inputs to the calculation of single loss expectancy (SLE). C. They tell managers where an organization stands with regard to its risk appetite. D. An interpretation of one or more metrics that describes the effectiveness of the ISMS.",
+            "Which of the following is true of management reviews? A. They happen periodically and include results of audits as a key input. B. They happen in an ad hoc manner as the needs of the organization dictate. C. They are normally conducted by mid-level managers, but their reports are presented to the key business leaders. D. They are focused on assessing the management of the information systems."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -2371,12 +1772,46 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "1. C. Third-party auditors are almost always fairly expensive, so if the organization’s budget does not support their use, it may be necessary to use internal assets to conduct the audit. 2. B. The management review is not a part of any audit. Instead, this review typically uses the results of one or more audits in order to make strategic decisions. 3. A. Because they perform audits in multiple other organizations, and since their knowledge is constantly refreshed, third-party auditors almost always have knowledge and insights that would otherwise be unavailable to the organization. 4. C. External audits are used to ensure that contractors are meeting their contractual obligations, so that is the best answer. A compliance audit would apply to regulatory or industry standards and would almost certainly be a third-party audit, which makes answer D a poor fit in most cases. 5. A. One of the principal goals of a vulnerability assessment is to identify as many security flaws as possible within a given system, while being careful not to disrupt other systems. 6. B. Social engineering is focused on people, so personnel testing is the best answer. 7. A. White box testing gives the tester detailed information about the internal workings of the system under study. Gray box testing provides some information, so it is not the best answer to this question."
+          "type": "list",
+          "items": [
+            "C. Third-party auditors are almost always fairly expensive, so if the organization’s budget does not support their use, it may be necessary to use internal assets to conduct the audit.",
+            "B. The management review is not a part of any audit. Instead, this review typically uses the results of one or more audits in order to make strategic decisions.",
+            "A. Because they perform audits in multiple other organizations, and since their knowledge is constantly refreshed, third-party auditors almost always have knowledge and insights that would otherwise be unavailable to the organization.",
+            "C. External audits are used to ensure that contractors are meeting their contractual obligations, so that is the best answer. A compliance audit would apply to regulatory or industry standards and would almost certainly be a third-party audit, which makes answer D a poor fit in most cases.",
+            "A. One of the principal goals of a vulnerability assessment is to identify as many security flaws as possible within a given system, while being careful not to disrupt other systems.",
+            "B. Social engineering is focused on people, so personnel testing is the best answer.",
+            "A. White box testing gives the tester detailed information about the internal workings of the system under study. Gray box testing provides some information, so it is not the best answer to this question.",
+            "B. Vulnerability testing does not normally include scanning hosts for malware. Instead, it focuses on finding flaws that malware could potentially exploit.",
+            "C. Using a remote logging host raises the bar for attackers because if they are able to compromise one host, they would have to compromise the remote logger in order to tamper with the logs. The use of a simplex channel further hinders the attackers.",
+            "D. Synthetic transactions are those that simulate the behavior of real users, but are not the result of real user interactions with the system. They allow an organization to ensure that services are behaving properly without having to rely on user complaints to detect problems.",
+            "A. Misuse case testing allows us to document both an adversary’s desired actions on a system and the controls that are meant to thwart that adversary. It is similar to developing use cases, but with a malicious user’s actions in mind instead of those of legitimate users.",
+            "D. Fuzzing is a technique for detecting flaws in the code by bombarding it with massive amounts of random data. This is not part of a code review, which focuses on analyzing the source code, not its response to random data.",
+            "C. Interface testing covers the exchange points within different components of the system. The API is the exchange point between the system and the libraries it leverages, while the GUI is the exchange point between the system and the users. Testing either of these would constitute an interface test.",
+            "D. After compromising a host, attackers may attempt a number of actions, but will typically attempt to blend in by acquiring administrative privileges. They can do this by either compromising a privileged account, adding a privileged account, or elevating the privileges of the account they compromised.",
+            "A. Password hashing (covered in Chapter 5) is a very common approach to protecting user account passwords, but varies from one platform to the next. It is almost always controlled by the system itself and would normally not be part of the user accounts management audit.",
+            "D. A records audit can verify that users have acknowledged acceptance of the policy, that accounts of departed users have been suspended, that users have the appropriate access to information, and many other aspects of the policy.",
+            "A. All major operating systems allow for the temporary elevation of user privileges, but macOS and some versions of Linux require the user to do so from a terminal window.",
+            "B. If the organization was intentionally attempting to protect the privacy of its users, suspension of the account would be a poor privacy measure compared to outright deletion.",
+            "B. The verification of data backups should focus on assessing the organization’s ability to respond to the threats identified during the threat modeling and risk management processes. If the organization can’t respond to these threats, then its backups may be useless.",
+            "A. The best reason to periodically test DRPs and BCPs is to assess the effects of internal or external environment changes on them. Changes to these plans are inevitable and often frequently required, which puts an organization at risk of unacceptably long system outages if it doesn’t periodically test its DRPs/BCPs.",
+            "C. The null hypothesis test is used in statistical analysis. Though it could conceivably be used to analyze the results of a DRP/BCP test, it would not be in and of itself a feasible way to test these plans.",
+            "A. Security training is the process of teaching a skill or set of skills that will allow people to better perform specific functions. Security awareness training, on the other hand, is the"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "8. B. Vulnerability testing does not normally include scanning hosts for malware. Instead, it focuses on finding flaws that malware could potentially exploit. 9. C. Using a remote logging host raises the bar for attackers because if they are able to compromise one host, they would have to compromise the remote logger in order to tamper with the logs. The use of a simplex channel further hinders the attackers. 10. D. Synthetic transactions are those that simulate the behavior of real users, but are not the result of real user interactions with the system. They allow an organization to ensure that services are behaving properly without having to rely on user complaints to detect problems. 11. A. Misuse case testing allows us to document both an adversary’s desired actions on a system and the controls that are meant to thwart that adversary. It is similar to developing use cases, but with a malicious user’s actions in mind instead of those of legitimate users. 12. D. Fuzzing is a technique for detecting flaws in the code by bombarding it with massive amounts of random data. This is not part of a code review, which focuses on analyzing the source code, not its response to random data. 13. C. Interface testing covers the exchange points within different components of the system. The API is the exchange point between the system and the libraries it leverages, while the GUI is the exchange point between the system and the users. Testing either of these would constitute an interface test. 14. D. After compromising a host, attackers may attempt a number of actions, but will typically attempt to blend in by acquiring administrative privileges. They can do this by either compromising a privileged account, adding a privileged account, or elevating the privileges of the account they compromised. 15. A. Password hashing (covered in Chapter 5) is a very common approach to protecting user account passwords, but varies from one platform to the next. It is almost always controlled by the system itself and would normally not be part of the user accounts management audit. 16. D. A records audit can verify that users have acknowledged acceptance of the policy, that accounts of departed users have been suspended, that users have the appropriate access to information, and many other aspects of the policy. 17. A. All major operating systems allow for the temporary elevation of user privileges, but macOS and some versions of Linux require the user to do so from a terminal window. 18. B. If the organization was intentionally attempting to protect the privacy of its users, suspension of the account would be a poor privacy measure compared to outright deletion. 19. B. The verification of data backups should focus on assessing the organization’s ability to respond to the threats identified during the threat modeling and risk management processes. If the organization can’t respond to these threats, then its backups may be useless. 20. A. The best reason to periodically test DRPs and BCPs is to assess the effects of internal or external environment changes on them. Changes to these plans are inevitable and often frequently required, which puts an organization at risk of unacceptably long system outages if it doesn’t periodically test its DRPs/BCPs. 21. C. The null hypothesis test is used in statistical analysis. Though it could conceivably be used to analyze the results of a DRP/BCP test, it would not be in and of itself a feasible way to test these plans. 22. A. Security training is the process of teaching a skill or set of skills that will allow people to better perform specific functions. Security awareness training, on the other hand, is the process of exposing people to security issues so that they may be able to recognize them and better respond to them. Security training is typically provided to security personnel, while security awareness training should be provided to every member of the organization. 23. B. The correct term for social engineering conducted over digital communications means is phishing, not fishing. 24. D. Key performance indicators (KPIs) are used by managers to assess the effectiveness of any critical business function. In the context of security, KPIs are based on metrics and are meant to answer the following question: Are we managing our information security well enough? 25. C. Key risk indicators (KRIs) allow managers to understand when specific activities of the organization are moving it toward a higher level of risk. They are useful to understanding changes and managing the overall risk. 26. A. Management reviews work best when they are regularly scheduled events involving the key organizational leaders, because this allows the subordinate leaders to plan and conduct the assessments, such as audits that provide inputs to the review."
+          "text": "process of exposing people to security issues so that they may be able to recognize them and better respond to them. Security training is typically provided to security personnel, while security awareness training should be provided to every member of the organization."
+        },
+        {
+          "type": "list",
+          "items": [
+            "B. The correct term for social engineering conducted over digital communications means is phishing, not fishing.",
+            "D. Key performance indicators (KPIs) are used by managers to assess the effectiveness of any critical business function. In the context of security, KPIs are based on metrics and are meant to answer the following question: Are we managing our information security well enough?",
+            "C. Key risk indicators (KRIs) allow managers to understand when specific activities of the organization are moving it toward a higher level of risk. They are useful to understanding changes and managing the overall risk.",
+            "A. Management reviews work best when they are regularly scheduled events involving the key organizational leaders, because this allows the subordinate leaders to plan and conduct the assessments, such as audits that provide inputs to the review."
+          ],
+          "ordered": true
         }
       ]
     }

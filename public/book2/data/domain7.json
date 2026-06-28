@@ -125,62 +125,31 @@
         {
           "type": "list",
           "items": [
-            "Implements and maintains security devices and software Despite some security"
+            "Implements and maintains security devices and software Despite some security vendors’ claims that their products will provide effective security with “set it and forget it” deployments, security products require monitoring and maintenance in order to provide their full value. Version updates and upgrades may be required when new capabilities"
           ]
         },
         {
           "type": "paragraph",
-          "text": "vendors’ claims that their products will provide effective security with “set it and forget it” deployments, security products require monitoring and maintenance in order to provide their full value. Version updates and upgrades may be required when new capabilities become available to combat new threats, and when vulnerabilities are discovered in the security products themselves."
+          "text": "become available to combat new threats, and when vulnerabilities are discovered in the security products themselves."
         },
         {
           "type": "list",
           "items": [
-            "Carries out security assessments As a service to the business that the security"
+            "Carries out security assessments As a service to the business that the security administrator is working to secure, a security assessment leverages the knowledge and experience of the security administrator to identify vulnerabilities in the systems, networks, software, and in-house developed products used by a business. These security assessments enable the business to understand the risks it faces and to make sensible business decisions about products and services it considers purchasing, and risk mitigation strategies it chooses to fund versus risks it chooses to accept, transfer (by buying insurance), or avoid (by not taking an action that isn’t worth the risk or risk mitigation cost).",
+            "Creates and maintains user profiles and implements and maintains access control mechanisms The security administrator puts into practice the security policies of least privilege and oversees accounts that exist, along with the permissions and rights they are assigned.",
+            "Configures and maintains security labels in mandatory access control (MAC) environments MAC environments, mostly found in government and military agencies, have security labels set on data objects and subjects. Access decisions are based on comparing the object’s classification and the subject’s clearance, as covered extensively in"
           ]
         },
         {
           "type": "paragraph",
-          "text": "administrator is working to secure, a security assessment leverages the knowledge and experience of the security administrator to identify vulnerabilities in the systems, networks, software, and in-house developed products used by a business. These security assessments enable the business to understand the risks it faces and to make sensible business decisions about products and services it considers purchasing, and risk mitigation strategies it chooses to fund versus risks it chooses to accept, transfer (by buying insurance), or avoid (by not taking an action that isn’t worth the risk or risk mitigation cost)."
+          "text": "Chapter 3. It is the responsibility of the security administrator to oversee the implementation and maintenance of these access controls."
         },
         {
           "type": "list",
           "items": [
-            "Creates and maintains user profiles and implements and maintains access control"
+            "Manages password policies New accounts must be protected from attackers who might know patterns used for passwords, or might find accounts that have been newly created without any passwords, and take over those accounts before the authorized user accesses the account and changes the password. The security administrator operates automated new- password generators or manually sets new passwords, and then distributes them to the authorized user so attackers cannot guess the initial or default passwords on new accounts, and so new accounts are never left unprotected. Security administrators also ensure strong passwords are implemented and used throughout the organization’s information systems, periodically audit those passwords using password crackers or rainbow tables, ensure the passwords are changed periodically in accordance with the password policy, and handle user requests for password resets.",
+            "Reviews audit logs While some of the strongest security protections come from preventive controls (such as firewalls that block unauthorized network activity), detective controls such as reviewing audit logs are also required. Suppose the firewall blocked 100,000 unauthorized access attempts yesterday. The only way to know if that’s a good thing or an indication of a bad thing is for the security administrator (or automated technology under his control) to review those firewall logs to look for patterns. If those 100,000 blocked attempts were the usual low-level random noise of the Internet, then things are (probably) normal; but if those attempts were advanced and came from a concentrated selection of addresses on the Internet, a more deliberate (and more possibly successful) attack may be underway. The security administrator’s review of audit logs detects bad things as they occur and, hopefully, before they cause real damage."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "mechanisms The security administrator puts into practice the security policies of least privilege and oversees accounts that exist, along with the permissions and rights they are assigned."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Configures and maintains security labels in mandatory access control (MAC)"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "environments MAC environments, mostly found in government and military agencies, have security labels set on data objects and subjects. Access decisions are based on comparing the object’s classification and the subject’s clearance, as covered extensively in Chapter 3. It is the responsibility of the security administrator to oversee the implementation and maintenance of these access controls."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Manages password policies New accounts must be protected from attackers who might"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "know patterns used for passwords, or might find accounts that have been newly created without any passwords, and take over those accounts before the authorized user accesses the account and changes the password. The security administrator operates automated new- password generators or manually sets new passwords, and then distributes them to the authorized user so attackers cannot guess the initial or default passwords on new accounts, and so new accounts are never left unprotected. Security administrators also ensure strong passwords are implemented and used throughout the organization’s information systems, periodically audit those passwords using password crackers or rainbow tables, ensure the passwords are changed periodically in accordance with the password policy, and handle user requests for password resets."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Reviews audit logs While some of the strongest security protections come from preventive"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "controls (such as firewalls that block unauthorized network activity), detective controls such as reviewing audit logs are also required. Suppose the firewall blocked 100,000 unauthorized access attempts yesterday. The only way to know if that’s a good thing or an indication of a bad thing is for the security administrator (or automated technology under his control) to review those firewall logs to look for patterns. If those 100,000 blocked attempts were the usual low-level random noise of the Internet, then things are (probably) normal; but if those attempts were advanced and came from a concentrated selection of addresses on the Internet, a more deliberate (and more possibly successful) attack may be underway. The security administrator’s review of audit logs detects bad things as they occur and, hopefully, before they cause real damage."
         }
       ]
     },
@@ -212,17 +181,8 @@
         {
           "type": "list",
           "items": [
-            "Are users accessing information and performing tasks that are not necessary for their job"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "description? The answer would indicate whether users’ rights and permissions need to be reevaluated and possibly modified."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Are repetitive mistakes being made? The answer would indicate whether users need to have",
+            "Are users accessing information and performing tasks that are not necessary for their job description? The answer would indicate whether users’ rights and permissions need to be reevaluated and possibly modified.",
+            "Are repetitive mistakes being made? The answer would indicate whether users need to have further training.",
             "Do too many users have rights and privileges to sensitive or restricted data or resources?"
           ]
         },
@@ -372,33 +332,15 @@
         {
           "type": "list",
           "items": [
-            "Door delay If a door is held open for a given time, an alarm will trigger to alert personnel"
+            "Door delay If a door is held open for a given time, an alarm will trigger to alert personnel of suspicious activity.",
+            "Key override A specific combination can be programmed for use in emergency situations to override normal procedures or for supervisory overrides.",
+            "Master keying Supervisory personnel can change access codes and other features of the cipher lock.",
+            "Hostage alarm If an individual is under duress and/or held hostage, a combination he enters can communicate this situation to the guard station and/or police station."
           ]
         },
         {
           "type": "paragraph",
-          "text": "of suspicious activity."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Key override A specific combination can be programmed for use in emergency situations"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "to override normal procedures or for supervisory overrides."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Master keying Supervisory personnel can change access codes and other features of the",
-            "Hostage alarm If an individual is under duress and/or held hostage, a combination he"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "enters can communicate this situation to the guard station and/or police station. If a door is accompanied by a cipher lock, it should have a corresponding visibility shield so a bystander cannot see the combination as it is keyed in. Automated cipher locks must have a backup battery system and be set to unlock during a power failure so personnel are not trapped inside during an emergency."
+          "text": "If a door is accompanied by a cipher lock, it should have a corresponding visibility shield so a bystander cannot see the combination as it is keyed in. Automated cipher locks must have a backup battery system and be set to unlock during a power failure so personnel are not trapped inside during an emergency."
         },
         {
           "type": "note",
@@ -424,33 +366,15 @@
           "type": "list",
           "items": [
             "Switch controls Cover on/off power switches",
-            "Slot locks Secure the system to a stationary component by the use of steel cable that is"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "connected to a bracket mounted in a spare expansion slot"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Slot locks Secure the system to a stationary component by the use of steel cable that is connected to a bracket mounted in a spare expansion slot",
             "Port controls Block access to disk drives or unused serial or parallel ports",
-            "Peripheral switch controls Secure a keyboard by inserting an on/off switch between the"
+            "Peripheral switch controls Secure a keyboard by inserting an on/off switch between the system unit and the keyboard input slot",
+            "Cable traps Prevent the removal of input/output devices by passing their cables through a lockable unit"
           ]
         },
         {
           "type": "paragraph",
-          "text": "system unit and the keyboard input slot"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Cable traps Prevent the removal of input/output devices by passing their cables through a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "lockable unit Administrative Responsibilities It is important for a company not only to choose the right type of lock for the right purpose, but also to follow proper maintenance and procedures. Keys should be assigned by facility management, and this assignment should be documented. Procedures should be written out detailing how keys are to be assigned, inventoried, and destroyed when necessary, and what should happen if and when keys are lost. Someone on the company’s facility management team should be assigned the responsibility of overseeing key and combination maintenance."
+          "text": "Administrative Responsibilities It is important for a company not only to choose the right type of lock for the right purpose, but also to follow proper maintenance and procedures. Keys should be assigned by facility management, and this assignment should be documented. Procedures should be written out detailing how keys are to be assigned, inventoried, and destroyed when necessary, and what should happen if and when keys are lost. Someone on the company’s facility management team should be assigned the responsibility of overseeing key and combination maintenance."
         },
         {
           "type": "figure",
@@ -497,23 +421,14 @@
         {
           "type": "list",
           "items": [
-            "Low security No pick or drill resistance provided (can fall within any of the three grades",
-            "Medium security A degree of pick-resistance protection provided (uses tighter and more"
+            "Low security No pick or drill resistance provided (can fall within any of the three grades of locks)",
+            "Medium security A degree of pick-resistance protection provided (uses tighter and more complex keyways [notch combination]; can fall within any of the three grades of locks)",
+            "High security Pick-resistance protection through many different mechanisms (only used in grade 1 and 2 locks)"
           ]
         },
         {
           "type": "paragraph",
-          "text": "complex keyways [notch combination]; can fall within any of the three grades of locks)"
-        },
-        {
-          "type": "list",
-          "items": [
-            "High security Pick-resistance protection through many different mechanisms (only used"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "in grade 1 and 2 locks) Intruders may carry out another technique, referred to as raking. To circumvent a pin tumbler lock, a lock pick is pushed to the back of the lock and quickly slid out while providing upward pressure. This movement makes many of the pins fall into place. A tension wrench is also put in to hold the pins that pop into the right place. If all the pins do not slide to the necessary height for the lock to open, the intruder holds the tension wrench and uses a thinner pick to move the rest of the pins into place."
+          "text": "Intruders may carry out another technique, referred to as raking. To circumvent a pin tumbler lock, a lock pick is pushed to the back of the lock and quickly slid out while providing upward pressure. This movement makes many of the pins fall into place. A tension wrench is also put in to hold the pins that pop into the right place. If all the pins do not slide to the necessary height for the lock to open, the intruder holds the tension wrench and uses a thinner pick to move the rest of the pins into place."
         },
         {
           "type": "paragraph",
@@ -577,7 +492,7 @@
         {
           "type": "list",
           "items": [
-            "Access control mechanisms Locks and keys, an electronic card access system, personnel",
+            "Access control mechanisms Locks and keys, an electronic card access system, personnel awareness",
             "Physical barriers Fences, gates, walls, doors, windows, protected vents, vehicular barriers",
             "Intrusion detection Perimeter sensors, interior sensors, annunciation mechanisms",
             "Assessment Guards, CCTV cameras",
@@ -617,12 +532,12 @@
           "items": [
             "Fences three to four feet high only deter casual trespassers.",
             "Fences six to seven feet high are considered too high to climb easily.",
-            "Fences eight feet high (possibly with strands of barbed or razor wire at the top) means you"
+            "Fences eight feet high (possibly with strands of barbed or razor wire at the top) means you are serious about protecting your property. They often deter the more determined intruder."
           ]
         },
         {
           "type": "paragraph",
-          "text": "are serious about protecting your property. They often deter the more determined intruder. The barbed wire on top of fences can be tilted in or out, which also provides extra protection. If the organization is a prison, it would have the barbed wire on top of the fencing pointed in, which makes it harder for prisoners to climb and escape. If the organization is a military base, the barbed wire would be tilted out, making it harder for someone to climb over the fence and gain access to the premises."
+          "text": "The barbed wire on top of fences can be tilted in or out, which also provides extra protection. If the organization is a prison, it would have the barbed wire on top of the fencing pointed in, which makes it harder for prisoners to climb and escape. If the organization is a military base, the barbed wire would be tilted out, making it harder for someone to climb over the fence and gain access to the premises."
         },
         {
           "type": "paragraph",
@@ -673,32 +588,14 @@
           "type": "list",
           "items": [
             "Class I Residential usage",
-            "Class II Commercial usage, where general public access is expected; examples include a"
+            "Class II Commercial usage, where general public access is expected; examples include a public parking lot entrance, a gated community, or a self-storage facility",
+            "Class III Industrial usage, where limited access is expected; an example is a warehouse property entrance not intended to serve the general public",
+            "Class IV Restricted access; this includes a prison entrance that is monitored either in person or via closed circuitry"
           ]
         },
         {
           "type": "paragraph",
-          "text": "public parking lot entrance, a gated community, or a self-storage facility"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Class III Industrial usage, where limited access is expected; an example is a warehouse"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "property entrance not intended to serve the general public"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Class IV Restricted access; this includes a prison entrance that is monitored either in"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "person or via closed circuitry Each gate classification has its own long list of implementation and maintenance guidelines in order to ensure the necessary level of protection. These classifications and guidelines are developed by Underwriters Laboratory (UL), a nonprofit organization that tests, inspects, and classifies electronic devices, fire protection equipment, and specific construction materials. This is the group that certifies these different items to ensure they are in compliance with national building codes. A specific UL code, UL-325, deals with garage doors, drapery, gates, and louver and window operators and systems."
+          "text": "Each gate classification has its own long list of implementation and maintenance guidelines in order to ensure the necessary level of protection. These classifications and guidelines are developed by Underwriters Laboratory (UL), a nonprofit organization that tests, inspects, and classifies electronic devices, fire protection equipment, and specific construction materials. This is the group that certifies these different items to ensure they are in compliance with national building codes. A specific UL code, UL-325, deals with garage doors, drapery, gates, and louver and window operators and systems."
         },
         {
           "type": "paragraph",
@@ -790,7 +687,7 @@
             "The purpose of CCTV To detect, assess, and/or identify intruders",
             "The type of environment the CCTV camera will work in Internal or external areas",
             "The field of view required Large or small area to be monitored",
-            "Amount of illumination of the environment Lit areas, unlit areas, areas affected by",
+            "Amount of illumination of the environment Lit areas, unlit areas, areas affected by sunlight",
             "Integration with other security controls Guards, IDSs, alarm systems"
           ]
         },
@@ -1058,42 +955,20 @@
         {
           "type": "list",
           "items": [
-            "Application whitelisting A whitelist is a list of software that is allowed to execute on a"
+            "Application whitelisting A whitelist is a list of software that is allowed to execute on a device or set of devices. Implementing this approach not only prevents unlicensed or unauthorized software from being installed, but also protects against many classes of malware.",
+            "Using Gold Masters As introduced earlier in the chapter, a Gold Master is a standard image workstation or server that includes properly configured and authorized software."
           ]
         },
         {
           "type": "paragraph",
-          "text": "device or set of devices. Implementing this approach not only prevents unlicensed or unauthorized software from being installed, but also protects against many classes of malware."
+          "text": "Organizations may have multiple images representing different sets of users. The use of Gold Masters simplifies new device provisioning and configuration, particularly if the users are not allowed to modify them."
         },
         {
           "type": "list",
           "items": [
-            "Using Gold Masters As introduced earlier in the chapter, a Gold Master is a standard"
+            "Enforcing the principle of least privilege If the typical users are not able to install any software on their devices, then it becomes a lot harder for rogue applications to show up in our networks. Furthermore, if we apply this approach, we mitigate risks from a very large set of attacks.",
+            "Automated scanning Every device on your network should be periodically scanned to ensure it is running only approved software with proper configurations. Deviations from this policy should be logged and investigated by the IT or security team."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "image workstation or server that includes properly configured and authorized software. Organizations may have multiple images representing different sets of users. The use of Gold Masters simplifies new device provisioning and configuration, particularly if the users are not allowed to modify them."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Enforcing the principle of least privilege If the typical users are not able to install any"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "software on their devices, then it becomes a lot harder for rogue applications to show up in our networks. Furthermore, if we apply this approach, we mitigate risks from a very large set of attacks."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Automated scanning Every device on your network should be periodically scanned to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "ensure it is running only approved software with proper configurations. Deviations from this policy should be logged and investigated by the IT or security team."
         },
         {
           "type": "paragraph",
@@ -1230,36 +1105,18 @@
         {
           "type": "list",
           "items": [
-            "Request for a change to take place Requests should be presented to an individual or"
+            "Request for a change to take place Requests should be presented to an individual or group that is responsible for approving changes and overseeing the activities of changes that take place within an environment.",
+            "Approval of the change The individual requesting the change must justify the reasons and clearly show the benefits and possible pitfalls of (that is, risk introduced by) the change."
           ]
         },
         {
           "type": "paragraph",
-          "text": "group that is responsible for approving changes and overseeing the activities of changes that take place within an environment."
+          "text": "Sometimes the requester is asked to conduct more research and provide more information before the change is approved."
         },
         {
           "type": "list",
           "items": [
-            "Approval of the change The individual requesting the change must justify the reasons and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "clearly show the benefits and possible pitfalls of (that is, risk introduced by) the change. Sometimes the requester is asked to conduct more research and provide more information before the change is approved."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Documentation of the change Once the change is approved, it should be entered into a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "change log. The log should be updated as the process continues toward completion. Denied requests must also be documented, so that there is a record of the rationale for not making the change."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Documentation of the change Once the change is approved, it should be entered into a change log. The log should be updated as the process continues toward completion. Denied requests must also be documented, so that there is a record of the rationale for not making the change.",
             "Tested and presented The change must be fully tested to uncover any unforeseen results."
           ]
         },
@@ -1270,22 +1127,9 @@
         {
           "type": "list",
           "items": [
-            "Implementation Once the change is fully tested and approved, a schedule should be"
+            "Implementation Once the change is fully tested and approved, a schedule should be developed that outlines the projected phases of the change being implemented and the necessary milestones. These steps should be fully documented and progress should be monitored.",
+            "Report change to management A full report summarizing the change should be submitted to management. This report can be submitted on a periodic basis to keep management up- to-date and ensure continual support."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "developed that outlines the projected phases of the change being implemented and the necessary milestones. These steps should be fully documented and progress should be monitored."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Report change to management A full report summarizing the change should be submitted"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "to management. This report can be submitted on a periodic basis to keep management up- to-date and ensure continual support."
         },
         {
           "type": "paragraph",
@@ -1374,7 +1218,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "When systems go down (and they will), it is important that the operations personnel know how to troubleshoot and fix the problem. The following are some steps that could be taken: 1. Enter into single user or safe mode. When a system cold start takes place, due to the system’s inability to automatically recover itself to a secure state, the administrator must be involved. The system either will automatically boot up only so far as a “single user mode” or must be manually booted to a “recovery console.” These are modes wherein the systems do not start services for users or the network, file systems typically remain unmounted, and only the local console is accessible. As a result, the administrator must either physically be at the console or have deployed external technology such as secured dial-in/dial-back modems attached to serial console ports or remote KVM (keyboard, video, mouse) switches attached to graphic consoles. 2. Fix issue and recover files. In single user mode, the administrator salvages file systems from damage that may have occurred as a result of the unclean, sudden shutdown of the system and then attempts to identify the cause of the shutdown to prevent it from recurring. Sometimes the administrator will also have to roll back or roll forward databases or other applications in single user mode. Other times, these will occur automatically when the administrator brings the system out of single user mode, or will be performed manually by the system administrator before applications and services return to their normal state. 3. Validate critical files and operations. If the investigation into the cause of the sudden shutdown suggests corruption has occurred (for example, through software or hardware failure, or user/administrator reconfiguration, or some kind of attack), then the administrator must validate the contents of configuration files and ensure system files (operating system program files, shared library files, possibly application program files, and so on) are consistent with their expected state. Cryptographic checksums of these files, verified by programs such as Tripwire, can perform validations of system files. The administrator must verify the contents of system configuration files against the system documentation."
+          "text": "When systems go down (and they will), it is important that the operations personnel know how to troubleshoot and fix the problem. The following are some steps that could be taken:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Enter into single user or safe mode. When a system cold start takes place, due to the system’s inability to automatically recover itself to a secure state, the administrator must be involved. The system either will automatically boot up only so far as a “single user mode” or must be manually booted to a “recovery console.” These are modes wherein the systems do not start services for users or the network, file systems typically remain unmounted, and only the local console is accessible. As a result, the administrator must either physically be at the console or have deployed external technology such as secured dial-in/dial-back modems attached to serial console ports or remote KVM (keyboard, video, mouse) switches attached to graphic consoles.",
+            "Fix issue and recover files. In single user mode, the administrator salvages file systems from damage that may have occurred as a result of the unclean, sudden shutdown of the system and then attempts to identify the cause of the shutdown to prevent it from recurring. Sometimes the administrator will also have to roll back or roll forward databases or other applications in single user mode. Other times, these will occur automatically when the administrator brings the system out of single user mode, or will be performed manually by the system administrator before applications and services return to their normal state.",
+            "Validate critical files and operations. If the investigation into the cause of the sudden shutdown suggests corruption has occurred (for example, through software or hardware failure, or user/administrator reconfiguration, or some kind of attack), then the administrator must validate the contents of configuration files and ensure system files (operating system program files, shared library files, possibly application program files, and so on) are consistent with their expected state. Cryptographic checksums of these files, verified by programs such as Tripwire, can perform validations of system files. The administrator must verify the contents of system configuration files against the system documentation."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -1390,42 +1243,15 @@
         {
           "type": "list",
           "items": [
-            "Protect the bootup sequence (C:, A:, D:) To ensure that systems recover to a secure state,"
+            "Protect the bootup sequence (C:, A:, D:) To ensure that systems recover to a secure state, the design of the system must prevent an attacker from changing the bootup sequence of the system. For example, on a Windows workstation or server, only authorized users should have access to BIOS settings to allow the user to change the order in which bootable devices are checked by the hardware. If the approved boot order is C: (the main hard drive) only, with no other hard drives and no removable devices (for example, optical or USB) allowed, then the hardware settings must prohibit the user (and the attacker) from changing those device selections and the order in which they are used. If the user or attacker can change the bootable device selections or order and can cause the system to reboot (which is always possible with physical access to a system), they can boot their own media and attack the software and/or data on the system.",
+            "Do not allow bypassing of writing actions to system logs Through separation of duties and access controls, system logs and system state files must be preserved against attempts by users/attackers to hide their actions or change the state to which the system will next restart. If any system configuration file can be changed by an unauthorized user, and then the user can find a way to cause the system to restart, the new—possibly insecure— configuration will take effect.",
+            "Do not allow system forced shutdowns To reduce the possibility of an unauthorized configuration change taking effect, and to reduce the possibility of denial of service through an inappropriate shutdown, only administrators should have the ability to instruct critical systems to shut down. Obviously, this will not stop attackers who have exploited privileged accounts or escalated their privileges, but it does raise the bar for a significant class of attacks.",
+            "Do not allow outputs to be rerouted Diagnostic output from a system can contain sensitive information. The diagnostic log files, including console output, must be protected by access controls from being read by anyone other than authorized administrators."
           ]
         },
         {
           "type": "paragraph",
-          "text": "the design of the system must prevent an attacker from changing the bootup sequence of the system. For example, on a Windows workstation or server, only authorized users should have access to BIOS settings to allow the user to change the order in which bootable devices are checked by the hardware. If the approved boot order is C: (the main hard drive) only, with no other hard drives and no removable devices (for example, optical or USB) allowed, then the hardware settings must prohibit the user (and the attacker) from changing those device selections and the order in which they are used. If the user or attacker can change the bootable device selections or order and can cause the system to reboot (which is always possible with physical access to a system), they can boot their own media and attack the software and/or data on the system."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Do not allow bypassing of writing actions to system logs Through separation of duties"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and access controls, system logs and system state files must be preserved against attempts by users/attackers to hide their actions or change the state to which the system will next restart. If any system configuration file can be changed by an unauthorized user, and then the user can find a way to cause the system to restart, the new—possibly insecure— configuration will take effect."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Do not allow system forced shutdowns To reduce the possibility of an unauthorized"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "configuration change taking effect, and to reduce the possibility of denial of service through an inappropriate shutdown, only administrators should have the ability to instruct critical systems to shut down. Obviously, this will not stop attackers who have exploited privileged accounts or escalated their privileges, but it does raise the bar for a significant class of attacks."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Do not allow outputs to be rerouted Diagnostic output from a system can contain"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sensitive information. The diagnostic log files, including console output, must be protected by access controls from being read by anyone other than authorized administrators. Unauthorized users must not be able to redirect the destination of diagnostic logs and console output."
+          "text": "Unauthorized users must not be able to redirect the destination of diagnostic logs and console output."
         }
       ]
     },
@@ -1445,40 +1271,13 @@
         {
           "type": "list",
           "items": [
-            "Data entered into a system should be in the correct format and validated to ensure that it is",
-            "Transactions should be atomic, meaning that they cannot be interrupted between the input"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "being provided and the generation of the output. (Atomicity protects against a class of attacks called time-of-check/time-of-use, or TOCTOU.)"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Data entered into a system should be in the correct format and validated to ensure that it is not malicious.",
+            "Transactions should be atomic, meaning that they cannot be interrupted between the input being provided and the generation of the output. (Atomicity protects against a class of attacks called time-of-check/time-of-use, or TOCTOU.)",
             "Transactions must be timestamped and logged.",
-            "Safeguards should be implemented to ensure output reaches the proper destinations",
-            "Cryptographic hashes or, better yet, message authentication codes (which are digitally"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "signed hashes) should be used to ensure the integrity of critical files."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The output should be clearly labeled to indicate the sensitivity or classification of the",
-            "Once output is created, it must have the proper access controls implemented, no matter"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "what its format (paper, digital, tape)."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Safeguards should be implemented to ensure output reaches the proper destinations securely:",
+            "Cryptographic hashes or, better yet, message authentication codes (which are digitally signed hashes) should be used to ensure the integrity of critical files.",
+            "The output should be clearly labeled to indicate the sensitivity or classification of the data.",
+            "Once output is created, it must have the proper access controls implemented, no matter what its format (paper, digital, tape).",
             "If a report has no information (nothing to report), it should contain “no output.”"
           ]
         },
@@ -1509,22 +1308,9 @@
           "type": "list",
           "items": [
             "Wiring closets should be locked.",
-            "Network switches and hubs, when it is not practical to place them in locked wiring closets,"
+            "Network switches and hubs, when it is not practical to place them in locked wiring closets, should be inside locked cabinets.",
+            "Network ports in public places (for example, kiosk computers and even telephones) should be made physically inaccessible."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "should be inside locked cabinets."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Network ports in public places (for example, kiosk computers and even telephones) should"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "be made physically inaccessible."
         },
         {
           "type": "paragraph",
@@ -1590,29 +1376,11 @@
         {
           "type": "list",
           "items": [
-            "For best security, require a virtual private network (VPN) connection protected by two-"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "factor authentication for any internal system access from an external (e.g., Internet) host."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Commands and data should not take place in cleartext (i.e., they should be encrypted),"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "even if using a VPN to remotely connect to the network. For example, Secure Shell (SSH) should be used."
-        },
-        {
-          "type": "list",
-          "items": [
+            "For best security, require a virtual private network (VPN) connection protected by two- factor authentication for any internal system access from an external (e.g., Internet) host.",
+            "Commands and data should not take place in cleartext (i.e., they should be encrypted), even if using a VPN to remotely connect to the network. For example, Secure Shell (SSH) should be used.",
             "Strong authentication should be in place for any administration activities.",
             "Truly critical systems should be administered locally instead of remotely.",
-            "Only a small number of administrators should be able to carry out this remote"
+            "Only a small number of administrators should be able to carry out this remote functionality."
           ]
         }
       ]
@@ -1660,42 +1428,20 @@
         {
           "type": "list",
           "items": [
-            "Redundant hardware ready for “hot swapping” keeps information highly available by"
+            "Redundant hardware ready for “hot swapping” keeps information highly available by having multiple copies of information (mirroring) or enough extra information available to reconstruct information in case of partial loss (parity, error correction). Hot swapping allows the administrator to replace the failed component while the system continues to run and information remains available; usually degraded performance results, but unplanned downtime is avoided.",
+            "Fault-tolerant technologies keep information available against not only individual storage device faults but even against whole system failures. Fault tolerance is among the most expensive possible solutions, and is justified only for the most mission-critical information."
           ]
         },
         {
           "type": "paragraph",
-          "text": "having multiple copies of information (mirroring) or enough extra information available to reconstruct information in case of partial loss (parity, error correction). Hot swapping allows the administrator to replace the failed component while the system continues to run and information remains available; usually degraded performance results, but unplanned downtime is avoided."
+          "text": "All technology will eventually experience a failure of some form. A company that would suffer irreparable harm from any unplanned downtime, or that would accumulate millions of dollars in losses for even a very brief unplanned downtime, can justify paying the high cost for fault-tolerant systems."
         },
         {
           "type": "list",
           "items": [
-            "Fault-tolerant technologies keep information available against not only individual storage"
+            "Service level agreements (SLAs) help service providers, whether they are an internal IT operation or an outsourcer, decide what type of availability technology is appropriate. From this determination, the price of a service or the budget of the IT operation can be set. The process of developing an SLA with a business is also beneficial to the business. While some businesses have performed this type of introspection on their own, many have not, and being forced to go through the exercise as part of budgeting for their internal IT operations or external sourcing helps the business understand the real value of its information.",
+            "Solid operational procedures are also required to maintain availability. The most reliable hardware with the highest redundancy or fault tolerance, designed for the fastest mean time to repair, will mostly be a waste of money if operational procedures, training, and continuous improvement are not part of the operational environment: one slip of the finger by an IT administrator can halt the most reliable system."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "device faults but even against whole system failures. Fault tolerance is among the most expensive possible solutions, and is justified only for the most mission-critical information. All technology will eventually experience a failure of some form. A company that would suffer irreparable harm from any unplanned downtime, or that would accumulate millions of dollars in losses for even a very brief unplanned downtime, can justify paying the high cost for fault-tolerant systems."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Service level agreements (SLAs) help service providers, whether they are an internal IT"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "operation or an outsourcer, decide what type of availability technology is appropriate. From this determination, the price of a service or the budget of the IT operation can be set. The process of developing an SLA with a business is also beneficial to the business. While some businesses have performed this type of introspection on their own, many have not, and being forced to go through the exercise as part of budgeting for their internal IT operations or external sourcing helps the business understand the real value of its information."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Solid operational procedures are also required to maintain availability. The most reliable"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "hardware with the highest redundancy or fault tolerance, designed for the fastest mean time to repair, will mostly be a waste of money if operational procedures, training, and continuous improvement are not part of the operational environment: one slip of the finger by an IT administrator can halt the most reliable system."
         },
         {
           "type": "paragraph",
@@ -1723,16 +1469,7 @@
         {
           "type": "list",
           "items": [
-            "The MTTR may pertain to fixing a component of the device, or replacing the device, or"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "perhaps refers to a vendor’s SLA."
-        },
-        {
-          "type": "list",
-          "items": [
+            "The MTTR may pertain to fixing a component of the device, or replacing the device, or perhaps refers to a vendor’s SLA.",
             "If the MTTR is too high for a critical device, then redundancy should be used."
           ]
         },
@@ -1986,11 +1723,28 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "A good way to reduce the likelihood of contingencies and disasters is to ensure your defensive architectures include the right set of tools. These technical controls need to be carefully considered in the context of your own conditions to decide which are useful and which aren’t. Regardless of the tools you employ, there is an underlying process that drives their operation in a live environment. The steps of this generalized process are described here: 1. Understand the risk. Chapter 1 presented the risk management process that organizations should use. The premise of this process is that you can’t ever eliminate all risks and should therefore devote your scarce resources to mitigating the most dangerous risks to a point where their likelihood is acceptable to the senior leaders. If you don’t focus on that set of risks, you will likely squander your resources countering threats that are not the ones your CEO is really concerned about. 2. Use the right controls. Once you are focused on the right set of risks, you can more easily identify the controls that will appropriately mitigate them. The relationship between risks and controls is many to many, since a given risk can have multiple controls assigned to it and a given control can be used to mitigate multiple risks. In fact, the number of risks mitigated by one control should give you an indicator of the value of that control to the organization. On the other hand, having multiple controls mitigating a risk may be less efficient, but may provide resiliency. 3. Use the controls correctly. Selecting the right tools is only part of the battle. You also need to ensure they are emplaced and configured correctly. The network architectures covered in Chapter 4 place some very significant limitations on the effectiveness of tools based on where they are plugged in. If an IDS is deployed on the wrong subnet, it may not be able to monitor all the traffic from the threat sources against which it is supposed to defend. Similarly, that same IDS with the wrong configuration or rule set could well become an expensive ornament on the network. 4. Manage your configuration. One of the certainties in life is that, left alone, every configuration is guaranteed to become obsolete at some point in the future. Even if it is not left alone, making unauthorized or undocumented changes will introduce risk at best and at worst quietly render your network vulnerable to an immediate threat. Properly done, configuration management will ensure you have ground truth about your network so that you can better answer the questions that are typically asked when doing security operations. 5. Assess your operation. You should constantly (or at least periodically) be looking at your defensive plan, comparing it with your latest threat and risk assessments, and asking yourself: are we still properly mitigating the risks? You should test your controls using cases derived from your risk assessment. This verifies that you are correctly mitigating those risks. However, you should also occasionally test your controls against an unconstrained set of threats in order to validate that you are mitigating the correct risks. A good penetration test (pen test) can both verify and validate the controls."
+          "text": "A good way to reduce the likelihood of contingencies and disasters is to ensure your defensive architectures include the right set of tools. These technical controls need to be carefully considered in the context of your own conditions to decide which are useful and which aren’t. Regardless of the tools you employ, there is an underlying process that drives their operation in a live environment. The steps of this generalized process are described here:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Understand the risk. Chapter 1 presented the risk management process that organizations should use. The premise of this process is that you can’t ever eliminate all risks and should therefore devote your scarce resources to mitigating the most dangerous risks to a point where their likelihood is acceptable to the senior leaders. If you don’t focus on that set of risks, you will likely squander your resources countering threats that are not the ones your CEO is really concerned about.",
+            "Use the right controls. Once you are focused on the right set of risks, you can more easily identify the controls that will appropriately mitigate them. The relationship between risks and controls is many to many, since a given risk can have multiple controls assigned to it and a given control can be used to mitigate multiple risks. In fact, the number of risks mitigated by one control should give you an indicator of the value of that control to the organization. On the other hand, having multiple controls mitigating a risk may be less efficient, but may provide resiliency.",
+            "Use the controls correctly. Selecting the right tools is only part of the battle. You also need to ensure they are emplaced and configured correctly. The network architectures covered in Chapter 4 place some very significant limitations on the effectiveness of tools based on where they are plugged in. If an IDS is deployed on the wrong subnet, it may not be able to monitor all the traffic from the threat sources against which it is supposed to defend. Similarly, that same IDS with the wrong configuration or rule set could well become an expensive ornament on the network.",
+            "Manage your configuration. One of the certainties in life is that, left alone, every configuration is guaranteed to become obsolete at some point in the future. Even if it is not"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "This process can yield a huge amount of possible preventive controls. There are some controls, however, that are so pervasive that every information security professional should be able to incorporate them into a defensive architecture. In the following sections, we describe the most important ones."
+          "text": "left alone, making unauthorized or undocumented changes will introduce risk at best and at worst quietly render your network vulnerable to an immediate threat. Properly done, configuration management will ensure you have ground truth about your network so that you can better answer the questions that are typically asked when doing security operations."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Assess your operation. You should constantly (or at least periodically) be looking at your defensive plan, comparing it with your latest threat and risk assessments, and asking yourself: are we still properly mitigating the risks? You should test your controls using cases derived from your risk assessment. This verifies that you are correctly mitigating those risks. However, you should also occasionally test your controls against an unconstrained set of threats in order to validate that you are mitigating the correct risks. A good penetration test (pen test) can both verify and validate the controls. This process can yield a huge amount of possible preventive controls. There are some controls, however, that are so pervasive that every information security professional should be able to incorporate them into a defensive architecture. In the following sections, we describe the most important ones."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -2139,7 +1893,17 @@
         },
         {
           "type": "paragraph",
-          "text": "As previously mentioned, software vulnerability scanning is what most people think of when they hear the term vulnerability management. Scanning is simply a common type of vulnerability assessment that can be divided into four phases: 1. Prepare First, you have to determine the scope of the vulnerability assessment. What are you testing and how? Having defined the scope, you schedule the event and coordinate it with affected asset and process owners to ensure it won’t interfere with critical business processes. You also want to ensure you have the latest vulnerability signatures or plug-ins for the systems you will be testing. 2. Scan For best results, the scan is automated, follows a script, and happens outside of the regular hours of operation for the organization. This reduces the chance that something goes unexpectedly wrong or that you overlook a system. During the scan, it is helpful to monitor resource utilization (like CPU and bandwidth) to ensure you are not unduly interfering with business operations. 3. Remediate In a perfect world, you don’t find any of the vulnerabilities for which you were testing. Typically, however, you find a system that somehow slipped through the cracks, so you patch it and rescan just to be sure. Sometimes, however, there are legitimate business reasons why a system can’t be patched (at least right away), so remediation may require deploying a compensating control or (in the worst case) accepting the risk as is. 4. Document This important phase is oftentimes overlooked because some organizations rely on the reports that are automatically generated by the scanning tools. These reports, however, don’t normally include important details like why a vulnerability may intentionally be left unpatched, the presence of compensating controls elsewhere, or the need for more/less frequent scanning of specific systems. Proper documentation ensures that assumptions, facts, and decisions are preserved to inform future decisions."
+          "text": "As previously mentioned, software vulnerability scanning is what most people think of when they hear the term vulnerability management. Scanning is simply a common type of vulnerability assessment that can be divided into four phases:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prepare First, you have to determine the scope of the vulnerability assessment. What are you testing and how? Having defined the scope, you schedule the event and coordinate it with affected asset and process owners to ensure it won’t interfere with critical business processes. You also want to ensure you have the latest vulnerability signatures or plug-ins for the systems you will be testing.",
+            "Scan For best results, the scan is automated, follows a script, and happens outside of the regular hours of operation for the organization. This reduces the chance that something goes unexpectedly wrong or that you overlook a system. During the scan, it is helpful to monitor resource utilization (like CPU and bandwidth) to ensure you are not unduly interfering with business operations.",
+            "Remediate In a perfect world, you don’t find any of the vulnerabilities for which you were testing. Typically, however, you find a system that somehow slipped through the cracks, so you patch it and rescan just to be sure. Sometimes, however, there are legitimate business reasons why a system can’t be patched (at least right away), so remediation may require deploying a compensating control or (in the worst case) accepting the risk as is.",
+            "Document This important phase is oftentimes overlooked because some organizations rely on the reports that are automatically generated by the scanning tools. These reports, however, don’t normally include important details like why a vulnerability may intentionally be left unpatched, the presence of compensating controls elsewhere, or the need for more/less frequent scanning of specific systems. Proper documentation ensures that assumptions, facts, and decisions are preserved to inform future decisions."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -2177,11 +1941,26 @@
         },
         {
           "type": "paragraph",
-          "text": "A social engineering assessment, much like its nefarious counterpart, consists of three phases as listed here: 1. Open-source intelligence (OSINT) collection Before manipulating a target, the social engineer needs to learn as much as possible about that person. This phase is characterized by searches for personal information in social media sites, web searches, and observation, eavesdropping, and casual conversations. Some OSINT tools allow quick searches of a large number of sources for information on specific individuals or organizations. 2. Assessment planning The social engineer could go on gathering OSINT forever but at some point (typically very quickly) will have enough information to formulate a plot to exploit one or more targets. Some people will respond emotionally to certain topics, while others may best be targeted by impersonating someone in a position of authority. The social engineer will identify the kinds of engagements, topics, and pretexts that are likeliest to work against one or more targets. 3. Assessment execution Regardless of how well planned an assessment may be, we know that no plan survives first contact. The social engineers will have to think quickly on their feet and be very perceptive of their targets’ states of mind and emotions. In this phase, they will engage targets through some combination of personal face-to-face, telephonic, text, or e-mail exchange and persuade them to take some action that compromises the security of the organization."
+          "text": "A social engineering assessment, much like its nefarious counterpart, consists of three phases as listed here:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Open-source intelligence (OSINT) collection Before manipulating a target, the social engineer needs to learn as much as possible about that person. This phase is characterized by searches for personal information in social media sites, web searches, and observation, eavesdropping, and casual conversations. Some OSINT tools allow quick searches of a large number of sources for information on specific individuals or organizations.",
+            "Assessment planning The social engineer could go on gathering OSINT forever but at some point (typically very quickly) will have enough information to formulate a plot to"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "It is rare for a social engineering assessment to not be effective. At the end of the event, the assessors will report their findings and use them to educate the organization on how to avoid falling for these tricks. Perhaps the most common type of assessment is in the form of phishing, but a real human vulnerability assessment should be much more comprehensive."
+          "text": "exploit one or more targets. Some people will respond emotionally to certain topics, while others may best be targeted by impersonating someone in a position of authority. The social engineer will identify the kinds of engagements, topics, and pretexts that are likeliest to work against one or more targets."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Assessment execution Regardless of how well planned an assessment may be, we know that no plan survives first contact. The social engineers will have to think quickly on their feet and be very perceptive of their targets’ states of mind and emotions. In this phase, they will engage targets through some combination of personal face-to-face, telephonic, text, or e-mail exchange and persuade them to take some action that compromises the security of the organization. It is rare for a social engineering assessment to not be effective. At the end of the event, the assessors will report their findings and use them to educate the organization on how to avoid falling for these tricks. Perhaps the most common type of assessment is in the form of phishing, but a real human vulnerability assessment should be much more comprehensive."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -2208,42 +1987,11 @@
         {
           "type": "list",
           "items": [
-            "Credentials Installing patches typically requires users to have admin credentials, which"
+            "Credentials Installing patches typically requires users to have admin credentials, which violates the principle of least privilege.",
+            "Configuration management It may be difficult (or impossible) to attest to the status of every application in the organization, which makes configuration management much more difficult.",
+            "Bandwidth utilization Having each application or service independently download the patches will lead to network congestion, particularly if there is no way to control when this will happen.",
+            "Service availability Servers are almost never configured to automatically update themselves because this could lead to unscheduled outages that have a negative effect on the organization."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "violates the principle of least privilege."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Configuration management It may be difficult (or impossible) to attest to the status of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "every application in the organization, which makes configuration management much more difficult."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Bandwidth utilization Having each application or service independently download the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "patches will lead to network congestion, particularly if there is no way to control when this will happen."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Service availability Servers are almost never configured to automatically update"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "themselves because this could lead to unscheduled outages that have a negative effect on the organization."
         },
         {
           "type": "paragraph",
@@ -2263,32 +2011,10 @@
         {
           "type": "list",
           "items": [
-            "Agent based In this approach, an update agent is installed on each device. This agent"
+            "Agent based In this approach, an update agent is installed on each device. This agent communicates with one or more update servers and compares available patches with software and versions on the local host, updating as needed.",
+            "Agentless Another way to manage patches is to have one or more hosts that remotely connect to each device on the network using admin credentials and check the remote device for needed updates. A spin on this is the use of Active Directory objects in a domain controller to manage patch levels.",
+            "Passive Depending on the fidelity that an organization requires, it may be possible to passively monitor network traffic to infer the patch levels on each networked application or service. While minimally intrusive to the end devices, this approach is also the least effective since it may not always be possible to uniquely identify software versions through their network traffic artifacts."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "communicates with one or more update servers and compares available patches with software and versions on the local host, updating as needed."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Agentless Another way to manage patches is to have one or more hosts that remotely"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "connect to each device on the network using admin credentials and check the remote device for needed updates. A spin on this is the use of Active Directory objects in a domain controller to manage patch levels."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Passive Depending on the fidelity that an organization requires, it may be possible to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "passively monitor network traffic to infer the patch levels on each networked application or service. While minimally intrusive to the end devices, this approach is also the least effective since it may not always be possible to uniquely identify software versions through their network traffic artifacts."
         },
         {
           "type": "paragraph",
@@ -2407,52 +2133,12 @@
         {
           "type": "list",
           "items": [
-            "Requirements Before you start interviewing potential MSSPs, make sure you know your"
+            "Requirements Before you start interviewing potential MSSPs, make sure you know your requirements. You can outsource the day-to-day activities, but you can’t outsource your responsibility to understand your own security needs.",
+            "Understanding Does the MSSP understand your business processes? Are they asking the right questions to get there? If your MSSP doesn’t know what it is that you do (and how), they will struggle to provide usable security. Likewise, you need to understand their qualifications and processes. Trust is a two-way street grounded on accurate information.",
+            "Reputation It is hard to be a sub-par service provider and not have customers complain about you. When choosing an MSSP, you need to devote some time to asking other security professionals about their experiences with specific companies.",
+            "Costing You may not be able to afford the deluxe version of the MSSP’s services, so you will likely have to compromise and address only a subset of your requirements. When you have trimmed this down, is it still more cost-effective to go with this provider? Should you go with another? Should you just do it yourself?",
+            "Liability Any reasonable MSSP will put limits on their liability if your organization is breached. Read the fine print on the contract and consult your attorneys, particularly if you are in an industry that is regulated by the government."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "requirements. You can outsource the day-to-day activities, but you can’t outsource your responsibility to understand your own security needs."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Understanding Does the MSSP understand your business processes? Are they asking the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "right questions to get there? If your MSSP doesn’t know what it is that you do (and how), they will struggle to provide usable security. Likewise, you need to understand their qualifications and processes. Trust is a two-way street grounded on accurate information."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Reputation It is hard to be a sub-par service provider and not have customers complain"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "about you. When choosing an MSSP, you need to devote some time to asking other security professionals about their experiences with specific companies."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Costing You may not be able to afford the deluxe version of the MSSP’s services, so you"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "will likely have to compromise and address only a subset of your requirements. When you have trimmed this down, is it still more cost-effective to go with this provider? Should you go with another? Should you just do it yourself?"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Liability Any reasonable MSSP will put limits on their liability if your organization is"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "breached. Read the fine print on the contract and consult your attorneys, particularly if you are in an industry that is regulated by the government."
         }
       ]
     },
@@ -2504,13 +2190,13 @@
             "A call tree to contact these roles and outside entities.",
             "A list of computer or forensic experts to contact.",
             "A list of steps to take to secure and preserve evidence.",
-            "A list of items that should be included in a report for management and potentially the",
-            "A description of how the different systems should be treated in this type of situation. (For"
+            "A list of items that should be included in a report for management and potentially the courts.",
+            "A description of how the different systems should be treated in this type of situation. (For example, the systems should be removed from both the Internet and the network and powered down.)"
           ]
         },
         {
           "type": "paragraph",
-          "text": "example, the systems should be removed from both the Internet and the network and powered down.) When a suspected crime is reported, the incident response team should follow a set of predetermined steps to ensure uniformity in their approach and make sure no steps are skipped. First, the incident response team should investigate the report and determine that an actual crime has been committed. If the team determines that a crime has been carried out, senior management should be informed immediately. If the suspect is an employee, a human resources representative must be called right away. The sooner the documenting of events begins, the better. If someone is able to document the starting time of the crime, along with the company employees and resources involved, that provides a good foundation for evidence. At this point, the company must decide if it wants to conduct its own forensic investigation or call in experts. If experts are going to be called in, the system that was attacked should be left alone in order to try and preserve as much evidence of the attack as possible. If the company decides to conduct its own forensic investigation, it must deal with many issues and address tricky elements. (Forensics will be discussed later in this chapter.) Computer networks and business processes face many types of threats, each requiring a specialized type of recovery. However, an incident response team should draft and enforce a basic outline of how all incidents are to be handled. This is a much better approach than the way many companies deal with these threats, which is usually in an ad hoc, reactive, and confusing manner. A clearly defined incident-handling process is more cost effective, enables recovery to happen more quickly, and provides a uniform approach with certain expectation of its results. Incident handling should be closely related to disaster recovery planning and should be part of the company’s disaster recovery plan, usually as an appendix. Both are intended to react to some type of incident that requires a quick response so the company can return to normal operations. Incident handling is a recovery plan that responds to malicious technical threats. The primary goal of incident handling is to contain and mitigate any damage caused by an incident and to prevent any further damage. This is commonly done by detecting a problem, determining its cause, resolving the problem, and documenting the entire process."
+          "text": "When a suspected crime is reported, the incident response team should follow a set of predetermined steps to ensure uniformity in their approach and make sure no steps are skipped. First, the incident response team should investigate the report and determine that an actual crime has been committed. If the team determines that a crime has been carried out, senior management should be informed immediately. If the suspect is an employee, a human resources representative must be called right away. The sooner the documenting of events begins, the better. If someone is able to document the starting time of the crime, along with the company employees and resources involved, that provides a good foundation for evidence. At this point, the company must decide if it wants to conduct its own forensic investigation or call in experts. If experts are going to be called in, the system that was attacked should be left alone in order to try and preserve as much evidence of the attack as possible. If the company decides to conduct its own forensic investigation, it must deal with many issues and address tricky elements. (Forensics will be discussed later in this chapter.) Computer networks and business processes face many types of threats, each requiring a specialized type of recovery. However, an incident response team should draft and enforce a basic outline of how all incidents are to be handled. This is a much better approach than the way many companies deal with these threats, which is usually in an ad hoc, reactive, and confusing manner. A clearly defined incident-handling process is more cost effective, enables recovery to happen more quickly, and provides a uniform approach with certain expectation of its results. Incident handling should be closely related to disaster recovery planning and should be part of the company’s disaster recovery plan, usually as an appendix. Both are intended to react to some type of incident that requires a quick response so the company can return to normal operations. Incident handling is a recovery plan that responds to malicious technical threats. The primary goal of incident handling is to contain and mitigate any damage caused by an incident and to prevent any further damage. This is commonly done by detecting a problem, determining its cause, resolving the problem, and documenting the entire process."
         },
         {
           "type": "paragraph",
@@ -2541,15 +2227,30 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Even as we think about how best to manage incidents, it is helpful to consider a model for the attacker’s behaviors. In their seminal 2011 paper titled “Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains,” Hutchins, Cloppert, and Amin describe a seven-stage intrusion model that has become an industry standard. Their seven stages are described here: 1. Reconnaissance The adversary has developed an interest in your organization as a target and begins a deliberate information-gathering effort to find vulnerabilities. 2. Weaponization Armed with detailed-enough information, the adversary determines the best way into your systems and begins preparing and testing the weapons to be used against you. 3. Delivery In this phase, the cyber weapon is delivered into your system. In over 95 percent of the published cases, this delivery happens via e-mail and usually in the form of a link to a malicious website. 4. Exploitation The malicious software is executing on a CPU within your network. This may have launched when the target user clicked a link, opened an attachment, visited a website, or plugged in a USB thumb drive. It could also (in somewhat rare cases) be the result of a remote exploit. One way or another, the attacker’s software is now running in your systems. 5. Installation Most malicious software is delivered in stages. First, there is the exploit that compromised the system in the prior step. Then, some other software is installed in the target system to ensure persistence, ideally with a good measure of stealth. 6. Command and Control (C&C) Once the first two stages of the software (exploit and persistence) have been executed, most malware will “phone home” to the attackers to let them know the attack was successful and to request updates and instructions. 7. Actions on the Objective Finally, the malware is ready to do whatever it is it was designed to do. Perhaps the intent is to steal intellectual property and send it to an overseas server. Or perhaps this particular effort is an early phase in a grander attack, so the malware will pivot off the compromised system. Whatever the case, the attacker has won at this point."
+          "text": "Even as we think about how best to manage incidents, it is helpful to consider a model for the attacker’s behaviors. In their seminal 2011 paper titled “Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains,” Hutchins, Cloppert, and Amin describe a seven-stage intrusion model that has become an industry standard. Their seven stages are described here:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reconnaissance The adversary has developed an interest in your organization as a target and begins a deliberate information-gathering effort to find vulnerabilities.",
+            "Weaponization Armed with detailed-enough information, the adversary determines the best way into your systems and begins preparing and testing the weapons to be used against you.",
+            "Delivery In this phase, the cyber weapon is delivered into your system. In over 95 percent of the published cases, this delivery happens via e-mail and usually in the form of a link to a malicious website.",
+            "Exploitation The malicious software is executing on a CPU within your network. This"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "As you can probably imagine, the earlier in the kill chain we identify the attack, the greater our odds are of preventing the adversaries from achieving their objectives. This is a critical concept in this model: if you can thwart the attack before stage four (exploitation), you stand a better chance of winning. Early detection, then, is the key to success."
+          "text": "may have launched when the target user clicked a link, opened an attachment, visited a website, or plugged in a USB thumb drive. It could also (in somewhat rare cases) be the result of a remote exploit. One way or another, the attacker’s software is now running in your systems."
         },
         {
-          "type": "note",
-          "text": "NOTE Resources for CERT can be found at https://www.cert.org/incident-management/."
+          "type": "list",
+          "items": [
+            "Installation Most malicious software is delivered in stages. First, there is the exploit that compromised the system in the prior step. Then, some other software is installed in the target system to ensure persistence, ideally with a good measure of stealth.",
+            "Command and Control (C&C) Once the first two stages of the software (exploit and persistence) have been executed, most malware will “phone home” to the attackers to let them know the attack was successful and to request updates and instructions.",
+            "Actions on the Objective Finally, the malware is ready to do whatever it is it was designed to do. Perhaps the intent is to steal intellectual property and send it to an overseas server. Or perhaps this particular effort is an early phase in a grander attack, so the malware will pivot off the compromised system. Whatever the case, the attacker has won at this point. As you can probably imagine, the earlier in the kill chain we identify the attack, the greater our odds are of preventing the adversaries from achieving their objectives. This is a critical concept in this model: if you can thwart the attack before stage four (exploitation), you stand a better chance of winning. Early detection, then, is the key to success. NOTE Resources for CERT can be found at https://www.cert.org/incident-management/."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -2741,24 +2442,11 @@
           "type": "list",
           "items": [
             "Law enforcement agencies bring significant investigative capability.",
-            "The company may lose control over where the investigation leads once law enforcement",
+            "The company may lose control over where the investigation leads once law enforcement is involved.",
             "Secrecy of compromise is not promised; it could become part of public record.",
-            "Effects on reputation need to be considered (the ramifications of this information"
+            "Effects on reputation need to be considered (the ramifications of this information reaching customers, shareholders, and so on).",
+            "Evidence will be collected and may not be available for a long period of time. It may take a year or so to get into court."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "reaching customers, shareholders, and so on)."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Evidence will be collected and may not be available for a long period of time. It may"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "take a year or so to get into court."
         }
       ]
     },
@@ -2797,11 +2485,19 @@
         },
         {
           "type": "paragraph",
-          "text": "The SWGDE principles are listed next: 1. When dealing with digital evidence, all of the general forensic and procedural principles must be applied. 2. Upon the seizing of digital evidence, actions taken should not change that evidence. 3. When it is necessary for a person to access original digital evidence, that person should be trained for the purpose. 4. All activity relating to the seizure, access, storage, or transfer of digital evidence must be fully documented, preserved, and available for review. 5. An individual is responsible for all actions taken with respect to digital evidence while the digital evidence is in their possession. 6. Any agency that is responsible for seizing, accessing, storing, or transferring digital evidence is responsible for compliance with these principles."
+          "text": "The SWGDE principles are listed next:"
         },
         {
-          "type": "note",
-          "text": "NOTE The Digital Forensic Research Workshop (DFRWS) brings together academic researchers and forensic investigators to also address a standardized process for collecting evidence, to research practitioner requirements, and to incorporate a scientific method as a tenant of digital forensic science. Learn more at www.dfrws.org."
+          "type": "list",
+          "items": [
+            "When dealing with digital evidence, all of the general forensic and procedural principles must be applied.",
+            "Upon the seizing of digital evidence, actions taken should not change that evidence.",
+            "When it is necessary for a person to access original digital evidence, that person should be trained for the purpose.",
+            "All activity relating to the seizure, access, storage, or transfer of digital evidence must be fully documented, preserved, and available for review.",
+            "An individual is responsible for all actions taken with respect to digital evidence while the digital evidence is in their possession.",
+            "Any agency that is responsible for seizing, accessing, storing, or transferring digital evidence is responsible for compliance with these principles. NOTE The Digital Forensic Research Workshop (DFRWS) brings together academic researchers and forensic investigators to also address a standardized process for collecting evidence, to research practitioner requirements, and to incorporate a scientific method as a tenant of digital forensic science. Learn more at www.dfrws.org."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -3009,33 +2705,15 @@
         {
           "type": "list",
           "items": [
-            "Only allow authorized individuals access to the scene. These individuals should have"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "knowledge of basic crime scene analysis."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Document who is at the crime scene. In court, the integrity of the evidence may be in"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "question if there are too many people milling around."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Only allow authorized individuals access to the scene. These individuals should have knowledge of basic crime scene analysis.",
+            "Document who is at the crime scene. In court, the integrity of the evidence may be in question if there are too many people milling around.",
             "Document who were the last individuals to interact with the systems.",
-            "If the crime scene does become contaminated, document it. The contamination may not"
+            "If the crime scene does become contaminated, document it. The contamination may not negate the derived evidence, but it will make investigating the crime more challenging."
           ]
         },
         {
           "type": "paragraph",
-          "text": "negate the derived evidence, but it will make investigating the crime more challenging. The original media should have two copies created: a primary image (a control copy that is stored in a library) and a working image (used for analysis and evidence collection). These should be timestamped to show when the evidence was collected."
+          "text": "The original media should have two copies created: a primary image (a control copy that is stored in a library) and a working image (used for analysis and evidence collection). These should be timestamped to show when the evidence was collected."
         },
         {
           "type": "paragraph",
@@ -3078,13 +2756,13 @@
           "type": "list",
           "items": [
             "Documentation tools Tags, labels, and time-lined forms",
-            "Disassembly and removal tools Antistatic bands, pliers, tweezers, screwdrivers, wire",
-            "Package and transport supplies Antistatic bags, evidence bags and tape, cable ties, and"
+            "Disassembly and removal tools Antistatic bands, pliers, tweezers, screwdrivers, wire cutters, and so on",
+            "Package and transport supplies Antistatic bags, evidence bags and tape, cable ties, and others"
           ]
         },
         {
           "type": "paragraph",
-          "text": "others The next crucial piece is to keep a proper chain of custody of the evidence. Because evidence from these types of crimes can be very volatile and easily dismissed from court because of improper handling, it is important to follow very strict and organized procedures when collecting and tagging evidence in every single case—no exceptions! Furthermore, the chain of custody should follow evidence through its entire life cycle, beginning with identification and ending with its destruction, permanent archiving, or return to owner."
+          "text": "The next crucial piece is to keep a proper chain of custody of the evidence. Because evidence from these types of crimes can be very volatile and easily dismissed from court because of improper handling, it is important to follow very strict and organized procedures when collecting and tagging evidence in every single case—no exceptions! Furthermore, the chain of custody should follow evidence through its entire life cycle, beginning with identification and ending with its destruction, permanent archiving, or return to owner."
         },
         {
           "type": "note",
@@ -3136,23 +2814,14 @@
         {
           "type": "list",
           "items": [
-            "Determining the characteristics of the evidence, such as whether it’s admissible as primary"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "or secondary evidence, as well as its source, reliability, and permanence"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Determining the characteristics of the evidence, such as whether it’s admissible as primary or secondary evidence, as well as its source, reliability, and permanence",
             "Comparing evidence from different sources to determine a chronology of events",
-            "Event reconstruction, including the recovery of deleted files and other activity on the"
+            "Event reconstruction, including the recovery of deleted files and other activity on the system"
           ]
         },
         {
           "type": "paragraph",
-          "text": "system This can take place in a controlled lab environment or, thanks to hardware write-blockers and forensic software, in the field. When investigators analyze evidence in a lab, they are dealing with dead forensics; that is, they are working only with static data. Live forensics, which takes place in the field, includes volatile data. If evidence is lacking, then an experienced investigator should be called in to help complete the picture."
+          "text": "This can take place in a controlled lab environment or, thanks to hardware write-blockers and forensic software, in the field. When investigators analyze evidence in a lab, they are dealing with dead forensics; that is, they are working only with static data. Live forensics, which takes place in the field, includes volatile data. If evidence is lacking, then an experienced investigator should be called in to help complete the picture."
         },
         {
           "type": "paragraph",
@@ -3373,26 +3042,28 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "A business process is a set of interrelated steps linked through specific decision activities to accomplish a specific task. Business processes have starting and ending points and are repeatable. The processes should encapsulate the knowledge about services, resources, and operations provided by a company. For example, when a customer requests to buy a book via an organization’s e-commerce site, a set of steps must be followed, such as these: 1. Validate that the book is available. 2. Validate where the book is located and how long it would take to ship it to the destination. 3. Provide the customer with the price and delivery date. 4. Verify the customer’s credit card information. 5. Validate and process the credit card order."
-        },
-        {
-          "type": "paragraph",
-          "text": "6. Send a receipt and tracking number to the customer. 7. Send the order to the book inventory location. 8. Restock inventory. 9. Send the order to accounting."
-        },
-        {
-          "type": "paragraph",
-          "text": "The BCP team needs to understand these different steps of the company’s most critical processes. The data is usually presented as a workflow document that contains the roles and resources needed for each process. The BCP team must understand the following about critical business processes:"
+          "text": "A business process is a set of interrelated steps linked through specific decision activities to accomplish a specific task. Business processes have starting and ending points and are repeatable. The processes should encapsulate the knowledge about services, resources, and operations provided by a company. For example, when a customer requests to buy a book via an organization’s e-commerce site, a set of steps must be followed, such as these:"
         },
         {
           "type": "list",
           "items": [
+            "Validate that the book is available.",
+            "Validate where the book is located and how long it would take to ship it to the destination.",
+            "Provide the customer with the price and delivery date.",
+            "Verify the customer’s credit card information.",
+            "Validate and process the credit card order.",
+            "Send a receipt and tracking number to the customer.",
+            "Send the order to the book inventory location.",
+            "Restock inventory.",
+            "Send the order to accounting. The BCP team needs to understand these different steps of the company’s most critical processes. The data is usually presented as a workflow document that contains the roles and resources needed for each process. The BCP team must understand the following about critical business processes:",
             "Required roles",
             "Required resources",
             "Input and output mechanisms",
             "Workflow steps",
             "Required time for completion",
             "Interfaces with other processes"
-          ]
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
@@ -3424,12 +3095,8 @@
         {
           "type": "list",
           "items": [
-            "Hot site A facility that is leased or rented and is fully configured and ready to operate"
+            "Hot site A facility that is leased or rented and is fully configured and ready to operate within a few hours. The only missing resources from a hot site are usually the data, which will be retrieved from a backup site, and the people who will be processing the data. The equipment and system software must absolutely be compatible with the data being restored from the main site and must not cause any negative interoperability issues. Some facilities, for a fee, store data backups close to the hot site. These sites are a good choice for a company that needs to ensure a site will be available for it as soon as possible. Most hot- site facilities support annual tests that can be done by the company to ensure the site is functioning in the necessary state of readiness."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "within a few hours. The only missing resources from a hot site are usually the data, which will be retrieved from a backup site, and the people who will be processing the data. The equipment and system software must absolutely be compatible with the data being restored from the main site and must not cause any negative interoperability issues. Some facilities, for a fee, store data backups close to the hot site. These sites are a good choice for a company that needs to ensure a site will be available for it as soon as possible. Most hot- site facilities support annual tests that can be done by the company to ensure the site is functioning in the necessary state of readiness."
         },
         {
           "type": "paragraph",
@@ -3442,12 +3109,8 @@
         {
           "type": "list",
           "items": [
-            "Warm site A leased or rented facility that is usually partially configured with some"
+            "Warm site A leased or rented facility that is usually partially configured with some equipment, such as HVAC, and foundational infrastructure components, but not the actual computers. In other words, a warm site is usually a hot site without the expensive equipment such as communication equipment and servers. Staging a facility with duplicate hardware and computers configured for immediate operation is extremely expensive, so a warm site provides an alternate facility with some peripheral devices."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "equipment, such as HVAC, and foundational infrastructure components, but not the actual computers. In other words, a warm site is usually a hot site without the expensive equipment such as communication equipment and servers. Staging a facility with duplicate hardware and computers configured for immediate operation is extremely expensive, so a warm site provides an alternate facility with some peripheral devices."
         },
         {
           "type": "paragraph",
@@ -3456,12 +3119,12 @@
         {
           "type": "list",
           "items": [
-            "Cold site A leased or rented facility that supplies the basic environment, electrical wiring,"
+            "Cold site A leased or rented facility that supplies the basic environment, electrical wiring, air conditioning, plumbing, and flooring, but none of the equipment or additional services."
           ]
         },
         {
           "type": "paragraph",
-          "text": "air conditioning, plumbing, and flooring, but none of the equipment or additional services. A cold site is essentially an empty data center. It may take weeks to get the site activated and ready for work. The cold site could have equipment racks and dark fiber (fiber that does not have the circuit engaged) and maybe even desks. However, it would require the receipt of equipment from the client, since it does not provide any."
+          "text": "A cold site is essentially an empty data center. It may take weeks to get the site activated and ready for work. The cold site could have equipment racks and dark fiber (fiber that does not have the circuit engaged) and maybe even desks. However, it would require the receipt of equipment from the client, since it does not provide any."
         },
         {
           "type": "paragraph",
@@ -3578,7 +3241,7 @@
         {
           "type": "list",
           "items": [
-            "How much assistance will the staff supply in integrating the two environments and ongoing",
+            "How much assistance will the staff supply in integrating the two environments and ongoing support?",
             "How quickly can the company in need move into the facility?",
             "What are the issues pertaining to interoperability?",
             "How many of the resources will be available to the company in need?",
@@ -3668,23 +3331,10 @@
         {
           "type": "list",
           "items": [
-            "Make sure that business continuity planning is included in contracts with such"
+            "Make sure that business continuity planning is included in contracts with such companies, and that their responsibilities and levels of service are clearly spelled out.",
+            "Draw up realistic and reasonable service levels that the outsourced firm will meet during an incident.",
+            "If possible, have the outsourcing companies take part in BCP awareness programs, training, and testing."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "companies, and that their responsibilities and levels of service are clearly spelled out."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Draw up realistic and reasonable service levels that the outsourced firm will meet during",
-            "If possible, have the outsourcing companies take part in BCP awareness programs,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "training, and testing."
         },
         {
           "type": "paragraph",
@@ -3895,7 +3545,7 @@
           "type": "list",
           "items": [
             "Can the media be accessed in the necessary timeframe?",
-            "Is the facility closed on weekends and holidays, and does it only operate during specific"
+            "Is the facility closed on weekends and holidays, and does it only operate during specific hours of the day?"
           ]
         },
         {
@@ -3911,16 +3561,7 @@
             "Are the access control mechanisms tied to an alarm and/or the police station?",
             "Does the facility have the capability to protect the media from a variety of threats?",
             "What is the availability of a bonded transport service?",
-            "Are there any geographical environmental hazards such as floods, earthquakes, tornadoes,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and so on that might affect the facility?"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Are there any geographical environmental hazards such as floods, earthquakes, tornadoes, and so on that might affect the facility?",
             "Does the facility have a fire detection and suppression system?",
             "Does the facility provide temperature and humidity monitoring and control?",
             "What type of physical, administrative, and logical access controls are used?"
@@ -4183,12 +3824,12 @@
         {
           "type": "list",
           "items": [
-            "The Americans with Disabilities Act (ADA) prohibits employers from making inquiries"
+            "The Americans with Disabilities Act (ADA) prohibits employers from making inquiries that are likely to reveal the existence of a disability before making a job offer."
           ]
         },
         {
           "type": "paragraph",
-          "text": "that are likely to reveal the existence of a disability before making a job offer. Failure to conform to the required standard:"
+          "text": "Failure to conform to the required standard:"
         },
         {
           "type": "list",
@@ -4204,22 +3845,9 @@
         {
           "type": "list",
           "items": [
-            "The information provided by Medical Information, Inc., caused Don Hammy great"
+            "The information provided by Medical Information, Inc., caused Don Hammy great emotional distress and prevented him from obtaining a specific job.",
+            "The employer made its decision based on information it did not have a right to inquire about in the first place. The employer’s illegal acquisition and review of Don’s private medical information caused it to not hire him."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "emotional distress and prevented him from obtaining a specific job."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The employer made its decision based on information it did not have a right to inquire"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "about in the first place. The employer’s illegal acquisition and review of Don’s private medical information caused it to not hire him."
         },
         {
           "type": "paragraph",
@@ -4247,12 +3875,12 @@
         {
           "type": "list",
           "items": [
-            "The Safeguards Rule in the Gramm-Leach-Bliley Act (GLBA) requires financial"
+            "The Safeguards Rule in the Gramm-Leach-Bliley Act (GLBA) requires financial institutions to have information security programs that protect consumers’ personal"
           ]
         },
         {
           "type": "paragraph",
-          "text": "institutions to have information security programs that protect consumers’ personal financial information from anticipated threats and/or unauthorized access."
+          "text": "financial information from anticipated threats and/or unauthorized access."
         },
         {
           "type": "paragraph",
@@ -4261,12 +3889,8 @@
         {
           "type": "list",
           "items": [
-            "By not erecting the proper security policy and program and implementing the necessary"
+            "By not erecting the proper security policy and program and implementing the necessary security controls, Cheapo, Inc., broke federal regulations used to govern financial institutions."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "security controls, Cheapo, Inc., broke federal regulations used to govern financial institutions."
         },
         {
           "type": "paragraph",
@@ -4275,12 +3899,8 @@
         {
           "type": "list",
           "items": [
-            "The financial institution’s failure to practice due care and implement the basic requirements"
+            "The financial institution’s failure to practice due care and implement the basic requirements of online banking directly caused 22 clients to lose $439,344.09."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "of online banking directly caused 22 clients to lose $439,344.09."
         },
         {
           "type": "paragraph",
@@ -4404,42 +4024,24 @@
         {
           "type": "list",
           "items": [
-            "Responsibility Each individual involved with recovery and continuity should have their"
+            "Responsibility Each individual involved with recovery and continuity should have their responsibilities spelled out in writing to ensure a clear understanding in a chaotic situation."
           ]
         },
         {
           "type": "paragraph",
-          "text": "responsibilities spelled out in writing to ensure a clear understanding in a chaotic situation. Each task should be assigned to the individual most logically situated to handle it. These individuals must know what is expected of them, which is done through training, drills, communication, and documentation. So, for example, instead of just running out of the building screaming, an individual must know that he is responsible for shutting down the servers before he can run out of the building screaming."
+          "text": "Each task should be assigned to the individual most logically situated to handle it. These individuals must know what is expected of them, which is done through training, drills, communication, and documentation. So, for example, instead of just running out of the building screaming, an individual must know that he is responsible for shutting down the servers before he can run out of the building screaming."
         },
         {
           "type": "list",
           "items": [
-            "Authority In times of crisis, it is important to know who is in charge. Teamwork is"
-          ]
-        },
-        {
-          "type": "note",
-          "text": "important in these situations, and almost every team does much better with an established and trusted leader. Such leaders must know that they are expected to step up to the plate in a time of crisis and understand what type of direction they should provide to the rest of the employees. Clear-cut authority will aid in reducing confusion and increasing cooperation."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Priorities It is extremely important to know what is critical versus what is merely nice to"
+            "Authority In times of crisis, it is important to know who is in charge. Teamwork is important in these situations, and almost every team does much better with an established and trusted leader. Such leaders must know that they are expected to step up to the plate in a time of crisis and understand what type of direction they should provide to the rest of the employees. Clear-cut authority will aid in reducing confusion and increasing cooperation.",
+            "Priorities It is extremely important to know what is critical versus what is merely nice to have. Different departments provide different functionality for an organization. The critical departments must be singled out from the departments that provide functionality that the company can live without for a week or two. It is necessary to know which department must come online first, which second, and so on. That way, the efforts are made in the most useful, effective, and focused manner. Along with the priorities of departments, the priorities of systems, information, and programs must be established. It may be necessary to ensure that the database is up and running before working to bring the web servers online. The general priorities must be set by management with the help of the different departments and IT staff.",
+            "Implementation and testing It is great to write down very profound ideas and develop plans, but unless they are actually carried out and tested, they may not add up to a hill of"
           ]
         },
         {
           "type": "paragraph",
-          "text": "have. Different departments provide different functionality for an organization. The critical departments must be singled out from the departments that provide functionality that the company can live without for a week or two. It is necessary to know which department must come online first, which second, and so on. That way, the efforts are made in the most useful, effective, and focused manner. Along with the priorities of departments, the priorities of systems, information, and programs must be established. It may be necessary to ensure that the database is up and running before working to bring the web servers online. The general priorities must be set by management with the help of the different departments and IT staff."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Implementation and testing It is great to write down very profound ideas and develop"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "plans, but unless they are actually carried out and tested, they may not add up to a hill of beans. Once a continuity plan is developed, it actually has to be put into action. It needs to be documented and stored in places that are easily accessible in times of crisis. The people who are assigned specific tasks need to be taught and informed how to fulfill those tasks, and dry runs must be done to walk people through different situations. The drills should take place at least once a year, and the entire program should be continually updated and improved."
+          "text": "beans. Once a continuity plan is developed, it actually has to be put into action. It needs to be documented and stored in places that are easily accessible in times of crisis. The people who are assigned specific tasks need to be taught and informed how to fulfill those tasks, and dry runs must be done to walk people through different situations. The drills should take place at least once a year, and the entire program should be continually updated and improved."
         },
         {
           "type": "note",
@@ -4507,12 +4109,8 @@
             "Identify the level of functionality for the critical resources.",
             "Identify the resources that must be replaced immediately.",
             "Estimate how long it will take to bring critical functions back online.",
-            "If it will take longer than the previously estimated MTD values to restore operations, then a"
+            "If it will take longer than the previously estimated MTD values to restore operations, then a disaster should be declared and the BCP should be put into action."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "disaster should be declared and the BCP should be put into action."
         },
         {
           "type": "paragraph",
@@ -4607,32 +4205,19 @@
           "type": "list",
           "items": [
             "Primary The normal or expected capability that is used to achieve the objective.",
-            "Alternate A fully satisfactory capability that can be used to achieve the objective with"
+            "Alternate A fully satisfactory capability that can be used to achieve the objective with minimal impact to the operation or exercise. This capability will be used when the"
           ]
         },
         {
           "type": "paragraph",
-          "text": "minimal impact to the operation or exercise. This capability will be used when the Primary capability is unavailable."
+          "text": "Primary capability is unavailable."
         },
         {
           "type": "list",
           "items": [
-            "Contingency A workable capability that can be used to achieve the objective. This"
+            "Contingency A workable capability that can be used to achieve the objective. This capability may not be as fast or easy as the Primary or Alternate but is capable of achieving the objective with an acceptable amount of time and effort. This capability will be used when the Primary and the Alternate capabilities are unavailable.",
+            "Emergency This is the last-resort capability and typically may involve significantly more time and effort than any of the other capabilities. This capability should be used only when the Primary, Alternate, and Contingency capabilities are unavailable."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "capability may not be as fast or easy as the Primary or Alternate but is capable of achieving the objective with an acceptable amount of time and effort. This capability will be used when the Primary and the Alternate capabilities are unavailable."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Emergency This is the last-resort capability and typically may involve significantly"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "more time and effort than any of the other capabilities. This capability should be used only when the Primary, Alternate, and Contingency capabilities are unavailable."
         },
         {
           "type": "paragraph",
@@ -4717,34 +4302,12 @@
         {
           "type": "list",
           "items": [
-            "Ask for a room on the second floor. It reduces the risk of random criminal activity and is"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "still close enough to the ground to escape in case of an emergency even if you can’t use the front door."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Ask for and keep a hotel business card on your person at all times in case you have to call"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the local police or embassy and provide your location in an emergency."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Secure valuables in the in-room safe. It may not really be totally safe, but it raises the bar",
+            "Ask for a room on the second floor. It reduces the risk of random criminal activity and is still close enough to the ground to escape in case of an emergency even if you can’t use the front door.",
+            "Ask for and keep a hotel business card on your person at all times in case you have to call the local police or embassy and provide your location in an emergency.",
+            "Secure valuables in the in-room safe. It may not really be totally safe, but it raises the bar on would-be thieves.",
             "Always use the security latch on the door when in the room.",
-            "Keep your passport with you at all times when in a foreign country. Before the trip leave a"
+            "Keep your passport with you at all times when in a foreign country. Before the trip leave a photocopy of the passport with a trusted individual at home."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "photocopy of the passport with a trusted individual at home."
         }
       ]
     },
@@ -4788,110 +4351,20 @@
         {
           "type": "list",
           "items": [
-            "Clipping levels should be implemented to establish a baseline of user activity and",
-            "Separation of responsibilities and duties should be in place so that if fraud takes place, it",
-            "Access to resources should be limited to authorized personnel, applications, and services"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and should be audited for compliance to stated policies."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Change control and configuration management should be put in place so changes are"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "approved, documented, tested, and properly implemented."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Activities that involve change management include requesting a change, approving a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "change, documenting a change, testing a change, implementing a change, and reporting to management."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Clipping levels should be implemented to establish a baseline of user activity and acceptable errors.",
+            "Separation of responsibilities and duties should be in place so that if fraud takes place, it requires collusion.",
+            "Access to resources should be limited to authorized personnel, applications, and services and should be audited for compliance to stated policies.",
+            "Change control and configuration management should be put in place so changes are approved, documented, tested, and properly implemented.",
+            "Activities that involve change management include requesting a change, approving a change, documenting a change, testing a change, implementing a change, and reporting to management.",
             "Proper fault-tolerant mechanisms should be put in place to counter equipment failure.",
             "Antivirus and IDS signatures should be updated on a continual basis.",
-            "Continuous monitoring allows organizations to maintain ongoing awareness of information"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "security, vulnerabilities, and threats to support organizational risk management decisions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A whitelist is a set of known-good resources such as IP addresses, domain names, or"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "applications. Conversely, a blacklist is a set of known-bad resources."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A security information and event management (SIEM) system is a software platform that"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "aggregates security information (like asset inventories) and security events (which could become incidents) and presents them in a single, consistent, and cohesive manner."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The key aspects of operational security include resource protection, change control,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "hardware and software controls, trusted system recovery, separation of duties, and least privilege."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Least privilege ensures that users, administrators, and others accessing a system have"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "access only to the objects they absolutely require to complete their job."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Some physical security controls may conflict with the safety of people. These issues need"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "to be addressed; human life is always more important than protecting a facility or the assets it contains."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Proximity identification devices can be user activated (action needs to be taken by a user)"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "or system sensing (no action needs to be taken by the user)."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Continuous monitoring allows organizations to maintain ongoing awareness of information security, vulnerabilities, and threats to support organizational risk management decisions.",
+            "A whitelist is a set of known-good resources such as IP addresses, domain names, or applications. Conversely, a blacklist is a set of known-bad resources.",
+            "A security information and event management (SIEM) system is a software platform that aggregates security information (like asset inventories) and security events (which could become incidents) and presents them in a single, consistent, and cohesive manner.",
+            "The key aspects of operational security include resource protection, change control, hardware and software controls, trusted system recovery, separation of duties, and least privilege.",
+            "Least privilege ensures that users, administrators, and others accessing a system have access only to the objects they absolutely require to complete their job.",
+            "Some physical security controls may conflict with the safety of people. These issues need to be addressed; human life is always more important than protecting a facility or the assets it contains.",
+            "Proximity identification devices can be user activated (action needs to be taken by a user) or system sensing (no action needs to be taken by the user).",
             "A transponder is a proximity identification device that does not require action by the user."
           ]
         },
@@ -4902,316 +4375,42 @@
         {
           "type": "list",
           "items": [
-            "Exterior fencing can be costly and unsightly, but can provide crowd control and help"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "control access to the facility."
-        },
-        {
-          "type": "list",
-          "items": [
-            "If interior partitions do not go all the way up to the true ceiling, an intruder can remove a"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "ceiling tile and climb over the partition into a critical portion of the facility."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Intrusion detection devices include motion detectors, CCTVs, vibration sensors, and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "electromechanical devices."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Intrusion detection devices can be penetrated, are expensive to install and monitor, require"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "human response, and are subject to false alarms."
-        },
-        {
-          "type": "list",
-          "items": [
-            "CCTV enables one person to monitor a large area, but should be coupled with alerting"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "functions to ensure proper response."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Security guards are expensive but provide flexibility in response to security breaches and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "can deter intruders from attempting an attack."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Vulnerability management is the cyclical process of identifying vulnerabilities, determining"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the risks they pose to the organization, and applying security controls that bring those risks to acceptable levels."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Patch management is the process for identifying, acquiring, installing, and verifying"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "patches for products and systems."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Egress monitoring is the practice of tracking (and perhaps restricting) the information that"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "is flowing out of a network."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Exterior fencing can be costly and unsightly, but can provide crowd control and help control access to the facility.",
+            "If interior partitions do not go all the way up to the true ceiling, an intruder can remove a ceiling tile and climb over the partition into a critical portion of the facility.",
+            "Intrusion detection devices include motion detectors, CCTVs, vibration sensors, and electromechanical devices.",
+            "Intrusion detection devices can be penetrated, are expensive to install and monitor, require human response, and are subject to false alarms.",
+            "CCTV enables one person to monitor a large area, but should be coupled with alerting functions to ensure proper response.",
+            "Security guards are expensive but provide flexibility in response to security breaches and can deter intruders from attempting an attack.",
+            "Vulnerability management is the cyclical process of identifying vulnerabilities, determining the risks they pose to the organization, and applying security controls that bring those risks to acceptable levels.",
+            "Patch management is the process for identifying, acquiring, installing, and verifying patches for products and systems.",
+            "Egress monitoring is the practice of tracking (and perhaps restricting) the information that is flowing out of a network.",
             "Offsite backup locations can supply hot, warm, or cold sites.",
-            "A reciprocal agreement is one in which a company promises another company it can move"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "in and share space if it experiences a disaster, and vice versa. Reciprocal agreements are very tricky to implement and may be unenforceable. However, they offer a relatively cheap offsite option and are sometimes the only choice."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A hot site is fully configured with hardware, software, and environmental needs. It can"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "usually be up and running in a matter of hours. It is the most expensive option, but some companies cannot be out of business longer than a day without very detrimental results."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A warm site does not have computers, but it does have some peripheral devices, such as"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "disk drives, controllers, and tape drives. This option is less expensive than a hot site, but takes more effort and time to become operational."
-        },
-        {
-          "type": "list",
-          "items": [
-            "A cold site is just a building with power, raised floors, and utilities. No devices are"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "available. This is the cheapest of the three options, but can take weeks to get up and operational."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Recovery time objective (RTO) is the maximum time period within which a business"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "process must be restored to a designated service level after a disaster to avoid unacceptable consequences."
-        },
-        {
-          "type": "list",
-          "items": [
+            "A reciprocal agreement is one in which a company promises another company it can move in and share space if it experiences a disaster, and vice versa. Reciprocal agreements are very tricky to implement and may be unenforceable. However, they offer a relatively cheap offsite option and are sometimes the only choice.",
+            "A hot site is fully configured with hardware, software, and environmental needs. It can usually be up and running in a matter of hours. It is the most expensive option, but some companies cannot be out of business longer than a day without very detrimental results.",
+            "A warm site does not have computers, but it does have some peripheral devices, such as disk drives, controllers, and tape drives. This option is less expensive than a hot site, but takes more effort and time to become operational.",
+            "A cold site is just a building with power, raised floors, and utilities. No devices are available. This is the cheapest of the three options, but can take weeks to get up and operational.",
+            "Recovery time objective (RTO) is the maximum time period within which a business process must be restored to a designated service level after a disaster to avoid unacceptable consequences.",
             "Recovery point objective (RPO) is the acceptable amount of data loss measured in time.",
-            "Mean time between failures (MTBF) is the predicted amount of time between inherent"
+            "Mean time between failures (MTBF) is the predicted amount of time between inherent failures of a system during operation.",
+            "Mean time to repair (MTTR) is the estimated amount of time it will take to get a device fixed and back into production after its failure.",
+            "High availability refers to a system, component, or environment that is continuously operational.",
+            "High availability for disaster recovery is often a combination of technologies and processes that include backups, redundancy, fault tolerance, clustering, and load balancing.",
+            "Data recovery and restoration are often carried out through vaulting, backups, and replication technologies.",
+            "When returning to the original site after a disaster, the least critical organizational units should go back first.",
+            "COOP focuses on restoring an organization’s (usually a headquarters element) essential functions at an alternate site and performing those functions for up to 30 days before returning to normal operations. This term is commonly used by the U.S. government to denote BCP.",
+            "An important part of the business continuity plan is to communicate its requirements and procedures to all employees.",
+            "Business interruption insurance covers the loss of income that an organization suffers after a disaster while it is in its recovery stage.",
+            "Due diligence means you’re identifying and analyzing risks; due care means you’re taking prudent actions day in and day out to mitigate them.",
+            "Elements of negligence include not fulfilling a legally recognized obligation, failure to conform to a standard of care that results in injury or damage, and proximate causation.",
+            "The primary reason for the chain of custody of evidence is to ensure that it will be admissible in court by showing it was properly controlled and handled before being presented in court.",
+            "To be admissible in court, business records have to be made and collected in the normal course of business, not specially generated for a case in court. Business records can easily be hearsay if there is no firsthand proof of their accuracy and reliability.",
+            "The life cycle of evidence includes the identification and collection of the evidence, and its storage, preservation, transportation, presentation in court, and return to the owner.",
+            "Collection of computer evidence is a very complex and detail-oriented task. Only skilled people should attempt it; otherwise, evidence can be ruined forever.",
+            "When looking for suspects, it is important to consider the motive, opportunity, and means (MOM).",
+            "For evidence to be admissible in court, it needs to be relevant, complete, sufficient, and reliable to the case at hand.",
+            "Evidence must be legally permissible, meaning it was seized legally and the chain of custody was not broken.",
+            "Duress is the use of threats or violence against someone in order to force them to do something they don’t want to do or otherwise wouldn’t do."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "failures of a system during operation."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Mean time to repair (MTTR) is the estimated amount of time it will take to get a device"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "fixed and back into production after its failure."
-        },
-        {
-          "type": "list",
-          "items": [
-            "High availability refers to a system, component, or environment that is continuously",
-            "High availability for disaster recovery is often a combination of technologies and processes"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "that include backups, redundancy, fault tolerance, clustering, and load balancing."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Data recovery and restoration are often carried out through vaulting, backups, and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "replication technologies."
-        },
-        {
-          "type": "list",
-          "items": [
-            "When returning to the original site after a disaster, the least critical organizational units"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "should go back first."
-        },
-        {
-          "type": "list",
-          "items": [
-            "COOP focuses on restoring an organization’s (usually a headquarters element) essential"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "functions at an alternate site and performing those functions for up to 30 days before returning to normal operations. This term is commonly used by the U.S. government to denote BCP."
-        },
-        {
-          "type": "list",
-          "items": [
-            "An important part of the business continuity plan is to communicate its requirements and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "procedures to all employees."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Business interruption insurance covers the loss of income that an organization suffers after"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "a disaster while it is in its recovery stage."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Due diligence means you’re identifying and analyzing risks; due care means you’re taking"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "prudent actions day in and day out to mitigate them."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Elements of negligence include not fulfilling a legally recognized obligation, failure to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "conform to a standard of care that results in injury or damage, and proximate causation."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The primary reason for the chain of custody of evidence is to ensure that it will be"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "admissible in court by showing it was properly controlled and handled before being presented in court."
-        },
-        {
-          "type": "list",
-          "items": [
-            "To be admissible in court, business records have to be made and collected in the normal"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "course of business, not specially generated for a case in court. Business records can easily be hearsay if there is no firsthand proof of their accuracy and reliability."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The life cycle of evidence includes the identification and collection of the evidence, and its"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "storage, preservation, transportation, presentation in court, and return to the owner."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Collection of computer evidence is a very complex and detail-oriented task. Only skilled"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "people should attempt it; otherwise, evidence can be ruined forever."
-        },
-        {
-          "type": "list",
-          "items": [
-            "When looking for suspects, it is important to consider the motive, opportunity, and means",
-            "For evidence to be admissible in court, it needs to be relevant, complete, sufficient, and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "reliable to the case at hand."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Evidence must be legally permissible, meaning it was seized legally and the chain of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "custody was not broken."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Duress is the use of threats or violence against someone in order to force them to do"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "something they don’t want to do or otherwise wouldn’t do."
         }
       ]
     },
@@ -5222,39 +4421,20 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list. 1. What is the difference between due care and due diligence?"
+          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list."
+        },
+        {
+          "type": "list",
+          "items": [
+            "What is the difference between due care and due diligence? A. Due care is the continual effort to ensure that the right thing takes place, and due diligence is the continual effort to stay compliant with regulations. B. Due care is based on the prudent person concept, whereas due diligence is not. C. They mean the same thing. D. Due diligence involves investigating the risks, whereas due care involves carrying out the necessary steps to mitigate these risks.",
+            "Why should employers make sure employees take their vacations? A. They have a legal obligation. B. It is part of due diligence. C. It is a way for fraud to be uncovered. D. To ensure the employee does not get burnt out.",
+            "Which of the following best describes separation of duties and job rotation? A. Separation of duties ensures that more than one employee knows how to perform the"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. Due care is the continual effort to ensure that the right thing takes place, and due diligence is the continual effort to stay compliant with regulations."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Due care is based on the prudent person concept, whereas due diligence is not. C. They mean the same thing."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Due diligence involves investigating the risks, whereas due care involves carrying out the necessary steps to mitigate these risks. 2. Why should employers make sure employees take their vacations?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. They have a legal obligation."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It is part of due diligence."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It is a way for fraud to be uncovered."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. To ensure the employee does not get burnt out. 3. Which of the following best describes separation of duties and job rotation?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Separation of duties ensures that more than one employee knows how to perform the tasks of a position, and job rotation ensures that one person cannot perform a high-risk task alone."
+          "text": "tasks of a position, and job rotation ensures that one person cannot perform a high-risk task alone."
         },
         {
           "type": "paragraph",
@@ -5266,63 +4446,20 @@
         },
         {
           "type": "paragraph",
-          "text": "D. They are administrative controls that enforce access control and protect the company’s resources. 4. If a programmer is restricted from updating and modifying production code, what is this an example of?"
+          "text": "D. They are administrative controls that enforce access control and protect the company’s resources."
         },
         {
-          "type": "paragraph",
-          "text": "A. Rotation of duties B. Due diligence C. Separation of duties D. Controlling input values 5. Which of the following is not true about continuous monitoring?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. It involves ad hoc processes that provide agility in responding to novel attacks. B. Its main goal is to support organizational risk management."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It helps determine whether security controls remain effective."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. It relies on carefully chosen metrics and measurements. 6. What is the difference between least privilege and need to know?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. A user should have least privilege that restricts her need to know."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. A user should have a security clearance to access resources, a need to know about those resources, and least privilege to give her full control of all resources."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. A user should have a need to know to access particular resources, and least privilege should be implemented to ensure she only accesses the resources she has a need to know."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. They are two different terms for the same issue. 7. Which of the following would not require updated documentation?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. An antivirus signature update B. Reconfiguration of a server C. A change in security policy D. The installation of a patch to a production server 8. A company needs to implement a CCTV system that will monitor a large area outside the facility. Which of the following is the correct lens combination for this?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. A wide-angle lens and a small lens opening B. A wide-angle lens and a large lens opening C. A wide-angle lens and a large lens opening with a small focal length D. A wide-angle lens and a large lens opening with a large focal length 9. Which of the following is not a true statement about CCTV lenses?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Lenses that have a manual iris should be used in outside monitoring."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Zoom lenses will carry out focus functionality automatically."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Depth of field increases as the size of the lens opening decreases."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Depth of field increases as the focal length of the lens decreases. 10. What is true about a transponder?"
+          "type": "list",
+          "items": [
+            "If a programmer is restricted from updating and modifying production code, what is this an example of? A. Rotation of duties B. Due diligence C. Separation of duties D. Controlling input values",
+            "Which of the following is not true about continuous monitoring? A. It involves ad hoc processes that provide agility in responding to novel attacks. B. Its main goal is to support organizational risk management. C. It helps determine whether security controls remain effective. D. It relies on carefully chosen metrics and measurements.",
+            "What is the difference between least privilege and need to know? A. A user should have least privilege that restricts her need to know. B. A user should have a security clearance to access resources, a need to know about those resources, and least privilege to give her full control of all resources. C. A user should have a need to know to access particular resources, and least privilege should be implemented to ensure she only accesses the resources she has a need to know. D. They are two different terms for the same issue.",
+            "Which of the following would not require updated documentation? A. An antivirus signature update B. Reconfiguration of a server C. A change in security policy D. The installation of a patch to a production server",
+            "A company needs to implement a CCTV system that will monitor a large area outside the facility. Which of the following is the correct lens combination for this? A. A wide-angle lens and a small lens opening B. A wide-angle lens and a large lens opening C. A wide-angle lens and a large lens opening with a small focal length D. A wide-angle lens and a large lens opening with a large focal length",
+            "Which of the following is not a true statement about CCTV lenses? A. Lenses that have a manual iris should be used in outside monitoring. B. Zoom lenses will carry out focus functionality automatically. C. Depth of field increases as the size of the lens opening decreases. D. Depth of field increases as the focal length of the lens decreases.",
+            "What is true about a transponder?"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
@@ -5334,23 +4471,17 @@
         },
         {
           "type": "paragraph",
-          "text": "C. It is a card that a user swipes through a card reader to gain access to a facility. D. It exchanges tokens with an authentication server. 11. When is a security guard the best choice for a physical access control mechanism? A. When discriminating judgment is required B. When intrusion detection is required C. When the security budget is low D. When access controls are in place 12. Which of the following is not a characteristic of an electrostatic intrusion detection system? A. It creates an electrostatic field and monitors for a capacitance change."
+          "text": "C. It is a card that a user swipes through a card reader to gain access to a facility. D. It exchanges tokens with an authentication server."
         },
         {
-          "type": "paragraph",
-          "text": "B. It can be used as an intrusion detection system for large areas."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It produces a balance between the electric capacitance and inductance of an object. D. It can detect if an intruder comes within a certain range of an object. 13. What is a common problem with vibration-detection devices used for perimeter security? A. They can be defeated by emitting the right electrical signals in the protected area. B. The power source is easily disabled."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. They cause false alarms."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. They interfere with computing devices. 14. Which of the following is not considered a delaying mechanism?"
+          "type": "list",
+          "items": [
+            "When is a security guard the best choice for a physical access control mechanism? A. When discriminating judgment is required B. When intrusion detection is required C. When the security budget is low D. When access controls are in place",
+            "Which of the following is not a characteristic of an electrostatic intrusion detection system? A. It creates an electrostatic field and monitors for a capacitance change. B. It can be used as an intrusion detection system for large areas. C. It produces a balance between the electric capacitance and inductance of an object. D. It can detect if an intruder comes within a certain range of an object.",
+            "What is a common problem with vibration-detection devices used for perimeter security? A. They can be defeated by emitting the right electrical signals in the protected area. B. The power source is easily disabled. C. They cause false alarms. D. They interfere with computing devices.",
+            "Which of the following is not considered a delaying mechanism?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -5361,51 +4492,20 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Defense-in-depth measures C. Warning signs D. Access controls 15. What are the two general types of proximity identification devices?"
+          "text": "B. Defense-in-depth measures C. Warning signs D. Access controls"
         },
         {
-          "type": "paragraph",
-          "text": "A. Biometric devices and access control devices B. Swipe card devices and passive devices C. Preset code devices and wireless devices D. User-activated devices and system sensing devices 16. Which is not a drawback to installing intrusion detection and monitoring systems? A. It’s expensive to install."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It cannot be penetrated."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It requires human response."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. It’s subject to false alarms. 17. What is a cipher lock?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. A lock that uses cryptographic keys B. A lock that uses a type of key that cannot be reproduced C. A lock that uses a token and perimeter reader D. A lock that uses a keypad 18. If a cipher lock has a door delay option, what does that mean?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. After a door is open for a specific period, the alarm goes off."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It can only be opened during emergency situations."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It has a hostage alarm capability."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. It has supervisory override capability. 19. Which of the following best describes the difference between a warded lock and a tumbler lock?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. A tumbler lock is more simplistic and easier to circumvent than a warded lock. B. A tumbler lock uses an internal bolt, and a warded lock uses internal cylinders. C. A tumbler lock has more components than a warded lock."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. A warded lock is mainly used externally, and a tumbler lock is used internally. 20. All of the following are best practices for controlling the software that is installed and authorized to run in our systems except A. Application whitelisting B. Code reviews C. Gold Masters D. Least privilege 21. You come across an advanced piece of polymorphic malware that uses a custom communications protocol for network traffic. This protocol has a distinctive signature in its header. Which tool is best suited to mitigate this malware by preventing the packets from traversing the network?"
+          "type": "list",
+          "items": [
+            "What are the two general types of proximity identification devices? A. Biometric devices and access control devices B. Swipe card devices and passive devices C. Preset code devices and wireless devices D. User-activated devices and system sensing devices",
+            "Which is not a drawback to installing intrusion detection and monitoring systems? A. It’s expensive to install. B. It cannot be penetrated. C. It requires human response. D. It’s subject to false alarms.",
+            "What is a cipher lock? A. A lock that uses cryptographic keys B. A lock that uses a type of key that cannot be reproduced C. A lock that uses a token and perimeter reader D. A lock that uses a keypad",
+            "If a cipher lock has a door delay option, what does that mean? A. After a door is open for a specific period, the alarm goes off. B. It can only be opened during emergency situations. C. It has a hostage alarm capability. D. It has supervisory override capability.",
+            "Which of the following best describes the difference between a warded lock and a tumbler lock? A. A tumbler lock is more simplistic and easier to circumvent than a warded lock. B. A tumbler lock uses an internal bolt, and a warded lock uses internal cylinders. C. A tumbler lock has more components than a warded lock. D. A warded lock is mainly used externally, and a tumbler lock is used internally.",
+            "All of the following are best practices for controlling the software that is installed and authorized to run in our systems except A. Application whitelisting B. Code reviews C. Gold Masters D. Least privilege",
+            "You come across an advanced piece of polymorphic malware that uses a custom communications protocol for network traffic. This protocol has a distinctive signature in its header. Which tool is best suited to mitigate this malware by preventing the packets from traversing the network?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -5416,63 +4516,21 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Stateful firewall C. Intrusion detection system (IDS) D. Intrusion prevention system (IPS) 22. Which best describes a hot-site facility versus a warm- or cold-site facility? A. A site that has disk drives, controllers, and tape drives B. A site that has all necessary PCs, servers, and telecommunications C. A site that has wiring, central air-conditioning, and raised flooring D. A mobile site that can be brought to the company’s parking lot 23. Which is the best description of remote journaling?"
+          "text": "B. Stateful firewall C. Intrusion detection system (IDS) D. Intrusion prevention system (IPS)"
         },
         {
-          "type": "paragraph",
-          "text": "A. Backing up bulk data to an offsite facility B. Backing up transaction logs to an offsite facility C. Capturing and saving transactions to two mirrored servers in-house D. Capturing and saving transactions to different media types 24. Which of the following is something that should be required of an offsite backup facility that stores backed-up media for companies?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. The facility should be within 10 to 15 minutes of the original facility to ensure easy access."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. The facility should contain all necessary PCs and servers and should have raised flooring."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. The facility should be protected by an armed guard."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. The facility should protect against unauthorized access and entry. 25. Which of the following does not describe a reciprocal agreement?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. The agreement is enforceable."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It is a cheap solution."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It may be able to be implemented right after a disaster."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. It could overwhelm a current data processing site. 26. Which of the following describes a cold site?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Fully equipped and operational in a few hours B. Partially equipped with data processing equipment C. Expensive and fully configured D. Provides environmental measures but no equipment 27. After a computer forensic investigator seizes a computer during a crime investigation, what is the next step?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Label and put it into a container, and then label the container B. Dust the evidence for fingerprints C. Make an image copy of the disks D. Lock the evidence in the safe 28. Which of the following is a necessary characteristic of evidence for it to be admissible? A. It must be real."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. It must be noteworthy."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. It must be reliable."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. It must be important. 29. On your first day in a new job, you are invited to a meeting with attorneys representing a company for which your company provides infrastructure services. You learn that there is a major investigation underway into allegations that one of your company’s system administrators improperly accessed mailboxes belonging to this client. Based on what you know so far, which type of investigation is this likeliest to be?"
+          "type": "list",
+          "items": [
+            "Which best describes a hot-site facility versus a warm- or cold-site facility? A. A site that has disk drives, controllers, and tape drives B. A site that has all necessary PCs, servers, and telecommunications C. A site that has wiring, central air-conditioning, and raised flooring D. A mobile site that can be brought to the company’s parking lot",
+            "Which is the best description of remote journaling? A. Backing up bulk data to an offsite facility B. Backing up transaction logs to an offsite facility C. Capturing and saving transactions to two mirrored servers in-house D. Capturing and saving transactions to different media types",
+            "Which of the following is something that should be required of an offsite backup facility that stores backed-up media for companies? A. The facility should be within 10 to 15 minutes of the original facility to ensure easy access. B. The facility should contain all necessary PCs and servers and should have raised flooring. C. The facility should be protected by an armed guard. D. The facility should protect against unauthorized access and entry.",
+            "Which of the following does not describe a reciprocal agreement? A. The agreement is enforceable. B. It is a cheap solution. C. It may be able to be implemented right after a disaster. D. It could overwhelm a current data processing site.",
+            "Which of the following describes a cold site? A. Fully equipped and operational in a few hours B. Partially equipped with data processing equipment C. Expensive and fully configured D. Provides environmental measures but no equipment",
+            "After a computer forensic investigator seizes a computer during a crime investigation, what is the next step? A. Label and put it into a container, and then label the container B. Dust the evidence for fingerprints C. Make an image copy of the disks D. Lock the evidence in the safe",
+            "Which of the following is a necessary characteristic of evidence for it to be admissible? A. It must be real. B. It must be noteworthy. C. It must be reliable. D. It must be important.",
+            "On your first day in a new job, you are invited to a meeting with attorneys representing a company for which your company provides infrastructure services. You learn that there is a major investigation underway into allegations that one of your company’s system administrators improperly accessed mailboxes belonging to this client. Based on what you know so far, which type of investigation is this likeliest to be?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -5483,7 +4541,52 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Regulatory C. Criminal D. Civil Answers 1. D. Due care and due diligence are legal terms that do not just pertain to security. Due diligence involves going through the necessary steps to know what a company’s or individual’s actual risks are, whereas due care involves carrying out responsible actions to reduce those risks. These concepts correspond with the “prudent person” concept. 2. C. Many times, employees who are carrying out fraudulent activities do not take the vacation they have earned because they do not want anyone to find out what they have been doing. Forcing employees to take vacations means that someone else has to do that person’s job and can possibly uncover any misdeeds. 3. B. Rotation of duties enables a company to have more than one person trained in a position and can uncover fraudulent activities. Separation of duties is put into place to ensure that one entity cannot carry out a critical task alone. 4. C. This is just one of several examples of separation of duties. A system must be set up for proper code maintenance to take place when necessary, instead of allowing a programmer to make changes arbitrarily. These types of changes should go through a change control process and should have more entities involved than just one programmer. 5. A. Continuous monitoring is a deliberate, data-driven process supporting organizational risk management. One of the key questions it answers is: are controls still effective at mitigating risks? Continuous monitoring could potentially lead to a decision to implement specific ad hoc processes, but these would not really be part of continuous monitoring. 6. C. Users should be able to access only the resources they need to fulfill the duties of their positions. They also should only have the level of permissions and rights for those resources that are required to carry out the exact operations they need for their jobs, and no more. This second concept is more granular than the first, but they have a symbiotic relationship. 7. A. Documentation is a very important part of the change control process. If things are not properly documented, employees will forget what actually took place with each device. If the environment needs to be rebuilt, for example, it may be done incorrectly if the procedure was poorly or improperly documented. When new changes need to be implemented, the current infrastructure may not be totally understood. Continually documenting when virus signatures are updated would be overkill. The other answers contain events that certainly require documentation. 8. A. The depth of field refers to the portion of the environment that is in focus when shown on the monitor. The depth of field varies depending upon the size of the lens opening, the distance of the object being focused on, and the focal length of the lens. The depth of field increases as the size of the lens opening decreases, the subject distance increases, or the focal length of the lens decreases. So if you want to cover a large area and not focus on specific items, it is best to use a wide-angle lens and a small lens opening. 9. A. Manual iris lenses have a ring around the CCTV lens that can be manually turned and controlled. A lens that has a manual iris would be used in an area that has fixed lighting, since the iris cannot self-adjust to changes of light. An auto iris lens should be used in environments where the light changes, such as an outdoor setting. As the environment brightens, this is sensed by the iris, which automatically adjusts itself. Security personnel will configure the CCTV to have a specific fixed exposure value, which the iris is responsible for maintaining. The other answers are true. 10. A. A transponder is a type of physical access control device that does not require the user to slide a card through a reader. The reader and card communicate directly. The card and reader have a receiver, transmitter, and battery. The reader sends signals to the card to request information. The card sends the reader an access code. 11. A. Although many effective physical security mechanisms are on the market today, none can look at a situation, make a judgment about it, and decide what the next step should be. A security guard is employed when a company needs to have a countermeasure that can think and make decisions in different scenarios. 12. B. An electrostatic IDS creates an electrostatic field, which is just an electric field associated with static electric charges. The IDS creates a balanced electrostatic field between itself and the object being monitored. If an intruder comes within a certain range of the monitored object, there is capacitance change. The IDS can detect this change and sound an alarm. 13. C. This type of system is sensitive to sounds and vibrations and detects the changes in the noise level of an area it is placed within. This level of sensitivity can cause many false alarms. These devices do not emit any waves; they only listen for sounds within an area and are considered passive devices. 14. C. Every physical security program should have delaying mechanisms, which have the purpose of slowing down an intruder so security personnel can be alerted and arrive at the scene. A warning sign is a deterrence control, not a delaying control. 15. D. A user-activated device requires the user to do something: swipe the card through the reader and/or enter a code. A system sensing device recognizes the presence of the card and communicates with it without the user needing to carry out any activity. 16. B. Monitoring and intrusion detection systems are expensive, require someone to respond when they set off an alarm, and, because of their level of sensitivity, can cause several false alarms. Like any other type of technology or device, they have their own vulnerabilities that can be exploited and penetrated. 17. D. Cipher locks, also known as programmable locks, use keypads to control access into an area or facility. The lock can require a swipe card and a specific combination that’s entered into the keypad. 18. A. A security guard would want to be alerted when a door has been open for an extended period. It may be an indication that something is taking place other than a person entering or exiting the door. A security system can have a threshold set so that if the door is open past the defined time period, an alarm sounds. 19. C. The tumbler lock has more pieces and parts than a warded lock. The key fits into a cylinder, which raises the lock metal pieces to the correct height so the bolt can slide to the locked or unlocked position. A warded lock is easier to circumvent than a tumbler lock. 20. B. Code reviews are focused on finding and fixing defects in software that is undergoing development. It is not helpful in controlling which applications run on our computers. 21. D. The intrusion prevention system is the best answer because these systems can stop packets containing specific signatures. Although some antimalware software might be able to this also, this functionality is not a universal feature in this sort of solution. 22. B. A hot site is a facility that is fully equipped and properly configured so that it can be up and running within hours to get a company back into production. Answer B gives the best definition of a fully functional environment. 23. B. Remote journaling is a technology used to transmit data to an offsite facility, but this usually only includes moving the journal or transaction logs to the offsite facility, not the actual files. 24. D. This question addresses a facility that is used to store backed-up data; it is not talking about an offsite facility used for disaster recovery purposes. The facility should not be only 10 to 15 minutes away, because some types of disasters could destroy both the company’s main facility and this facility if they are that close together, in which case the company would lose all of its information. The facility should have the same security standards as the company’s security, including protection against unauthorized access. 25. A. A reciprocal agreement is not enforceable, meaning that the company that agreed to let the damaged company work out of its facility can decide not to allow this to take place. A reciprocal agreement is a better secondary backup option if the original plan falls through. 26. D. A cold site only provides environmental measures—wiring, air conditioning, raised floors—basically a shell of a building and no more. 27. C. Several steps need to be followed when gathering and extracting evidence from a scene. Once a computer has been confiscated, the first thing the computer forensics team should do is make an image of the hard drive. The team will work from this image instead of the original hard drive so that the original stays in a pristine state and the evidence on the drive is not accidentally corrupted or modified. 28. C. For evidence to be admissible, it must be relevant, complete, sufficient, and reliable to the case. For evidence to be reliable, it must be consistent with fact and must not be based on opinion or be circumstantial. 29. D. The allegations, depending on the details, could point to any of the four types of investigations. However, since you are meeting with attorneys representing this client, it is likeliest that they are considering (or taking) civil action against your company. None of the other three types of investigations would normally involve meetings with a client’s attorneys. As an aside, in this situation you would obviously want to ensure that your own company’s attorneys were present too."
+          "text": "B. Regulatory C. Criminal D. Civil Answers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "D. Due care and due diligence are legal terms that do not just pertain to security. Due diligence involves going through the necessary steps to know what a company’s or individual’s actual risks are, whereas due care involves carrying out responsible actions to reduce those risks. These concepts correspond with the “prudent person” concept.",
+            "C. Many times, employees who are carrying out fraudulent activities do not take the vacation they have earned because they do not want anyone to find out what they have been doing. Forcing employees to take vacations means that someone else has to do that person’s job and can possibly uncover any misdeeds.",
+            "B. Rotation of duties enables a company to have more than one person trained in a position and can uncover fraudulent activities. Separation of duties is put into place to ensure that one entity cannot carry out a critical task alone.",
+            "C. This is just one of several examples of separation of duties. A system must be set up for proper code maintenance to take place when necessary, instead of allowing a programmer to make changes arbitrarily. These types of changes should go through a change control process and should have more entities involved than just one programmer.",
+            "A. Continuous monitoring is a deliberate, data-driven process supporting organizational risk management. One of the key questions it answers is: are controls still effective at mitigating risks? Continuous monitoring could potentially lead to a decision to implement specific ad hoc processes, but these would not really be part of continuous monitoring.",
+            "C. Users should be able to access only the resources they need to fulfill the duties of their positions. They also should only have the level of permissions and rights for those resources that are required to carry out the exact operations they need for their jobs, and no more. This second concept is more granular than the first, but they have a symbiotic relationship.",
+            "A. Documentation is a very important part of the change control process. If things are not properly documented, employees will forget what actually took place with each device. If the environment needs to be rebuilt, for example, it may be done incorrectly if the procedure was poorly or improperly documented. When new changes need to be implemented, the current infrastructure may not be totally understood. Continually documenting when virus signatures are updated would be overkill. The other answers contain events that certainly require documentation.",
+            "A. The depth of field refers to the portion of the environment that is in focus when shown on the monitor. The depth of field varies depending upon the size of the lens opening, the distance of the object being focused on, and the focal length of the lens. The depth of field increases as the size of the lens opening decreases, the subject distance increases, or the focal length of the lens decreases. So if you want to cover a large area and not focus on specific items, it is best to use a wide-angle lens and a small lens opening.",
+            "A. Manual iris lenses have a ring around the CCTV lens that can be manually turned and controlled. A lens that has a manual iris would be used in an area that has fixed lighting, since the iris cannot self-adjust to changes of light. An auto iris lens should be used in environments where the light changes, such as an outdoor setting. As the environment brightens, this is sensed by the iris, which automatically adjusts itself. Security personnel will configure the CCTV to have a specific fixed exposure value, which the iris is responsible for maintaining. The other answers are true.",
+            "A. A transponder is a type of physical access control device that does not require the user to slide a card through a reader. The reader and card communicate directly. The card and reader have a receiver, transmitter, and battery. The reader sends signals to the card to request information. The card sends the reader an access code.",
+            "A. Although many effective physical security mechanisms are on the market today, none can look at a situation, make a judgment about it, and decide what the next step should be. A security guard is employed when a company needs to have a countermeasure that can think and make decisions in different scenarios.",
+            "B. An electrostatic IDS creates an electrostatic field, which is just an electric field associated with static electric charges. The IDS creates a balanced electrostatic field between itself and the object being monitored. If an intruder comes within a certain range of the monitored object, there is capacitance change. The IDS can detect this change and sound an alarm.",
+            "C. This type of system is sensitive to sounds and vibrations and detects the changes in the noise level of an area it is placed within. This level of sensitivity can cause many false alarms. These devices do not emit any waves; they only listen for sounds within an area and are considered passive devices.",
+            "C. Every physical security program should have delaying mechanisms, which have the purpose of slowing down an intruder so security personnel can be alerted and arrive at the scene. A warning sign is a deterrence control, not a delaying control.",
+            "D. A user-activated device requires the user to do something: swipe the card through the reader and/or enter a code. A system sensing device recognizes the presence of the card and communicates with it without the user needing to carry out any activity.",
+            "B. Monitoring and intrusion detection systems are expensive, require someone to respond when they set off an alarm, and, because of their level of sensitivity, can cause several false alarms. Like any other type of technology or device, they have their own vulnerabilities that can be exploited and penetrated.",
+            "D. Cipher locks, also known as programmable locks, use keypads to control access into an area or facility. The lock can require a swipe card and a specific combination that’s entered into the keypad.",
+            "A. A security guard would want to be alerted when a door has been open for an extended period. It may be an indication that something is taking place other than a person entering or exiting the door. A security system can have a threshold set so that if the door is open past the defined time period, an alarm sounds.",
+            "C. The tumbler lock has more pieces and parts than a warded lock. The key fits into a cylinder, which raises the lock metal pieces to the correct height so the bolt can slide to the locked or unlocked position. A warded lock is easier to circumvent than a tumbler lock.",
+            "B. Code reviews are focused on finding and fixing defects in software that is undergoing development. It is not helpful in controlling which applications run on our computers.",
+            "D. The intrusion prevention system is the best answer because these systems can stop packets containing specific signatures. Although some antimalware software might be able to this also, this functionality is not a universal feature in this sort of solution.",
+            "B. A hot site is a facility that is fully equipped and properly configured so that it can be up and running within hours to get a company back into production. Answer B gives the best definition of a fully functional environment.",
+            "B. Remote journaling is a technology used to transmit data to an offsite facility, but this usually only includes moving the journal or transaction logs to the offsite facility, not the actual files.",
+            "D. This question addresses a facility that is used to store backed-up data; it is not talking about an offsite facility used for disaster recovery purposes. The facility should not be only 10 to 15 minutes away, because some types of disasters could destroy both the company’s main facility and this facility if they are that close together, in which case the company would lose all of its information. The facility should have the same security standards as the company’s security, including protection against unauthorized access.",
+            "A. A reciprocal agreement is not enforceable, meaning that the company that agreed to let the damaged company work out of its facility can decide not to allow this to take place. A reciprocal agreement is a better secondary backup option if the original plan falls through.",
+            "D. A cold site only provides environmental measures—wiring, air conditioning, raised floors—basically a shell of a building and no more.",
+            "C. Several steps need to be followed when gathering and extracting evidence from a scene. Once a computer has been confiscated, the first thing the computer forensics team should"
+          ],
+          "ordered": true
+        },
+        {
+          "type": "paragraph",
+          "text": "do is make an image of the hard drive. The team will work from this image instead of the original hard drive so that the original stays in a pristine state and the evidence on the drive is not accidentally corrupted or modified."
+        },
+        {
+          "type": "list",
+          "items": [
+            "C. For evidence to be admissible, it must be relevant, complete, sufficient, and reliable to the case. For evidence to be reliable, it must be consistent with fact and must not be based on opinion or be circumstantial.",
+            "D. The allegations, depending on the details, could point to any of the four types of investigations. However, since you are meeting with attorneys representing this client, it is likeliest that they are considering (or taking) civil action against your company. None of the other three types of investigations would normally involve meetings with a client’s attorneys. As an aside, in this situation you would obviously want to ensure that your own company’s attorneys were present too."
+          ],
+          "ordered": true
         }
       ]
     }

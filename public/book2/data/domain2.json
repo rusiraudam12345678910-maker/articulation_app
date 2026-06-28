@@ -1,7 +1,7 @@
 {
   "domain": 2,
   "title": "Asset Security",
-  "totalSections": 62,
+  "totalSections": 63,
   "sections": [
     {
       "id": "domain-2-intro",
@@ -244,12 +244,12 @@
             "Who should be able to access the data",
             "Who should maintain the data",
             "Who should be able to reproduce the data",
-            "Lost opportunity costs that could be incurred if the data were not available or were"
+            "Lost opportunity costs that could be incurred if the data were not available or were corrupted"
           ]
         },
         {
           "type": "paragraph",
-          "text": "corrupted Data is not the only thing that may need to be classified. Applications and sometimes whole systems may need to be classified. The applications that hold and process classified information should be evaluated for the level of protection they provide. You do not want a program filled with security vulnerabilities to process and “protect” your most sensitive information. The application classifications should be based on the assurance (confidence level) the company has in the software and the type of information it can store and process."
+          "text": "Data is not the only thing that may need to be classified. Applications and sometimes whole systems may need to be classified. The applications that hold and process classified information should be evaluated for the level of protection they provide. You do not want a program filled with security vulnerabilities to process and “protect” your most sensitive information. The application classifications should be based on the assurance (confidence level) the company has in the software and the type of information it can store and process."
         },
         {
           "type": "note",
@@ -275,46 +275,43 @@
           "items": [
             "Strict and granular access control for all levels of sensitive data and programs",
             "Encryption of data while stored and while in transmission",
-            "Auditing and monitoring (determine what level of auditing is required and how long logs",
-            "Separation of duties (determine whether two or more people must be involved in accessing"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sensitive information to protect against fraudulent activities; if so, define and document procedures)"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Periodic reviews (review classification levels, and the data and programs that adhere to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "them, to ensure they are still in alignment with business needs; data or applications may also need to be reclassified or declassified, depending upon the situation)"
-        },
-        {
-          "type": "list",
-          "items": [
+            "Auditing and monitoring (determine what level of auditing is required and how long logs are to be retained)",
+            "Separation of duties (determine whether two or more people must be involved in accessing sensitive information to protect against fraudulent activities; if so, define and document procedures)",
+            "Periodic reviews (review classification levels, and the data and programs that adhere to them, to ensure they are still in alignment with business needs; data or applications may also need to be reclassified or declassified, depending upon the situation)",
             "Backup and recovery procedures (define and document)",
             "Change control procedures (define and document)",
             "Physical security protection (define and document)",
-            "Information flow channels (where does the sensitive data reside and how does it transverse",
+            "Information flow channels (where does the sensitive data reside and how does it transverse the network)",
             "Proper disposal actions, such as shredding, degaussing, and so on (define and document)",
             "Marking, labeling, and handling procedures"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "classification-procedures",
+      "title": "Classification Procedures",
+      "level": 2,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Classification Procedures The following outlines the necessary steps for a proper classification program: 1. Define classification levels. 2. Specify the criteria that will determine how data is classified. 3. Identify data owners who will be responsible for classifying data. 4. Identify the data custodian who will be responsible for maintaining data and its security level. 5. Indicate the security controls, or protection mechanisms, required for each classification level. 6. Document any exceptions to the previous classification issues. 7. Indicate the methods that can be used to transfer custody of the information to a different data owner."
+          "text": "The following outlines the necessary steps for a proper classification program:"
         },
         {
-          "type": "paragraph",
-          "text": "8. Create a procedure to periodically review the classification and ownership."
-        },
-        {
-          "type": "paragraph",
-          "text": "Communicate any changes to the data custodian. 9. Indicate procedures for declassifying the data. 10. Integrate these issues into the security awareness program so all employees understand how to handle data at different classification levels."
+          "type": "list",
+          "items": [
+            "Define classification levels.",
+            "Specify the criteria that will determine how data is classified.",
+            "Identify data owners who will be responsible for classifying data.",
+            "Identify the data custodian who will be responsible for maintaining data and its security level.",
+            "Indicate the security controls, or protection mechanisms, required for each classification level.",
+            "Document any exceptions to the previous classification issues.",
+            "Indicate the methods that can be used to transfer custody of the information to a different data owner.",
+            "Create a procedure to periodically review the classification and ownership. Communicate any changes to the data custodian.",
+            "Indicate procedures for declassifying the data.",
+            "Integrate these issues into the security awareness program so all employees understand how to handle data at different classification levels."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -349,26 +346,8 @@
         {
           "type": "list",
           "items": [
-            "March 2012 The former CEO of the Stanford Financial Group, R. Allen Stanford, was"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sentenced to 110 years in prison for defrauding investors out of $7 billion."
-        },
-        {
-          "type": "list",
-          "items": [
-            "June 2015 Joe White, the former CFO of Shelby Regional Medical Center, was"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sentenced to 23 months in federal prison after making false claims to receive payments under the Medicare Electronic Health Record Incentive Program."
-        },
-        {
-          "type": "list",
-          "items": [
+            "March 2012 The former CEO of the Stanford Financial Group, R. Allen Stanford, was sentenced to 110 years in prison for defrauding investors out of $7 billion.",
+            "June 2015 Joe White, the former CFO of Shelby Regional Medical Center, was sentenced to 23 months in federal prison after making false claims to receive payments under the Medicare Electronic Health Record Incentive Program.",
             "August 2015 Former Chief Financial Officer of the Lawrence Family Jewish"
           ]
         },
@@ -389,22 +368,18 @@
         {
           "type": "list",
           "items": [
-            "December 2015 Martin Shkreli, a notorious pharmaceutical executive, was arrested and"
+            "December 2015 Martin Shkreli, a notorious pharmaceutical executive, was arrested and charged with securities fraud stemming from his alleged use of funds from new companies to pay down debts previously incurred by financially troubled companies. In"
           ]
         },
         {
           "type": "paragraph",
-          "text": "charged with securities fraud stemming from his alleged use of funds from new companies to pay down debts previously incurred by financially troubled companies. In March 2018 he was sentenced to seven years in prison."
+          "text": "March 2018 he was sentenced to seven years in prison."
         },
         {
           "type": "list",
           "items": [
-            "March 2018 Jun Ying, a former chief information officer for Equifax, was charged with"
+            "March 2018 Jun Ying, a former chief information officer for Equifax, was charged with insider trading for allegedly selling his stock in the company after discovering a massive data breach. He suspected (correctly) that the stock would lose value once the breach became known."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "insider trading for allegedly selling his stock in the company after discovering a massive data breach. He suspected (correctly) that the stock would lose value once the breach became known."
         },
         {
           "type": "paragraph",
@@ -716,42 +691,15 @@
         {
           "type": "list",
           "items": [
-            "Taxonomy A taxonomy is a scheme for classifying data. This classification can be made"
+            "Taxonomy A taxonomy is a scheme for classifying data. This classification can be made using a variety of categories, including functional (e.g., human resources, product development), chronological (e.g., 2015), organizational (e.g., executives, union employees), or any combination of these or other categories.",
+            "Classification The sensitivity classification of the data will determine the controls we place on it both while it is in use and when it gets archived. This is particularly important because many organizations protect sensitive information while in use, but not so much after it goes into the archives.",
+            "Normalization Retained data will come in a variety of formats, including word processing documents, database records, flat files, images, PDF files, video, and so on. Simply storing the data in its original format will not suffice in any but the most trivial cases. Instead, we need to develop tagging schemas that will make the data searchable.",
+            "Indexing Retained data must be searchable if we are to quickly pull out specific items of interest. The most common approach to making data searchable is to build indexes for it."
           ]
         },
         {
           "type": "paragraph",
-          "text": "using a variety of categories, including functional (e.g., human resources, product development), chronological (e.g., 2015), organizational (e.g., executives, union employees), or any combination of these or other categories."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Classification The sensitivity classification of the data will determine the controls we place"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "on it both while it is in use and when it gets archived. This is particularly important because many organizations protect sensitive information while in use, but not so much after it goes into the archives."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Normalization Retained data will come in a variety of formats, including word processing"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "documents, database records, flat files, images, PDF files, video, and so on. Simply storing the data in its original format will not suffice in any but the most trivial cases. Instead, we need to develop tagging schemas that will make the data searchable."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Indexing Retained data must be searchable if we are to quickly pull out specific items of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "interest. The most common approach to making data searchable is to build indexes for it. Many archiving systems implement this feature, but others do not. Either way, the indexing approach must support the likely future queries on the archived data."
+          "text": "Many archiving systems implement this feature, but others do not. Either way, the indexing approach must support the likely future queries on the archived data."
         },
         {
           "type": "paragraph",
@@ -785,7 +733,21 @@
         },
         {
           "type": "paragraph",
-          "text": "The decision to retain data must be deliberate, specific, and enforceable. We want to keep only the data that we consciously decide to keep, and then we want to ensure that we can enforce that retention. If this sounds painful, we need only consider the consequences of not getting this process right. Many companies have endured undue hardships because they couldn’t develop, implement, and enforce a proper retention policy. Among the biggest challenges in this realm is the balance between business needs and employee or customer privacy. e-Discovery Discovery of electronically stored information (ESI), or e-discovery, is the process of producing for a court or external attorney all ESI pertinent to a legal proceeding. For example, if your company is being sued for damages resulting from a faulty product, the plaintiff’s attorney could get an e-discovery order compelling you to produce all e-mail between the QA team and senior executives in which the product’s faults are discussed. If your data retention policy and procedures are adequate, e-discovery should not require excessive efforts. If, on the other hand, you have been slack about retention, such an order could cripple the organization. The Electronic Discovery Reference Model (EDRM) identifies eight steps, though they are not necessarily all required, nor are they performed in a linear manner: 1. Identification of data required under the order. 2. Preservation of this data to ensure it is not accidentally or routinely destroyed while complying with the order. 3. Collection of the data from the various stores in which it may be. 4. Processing to ensure the correct format is used for both the data and its metadata. 5. Review of the data to ensure it is relevant. 6. Analysis of the data for proper context. 7. Production of the final data set to those requesting it. 8. Presentation of the data to external audiences to prove or disprove a claim."
+          "text": "The decision to retain data must be deliberate, specific, and enforceable. We want to keep only the data that we consciously decide to keep, and then we want to ensure that we can enforce that retention. If this sounds painful, we need only consider the consequences of not getting this process right. Many companies have endured undue hardships because they couldn’t develop, implement, and enforce a proper retention policy. Among the biggest challenges in this realm is the balance between business needs and employee or customer privacy. e-Discovery Discovery of electronically stored information (ESI), or e-discovery, is the process of producing for a court or external attorney all ESI pertinent to a legal proceeding. For example, if your company is being sued for damages resulting from a faulty product, the plaintiff’s attorney could get an e-discovery order compelling you to produce all e-mail between the QA team and senior executives in which the product’s faults are discussed. If your data retention policy and procedures are adequate, e-discovery should not require excessive efforts. If, on the other hand, you have been slack about retention, such an order could cripple the organization. The Electronic Discovery Reference Model (EDRM) identifies eight steps, though they are not necessarily all required, nor are they performed in a linear manner:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Identification of data required under the order.",
+            "Preservation of this data to ensure it is not accidentally or routinely destroyed while complying with the order.",
+            "Collection of the data from the various stores in which it may be.",
+            "Processing to ensure the correct format is used for both the data and its metadata.",
+            "Review of the data to ensure it is relevant.",
+            "Analysis of the data for proper context.",
+            "Production of the final data set to those requesting it.",
+            "Presentation of the data to external audiences to prove or disprove a claim."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -879,42 +841,29 @@
         {
           "type": "list",
           "items": [
-            "Overwriting Overwriting data entails replacing the 1’s and 0’s that represent it on storage"
+            "Overwriting Overwriting data entails replacing the 1’s and 0’s that represent it on storage media with random or fixed patterns of 1’s and 0’s in order to render the original data unrecoverable. This should be done at least once (e.g., overwriting the medium with 1’s, 0’s, or a pattern of these), but may have to be done more than that. For many years the U.S."
           ]
         },
         {
           "type": "paragraph",
-          "text": "media with random or fixed patterns of 1’s and 0’s in order to render the original data unrecoverable. This should be done at least once (e.g., overwriting the medium with 1’s, 0’s, or a pattern of these), but may have to be done more than that. For many years the U.S. Department of Defense (DoD) standard 5220.22-M required that media be overwritten seven times. This standard has since been superseded. DoD systems with sensitive information must now be degaussed."
+          "text": "Department of Defense (DoD) standard 5220.22-M required that media be overwritten seven times. This standard has since been superseded. DoD systems with sensitive information must now be degaussed."
         },
         {
           "type": "list",
           "items": [
-            "Degaussing This is the process of removing or reducing the magnetic field patterns on"
+            "Degaussing This is the process of removing or reducing the magnetic field patterns on conventional disk drives or tapes. In essence, a powerful magnetic force is applied to the media, which results in the wiping of the data and sometimes the destruction of the motors"
           ]
         },
         {
           "type": "paragraph",
-          "text": "conventional disk drives or tapes. In essence, a powerful magnetic force is applied to the media, which results in the wiping of the data and sometimes the destruction of the motors that drive the platters. While it may still be possible to recover the data, it is typically cost prohibitive to do so."
+          "text": "that drive the platters. While it may still be possible to recover the data, it is typically cost prohibitive to do so."
         },
         {
           "type": "list",
           "items": [
-            "Encryption Many mobile devices take this approach to quickly and securely render data"
+            "Encryption Many mobile devices take this approach to quickly and securely render data unusable. The premise is that the data is stored on the medium in encrypted format using a strong key. To render the data unrecoverable, the system simply needs to securely delete the encryption key, which is many times faster than deleting the encrypted data. Recovering the data in this scenario is typically computationally infeasible.",
+            "Physical destruction Perhaps the best way to combat data remanence is to simply destroy the physical media. The two most commonly used approaches to destroying media are to shred it or expose it to caustic or corrosive chemicals that render it unusable. Another approach is incineration."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "unusable. The premise is that the data is stored on the medium in encrypted format using a strong key. To render the data unrecoverable, the system simply needs to securely delete the encryption key, which is many times faster than deleting the encrypted data. Recovering the data in this scenario is typically computationally infeasible."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Physical destruction Perhaps the best way to combat data remanence is to simply destroy"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the physical media. The two most commonly used approaches to destroying media are to shred it or expose it to caustic or corrosive chemicals that render it unusable. Another approach is incineration."
         }
       ]
     },
@@ -1123,72 +1072,36 @@
         {
           "type": "list",
           "items": [
-            "Effectively implementing access controls to restrict who can access each piece of media"
+            "Effectively implementing access controls to restrict who can access each piece of media to only those people defined by the owner of the media/information on the media, and to enforce the appropriate security measures based on the classification of the media/information on the media. Certain media, due to its physical type and/or the nature of the information on it, may require special handling. All personnel who are authorized to access media must have training to ensure they understand what is required of such media."
           ]
         },
         {
           "type": "paragraph",
-          "text": "to only those people defined by the owner of the media/information on the media, and to enforce the appropriate security measures based on the classification of the media/information on the media. Certain media, due to its physical type and/or the nature of the information on it, may require special handling. All personnel who are authorized to access media must have training to ensure they understand what is required of such media. An example of special handling for, say, classified information may be that the media may only be removed from the library or its usual storage place under physical guard, and even then may not be removed from the building. Access controls will include physical (locked doors, drawers, cabinets, or safes), technical (access and authorization control of any automated system for retrieving contents of information in the library), and administrative (the actual rules for who is supposed to do what to each piece of information). Finally, the data may need to change format, as in printing electronic data to paper. The data still needs to be protected at the necessary level, no matter what format it is in. Procedures must include how to continue to provide the appropriate protection. For example, sensitive material that is to be mailed should be sent in a sealable inner envelope and use only courier service."
+          "text": "An example of special handling for, say, classified information may be that the media may only be removed from the library or its usual storage place under physical guard, and even then may not be removed from the building. Access controls will include physical (locked doors, drawers, cabinets, or safes), technical (access and authorization control of any automated system for retrieving contents of information in the library), and administrative (the actual rules for who is supposed to do what to each piece of information). Finally, the data may need to change format, as in printing electronic data to paper. The data still needs to be protected at the necessary level, no matter what format it is in. Procedures must include how to continue to provide the appropriate protection. For example, sensitive material that is to be mailed should be sent in a sealable inner envelope and use only courier service."
         },
         {
           "type": "list",
           "items": [
-            "Tracking the number and location of backup versions (both onsite and offsite). This is"
+            "Tracking the number and location of backup versions (both onsite and offsite). This is necessary to ensure proper disposal of information when the information reaches the end of its lifespan, to account for the location and accessibility of information during audits, and to find a backup copy of information if the primary source of the information is lost or",
+            "Documenting the history of changes to media. For example, when a particular version of a software application kept in the library has been deemed obsolete, this fact must be recorded so the obsolete version of the application is not used unless that particular obsolete version is required. Even once no possible need for the actual media or its content remains, retaining a log of the former existence and the time and method of its deletion may be useful to demonstrate due diligence.",
+            "Ensuring environmental conditions do not endanger media. Each media type may be susceptible to damage from one or more environmental influences. For example, all media formats are susceptible to fire, and most are susceptible to liquids, smoke, and dust."
           ]
         },
         {
           "type": "paragraph",
-          "text": "necessary to ensure proper disposal of information when the information reaches the end of its lifespan, to account for the location and accessibility of information during audits, and to find a backup copy of information if the primary source of the information is lost or damaged."
+          "text": "Magnetic media formats are susceptible to strong magnetic fields. Magnetic and optical media formats are susceptible to variations in temperature and humidity. A media library and any other space where reference copies of information are stored must be physically built so all types of media will be kept within their environmental parameters, and the environment must be monitored to ensure conditions do not range outside of those parameters. Media libraries are particularly useful when large amounts of information must be stored and physically/environmentally protected so that the high cost of environmental control and media management may be centralized in a small number of physical locations and so that cost is spread out over the large number of items stored in the library."
         },
         {
           "type": "list",
           "items": [
-            "Documenting the history of changes to media. For example, when a particular version of"
+            "Ensuring media integrity by verifying on a media-type and environment-appropriate basis that each piece of media remains usable and transferring still-valuable information from pieces of media reaching their obsolescence date to new pieces of media. Every type of media has an expected lifespan under certain conditions, after which it can no longer be expected that the media will reliably retain information. For example, a commercially produced CD or DVD stored in good environmental conditions should be reliable for at least ten years, whereas an inexpensive CD-R or DVD-R sitting on a shelf in a home office may become unreliable after just one year. All types of media in use at a company should have a documented (and conservative) expected lifespan. When the information on a piece of media has more remaining lifespan before its scheduled obsolescence/destruction date than does the piece of media on which the information is recorded, then the information must be transcribed to a newer piece or a newer format of media. Even the availability of hardware to read media in particular formats must be taken into account. A media format that is physically stable for decades, but for which no working device remains available to read, is of no value. Additionally, as part of maintaining the integrity of the specific contents of a piece of media, if the information on that media is highly valuable or mandated to be kept by some regulation or law, a cryptographic signature of the contents of the media may be maintained, and the contents of the piece of media verified against that signature on a regular basis.",
+            "Inventorying the media on a scheduled basis to detect if any media has been lost/changed. This can reduce the amount of damage a violation of the other media protection responsibilities could cause by detecting such violations sooner rather than later, and is a necessary part of the media management life cycle by which the controls in place are verified as being sufficient.",
+            "Carrying out secure disposal activities. Disposition includes the lifetime after which the information is no longer valuable and the minimum necessary measures for the disposal of the media/information. Secure disposal of media/information can add significant cost to"
           ]
         },
         {
           "type": "paragraph",
-          "text": "a software application kept in the library has been deemed obsolete, this fact must be recorded so the obsolete version of the application is not used unless that particular obsolete version is required. Even once no possible need for the actual media or its content remains, retaining a log of the former existence and the time and method of its deletion may be useful to demonstrate due diligence."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Ensuring environmental conditions do not endanger media. Each media type may be"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "susceptible to damage from one or more environmental influences. For example, all media formats are susceptible to fire, and most are susceptible to liquids, smoke, and dust. Magnetic media formats are susceptible to strong magnetic fields. Magnetic and optical media formats are susceptible to variations in temperature and humidity. A media library and any other space where reference copies of information are stored must be physically built so all types of media will be kept within their environmental parameters, and the environment must be monitored to ensure conditions do not range outside of those parameters. Media libraries are particularly useful when large amounts of information must be stored and physically/environmentally protected so that the high cost of environmental control and media management may be centralized in a small number of physical locations and so that cost is spread out over the large number of items stored in the library."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Ensuring media integrity by verifying on a media-type and environment-appropriate basis"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "that each piece of media remains usable and transferring still-valuable information from pieces of media reaching their obsolescence date to new pieces of media. Every type of media has an expected lifespan under certain conditions, after which it can no longer be expected that the media will reliably retain information. For example, a commercially produced CD or DVD stored in good environmental conditions should be reliable for at least ten years, whereas an inexpensive CD-R or DVD-R sitting on a shelf in a home office may become unreliable after just one year. All types of media in use at a company should have a documented (and conservative) expected lifespan. When the information on a piece of media has more remaining lifespan before its scheduled obsolescence/destruction date than does the piece of media on which the information is recorded, then the information must be transcribed to a newer piece or a newer format of media. Even the availability of hardware to read media in particular formats must be taken into account. A media format that is physically stable for decades, but for which no working device remains available to read, is of no value. Additionally, as part of maintaining the integrity of the specific contents of a piece of media, if the information on that media is highly valuable or mandated to be kept by some regulation or law, a cryptographic signature of the contents of the media may be maintained, and the contents of the piece of media verified against that signature on a regular basis."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Inventorying the media on a scheduled basis to detect if any media has been"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "lost/changed. This can reduce the amount of damage a violation of the other media protection responsibilities could cause by detecting such violations sooner rather than later, and is a necessary part of the media management life cycle by which the controls in place are verified as being sufficient."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Carrying out secure disposal activities. Disposition includes the lifetime after which the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "information is no longer valuable and the minimum necessary measures for the disposal of the media/information. Secure disposal of media/information can add significant cost to media management. Knowing that only a certain percentage of the information must be securely erased at the end of its life may significantly reduce the long-term operating costs of the company. Similarly, knowing that certain information must be disposed of securely can reduce the possibility of a piece of media being simply thrown in a dumpster and then found by someone who publicly embarrasses or blackmails the company over the data security breach represented by that inappropriate disposal of the information. It is the business that creates the information stored on media, not the person, library, or librarian who has custody of the media, that is responsible for setting the lifetime and disposition of that information. The business must take into account the useful lifetime of the information to the business, legal, and regulatory restrictions, and, conversely, the requirements for retention and archiving when making these decisions. If a law or regulation requires the information to be kept beyond its normally useful lifetime for the business, then disposition may involve archiving—moving the information from the ready (and possibly more expensive) accessibility of a library to a long-term stable and (with some effort) retrievable format that has lower storage costs."
+          "text": "media management. Knowing that only a certain percentage of the information must be securely erased at the end of its life may significantly reduce the long-term operating costs of the company. Similarly, knowing that certain information must be disposed of securely can reduce the possibility of a piece of media being simply thrown in a dumpster and then found by someone who publicly embarrasses or blackmails the company over the data security breach represented by that inappropriate disposal of the information. It is the business that creates the information stored on media, not the person, library, or librarian who has custody of the media, that is responsible for setting the lifetime and disposition of that information. The business must take into account the useful lifetime of the information to the business, legal, and regulatory restrictions, and, conversely, the requirements for retention and archiving when making these decisions. If a law or regulation requires the information to be kept beyond its normally useful lifetime for the business, then disposition may involve archiving—moving the information from the ready (and possibly more expensive) accessibility of a library to a long-term stable and (with some effort) retrievable format that has lower storage costs."
         },
         {
           "type": "list",
@@ -1220,16 +1133,7 @@
         {
           "type": "list",
           "items": [
-            "Inventory all mobile devices, including serial numbers, so they can be properly identified if"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "they are stolen and then recovered."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Inventory all mobile devices, including serial numbers, so they can be properly identified if they are stolen and then recovered.",
             "Harden the operating system by applying baseline secure configurations.",
             "Password-protect the BIOS on laptops.",
             "Register all devices with their respective vendors, and file a report with the vendor when a"
@@ -1271,44 +1175,13 @@
           "items": [
             "Educate your staff on proper handling of paper records.",
             "Minimize the use of paper records.",
-            "Ensure workspaces are kept tidy so it is easy to tell when sensitive papers are left exposed,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "and routinely audit workspaces to ensure sensitive documents are not exposed."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Ensure workspaces are kept tidy so it is easy to tell when sensitive papers are left exposed, and routinely audit workspaces to ensure sensitive documents are not exposed.",
             "Lock away all sensitive paperwork as soon as you are done with it.",
             "Prohibit taking sensitive paperwork home.",
-            "Label all paperwork with its classification level. Ideally, also include its owner’s name and"
+            "Label all paperwork with its classification level. Ideally, also include its owner’s name and disposition (e.g., retention) instructions.",
+            "Conduct random searches of employees’ bags as they leave the office to ensure sensitive materials are not being taken home.",
+            "Destroy unneeded sensitive papers using a crosscut shredder. For very sensitive papers, consider burning them instead."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "disposition (e.g., retention) instructions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Conduct random searches of employees’ bags as they leave the office to ensure sensitive"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "materials are not being taken home."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Destroy unneeded sensitive papers using a crosscut shredder. For very sensitive papers,"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "consider burning them instead."
         }
       ]
     },
@@ -1447,62 +1320,22 @@
         {
           "type": "list",
           "items": [
-            "Backup and recovery Though we have been focusing our attention on data leaks, it is also"
-          ]
-        },
-        {
-          "type": "note",
-          "text": "important to consider the steps to prevent the loss of this data due to electromechanical or human failures. As we take care of this, we need to also consider the risk that, while we focus our attention on preventing leaks of our primary data stores, our adversaries may be focusing their attention on stealing the backups."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Data life cycle Most of us can intuitively grasp the security issues at each of the stages of"
+            "Backup and recovery Though we have been focusing our attention on data leaks, it is also important to consider the steps to prevent the loss of this data due to electromechanical or human failures. As we take care of this, we need to also consider the risk that, while we focus our attention on preventing leaks of our primary data stores, our adversaries may be focusing their attention on stealing the backups.",
+            "Data life cycle Most of us can intuitively grasp the security issues at each of the stages of the data life cycle. However, we tend to disregard securing the data as it transitions from one stage to another. For instance, if we are archiving data at an offsite location, are we ensuring that it is protected as it travels there?",
+            "Physical security While IT provides a wealth of tools and resources to help us protect our data, we must also consider what happens when an adversary just steals a hard drive left in an unsecured area, as happened to Sentara Heart Hospital in Norfolk, Virginia, in August 2015.",
+            "Security culture Our information systems users can be a tremendous control if properly educated and incentivized. By developing a culture of security within our organizations, we not only reduce the incidence of users clicking on malicious links and opening attachments,"
           ]
         },
         {
           "type": "paragraph",
-          "text": "the data life cycle. However, we tend to disregard securing the data as it transitions from one stage to another. For instance, if we are archiving data at an offsite location, are we ensuring that it is protected as it travels there?"
+          "text": "but we also turn each of them into a security sensor, able to detect attacks that we may not otherwise be able to."
         },
         {
           "type": "list",
           "items": [
-            "Physical security While IT provides a wealth of tools and resources to help us protect our"
+            "Privacy Every data protection policy should carefully balance the need to monitor data with the need to protect our users’ privacy. If we allow our users to check personal e-mail or visit social media sites during their breaks, would our systems be quietly monitoring their private communications?",
+            "Organizational change Many large organizations grow because of mergers and acquisitions. When these changes happen, we must ensure that the data protection approaches of all entities involved are consistent and sufficient. To do otherwise is to ensure that the overall security posture of the new organization is the lesser of its constituents’ security postures."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "data, we must also consider what happens when an adversary just steals a hard drive left in an unsecured area, as happened to Sentara Heart Hospital in Norfolk, Virginia, in August 2015."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Security culture Our information systems users can be a tremendous control if properly"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "educated and incentivized. By developing a culture of security within our organizations, we not only reduce the incidence of users clicking on malicious links and opening attachments, but we also turn each of them into a security sensor, able to detect attacks that we may not otherwise be able to."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Privacy Every data protection policy should carefully balance the need to monitor data"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "with the need to protect our users’ privacy. If we allow our users to check personal e-mail or visit social media sites during their breaks, would our systems be quietly monitoring their private communications?"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Organizational change Many large organizations grow because of mergers and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "acquisitions. When these changes happen, we must ensure that the data protection approaches of all entities involved are consistent and sufficient. To do otherwise is to ensure that the overall security posture of the new organization is the lesser of its constituents’ security postures."
         },
         {
           "type": "paragraph",
@@ -1511,42 +1344,20 @@
         {
           "type": "list",
           "items": [
-            "Sensitive data awareness Different tools will use different approaches to analyzing the"
+            "Sensitive data awareness Different tools will use different approaches to analyzing the sensitivity of documents’ contents and the context in which they are being used. In general terms, the more depth of analysis and breadth of techniques that a product offers, the better."
           ]
         },
         {
           "type": "paragraph",
-          "text": "sensitivity of documents’ contents and the context in which they are being used. In general terms, the more depth of analysis and breadth of techniques that a product offers, the better. Typical approaches to finding and tracking sensitive data include keywords, regular expressions, tags, and statistical methods."
+          "text": "Typical approaches to finding and tracking sensitive data include keywords, regular expressions, tags, and statistical methods."
         },
         {
           "type": "list",
           "items": [
-            "Policy engine Policies are at the heart of any DLP solution. Unfortunately, not all policy"
+            "Policy engine Policies are at the heart of any DLP solution. Unfortunately, not all policy engines are created equal. Some allow extremely granular control but require obscure methods for defining these policies. Other solutions are less expressive but are simple to understand. There is no right answer here, so each organization will weigh this aspect of a set of solutions differently.",
+            "Interoperability DLP tools must play nicely with existing infrastructure, which is why most vendors will assure you that their product is interoperable. The trick becomes to determine precisely how this integration takes place. There are products that are technically interoperable but, in practice, require so much effort to integrate that they become infeasible.",
+            "Accuracy At the end of the day, DLP solutions keep your data out of the hands of unauthorized entities. Therefore, the right solution is one that is accurate in its identification and prevention of incidents that result in the leakage of sensitive data. The best way to assess this criterion is by testing a candidate solution in an environment that mimics the actual conditions in the organization."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "engines are created equal. Some allow extremely granular control but require obscure methods for defining these policies. Other solutions are less expressive but are simple to understand. There is no right answer here, so each organization will weigh this aspect of a set of solutions differently."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Interoperability DLP tools must play nicely with existing infrastructure, which is why"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "most vendors will assure you that their product is interoperable. The trick becomes to determine precisely how this integration takes place. There are products that are technically interoperable but, in practice, require so much effort to integrate that they become infeasible."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Accuracy At the end of the day, DLP solutions keep your data out of the hands of"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "unauthorized entities. Therefore, the right solution is one that is accurate in its identification and prevention of incidents that result in the leakage of sensitive data. The best way to assess this criterion is by testing a candidate solution in an environment that mimics the actual conditions in the organization."
         },
         {
           "type": "paragraph",
@@ -1671,198 +1482,41 @@
         {
           "type": "list",
           "items": [
-            "Information goes through a life cycle that starts with its acquisition and ends with its",
-            "Each phase of the information life cycle requires different considerations when assessing"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "risks and selecting controls."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Information goes through a life cycle that starts with its acquisition and ends with its disposal.",
+            "Each phase of the information life cycle requires different considerations when assessing risks and selecting controls.",
             "New information is prepared for use by adding metadata, including classification labels.",
-            "Ensuring the consistency of data must be a deliberate process in organizations that use data",
+            "Ensuring the consistency of data must be a deliberate process in organizations that use data replication.",
             "Data aggregation may lead to an increase in classification levels.",
             "Cryptography can be an effective control at all phases of the information life cycle.",
-            "The data retention policy drives the timeframe at which information transitions from the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "archival phase to the disposal phase of its life cycle."
-        },
-        {
-          "type": "list",
-          "items": [
+            "The data retention policy drives the timeframe at which information transitions from the archival phase to the disposal phase of its life cycle.",
             "Information classification corresponds to the information’s value to the organization.",
-            "Each classification should have separate handling requirements and procedures pertaining"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "to how that data is accessed, used, and destroyed."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Senior executives are ultimately responsible to the shareholders for the successes and"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "failures of their corporations, including security issues."
-        },
-        {
-          "type": "list",
-          "items": [
-            "The data owner is the manager in charge of a specific business unit and is ultimately"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "responsible for the protection and use of a specific subset of information."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Data owners specify the classification of data, and data custodians implement and maintain"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "controls to enforce the set classification levels."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Each classification should have separate handling requirements and procedures pertaining to how that data is accessed, used, and destroyed.",
+            "Senior executives are ultimately responsible to the shareholders for the successes and failures of their corporations, including security issues.",
+            "The data owner is the manager in charge of a specific business unit and is ultimately responsible for the protection and use of a specific subset of information.",
+            "Data owners specify the classification of data, and data custodians implement and maintain controls to enforce the set classification levels.",
             "The data retention policy must consider legal, regulatory, and operational requirements.",
-            "The data retention policy should address what data is to be retained, where, how, and for",
-            "Electronic discovery (e-discovery) is the process of producing for a court or external"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "attorney all electronically stored information (ESI) pertinent to a legal proceeding."
-        },
-        {
-          "type": "list",
-          "items": [
+            "The data retention policy should address what data is to be retained, where, how, and for how long.",
+            "Electronic discovery (e-discovery) is the process of producing for a court or external attorney all electronically stored information (ESI) pertinent to a legal proceeding.",
             "Normal deletion of a file does not permanently remove it from media.",
-            "NIST SP 800-88, Revision 1, “Guidelines for Media Sanitization,” describes the best"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "practices for combating data remanence."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Overwriting data entails replacing the 1’s and 0’s that represent it on storage media with"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "random or fixed patterns of 1’s and 0’s to render the original data unrecoverable."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Degaussing is the process of removing or reducing the magnetic field patterns on"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "conventional disk drives or tapes."
-        },
-        {
-          "type": "list",
-          "items": [
+            "NIST SP 800-88, Revision 1, “Guidelines for Media Sanitization,” describes the best practices for combating data remanence.",
+            "Overwriting data entails replacing the 1’s and 0’s that represent it on storage media with random or fixed patterns of 1’s and 0’s to render the original data unrecoverable.",
+            "Degaussing is the process of removing or reducing the magnetic field patterns on conventional disk drives or tapes.",
             "Privacy pertains to personal information, both from your employees and your customers.",
-            "Generally speaking, organizations should collect the least amount of private personal data"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "required for the performance of their business functions."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Data at rest refers to data that resides in external or auxiliary storage devices, such as hard"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "drives or optical discs."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Every major operating system supports whole-disk encryption, which is a good way to"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "protect data at rest."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Data in motion is data that is moving between computing nodes over a data network such",
+            "Generally speaking, organizations should collect the least amount of private personal data required for the performance of their business functions.",
+            "Data at rest refers to data that resides in external or auxiliary storage devices, such as hard drives or optical discs.",
+            "Every major operating system supports whole-disk encryption, which is a good way to protect data at rest.",
+            "Data in motion is data that is moving between computing nodes over a data network such as the Internet.",
             "TLS, IPSec, and VPNs are typical ways to use cryptography to protect data in motion.",
-            "Data in use is the term for data residing in primary storage devices, such as volatile"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "memory (e.g., RAM), memory caches, or CPU registers."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Scoping is taking a broader standard and trimming out the irrelevant or otherwise unwanted",
-            "Tailoring is when you make changes to specific provisions in a standard so they better"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "address your requirements."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Data in use is the term for data residing in primary storage devices, such as volatile memory (e.g., RAM), memory caches, or CPU registers.",
+            "Scoping is taking a broader standard and trimming out the irrelevant or otherwise unwanted parts.",
+            "Tailoring is when you make changes to specific provisions in a standard so they better address your requirements.",
             "A data leak means that the confidentiality of the data has been compromised.",
-            "Data leak prevention (DLP) comprises the actions that organizations take to prevent"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "unauthorized external parties from gaining access to sensitive data."
-        },
-        {
-          "type": "list",
-          "items": [
+            "Data leak prevention (DLP) comprises the actions that organizations take to prevent unauthorized external parties from gaining access to sensitive data.",
             "Network DLP (NDLP) applies data protection policies to data in motion.",
             "Endpoint DLP (EDLP) applies data protection policies to data at rest and data in use.",
-            "Mobile devices are easily lost or stolen and should proactively be configured to mitigate"
+            "Mobile devices are easily lost or stolen and should proactively be configured to mitigate the risks of data loss or leakage.",
+            "Paper products oftentimes contain information that deserves controls commensurate to the sensitivity and criticality of that information."
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "the risks of data loss or leakage."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Paper products oftentimes contain information that deserves controls commensurate to the"
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "sensitivity and criticality of that information."
         }
       ]
     },
@@ -1873,31 +1527,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list. 1. Which of the following statements is true about the information life cycle?"
+          "text": "Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list."
         },
         {
-          "type": "paragraph",
-          "text": "A. The information life cycle begins with its archival and ends with its classification. B. Most information must be retained indefinitely."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. The information life cycle begins with its acquisition/creation and ends with its disposal/destruction."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Preparing information for use does not typically involve adding metadata to it. 2. Ensuring data consistency is important for all the following reasons, except A. Replicated data sets can become desynchronized."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Multiple data items are commonly needed to perform a transaction."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Data may exist in multiple locations within our information systems."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Multiple users could attempt to modify data simultaneously. 3. Which of the following makes the most sense for a single organization’s classification levels for data?"
+          "type": "list",
+          "items": [
+            "Which of the following statements is true about the information life cycle? A. The information life cycle begins with its archival and ends with its classification. B. Most information must be retained indefinitely. C. The information life cycle begins with its acquisition/creation and ends with its disposal/destruction. D. Preparing information for use does not typically involve adding metadata to it.",
+            "Ensuring data consistency is important for all the following reasons, except A. Replicated data sets can become desynchronized. B. Multiple data items are commonly needed to perform a transaction. C. Data may exist in multiple locations within our information systems. D. Multiple users could attempt to modify data simultaneously.",
+            "Which of the following makes the most sense for a single organization’s classification levels for data?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -1908,23 +1547,27 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Public, Releasable, Unclassified C. Sensitive, Sensitive But Unclassified (SBU), Proprietary D. Proprietary, Trade Secret, Private 4. Which of the following is the most important criterion in determining the classification of data?"
+          "text": "B. Public, Releasable, Unclassified C. Sensitive, Sensitive But Unclassified (SBU), Proprietary D. Proprietary, Trade Secret, Private"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following is the most important criterion in determining the classification of data? A. The level of damage that could be caused if the data were disclosed B. The likelihood that the data will be accidentally or maliciously disclosed"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. The level of damage that could be caused if the data were disclosed B. The likelihood that the data will be accidentally or maliciously disclosed C. Regulatory requirements in jurisdictions within which the organization is not operating D. The cost of implementing controls for the data 5. The effect of data aggregation on classification levels is best described by which of the following?"
+          "text": "C. Regulatory requirements in jurisdictions within which the organization is not operating D. The cost of implementing controls for the data"
         },
         {
-          "type": "paragraph",
-          "text": "A. Data classification standards apply to all the data within an organization."
-        },
-        {
-          "type": "paragraph",
-          "text": "B. Aggregation is a disaster recovery technique with no effect on classification. C. A low-classification aggregation of data can be deconstructed into higher-classification data items."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Items of low-classification data combine to create a higher-classification set. 6. Who bears ultimate responsibility for the protection of assets within the organization? A. Data owners B. Cyber insurance providers C. Senior management D. Security professionals 7. During which phase or phases of the information life cycle can cryptography be an effective control?"
+          "type": "list",
+          "items": [
+            "The effect of data aggregation on classification levels is best described by which of the following? A. Data classification standards apply to all the data within an organization. B. Aggregation is a disaster recovery technique with no effect on classification. C. A low-classification aggregation of data can be deconstructed into higher-classification data items. D. Items of low-classification data combine to create a higher-classification set.",
+            "Who bears ultimate responsibility for the protection of assets within the organization? A. Data owners B. Cyber insurance providers C. Senior management D. Security professionals",
+            "During which phase or phases of the information life cycle can cryptography be an effective control?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -1935,27 +1578,34 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Archival C. Disposal D. All the above 8. A transition into the disposal phase of the information life cycle is most commonly triggered by A. Senior management B. Insufficient storage C. Acceptable use policies D. Data retention policies 9. Information classification is most closely related to which of the following? A. The source of the information B. The information’s destination C. The information’s value D. The information’s age 10. The data owner is most often described by all of the following except A. Manager in charge of a business unit B. Ultimately responsible for the protection of the data C. Financially liable for the loss of the data D. Ultimately responsible for the use of the data 11. Data at rest is commonly A. Using a RESTful protocol for transmission B. Stored in registers C. Being transmitted across the network D. Stored in external storage devices 12. Data in motion is commonly A. Using a RESTful protocol for transmission B. Stored in registers C. Being transmitted across the network D. Stored in external storage devices 13. Data in use is commonly A. Using a RESTful protocol for transmission B. Stored in registers C. Being transmitted across the network D. Stored in external storage devices 14. Who has the primary responsibility of determining the classification level for information? A. The functional manager B. Senior management C. The owner D. The user 15. If different user groups with different security access levels need to access the same information, which of the following actions should management take?"
+          "text": "B. Archival C. Disposal D. All the above"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A transition into the disposal phase of the information life cycle is most commonly triggered by A. Senior management B. Insufficient storage C. Acceptable use policies D. Data retention policies",
+            "Information classification is most closely related to which of the following? A. The source of the information B. The information’s destination C. The information’s value D. The information’s age",
+            "The data owner is most often described by all of the following except A. Manager in charge of a business unit B. Ultimately responsible for the protection of the data C. Financially liable for the loss of the data D. Ultimately responsible for the use of the data",
+            "Data at rest is commonly A. Using a RESTful protocol for transmission B. Stored in registers C. Being transmitted across the network D. Stored in external storage devices",
+            "Data in motion is commonly A. Using a RESTful protocol for transmission"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. Decrease the security level on the information to ensure accessibility and usability of the information."
+          "text": "B. Stored in registers C. Being transmitted across the network D. Stored in external storage devices"
         },
         {
-          "type": "paragraph",
-          "text": "B. Require specific written approval each time an individual needs to access the information."
-        },
-        {
-          "type": "paragraph",
-          "text": "C. Increase the security controls on the information."
-        },
-        {
-          "type": "paragraph",
-          "text": "D. Decrease the classification label on the information. 16. What should management consider the most when classifying data?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. The type of employees, contractors, and customers who will be accessing the data B. Availability, integrity, and confidentiality C. Assessing the risk level and disabling countermeasures D. The access controls that will be protecting the data 17. Who is ultimately responsible for making sure data is classified and protected? A. Data owners B. Users C. Administrators D. Management 18. Which of the following requirements should the data retention policy address?"
+          "type": "list",
+          "items": [
+            "Data in use is commonly A. Using a RESTful protocol for transmission B. Stored in registers C. Being transmitted across the network D. Stored in external storage devices",
+            "Who has the primary responsibility of determining the classification level for information? A. The functional manager B. Senior management C. The owner D. The user",
+            "If different user groups with different security access levels need to access the same information, which of the following actions should management take? A. Decrease the security level on the information to ensure accessibility and usability of the information. B. Require specific written approval each time an individual needs to access the information. C. Increase the security controls on the information. D. Decrease the classification label on the information.",
+            "What should management consider the most when classifying data? A. The type of employees, contractors, and customers who will be accessing the data B. Availability, integrity, and confidentiality C. Assessing the risk level and disabling countermeasures D. The access controls that will be protecting the data",
+            "Who is ultimately responsible for making sure data is classified and protected? A. Data owners B. Users C. Administrators D. Management",
+            "Which of the following requirements should the data retention policy address?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -1966,11 +1616,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Regulatory C. Operational D. All the above 19. Which of the following is not addressed by the data retention policy?"
+          "text": "B. Regulatory C. Operational D. All the above"
         },
         {
-          "type": "paragraph",
-          "text": "A. What data to keep B. For whom data is kept C. How long data is kept D. Where data is kept 20. Which of the following best describes an application of cryptography to protect data at rest?"
+          "type": "list",
+          "items": [
+            "Which of the following is not addressed by the data retention policy? A. What data to keep B. For whom data is kept C. How long data is kept D. Where data is kept",
+            "Which of the following best describes an application of cryptography to protect data at rest?"
+          ],
+          "ordered": true
         }
       ]
     },
@@ -1981,27 +1635,61 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "B. Degaussing C. Whole-disk encryption D. Up-to-date antivirus software 21. Which of the following best describes an application of cryptography to protect data in motion?"
+          "text": "B. Degaussing C. Whole-disk encryption D. Up-to-date antivirus software"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which of the following best describes an application of cryptography to protect data in motion? A. Testing software against side-channel attacks B. TLS C. Whole-disk encryption D. EDLP",
+            "Which of the following best describes the mitigation of data remanence by a physical destruction process? A. Replacing the 1’s and 0’s that represent data on storage media with random or fixed patterns of 1’s and 0’s B. Converting the 1’s and 0’s that represent data with the output of a cryptographic function C. Removing or reducing the magnetic field patterns on conventional disk drives or tapes D. Exposing storage media to caustic or corrosive chemicals that render it unusable",
+            "Which of the following best describes the mitigation of data remanence by a degaussing destruction process? A. Replacing the 1’s and 0’s that represent data on storage media with random or fixed patterns of 1’s and 0’s B. Converting the 1’s and 0’s that represent data with the output of a cryptographic function C. Removing or reducing the magnetic field patterns on conventional disk drives or tapes D. Exposing storage media to caustic or corrosive chemicals that render it unusable",
+            "Which of the following best describes the mitigation of data remanence by an overwriting process? A. Replacing the 1’s and 0’s that represent data on storage media with random or fixed patterns of 1’s and 0’s B. Converting the 1’s and 0’s that represent data with the output of a cryptographic function C. Removing or reducing the magnetic field patterns on conventional disk drives or tapes D. Exposing storage media to caustic or corrosive chemicals that render it unusable Answers",
+            "C. Although various information life-cycle models exist, they all begin with the creation or acquisition of the information and end with its ultimate disposal (typically destruction).",
+            "B. Although it is typically true that multiple data items are needed for a transaction, this has much less to do with the need for data consistency than do the other three options. Consistency is important because we oftentimes keep multiple copies of a given data item.",
+            "A. This is a typical set of classification levels for government and military organizations."
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. Testing software against side-channel attacks B. TLS C. Whole-disk encryption D. EDLP 22. Which of the following best describes the mitigation of data remanence by a physical destruction process?"
+          "text": "Each of the other options has at least two terms that are synonymous or nearly synonymous."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A. There are many criteria for classifying information, but it is most important to focus on the value of the data or the potential loss from its disclosure. The likelihood of disclosure, irrelevant jurisdictions, and cost considerations should not be central to the classification process.",
+            "D. Data aggregation can become a classification issue whenever someone can combine data items and end up with a higher-classification aggregate. For instance, a person’s name, address, phone number, or date of birth are normally not PII by themselves. However, when combined, they do become PII under the definition of most jurisdictions with applicable laws.",
+            "C. Senior management always carries the ultimate responsibility for the organization.",
+            "D. Cryptography can be an effective control at every phase in the information life cycle. During information acquisition, a cryptographic hash can certify its integrity. When sensitive information is in use or in archives, encryption can protect it from unauthorized access. Finally, encryption can be an effective means of destroying the data.",
+            "D. Data retention policies should be the primary reason for the disposal of most of our information. Senior management or lack of resources should seldom, if ever, be the reason we dispose of data, while acceptable use policies have little, if anything, to do with it.",
+            "C. Information classification is very strongly related to the information’s value and/or risk. For instance, trade secrets that are the key to a business’s success are highly valuable, which will lead to a higher classification level. Similarly, information that could severely damage a company’s reputation presents a high level of risk and is similarly classified at a higher level.",
+            "C. The data owner is the manager in charge of a specific business unit, and is ultimately responsible for the protection and use of a specific subset of information. In most situations, this person is not financially liable for the loss of his or her data.",
+            "D. Data at rest is characterized by residing in secondary storage devices such as disk drives, DVDs, or magnetic tapes. Registers are temporary storage within the CPU and are used for data storage only when the data is being used.",
+            "C. Data in motion is characterized by network or off-host transmission. The RESTful protocol, while pertaining to a subset of data on a network, is not as good an answer as option C.",
+            "B. Registers are used only while data is being used by the CPU, so when data is resident in registers, it is, by definition, in use.",
+            "C. A company can have one specific data owner or different data owners who have been delegated the responsibility of protecting specific sets of data. One of the responsibilities that goes into protecting this information is properly classifying it.",
+            "C. If data is going to be available to a wide range of people, more granular security should be implemented to ensure that only the necessary people access the data and that the operations they carry out are controlled. The security implemented can come in the form of authentication and authorization technologies, encryption, and specific access control mechanisms.",
+            "B. The best answer to this question is B, because to properly classify data, the data owner must evaluate the availability, integrity, and confidentiality requirements of the data. Once"
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
-          "text": "A. Replacing the 1’s and 0’s that represent data on storage media with random or fixed patterns of 1’s and 0’s B. Converting the 1’s and 0’s that represent data with the output of a cryptographic function C. Removing or reducing the magnetic field patterns on conventional disk drives or tapes D. Exposing storage media to caustic or corrosive chemicals that render it unusable 23. Which of the following best describes the mitigation of data remanence by a degaussing destruction process?"
+          "text": "this evaluation is done, it will dictate which employees, contractors, and users can access the data, which is expressed in answer A. This assessment will also help determine the controls that should be put into place."
         },
         {
-          "type": "paragraph",
-          "text": "A. Replacing the 1’s and 0’s that represent data on storage media with random or fixed patterns of 1’s and 0’s B. Converting the 1’s and 0’s that represent data with the output of a cryptographic function C. Removing or reducing the magnetic field patterns on conventional disk drives or tapes D. Exposing storage media to caustic or corrosive chemicals that render it unusable 24. Which of the following best describes the mitigation of data remanence by an overwriting process?"
-        },
-        {
-          "type": "paragraph",
-          "text": "A. Replacing the 1’s and 0’s that represent data on storage media with random or fixed patterns of 1’s and 0’s B. Converting the 1’s and 0’s that represent data with the output of a cryptographic function C. Removing or reducing the magnetic field patterns on conventional disk drives or tapes D. Exposing storage media to caustic or corrosive chemicals that render it unusable Answers 1. C. Although various information life-cycle models exist, they all begin with the creation or acquisition of the information and end with its ultimate disposal (typically destruction). 2. B. Although it is typically true that multiple data items are needed for a transaction, this has much less to do with the need for data consistency than do the other three options. Consistency is important because we oftentimes keep multiple copies of a given data item. 3. A. This is a typical set of classification levels for government and military organizations."
-        },
-        {
-          "type": "paragraph",
-          "text": "Each of the other options has at least two terms that are synonymous or nearly synonymous. 4. A. There are many criteria for classifying information, but it is most important to focus on the value of the data or the potential loss from its disclosure. The likelihood of disclosure, irrelevant jurisdictions, and cost considerations should not be central to the classification process. 5. D. Data aggregation can become a classification issue whenever someone can combine data items and end up with a higher-classification aggregate. For instance, a person’s name, address, phone number, or date of birth are normally not PII by themselves. However, when combined, they do become PII under the definition of most jurisdictions with applicable laws. 6. C. Senior management always carries the ultimate responsibility for the organization. 7. D. Cryptography can be an effective control at every phase in the information life cycle. During information acquisition, a cryptographic hash can certify its integrity. When sensitive information is in use or in archives, encryption can protect it from unauthorized access. Finally, encryption can be an effective means of destroying the data. 8. D. Data retention policies should be the primary reason for the disposal of most of our information. Senior management or lack of resources should seldom, if ever, be the reason we dispose of data, while acceptable use policies have little, if anything, to do with it. 9. C. Information classification is very strongly related to the information’s value and/or risk. For instance, trade secrets that are the key to a business’s success are highly valuable, which will lead to a higher classification level. Similarly, information that could severely damage a company’s reputation presents a high level of risk and is similarly classified at a higher level. 10. C. The data owner is the manager in charge of a specific business unit, and is ultimately responsible for the protection and use of a specific subset of information. In most situations, this person is not financially liable for the loss of his or her data. 11. D. Data at rest is characterized by residing in secondary storage devices such as disk drives, DVDs, or magnetic tapes. Registers are temporary storage within the CPU and are used for data storage only when the data is being used. 12. C. Data in motion is characterized by network or off-host transmission. The RESTful protocol, while pertaining to a subset of data on a network, is not as good an answer as option C. 13. B. Registers are used only while data is being used by the CPU, so when data is resident in registers, it is, by definition, in use. 14. C. A company can have one specific data owner or different data owners who have been delegated the responsibility of protecting specific sets of data. One of the responsibilities that goes into protecting this information is properly classifying it. 15. C. If data is going to be available to a wide range of people, more granular security should be implemented to ensure that only the necessary people access the data and that the operations they carry out are controlled. The security implemented can come in the form of authentication and authorization technologies, encryption, and specific access control mechanisms. 16. B. The best answer to this question is B, because to properly classify data, the data owner must evaluate the availability, integrity, and confidentiality requirements of the data. Once this evaluation is done, it will dictate which employees, contractors, and users can access the data, which is expressed in answer A. This assessment will also help determine the controls that should be put into place. 17. D. The key to this question is the use of the word “ultimately.” Though management can delegate tasks to others, it is ultimately responsible for everything that takes place within a company. Therefore, it must continually ensure that data and resources are being properly protected. 18. D. The data retention policy should follow the laws of any jurisdiction within which the organization’s data resides. It must similarly comply with any regulatory requirements. Finally, the policy must address the organization’s operational requirements. 19. B. The data retention policy should address what data to keep, where to keep it, how to store it, and for how long to keep it. The policy is not concerned with “for whom” the data is kept. 20. C. Data at rest is best protected using whole-disk encryption on the user workstations or mobile computers. None of the other options apply to data at rest. 21. B. Data in motion is best protected by network encryption solutions such as TLS, VPN, or IPSec. None of the other options apply to data in motion. 22. D. Two of the most common approaches to destroying data physically involve shredding the storage media or exposing it to corrosive or caustic chemicals. In certain highly sensitive government organizations, these approaches are used in tandem to make the risk of data remanence negligible. 23. C. Degaussing is typically accomplished by exposing magnetic media (such as hard disk drives or magnetic tapes) to powerful magnetic fields in order to change the orientation of the particles that physically represent 1’s and 0’s. 24. A. Data remanence can be mitigated by overwriting every bit on the storage medium. This is normally accomplished by writing all 0’s, or all 1’s, or a fixed pattern of them, or a random sequence of them. Better results can be obtained by repeating the process with different patterns multiple times."
+          "type": "list",
+          "items": [
+            "D. The key to this question is the use of the word “ultimately.” Though management can delegate tasks to others, it is ultimately responsible for everything that takes place within a company. Therefore, it must continually ensure that data and resources are being properly protected.",
+            "D. The data retention policy should follow the laws of any jurisdiction within which the organization’s data resides. It must similarly comply with any regulatory requirements. Finally, the policy must address the organization’s operational requirements.",
+            "B. The data retention policy should address what data to keep, where to keep it, how to store it, and for how long to keep it. The policy is not concerned with “for whom” the data is kept.",
+            "C. Data at rest is best protected using whole-disk encryption on the user workstations or mobile computers. None of the other options apply to data at rest.",
+            "B. Data in motion is best protected by network encryption solutions such as TLS, VPN, or IPSec. None of the other options apply to data in motion.",
+            "D. Two of the most common approaches to destroying data physically involve shredding the storage media or exposing it to corrosive or caustic chemicals. In certain highly sensitive government organizations, these approaches are used in tandem to make the risk of data remanence negligible.",
+            "C. Degaussing is typically accomplished by exposing magnetic media (such as hard disk drives or magnetic tapes) to powerful magnetic fields in order to change the orientation of the particles that physically represent 1’s and 0’s.",
+            "A. Data remanence can be mitigated by overwriting every bit on the storage medium. This is normally accomplished by writing all 0’s, or all 1’s, or a fixed pattern of them, or a random sequence of them. Better results can be obtained by repeating the process with different patterns multiple times."
+          ],
+          "ordered": true
         }
       ]
     }

@@ -363,10 +363,16 @@ body {
   padding: 0;
   list-style: disc;
 }
+.content-list.content-list-ordered {
+  list-style: decimal;
+}
 .content-list li {
   font-size: 1rem; line-height: 1.7;
-  color: var(--ink); margin-bottom: 4px;
+  color: var(--ink); margin-bottom: 6px;
   padding-left: 4px;
+}
+.content-list-ordered li {
+  margin-bottom: 8px;
 }
 
 /* Blockquote */
