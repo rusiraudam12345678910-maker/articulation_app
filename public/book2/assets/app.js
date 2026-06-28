@@ -314,9 +314,9 @@ const App = (() => {
       const hasSections = !!domainData[d.num];
 
       html += `
-        <div class="toc-domain-block ${isActive ? 'toc-domain-active' : ''}">
+        <div class="toc-domain-block ${isActive ? 'toc-domain-active' : ''} ${isExpanded ? 'expanded' : ''}">
           <div class="toc-domain-header" onclick="App.toggleTOCDomain(${d.num})">
-            <span class="toc-domain-arrow">${isExpanded ? '▾' : '▸'}</span>
+            <span class="toc-domain-arrow">▶</span>
             <span class="toc-domain-name">
               <span class="toc-domain-num">D${d.num}</span>
               ${d.title}

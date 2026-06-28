@@ -188,8 +188,18 @@ body {
 }
 .toc-domain-header:hover { background: var(--accent-soft); }
 .toc-domain-arrow {
-  font-size: 0.7rem; color: var(--ink-muted);
-  width: 12px; flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--accent);
+  width: 20px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  transform: rotate(0deg);
+}
+.toc-domain-block.expanded .toc-domain-arrow {
+  transform: rotate(90deg);
 }
 .toc-domain-name {
   font-size: 0.78rem; font-weight: 600;
