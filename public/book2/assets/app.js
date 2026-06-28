@@ -489,7 +489,14 @@ const App = (() => {
     if (!section) return;
 
     currentSectionIdx = sectionIdx;
-    const text = section.content.map(b => b.text).filter(Boolean).join(' ');
+    const text = section.content.map(b => {
+      if (b.type === 'paragraph' || b.type === 'note' || b.type === 'exam_tip' || b.type === 'chapter_intro') return b.text;
+      if (b.type === 'list') return b.items.join('. ');
+      if (b.type === 'quote') return b.lines.join(' ');
+      if (b.type === 'figure') return `Figure ${b.figNum}. ${b.caption}.`;
+      if (b.type === 'table_caption') return `Table ${b.tableNum}. ${b.caption}.`;
+      return '';
+    }).filter(Boolean).join(' ');
     if (!text) return;
 
     const utter = new SpeechSynthesisUtterance(text);
@@ -696,7 +703,16 @@ const App = (() => {
   }
 
   function getDomainTitle(num) {
-    const titles = { 1: 'Security and Risk Management', 2: 'Asset Security' };
+    const titles = {
+      1: 'Security and Risk Management',
+      2: 'Asset Security',
+      3: 'Security Architecture and Engineering',
+      4: 'Communication and Network Security',
+      5: 'Identity and Access Management',
+      6: 'Security Assessment and Testing',
+      7: 'Security Operations',
+      8: 'Software Development Security',
+    };
     return titles[num] || `Domain ${num}`;
   }
 
