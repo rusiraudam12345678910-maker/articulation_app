@@ -173,30 +173,68 @@ body {
 .sidebar-panel.active { display: block; }
 
 /* TOC Nav */
-.toc-domain { padding: 6px 16px 2px; }
-.toc-domain-label {
-  font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.06em; color: var(--ink-muted);
+.toc-domain-block {
+  border-bottom: 1px solid var(--rule);
+}
+.toc-domain-block.toc-domain-active > .toc-domain-header {
+  background: var(--accent-soft);
+}
+.toc-domain-header {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 10px 8px 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+.toc-domain-header:hover { background: var(--accent-soft); }
+.toc-domain-arrow {
+  font-size: 0.7rem; color: var(--ink-muted);
+  width: 12px; flex-shrink: 0;
+}
+.toc-domain-name {
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--ink); flex: 1; line-height: 1.3;
+}
+.toc-domain-num {
+  display: inline-block;
+  font-size: 0.65rem; font-weight: 700;
+  color: var(--accent); background: var(--accent-soft);
+  border-radius: 3px; padding: 1px 5px;
+  margin-right: 4px; vertical-align: middle;
+}
+.toc-open-btn {
+  background: none; border: 1px solid var(--rule);
+  border-radius: 4px; color: var(--ink-muted);
+  font-size: 0.75rem; padding: 1px 6px;
+  cursor: pointer; flex-shrink: 0;
+  transition: background 0.1s, color 0.1s;
+}
+.toc-open-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.toc-sections-list { padding-bottom: 4px; }
+.toc-loading {
+  padding: 8px 16px 8px 28px;
+  font-size: 0.78rem; color: var(--ink-muted);
+  cursor: pointer; font-style: italic;
 }
 .toc-section {
-  display: block; padding: 5px 16px 5px 24px;
-  font-size: 0.82rem; color: var(--ink-soft);
-  text-decoration: none; border-left: 2px solid transparent;
+  display: block; padding: 4px 12px 4px 28px;
+  font-size: 0.8rem; color: var(--ink-soft);
+  border-left: 2px solid transparent;
   transition: color 0.1s, border-color 0.1s, background 0.1s;
-  cursor: pointer;
+  cursor: pointer; line-height: 1.4;
 }
 .toc-section:hover { color: var(--accent); background: var(--accent-soft); }
 .toc-section.active { color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
 .toc-subsection {
-  display: block; padding: 3px 16px 3px 36px;
-  font-size: 0.78rem; color: var(--ink-muted);
-  text-decoration: none; cursor: pointer;
-  transition: color 0.1s;
+  display: block; padding: 3px 12px 3px 40px;
+  font-size: 0.75rem; color: var(--ink-muted);
+  cursor: pointer; line-height: 1.4;
+  transition: color 0.1s, background 0.1s;
 }
-.toc-subsection:hover { color: var(--accent); }
+.toc-subsection:hover { color: var(--accent); background: var(--accent-soft); }
 
-/* Progress bar */
-.domain-progress { padding: 8px 16px 4px; }
+/* Progress bar in TOC */
+.domain-progress { padding: 2px 16px 4px 32px; }
 .progress-bar { height: 4px; background: var(--rule); border-radius: 2px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; }
 .progress-label { font-size: 0.7rem; color: var(--ink-muted); margin-top: 2px; }

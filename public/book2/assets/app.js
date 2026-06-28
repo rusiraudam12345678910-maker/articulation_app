@@ -287,43 +287,76 @@ const App = (() => {
   }
 
   // ===== TOC =====
+  // Track which domains are expanded in TOC
+  let tocExpanded = {};
+
   function renderTOC() {
     if (!els.tocPanel) return;
     const domains = [
-      { num: 1, title: 'Security and Risk Management', available: true },
-      { num: 2, title: 'Asset Security', available: true },
-      { num: 3, title: 'Security Architecture and Engineering', available: true },
-      { num: 4, title: 'Communication and Network Security', available: true },
-      { num: 5, title: 'Identity and Access Management', available: true },
-      { num: 6, title: 'Security Assessment and Testing', available: true },
-      { num: 7, title: 'Security Operations', available: true },
-      { num: 8, title: 'Software Development Security', available: true },
+      { num: 1, title: 'Security and Risk Management' },
+      { num: 2, title: 'Asset Security' },
+      { num: 3, title: 'Security Architecture and Engineering' },
+      { num: 4, title: 'Communication and Network Security' },
+      { num: 5, title: 'Identity and Access Management' },
+      { num: 6, title: 'Security Assessment and Testing' },
+      { num: 7, title: 'Security Operations' },
+      { num: 8, title: 'Software Development Security' },
     ];
+
+    // Auto-expand current domain
+    if (currentDomain) tocExpanded[currentDomain] = true;
 
     let html = '';
     domains.forEach(d => {
       const readCount = Object.keys(readSections).filter(k => k.startsWith(`d${d.num}_`)).length;
-      html += `
-        <div class="toc-domain">
-          <div class="toc-domain-label" style="cursor:pointer" onclick="App.goToDomain(${d.num})">
-            Domain ${d.num} · ${d.title}
-          </div>
-          <div class="domain-progress">
-            <div class="progress-bar"><div class="progress-fill" style="width:${Math.min(100, readCount * 5)}%"></div></div>
-            <div class="progress-label">${readCount} sections read</div>
-          </div>
-        </div>`;
+      const isExpanded = tocExpanded[d.num];
+      const isActive = currentDomain === d.num;
+      const hasSections = !!domainData[d.num];
 
-      if (domainData[d.num] && currentDomain === d.num) {
-        domainData[d.num].sections.forEach(s => {
-          html += `<span class="toc-section ${s.level === 3 ? 'toc-subsection' : ''}"
-                         id="toc-${s.id}"
-                         onclick="App.scrollToSection('${s.id}')">${escHtml(s.title)}</span>`;
-        });
+      html += `
+        <div class="toc-domain-block ${isActive ? 'toc-domain-active' : ''}">
+          <div class="toc-domain-header" onclick="App.toggleTOCDomain(${d.num})">
+            <span class="toc-domain-arrow">${isExpanded ? '▾' : '▸'}</span>
+            <span class="toc-domain-name">
+              <span class="toc-domain-num">D${d.num}</span>
+              ${d.title}
+            </span>
+            <button class="toc-open-btn" onclick="event.stopPropagation();App.goToDomain(${d.num})" title="Open domain">→</button>
+          </div>
+          <div class="domain-progress" style="padding:2px 16px 4px 32px">
+            <div class="progress-bar"><div class="progress-fill" style="width:${Math.min(100, readCount * 0.5)}%"></div></div>
+          </div>`;
+
+      if (isExpanded) {
+        if (hasSections) {
+          html += `<div class="toc-sections-list">`;
+          domainData[d.num].sections.forEach(s => {
+            const isActiveSec = document.getElementById(`toc-${s.id}`)?.classList.contains('active');
+            html += `<span class="toc-section ${s.level === 3 ? 'toc-subsection' : ''}"
+                           id="toc-${s.id}"
+                           onclick="App.goToDomain(${d.num},'${s.id}')">${escHtml(s.title)}</span>`;
+          });
+          html += `</div>`;
+        } else {
+          html += `<div class="toc-loading" onclick="App.goToDomain(${d.num})">Click to load sections…</div>`;
+        }
       }
+
+      html += `</div>`;
     });
 
-    els.tocPanel.innerHTML = html || '<div class="empty-state">Select a domain to see sections</div>';
+    els.tocPanel.innerHTML = html;
+  }
+
+  function toggleTOCDomain(num) {
+    if (tocExpanded[num]) {
+      tocExpanded[num] = false;
+      renderTOC();
+    } else {
+      tocExpanded[num] = true;
+      // Load domain data if not yet loaded, then re-render TOC
+      loadDomain(num).then(() => renderTOC());
+    }
   }
 
   // ===== Bookmarks =====
@@ -677,6 +710,7 @@ const App = (() => {
     startTTS,
     scrollToSection,
     switchSidebarTab,
+    toggleTOCDomain,
   };
 })();
 
