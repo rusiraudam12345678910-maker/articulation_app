@@ -229,6 +229,21 @@ const App = (() => {
       if (block.type === 'note') {
         return `<div class="note-block"><p>${escHtml(block.text)}</p></div>`;
       }
+      if (block.type === 'figure') {
+        return `
+          <figure class="book-figure">
+            <div class="book-figure-img">
+              <span class="book-figure-label">Figure ${escHtml(block.figNum)}</span>
+              <span class="book-figure-icon">📊</span>
+            </div>
+            <figcaption class="book-figure-caption">
+              <strong>Figure ${escHtml(block.figNum)}</strong> — ${escHtml(block.caption)}
+            </figcaption>
+          </figure>`;
+      }
+      if (block.type === 'table_caption') {
+        return `<div class="table-caption-block"><strong>Table ${escHtml(block.tableNum)}</strong> — ${escHtml(block.caption)}</div>`;
+      }
       return '';
     }).join('');
   }

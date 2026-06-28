@@ -1,7 +1,7 @@
 {
   "domain": 2,
   "title": "Asset Security",
-  "totalSections": 11,
+  "totalSections": 9,
   "sections": [
     {
       "id": "chapter",
@@ -43,14 +43,12 @@
         {
           "type": "exam_tip",
           "text": "Each classification level should have its own handling and destruction requirements. Information is not the only thing we should classify. Consider that information must reside somewhere. If a confidential file is stored and processed in the CEO’s laptop, then that device (and its hard drive if it is removed) should also be considered worthy of more protection. Typically, the classification of an asset (like a removable drive or a laptop) used to store or process information should be as high as the classification of the most valuable data in it. If an asset has public, sensitive, and confidential information, then that asset should be classified as private (the highest of the three classifications) and protected accordingly. EXAM TIP An information asset can be either the data, the device on which it is stored and used, or both. In this chapter, when we talk about an asset we mean only the device. Classifications Levels There are no hard and fast rules on the classification levels that an organization should use. An organization could choose to use any of the classification levels presented in Table 2-1. One organization may choose to use only two layers of classifications, while another company may choose to use four. Table 2-1 explains the types of classifications available. Note that some classifications are more commonly used for commercial businesses, whereas others are military classifications."
-        }
-      ]
-    },
-    {
-      "id": "table-2-1-commercial-business-and-military-data-classifications",
-      "title": "Table 2-1 Commercial Business and Military Data Classifications",
-      "level": 3,
-      "content": [
+        },
+        {
+          "type": "table_caption",
+          "tableNum": "2-1",
+          "caption": "Commercial Business and Military Data Classifications"
+        },
         {
           "type": "paragraph",
           "text": "The following are the common levels of sensitivity from the highest to the lowest for commercial business: • Confidential • Private • Sensitive • Public And here are the levels of sensitivity from the highest to the lowest for military purposes: • Top secret • Secret • Confidential • Sensitive but unclassified • Unclassified The classifications listed in Table 2-1 are commonly used in the industry, but there is a lot of variance. An organization first must decide the number of data classifications that best fit its security needs, then choose the classification naming scheme, and then define what the names in those schemes represent. Company A might use the classification level “confidential,” which represents its most sensitive information. Company B might use “top secret,” “secret,” and “confidential,” where confidential represents its least sensitive information. Each organization must develop an information classification scheme that best fits its business and security needs."
@@ -193,12 +191,33 @@
           "text": "(December 2014), describes the best practices for combating data remanence. Let’s consider what happens when we create a text file using the File Allocation Table (FAT) file system. Though this original form of FAT is antiquated, its core constructs (e.g., disk blocks, free block list/table, file metadata table) are also found at the heart of all other modern file systems. Its simplicity makes it a wonderful training tool for the purpose of explaining file creation and deletion. Suppose we type up the famous Aesop fable titled “The Lion and the Mouse” in a text editor and save it to disk. The operating system will ask us for a filename, which will be Story2.txt for this example. The system will then check the File Allocation Table for available blocks on which to store the text file. As shown in Figure 2-2, the system creates a directory entry for the file containing the name (Story2.txt), location of the first block (163), and the file size in bytes (714). In our simplistic example, each block is 512 bytes in size, so we’ll need two of them. Fortunately, block 164 is right next to the start block and is also free. The system will use the entry for block 163 (the first block of the file) to point to the next block containing it (164). This allows files to occupy discontinuous blocks if the disk is heavily fragmented. That chain of blocks could be quite long if the file was big enough and we didn’t run out of disk space first. In our simple example, however, we just need two blocks, so block 164 is the final one in use and gets a special label of EOF to denote the end of the file."
         },
         {
-          "type": "paragraph",
-          "text": "Figure 2-2 Writing a text file to disk Suppose we decide to delete the file. Instead of cleaning up the table, the FAT file system will simply replace the first character of the filename in the directory table with a reserved character (shown in Figure 2-3 as a question mark) to indicate that the file was deleted. The starting block will be preserved in the directory, but the corresponding entries in the File Allocation Table are zeroed out to show that those blocks are available for other files. As you can see in Figure 2-3, the contents of the file on the disk remain intact. This is why data remanence is such a big problem: because file systems almost never securely wipe data when deleting files. At some point, however, users will create new files and save them to disk, which could result in our original data being partly or completely overwritten. This is shown in Figure 2-4. In this case, the new file requires only one block of disk space because it only contains the text “Hello World!” Suppose the user calls this file “hello.txt” and the system stores it in block 163, which used to be the start block for the previous Story2.txt file. That block will be overwritten with the new file’s content and almost certainly padded with empty characters to fill out the block. The next block, however, contains the remainder of the deleted file, so partial contents are still available to anyone with the right recovery tools. Note also that the original file’s metadata is preserved in the directory table until that block is needed for another file."
+          "type": "figure",
+          "figNum": "2-2",
+          "caption": "Writing a text file to disk",
+          "domain": 2,
+          "num": 2
         },
         {
           "type": "paragraph",
-          "text": "Figure 2-4 Partially overwriting a file This example, though simplistic, illustrates the process used by almost every file system when creating and deleting files. The data structures may be named differently in modern versions of Windows, Linux, and macOS, but their purpose and behavior remain essentially the same. In fact, many databases use a similar approach to “deleting” entries by simply marking them as deleted without wiping the original data. To counter data remanence, it is important to identify procedures for ensuring that private data is properly removed. Generally speaking, there are four approaches to eliminating data remanence: • Overwriting Overwriting data entails replacing the 1’s and 0’s that represent it on storage media with random or fixed patterns of 1’s and 0’s in order to render the original data unrecoverable. This should be done at least once (e.g., overwriting the medium with 1’s, 0’s, or a pattern of these), but may have to be done more than that. For many years the U.S. Department of Defense (DoD) standard 5220.22-M required that media be overwritten seven times. This standard has since been superseded. DoD systems with sensitive information must now be degaussed. • Degaussing This is the process of removing or reducing the magnetic field patterns on conventional disk drives or tapes. In essence, a powerful magnetic force is applied to the media, which results in the wiping of the data and sometimes the destruction of the motors"
+          "text": "Suppose we decide to delete the file. Instead of cleaning up the table, the FAT file system will simply replace the first character of the filename in the directory table with a reserved character (shown in Figure 2-3 as a question mark) to indicate that the file was deleted. The starting block will be preserved in the directory, but the corresponding entries in the File Allocation Table are zeroed out to show that those blocks are available for other files. As you can see in Figure 2-3, the contents of the file on the disk remain intact. This is why data remanence is such a big problem: because file systems almost never securely wipe data when deleting files. At some point, however, users will create new files and save them to disk, which could result in our original data being partly or completely overwritten. This is shown in Figure 2-4. In this case, the new file requires only one block of disk space because it only contains the text “Hello World!” Suppose the user calls this file “hello.txt” and the system stores it in block 163, which used to be the start block for the previous Story2.txt file. That block will be overwritten with the new file’s content and almost certainly padded with empty characters to fill out the block. The next block, however, contains the remainder of the deleted file, so partial contents are still available to anyone with the right recovery tools. Note also that the original file’s metadata is preserved in the directory table until that block is needed for another file."
+        },
+        {
+          "type": "figure",
+          "figNum": "2-3",
+          "caption": "Deleting a file",
+          "domain": 2,
+          "num": 3
+        },
+        {
+          "type": "figure",
+          "figNum": "2-4",
+          "caption": "Partially overwriting a file",
+          "domain": 2,
+          "num": 4
+        },
+        {
+          "type": "paragraph",
+          "text": "This example, though simplistic, illustrates the process used by almost every file system when creating and deleting files. The data structures may be named differently in modern versions of Windows, Linux, and macOS, but their purpose and behavior remain essentially the same. In fact, many databases use a similar approach to “deleting” entries by simply marking them as deleted without wiping the original data. To counter data remanence, it is important to identify procedures for ensuring that private data is properly removed. Generally speaking, there are four approaches to eliminating data remanence: • Overwriting Overwriting data entails replacing the 1’s and 0’s that represent it on storage media with random or fixed patterns of 1’s and 0’s in order to render the original data unrecoverable. This should be done at least once (e.g., overwriting the medium with 1’s, 0’s, or a pattern of these), but may have to be done more than that. For many years the U.S. Department of Defense (DoD) standard 5220.22-M required that media be overwritten seven times. This standard has since been superseded. DoD systems with sensitive information must now be degaussed. • Degaussing This is the process of removing or reducing the magnetic field patterns on conventional disk drives or tapes. In essence, a powerful magnetic force is applied to the media, which results in the wiping of the data and sometimes the destruction of the motors"
         },
         {
           "type": "paragraph",
@@ -248,8 +267,15 @@
           "text": "drives,” and so on) and nonelectronic (paper) forms of information; and media libraries may come into custody of media before, during, and/or after the information content of the media is entered into, processed on, and/or removed from systems. The operational controls that pertain to these issues come in many flavors. The first are controls that prevent unauthorized access (protect confidentiality), which, as usual, can be physical, administrative, and technical. If the company’s backup tapes are to be properly protected from unauthorized access, they must be stored in a place where only authorized people have access to them, which could be in a locked server room or an offsite facility. If media needs to be protected from environmental issues such as humidity, heat, cold, fire, and natural disasters (to maintain availability), the media should be kept in a fireproof safe in a regulated environment or in an offsite facility that controls the environment so it is hospitable to data processing components. Companies may have a media library with a librarian in charge of protecting its resources. If so, most or all of the responsibilities described in this chapter for the protection of the confidentiality, integrity, and availability of media fall to the librarian. Users may be required to check out specific types of media and resources from the library, instead of having the resources readily available for anyone to access them. This is common when the media library includes the distribution media for licensed software. It provides an accounting (audit log) of uses of media, which can help in demonstrating due diligence in complying with license agreements and in protecting confidential information (such as PII, financial/credit card information, and PHI) in media libraries containing those types of data. Media should be clearly marked and logged, its integrity should be verified, and it should be properly erased of data when no longer needed. After large investment is made to secure a network and its components, a common mistake is for old computers along with their hard drives and other magnetic storage media to be replaced, and the obsolete equipment shipped out the back door along with all the data the company just spent so much time and money securing. This puts the information on the obsolete equipment and media at risk of disclosure and violates legal, regulatory, and ethical obligations of the company. Thus, overwriting (see Figure 2-6) and secure overwriting algorithms are required. And if any part of a piece of media containing highly sensitive information cannot be cleared or purged, then physical destruction must take place."
         },
         {
+          "type": "figure",
+          "figNum": "2-6",
+          "caption": "Overwriting media to protect sensitive data",
+          "domain": 2,
+          "num": 6
+        },
+        {
           "type": "paragraph",
-          "text": "Figure 2-6 Overwriting media to protect sensitive data When media is erased (cleared of its contents), it is said to be sanitized. In military/government classified systems terms, this means erasing information so it is not readily retrieved using routine operating system commands or commercially available forensic/data recovery software. Clearing is acceptable when media will be reused in the same physical environment for the same purposes (in the same compartment of compartmentalized information security) by people with the same access levels for that compartment. Not all clearing/purging methods are applicable to all media—for example, optical media is not susceptible to degaussing, and overwriting may not be effective when dealing with solid-state devices. The degree to which information may be recoverable by a sufficiently motivated and capable adversary must not be underestimated or guessed at in ignorance. For the highest-value commercial data, and for all data regulated by government or military classification rules, read and follow the rules and standards. The guiding principle for deciding what is the necessary method (and cost) of data erasure is to ensure that the enemies’ cost of recovering the data exceeds the value of the data. “Sink the company” (or “sink the country”) information has value so high that the destruction of the media, which involves both the cost of the destruction and the total loss of any potential reusable value of the media, is justified. For most other categories of information, multiple or simple"
+          "text": "When media is erased (cleared of its contents), it is said to be sanitized. In military/government classified systems terms, this means erasing information so it is not readily retrieved using routine operating system commands or commercially available forensic/data recovery software. Clearing is acceptable when media will be reused in the same physical environment for the same purposes (in the same compartment of compartmentalized information security) by people with the same access levels for that compartment. Not all clearing/purging methods are applicable to all media—for example, optical media is not susceptible to degaussing, and overwriting may not be effective when dealing with solid-state devices. The degree to which information may be recoverable by a sufficiently motivated and capable adversary must not be underestimated or guessed at in ignorance. For the highest-value commercial data, and for all data regulated by government or military classification rules, read and follow the rules and standards. The guiding principle for deciding what is the necessary method (and cost) of data erasure is to ensure that the enemies’ cost of recovering the data exceeds the value of the data. “Sink the company” (or “sink the country”) information has value so high that the destruction of the media, which involves both the cost of the destruction and the total loss of any potential reusable value of the media, is justified. For most other categories of information, multiple or simple"
         },
         {
           "type": "paragraph",
@@ -345,21 +371,28 @@
       ]
     },
     {
-      "id": "figure-2-8-endpoint-dlp",
-      "title": "Figure 2-8 Endpoint DLP",
+      "id": "figure-2-7-network-dlp",
+      "title": "Figure 2-7 Network DLP",
       "level": 3,
       "content": [
         {
+          "type": "figure",
+          "figNum": "2-8",
+          "caption": "Endpoint DLP",
+          "domain": 2,
+          "num": 8
+        },
+        {
           "type": "paragraph",
           "text": "The main drawback of EDLP is complexity. Compared to NDLP, these solutions require a lot more presence points in the organization, and each of these points may have unique configuration, execution, or authentication challenges. Additionally, since the agents must be deployed to every device that could possibly handle sensitive data, the cost could be much higher than that of an NDLP solution. Another challenge is ensuring that all the agents are updated regularly, both for software patches and policy changes. Finally, since a pure EDLP solution is unaware of data-in-motion protection violations, it would be possible for attackers to circumvent the protections (e.g., by disabling the agent through malware) and leave the organization blind to the ongoing leakages. It is typically harder to disable NDLP, because it is normally implemented in an appliance that is difficult for attackers to exploit. Hybrid DLP Another approach to DLP is to deploy both NDLP and EDLP across the enterprise. Obviously, this approach is the costliest and most complex. For organizations that can afford it, however, it offers the best coverage. Figure 2-9 shows how a hybrid NDLP/EDLP deployment might look."
-        }
-      ]
-    },
-    {
-      "id": "figure-2-9-hybrid-ndlp-edlp",
-      "title": "Figure 2-9 Hybrid NDLP/EDLP",
-      "level": 3,
-      "content": [
+        },
+        {
+          "type": "figure",
+          "figNum": "2-9",
+          "caption": "Hybrid NDLP/EDLP",
+          "domain": 2,
+          "num": 9
+        },
         {
           "type": "paragraph",
           "text": "Summary Protecting assets, particularly information, is critical to any organization and must be incorporated into the comprehensive risk management process described in the previous chapter. This protection will probably require different controls at different phases in the information life cycle, so it is important to consider phase-specific risks when selecting controls. Rather than trying to protect all information equally, our organizations need classification standards that help us identify, handle, and protect data according to its sensitivity and criticality. We must also consider the roles played by various people in the organization. From the senior executives to the newest and most junior member of the team, everyone who interacts with our information has (and should understand) specific responsibilities with regard to protecting our assets. A key responsibility is the protection of privacy of personal information. For various legal, regulatory, and operational reasons, we want to limit how long we hold on to personal information. There is no one-size-fits-all approach to data retention, so it is incumbent on the organization’s leadership to consider a multitude of factors when developing privacy and data retention policies. These policies, in turn, should drive risk-based controls, baselines, and standards applied to the protection of our information. A key element in applying controls needs to be the proper use of strong cryptography."

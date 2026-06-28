@@ -1,0 +1,1640 @@
+{
+  "1-1": {
+    "figNum": "1-1",
+    "caption": "The relationships among the different security concepts",
+    "domain": 1,
+    "num": 1
+  },
+  "1-2": {
+    "figNum": "1-2",
+    "caption": "Defense-in-depth",
+    "domain": 1,
+    "num": 2
+  },
+  "1-3": {
+    "figNum": "1-3",
+    "caption": "ISO/IEC 27000 standards",
+    "domain": 1,
+    "num": 3
+  },
+  "1-4": {
+    "figNum": "1-4",
+    "caption": "NIST enterprise architecture framework",
+    "domain": 1,
+    "num": 4
+  },
+  "1-5": {
+    "figNum": "1-5",
+    "caption": "COBIT framework",
+    "domain": 1,
+    "num": 5
+  },
+  "1-6": {
+    "figNum": "1-6",
+    "caption": "ITIL",
+    "domain": 1,
+    "num": 6
+  },
+  "1-7": {
+    "figNum": "1-7",
+    "caption": "Capability Maturity Model for a security program",
+    "domain": 1,
+    "num": 7
+  },
+  "1-8": {
+    "figNum": "1-8",
+    "caption": "Blueprints must map the security and business requirements.",
+    "domain": 1,
+    "num": 8
+  },
+  "1-9": {
+    "figNum": "1-9",
+    "caption": "Malicious uses for a compromised computer (Source: www.krebsonsecurity.com)",
+    "domain": 1,
+    "num": 9
+  },
+  "1-10": {
+    "figNum": "1-10",
+    "caption": "Gaining access into an environment and extracting sensitive data",
+    "domain": 1,
+    "num": 10
+  },
+  "1-11": {
+    "figNum": "1-11",
+    "caption": "Software piracy rates by region (Source: BSA Global Software Survey, May 2016.",
+    "domain": 1,
+    "num": 11
+  },
+  "1-12": {
+    "figNum": "1-12",
+    "caption": "Policy establishes the strategic plans, and the lower elements provide the tactical",
+    "domain": 1,
+    "num": 12
+  },
+  "1-13": {
+    "figNum": "1-13",
+    "caption": "A simplified attack tree",
+    "domain": 1,
+    "num": 13
+  },
+  "1-14": {
+    "figNum": "1-14",
+    "caption": "Fault tree and logic components",
+    "domain": 1,
+    "num": 14
+  },
+  "1-15": {
+    "figNum": "1-15",
+    "caption": "Qualitative risk matrix: likelihood vs. consequences (impact)",
+    "domain": 1,
+    "num": 15
+  },
+  "1-16": {
+    "figNum": "1-16",
+    "caption": "How a risk management program can be set up",
+    "domain": 1,
+    "num": 16
+  },
+  "1-17": {
+    "figNum": "1-17",
+    "caption": "Simplified supply chain",
+    "domain": 1,
+    "num": 17
+  },
+  "1-18": {
+    "figNum": "1-18",
+    "caption": "Risk assessment process",
+    "domain": 1,
+    "num": 18
+  },
+  "1-19": {
+    "figNum": "1-19",
+    "caption": "Maximum period of disruption",
+    "domain": 1,
+    "num": 19
+  },
+  "1-20": {
+    "figNum": "1-20",
+    "caption": "Balanced scorecard",
+    "domain": 1,
+    "num": 20
+  },
+  "1-21": {
+    "figNum": "1-21",
+    "caption": "Security measurement processes",
+    "domain": 1,
+    "num": 21
+  },
+  "1-22": {
+    "figNum": "1-22",
+    "caption": "Where the Internet Architecture Board (IAB) fits",
+    "domain": 1,
+    "num": 22
+  },
+  "1-23": {
+    "figNum": "1-23",
+    "caption": "A complete security program contains many items.",
+    "domain": 1,
+    "num": 23
+  },
+  "2-1": {
+    "figNum": "2-1",
+    "caption": "The information life cycle",
+    "domain": 2,
+    "num": 1
+  },
+  "2-2": {
+    "figNum": "2-2",
+    "caption": "Writing a text file to disk",
+    "domain": 2,
+    "num": 2
+  },
+  "2-3": {
+    "figNum": "2-3",
+    "caption": "Deleting a file",
+    "domain": 2,
+    "num": 3
+  },
+  "2-4": {
+    "figNum": "2-4",
+    "caption": "Partially overwriting a file",
+    "domain": 2,
+    "num": 4
+  },
+  "2-5": {
+    "figNum": "2-5",
+    "caption": "The states of data",
+    "domain": 2,
+    "num": 5
+  },
+  "2-6": {
+    "figNum": "2-6",
+    "caption": "Overwriting media to protect sensitive data",
+    "domain": 2,
+    "num": 6
+  },
+  "2-7": {
+    "figNum": "2-7",
+    "caption": "Network DLP",
+    "domain": 2,
+    "num": 7
+  },
+  "2-8": {
+    "figNum": "2-8",
+    "caption": "Endpoint DLP",
+    "domain": 2,
+    "num": 8
+  },
+  "2-9": {
+    "figNum": "2-9",
+    "caption": "Hybrid NDLP/EDLP",
+    "domain": 2,
+    "num": 9
+  },
+  "3-1": {
+    "figNum": "3-1",
+    "caption": "Formal architecture terms and relationships (Image from www.iso-",
+    "domain": 3,
+    "num": 1
+  },
+  "3-2": {
+    "figNum": "3-2",
+    "caption": "Instruction and data addresses are passed to the CPU for processing.",
+    "domain": 3,
+    "num": 2
+  },
+  "3-3": {
+    "figNum": "3-3",
+    "caption": "The control unit works as a traffic cop, indicating when instructions are sent to the",
+    "domain": 3,
+    "num": 3
+  },
+  "3-4": {
+    "figNum": "3-4",
+    "caption": "Address and data buses are separate and have specific functionality.",
+    "domain": 3,
+    "num": 4
+  },
+  "3-5": {
+    "figNum": "3-5",
+    "caption": "Symmetric mode and asymmetric mode of multiprocessing",
+    "domain": 3,
+    "num": 5
+  },
+  "3-6": {
+    "figNum": "3-6",
+    "caption": "The CPU and applications access memory differently.",
+    "domain": 3,
+    "num": 6
+  },
+  "3-7": {
+    "figNum": "3-7",
+    "caption": "Applications, and the processes they use, access their own memory segments only.",
+    "domain": 3,
+    "num": 7
+  },
+  "3-8": {
+    "figNum": "3-8",
+    "caption": "The CPU uses absolute addresses, and software uses logical addresses.",
+    "domain": 3,
+    "num": 8
+  },
+  "3-9": {
+    "figNum": "3-9",
+    "caption": "A memory stack has individual buffers to hold instructions and data.",
+    "domain": 3,
+    "num": 9
+  },
+  "3-10": {
+    "figNum": "3-10",
+    "caption": "A buffer overflow attack",
+    "domain": 3,
+    "num": 10
+  },
+  "3-11": {
+    "figNum": "3-11",
+    "caption": "Processes enter and exit different states.",
+    "domain": 3,
+    "num": 11
+  },
+  "3-12": {
+    "figNum": "3-12",
+    "caption": "A process table contains process status data that the CPU requires.",
+    "domain": 3,
+    "num": 12
+  },
+  "3-13": {
+    "figNum": "3-13",
+    "caption": "Base and limit registers are used to contain a process in its own memory segment.",
+    "domain": 3,
+    "num": 13
+  },
+  "3-14": {
+    "figNum": "3-14",
+    "caption": "Combining RAM and secondary storage to create virtual memory",
+    "domain": 3,
+    "num": 14
+  },
+  "3-15": {
+    "figNum": "3-15",
+    "caption": "More-trusted processes operate within lower-numbered rings.",
+    "domain": 3,
+    "num": 15
+  },
+  "3-16": {
+    "figNum": "3-16",
+    "caption": "Monolithic operating system architecture",
+    "domain": 3,
+    "num": 16
+  },
+  "3-17": {
+    "figNum": "3-17",
+    "caption": "Layered operating system architecture",
+    "domain": 3,
+    "num": 17
+  },
+  "3-18": {
+    "figNum": "3-18",
+    "caption": "Microkernel architecture",
+    "domain": 3,
+    "num": 18
+  },
+  "3-19": {
+    "figNum": "3-19",
+    "caption": "Windows hybrid microkernel architecture",
+    "domain": 3,
+    "num": 19
+  },
+  "3-20": {
+    "figNum": "3-20",
+    "caption": "Major operating system kernel architectures",
+    "domain": 3,
+    "num": 20
+  },
+  "3-21": {
+    "figNum": "3-21",
+    "caption": "The hypervisor controls virtual machine instances.",
+    "domain": 3,
+    "num": 21
+  },
+  "3-22": {
+    "figNum": "3-22",
+    "caption": "A four-tier client/server system",
+    "domain": 3,
+    "num": 22
+  },
+  "3-23": {
+    "figNum": "3-23",
+    "caption": "Because Emily has access to components A, C, and F, she can figure out the secret",
+    "domain": 3,
+    "num": 23
+  },
+  "3-24": {
+    "figNum": "3-24",
+    "caption": "The scytale was used by the Spartans to decipher encrypted messages.",
+    "domain": 3,
+    "num": 24
+  },
+  "3-25": {
+    "figNum": "3-25",
+    "caption": "Polyalphabetic algorithms were developed to increase encryption complexity.",
+    "domain": 3,
+    "num": 25
+  },
+  "3-26": {
+    "figNum": "3-26",
+    "caption": "Larger keyspaces permit a greater number of possible key values.",
+    "domain": 3,
+    "num": 26
+  },
+  "3-27": {
+    "figNum": "3-27",
+    "caption": "Without the right key, the captured message is useless to an attacker.",
+    "domain": 3,
+    "num": 27
+  },
+  "3-28": {
+    "figNum": "3-28",
+    "caption": "A one-time pad",
+    "domain": 3,
+    "num": 28
+  },
+  "3-30": {
+    "figNum": "3-30",
+    "caption": "Embedding secret material",
+    "domain": 3,
+    "num": 30
+  },
+  "3-31": {
+    "figNum": "3-31",
+    "caption": "A transposition cipher",
+    "domain": 3,
+    "num": 31
+  },
+  "3-32": {
+    "figNum": "3-32",
+    "caption": "The algorithm and key relationship",
+    "domain": 3,
+    "num": 32
+  },
+  "3-33": {
+    "figNum": "3-33",
+    "caption": "When using symmetric algorithms, the sender and receiver use the same key for",
+    "domain": 3,
+    "num": 33
+  },
+  "3-34": {
+    "figNum": "3-34",
+    "caption": "An asymmetric cryptosystem",
+    "domain": 3,
+    "num": 34
+  },
+  "3-35": {
+    "figNum": "3-35",
+    "caption": "A message is divided into blocks of bits, and substitution and transposition",
+    "domain": 3,
+    "num": 35
+  },
+  "3-36": {
+    "figNum": "3-36",
+    "caption": "With stream ciphers, the bits generated by the keystream generator are XORed with",
+    "domain": 3,
+    "num": 36
+  },
+  "3-37": {
+    "figNum": "3-37",
+    "caption": "The sender and receiver must have the same key to generate the same keystream.",
+    "domain": 3,
+    "num": 37
+  },
+  "3-38": {
+    "figNum": "3-38",
+    "caption": "In a hybrid system, the asymmetric key is used to encrypt the symmetric key, and",
+    "domain": 3,
+    "num": 38
+  },
+  "3-39": {
+    "figNum": "3-39",
+    "caption": "A session key is generated so all messages can be encrypted during one particular",
+    "domain": 3,
+    "num": 39
+  },
+  "3-40": {
+    "figNum": "3-40",
+    "caption": "In CBC mode, the ciphertext from the previous block of data is used in encrypting",
+    "domain": 3,
+    "num": 40
+  },
+  "3-41": {
+    "figNum": "3-41",
+    "caption": "A block cipher working in CFB mode",
+    "domain": 3,
+    "num": 41
+  },
+  "3-42": {
+    "figNum": "3-42",
+    "caption": "A block cipher working in OFB mode",
+    "domain": 3,
+    "num": 42
+  },
+  "3-43": {
+    "figNum": "3-43",
+    "caption": "A man-in-the-middle attack",
+    "domain": 3,
+    "num": 43
+  },
+  "3-44": {
+    "figNum": "3-44",
+    "caption": "Elliptic curve",
+    "domain": 3,
+    "num": 44
+  },
+  "3-45": {
+    "figNum": "3-45",
+    "caption": "The steps involved in using a hashing algorithm and HMAC function",
+    "domain": 3,
+    "num": 45
+  },
+  "3-46": {
+    "figNum": "3-46",
+    "caption": "Cipher block chaining mode process",
+    "domain": 3,
+    "num": 46
+  },
+  "3-47": {
+    "figNum": "3-47",
+    "caption": "Each certificate has a structure with all the necessary identifying information in it.",
+    "domain": 3,
+    "num": 47
+  },
+  "3-48": {
+    "figNum": "3-48",
+    "caption": "CA and user relationships",
+    "domain": 3,
+    "num": 48
+  },
+  "3-49": {
+    "figNum": "3-49",
+    "caption": "Creating a digital signature for a message",
+    "domain": 3,
+    "num": 49
+  },
+  "3-50": {
+    "figNum": "3-50",
+    "caption": "Relationships of risk, baselines, and countermeasures",
+    "domain": 3,
+    "num": 50
+  },
+  "3-51": {
+    "figNum": "3-51",
+    "caption": "Sidewalks, lights, and landscaping can be used for protection.",
+    "domain": 3,
+    "num": 51
+  },
+  "3-52": {
+    "figNum": "3-52",
+    "caption": "Open areas reduce the likelihood of criminal activity.",
+    "domain": 3,
+    "num": 52
+  },
+  "3-53": {
+    "figNum": "3-53",
+    "caption": "An intruder can lift ceiling panels and enter a secured area with little effort.",
+    "domain": 3,
+    "num": 53
+  },
+  "3-54": {
+    "figNum": "3-54",
+    "caption": "A data center should have many physical security controls.",
+    "domain": 3,
+    "num": 54
+  },
+  "3-55": {
+    "figNum": "3-55",
+    "caption": "A UPS device converts DC current from its internal or external batteries to usable",
+    "domain": 3,
+    "num": 55
+  },
+  "3-56": {
+    "figNum": "3-56",
+    "caption": "RFI and EMI can cause line noise on power lines.",
+    "domain": 3,
+    "num": 56
+  },
+  "3-57": {
+    "figNum": "3-57",
+    "caption": "This configuration can cause a lot of line noise and poses a fire hazard.",
+    "domain": 3,
+    "num": 57
+  },
+  "3-58": {
+    "figNum": "3-58",
+    "caption": "Water, steam, and gas lines should have emergency shutoff valves.",
+    "domain": 3,
+    "num": 58
+  },
+  "3-59": {
+    "figNum": "3-59",
+    "caption": "Portable extinguishers are marked to indicate what type of fire they should be used",
+    "domain": 3,
+    "num": 59
+  },
+  "3-60": {
+    "figNum": "3-60",
+    "caption": "A photoelectric device uses a light emitter and a receiver.",
+    "domain": 3,
+    "num": 60
+  },
+  "3-61": {
+    "figNum": "3-61",
+    "caption": "Smoke detectors should be located above suspended ceilings, below raised floors,",
+    "domain": 3,
+    "num": 61
+  },
+  "3-62": {
+    "figNum": "3-62",
+    "caption": "Dry pipe systems do not hold water in the pipes.",
+    "domain": 3,
+    "num": 62
+  },
+  "4-1": {
+    "figNum": "4-1",
+    "caption": "The OSI and TCP/IP networking models",
+    "domain": 4,
+    "num": 1
+  },
+  "4-2": {
+    "figNum": "4-2",
+    "caption": "Each OSI layer protocol adds its own information to the data packet.",
+    "domain": 4,
+    "num": 2
+  },
+  "4-3": {
+    "figNum": "4-3",
+    "caption": "Applications send requests to an API, which is the interface to the supporting",
+    "domain": 4,
+    "num": 3
+  },
+  "4-4": {
+    "figNum": "4-4",
+    "caption": "The presentation layer receives data from the application layer and puts it into a",
+    "domain": 4,
+    "num": 4
+  },
+  "4-5": {
+    "figNum": "4-5",
+    "caption": "The session layer sets up the connection, maintains it, and tears it down once",
+    "domain": 4,
+    "num": 5
+  },
+  "4-6": {
+    "figNum": "4-6",
+    "caption": "TCP formats data from applications into a stream to be prepared for transmission.",
+    "domain": 4,
+    "num": 6
+  },
+  "4-7": {
+    "figNum": "4-7",
+    "caption": "The network layer determines the most efficient path for each packet to take.",
+    "domain": 4,
+    "num": 7
+  },
+  "4-8": {
+    "figNum": "4-8",
+    "caption": "The data link layer is made up of two sublayers.",
+    "domain": 4,
+    "num": 8
+  },
+  "4-9": {
+    "figNum": "4-9",
+    "caption": "Each device works at a particular layer within the OSI model.",
+    "domain": 4,
+    "num": 9
+  },
+  "4-10": {
+    "figNum": "4-10",
+    "caption": "Connection-oriented protocol vs. connectionless protocol functionality",
+    "domain": 4,
+    "num": 10
+  },
+  "4-11": {
+    "figNum": "4-11",
+    "caption": "The packet can communicate with upper-layer protocols and services through a",
+    "domain": 4,
+    "num": 11
+  },
+  "4-12": {
+    "figNum": "4-12",
+    "caption": "TCP carries a lot more information within its segment because it offers more",
+    "domain": 4,
+    "num": 12
+  },
+  "4-13": {
+    "figNum": "4-13",
+    "caption": "The TCP three-way handshake",
+    "domain": 4,
+    "num": 13
+  },
+  "4-14": {
+    "figNum": "4-14",
+    "caption": "Data goes through its own evolutionary stages as it passes through the layers within",
+    "domain": 4,
+    "num": 14
+  },
+  "4-15": {
+    "figNum": "4-15",
+    "caption": "Subnets create logical partitions.",
+    "domain": 4,
+    "num": 15
+  },
+  "4-17": {
+    "figNum": "4-17",
+    "caption": "Various IPv4 to IPv6 tunneling techniques",
+    "domain": 4,
+    "num": 17
+  },
+  "4-18": {
+    "figNum": "4-18",
+    "caption": "MACSec provides layer 2 frame protection.",
+    "domain": 4,
+    "num": 18
+  },
+  "4-19": {
+    "figNum": "4-19",
+    "caption": "Layer 2 security protocols",
+    "domain": 4,
+    "num": 19
+  },
+  "4-20": {
+    "figNum": "4-20",
+    "caption": "Analog signals are measured in amplitude and frequency, whereas digital signals",
+    "domain": 4,
+    "num": 20
+  },
+  "4-21": {
+    "figNum": "4-21",
+    "caption": "Coaxial cable",
+    "domain": 4,
+    "num": 21
+  },
+  "4-22": {
+    "figNum": "4-22",
+    "caption": "Twisted-pair cabling uses copper wires.",
+    "domain": 4,
+    "num": 22
+  },
+  "4-23": {
+    "figNum": "4-23",
+    "caption": "Background noise can merge with an electronic signal and alter the signal’s",
+    "domain": 4,
+    "num": 23
+  },
+  "4-24": {
+    "figNum": "4-24",
+    "caption": "Various wireless transmission types",
+    "domain": 4,
+    "num": 24
+  },
+  "4-25": {
+    "figNum": "4-25",
+    "caption": "Access points allow wireless devices to participate in wired LANs.",
+    "domain": 4,
+    "num": 25
+  },
+  "4-26": {
+    "figNum": "4-26",
+    "caption": "Broadband wireless in a MAN",
+    "domain": 4,
+    "num": 26
+  },
+  "4-27": {
+    "figNum": "4-27",
+    "caption": "Satellite broadband",
+    "domain": 4,
+    "num": 27
+  },
+  "4-28": {
+    "figNum": "4-28",
+    "caption": "Nonadjacent cells can use the same frequency ranges.",
+    "domain": 4,
+    "num": 28
+  },
+  "4-29": {
+    "figNum": "4-29",
+    "caption": "A ring topology forms a closed-loop connection.",
+    "domain": 4,
+    "num": 29
+  },
+  "4-30": {
+    "figNum": "4-30",
+    "caption": "In a mesh topology, each node is connected to all other nodes, which provides for",
+    "domain": 4,
+    "num": 30
+  },
+  "4-31": {
+    "figNum": "4-31",
+    "caption": "Collision domains within one broadcast domain",
+    "domain": 4,
+    "num": 31
+  },
+  "4-32": {
+    "figNum": "4-32",
+    "caption": "Ethernet hosts connect to a punchdown block within the wiring closet, which is",
+    "domain": 4,
+    "num": 32
+  },
+  "4-33": {
+    "figNum": "4-33",
+    "caption": "A Token Ring network",
+    "domain": 4,
+    "num": 33
+  },
+  "4-34": {
+    "figNum": "4-34",
+    "caption": "FDDI rings can be used as backbones to connect different LANs.",
+    "domain": 4,
+    "num": 34
+  },
+  "4-35": {
+    "figNum": "4-35",
+    "caption": "FDDI device types",
+    "domain": 4,
+    "num": 35
+  },
+  "4-36": {
+    "figNum": "4-36",
+    "caption": "ARP poisoning attack",
+    "domain": 4,
+    "num": 36
+  },
+  "4-37": {
+    "figNum": "4-37",
+    "caption": "The four stages of the Discover, Offer, Request, and Acknowledgment (D-O-R-A)",
+    "domain": 4,
+    "num": 37
+  },
+  "4-38": {
+    "figNum": "4-38",
+    "caption": "Agents provide the manager with SNMP data.",
+    "domain": 4,
+    "num": 38
+  },
+  "4-39": {
+    "figNum": "4-39",
+    "caption": "The DNS naming hierarchy is similar to the routing hierarchy on the Internet.",
+    "domain": 4,
+    "num": 39
+  },
+  "4-40": {
+    "figNum": "4-40",
+    "caption": "SMTP works as a transfer agent for e-mail messages.",
+    "domain": 4,
+    "num": 40
+  },
+  "4-41": {
+    "figNum": "4-41",
+    "caption": "Mail servers can be used for relaying spam if relay functionality is not properly",
+    "domain": 4,
+    "num": 41
+  },
+  "4-42": {
+    "figNum": "4-42",
+    "caption": "Autonomous systems",
+    "domain": 4,
+    "num": 42
+  },
+  "4-43": {
+    "figNum": "4-43",
+    "caption": "Switches enable devices to communicate with each other via their own virtual link.",
+    "domain": 4,
+    "num": 43
+  },
+  "4-44": {
+    "figNum": "4-44",
+    "caption": "MPLS uses tags and tables for routing functions.",
+    "domain": 4,
+    "num": 44
+  },
+  "4-45": {
+    "figNum": "4-45",
+    "caption": "VLANs enable administrators to manage logical networks.",
+    "domain": 4,
+    "num": 45
+  },
+  "4-46": {
+    "figNum": "4-46",
+    "caption": "VLANs exist on a higher level than the physical network and are not bound to it.",
+    "domain": 4,
+    "num": 46
+  },
+  "4-47": {
+    "figNum": "4-47",
+    "caption": "Several types of gateways can be used in a network. A NAS is one example.",
+    "domain": 4,
+    "num": 47
+  },
+  "4-48": {
+    "figNum": "4-48",
+    "caption": "A PBX combines different types of data on the same lines.",
+    "domain": 4,
+    "num": 48
+  },
+  "4-49": {
+    "figNum": "4-49",
+    "caption": "At least two firewalls, or firewall interfaces, are generally used to construct a DMZ.",
+    "domain": 4,
+    "num": 49
+  },
+  "4-50": {
+    "figNum": "4-50",
+    "caption": "ACLs are enforced at the network interface level.",
+    "domain": 4,
+    "num": 50
+  },
+  "4-51": {
+    "figNum": "4-51",
+    "caption": "TCP header",
+    "domain": 4,
+    "num": 51
+  },
+  "4-52": {
+    "figNum": "4-52",
+    "caption": "Proxy firewall breaks connection",
+    "domain": 4,
+    "num": 52
+  },
+  "4-53": {
+    "figNum": "4-53",
+    "caption": "Circuit-level proxy firewall",
+    "domain": 4,
+    "num": 53
+  },
+  "4-54": {
+    "figNum": "4-54",
+    "caption": "Dynamic packet filtering adds ACLs when connections are created.",
+    "domain": 4,
+    "num": 54
+  },
+  "4-55": {
+    "figNum": "4-55",
+    "caption": "A screened host is a firewall that is screened by a router.",
+    "domain": 4,
+    "num": 55
+  },
+  "4-56": {
+    "figNum": "4-56",
+    "caption": "With a screened subnet, two firewalls are used to create a DMZ.",
+    "domain": 4,
+    "num": 56
+  },
+  "4-57": {
+    "figNum": "4-57",
+    "caption": "A screened subnet can have different networks within it and different firewalls that",
+    "domain": 4,
+    "num": 57
+  },
+  "4-58": {
+    "figNum": "4-58",
+    "caption": "Some architectures have separate screened subnets with different server types in",
+    "domain": 4,
+    "num": 58
+  },
+  "4-59": {
+    "figNum": "4-59",
+    "caption": "Virtual firewalls",
+    "domain": 4,
+    "num": 59
+  },
+  "4-60": {
+    "figNum": "4-60",
+    "caption": "Proxy servers control traffic between clients and servers.",
+    "domain": 4,
+    "num": 60
+  },
+  "4-61": {
+    "figNum": "4-61",
+    "caption": "Forward vs. reverse proxy services",
+    "domain": 4,
+    "num": 61
+  },
+  "4-62": {
+    "figNum": "4-62",
+    "caption": "Unified threat management",
+    "domain": 4,
+    "num": 62
+  },
+  "4-63": {
+    "figNum": "4-63",
+    "caption": "Virtualized networks",
+    "domain": 4,
+    "num": 63
+  },
+  "4-64": {
+    "figNum": "4-64",
+    "caption": "A MAN covers a large area and enables businesses to connect to each other, to the",
+    "domain": 4,
+    "num": 64
+  },
+  "4-65": {
+    "figNum": "4-65",
+    "caption": "Smaller SONET rings connect to larger SONET rings to construct individual",
+    "domain": 4,
+    "num": 65
+  },
+  "4-66": {
+    "figNum": "4-66",
+    "caption": "MAN architecture",
+    "domain": 4,
+    "num": 66
+  },
+  "4-67": {
+    "figNum": "4-67",
+    "caption": "SONET technology enables several optical communication loops to communicate.",
+    "domain": 4,
+    "num": 67
+  },
+  "4-68": {
+    "figNum": "4-68",
+    "caption": "Multiplexing puts several phone calls, or data transmissions, on the same wire.",
+    "domain": 4,
+    "num": 68
+  },
+  "4-69": {
+    "figNum": "4-69",
+    "caption": "A CSU/DSU is required for digital equipment to communicate with",
+    "domain": 4,
+    "num": 69
+  },
+  "4-70": {
+    "figNum": "4-70",
+    "caption": "Circuit switching provides one road for a communication path, whereas packet",
+    "domain": 4,
+    "num": 70
+  },
+  "4-71": {
+    "figNum": "4-71",
+    "caption": "A private network connection requires several expensive dedicated links. Frame",
+    "domain": 4,
+    "num": 71
+  },
+  "4-72": {
+    "figNum": "4-72",
+    "caption": "SDLC is used mainly in mainframe environments within an SNA network.",
+    "domain": 4,
+    "num": 72
+  },
+  "4-73": {
+    "figNum": "4-73",
+    "caption": "Regular telephone calls connect phones to the PSTN. Voice over WAN",
+    "domain": 4,
+    "num": 73
+  },
+  "4-74": {
+    "figNum": "4-74",
+    "caption": "SIP handshake",
+    "domain": 4,
+    "num": 74
+  },
+  "4-75": {
+    "figNum": "4-75",
+    "caption": "A VPN provides a virtual dedicated link between two entities across a public",
+    "domain": 4,
+    "num": 75
+  },
+  "4-76": {
+    "figNum": "4-76",
+    "caption": "PPTP extends PPP connections over IP networks.",
+    "domain": 4,
+    "num": 76
+  },
+  "4-77": {
+    "figNum": "4-77",
+    "caption": "IP, PPP, L2TP, and IPSec can work together.",
+    "domain": 4,
+    "num": 77
+  },
+  "4-78": {
+    "figNum": "4-78",
+    "caption": "IPSec uses security associations to store VPN parameters.",
+    "domain": 4,
+    "num": 78
+  },
+  "4-79": {
+    "figNum": "4-79",
+    "caption": "CHAP uses a challenge/response mechanism instead of having the user send the",
+    "domain": 4,
+    "num": 79
+  },
+  "4-80": {
+    "figNum": "4-80",
+    "caption": "Link and end-to-end encryption happen at different OSI layers.",
+    "domain": 4,
+    "num": 80
+  },
+  "4-81": {
+    "figNum": "4-81",
+    "caption": "SSH is used for remote terminal-like functionality.",
+    "domain": 4,
+    "num": 81
+  },
+  "5-1": {
+    "figNum": "5-1",
+    "caption": "Subjects are active entities that access objects, while objects are passive entities.",
+    "domain": 5,
+    "num": 1
+  },
+  "5-2": {
+    "figNum": "5-2",
+    "caption": "Four steps must happen for a subject to access an object: identification,",
+    "domain": 5,
+    "num": 2
+  },
+  "5-3": {
+    "figNum": "5-3",
+    "caption": "Most environments are complex in terms of access.",
+    "domain": 5,
+    "num": 3
+  },
+  "5-4": {
+    "figNum": "5-4",
+    "caption": "Meta-directories pull data from other sources to populate the IdM directory.",
+    "domain": 5,
+    "num": 4
+  },
+  "5-5": {
+    "figNum": "5-5",
+    "caption": "A basic example of web access control",
+    "domain": 5,
+    "num": 5
+  },
+  "5-6": {
+    "figNum": "5-6",
+    "caption": "Enterprise identity management system components",
+    "domain": 5,
+    "num": 6
+  },
+  "5-7": {
+    "figNum": "5-7",
+    "caption": "Biometric data is turned into binary data and compared for identity validation.",
+    "domain": 5,
+    "num": 7
+  },
+  "5-8": {
+    "figNum": "5-8",
+    "caption": "Authentication using an asynchronous token device includes a workstation, token",
+    "domain": 5,
+    "num": 8
+  },
+  "5-9": {
+    "figNum": "5-9",
+    "caption": "What is not explicitly allowed should be implicitly denied.",
+    "domain": 5,
+    "num": 9
+  },
+  "5-10": {
+    "figNum": "5-10",
+    "caption": "The user must receive a ticket from the KDC before being able to use the requested",
+    "domain": 5,
+    "num": 10
+  },
+  "5-11": {
+    "figNum": "5-11",
+    "caption": "Network domains are used to separate different network segments.",
+    "domain": 5,
+    "num": 11
+  },
+  "5-12": {
+    "figNum": "5-12",
+    "caption": "Subjects can access specific domains based on their trust levels.",
+    "domain": 5,
+    "num": 12
+  },
+  "5-13": {
+    "figNum": "5-13",
+    "caption": "SPML provisioning steps",
+    "domain": 5,
+    "num": 13
+  },
+  "5-14": {
+    "figNum": "5-14",
+    "caption": "SAML authentication",
+    "domain": 5,
+    "num": 14
+  },
+  "5-15": {
+    "figNum": "5-15",
+    "caption": "SAML material embedded within an HTTP message",
+    "domain": 5,
+    "num": 15
+  },
+  "5-16": {
+    "figNum": "5-16",
+    "caption": "OpenID process flow",
+    "domain": 5,
+    "num": 16
+  },
+  "5-17": {
+    "figNum": "5-17",
+    "caption": "OAuth authorization steps",
+    "domain": 5,
+    "num": 17
+  },
+  "5-18": {
+    "figNum": "5-18",
+    "caption": "Two common OpenID Connect process flows",
+    "domain": 5,
+    "num": 18
+  },
+  "5-19": {
+    "figNum": "5-19",
+    "caption": "A sensitivity label is made up of a classification and categories.",
+    "domain": 5,
+    "num": 19
+  },
+  "5-20": {
+    "figNum": "5-20",
+    "caption": "Different database views of the same tables",
+    "domain": 5,
+    "num": 20
+  },
+  "5-21": {
+    "figNum": "5-21",
+    "caption": "Environments can implement different RADIUS infrastructures.",
+    "domain": 5,
+    "num": 21
+  },
+  "5-22": {
+    "figNum": "5-22",
+    "caption": "TACACS+ works in a client/server model.",
+    "domain": 5,
+    "num": 22
+  },
+  "5-23": {
+    "figNum": "5-23",
+    "caption": "A capability table is bound to a subject, whereas an ACL is bound to an object.",
+    "domain": 5,
+    "num": 23
+  },
+  "5-24": {
+    "figNum": "5-24",
+    "caption": "Technical network segmentation controls how different network segments",
+    "domain": 5,
+    "num": 24
+  },
+  "5-25": {
+    "figNum": "5-25",
+    "caption": "Rule-based IDS and expert system components",
+    "domain": 5,
+    "num": 25
+  },
+  "5-26": {
+    "figNum": "5-26",
+    "caption": "The basic architecture of a NIDS",
+    "domain": 5,
+    "num": 26
+  },
+  "5-27": {
+    "figNum": "5-27",
+    "caption": "Sensors must be placed in each network segment to be monitored by the IDS.",
+    "domain": 5,
+    "num": 27
+  },
+  "5-28": {
+    "figNum": "5-28",
+    "caption": "IDS vs. IPS architecture",
+    "domain": 5,
+    "num": 28
+  },
+  "5-29": {
+    "figNum": "5-29",
+    "caption": "Pharming has been a common attack over the last several years.",
+    "domain": 5,
+    "num": 29
+  },
+  "6-1": {
+    "figNum": "6-1",
+    "caption": "Vulnerabilities in heterogeneous networks",
+    "domain": 6,
+    "num": 1
+  },
+  "6-2": {
+    "figNum": "6-2",
+    "caption": "Penetration testing is used to prove an attacker can actually compromise systems.",
+    "domain": 6,
+    "num": 2
+  },
+  "6-3": {
+    "figNum": "6-3",
+    "caption": "UML use case diagram",
+    "domain": 6,
+    "num": 3
+  },
+  "6-4": {
+    "figNum": "6-4",
+    "caption": "UML misuse case diagram",
+    "domain": 6,
+    "num": 4
+  },
+  "6-5": {
+    "figNum": "6-5",
+    "caption": "BCP life cycle",
+    "domain": 6,
+    "num": 5
+  },
+  "6-6": {
+    "figNum": "6-6",
+    "caption": "Typical phishing attack",
+    "domain": 6,
+    "num": 6
+  },
+  "6-7": {
+    "figNum": "6-7",
+    "caption": "Drive-by downloads",
+    "domain": 6,
+    "num": 7
+  },
+  "6-8": {
+    "figNum": "6-8",
+    "caption": "The Plan-Do-Check-Act loop",
+    "domain": 6,
+    "num": 8
+  },
+  "7-1": {
+    "figNum": "7-1",
+    "caption": "Access control points should be identified, marked, and monitored properly.",
+    "domain": 7,
+    "num": 1
+  },
+  "7-2": {
+    "figNum": "7-2",
+    "caption": "A warded lock",
+    "domain": 7,
+    "num": 2
+  },
+  "7-3": {
+    "figNum": "7-3",
+    "caption": "A key fits into a notch to turn the bolt to unlock the lock.",
+    "domain": 7,
+    "num": 3
+  },
+  "7-4": {
+    "figNum": "7-4",
+    "caption": "Tumbler lock",
+    "domain": 7,
+    "num": 4
+  },
+  "7-5": {
+    "figNum": "7-5",
+    "caption": "An electronic combination lock",
+    "domain": 7,
+    "num": 5
+  },
+  "7-6": {
+    "figNum": "7-6",
+    "caption": "FMJ/PAD.LOCK’s notebook security cable kit secures a notebook by enabling the",
+    "domain": 7,
+    "num": 6
+  },
+  "7-7": {
+    "figNum": "7-7",
+    "caption": "Several cameras can be connected to a multiplexer.",
+    "domain": 7,
+    "num": 7
+  },
+  "7-8": {
+    "figNum": "7-8",
+    "caption": "A CCTV product can comprise several components.",
+    "domain": 7,
+    "num": 8
+  },
+  "7-9": {
+    "figNum": "7-9",
+    "caption": "Different perimeter scanning devices work by covering a specific area.",
+    "domain": 7,
+    "num": 9
+  },
+  "7-10": {
+    "figNum": "7-10",
+    "caption": "Asset management life cycle",
+    "domain": 7,
+    "num": 10
+  },
+  "7-11": {
+    "figNum": "7-11",
+    "caption": "Each critical device may require a redundant partner to ensure availability.",
+    "domain": 7,
+    "num": 11
+  },
+  "7-12": {
+    "figNum": "7-12",
+    "caption": "HSM provides an economical and efficient way of storing data.",
+    "domain": 7,
+    "num": 12
+  },
+  "7-13": {
+    "figNum": "7-13",
+    "caption": "Characteristics of the different phases through an investigation process",
+    "domain": 7,
+    "num": 13
+  },
+  "7-14": {
+    "figNum": "7-14",
+    "caption": "EnCase Forensic can be used to collect digital forensic data.",
+    "domain": 7,
+    "num": 14
+  },
+  "7-15": {
+    "figNum": "7-15",
+    "caption": "Evidence container data",
+    "domain": 7,
+    "num": 15
+  },
+  "7-16": {
+    "figNum": "7-16",
+    "caption": "Metrics used for disaster recovery",
+    "domain": 7,
+    "num": 16
+  },
+  "7-17": {
+    "figNum": "7-17",
+    "caption": "RPO and RTO metrics in use",
+    "domain": 7,
+    "num": 17
+  },
+  "7-18": {
+    "figNum": "7-18",
+    "caption": "Backup software steps",
+    "domain": 7,
+    "num": 18
+  },
+  "7-19": {
+    "figNum": "7-19",
+    "caption": "Offsite data replication for data recovery purposes",
+    "domain": 7,
+    "num": 19
+  },
+  "7-20": {
+    "figNum": "7-20",
+    "caption": "The criticality of data recovery will dictate the recovery solution.",
+    "domain": 7,
+    "num": 20
+  },
+  "7-21": {
+    "figNum": "7-21",
+    "caption": "High-availability technologies",
+    "domain": 7,
+    "num": 21
+  },
+  "8-1": {
+    "figNum": "8-1",
+    "caption": "The usual trend of software being released to the market and how security is dealt",
+    "domain": 8,
+    "num": 1
+  },
+  "8-2": {
+    "figNum": "8-2",
+    "caption": "Information from three models can go into the design.",
+    "domain": 8,
+    "num": 2
+  },
+  "8-3": {
+    "figNum": "8-3",
+    "caption": "Attack surface analysis result",
+    "domain": 8,
+    "num": 3
+  },
+  "8-4": {
+    "figNum": "8-4",
+    "caption": "Threat tree used in threat modeling",
+    "domain": 8,
+    "num": 4
+  },
+  "8-5": {
+    "figNum": "8-5",
+    "caption": "Threat modeling tool",
+    "domain": 8,
+    "num": 5
+  },
+  "8-6": {
+    "figNum": "8-6",
+    "caption": "2011 CWE/SANS Top 25 Most Dangerous Software Errors list",
+    "domain": 8,
+    "num": 6
+  },
+  "8-7": {
+    "figNum": "8-7",
+    "caption": "Waterfall methodology used for software development",
+    "domain": 8,
+    "num": 7
+  },
+  "8-8": {
+    "figNum": "8-8",
+    "caption": "V-shaped methodology",
+    "domain": 8,
+    "num": 8
+  },
+  "8-9": {
+    "figNum": "8-9",
+    "caption": "Incremental development methodology",
+    "domain": 8,
+    "num": 9
+  },
+  "8-10": {
+    "figNum": "8-10",
+    "caption": "Spiral methodology for software development",
+    "domain": 8,
+    "num": 10
+  },
+  "8-11": {
+    "figNum": "8-11",
+    "caption": "Rapid Application Development methodology",
+    "domain": 8,
+    "num": 11
+  },
+  "8-12": {
+    "figNum": "8-12",
+    "caption": "DevOps exists at the intersection of software development, IT, and QA.",
+    "domain": 8,
+    "num": 12
+  },
+  "8-13": {
+    "figNum": "8-13",
+    "caption": "Java bytecode is converted by interpreters.",
+    "domain": 8,
+    "num": 13
+  },
+  "8-14": {
+    "figNum": "8-14",
+    "caption": "In object-oriented inheritance, each object belongs to a class and takes on the",
+    "domain": 8,
+    "num": 14
+  },
+  "8-15": {
+    "figNum": "8-15",
+    "caption": "Procedural vs. object-oriented programming",
+    "domain": 8,
+    "num": 15
+  },
+  "8-16": {
+    "figNum": "8-16",
+    "caption": "Objects communicate via messages.",
+    "domain": 8,
+    "num": 16
+  },
+  "8-17": {
+    "figNum": "8-17",
+    "caption": "Object relationships within a program",
+    "domain": 8,
+    "num": 17
+  },
+  "8-18": {
+    "figNum": "8-18",
+    "caption": "Applications locate the necessary objects through a library index.",
+    "domain": 8,
+    "num": 18
+  },
+  "8-19": {
+    "figNum": "8-19",
+    "caption": "The different components of an object and the way it works are hidden from other",
+    "domain": 8,
+    "num": 19
+  },
+  "8-20": {
+    "figNum": "8-20",
+    "caption": "Data structures range from very simple to very complex in nature and design.",
+    "domain": 8,
+    "num": 20
+  },
+  "8-21": {
+    "figNum": "8-21",
+    "caption": "DCE provides many services, which are all wrapped into one technology.",
+    "domain": 8,
+    "num": 21
+  },
+  "8-22": {
+    "figNum": "8-22",
+    "caption": "The ORB enables different components throughout a network to communicate and",
+    "domain": 8,
+    "num": 22
+  },
+  "8-23": {
+    "figNum": "8-23",
+    "caption": "CORBA provides standard interface definitions, which offer greater",
+    "domain": 8,
+    "num": 23
+  },
+  "8-24": {
+    "figNum": "8-24",
+    "caption": "DCOM provides communication mechanisms in a distributed environment and",
+    "domain": 8,
+    "num": 24
+  },
+  "8-25": {
+    "figNum": "8-25",
+    "caption": ".NET Framework components",
+    "domain": 8,
+    "num": 25
+  },
+  "8-26": {
+    "figNum": "8-26",
+    "caption": "Services are located through brokers in an SOA.",
+    "domain": 8,
+    "num": 26
+  },
+  "8-27": {
+    "figNum": "8-27",
+    "caption": "Web services are posted and used via standard approaches.",
+    "domain": 8,
+    "num": 27
+  },
+  "8-28": {
+    "figNum": "8-28",
+    "caption": "The JVM interprets bytecode to machine code for that specific platform.",
+    "domain": 8,
+    "num": 28
+  },
+  "8-29": {
+    "figNum": "8-29",
+    "caption": "Java’s security model",
+    "domain": 8,
+    "num": 29
+  },
+  "8-30": {
+    "figNum": "8-30",
+    "caption": "Attacks can take place at many levels.",
+    "domain": 8,
+    "num": 30
+  },
+  "8-31": {
+    "figNum": "8-31",
+    "caption": "One type of database security is to employ roles.",
+    "domain": 8,
+    "num": 31
+  },
+  "8-32": {
+    "figNum": "8-32",
+    "caption": "Relational databases hold data in table structures.",
+    "domain": 8,
+    "num": 32
+  },
+  "8-33": {
+    "figNum": "8-33",
+    "caption": "A hierarchical data model uses a tree structure and a parent/child relationship.",
+    "domain": 8,
+    "num": 33
+  },
+  "8-34": {
+    "figNum": "8-34",
+    "caption": "Various database models",
+    "domain": 8,
+    "num": 34
+  },
+  "8-35": {
+    "figNum": "8-35",
+    "caption": "The object-relational model allows objects to contain business logic and functions.",
+    "domain": 8,
+    "num": 35
+  },
+  "8-36": {
+    "figNum": "8-36",
+    "caption": "OLE DB provides an interface to allow applications to communicate with different",
+    "domain": 8,
+    "num": 36
+  },
+  "8-37": {
+    "figNum": "8-37",
+    "caption": "The data dictionary is a centralized program that contains information about a",
+    "domain": 8,
+    "num": 37
+  },
+  "8-38": {
+    "figNum": "8-38",
+    "caption": "Because Emily has access to components A, C, and F, she can figure out the secret",
+    "domain": 8,
+    "num": 38
+  },
+  "8-39": {
+    "figNum": "8-39",
+    "caption": "Database views are a logical type of access control.",
+    "domain": 8,
+    "num": 39
+  },
+  "8-40": {
+    "figNum": "8-40",
+    "caption": "Mining tools are used to identify patterns and relationships in data warehouses.",
+    "domain": 8,
+    "num": 40
+  },
+  "8-41": {
+    "figNum": "8-41",
+    "caption": "The cycle of how botnets are created, maintained, and used",
+    "domain": 8,
+    "num": 41
+  },
+  "8-42": {
+    "figNum": "8-42",
+    "caption": "Antimalware vendors use various types of malware detection.",
+    "domain": 8,
+    "num": 42
+  }
+}
