@@ -338,7 +338,7 @@ const App = (() => {
           });
           html += `</div>`;
         } else {
-          html += `<div class="toc-loading" onclick="App.goToDomain(${d.num})">Click to load sections…</div>`;
+          html += `<div class="toc-loading">Loading sections…</div>`;
         }
       }
 
@@ -354,8 +354,10 @@ const App = (() => {
       renderTOC();
     } else {
       tocExpanded[num] = true;
-      // Load domain data if not yet loaded, then re-render TOC
-      loadDomain(num).then(() => renderTOC());
+      renderTOC(); // show expanded state immediately (may show "Loading…")
+      loadDomain(num).then(() => {
+        if (tocExpanded[num]) renderTOC(); // re-render once data is ready
+      });
     }
   }
 
