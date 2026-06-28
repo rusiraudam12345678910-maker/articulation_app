@@ -663,6 +663,101 @@ const App = (() => {
     }
   }
 
+  // ===== Text Selection → Send to Practice =====
+  let selectionPopup = null;
+
+  function createSelectionPopup() {
+    const el = document.createElement('div');
+    el.id = 'book2-selection-popup';
+    el.innerHTML = `
+      <button id="book2-send-practice-btn" title="Send to Practice">
+        📗 Send to Practice
+      </button>
+    `;
+    document.body.appendChild(el);
+    document.getElementById('book2-send-practice-btn').addEventListener('click', () => {
+      sendSelectionToPractice();
+    });
+    selectionPopup = el;
+  }
+
+  function showSelectionPopup(x, y) {
+    if (!selectionPopup) createSelectionPopup();
+    selectionPopup.style.left = x + 'px';
+    selectionPopup.style.top = y + 'px';
+    selectionPopup.classList.add('visible');
+  }
+
+  function hideSelectionPopup() {
+    if (selectionPopup) selectionPopup.classList.remove('visible');
+  }
+
+  function handleTextSelection() {
+    const sel = window.getSelection();
+    const text = sel ? sel.toString().trim() : '';
+    if (!text || text.length < 2 || text.length > 300) {
+      hideSelectionPopup();
+      return;
+    }
+    // Only show inside main content
+    if (!sel.anchorNode || !els.mainContent.contains(sel.anchorNode)) {
+      hideSelectionPopup();
+      return;
+    }
+    const range = sel.getRangeAt(0);
+    const rect = range.getBoundingClientRect();
+    const x = rect.left + window.scrollX + rect.width / 2 - 80;
+    const y = rect.top + window.scrollY - 48;
+    showSelectionPopup(Math.max(8, x), Math.max(8, y));
+  }
+
+  async function sendSelectionToPractice() {
+    const sel = window.getSelection();
+    const text = sel ? sel.toString().trim() : '';
+    if (!text) return;
+
+    const btn = document.getElementById('book2-send-practice-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    // Figure out current section title
+    let sectionTitle = '';
+    if (currentDomain && domainData[currentDomain]) {
+      const sec = domainData[currentDomain].sections[currentSectionIdx];
+      if (sec) sectionTitle = sec.title;
+    }
+
+    try {
+      const res = await fetch('/api/book2/send-to-practice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          content: text,
+          type: text.includes(' ') ? 'sentence' : 'word',
+          domain: currentDomain,
+          sectionTitle,
+          domainTitle: getDomainTitle(currentDomain),
+        }),
+      });
+      if (res.ok) {
+        btn.textContent = '✓ Added!';
+        setTimeout(() => {
+          hideSelectionPopup();
+          btn.textContent = '📗 Send to Practice';
+          btn.disabled = false;
+        }, 1200);
+      } else {
+        btn.textContent = 'Error — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Error — try again';
+      btn.disabled = false;
+    }
+
+    window.getSelection()?.removeAllRanges();
+  }
+
   // ===== Bind Events =====
   function bindEvents() {
     // Search
@@ -703,6 +798,13 @@ const App = (() => {
 
     // Hash change
     window.addEventListener('hashchange', () => handleHash(window.location.hash));
+
+    // Text selection popup
+    document.addEventListener('mouseup', () => setTimeout(handleTextSelection, 10));
+    document.addEventListener('touchend', () => setTimeout(handleTextSelection, 10));
+    document.addEventListener('mousedown', e => {
+      if (selectionPopup && !selectionPopup.contains(e.target)) hideSelectionPopup();
+    });
   }
 
   // ===== Helpers =====

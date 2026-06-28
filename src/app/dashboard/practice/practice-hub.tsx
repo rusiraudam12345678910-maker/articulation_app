@@ -271,7 +271,14 @@ export default function PracticeHub({ initialItems }: { initialItems: PracticeIt
                 <div className="font-mono text-2xl sm:text-3xl leading-snug text-zinc-900 dark:text-zinc-50">
                   {current.content}
                 </div>
-                <div className="mt-1 font-mono text-xs text-zinc-400 capitalize">{current.type}</div>
+                <div className="flex items-center gap-2 mt-1 flex-wrap">
+                  <span className="font-mono text-xs text-zinc-400 capitalize">{current.type}</span>
+                  {current.source === 'book2' && (
+                    <span className="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded font-medium" title={current.source_meta?.sectionTitle ? `${current.source_meta.domainTitle} › ${current.source_meta.sectionTitle}` : 'From CISSP Book2'}>
+                      📗 Book2{current.source_meta?.domainTitle ? ` · D${current.source_meta.domain}` : ''}
+                    </span>
+                  )}
+                </div>
 
                 <button
                   onClick={() => speak(current.content)}
@@ -383,7 +390,14 @@ export default function PracticeHub({ initialItems }: { initialItems: PracticeIt
                     <>
                       <div className="flex-1 min-w-0">
                         <div className="text-sm text-zinc-900 dark:text-zinc-50">{item.content}</div>
-                        <div className="text-xs text-zinc-400 capitalize mt-0.5">{item.type}</div>
+                        <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                          <span className="text-xs text-zinc-400 capitalize">{item.type}</span>
+                          {item.source === 'book2' && (
+                            <span className="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded font-medium" title={item.source_meta?.sectionTitle ? `From: ${item.source_meta.domainTitle} › ${item.source_meta.sectionTitle}` : 'From CISSP Book2'}>
+                              📗 Book2{item.source_meta?.domainTitle ? ` · D${item.source_meta.domain}` : ''}
+                            </span>
+                          )}
+                        </div>
                       </div>
                       <button onClick={() => startEdit(item)} className="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors text-sm flex-shrink-0">✎</button>
                       <button onClick={() => handleDelete(item.id)} className="text-zinc-400 hover:text-red-500 transition-colors text-sm flex-shrink-0">✕</button>

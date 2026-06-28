@@ -3,7 +3,14 @@
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/utils/supabase/server'
 
-export type PracticeItem = { id: string; content: string; type: string; created_at: string }
+export type PracticeItem = {
+  id: string
+  content: string
+  type: string
+  created_at: string
+  source?: string | null
+  source_meta?: { domain?: number; sectionTitle?: string; domainTitle?: string } | null
+}
 
 export async function getPracticeItems(): Promise<PracticeItem[]> {
   const supabase = await createClient()
@@ -11,7 +18,7 @@ export async function getPracticeItems(): Promise<PracticeItem[]> {
   if (!user) return []
   const { data } = await supabase
     .from('practice_items')
-    .select('id, content, type, created_at')
+    .select('id, content, type, created_at, source, source_meta')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
   return (data ?? []) as PracticeItem[]
