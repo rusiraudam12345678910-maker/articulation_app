@@ -446,7 +446,7 @@ body {
 
 /* TTS word highlight */
 .tts-word { transition: background 0.05s; border-radius: 2px; }
-.tts-word.speaking { background: var(--amber-soft); color: var(--ink); }
+.tts-word.speaking { background: #d4f700; color: #000; }
 
 /* User highlights */
 .user-highlight { background: #fffb8f; border-radius: 2px; cursor: pointer; }
