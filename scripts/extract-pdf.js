@@ -39,10 +39,13 @@ function detectHeadingLevel(line, prevBlank, nextBlank) {
   if (!l || l.length > 100) return null;
   if (!prevBlank && !nextBlank) return null;
 
-  // ALL CAPS line = H2
+  // ALL CAPS line (multi-word or single word 4+ chars) = H2
   if (/^[A-Z][A-Z\s\-/&:()]{3,60}$/.test(l)) return 2;
 
-  // Title Case = H3
+  // Single Title-Case word that is a known CISSP concept (4+ chars, no punctuation) = H3 subheading
+  if (/^[A-Z][a-z]{3,}$/.test(l) && prevBlank && nextBlank) return 3;
+
+  // Title Case multi-word = H3
   const words = l.split(' ');
   const isTitleCase = words.length >= 2 && words.length <= 12 &&
     words.filter(w => w.length > 3).every(w => /^[A-Z]/.test(w)) &&
@@ -103,9 +106,14 @@ function parseTextToSections(rawText, domainNum) {
     const prevBlank = i === 0 || lines[i - 1].trim() === '';
     const nextBlank = i === lines.length - 1 || lines[i + 1].trim() === '';
 
-    // Blank line — flush buffers
+    // Blank line — only flush if previous text ends a sentence
     if (!line) {
-      flushParagraph();
+      const lastPara = paragraphBuffer[paragraphBuffer.length - 1] || '';
+      const sentenceEnded = /[.?!)"»]\s*$/.test(lastPara) || bulletBuffer.length || quoteBuffer.length;
+      if (sentenceEnded) {
+        flushParagraph();
+      }
+      // If sentence didn't end, just skip the blank — keep accumulating
       continue;
     }
 
@@ -189,12 +197,14 @@ function parseTextToSections(rawText, domainNum) {
       continue;
     }
 
-    // ── NOTE / CAUTION
+    // ── NOTE / CAUTION — collect until sentence ends or blank line
     if (/^(note|caution|warning|important)[\s:]/i.test(line)) {
       flushParagraph();
-      // Collect multi-line note
       let noteText = line;
-      while (i + 1 < lines.length && lines[i + 1].trim() !== '') {
+      while (i + 1 < lines.length) {
+        const nextRaw = lines[i + 1].trim();
+        if (!nextRaw) break; // blank line ends note
+        if (/[.?!)"»]\s*$/.test(noteText)) break; // sentence complete
         i++;
         noteText += ' ' + cleanLine(lines[i]);
       }
@@ -209,12 +219,23 @@ function parseTextToSections(rawText, domainNum) {
       continue;
     }
 
-    // ── Section heading
+    // ── Section heading — always flush, even mid-paragraph
     const headingLevel = detectHeadingLevel(line, prevBlank, nextBlank);
     if (headingLevel) {
       flushSection();
       currentSection = { id: slugify(line), title: line, level: headingLevel, content: [] };
       continue;
+    }
+
+    // ── Also flush paragraph if current line clearly starts a new sentence
+    // AND previous buffer ends a complete sentence (period + capital letter pattern)
+    if (paragraphBuffer.length > 0) {
+      const lastLine = paragraphBuffer[paragraphBuffer.length - 1];
+      const prevEnds = /[.?!)"»]\s*$/.test(lastLine);
+      const currStarts = /^[A-Z]/.test(line) && prevBlank;
+      if (prevEnds && currStarts) {
+        flushParagraph();
+      }
     }
 
     paragraphBuffer.push(line);
