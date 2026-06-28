@@ -41,17 +41,17 @@ const App = (() => {
     };
 
     applyTheme(theme);
-    loadSearchIndex();
-    loadFigureMap();
+    Promise.all([loadSearchIndex(), loadFigureMap()]).then(() => {
+      const hash = window.location.hash;
+      if (hash) handleHash(hash);
+    });
     bindEvents();
     renderWelcome();
     renderTOC();
     renderBookmarks();
     renderProgress();
 
-    // Handle URL hash on load
-    const hash = window.location.hash;
-    if (hash) handleHash(hash);
+    // Hash is handled after figure map loads (see above)
   }
 
   // ===== Theme =====
@@ -63,13 +63,15 @@ const App = (() => {
   }
 
   // ===== Figure Map =====
+  let figureMapPromise = null;
   async function loadFigureMap() {
-    try {
-      const res = await fetch('data/figure-map.json');
-      figureMap = await res.json();
-    } catch (e) {
-      console.warn('Figure map not loaded', e);
-    }
+    if (Object.keys(figureMap).length) return; // already loaded
+    if (figureMapPromise) return figureMapPromise;
+    figureMapPromise = fetch('data/figure-map.json')
+      .then(r => r.json())
+      .then(data => { figureMap = data; })
+      .catch(e => console.warn('Figure map not loaded', e));
+    return figureMapPromise;
   }
 
   // ===== Search Index =====
@@ -106,7 +108,7 @@ const App = (() => {
   }
 
   function navigateToDomain(num, sectionId) {
-    loadDomain(num).then(data => {
+    Promise.all([loadDomain(num), loadFigureMap()]).then(([data]) => {
       if (!data) {
         showLockedDomain(num);
         return;
