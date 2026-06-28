@@ -235,13 +235,13 @@ const App = (() => {
   function renderSectionContent(content, readKey) {
     return content.map(block => {
       if (block.type === 'paragraph') {
-        return `<p class="para ${readSections[readKey] ? 'read' : ''}">${wrapWords(escHtml(block.text))}</p>`;
+        return `<p class="para ${readSections[readKey] ? 'read' : ''}">${escHtml(block.text)}</p>`;
       }
       if (block.type === 'exam_tip') {
-        return `<div class="exam-tip"><div class="exam-tip-label">Exam Tip</div><p>${wrapWords(escHtml(block.text))}</p></div>`;
+        return `<div class="exam-tip"><div class="exam-tip-label">Exam Tip</div><p>${escHtml(block.text)}</p></div>`;
       }
       if (block.type === 'note') {
-        return `<div class="note-block"><p>${wrapWords(escHtml(block.text))}</p></div>`;
+        return `<div class="note-block"><p>${escHtml(block.text)}</p></div>`;
       }
       if (block.type === 'figure') {
         const imgFile = figureMap[block.figNum];
@@ -252,39 +252,76 @@ const App = (() => {
           <figure class="book-figure">
             ${imgHtml}
             <figcaption class="book-figure-caption">
-              <strong>Figure ${escHtml(block.figNum)}</strong> — ${wrapWords(escHtml(block.caption))}
+              <strong>Figure ${escHtml(block.figNum)}</strong> — ${escHtml(block.caption)}
             </figcaption>
           </figure>`;
       }
       if (block.type === 'table_caption') {
-        return `<div class="table-caption-block"><strong>Table ${escHtml(block.tableNum)}</strong> — ${wrapWords(escHtml(block.caption))}</div>`;
+        return `<div class="table-caption-block"><strong>Table ${escHtml(block.tableNum)}</strong> — ${escHtml(block.caption)}</div>`;
       }
       if (block.type === 'list') {
-        const items = block.items.map(it => `<li>${wrapWords(escHtml(it))}</li>`).join('');
+        const items = block.items.map(it => `<li>${escHtml(it)}</li>`).join('');
         return block.ordered
           ? `<ol class="content-list content-list-ordered">${items}</ol>`
           : `<ul class="content-list">${items}</ul>`;
       }
       if (block.type === 'quote') {
-        // Last line starting with — is attribution, rest is quote text
         const lines = block.lines || [];
         const attrIdx = lines.findIndex(l => /^—/.test(l));
         const quoteLines = attrIdx >= 0 ? lines.slice(0, attrIdx) : lines;
         const attr = attrIdx >= 0 ? lines[attrIdx].replace(/^—\s*/, '') : null;
         return `<blockquote class="content-quote">
-          <p>${quoteLines.map(l => wrapWords(escHtml(l))).join('<br>')}</p>
-          ${attr ? `<cite>— ${wrapWords(escHtml(attr))}</cite>` : ''}
+          <p>${quoteLines.map(l => escHtml(l)).join('<br>')}</p>
+          ${attr ? `<cite>— ${escHtml(attr)}</cite>` : ''}
         </blockquote>`;
       }
       if (block.type === 'chapter_intro') {
-        return `<p class="chapter-intro-line">${wrapWords(escHtml(block.text))}</p>`;
+        return `<p class="chapter-intro-line">${escHtml(block.text)}</p>`;
       }
       return '';
     }).join('');
   }
 
+  // Inject tts-word spans into a section element just before TTS starts
+  function injectTTSSpans(secEl) {
+    // Walk all text nodes inside the section and wrap each word token in a span
+    const walker = document.createTreeWalker(secEl, NodeFilter.SHOW_TEXT, {
+      acceptNode: n => n.parentElement.closest('strong,figcaption>.book-figure-caption>strong') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+    });
+    const textNodes = [];
+    let node;
+    while ((node = walker.nextNode())) textNodes.push(node);
+
+    textNodes.forEach(tn => {
+      const text = tn.nodeValue;
+      if (!text.trim()) return;
+      const frag = document.createDocumentFragment();
+      // Split on whitespace, preserving spaces as text nodes
+      text.split(/(\s+)/).forEach(part => {
+        if (/^\s+$/.test(part) || part === '') {
+          frag.appendChild(document.createTextNode(part));
+        } else {
+          const span = document.createElement('span');
+          span.className = 'tts-word';
+          span.textContent = part;
+          frag.appendChild(span);
+        }
+      });
+      tn.parentNode.replaceChild(frag, tn);
+    });
+  }
+
+  // Remove tts-word spans from a section element, restoring plain text nodes
+  function removeTTSSpans(secEl) {
+    if (!secEl) return;
+    secEl.querySelectorAll('.tts-word').forEach(span => {
+      span.replaceWith(document.createTextNode(span.textContent));
+    });
+    // Normalize merges adjacent text nodes back together
+    secEl.normalize();
+  }
+
   function wrapWords(html) {
-    // Wrap words in spans for TTS highlighting
     return html.replace(/(\S+)/g, '<span class="tts-word">$1</span>');
   }
 
@@ -507,7 +544,11 @@ const App = (() => {
     utter.rate = parseFloat(els.ttsSpeed ? els.ttsSpeed.value : 1);
     utter.lang = 'en-US';
 
-    ttsState = { active: true, paused: false, utterance: utter, sectionIdx, text };
+    // Inject word spans into just this section before speaking
+    const secEl = document.getElementById(`sec-${section.id}`);
+    if (secEl) injectTTSSpans(secEl);
+
+    ttsState = { active: true, paused: false, utterance: utter, sectionIdx, text, secEl };
 
     utter.onstart = () => {
       els.ttsBar.classList.remove('hidden');
@@ -525,6 +566,7 @@ const App = (() => {
 
     utter.onend = () => {
       clearTTSHighlights();
+      removeTTSSpans(ttsState.secEl);
       els.ttsPlayBtn.textContent = '▶';
       ttsState.active = false;
       if (els.ttsProgressFill) els.ttsProgressFill.style.width = '100%';
@@ -539,13 +581,12 @@ const App = (() => {
     window.speechSynthesis.speak(utter);
 
     // Scroll section into view
-    const secEl = document.getElementById(`sec-${section.id}`);
     if (secEl) secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function highlightTTSWord(section, charIndex, charLength) {
     clearTTSHighlights();
-    const secEl = document.getElementById(`sec-${section.id}`);
+    const secEl = ttsState.secEl;
     if (!secEl) return;
     const words = secEl.querySelectorAll('.tts-word');
     // Rebuild char offsets from the full text of the section element
@@ -592,6 +633,7 @@ const App = (() => {
   function stopTTS() {
     window.speechSynthesis && window.speechSynthesis.cancel();
     clearTTSHighlights();
+    removeTTSSpans(ttsState.secEl);
     ttsState = { active: false, paused: false };
     if (els.ttsBar) els.ttsBar.classList.add('hidden');
     if (els.ttsPlayBtn) els.ttsPlayBtn.textContent = '▶';
