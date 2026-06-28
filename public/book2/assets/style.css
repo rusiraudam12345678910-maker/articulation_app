@@ -317,7 +317,12 @@ body {
   overflow: hidden;
   background: var(--paper-raised);
 }
-.book-figure-img {
+.book-figure-real-img {
+  width: 100%; max-width: 100%;
+  display: block;
+  border-bottom: 1px solid var(--rule);
+}
+.book-figure-placeholder {
   background: linear-gradient(135deg, var(--accent-soft) 0%, var(--paper-raised) 100%);
   min-height: 140px;
   display: flex; flex-direction: column;

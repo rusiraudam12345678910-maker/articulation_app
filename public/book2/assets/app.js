@@ -2,6 +2,7 @@
 
 const App = (() => {
   // State
+  let figureMap = {};
   let currentDomain = null;
   let currentSectionIdx = 0;
   let domainData = {};
@@ -41,6 +42,7 @@ const App = (() => {
 
     applyTheme(theme);
     loadSearchIndex();
+    loadFigureMap();
     bindEvents();
     renderWelcome();
     renderTOC();
@@ -58,6 +60,16 @@ const App = (() => {
     document.documentElement.setAttribute('data-theme', t);
     if (els.themeToggle) els.themeToggle.textContent = t === 'dark' ? '☀️' : '🌙';
     localStorage.setItem('book2_theme', t);
+  }
+
+  // ===== Figure Map =====
+  async function loadFigureMap() {
+    try {
+      const res = await fetch('data/figure-map.json');
+      figureMap = await res.json();
+    } catch (e) {
+      console.warn('Figure map not loaded', e);
+    }
   }
 
   // ===== Search Index =====
@@ -230,12 +242,13 @@ const App = (() => {
         return `<div class="note-block"><p>${escHtml(block.text)}</p></div>`;
       }
       if (block.type === 'figure') {
+        const imgFile = figureMap[block.figNum];
+        const imgHtml = imgFile
+          ? `<img src="/book/figures/${imgFile}" alt="Figure ${escHtml(block.figNum)}" loading="lazy" class="book-figure-real-img">`
+          : `<div class="book-figure-placeholder"><span class="book-figure-label">Figure ${escHtml(block.figNum)}</span><span class="book-figure-icon">📊</span></div>`;
         return `
           <figure class="book-figure">
-            <div class="book-figure-img">
-              <span class="book-figure-label">Figure ${escHtml(block.figNum)}</span>
-              <span class="book-figure-icon">📊</span>
-            </div>
+            ${imgHtml}
             <figcaption class="book-figure-caption">
               <strong>Figure ${escHtml(block.figNum)}</strong> — ${escHtml(block.caption)}
             </figcaption>
