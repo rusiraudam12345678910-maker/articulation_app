@@ -34,23 +34,27 @@ function cleanLine(line) {
   return line.replace(/\s+/g, ' ').trim();
 }
 
-function detectHeadingLevel(line, prevBlank, nextBlank) {
+function detectHeadingLevel(line, prevBlank, nextBlank, prevLineText) {
   const l = line.trim();
   if (!l || l.length > 100) return null;
-  if (!prevBlank && !nextBlank) return null;
 
-  // ALL CAPS line (multi-word or single word 4+ chars) = H2
+  // Previous line ended a sentence (period) OR there's a blank line above
+  const afterSentenceEnd = prevLineText && /[.?!]\s*$/.test(prevLineText.trim());
+  const hasContext = prevBlank || nextBlank || afterSentenceEnd;
+  if (!hasContext) return null;
+
+  // ALL CAPS line = H2
   if (/^[A-Z][A-Z\s\-/&:()]{3,60}$/.test(l)) return 2;
 
-  // Single Title-Case word that is a known CISSP concept (4+ chars, no punctuation) = H3 subheading
-  if (/^[A-Z][a-z]{3,}$/.test(l) && prevBlank && nextBlank) return 3;
+  // Single Title-Case word (4+ chars, no punctuation) = H3 subheading
+  if (/^[A-Z][a-z]{3,}$/.test(l) && (prevBlank || nextBlank || afterSentenceEnd)) return 3;
 
-  // Title Case multi-word = H3
+  // Title Case multi-word line = H3
   const words = l.split(' ');
   const isTitleCase = words.length >= 2 && words.length <= 12 &&
     words.filter(w => w.length > 3).every(w => /^[A-Z]/.test(w)) &&
-    !l.endsWith('.') && !l.endsWith(',');
-  if (isTitleCase && (prevBlank || nextBlank)) return 3;
+    !l.endsWith('.') && !l.endsWith(',') && !l.endsWith(':');
+  if (isTitleCase && hasContext) return 3;
 
   return null;
 }
@@ -153,9 +157,9 @@ function parseTextToSections(rawText, domainNum) {
       continue;
     }
 
-    // ── Figure caption
+    // ── Figure caption (no prevBlank required — captions often follow inline references)
     const figMatch = rawLine.match(FIGURE_CAPTION_RE);
-    if (figMatch && prevBlank) {
+    if (figMatch) {
       flushParagraph();
       if (currentSection) {
         currentSection.content.push({
@@ -171,7 +175,7 @@ function parseTextToSections(rawText, domainNum) {
 
     // ── Table caption
     const tableMatch = rawLine.match(TABLE_CAPTION_RE);
-    if (tableMatch && prevBlank) {
+    if (tableMatch) {
       flushParagraph();
       if (currentSection) {
         currentSection.content.push({
@@ -220,20 +224,23 @@ function parseTextToSections(rawText, domainNum) {
     }
 
     // ── Section heading — always flush, even mid-paragraph
-    const headingLevel = detectHeadingLevel(line, prevBlank, nextBlank);
+    const prevLineText = i > 0 ? lines[i - 1] : '';
+    const headingLevel = detectHeadingLevel(line, prevBlank, nextBlank, prevLineText);
     if (headingLevel) {
       flushSection();
       currentSection = { id: slugify(line), title: line, level: headingLevel, content: [] };
       continue;
     }
 
-    // ── Also flush paragraph if current line clearly starts a new sentence
-    // AND previous buffer ends a complete sentence (period + capital letter pattern)
+    // ── Flush paragraph when previous line ends a sentence AND current line
+    // starts a new sentence (capital letter after period, no blank line needed)
     if (paragraphBuffer.length > 0) {
       const lastLine = paragraphBuffer[paragraphBuffer.length - 1];
-      const prevEnds = /[.?!)"»]\s*$/.test(lastLine);
-      const currStarts = /^[A-Z]/.test(line) && prevBlank;
-      if (prevEnds && currStarts) {
+      const prevEndsSentence = /[.?!]\s*$/.test(lastLine);
+      const currStartsNewSentence = /^[A-Z]/.test(line);
+      // Only split if the last line is a complete short line (likely end of paragraph)
+      // OR if there was a blank line between them
+      if (prevEndsSentence && currStartsNewSentence && (prevBlank || lastLine.length < 80)) {
         flushParagraph();
       }
     }
