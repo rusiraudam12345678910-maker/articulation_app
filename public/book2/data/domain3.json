@@ -1,7 +1,7 @@
 {
   "domain": 3,
   "title": "Security Architecture and Engineering",
-  "totalSections": 200,
+  "totalSections": 210,
   "sections": [
     {
       "id": "domain-3-intro",
@@ -58,7 +58,7 @@
     {
       "id": "system-architecture",
       "title": "System Architecture",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -214,10 +214,17 @@
           "caption": "Symmetric mode and asymmetric mode of multiprocessing",
           "domain": 3,
           "num": 5
-        },
+        }
+      ]
+    },
+    {
+      "id": "multiprocessing",
+      "title": "Multiprocessing",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Multiprocessing Many modern computers have more than one CPU for increased performance. An operating system must be developed specifically to be able to understand and work with more than one processor. If the computer system is configured to work in symmetric mode, this means the processors are handed work as needed, as shown with CPU 1 and CPU 2 in Figure 3-5. It is like a load-balancing environment. When a process needs instructions to be executed, a scheduler determines which processor is ready for more work and sends it on. If a processor is going to be dedicated to a specific task or application, all other software would run on a different processor. In Figure 3-5, CPU 4 is dedicated to one application and its threads, while CPU 3 is used by the operating system. When a processor is dedicated, as in this example, the system is working in asymmetric mode. This usually means the computer has some type of time-sensitive application that needs its own personal processor. So, the system scheduler will send instructions from the time-sensitive application to CPU 4 and send all the other instructions (from the operating system and other applications) to CPU 3."
+          "text": "Many modern computers have more than one CPU for increased performance. An operating system must be developed specifically to be able to understand and work with more than one processor. If the computer system is configured to work in symmetric mode, this means the processors are handed work as needed, as shown with CPU 1 and CPU 2 in Figure 3-5. It is like a load-balancing environment. When a process needs instructions to be executed, a scheduler determines which processor is ready for more work and sends it on. If a processor is going to be dedicated to a specific task or application, all other software would run on a different processor. In Figure 3-5, CPU 4 is dedicated to one application and its threads, while CPU 3 is used by the operating system. When a processor is dedicated, as in this example, the system is working in asymmetric mode. This usually means the computer has some type of time-sensitive application that needs its own personal processor. So, the system scheduler will send instructions from the time-sensitive application to CPU 4 and send all the other instructions (from the operating system and other applications) to CPU 3."
         }
       ]
     },
@@ -574,7 +581,7 @@
     {
       "id": "operating-systems",
       "title": "Operating Systems",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1409,7 +1416,7 @@
     {
       "id": "system-security-architecture",
       "title": "System Security Architecture",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1600,7 +1607,7 @@
     {
       "id": "security-models",
       "title": "Security Models",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1865,7 +1872,7 @@
     {
       "id": "systems-evaluation",
       "title": "Systems Evaluation",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2124,7 +2131,7 @@
     {
       "id": "open-vs-closed-systems",
       "title": "Open vs. Closed Systems",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2169,7 +2176,7 @@
     {
       "id": "systems-security",
       "title": "Systems Security",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2211,10 +2218,17 @@
           "caption": "A four-tier client/server system",
           "domain": 3,
           "num": 22
-        },
+        }
+      ]
+    },
+    {
+      "id": "distributed-systems",
+      "title": "Distributed Systems",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Distributed Systems A distributed system is one in which multiple computers work together to do something. We already covered a specific example of this with the previous example of a four-tier system. It is this collaboration that more generally defines a distributed system. A client-server system is a specific kind of distributed system in which devices in one group (or tier) act as clients for devices in an adjacent group. A tier-1 client cannot work directly with the tier-4 database in Figure 3-22. We could then say that a distributed system is any system in which multiple computing nodes, interconnected by a network, exchange information for the accomplishment of collective tasks."
+          "text": "A distributed system is one in which multiple computers work together to do something. We already covered a specific example of this with the previous example of a four-tier system. It is this collaboration that more generally defines a distributed system. A client-server system is a specific kind of distributed system in which devices in one group (or tier) act as clients for devices in an adjacent group. A tier-1 client cannot work directly with the tier-4 database in Figure 3-22. We could then say that a distributed system is any system in which multiple computing nodes, interconnected by a network, exchange information for the accomplishment of collective tasks."
         },
         {
           "type": "paragraph",
@@ -2718,7 +2732,7 @@
     {
       "id": "cryptography-in-context",
       "title": "Cryptography in Context",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -3083,10 +3097,17 @@
             "Secured at sender’s and receiver’s sites",
             "At least as long as the message"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "running-and-concealment-ciphers",
+      "title": "Running and Concealment Ciphers",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Running and Concealment Ciphers Two spy-novel-type ciphers are the running key cipher and the concealment cipher. The running key cipher could use a key that does not require an electronic algorithm and bit alterations, but cleverly uses components in the physical world around you. For instance, the algorithm could be a set of books agreed upon by the sender and receiver. The key in this type of cipher could be a book page, line number, and column count. If you get a message from your supersecret spy buddy and the message reads “149l6c7.299l3c7.911l5c8,” this could mean for you to look at the 1st book in your predetermined series of books, the 49th page, 6th line down the page, and the 7th column. So you write down the letter in that column, which is h. The second set of numbers starts with 2, so you go to the 2nd book, 99th page, 3rd line down, and then to the 7th column, which is o. The last letter you get from the 9th book, 11th page, 5th line, 8th column, which is t. So now you have come up with your important secret message, which is hot. Running key ciphers can be used in different and more complex ways, but this simple example illustrates the point."
+          "text": "Two spy-novel-type ciphers are the running key cipher and the concealment cipher. The running key cipher could use a key that does not require an electronic algorithm and bit alterations, but cleverly uses components in the physical world around you. For instance, the algorithm could be a set of books agreed upon by the sender and receiver. The key in this type of cipher could be a book page, line number, and column count. If you get a message from your supersecret spy buddy and the message reads “149l6c7.299l3c7.911l5c8,” this could mean for you to look at the 1st book in your predetermined series of books, the 49th page, 6th line down the page, and the 7th column. So you write down the letter in that column, which is h. The second set of numbers starts with 2, so you go to the 2nd book, 99th page, 3rd line down, and then to the 7th column, which is o. The last letter you get from the 9th book, 11th page, 5th line, 8th column, which is t. So now you have come up with your important secret message, which is hot. Running key ciphers can be used in different and more complex ways, but this simple example illustrates the point."
         },
         {
           "type": "paragraph",
@@ -3798,10 +3819,17 @@
             "Blowfish",
             "RC4, RC5, and RC6"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "data-encryption-standard",
+      "title": "Data Encryption Standard",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Data Encryption Standard Data Encryption Standard (DES) has had a long and rich history within the computer community. The National Institute of Standards and Technology (NIST) researched the need for the protection of sensitive but unclassified data during the 1960s and initiated a cryptography program in the early 1970s. NIST invited vendors to submit data encryption algorithms to be used as a cryptographic standard. IBM had already been developing encryption algorithms to protect financial transactions. In 1974, IBM’s 128-bit algorithm, named Lucifer, was submitted and accepted. The NSA modified this algorithm to use a key size of 64 bits (with 8 bits used for parity, resulting in an effective key length of 56 bits) instead of the original 128 bits, and named it the Data Encryption Algorithm (DEA). Controversy arose about whether the NSA weakened Lucifer on purpose to enable it to decrypt messages not intended for it, but in the end the modified Lucifer became a national cryptographic standard in 1977 and an American National Standards Institute (ANSI) standard in 1978."
+          "text": "Data Encryption Standard (DES) has had a long and rich history within the computer community. The National Institute of Standards and Technology (NIST) researched the need for the protection of sensitive but unclassified data during the 1960s and initiated a cryptography program in the early 1970s. NIST invited vendors to submit data encryption algorithms to be used as a cryptographic standard. IBM had already been developing encryption algorithms to protect financial transactions. In 1974, IBM’s 128-bit algorithm, named Lucifer, was submitted and accepted. The NSA modified this algorithm to use a key size of 64 bits (with 8 bits used for parity, resulting in an effective key length of 56 bits) instead of the original 128 bits, and named it the Data Encryption Algorithm (DEA). Controversy arose about whether the NSA weakened Lucifer on purpose to enable it to decrypt messages not intended for it, but in the end the modified Lucifer became a national cryptographic standard in 1977 and an American National Standards Institute (ANSI) standard in 1978."
         },
         {
           "type": "exam_tip",
@@ -3987,10 +4015,17 @@
         {
           "type": "paragraph",
           "text": "Synchronous cryptosystems use keystreams to encrypt plaintext one bit at a time. The keystream values are “in sync” with the plaintext values. An asynchronous cryptosystem uses previously generated output to encrypt the current plaintext values. So a stream algorithm would be considered synchronous, while a block algorithm using chaining would be considered asynchronous."
-        },
+        }
+      ]
+    },
+    {
+      "id": "triple-des",
+      "title": "Triple-DES",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Triple-DES We went from DES to Triple-DES (3DES), so it might seem we skipped Double-DES. We did. Double-DES has a key length of 112 bits, but there is a specific attack against Double-DES that reduces its work factor to about the same as DES. Thus, it is no more secure than DES. So let’s move on to 3DES."
+          "text": "We went from DES to Triple-DES (3DES), so it might seem we skipped Double-DES. We did. Double-DES has a key length of 112 bits, but there is a specific attack against Double-DES that reduces its work factor to about the same as DES. Thus, it is no more secure than DES. So let’s move on to 3DES."
         },
         {
           "type": "paragraph",
@@ -4096,18 +4131,43 @@
         {
           "type": "paragraph",
           "text": "Blowfish is a block cipher that works on 64-bit blocks of data. The key length can be anywhere from 32 bits up to 448 bits, and the data blocks go through 16 rounds of cryptographic functions. It was intended as a replacement to the aging DES. While many of the other algorithms have been proprietary and thus encumbered by patents or kept as government secrets, this isn’t the case with Blowfish. Bruce Schneier, the creator of Blowfish, has stated, “Blowfish is unpatented, and will remain so in all countries. The algorithm is hereby placed in the public domain, and can be freely used by anyone.” Nice guy."
-        },
+        }
+      ]
+    },
+    {
+      "id": "rc4",
+      "title": "RC4",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "RC4 RC4 is one of the most commonly implemented stream ciphers. It has a variable key size, is used in the Secure Sockets Layer (SSL) protocol, and was (improperly) implemented in the 802.11 WEP protocol standard. RC4 was developed in 1987 by Ron Rivest and was considered a trade secret of RSA Data Security, Inc., until someone posted the source code on a mailing list. Since the source code was released nefariously, the stolen algorithm is sometimes implemented and referred to as ArcFour or ARC4 because the title RC4 is trademarked."
+          "text": "RC4 is one of the most commonly implemented stream ciphers. It has a variable key size, is used in the Secure Sockets Layer (SSL) protocol, and was (improperly) implemented in the 802.11 WEP protocol standard. RC4 was developed in 1987 by Ron Rivest and was considered a trade secret of RSA Data Security, Inc., until someone posted the source code on a mailing list. Since the source code was released nefariously, the stolen algorithm is sometimes implemented and referred to as ArcFour or ARC4 because the title RC4 is trademarked."
         },
         {
           "type": "paragraph",
           "text": "The algorithm is very simple, fast, and efficient, which is why it became so popular. But it is vulnerable to modification attacks. This is one reason that IEEE 802.11i moved from the RC4 algorithm to the AES algorithm."
-        },
+        }
+      ]
+    },
+    {
+      "id": "rc5",
+      "title": "RC5",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "RC5 RC5 is a block cipher that has a variety of parameters it can use for block size, key size, and the number of rounds used. It was created by Ron Rivest. The block sizes used in this algorithm are 32, 64, or 128 bits, and the key size goes up to 2,048 bits. The number of rounds used for encryption and decryption is also variable. The number of rounds can go up to 255. RC6 RC6 is a block cipher that was built upon RC5, so it has all the same attributes as RC5. The algorithm was developed mainly to be submitted as AES, but Rijndael was chosen instead. There were some modifications of the RC5 algorithm to increase the overall speed, the result of which is RC6."
+          "text": "RC5 is a block cipher that has a variety of parameters it can use for block size, key size, and the number of rounds used. It was created by Ron Rivest. The block sizes used in this algorithm are 32, 64, or 128 bits, and the key size goes up to 2,048 bits. The number of rounds used for encryption and decryption is also variable. The number of rounds can go up to 255."
+        }
+      ]
+    },
+    {
+      "id": "rc6",
+      "title": "RC6",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "RC6 is a block cipher that was built upon RC5, so it has all the same attributes as RC5. The algorithm was developed mainly to be submitted as AES, but Rijndael was chosen instead. There were some modifications of the RC5 algorithm to increase the overall speed, the result of which is RC6."
         }
       ]
     },
@@ -4257,10 +4317,17 @@
         {
           "type": "paragraph",
           "text": "Public key infrastructure(PKI) is a different animal. It is not an algorithm, a protocol, or an application—it is an infrastructure based on public key cryptography."
-        },
+        }
+      ]
+    },
+    {
+      "id": "rsa",
+      "title": "RSA",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "RSA RSA, named after its inventors Ron Rivest, Adi Shamir, and Leonard Adleman, is a public key algorithm that is the most popular when it comes to asymmetric algorithms. RSA is a worldwide de facto standard and can be used for digital signatures, key exchange, and encryption. It was developed in 1978 at MIT and provides authentication as well as key encryption."
+          "text": "RSA, named after its inventors Ron Rivest, Adi Shamir, and Leonard Adleman, is a public key algorithm that is the most popular when it comes to asymmetric algorithms. RSA is a worldwide de facto standard and can be used for digital signatures, key exchange, and encryption. It was developed in 1978 at MIT and provides authentication as well as key encryption."
         },
         {
           "type": "paragraph",
@@ -4401,7 +4468,7 @@
     {
       "id": "message-integrity",
       "title": "Message Integrity",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4429,17 +4496,10 @@
         {
           "type": "paragraph",
           "text": "A MAC function is an authentication scheme derived by applying a secret key to a message in some form. This does not mean the symmetric key is used to encrypt the message, though. You should be aware of three basic types of MAC functions: a hash MAC (HMAC), CBC-MAC, and CMAC."
-        }
-      ]
-    },
-    {
-      "id": "hmac",
-      "title": "HMAC",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "In the previous example, if Cheryl were to use an HMAC function instead of just a plain hashing algorithm, a symmetric key would be concatenated with her message. The result of this process would be put through a hashing algorithm, and the result would be a MAC value. This MAC value would then be appended to her message and sent to Scott. If Bruce were to intercept this message and modify it, he would not have the necessary symmetric key to create the MAC value that Scott will attempt to generate. Figure 3-45 walks through these steps."
+          "text": "HMAC In the previous example, if Cheryl were to use an HMAC function instead of just a plain hashing algorithm, a symmetric key would be concatenated with her message. The result of this process would be put through a hashing algorithm, and the result would be a MAC value. This MAC value would then be appended to her message and sent to Scott. If Bruce were to intercept this message and modify it, he would not have the necessary symmetric key to create the MAC value that Scott will attempt to generate. Figure 3-45 walks through these steps."
         },
         {
           "type": "paragraph",
@@ -4467,17 +4527,10 @@
         {
           "type": "paragraph",
           "text": "This type of technology requires the sender and receiver to have the same symmetric key. The HMAC function does not involve getting the symmetric key to the destination securely. That would have to happen through one of the other technologies we have discussed already (Diffie- Hellman and key agreement, or RSA and key exchange)."
-        }
-      ]
-    },
-    {
-      "id": "cbc-mac",
-      "title": "CBC-MAC",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "If a Cipher Block Chaining Message Authentication Code (CBC-MAC) is being used, the message is encrypted with a symmetric block cipher in CBC mode, and the output of the final block of ciphertext is used as the MAC. The sender does not send the encrypted version of the message, but instead sends the plaintext version and the MAC attached to the message. The receiver receives the plaintext message and encrypts it with the same symmetric block cipher in CBC mode and calculates an independent MAC value. The receiver compares the new MAC value with the MAC value sent with the message. This method does not use a hashing algorithm as does HMAC."
+          "text": "CBC-MAC If a Cipher Block Chaining Message Authentication Code (CBC-MAC) is being used, the message is encrypted with a symmetric block cipher in CBC mode, and the output of the final block of ciphertext is used as the MAC. The sender does not send the encrypted version of the message, but instead sends the plaintext version and the MAC attached to the message. The receiver receives the plaintext message and encrypts it with the same symmetric block cipher in CBC mode and calculates an independent MAC value. The receiver compares the new MAC value with the MAC value sent with the message. This method does not use a hashing algorithm as does HMAC."
         },
         {
           "type": "paragraph",
@@ -4573,14 +4626,28 @@
         {
           "type": "paragraph",
           "text": "Table 3-2 and the following sections quickly describe some of the available hashing algorithms used in cryptography today."
-        },
+        }
+      ]
+    },
+    {
+      "id": "md4",
+      "title": "MD4",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "MD4 MD4 is a one-way hash function designed by Ron Rivest. It also produces a 128-bit message digest value. It was used for high-speed computation in software implementations and was optimized for microprocessors. It is no longer considered secure."
-        },
+          "text": "MD4 is a one-way hash function designed by Ron Rivest. It also produces a 128-bit message digest value. It was used for high-speed computation in software implementations and was optimized for microprocessors. It is no longer considered secure."
+        }
+      ]
+    },
+    {
+      "id": "md5",
+      "title": "MD5",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "MD5 MD5 was also created by Ron Rivest and is the newer version of MD4. It still produces a 128-bit hash, but the algorithm is more complex, which makes it harder to break."
+          "text": "MD5 was also created by Ron Rivest and is the newer version of MD4. It still produces a 128-bit hash, but the algorithm is more complex, which makes it harder to break."
         },
         {
           "type": "paragraph",
@@ -4590,10 +4657,17 @@
           "type": "table_caption",
           "tableNum": "3-2",
           "caption": "Various Hashing Algorithms Available"
-        },
+        }
+      ]
+    },
+    {
+      "id": "sha",
+      "title": "SHA",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "SHA SHA was designed by NSA and published by NIST to be used with the Digital Signature Standard (DSS), which is discussed a bit later in more depth. SHA was designed to be used in digital signatures and was developed when a more secure hashing algorithm was required for U.S. government applications."
+          "text": "SHA was designed by NSA and published by NIST to be used with the Digital Signature Standard (DSS), which is discussed a bit later in more depth. SHA was designed to be used in digital signatures and was developed when a more secure hashing algorithm was required for U.S. government applications."
         },
         {
           "type": "paragraph",
@@ -4680,7 +4754,7 @@
     {
       "id": "public-key-infrastructure",
       "title": "Public Key Infrastructure",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4837,7 +4911,7 @@
     {
       "id": "applying-cryptography",
       "title": "Applying Cryptography",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -5176,7 +5250,7 @@
     {
       "id": "attacks-on-cryptography",
       "title": "Attacks on Cryptography",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -5397,7 +5471,7 @@
     {
       "id": "site-and-facility-security",
       "title": "Site and Facility Security",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",

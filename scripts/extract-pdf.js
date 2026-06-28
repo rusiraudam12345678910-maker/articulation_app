@@ -5,6 +5,11 @@ const pdfParse = require('pdf-parse');
 const PDF_PATH = path.join(__dirname, '..', 'Book', 'CISSP All in one Exam Guide - Version 8.pdf');
 const OUT_DIR = path.join(__dirname, '..', 'public', 'book2', 'data');
 
+// Authoritative H2 headings per domain (from book TOC)
+const TOC_H2 = JSON.parse(fs.readFileSync(path.join(OUT_DIR, 'toc-h2.json'), 'utf8'));
+// All TOC headings per domain (H2 + H3)
+const TOC_ALL = JSON.parse(fs.readFileSync(path.join(OUT_DIR, 'toc-headings.json'), 'utf8'));
+
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
 const DOMAIN_MARKERS = [
@@ -34,27 +39,37 @@ function cleanLine(line) {
   return line.replace(/\s+/g, ' ').trim();
 }
 
-function detectHeadingLevel(line, prevBlank, nextBlank, prevLineText) {
+function detectHeadingLevel(line, prevBlank, nextBlank, prevLineText, domainNum) {
   const l = line.trim();
-  if (!l || l.length > 100) return null;
+  if (!l || l.length > 120) return null;
 
-  // Previous line ended a sentence (period) OR there's a blank line above
+  const h2List = TOC_H2[domainNum] || [];
+  const allList = TOC_ALL[domainNum] || [];
+
+  // Exact TOC match → authoritative level
+  if (h2List.includes(l)) return 2;
+  if (allList.includes(l)) return 3;
+
+  // Skip appendix/index/glossary lines
+  if (/^(APPENDIX|INDEX|GLOSSARY)/i.test(l)) return null;
+
+  // Fallback for headings not in TOC (e.g. minor sub-sub-headings)
   const afterSentenceEnd = prevLineText && /[.?!]\s*$/.test(prevLineText.trim());
   const hasContext = prevBlank || nextBlank || afterSentenceEnd;
   if (!hasContext) return null;
 
-  // ALL CAPS line = H2
-  if (/^[A-Z][A-Z\s\-/&:()]{3,60}$/.test(l)) return 2;
+  // ALL CAPS multi-word (not short acronyms) → H2
+  if (/^[A-Z][A-Z\s\-/&:()]{5,60}$/.test(l) && l.includes(' ')) return 2;
 
-  // Single Title-Case word (4+ chars, no punctuation) = H3 subheading
-  if (/^[A-Z][a-z]{3,}$/.test(l) && (prevBlank || nextBlank || afterSentenceEnd)) return 3;
+  // Single Title-Case word (4+ chars) → H3
+  if (/^[A-Z][a-z]{3,}$/.test(l)) return 3;
 
-  // Title Case multi-word line = H3
+  // Title Case multi-word → H3
   const words = l.split(' ');
   const isTitleCase = words.length >= 2 && words.length <= 12 &&
     words.filter(w => w.length > 3).every(w => /^[A-Z]/.test(w)) &&
     !l.endsWith('.') && !l.endsWith(',') && !l.endsWith(':');
-  if (isTitleCase && hasContext) return 3;
+  if (isTitleCase) return 3;
 
   return null;
 }
@@ -225,7 +240,7 @@ function parseTextToSections(rawText, domainNum) {
 
     // ── Section heading — always flush, even mid-paragraph
     const prevLineText = i > 0 ? lines[i - 1] : '';
-    const headingLevel = detectHeadingLevel(line, prevBlank, nextBlank, prevLineText);
+    const headingLevel = detectHeadingLevel(line, prevBlank, nextBlank, prevLineText, domainNum);
     if (headingLevel) {
       flushSection();
       currentSection = { id: slugify(line), title: line, level: headingLevel, content: [] };

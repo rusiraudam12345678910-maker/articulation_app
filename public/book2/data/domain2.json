@@ -1,7 +1,7 @@
 {
   "domain": 2,
   "title": "Asset Security",
-  "totalSections": 61,
+  "totalSections": 62,
   "sections": [
     {
       "id": "domain-2-intro",
@@ -44,7 +44,7 @@
     {
       "id": "information-life-cycle",
       "title": "Information Life Cycle",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -83,10 +83,17 @@
         {
           "type": "note",
           "text": "important considerations must be deliberately addressed at the point of information acquisition and not as an afterthought."
-        },
+        }
+      ]
+    },
+    {
+      "id": "use",
+      "title": "Use",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Use After the information is prepared and stored, it will spend much of its time being used. That is to say it will be read and modified by a variety of users with the necessary access level. From a security perspective, this stage in the information life cycle presents the most challenges in terms of ensuring confidentiality, integrity, and availability. You want the information available, but only to the right people who should then be able to modify it in authorized ways. As the information is being used, we have to ensure that it remains internally consistent. For instance, if we have multiple data stores for performance or reliability purposes, we must ensure that modifications to the information are replicated. We also need to have mechanisms for automatically resolving inconsistencies, such as those that would occur from a server having a power outage after information has been modified but before it has been replicated. This is particularly important in very dynamic systems that have roll-back capabilities. Consistency is also an issue with regard to policy and regulatory compliance. As the information is used and aggregated, it may trigger requirements that must be automatically enforced. For example, a document that refers to a project using a code word or name may be unclassified and freely available, but if that word/name is used in conjunction with other details (a place, purpose, or team members’ names), then it would make the entire document classified. Changes in the information as it is in use must be mapped to the appropriate internal policies, and perhaps to regulations or laws."
+          "text": "After the information is prepared and stored, it will spend much of its time being used. That is to say it will be read and modified by a variety of users with the necessary access level. From a security perspective, this stage in the information life cycle presents the most challenges in terms of ensuring confidentiality, integrity, and availability. You want the information available, but only to the right people who should then be able to modify it in authorized ways. As the information is being used, we have to ensure that it remains internally consistent. For instance, if we have multiple data stores for performance or reliability purposes, we must ensure that modifications to the information are replicated. We also need to have mechanisms for automatically resolving inconsistencies, such as those that would occur from a server having a power outage after information has been modified but before it has been replicated. This is particularly important in very dynamic systems that have roll-back capabilities. Consistency is also an issue with regard to policy and regulatory compliance. As the information is used and aggregated, it may trigger requirements that must be automatically enforced. For example, a document that refers to a project using a code word or name may be unclassified and freely available, but if that word/name is used in conjunction with other details (a place, purpose, or team members’ names), then it would make the entire document classified. Changes in the information as it is in use must be mapped to the appropriate internal policies, and perhaps to regulations or laws."
         }
       ]
     },
@@ -146,7 +153,7 @@
     {
       "id": "classification",
       "title": "Classification",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -314,7 +321,7 @@
     {
       "id": "layers-of-responsibility",
       "title": "Layers of Responsibility",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -650,7 +657,7 @@
     {
       "id": "retention-policies",
       "title": "Retention Policies",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -785,7 +792,7 @@
     {
       "id": "protecting-privacy",
       "title": "Protecting Privacy",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -945,7 +952,7 @@
     {
       "id": "protecting-assets",
       "title": "Protecting Assets",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",

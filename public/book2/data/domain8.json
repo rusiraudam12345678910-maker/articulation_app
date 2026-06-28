@@ -47,7 +47,7 @@
     {
       "id": "building-good-code",
       "title": "Building Good Code",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -252,7 +252,7 @@
     {
       "id": "software-development-life-cycle",
       "title": "Software Development Life Cycle",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -733,10 +733,17 @@
           "items": [
             "Final security review"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "software-development-methodologies",
+      "title": "Software Development Methodologies",
+      "level": 2,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Software Development Methodologies Several software development methodologies have emerged over the past 20 or so years. Each has its own characteristics, pros, cons, SDLC phases, and best use-case scenarios. While some methodologies include security issues in certain phases, these are not considered “security- centric development methodologies.” These are classical approaches to building and developing software. A brief discussion of some of the methodologies that have been used over the years is presented next."
+          "text": "Several software development methodologies have emerged over the past 20 or so years. Each has its own characteristics, pros, cons, SDLC phases, and best use-case scenarios. While some methodologies include security issues in certain phases, these are not considered “security- centric development methodologies.” These are classical approaches to building and developing software. A brief discussion of some of the methodologies that have been used over the years is presented next."
         },
         {
           "type": "exam_tip",
@@ -861,10 +868,17 @@
           "caption": "Spiral methodology for software development",
           "domain": 8,
           "num": 10
-        },
+        }
+      ]
+    },
+    {
+      "id": "rapid-application-development",
+      "title": "Rapid Application Development",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Rapid Application Development The Rapid Application Development (RAD) methodology relies more on the use of rapid prototyping than on extensive upfront planning. In this methodology, the planning of how to improve the software is interleaved with the processes of developing the software, which allows for software to be developed quickly. The delivery of a workable piece of software can take place in less than half the time compared to the Waterfall methodology. The RAD methodology combines the use of prototyping and iterative development procedures with the goal of accelerating the software development process. The development process begins with creating data models and business process models to help define what the end-result software needs to accomplish. Through the use of prototyping, these data and process models are refined. These models provide input to allow for the improvement of the prototype, and the testing and evaluation of the prototype allow for the improvement of the data and process models. The goal of these steps is to combine business requirements and technical design statements, which provide the direction in the software development project."
+          "text": "The Rapid Application Development (RAD) methodology relies more on the use of rapid prototyping than on extensive upfront planning. In this methodology, the planning of how to improve the software is interleaved with the processes of developing the software, which allows for software to be developed quickly. The delivery of a workable piece of software can take place in less than half the time compared to the Waterfall methodology. The RAD methodology combines the use of prototyping and iterative development procedures with the goal of accelerating the software development process. The development process begins with creating data models and business process models to help define what the end-result software needs to accomplish. Through the use of prototyping, these data and process models are refined. These models provide input to allow for the improvement of the prototype, and the testing and evaluation of the prototype allow for the improvement of the data and process models. The goal of these steps is to combine business requirements and technical design statements, which provide the direction in the software development project."
         },
         {
           "type": "paragraph",
@@ -1068,10 +1082,17 @@
         {
           "type": "paragraph",
           "text": "The Joint Application Development (JAD) methodology, in which users join developers during extensive workshops, works well with the IPT approach. IPTs extend this concept by ensuring that the right stakeholders are represented in every phase of the development as formal team members. In addition, whereas JAD is focused on involving the user community, IPT is typically more inward facing and focuses on bringing in the business stakeholders. An IPT is not a development methodology. Instead, it is a management technique. When project managers decide to use IPTs, they still have to select a methodology. These days, IPTs are often associated with Agile methodologies."
-        },
+        }
+      ]
+    },
+    {
+      "id": "devops",
+      "title": "DevOps",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "DevOps Traditionally, the software development team and the IT team are two separate (and sometimes antagonistic) groups within an organization. Many problems stem from poor collaboration between these two teams during the development process. It is not rare to have the IT team berating the developers because a feature push causes the IT team to have to stay late or work on a weekend or simply drop everything they were doing in order to “fix” something that the developers “broke.” This friction makes a lot of sense when you consider that each team is incentivized by different outcomes. Developers want to push out finished code, usually under strict schedules. The IT staff, on the other hand, wants to keep the IT infrastructure operating effectively. Many project managers who have managed software development efforts will attest to having received complaints from developers that the IT team was being unreasonable and uncooperative, while the IT team was simultaneously complaining about buggy code being tossed over the fence at them at the worst possible times and causing problems on the rest of the network."
+          "text": "Traditionally, the software development team and the IT team are two separate (and sometimes antagonistic) groups within an organization. Many problems stem from poor collaboration between these two teams during the development process. It is not rare to have the IT team berating the developers because a feature push causes the IT team to have to stay late or work on a weekend or simply drop everything they were doing in order to “fix” something that the developers “broke.” This friction makes a lot of sense when you consider that each team is incentivized by different outcomes. Developers want to push out finished code, usually under strict schedules. The IT staff, on the other hand, wants to keep the IT infrastructure operating effectively. Many project managers who have managed software development efforts will attest to having received complaints from developers that the IT team was being unreasonable and uncooperative, while the IT team was simultaneously complaining about buggy code being tossed over the fence at them at the worst possible times and causing problems on the rest of the network."
         },
         {
           "type": "paragraph",
@@ -1219,7 +1240,7 @@
     {
       "id": "change-management",
       "title": "Change Management",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1345,7 +1366,7 @@
     {
       "id": "secure-coding",
       "title": "Secure Coding",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1405,7 +1426,7 @@
     {
       "id": "programming-languages-and-concepts",
       "title": "Programming Languages and Concepts",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1813,7 +1834,7 @@
     {
       "id": "distributed-computing",
       "title": "Distributed Computing",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2029,17 +2050,10 @@
         {
           "type": "paragraph",
           "text": "A mashup is the combination of functionality, data, and presentation capabilities of two or more sources to provide some type of new service or functionality. Open APIs and data sources are commonly aggregated and combined to provide a more useful and powerful resource. For example, the site http://popurls.com combines the functionality of APIs provided by sites like Digg, Del.icio.us, Flickr, and YouTube to provide integrated social news."
-        }
-      ]
-    },
-    {
-      "id": "soap",
-      "title": "SOAP",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "What if we need applications running on different operating systems, which were written in different programming languages, to communicate over web-based communication methods? We would use Simple Object Access Protocol (SOAP). SOAP is an XML-based protocol that encodes messages in a web service environment. It actually defines an XML schema of how communication is going to take place. The SOAP XML schema defines how objects communicate directly."
+          "text": "SOAP What if we need applications running on different operating systems, which were written in different programming languages, to communicate over web-based communication methods? We would use Simple Object Access Protocol (SOAP). SOAP is an XML-based protocol that encodes messages in a web service environment. It actually defines an XML schema of how communication is going to take place. The SOAP XML schema defines how objects communicate directly."
         },
         {
           "type": "paragraph",
@@ -2165,7 +2179,7 @@
     {
       "id": "web-security",
       "title": "Web Security",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2458,7 +2472,7 @@
     {
       "id": "database-management",
       "title": "Database Management",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -3279,7 +3293,18 @@
         },
         {
           "type": "paragraph",
-          "text": "vulnerability, and so on) Worms Worms are different from viruses in that they can reproduce on their own without a host application, and are self-contained programs. As an analogy, medical viruses (e.g., the common cold) spread through human hosts. The virus can make our noses run or cause us to sneeze, which are just the virus’s way of reproducing and spreading itself. The virus is a collection of particles (DNA, RNA, proteins, lipids) and can only replicate within living cells. A virus cannot fall on the floor and just wait for someone to pass by and infect—it requires host-to-host transmission. A computer virus also requires a host, because it is not a full and self-sufficient program. A computer virus cannot make our computer sneeze, but it could make our applications share infected files, which is similar in nature."
+          "text": "vulnerability, and so on)"
+        }
+      ]
+    },
+    {
+      "id": "worms",
+      "title": "Worms",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Worms are different from viruses in that they can reproduce on their own without a host application, and are self-contained programs. As an analogy, medical viruses (e.g., the common cold) spread through human hosts. The virus can make our noses run or cause us to sneeze, which are just the virus’s way of reproducing and spreading itself. The virus is a collection of particles (DNA, RNA, proteins, lipids) and can only replicate within living cells. A virus cannot fall on the floor and just wait for someone to pass by and infect—it requires host-to-host transmission. A computer virus also requires a host, because it is not a full and self-sufficient program. A computer virus cannot make our computer sneeze, but it could make our applications share infected files, which is similar in nature."
         },
         {
           "type": "paragraph",
@@ -3443,7 +3468,7 @@
     {
       "id": "antimalware-software",
       "title": "Antimalware Software",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -3620,7 +3645,7 @@
     {
       "id": "assessing-the-security-of-acquired-software",
       "title": "Assessing the Security of Acquired Software",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4629,17 +4654,10 @@
         {
           "type": "paragraph",
           "text": "25. D. A service-oriented architecture (SOA) provides standardized access to the most needed services to many different applications at one time. This approach allows for different business applications to access the current web services available within the environment. 26. D. A mashup is the combination of functionality, data, and presentation capabilities of two or more sources to provide some type of new service or functionality. Open APIs and data sources are commonly aggregated and combined to provide a more useful and powerful resource. 27. B. Web service provides the application functionality. WSDL describes the web service’s specifications. UDDI provides the mechanisms for web services to be posted and discovered. SOAP allows for the exchange of messages between a requester and provider of a web service. 28. B. The characters “%20” are encoding values that attackers commonly use in URL encoding attacks. These encoding values can be used to bypass web server filtering rules and can result in the attacker being able to gain unauthorized access to components of the web server. The characters “../” can be used by attackers in similar web server requests, which instruct the web server software to traverse directories that should be inaccessible. This is commonly referred to as a path or directory traversal attack. 29. A. Client-side validation is being carried out. This procedure ensures that the data that is inserted into the form contains valid values before being sent to the web server for processing. The web server should not just rely upon client-side validation, but should also carry out a second set of procedures to ensure that the input values are not illegal and potentially malicious. 30. B. The current architecture allows for web server software to directly communicate with a back-end database. Brad should ensure that proper database access authentication is taking place so that SQL injection attacks cannot be carried out. In a SQL injection attack the attacker sends over input values that the database carries out as commands and can allow authentication to be successfully bypassed."
-        }
-      ]
-    },
-    {
-      "id": "appendix",
-      "title": "APPENDIX",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "A Comprehensive Questions Use the following scenario to answer Questions 1–3. Josh has discovered that an organized hacking ring in China has been targeting his company’s research and development department. If these hackers have been able to uncover his company’s research finding, this means they probably have access to his company’s intellectual property. Josh thinks that an e-mail server in his company’s DMZ may have been successfully compromised and a rootkit loaded. 1. Based upon this scenario, what is most likely the biggest risk Josh’s company needs to be concerned with?"
+          "text": "APPENDIX A Comprehensive Questions Use the following scenario to answer Questions 1–3. Josh has discovered that an organized hacking ring in China has been targeting his company’s research and development department. If these hackers have been able to uncover his company’s research finding, this means they probably have access to his company’s intellectual property. Josh thinks that an e-mail server in his company’s DMZ may have been successfully compromised and a rootkit loaded. 1. Based upon this scenario, what is most likely the biggest risk Josh’s company needs to be concerned with?"
         },
         {
           "type": "paragraph",
@@ -5909,17 +5927,10 @@
         {
           "type": "paragraph",
           "text": "software (CRM, e-mail, games). 128. C. A storage area network (SAN) is made up of several storage systems that are connected together to form a single storage network. A SAN is a networked infrastructure that allows several systems to be connected to any storage device. This is usually provided by using switches to create a switching fabric. The switching fabric allows for several devices to communicate with back-end storage devices and provides redundancy and fault tolerance by not depending upon one specific line or connection. 129. A. Parallel tests are similar to simulation tests, except that parallel tests include moving some of the systems to the offsite facility. Simulation tests stop just short of the move. Parallel tests are effective because they ensure that specific systems work at the new location, but the test itself does not interfere with business operations at the main facility. 130. B. While DRP and BCP are directed at the development of “plans,” business continuity management (BCM) is the holistic management process that should cover both of them. BCM provides a framework for integrating resilience with the capability for effective responses in a manner that protects the interests of the organization’s key stakeholders. The main objective of BCM is to allow the organization to continue to perform business operations under various conditions. BCM is the overarching approach to managing all aspects of BCP and DRP. 131. B. An external audit (sometimes called a second-party audit) is one conducted by (or on behalf of) a business partner to verify contractual obligations. Though it is possible that this be done by a third party (e.g., an auditing firm hired by either party), it is still an external audit because it is being done to satisfy an external entity. 132. A. Duress is the use of threats or violence against someone in order to force them to do something they don’t want to do. A popular example of a countermeasure for duress is the use of panic buttons by bank tellers. A panic room could conceivably be another solution, but it would only work if employees are able to get in and lock the door before an assailant can stop them, which makes it a generally poor approach. 133. A. The Wassenaar Arrangement implements export controls for “Conventional Arms and Dual-Use Goods and Technologies.” The main goal of this arrangement is to prevent the buildup of military capabilities that could threaten regional and international security and stability. So everyone is keeping an eye on each other to make sure no one country’s weapons can take everyone else out. One item the agreement deals with is cryptography, which is seen as a dual-use good. It can be used for military and civilian uses. It is seen to be dangerous to export products with cryptographic functionality to countries that are in the “offensive” column, meaning that they are thought to have friendly ties with terrorist organizations and/or want to take over the world through the use of weapons of mass destruction. 134. A. The civil (code) law system is used in continental European countries such as France and Spain. It is a different legal system from the common law system used in the United Kingdom and United States. A civil law system is rule-based law, not precedent based. For the most part, a civil law system is focused on codified law—or written laws. 135. C. Failure Modes and Effect Analysis (FMEA) is a method for determining functions, identifying functional failures, and assessing the causes of failure and their failure effects through a structured process. It is commonly used in product development and operational environments. The goal is to identify where something is most likely going to break and either fix the flaws that could cause this issue or implement controls to reduce the impact of the break. 136. B. Each of these items would be assigned a numeric value in a quantitative risk analysis. Each element is quantified and entered into equations to determine total and residual risks. It is more of a scientific or mathematical approach to risk analysis compared to qualitative. 137. A. Aggregation and inference go hand in hand. For example, a user who uses data from a public database in order to figure out classified information is exercising aggregation (the collection of data) and can then infer the relationship between that data and the data he does not have access to. This is called an inference attack. 138. B. This option is not a risk, but a (probably unrealistic) benefit, so it cannot be the right answer. The other three options are all risks associated with an unmanaged patching model. 139. B. DOM (Document Object Model)–based XSS vulnerabilities are also referred to as local cross-site scripting. DOM is the standard structure layout to represent HTML and XML documents in the browser. In such attacks the document components such as form fields and cookies can be referenced through JavaScript. The attacker uses the DOM environment to modify the original client-side JavaScript. This causes the victim’s browser to execute the resulting abusive JavaScript code. 140. A. They are all correct. 141. A. RTO is an allowable amount of downtime, and the MTD is a time period that represents the inability to recover. The RTO value is smaller than the MTD value because the MTD value represents the time after which an inability to recover significant operations will mean severe and perhaps irreparable damage to the organization’s reputation or bottom line. The RTO assumes that there is a period of acceptable downtime. This means that a company can be out of production for a certain period of time (RTO) and still get back on its feet. But if the company cannot get production up and running within the MTD window, the company is sinking too fast to properly recover. 142. C. High availability (HA) is a combination of technologies and processes that work together to ensure that critical functions are always up and running at the necessary level. To provide this level of high availability, a company has to have a long list of technologies and processes that provide redundancy, fault tolerance, and failover capabilities."
-        }
-      ]
-    },
-    {
-      "id": "appendix",
-      "title": "APPENDIX",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "B About the Online Content This book comes complete with TotalTester Online customizable practice exam software with more than 1,400 multiple-choice practice exam questions, separate hotspot and drag-and-drop questions, and access to online CISSP-related flash cards."
+          "text": "APPENDIX B About the Online Content This book comes complete with TotalTester Online customizable practice exam software with more than 1,400 multiple-choice practice exam questions, separate hotspot and drag-and-drop questions, and access to online CISSP-related flash cards."
         }
       ]
     },
@@ -6201,17 +6212,10 @@
         {
           "type": "paragraph",
           "text": "trusted path A mechanism within the system that enables the user to communicate directly with the TCB. This mechanism can be activated only by the user or the TCB and not by an untrusted mechanism or process. trusted recovery A set of procedures that restores a system and its data in a trusted manner after the system has been disrupted or a system failure has occurred. user A person or process that is accessing a computer system. user ID A unique set of characters or code that is used to identify a specific user to a system. validation The act of performing tests and evaluations to test a system’s security level to see if it complies with security specifications and requirements. virus A small application, or string of code, that infects applications. The main function of a virus is to reproduce, and it requires a host application to do this. It can damage data directly or degrade system performance. vulnerability The absence or weakness of a safeguard that could be exploited. war dialing An attack in which a long list of phone numbers is inserted into a war-dialing program in the hope of finding a modem that can be exploited to gain unauthorized access. whitelist A set of known good resources such as IP addresses, domain names, or applications. work factor The estimated time and effort required for an attacker to overcome a security control. worm An independent program that can reproduce by copying itself from one system to another. It may damage data directly or degrade system performance by tying up resources. write An operation that results in the flow of information from a subject to an object."
-        }
-      ]
-    },
-    {
-      "id": "index",
-      "title": "INDEX",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "Please note that index links point to page beginnings from the print edition. Locations are approximate in e-readers, and you may need to page down one or more times after clicking a link to get to the indexed material."
+          "text": "INDEX Please note that index links point to page beginnings from the print edition. Locations are approximate in e-readers, and you may need to page down one or more times after clicking a link to get to the indexed material."
         }
       ]
     },

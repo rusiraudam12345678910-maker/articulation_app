@@ -1,7 +1,7 @@
 {
   "domain": 4,
   "title": "Communication and Network Security",
-  "totalSections": 183,
+  "totalSections": 192,
   "sections": [
     {
       "id": "domain-4-intro",
@@ -50,7 +50,7 @@
     {
       "id": "principles-of-network-architectures",
       "title": "Principles of Network Architectures",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -437,10 +437,17 @@
             "Digital subscriber line (DSL)",
             "Synchronous Optical Networking (SONET)"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "tying-the-layers-together",
+      "title": "Tying the Layers Together",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Tying the Layers Together The OSI model is used as a framework for many network-based products and is used by many types of vendors. Various types of devices and protocols work at different parts of this seven- layer model. The main reason that a Cisco switch, Microsoft web server, a Barracuda firewall, and a Belkin wireless access point can all communicate properly on one network is because they all work within the OSI model. They do not have their own individual ways of sending data; they follow a standardized manner of communication, which allows for interoperability and allows a network to be a network. If a product does not follow the OSI model, it will not be able to communicate with other devices on the network because the other devices will not understand its proprietary way of communicating."
+          "text": "The OSI model is used as a framework for many network-based products and is used by many types of vendors. Various types of devices and protocols work at different parts of this seven- layer model. The main reason that a Cisco switch, Microsoft web server, a Barracuda firewall, and a Belkin wireless access point can all communicate properly on one network is because they all work within the OSI model. They do not have their own individual ways of sending data; they follow a standardized manner of communication, which allows for interoperability and allows a network to be a network. If a product does not follow the OSI model, it will not be able to communicate with other devices on the network because the other devices will not understand its proprietary way of communicating."
         },
         {
           "type": "paragraph",
@@ -515,7 +522,7 @@
     {
       "id": "tcp-ip-model",
       "title": "TCP/IP Model",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -539,7 +546,18 @@
         },
         {
           "type": "paragraph",
-          "text": "The message is the letter, which is enveloped and addressed by IP, and the network and its services enable the message to be sent from its origin to its destination, like the postal system. TCP TCP is referred to as a connection-oriented protocol because before any user data is actually sent, handshaking takes place between the two systems that want to communicate. Once the handshaking completes successfully, a virtual connection is set up between the two systems. UDP is considered a connectionless protocol because it does not go through these steps. Instead, UDP sends out messages without first contacting the destination computer and does not know if the packets were received properly or dropped. Figure 4-10 shows the difference between a connection-oriented protocol and a connectionless protocol."
+          "text": "The message is the letter, which is enveloped and addressed by IP, and the network and its services enable the message to be sent from its origin to its destination, like the postal system."
+        }
+      ]
+    },
+    {
+      "id": "tcp",
+      "title": "TCP",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "TCP is referred to as a connection-oriented protocol because before any user data is actually sent, handshaking takes place between the two systems that want to communicate. Once the handshaking completes successfully, a virtual connection is set up between the two systems. UDP is considered a connectionless protocol because it does not go through these steps. Instead, UDP sends out messages without first contacting the destination computer and does not know if the packets were received properly or dropped. Figure 4-10 shows the difference between a connection-oriented protocol and a connectionless protocol."
         },
         {
           "type": "paragraph",
@@ -715,10 +733,17 @@
         {
           "type": "note",
           "text": "NOTE IP provides addressing, packet fragmentation, and packet timeouts. To ensure that packets do not continually traverse a network forever, IP provides a Time to Live (TTL) value that is decremented every time the packet passes through a router. IP can also provide a Type of Service (ToS) capability, which means it can prioritize different packets for time-sensitive"
-        },
+        }
+      ]
+    },
+    {
+      "id": "ipv6",
+      "title": "IPv6",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "IPv6 IPv6, also called IP next generation (IPng), not only has a larger address space than IPv4 to support more IP addresses; it has some capabilities that IPv4 does not and it accomplishes some of the same tasks differently. All of the specifics of the new functions within IPv6 are beyond the scope of this book, but we will look at a few of them, because IPv6 is the way of the future. IPv6 allows for scoped addresses, which enables an administrator to restrict specific addresses for specific servers or file and print sharing, for example. IPv6 has Internet Protocol Security (IPSec) integrated into the protocol stack, which provides end-to-end secure transmission and authentication. IPv6 has more flexibility and routing capabilities and allows for Quality of Service (QoS) priority values to be assigned to time-sensitive transmissions. The protocol offers autoconfiguration, which makes administration much easier, and it does not require network address translation (NAT) to extend its address space."
+          "text": "IPv6, also called IP next generation (IPng), not only has a larger address space than IPv4 to support more IP addresses; it has some capabilities that IPv4 does not and it accomplishes some of the same tasks differently. All of the specifics of the new functions within IPv6 are beyond the scope of this book, but we will look at a few of them, because IPv6 is the way of the future. IPv6 allows for scoped addresses, which enables an administrator to restrict specific addresses for specific servers or file and print sharing, for example. IPv6 has Internet Protocol Security (IPSec) integrated into the protocol stack, which provides end-to-end secure transmission and authentication. IPv6 has more flexibility and routing capabilities and allows for Quality of Service (QoS) priority values to be assigned to time-sensitive transmissions. The protocol offers autoconfiguration, which makes administration much easier, and it does not require network address translation (NAT) to extend its address space."
         },
         {
           "type": "paragraph",
@@ -810,10 +835,17 @@
           "caption": "Various IPv4 to IPv6 tunneling techniques",
           "domain": 4,
           "num": 17
-        },
+        }
+      ]
+    },
+    {
+      "id": "layer-2-security-standards",
+      "title": "Layer 2 Security Standards",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Layer 2 Security Standards As frames pass from one network device to another device, attackers could sniff the data; modify the headers; redirect the traffic; spoof traffic; carry out man-in-the-middle attacks, DoS attacks, and replay attacks; and indulge in other malicious activities. It has become necessary to secure network traffic at the frame level, which is layer 2 of the OSI model. 802.1AE is the IEEE MAC Security standard (MACSec), which defines a security infrastructure to provide data confidentiality, data integrity, and data origin authentication. Where a virtual private network (VPN) connection provides protection at the higher networking layers, MACSec provides hop-by-hop protection at layer 2, as shown in Figure 4-18. MACSec integrates security protection into wired Ethernet networks to secure LAN-based traffic. Only authenticated and trusted devices on the network can communicate with each other. Unauthorized devices are prevented from communicating via the network, which helps prevent attackers from installing rogue devices and redirecting traffic between nodes in an unauthorized manner. When a frame arrives at a device that is configured with MACSec, the MACSec Security Entity (SecY) decrypts the frame if necessary and computes an integrity check value (ICV) on the frame and compares it with the ICV that was sent with the frame. If the ICVs match, the device processes the frame. If they do not match, the device handles the frame according to a preconfigured policy, such as discarding it."
+          "text": "As frames pass from one network device to another device, attackers could sniff the data; modify the headers; redirect the traffic; spoof traffic; carry out man-in-the-middle attacks, DoS attacks, and replay attacks; and indulge in other malicious activities. It has become necessary to secure network traffic at the frame level, which is layer 2 of the OSI model. 802.1AE is the IEEE MAC Security standard (MACSec), which defines a security infrastructure to provide data confidentiality, data integrity, and data origin authentication. Where a virtual private network (VPN) connection provides protection at the higher networking layers, MACSec provides hop-by-hop protection at layer 2, as shown in Figure 4-18. MACSec integrates security protection into wired Ethernet networks to secure LAN-based traffic. Only authenticated and trusted devices on the network can communicate with each other. Unauthorized devices are prevented from communicating via the network, which helps prevent attackers from installing rogue devices and redirecting traffic between nodes in an unauthorized manner. When a frame arrives at a device that is configured with MACSec, the MACSec Security Entity (SecY) decrypts the frame if necessary and computes an integrity check value (ICV) on the frame and compares it with the ICV that was sent with the frame. If the ICVs match, the device processes the frame. If they do not match, the device handles the frame according to a preconfigured policy, such as discarding it."
         },
         {
           "type": "figure",
@@ -899,7 +931,7 @@
     {
       "id": "transmission-media",
       "title": "Transmission Media",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1247,7 +1279,7 @@
     {
       "id": "wireless-networks",
       "title": "Wireless Networks",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1259,10 +1291,17 @@
           "caption": "Various wireless transmission types",
           "domain": 4,
           "num": 24
-        },
+        }
+      ]
+    },
+    {
+      "id": "wireless-communications-techniques",
+      "title": "Wireless Communications Techniques",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Wireless Communications Techniques Wireless communication involves transmitting information via radio waves that move through air and space. These signals can be described in a number of ways, but normally are described in terms of frequency and amplitude. The frequency of a signal dictates the amount of data that can be carried and how far. The higher the frequency, the more data the signal can carry, but the higher the frequency, the more susceptible the signal is to atmospheric interference. Normally, a higher frequency can carry more data, but over a shorter distance."
+          "text": "Wireless communication involves transmitting information via radio waves that move through air and space. These signals can be described in a number of ways, but normally are described in terms of frequency and amplitude. The frequency of a signal dictates the amount of data that can be carried and how far. The higher the frequency, the more data the signal can carry, but the higher the frequency, the more susceptible the signal is to atmospheric interference. Normally, a higher frequency can carry more data, but over a shorter distance."
         },
         {
           "type": "paragraph",
@@ -1960,7 +1999,7 @@
     {
       "id": "networking-foundations",
       "title": "Networking Foundations",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2821,17 +2860,10 @@
         {
           "type": "paragraph",
           "text": "The e-mail server can implement different authentication schemes to ensure an individual is authorized to access a particular mailbox, but this is usually handled through usernames and passwords."
-        }
-      ]
-    },
-    {
-      "id": "imap",
-      "title": "IMAP",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "Internet Message Access Protocol (IMAP) is also an Internet protocol that enables users to access mail on a mail server. IMAP provides all the functionalities of POP, but has more capabilities. If a user is using POP, when he accesses his mail server to see if he has received any new messages, all messages are automatically downloaded to his computer. Once the messages are downloaded from the POP server, they are usually deleted from that server, depending upon the configuration. POP can cause frustration for mobile users because the messages are automatically pushed down to their computer or device and they may not have the necessary space to hold all the messages. This is especially true for mobile devices that can be used to access e-mail servers. This is also inconvenient for people checking their mail on other people’s computers. If Christina checks her e-mail on Jessica’s computer, all of Christina’s new mail could be downloaded to Jessica’s computer."
+          "text": "IMAP Internet Message Access Protocol (IMAP) is also an Internet protocol that enables users to access mail on a mail server. IMAP provides all the functionalities of POP, but has more capabilities. If a user is using POP, when he accesses his mail server to see if he has received any new messages, all messages are automatically downloaded to his computer. Once the messages are downloaded from the POP server, they are usually deleted from that server, depending upon the configuration. POP can cause frustration for mobile users because the messages are automatically pushed down to their computer or device and they may not have the necessary space to hold all the messages. This is especially true for mobile devices that can be used to access e-mail servers. This is also inconvenient for people checking their mail on other people’s computers. If Christina checks her e-mail on Jessica’s computer, all of Christina’s new mail could be downloaded to Jessica’s computer."
         },
         {
           "type": "note",
@@ -3183,7 +3215,7 @@
     {
       "id": "network-components",
       "title": "Network Components",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -3197,10 +3229,17 @@
             "Routers",
             "Switches"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "repeaters",
+      "title": "Repeaters",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Repeaters A repeater provides the simplest type of connectivity because it only repeats electrical signals between cable segments, which enables it to extend a network. Repeaters work at the physical layer and are add-on devices for extending a network connection over a greater distance. The device amplifies signals because signals attenuate the farther they have to travel. Repeaters can also work as line conditioners by actually cleaning up the signals. This works much better when amplifying digital signals than when amplifying analog signals because digital signals are discrete units, which makes extraction of background noise from them much easier for the amplifier. If the device is amplifying analog signals, any accompanying noise often is amplified as well, which may further distort the signal."
+          "text": "A repeater provides the simplest type of connectivity because it only repeats electrical signals between cable segments, which enables it to extend a network. Repeaters work at the physical layer and are add-on devices for extending a network connection over a greater distance. The device amplifies signals because signals attenuate the farther they have to travel. Repeaters can also work as line conditioners by actually cleaning up the signals. This works much better when amplifying digital signals than when amplifying analog signals because digital signals are discrete units, which makes extraction of background noise from them much easier for the amplifier. If the device is amplifying analog signals, any accompanying noise often is amplified as well, which may further distort the signal."
         },
         {
           "type": "paragraph",
@@ -3318,10 +3357,17 @@
           "type": "table_caption",
           "tableNum": "4-9",
           "caption": "Main Differences Between Bridges and Routers"
-        },
+        }
+      ]
+    },
+    {
+      "id": "switches",
+      "title": "Switches",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Switches Switches combine the functionality of a repeater and the functionality of a bridge. A switch amplifies the electrical signal, like a repeater, and has the built-in circuitry and intelligence of a bridge. It is a multiport connection device that provides connections for individual computers or other hubs and switches. Any device connected to one port can communicate with a device connected to another port with its own virtual private link. How does this differ from the way in which devices communicate using a bridge or a hub? When a frame comes to a hub, the hub sends the frame out through all of its ports. When a frame comes to a bridge, the bridge sends the frame to the port to which the destination network segment is connected. When a frame comes to a switch, the switch sends the frame directly to the destination computer or network, which results in a reduction of traffic. Figure 4-43 illustrates a network configuration that has computers directly connected to their corresponding switches."
+          "text": "Switches combine the functionality of a repeater and the functionality of a bridge. A switch amplifies the electrical signal, like a repeater, and has the built-in circuitry and intelligence of a bridge. It is a multiport connection device that provides connections for individual computers or other hubs and switches. Any device connected to one port can communicate with a device connected to another port with its own virtual private link. How does this differ from the way in which devices communicate using a bridge or a hub? When a frame comes to a hub, the hub sends the frame out through all of its ports. When a frame comes to a bridge, the bridge sends the frame to the port to which the destination network segment is connected. When a frame comes to a switch, the switch sends the frame directly to the destination computer or network, which results in a reduction of traffic. Figure 4-43 illustrates a network configuration that has computers directly connected to their corresponding switches."
         },
         {
           "type": "paragraph",
@@ -3456,10 +3502,17 @@
         {
           "type": "paragraph",
           "text": "Table 4-10 lists the devices covered in this “Networking Components” section and points out their important characteristics."
-        },
+        }
+      ]
+    },
+    {
+      "id": "pbxs",
+      "title": "PBXs",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "PBXs Telephone companies use switching technologies to transmit phone calls to their destinations. A telephone company’s central office houses the switches that connect towns, cities, and metropolitan areas through the use of optical fiber rings. So, for example, when Dusty makes a phone call from his house, the call first hits the local central office of the telephone company that provides service to Dusty, and then the switch within that office decides whether it is a local or long-distance call and where it needs to go from there. A Private Branch Exchange (PBX) is a private telephone switch that is located on a company’s property. This switch performs some of the same switching tasks that take place at the telephone company’s central office. The PBX has a dedicated connection to its local telephone company’s central office, where more intelligent switching takes place."
+          "text": "Telephone companies use switching technologies to transmit phone calls to their destinations. A telephone company’s central office houses the switches that connect towns, cities, and metropolitan areas through the use of optical fiber rings. So, for example, when Dusty makes a phone call from his house, the call first hits the local central office of the telephone company that provides service to Dusty, and then the switch within that office decides whether it is a local or long-distance call and where it needs to go from there. A Private Branch Exchange (PBX) is a private telephone switch that is located on a company’s property. This switch performs some of the same switching tasks that take place at the telephone company’s central office. The PBX has a dedicated connection to its local telephone company’s central office, where more intelligent switching takes place."
         },
         {
           "type": "paragraph",
@@ -4500,7 +4553,7 @@
     {
       "id": "intranets-and-extranets",
       "title": "Intranets and Extranets",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4619,10 +4672,17 @@
           "caption": "MAN architecture",
           "domain": 4,
           "num": 66
-        },
+        }
+      ]
+    },
+    {
+      "id": "wide-area-networks",
+      "title": "Wide Area Networks",
+      "level": 2,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Wide Area Networks LAN technologies provide communication capabilities over a small geographic area, whereas wide area network (WAN) technologies are used when communication needs to travel over a larger geographical area. LAN technologies encompass how a computer puts its data onto a network cable, the rules and protocols of how that data is formatted and transmitted, how errors are handled, and how the destination computer picks up this data from the cable. When a computer on one network needs to communicate with a network on the other side of the country or in a different country altogether, WAN technologies kick in."
+          "text": "LAN technologies provide communication capabilities over a small geographic area, whereas wide area network (WAN) technologies are used when communication needs to travel over a larger geographical area. LAN technologies encompass how a computer puts its data onto a network cable, the rules and protocols of how that data is formatted and transmitted, how errors are handled, and how the destination computer picks up this data from the cable. When a computer on one network needs to communicate with a network on the other side of the country or in a different country altogether, WAN technologies kick in."
         },
         {
           "type": "paragraph",
@@ -4846,17 +4906,10 @@
         {
           "type": "paragraph",
           "text": "Several varieties of WAN technologies are available to companies today. The information that a company evaluates to decide which is the most appropriate WAN technology for it usually includes functionality, bandwidth demands, service level agreements, required equipment, cost, and what is available from service providers. The following sections go over some of the WAN technologies available today."
-        }
-      ]
-    },
-    {
-      "id": "csu-dsu",
-      "title": "CSU/DSU",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "A channel service unit/data service unit (CSU/DSU) is required when digital equipment will be used to connect a LAN to a WAN. This connection can take place with T1 and T3 lines, as shown in Figure 4-69. A CSU/DSU is necessary because the signals and frames can vary between the LAN equipment and the WAN equipment used by service providers."
+          "text": "CSU/DSU A channel service unit/data service unit (CSU/DSU) is required when digital equipment will be used to connect a LAN to a WAN. This connection can take place with T1 and T3 lines, as shown in Figure 4-69. A CSU/DSU is necessary because the signals and frames can vary between the LAN equipment and the WAN equipment used by service providers."
         },
         {
           "type": "figure",
@@ -5105,32 +5158,18 @@
         {
           "type": "paragraph",
           "text": "Controlling network traffic to allow for the optimization or the guarantee of certain performance levels is referred to as traffic shaping. Using technologies that have QoS capabilities allows for traffic shaping, which can improve latency and increase bandwidth for specific traffic types, bandwidth throttling, and rate limiting."
-        }
-      ]
-    },
-    {
-      "id": "sdlc",
-      "title": "SDLC",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "Synchronous Data Link Control (SDLC) is a protocol used in networks that use dedicated, leased lines with permanent physical connections. It is used mainly for communications with IBM hosts within a Systems Network Architecture (SNA). Developed by IBM in the 1970s, SDLC is a bit- oriented, synchronous protocol that has evolved into other communication protocols, such as HDLC, Link Access Procedure (LAP), and Link Access Procedure-Balanced (LAPB)."
+          "text": "SDLC Synchronous Data Link Control (SDLC) is a protocol used in networks that use dedicated, leased lines with permanent physical connections. It is used mainly for communications with IBM hosts within a Systems Network Architecture (SNA). Developed by IBM in the 1970s, SDLC is a bit- oriented, synchronous protocol that has evolved into other communication protocols, such as HDLC, Link Access Procedure (LAP), and Link Access Procedure-Balanced (LAPB)."
         },
         {
           "type": "paragraph",
           "text": "SDLC was developed to enable mainframes to communicate with remote locations. The environments that use SDLC usually have primary systems that control secondary stations’ communication. SDLC provides the polling media access technology, which is the mechanism that enables secondary stations to communicate on the network. Figure 4-72 shows the primary and secondary stations on an SDLC network."
-        }
-      ]
-    },
-    {
-      "id": "hdlc",
-      "title": "HDLC",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "High-level Data Link Control (HDLC) is a protocol that is also a bit-oriented link layer protocol and is used for serial device-to-device WAN communication. HDLC is an extension of SDLC, which was mainly used in SNA environments. SDLC basically died out as the mainframe environments using SNA reduced greatly in numbers. HDLC stayed around and evolved."
+          "text": "HDLC High-level Data Link Control (HDLC) is a protocol that is also a bit-oriented link layer protocol and is used for serial device-to-device WAN communication. HDLC is an extension of SDLC, which was mainly used in SNA environments. SDLC basically died out as the mainframe environments using SNA reduced greatly in numbers. HDLC stayed around and evolved."
         },
         {
           "type": "figure",
@@ -5188,17 +5227,10 @@
         {
           "type": "paragraph",
           "text": "As an analogy, think about how different professions have their own language and terminology. Medical personnel use terms such as “dacryoadenitis,” “macrovascular,” and “sacrum.” Accounting personnel use words such as “ledger,” “trade receivables,” and “capital.” Techies use terms such as “C++,” “cluster,” and “parity.” Each profession has its own responsibilities, and because each is specialized and complex, it has its own language. You do not want a techie working on your sacrum, a doctor fixing your cluster, or either of them maintaining your ledgers. If your doctor asks you what is wrong and you start telling him that your web server has experienced a buffer overflow, your browser experienced a man-in- the-middle attack, or that your LAN experienced an ARP spoof attack, he can’t help you because he can’t understand you. Our network devices also have their own responsibilities and their own languages (data link protocols)."
-        }
-      ]
-    },
-    {
-      "id": "hssi",
-      "title": "HSSI",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "High-Speed Serial Interface (HSSI) is an interface used to connect multiplexers and routers to high-speed communications services such as ATM and frame relay. It supports speeds up to 52 Mbps, as in T3 WAN connections, which are usually integrated with router and multiplex devices to provide serial interfaces to the WAN. These interfaces define the electrical and physical interfaces to be used by DTE/DCE devices; thus, HSSI works at the physical layer."
+          "text": "HSSI High-Speed Serial Interface (HSSI) is an interface used to connect multiplexers and routers to high-speed communications services such as ATM and frame relay. It supports speeds up to 52 Mbps, as in T3 WAN connections, which are usually integrated with router and multiplex devices to provide serial interfaces to the WAN. These interfaces define the electrical and physical interfaces to be used by DTE/DCE devices; thus, HSSI works at the physical layer."
         }
       ]
     },
@@ -5215,10 +5247,17 @@
           "type": "table_caption",
           "tableNum": "4-15",
           "caption": "Characteristics of WAN Technologies (continued)"
-        },
+        }
+      ]
+    },
+    {
+      "id": "communications-channels",
+      "title": "Communications Channels",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Communications Channels Up to this point, we’ve treated all the data as if it were equal. While it is true that a packet is a packet regardless of its contents, there are a number of common cases in which the purpose of a communication matters a lot. If we’re downloading a file from a server, we normally don’t care (or even know about) the variation in delay times between consecutive packets. This variation, known as packet jitter, could mean that some packets follow each other closely (no variance) while others take a lot longer (or shorter) time to arrive. While it is largely inconsequential to our file download, it could be very problematic for voice, video, or interactive collaboration communications channels."
+          "text": "Up to this point, we’ve treated all the data as if it were equal. While it is true that a packet is a packet regardless of its contents, there are a number of common cases in which the purpose of a communication matters a lot. If we’re downloading a file from a server, we normally don’t care (or even know about) the variation in delay times between consecutive packets. This variation, known as packet jitter, could mean that some packets follow each other closely (no variance) while others take a lot longer (or shorter) time to arrive. While it is largely inconsequential to our file download, it could be very problematic for voice, video, or interactive collaboration communications channels."
         }
       ]
     },
@@ -5336,10 +5375,17 @@
         {
           "type": "paragraph",
           "text": "Because frame relay and ATM utilize PVCs and SVCs, they both have the ability to use SVCs for telephone calls. Remember that a CIR is used when a company wants to ensure it will always have a certain bandwidth available. When a company pays for this guaranteed bandwidth, it is paying for a PVC for which the switches and routers are programmed to control its connection and for that connection to be maintained. SVCs, on the other hand, are set up on demand and are temporary in nature. They are perfect for making telephone calls or transmitting video during videoconferencing."
-        },
+        }
+      ]
+    },
+    {
+      "id": "digging-deeper-into-sip",
+      "title": "Digging Deeper into SIP",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Digging Deeper into SIP As stated earlier, SIP is a signaling protocol widely used for VoIP communications sessions. It is used in applications such as video conferencing, multimedia, instant messaging, and online gaming. It is analogous to the SS7 protocol used in PSTN networks and supports features present in traditional telephony systems."
+          "text": "As stated earlier, SIP is a signaling protocol widely used for VoIP communications sessions. It is used in applications such as video conferencing, multimedia, instant messaging, and online gaming. It is analogous to the SS7 protocol used in PSTN networks and supports features present in traditional telephony systems."
         },
         {
           "type": "paragraph",
@@ -5459,7 +5505,7 @@
     {
       "id": "remote-access",
       "title": "Remote Access",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -5527,7 +5573,7 @@
     {
       "id": "isdn",
       "title": "ISDN",
-      "level": 2,
+      "level": 3,
       "content": [
         {
           "type": "paragraph",
@@ -5593,10 +5639,17 @@
         {
           "type": "paragraph",
           "text": "ISDN is not usually the primary telecommunications connection for companies, but it can be used as a backup in case the primary connection goes down. A company can also choose to implement dial-on-demand routing (DDR), which can work over ISDN. DDR allows a company to send WAN data over its existing telephone lines and use the public-switched telephone network (PSTN) as a temporary type of WAN link. It is usually implemented by companies that send out only a small amount of WAN traffic and is a much cheaper solution than a real WAN implementation. The connection activates when it is needed and then idles out."
-        },
+        }
+      ]
+    },
+    {
+      "id": "dsl",
+      "title": "DSL",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "DSL Digital subscriber line (DSL) is another type of high-speed connection technology used to connect a home or business to the service provider’s central office. It can provide 6 to 30 times higher bandwidth speeds than ISDN and analog technologies. It uses existing phone lines and provides a 24-hour connection to the Internet at rates of up to 52 Mbps. This does indeed sound better than sliced bread, but only certain people can get this service because you have to be within a 2.5-mile radius of the DSL service provider’s equipment. As the distance between a residence and the central office increases, the transmission rates for DSL decrease. DSL provides faster transmission rates than an analog dial-up connection because it uses all of the available frequencies available on a voice-grade UTP line. When you call someone, your voice data travels down this UTP line and the service provider “cleans up” the transmission by removing the high and low frequencies. Humans do not use these frequencies when they talk, so if there is anything on these frequencies, it is considered line noise and thus removed. So in reality, the available bandwidth of the line that goes from your house to the telephone company’s central office is artificially reduced. When DSL is used, this does not take place, and therefore the high and low frequencies can be used for data transmission."
+          "text": "Digital subscriber line (DSL) is another type of high-speed connection technology used to connect a home or business to the service provider’s central office. It can provide 6 to 30 times higher bandwidth speeds than ISDN and analog technologies. It uses existing phone lines and provides a 24-hour connection to the Internet at rates of up to 52 Mbps. This does indeed sound better than sliced bread, but only certain people can get this service because you have to be within a 2.5-mile radius of the DSL service provider’s equipment. As the distance between a residence and the central office increases, the transmission rates for DSL decrease. DSL provides faster transmission rates than an analog dial-up connection because it uses all of the available frequencies available on a voice-grade UTP line. When you call someone, your voice data travels down this UTP line and the service provider “cleans up” the transmission by removing the high and low frequencies. Humans do not use these frequencies when they talk, so if there is anything on these frequencies, it is considered line noise and thus removed. So in reality, the available bandwidth of the line that goes from your house to the telephone company’s central office is artificially reduced. When DSL is used, this does not take place, and therefore the high and low frequencies can be used for data transmission."
         },
         {
           "type": "paragraph",
@@ -5688,7 +5741,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Unlike dial-up modems and ISDN connections, DSL lines and cable modems are connected to the Internet and “live” all the time. No dial-up steps are required. This can cause a security issue because these types of connections are always online and available for scanning, probing, hacking, and attacking. These systems are also often used in DDoS attacks. Because the systems are on all the time, attackers attempt to plant Trojan horses that lie dormant until they get the command from the attacker to launch an attack against a victim. Many of the DDoS attacks use as their accomplices systems with DSL and cable modems, and usually the owner of the computer has no idea their system is being used to attack another system. VPN A virtual private network (VPN) is a secure, private connection through an untrusted network, as shown in Figure 4-75. It is a private connection because the encryption and tunneling protocols are used to ensure the confidentiality and integrity of the data in transit. It is important to remember that VPN technology requires a tunnel to work and it assumes encryption. We need VPNs because we send so much confidential information from system to system and network to network. The information can be credentials, bank account data, Social Security numbers, medical information, or any other type of data we do not want to share with the world. The demand for securing data transfers has increased over the years, and as our networks have increased in complexity, so have our VPN solutions."
+          "text": "Unlike dial-up modems and ISDN connections, DSL lines and cable modems are connected to the Internet and “live” all the time. No dial-up steps are required. This can cause a security issue because these types of connections are always online and available for scanning, probing, hacking, and attacking. These systems are also often used in DDoS attacks. Because the systems are on all the time, attackers attempt to plant Trojan horses that lie dormant until they get the command from the attacker to launch an attack against a victim. Many of the DDoS attacks use as their accomplices systems with DSL and cable modems, and usually the owner of the computer has no idea their system is being used to attack another system."
+        }
+      ]
+    },
+    {
+      "id": "vpn",
+      "title": "VPN",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A virtual private network (VPN) is a secure, private connection through an untrusted network, as shown in Figure 4-75. It is a private connection because the encryption and tunneling protocols are used to ensure the confidentiality and integrity of the data in transit. It is important to remember that VPN technology requires a tunnel to work and it assumes encryption. We need VPNs because we send so much confidential information from system to system and network to network. The information can be credentials, bank account data, Social Security numbers, medical information, or any other type of data we do not want to share with the world. The demand for securing data transfers has increased over the years, and as our networks have increased in complexity, so have our VPN solutions."
         },
         {
           "type": "figure",
@@ -6001,10 +6065,17 @@
           "type": "table_caption",
           "tableNum": "4-16",
           "caption": "EAP Variants"
-        },
+        }
+      ]
+    },
+    {
+      "id": "network-encryption",
+      "title": "Network Encryption",
+      "level": 2,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Network Encryption At this point in our discussion, we have touched on every major technology relevant to modern networks. Along the way, as we paused to consider vulnerabilities and controls, a recurring theme revolves around the use of encryption to protect the confidentiality and integrity of our data. Let us now take a look at three specific applications of encryption to protect our data communications in general and our e-mail and web traffic in particular."
+          "text": "At this point in our discussion, we have touched on every major technology relevant to modern networks. Along the way, as we paused to consider vulnerabilities and controls, a recurring theme revolves around the use of encryption to protect the confidentiality and integrity of our data. Let us now take a look at three specific applications of encryption to protect our data communications in general and our e-mail and web traffic in particular."
         }
       ]
     },
@@ -6219,7 +6290,7 @@
     {
       "id": "internet-security",
       "title": "Internet Security",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",

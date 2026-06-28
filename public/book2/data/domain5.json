@@ -1,7 +1,7 @@
 {
   "domain": 5,
   "title": "Identity and Access Management",
-  "totalSections": 129,
+  "totalSections": 133,
   "sections": [
     {
       "id": "domain-5-intro",
@@ -44,7 +44,7 @@
     {
       "id": "access-controls-overview",
       "title": "Access Controls Overview",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -140,13 +140,13 @@
       ]
     },
     {
-      "id": "identification-authentication-authorization-and",
-      "title": "Identification, Authentication, Authorization, and",
+      "id": "accountability",
+      "title": "Accountability",
       "level": 3,
       "content": [
         {
           "type": "paragraph",
-          "text": "Accountability For a user to be able to access a resource, he first must prove he is who he claims to be, has the necessary credentials, and has been given the necessary rights or privileges to perform the actions he is requesting. Once these steps are completed successfully, the user can access and use network resources; however, it is necessary to track the user’s activities and enforce accountability for his actions. Identification describes a method by which a subject (user, program, or process) claims to have a specific identity (username, account number, or e-mail address). Authentication is the process by which a system verifies the identity of the subject, usually by requiring a piece of information that only the claimed identity should have. This piece could be a password, passphrase, cryptographic key, personal identification number (PIN), anatomical attribute, or token. Together, the identification and authentication information (for example, username and password) make up the subject’s credentials. These credentials are compared to information that has been previously stored for this subject. If these credentials match the stored information, the subject is authenticated. But we are not done yet. Once the subject provides its credentials and is properly authenticated, the system it is trying to access needs to determine if this subject has been given the necessary rights and privileges to carry out the requested actions. The system will look at some type of access control matrix or compare security labels to verify that this subject may indeed access the requested resource and perform the actions it is attempting. If the system determines that the subject may access the resource, it authorizes the subject."
+          "text": "For a user to be able to access a resource, he first must prove he is who he claims to be, has the necessary credentials, and has been given the necessary rights or privileges to perform the actions he is requesting. Once these steps are completed successfully, the user can access and use network resources; however, it is necessary to track the user’s activities and enforce accountability for his actions. Identification describes a method by which a subject (user, program, or process) claims to have a specific identity (username, account number, or e-mail address). Authentication is the process by which a system verifies the identity of the subject, usually by requiring a piece of information that only the claimed identity should have. This piece could be a password, passphrase, cryptographic key, personal identification number (PIN), anatomical attribute, or token. Together, the identification and authentication information (for example, username and password) make up the subject’s credentials. These credentials are compared to information that has been previously stored for this subject. If these credentials match the stored information, the subject is authenticated. But we are not done yet. Once the subject provides its credentials and is properly authenticated, the system it is trying to access needs to determine if this subject has been given the necessary rights and privileges to carry out the requested actions. The system will look at some type of access control matrix or compare security labels to verify that this subject may indeed access the requested resource and perform the actions it is attempting. If the system determines that the subject may access the resource, it authorizes the subject."
         },
         {
           "type": "paragraph",
@@ -1360,10 +1360,17 @@
           "items": [
             "Thin clients Terminals that rely upon a central server for access control, processing, and"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "accountability",
+      "title": "Accountability",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "storage Accountability Auditing capabilities ensure users are accountable for their actions, verify that the security policies are enforced, and can be used as investigation tools. There are several reasons why network administrators and security professionals want to make sure accountability mechanisms are in place and configured properly: to be able to track bad deeds back to individuals, detect intrusions, reconstruct events and system conditions, provide legal recourse material, and produce problem reports. Audit documentation and log files hold a mountain of information— the trick is usually deciphering it and presenting it in a useful and understandable format. Accountability is tracked by recording user, system, and application activities. This recording is done through auditing functions and mechanisms within an operating system or application. Audit trails contain information about operating system activities, application events, and user actions. Audit trails can be used to verify the health of a system by checking performance information or certain types of errors and conditions. After a system crashes, a network administrator often will review audit logs to try and piece together the status of the system and attempt to understand what events could be attributed to the disruption."
+          "text": "Auditing capabilities ensure users are accountable for their actions, verify that the security policies are enforced, and can be used as investigation tools. There are several reasons why network administrators and security professionals want to make sure accountability mechanisms are in place and configured properly: to be able to track bad deeds back to individuals, detect intrusions, reconstruct events and system conditions, provide legal recourse material, and produce problem reports. Audit documentation and log files hold a mountain of information— the trick is usually deciphering it and presenting it in a useful and understandable format. Accountability is tracked by recording user, system, and application activities. This recording is done through auditing functions and mechanisms within an operating system or application. Audit trails contain information about operating system activities, application events, and user actions. Audit trails can be used to verify the health of a system by checking performance information or certain types of errors and conditions. After a system crashes, a network administrator often will review audit logs to try and piece together the status of the system and attempt to understand what events could be attributed to the disruption."
         },
         {
           "type": "paragraph",
@@ -1523,10 +1530,17 @@
             "“I know who you are, now what am I going to allow you to do?”",
             "Audit logs and monitoring to track subject activities with objects"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "session-management",
+      "title": "Session Management",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Session Management A session is an agreement between two parties to communicate interactively. Think of it as a phone call: you dial your friend’s number, she decides whether to answer, and if she does then you talk with each other until something happens to end the call. That “something” could be that you (or her) are out of time and have to go, or maybe one of you runs out of things to say and there’s an awkward silence on the line, or maybe one of you starts acting weird and the other is bothered and hangs up. Technically, the call could go on forever, though in practice that doesn’t happen."
+          "text": "A session is an agreement between two parties to communicate interactively. Think of it as a phone call: you dial your friend’s number, she decides whether to answer, and if she does then you talk with each other until something happens to end the call. That “something” could be that you (or her) are out of time and have to go, or maybe one of you runs out of things to say and there’s an awkward silence on the line, or maybe one of you starts acting weird and the other is bothered and hangs up. Technically, the call could go on forever, though in practice that doesn’t happen."
         },
         {
           "type": "paragraph",
@@ -1571,7 +1585,7 @@
     {
       "id": "federation",
       "title": "Federation",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1850,15 +1864,22 @@
     {
       "id": "integrating-identity-as-a-service",
       "title": "Integrating Identity as a Service",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
           "text": "It should not be surprising to consider that cloud service providers are also able to provide identification services. Identity as a Service (IDaaS) is a type of Software as a Service (SaaS) offering that is normally configured to provide SSO, federated IdM, and password management services. Though most IDaaS vendors are focused on cloud- and web-centric systems, it is also possible to leverage their products for IdM on legacy platforms within the enterprise network. There are two basic approaches to architecting identity services: in-house or outsourced. The first approach, in-house, is simple because all the systems and data are located within the enterprise. In an outsourced model, on the other hand, most or all of the systems or data will be hosted by an external party. In either approach, it is important to ensure that all components play nice with each other. In the following sections we will explore some of the considerations that are common to the successful integration of these services."
-        },
+        }
+      ]
+    },
+    {
+      "id": "on-premise",
+      "title": "On-premise",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "On-premise An on-premise (or on-premises) IdM system is one in which all needed resources remain under your physical control. This usually means that you purchase or lease the necessary hardware, software, and licenses and then use your own team to build, integrate, and maintain the system. This kind of deployment makes sense in cases where networks are not directly connected to the Internet, such as those of some critical infrastructure and military organizations. Though most on-premise IdM solution providers offer installation, configuration, and support services, day-to- day operation and management of the system will fall on your team. This requires them to have not only the needed expertise, but also the time to devote to managing the system’s life cycle. A scenario in which an on-premise IdM solution makes sense is when you have to manage identities for systems that are not directly connected to the Internet. For instance, manufacturing and utility companies typically have an operational technology (OT) network that is oftentimes isolated. Similarly, some research companies and government organizations have networks that are air-gapped for security. However, many organizations use this approach simply because their networks and systems have grown organically and they’re just used to providing IdM in-house. For them, there is a noticeable trend toward adopting cloud-based IDaaS."
+          "text": "An on-premise (or on-premises) IdM system is one in which all needed resources remain under your physical control. This usually means that you purchase or lease the necessary hardware, software, and licenses and then use your own team to build, integrate, and maintain the system. This kind of deployment makes sense in cases where networks are not directly connected to the Internet, such as those of some critical infrastructure and military organizations. Though most on-premise IdM solution providers offer installation, configuration, and support services, day-to- day operation and management of the system will fall on your team. This requires them to have not only the needed expertise, but also the time to devote to managing the system’s life cycle. A scenario in which an on-premise IdM solution makes sense is when you have to manage identities for systems that are not directly connected to the Internet. For instance, manufacturing and utility companies typically have an operational technology (OT) network that is oftentimes isolated. Similarly, some research companies and government organizations have networks that are air-gapped for security. However, many organizations use this approach simply because their networks and systems have grown organically and they’re just used to providing IdM in-house. For them, there is a noticeable trend toward adopting cloud-based IDaaS."
         }
       ]
     },
@@ -1920,7 +1941,7 @@
     {
       "id": "access-control-mechanisms",
       "title": "Access Control Mechanisms",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2289,7 +2310,7 @@
     {
       "id": "access-control-techniques-and-technologies",
       "title": "Access Control Techniques and Technologies",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2331,32 +2352,18 @@
         {
           "type": "paragraph",
           "text": "The following sections present some examples of centralized remote access control technologies. Each of these authentication protocols is referred to as an AAA protocol, which stands for authentication, authorization, and auditing. (Some resources have the last A stand for accounting, but it is the same functionality—just a different name.) Depending upon the protocol, there are different ways to authenticate a user in this client/server architecture. The traditional authentication protocols are Password Authentication Protocol (PAP), Challenge Handshake Authentication Protocol (CHAP), and a newer method referred to as Extensible Authentication Protocol (EAP). Each of these authentication protocols is discussed at length in Chapter 6."
-        }
-      ]
-    },
-    {
-      "id": "radius",
-      "title": "RADIUS",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "Remote Authentication Dial-In User Service (RADIUS) is a network protocol that provides client/server authentication and authorization, and audits remote users. A network may have access servers, a modem pool, DSL, ISDN, or a T1 line dedicated for remote users to communicate through. The access server requests the remote user’s logon credentials and passes them back to a RADIUS server, which houses the usernames and password values. The remote user is a client to the access server, and the access server is a client to the RADIUS server. Most ISPs today use RADIUS to authenticate customers before they are allowed access to the Internet. The access server and customer’s software negotiate through a handshake procedure and agree upon an authentication protocol (PAP, CHAP, or EAP). The customer provides to the access server a username and password. This communication takes place over a Point-to-Point Protocol (PPP) connection. The access server and RADIUS server communicate over the RADIUS protocol. Once the authentication is completed properly, the customer’s system is given an IP address and connection parameters, and is allowed access to the Internet. The access server notifies the RADIUS server when the session starts and stops for billing purposes. RADIUS is also used within corporate environments to provide road warriors and home users access to network resources. RADIUS allows companies to maintain user profiles in a central database. When a user dials in and is properly authenticated, a preconfigured profile is assigned to him to control what resources he can and cannot access. This technology allows companies to have a single administered entry point, which provides standardization in security and a simplistic way to track usage and network statistics."
+          "text": "RADIUS Remote Authentication Dial-In User Service (RADIUS) is a network protocol that provides client/server authentication and authorization, and audits remote users. A network may have access servers, a modem pool, DSL, ISDN, or a T1 line dedicated for remote users to communicate through. The access server requests the remote user’s logon credentials and passes them back to a RADIUS server, which houses the usernames and password values. The remote user is a client to the access server, and the access server is a client to the RADIUS server. Most ISPs today use RADIUS to authenticate customers before they are allowed access to the Internet. The access server and customer’s software negotiate through a handshake procedure and agree upon an authentication protocol (PAP, CHAP, or EAP). The customer provides to the access server a username and password. This communication takes place over a Point-to-Point Protocol (PPP) connection. The access server and RADIUS server communicate over the RADIUS protocol. Once the authentication is completed properly, the customer’s system is given an IP address and connection parameters, and is allowed access to the Internet. The access server notifies the RADIUS server when the session starts and stops for billing purposes. RADIUS is also used within corporate environments to provide road warriors and home users access to network resources. RADIUS allows companies to maintain user profiles in a central database. When a user dials in and is properly authenticated, a preconfigured profile is assigned to him to control what resources he can and cannot access. This technology allows companies to have a single administered entry point, which provides standardization in security and a simplistic way to track usage and network statistics."
         },
         {
           "type": "paragraph",
           "text": "RADIUS was developed by Livingston Enterprises for its network access server product series, but was then published as a set of standards (RFC 2865 and RFC 2866). This means it is an open protocol that any vendor can use and manipulate so it will work within its individual products. Because RADIUS is an open protocol, it can be used in different types of implementations. The format of configurations and user credentials can be held in LDAP servers, various databases, or text files. Figure 5-21 shows some examples of possible RADIUS implementations."
-        }
-      ]
-    },
-    {
-      "id": "tacacs",
-      "title": "TACACS",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "Terminal Access Controller Access Control System (TACACS) has a very funny name. Not funny ha-ha, but funny “huh?” TACACS has been through three generations: TACACS, Extended TACACS (XTACACS), and TACACS+. TACACS combines its authentication and authorization processes; XTACACS separates authentication, authorization, and auditing processes; and TACACS+ is XTACACS with extended two-factor user authentication. TACACS uses fixed passwords for authentication, while TACACS+ allows users to employ dynamic (one- time) passwords, which provides more protection."
+          "text": "TACACS Terminal Access Controller Access Control System (TACACS) has a very funny name. Not funny ha-ha, but funny “huh?” TACACS has been through three generations: TACACS, Extended TACACS (XTACACS), and TACACS+. TACACS combines its authentication and authorization processes; XTACACS separates authentication, authorization, and auditing processes; and TACACS+ is XTACACS with extended two-factor user authentication. TACACS uses fixed passwords for authentication, while TACACS+ allows users to employ dynamic (one- time) passwords, which provides more protection."
         },
         {
           "type": "note",
@@ -2463,10 +2470,17 @@
             "Reauthorization on demand",
             "Reporting, roaming operations (ROAMOPS) accounting, event monitoring"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "access-control-matrix",
+      "title": "Access Control Matrix",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Access Control Matrix An access control matrix is a table of subjects and objects indicating what actions individual subjects can take upon individual objects. Matrices are data structures that programmers implement as table lookups that will be used and enforced by the operating system. Table 5-2 provides an example of an access control matrix."
+          "text": "An access control matrix is a table of subjects and objects indicating what actions individual subjects can take upon individual objects. Matrices are data structures that programmers implement as table lookups that will be used and enforced by the operating system. Table 5-2 provides an example of an access control matrix."
         },
         {
           "type": "paragraph",
@@ -2537,10 +2551,17 @@
           "type": "table_caption",
           "tableNum": "5-3",
           "caption": "The ACL for File1"
-        },
+        }
+      ]
+    },
+    {
+      "id": "context-dependent-access-control",
+      "title": "Context-Dependent Access Control",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Context-Dependent Access Control Context-dependent access control differs from content-dependent access control in that it makes access decisions based on the context of a collection of information rather than on the sensitivity of the data. A system that is using context-dependent access control “reviews the situation” and then makes a decision. For example, firewalls make context-based access decisions when they collect state information on a packet before allowing it into the network. A stateful firewall understands the necessary steps of communication for specific protocols. For example, in a TCP connection, the sender sends a SYN packet, the receiver sends a SYN/ACK, and then the sender acknowledges that packet with an ACK packet. A stateful firewall understands these different steps and will not allow packets to go through that do not follow this sequence. So, if a stateful firewall receives a SYN/ACK and there was not a previous SYN packet that correlates with this connection, the firewall understands this is not right and disregards the packet. This is what stateful means—something that understands the necessary steps of a dialog session. And this is an example of context-dependent access control, where the firewall understands the context of what is going on and includes that as part of its access decision."
+          "text": "Context-dependent access control differs from content-dependent access control in that it makes access decisions based on the context of a collection of information rather than on the sensitivity of the data. A system that is using context-dependent access control “reviews the situation” and then makes a decision. For example, firewalls make context-based access decisions when they collect state information on a packet before allowing it into the network. A stateful firewall understands the necessary steps of communication for specific protocols. For example, in a TCP connection, the sender sends a SYN packet, the receiver sends a SYN/ACK, and then the sender acknowledges that packet with an ACK packet. A stateful firewall understands these different steps and will not allow packets to go through that do not follow this sequence. So, if a stateful firewall receives a SYN/ACK and there was not a previous SYN packet that correlates with this connection, the firewall understands this is not right and disregards the packet. This is what stateful means—something that understands the necessary steps of a dialog session. And this is an example of context-dependent access control, where the firewall understands the context of what is going on and includes that as part of its access decision."
         },
         {
           "type": "paragraph",
@@ -2608,10 +2629,17 @@
             "Investigation for possible wrong-doing",
             "Unexpected disappearance"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "system-account-access-review",
+      "title": "System Account Access Review",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "System Account Access Review Just like we should do with user access, we should conduct system account access reviews both periodically and when certain conditions are met. Though HR would not be involved in these, the principle is the same: every system account eventually needs to be disabled or deprovisioned. What makes these accounts a bit trickier is that it is easy to forget they exist in the first place. It is not unusual for a service to require multiple accounts with which nobody interacts directly and yet are absolutely critical for the system. What’s worse, sometimes software updates can remove the need for legacy system accounts that are not deprovisioned as part of the updating process and remain in place as a potential vulnerability. A systematic approach to system account access review is your best way to avoid ending up with unneeded, potentially privileged accounts."
+          "text": "Just like we should do with user access, we should conduct system account access reviews both periodically and when certain conditions are met. Though HR would not be involved in these, the principle is the same: every system account eventually needs to be disabled or deprovisioned. What makes these accounts a bit trickier is that it is easy to forget they exist in the first place. It is not unusual for a service to require multiple accounts with which nobody interacts directly and yet are absolutely critical for the system. What’s worse, sometimes software updates can remove the need for legacy system accounts that are not deprovisioned as part of the updating process and remain in place as a potential vulnerability. A systematic approach to system account access review is your best way to avoid ending up with unneeded, potentially privileged accounts."
         }
       ]
     },
@@ -2637,7 +2665,7 @@
     {
       "id": "controlling-physical-and-logical-access",
       "title": "Controlling Physical and Logical Access",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2904,7 +2932,7 @@
     {
       "id": "access-control-practices",
       "title": "Access Control Practices",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -3017,7 +3045,7 @@
     {
       "id": "access-control-monitoring",
       "title": "Access Control Monitoring",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",

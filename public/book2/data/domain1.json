@@ -1,7 +1,7 @@
 {
   "domain": 1,
   "title": "Security and Risk Management",
-  "totalSections": 134,
+  "totalSections": 141,
   "sections": [
     {
       "id": "domain-1-intro",
@@ -57,7 +57,7 @@
     {
       "id": "fundamental-principles-of-security",
       "title": "Fundamental Principles of Security",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -211,10 +211,17 @@
           "caption": "The relationships among the different security concepts",
           "domain": 1,
           "num": 1
-        },
+        }
+      ]
+    },
+    {
+      "id": "control-types",
+      "title": "Control Types",
+      "level": 2,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Control Types Up to this point we have covered the goals of security (availability, integrity, confidentiality) and the terminology used in the security industry (vulnerability, threat, risk, control). These are foundational components that must be understood if security is going to take place in an organized manner. The next foundational issue we are going to tackle is control types that can be implemented and their associated functionality."
+          "text": "Up to this point we have covered the goals of security (availability, integrity, confidentiality) and the terminology used in the security industry (vulnerability, threat, risk, control). These are foundational components that must be understood if security is going to take place in an organized manner. The next foundational issue we are going to tackle is control types that can be implemented and their associated functionality."
         },
         {
           "type": "paragraph",
@@ -340,7 +347,7 @@
     {
       "id": "security-frameworks",
       "title": "Security Frameworks",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -481,7 +488,18 @@
         },
         {
           "type": "paragraph",
-          "text": "process improvement developed by Carnegie Mellon University ISO/IEC 27000 Series British Standard 7799 (BS7799) was developed in 1995 by the United Kingdom government’s Department of Trade and Industry and published by the British Standards Institution. The standard outlined how an information security management system (ISMS) (aka security program) should be built and maintained. The goal in developing the standard was to provide guidance to organizations on how to design, implement, and maintain policies, processes, and technologies to manage risks to its sensitive information assets."
+          "text": "process improvement developed by Carnegie Mellon University"
+        }
+      ]
+    },
+    {
+      "id": "iso-iec-27000-series",
+      "title": "ISO/IEC 27000 Series",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "British Standard 7799 (BS7799) was developed in 1995 by the United Kingdom government’s Department of Trade and Industry and published by the British Standards Institution. The standard outlined how an information security management system (ISMS) (aka security program) should be built and maintained. The goal in developing the standard was to provide guidance to organizations on how to design, implement, and maintain policies, processes, and technologies to manage risks to its sensitive information assets."
         },
         {
           "type": "paragraph",
@@ -903,17 +921,10 @@
         {
           "type": "paragraph",
           "text": "Up to now we have our ISO/IEC 27000 series, which outlines the necessary components of an organizational security program. We also have our security enterprise architecture, which helps us integrate the requirements outlined in our security program into our existing business structure. Now we are going to get more focused and look at the objectives of the controls we are going to put into place to accomplish the goals outlined in our security program and enterprise architecture."
-        }
-      ]
-    },
-    {
-      "id": "cobit",
-      "title": "COBIT",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "The Control Objectives for Information and related Technology (COBIT) is a framework for governance and management developed by ISACA (formerly the Information Systems Audit and Control Association) and the IT Governance Institute (ITGI). It helps organizations optimize the value of their IT by balancing resource utilization, risk levels, and realization of benefits. This is all done by explicitly tying stakeholder drivers to stakeholder needs to organizational goals (to meet those needs) to IT goals (to meet or support the organizational goals). It is a holistic approach based on five key principles: 1. Meeting stakeholder needs 2. Covering the enterprise end to end 3. Applying a single integrated framework 4. Enabling a holistic approach 5. Separating governance from management Everything in COBIT is ultimately linked to the stakeholders through a series of transforms called cascading goals. The concept is pretty simple. At any point in our IT governance or management processes, we should be able to ask the question “why are we doing this?” and be led to an IT goal that is tied to an enterprise goal, which is in turn tied to a stakeholder need. COBIT specifies 17 enterprise and 17 IT-related goals that take the guesswork out of ensuring we consider all dimensions in our decision-making processes."
+          "text": "COBIT The Control Objectives for Information and related Technology (COBIT) is a framework for governance and management developed by ISACA (formerly the Information Systems Audit and Control Association) and the IT Governance Institute (ITGI). It helps organizations optimize the value of their IT by balancing resource utilization, risk levels, and realization of benefits. This is all done by explicitly tying stakeholder drivers to stakeholder needs to organizational goals (to meet those needs) to IT goals (to meet or support the organizational goals). It is a holistic approach based on five key principles: 1. Meeting stakeholder needs 2. Covering the enterprise end to end 3. Applying a single integrated framework 4. Enabling a holistic approach 5. Separating governance from management Everything in COBIT is ultimately linked to the stakeholders through a series of transforms called cascading goals. The concept is pretty simple. At any point in our IT governance or management processes, we should be able to ask the question “why are we doing this?” and be led to an IT goal that is tied to an enterprise goal, which is in turn tied to a stakeholder need. COBIT specifies 17 enterprise and 17 IT-related goals that take the guesswork out of ensuring we consider all dimensions in our decision-making processes."
         },
         {
           "type": "paragraph",
@@ -1139,7 +1150,7 @@
     {
       "id": "the-crux-of-computer-crime-laws",
       "title": "The Crux of Computer Crime Laws",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2082,7 +2093,7 @@
     {
       "id": "privacy",
       "title": "Privacy",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2542,10 +2553,17 @@
             "Self-regulation PCI DSS",
             "Individual user Passwords, encryption, awareness"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "data-breaches",
+      "title": "Data Breaches",
+      "level": 2,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Data Breaches It is a rare month indeed when one doesn’t read or hear about a major data breach. Information is the lifeblood of most major corporations nowadays, and threat actors know this. They have been devoting a lot of effort over the past several years to compromising and exploiting the data stores that, in many ways, are more valuable to companies than any vault full of cash. This trend continues unabated, which makes data breaches one of the most important issues in cyber security today."
+          "text": "It is a rare month indeed when one doesn’t read or hear about a major data breach. Information is the lifeblood of most major corporations nowadays, and threat actors know this. They have been devoting a lot of effort over the past several years to compromising and exploiting the data stores that, in many ways, are more valuable to companies than any vault full of cash. This trend continues unabated, which makes data breaches one of the most important issues in cyber security today."
         },
         {
           "type": "paragraph",
@@ -2641,13 +2659,13 @@
       ]
     },
     {
-      "id": "policies-standards-baselines-guidelines-and",
-      "title": "Policies, Standards, Baselines, Guidelines, and",
+      "id": "procedures",
+      "title": "Procedures",
       "level": 3,
       "content": [
         {
           "type": "paragraph",
-          "text": "Procedures Laws, directives, and government regulations are external to our organizations. They focus on what we can and cannot do, but largely stay away from specifying how these actions are accomplished or prevented. It is up to us to devise the right internal guidance that satisfies external requirements as well as our own internal ones. This is where we turn our attention next. Computers and the information processed on them usually have a direct relationship with a company’s critical missions and objectives. Because of this level of importance, senior management should make protecting these items a high priority and provide the necessary support, funds, time, and resources to ensure that systems, networks, and information are protected in the most logical and cost-effective manner possible. A comprehensive management approach must be developed to accomplish these goals successfully. This is because everyone within an organization may have a different set of personal values and experiences they bring to the environment with regard to security. It is important to make sure everyone is regarding security at a level that meets the needs of the organization as determined by laws, regulations, requirements, and business goals that have been determined by risk assessments of the environment of the organization."
+          "text": "Laws, directives, and government regulations are external to our organizations. They focus on what we can and cannot do, but largely stay away from specifying how these actions are accomplished or prevented. It is up to us to devise the right internal guidance that satisfies external requirements as well as our own internal ones. This is where we turn our attention next. Computers and the information processed on them usually have a direct relationship with a company’s critical missions and objectives. Because of this level of importance, senior management should make protecting these items a high priority and provide the necessary support, funds, time, and resources to ensure that systems, networks, and information are protected in the most logical and cost-effective manner possible. A comprehensive management approach must be developed to accomplish these goals successfully. This is because everyone within an organization may have a different set of personal values and experiences they bring to the environment with regard to security. It is important to make sure everyone is regarding security at a level that meets the needs of the organization as determined by laws, regulations, requirements, and business goals that have been determined by risk assessments of the environment of the organization."
         },
         {
           "type": "paragraph",
@@ -2951,7 +2969,7 @@
     {
       "id": "risk-management",
       "title": "Risk Management",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -3174,7 +3192,7 @@
     {
       "id": "threat-modeling",
       "title": "Threat Modeling",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -3358,7 +3376,7 @@
     {
       "id": "risk-assessment-and-analysis",
       "title": "Risk Assessment and Analysis",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4003,7 +4021,7 @@
     {
       "id": "supply-chain-risk-management",
       "title": "Supply Chain Risk Management",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4023,10 +4041,17 @@
           "caption": "Simplified supply chain",
           "domain": 1,
           "num": 17
-        },
+        }
+      ]
+    },
+    {
+      "id": "upstream-and-downstream-suppliers",
+      "title": "Upstream and Downstream Suppliers",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Upstream and Downstream Suppliers Suppliers are “upstream” from your company if they supply materials, goods, or services to your company and your company uses those in turn to provide whatever it is that it supplies to others. The core vulnerability that exists in these supply arrangements is that you could allow untrusted hardware, software, or services into your organization or products, where they could cause security problems. The Greeks used this to their advantage against the Trojans."
+          "text": "Suppliers are “upstream” from your company if they supply materials, goods, or services to your company and your company uses those in turn to provide whatever it is that it supplies to others. The core vulnerability that exists in these supply arrangements is that you could allow untrusted hardware, software, or services into your organization or products, where they could cause security problems. The Greeks used this to their advantage against the Trojans."
         },
         {
           "type": "paragraph",
@@ -4104,7 +4129,7 @@
     {
       "id": "risk-management-frameworks",
       "title": "Risk Management Frameworks",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4260,7 +4285,7 @@
     {
       "id": "business-continuity-and-disaster-recovery",
       "title": "Business Continuity and Disaster Recovery",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4312,10 +4337,17 @@
             "Reduce confusion during a crisis",
             "Ensure survivability of the business"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "standards-and-best-practices",
+      "title": "Standards and Best Practices",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Standards and Best Practices Although no specific scientific equation must be followed to create continuity plans, certain best practices have proven themselves over time. The National Institute of Standards and Technology is responsible for developing best practices and standards as they pertain to U.S. government and military environments. It is common for NIST to document the requirements for these types of environments, and then everyone else in the industry uses NIST’s documents as guidelines. So these are “musts” for U.S. government organizations and “good to have” for other, nongovernment entities."
+          "text": "Although no specific scientific equation must be followed to create continuity plans, certain best practices have proven themselves over time. The National Institute of Standards and Technology is responsible for developing best practices and standards as they pertain to U.S. government and military environments. It is common for NIST to document the requirements for these types of environments, and then everyone else in the industry uses NIST’s documents as guidelines. So these are “musts” for U.S. government organizations and “good to have” for other, nongovernment entities."
         },
         {
           "type": "paragraph",
@@ -4956,7 +4988,7 @@
     {
       "id": "personnel-security",
       "title": "Personnel Security",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -5024,10 +5056,17 @@
             "Credit report",
             "Drug screening"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "onboarding",
+      "title": "Onboarding",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Onboarding Once an organization finds a good candidate, offers employment, and the candidate accepts the employment offer, it’s time to bring the candidate on board. Onboarding is the process of turning a candidate into a trusted employee who is able to perform all assigned duties. Having a structured and well-documented onboarding process not only will make the new employee feel valued and welcome, but will also ensure that your organization doesn’t forget any security tasks. Though the specific steps will vary by organization, the following are some that are pretty universal."
+          "text": "Once an organization finds a good candidate, offers employment, and the candidate accepts the employment offer, it’s time to bring the candidate on board. Onboarding is the process of turning a candidate into a trusted employee who is able to perform all assigned duties. Having a structured and well-documented onboarding process not only will make the new employee feel valued and welcome, but will also ensure that your organization doesn’t forget any security tasks. Though the specific steps will vary by organization, the following are some that are pretty universal."
         },
         {
           "type": "list",
@@ -5210,10 +5249,17 @@
           "type": "table_caption",
           "tableNum": "1-12",
           "caption": "Aspects of Awareness, Training, and Education"
-        },
+        }
+      ]
+    },
+    {
+      "id": "security-governance",
+      "title": "Security Governance",
+      "level": 2,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Security Governance An organization may be following many of the items laid out in this chapter: building a security program, integrating it into their business architecture, developing a risk management program, documenting the different aspects of the security program, performing data protection, and training its staff. But how does the organization know that it is doing everything correctly, and doing so on an ongoing basis? This is where security governance comes into play. Security governance is a framework that allows for the security goals of an organization to be set and expressed by senior management, communicated throughout the different levels of the organization. It grants power to the entities needed to implement and enforce security, and provides a way to verify the performance of these necessary security activities. Not only does senior management need to set the direction of security; it also needs a way to be able to view and understand how their directives are being met or not being met."
+          "text": "An organization may be following many of the items laid out in this chapter: building a security program, integrating it into their business architecture, developing a risk management program, documenting the different aspects of the security program, performing data protection, and training its staff. But how does the organization know that it is doing everything correctly, and doing so on an ongoing basis? This is where security governance comes into play. Security governance is a framework that allows for the security goals of an organization to be set and expressed by senior management, communicated throughout the different levels of the organization. It grants power to the entities needed to implement and enforce security, and provides a way to verify the performance of these necessary security activities. Not only does senior management need to set the direction of security; it also needs a way to be able to view and understand how their directives are being met or not being met."
         },
         {
           "type": "paragraph",
@@ -5231,10 +5277,17 @@
           "type": "table_caption",
           "tableNum": "1-13",
           "caption": "Security Governance Program: A Comparison of Two Companies"
-        },
+        }
+      ]
+    },
+    {
+      "id": "metrics",
+      "title": "Metrics",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Metrics We really can’t just build a security program, call it good, and go home. We need a way to assess the effectiveness of our work, identify deficiencies, and prioritize the things that still need work. We need a way to facilitate decision making, performance improvement, and accountability through collection, analysis, and reporting of the necessary information. As the saying goes, “You can’t manage something you can’t measure.” In security there are many items that need to be measured so that performance is properly understood. We need to know how effective and efficient our security controls are, not only to make sure that assets are properly protected, but also to ensure that we are being financially responsible in our budgetary efforts. There are different methodologies that can be followed when it comes to developing security metrics, but no matter what model is followed, some things are critical across the board. Strong management support is necessary, because while it might seem that developing ways of counting things is not overly complex, the actual implementation and use of a metric and measuring system can be quite an undertaking. The metrics have to be developed, adopted, integrated into many different existing and new processes, interpreted, and used in decision-making efforts. Management needs to be on board if this effort is going to be successful."
+          "text": "We really can’t just build a security program, call it good, and go home. We need a way to assess the effectiveness of our work, identify deficiencies, and prioritize the things that still need work. We need a way to facilitate decision making, performance improvement, and accountability through collection, analysis, and reporting of the necessary information. As the saying goes, “You can’t manage something you can’t measure.” In security there are many items that need to be measured so that performance is properly understood. We need to know how effective and efficient our security controls are, not only to make sure that assets are properly protected, but also to ensure that we are being financially responsible in our budgetary efforts. There are different methodologies that can be followed when it comes to developing security metrics, but no matter what model is followed, some things are critical across the board. Strong management support is necessary, because while it might seem that developing ways of counting things is not overly complex, the actual implementation and use of a metric and measuring system can be quite an undertaking. The metrics have to be developed, adopted, integrated into many different existing and new processes, interpreted, and used in decision-making efforts. Management needs to be on board if this effort is going to be successful."
         },
         {
           "type": "paragraph",
@@ -5292,7 +5345,7 @@
     {
       "id": "ethics",
       "title": "Ethics",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",

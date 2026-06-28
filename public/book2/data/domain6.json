@@ -1,7 +1,7 @@
 {
   "domain": 6,
   "title": "Security Assessment and Testing",
-  "totalSections": 65,
+  "totalSections": 66,
   "sections": [
     {
       "id": "domain-6-intro",
@@ -48,7 +48,7 @@
     {
       "id": "assessment-test-and-audit-strategies",
       "title": "Assessment, Test, and Audit Strategies",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -397,7 +397,7 @@
     {
       "id": "auditing-technical-controls",
       "title": "Auditing Technical Controls",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -795,10 +795,17 @@
           "type": "table_caption",
           "tableNum": "6-1",
           "caption": "Example Testing Schedules for Each Operations and Security Department"
-        },
+        }
+      ]
+    },
+    {
+      "id": "log-reviews",
+      "title": "Log Reviews",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Log Reviews A log review is the examination of system log files to detect security events or to verify the effectiveness of security controls. Log reviews actually start way before the first event is examined by a security specialist. In order for event logs to provide meaningful information, they must capture a very specific but potentially large amount of information that is grounded on both industry best practices and the organization’s risk management process. There is no one-size-fits- all set of event types that will help you assess your security posture. Instead, you need to constantly tune your systems in response to the ever-changing threat landscape."
+          "text": "A log review is the examination of system log files to detect security events or to verify the effectiveness of security controls. Log reviews actually start way before the first event is examined by a security specialist. In order for event logs to provide meaningful information, they must capture a very specific but potentially large amount of information that is grounded on both industry best practices and the organization’s risk management process. There is no one-size-fits- all set of event types that will help you assess your security posture. Instead, you need to constantly tune your systems in response to the ever-changing threat landscape."
         },
         {
           "type": "paragraph",
@@ -1048,7 +1055,7 @@
     {
       "id": "auditing-administrative-controls",
       "title": "Auditing Administrative Controls",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1646,7 +1653,7 @@
     {
       "id": "reporting",
       "title": "Reporting",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1824,7 +1831,7 @@
     {
       "id": "management-review-and-approval",
       "title": "Management Review and Approval",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",

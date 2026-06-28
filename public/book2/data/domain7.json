@@ -1,7 +1,7 @@
 {
   "domain": 7,
   "title": "Security Operations",
-  "totalSections": 142,
+  "totalSections": 145,
   "sections": [
     {
       "id": "domain-7-intro",
@@ -45,7 +45,7 @@
     {
       "id": "the-role-of-the-operations-department",
       "title": "The Role of the Operations Department",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -254,7 +254,7 @@
     {
       "id": "physical-security",
       "title": "Physical Security",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -992,7 +992,7 @@
     {
       "id": "secure-resource-provisioning",
       "title": "Secure Resource Provisioning",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1647,7 +1647,7 @@
     {
       "id": "network-and-resource-availability",
       "title": "Network and Resource Availability",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -1776,17 +1776,10 @@
         {
           "type": "paragraph",
           "text": "The following sections address technologies that can be used to help prevent productivity disruption because of single points of failure."
-        }
-      ]
-    },
-    {
-      "id": "raid",
-      "title": "RAID",
-      "level": 2,
-      "content": [
+        },
         {
           "type": "paragraph",
-          "text": "Redundant array of independent disks (RAID) is a technology used for redundancy and/or performance improvement that combines several physical disks and aggregates them into logical arrays. Redundancy and speed are provided by breaking up the data and writing it across several disks so different disk heads can work simultaneously to retrieve the requested information. Control data is also spread across each disk—this is called parity—so that if one disk fails, the other disks can work together and restore its data. A RAID appears as a single drive to applications and other devices."
+          "text": "RAID Redundant array of independent disks (RAID) is a technology used for redundancy and/or performance improvement that combines several physical disks and aggregates them into logical arrays. Redundancy and speed are provided by breaking up the data and writing it across several disks so different disk heads can work simultaneously to retrieve the requested information. Control data is also spread across each disk—this is called parity—so that if one disk fails, the other disks can work together and restore its data. A RAID appears as a single drive to applications and other devices."
         },
         {
           "type": "paragraph",
@@ -1983,10 +1976,17 @@
             "Grid computing",
             "Backups"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "preventing-and-detecting",
+      "title": "Preventing and Detecting",
+      "level": 2,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Preventing and Detecting A good way to reduce the likelihood of contingencies and disasters is to ensure your defensive architectures include the right set of tools. These technical controls need to be carefully considered in the context of your own conditions to decide which are useful and which aren’t. Regardless of the tools you employ, there is an underlying process that drives their operation in a live environment. The steps of this generalized process are described here: 1. Understand the risk. Chapter 1 presented the risk management process that organizations should use. The premise of this process is that you can’t ever eliminate all risks and should therefore devote your scarce resources to mitigating the most dangerous risks to a point where their likelihood is acceptable to the senior leaders. If you don’t focus on that set of risks, you will likely squander your resources countering threats that are not the ones your CEO is really concerned about. 2. Use the right controls. Once you are focused on the right set of risks, you can more easily identify the controls that will appropriately mitigate them. The relationship between risks and controls is many to many, since a given risk can have multiple controls assigned to it and a given control can be used to mitigate multiple risks. In fact, the number of risks mitigated by one control should give you an indicator of the value of that control to the organization. On the other hand, having multiple controls mitigating a risk may be less efficient, but may provide resiliency. 3. Use the controls correctly. Selecting the right tools is only part of the battle. You also need to ensure they are emplaced and configured correctly. The network architectures covered in Chapter 4 place some very significant limitations on the effectiveness of tools based on where they are plugged in. If an IDS is deployed on the wrong subnet, it may not be able to monitor all the traffic from the threat sources against which it is supposed to defend. Similarly, that same IDS with the wrong configuration or rule set could well become an expensive ornament on the network. 4. Manage your configuration. One of the certainties in life is that, left alone, every configuration is guaranteed to become obsolete at some point in the future. Even if it is not left alone, making unauthorized or undocumented changes will introduce risk at best and at worst quietly render your network vulnerable to an immediate threat. Properly done, configuration management will ensure you have ground truth about your network so that you can better answer the questions that are typically asked when doing security operations. 5. Assess your operation. You should constantly (or at least periodically) be looking at your defensive plan, comparing it with your latest threat and risk assessments, and asking yourself: are we still properly mitigating the risks? You should test your controls using cases derived from your risk assessment. This verifies that you are correctly mitigating those risks. However, you should also occasionally test your controls against an unconstrained set of threats in order to validate that you are mitigating the correct risks. A good penetration test (pen test) can both verify and validate the controls."
+          "text": "A good way to reduce the likelihood of contingencies and disasters is to ensure your defensive architectures include the right set of tools. These technical controls need to be carefully considered in the context of your own conditions to decide which are useful and which aren’t. Regardless of the tools you employ, there is an underlying process that drives their operation in a live environment. The steps of this generalized process are described here: 1. Understand the risk. Chapter 1 presented the risk management process that organizations should use. The premise of this process is that you can’t ever eliminate all risks and should therefore devote your scarce resources to mitigating the most dangerous risks to a point where their likelihood is acceptable to the senior leaders. If you don’t focus on that set of risks, you will likely squander your resources countering threats that are not the ones your CEO is really concerned about. 2. Use the right controls. Once you are focused on the right set of risks, you can more easily identify the controls that will appropriately mitigate them. The relationship between risks and controls is many to many, since a given risk can have multiple controls assigned to it and a given control can be used to mitigate multiple risks. In fact, the number of risks mitigated by one control should give you an indicator of the value of that control to the organization. On the other hand, having multiple controls mitigating a risk may be less efficient, but may provide resiliency. 3. Use the controls correctly. Selecting the right tools is only part of the battle. You also need to ensure they are emplaced and configured correctly. The network architectures covered in Chapter 4 place some very significant limitations on the effectiveness of tools based on where they are plugged in. If an IDS is deployed on the wrong subnet, it may not be able to monitor all the traffic from the threat sources against which it is supposed to defend. Similarly, that same IDS with the wrong configuration or rule set could well become an expensive ornament on the network. 4. Manage your configuration. One of the certainties in life is that, left alone, every configuration is guaranteed to become obsolete at some point in the future. Even if it is not left alone, making unauthorized or undocumented changes will introduce risk at best and at worst quietly render your network vulnerable to an immediate threat. Properly done, configuration management will ensure you have ground truth about your network so that you can better answer the questions that are typically asked when doing security operations. 5. Assess your operation. You should constantly (or at least periodically) be looking at your defensive plan, comparing it with your latest threat and risk assessments, and asking yourself: are we still properly mitigating the risks? You should test your controls using cases derived from your risk assessment. This verifies that you are correctly mitigating those risks. However, you should also occasionally test your controls against an unconstrained set of threats in order to validate that you are mitigating the correct risks. A good penetration test (pen test) can both verify and validate the controls."
         },
         {
           "type": "paragraph",
@@ -2361,7 +2361,18 @@
         },
         {
           "type": "paragraph",
-          "text": "Another key to honeypot success is to provide the right kind of bait. When someone attacks your organization, what is it that they are after? Is it credit card information, patient files, intellectual property? Your honeypots should look like systems that would allow them to access the assets for which they are searching. Once compromised, the directories and files containing this information must appear to be credible. It should also take a long time to extract the information, so that we maximize the contact time with our “guests.” Egress Monitoring A security practice that is oftentimes overlooked by smaller organizations is egress monitoring, which is keeping an eye on (and perhaps restricting) the information that is flowing out of our networks. Chapter 2 introduced data leak prevention (DLP), which is a very specific use case of this. Beyond DLP, we should be concerned that our platforms are being used to attack others or that our personnel are communicating (knowingly or otherwise) with unsavory external parties. A common approach to egress monitoring is to allow only certain hosts to communicate directly with external destinations. This allows us to focus our attention on a smaller set of computers that presumably would be running some sort of filtering software. A good example of this approach is the use of a web gateway, which effectively implements a man-in-the-middle “attack” on all of our organization’s web traffic. It is not uncommon to configure these devices to terminate (and thus decrypt) all HTTPS traffic and to do deep packet inspection (DPI) before allowing information to flow out of the network."
+          "text": "Another key to honeypot success is to provide the right kind of bait. When someone attacks your organization, what is it that they are after? Is it credit card information, patient files, intellectual property? Your honeypots should look like systems that would allow them to access the assets for which they are searching. Once compromised, the directories and files containing this information must appear to be credible. It should also take a long time to extract the information, so that we maximize the contact time with our “guests.”"
+        }
+      ]
+    },
+    {
+      "id": "egress-monitoring",
+      "title": "Egress Monitoring",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A security practice that is oftentimes overlooked by smaller organizations is egress monitoring, which is keeping an eye on (and perhaps restricting) the information that is flowing out of our networks. Chapter 2 introduced data leak prevention (DLP), which is a very specific use case of this. Beyond DLP, we should be concerned that our platforms are being used to attack others or that our personnel are communicating (knowingly or otherwise) with unsavory external parties. A common approach to egress monitoring is to allow only certain hosts to communicate directly with external destinations. This allows us to focus our attention on a smaller set of computers that presumably would be running some sort of filtering software. A good example of this approach is the use of a web gateway, which effectively implements a man-in-the-middle “attack” on all of our organization’s web traffic. It is not uncommon to configure these devices to terminate (and thus decrypt) all HTTPS traffic and to do deep packet inspection (DPI) before allowing information to flow out of the network."
         }
       ]
     },
@@ -2383,7 +2394,7 @@
     {
       "id": "outsourced-services",
       "title": "Outsourced Services",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2448,7 +2459,7 @@
     {
       "id": "the-incident-management-process",
       "title": "The Incident Management Process",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2624,10 +2635,17 @@
             "Identity and comments of incident handlers",
             "Next steps to be taken"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "title": "Recovery",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Recovery Once the incident is mitigated, you must turn your attention to the recovery phase, in which you return all systems and information to a known-good state. It is important to gather evidence before you recover systems and information. The reason is that in many cases you won’t know that you will need legally admissible evidence until days, weeks, or even months after an incident. It pays, then, to treat each incident as if it will eventually end up in a court of justice. Once all relevant evidence is captured, you can begin to fix all that was broken. The aim is to restore full, trustworthy functionality to the organization. For hosts that were compromised, the best practice is to simply reinstall the system from a gold master image and then restore data from the most recent backup that occurred prior to the attack. You may also have to roll back transactions and restore databases from backup systems. Once you are done, it is as if the incident never happened. Well, almost."
+          "text": "Once the incident is mitigated, you must turn your attention to the recovery phase, in which you return all systems and information to a known-good state. It is important to gather evidence before you recover systems and information. The reason is that in many cases you won’t know that you will need legally admissible evidence until days, weeks, or even months after an incident. It pays, then, to treat each incident as if it will eventually end up in a court of justice. Once all relevant evidence is captured, you can begin to fix all that was broken. The aim is to restore full, trustworthy functionality to the organization. For hosts that were compromised, the best practice is to simply reinstall the system from a gold master image and then restore data from the most recent backup that occurred prior to the attack. You may also have to roll back transactions and restore databases from backup systems. Once you are done, it is as if the incident never happened. Well, almost."
         },
         {
           "type": "note",
@@ -2694,7 +2712,7 @@
     {
       "id": "investigations",
       "title": "Investigations",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -2868,10 +2886,17 @@
             "Firmware and dedicated memory inspections",
             "Embedded operating systems, virtualized software, and hypervisor analysis"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "types-of-investigations",
+      "title": "Types of Investigations",
+      "level": 3,
+      "content": [
         {
           "type": "paragraph",
-          "text": "Types of Investigations Investigations happen for very specific reasons. Maybe you suspect an employee is using your servers to mine bitcoin after hours, which in most places would be a violation of acceptable use policies. Maybe you think civil litigation is reasonably foreseeable or you uncover evidence of crime on your systems. Though the investigative process is similar regardless of the reason, it is"
+          "text": "Investigations happen for very specific reasons. Maybe you suspect an employee is using your servers to mine bitcoin after hours, which in most places would be a violation of acceptable use policies. Maybe you think civil litigation is reasonably foreseeable or you uncover evidence of crime on your systems. Though the investigative process is similar regardless of the reason, it is"
         },
         {
           "type": "note",
@@ -3256,7 +3281,7 @@
     {
       "id": "disaster-recovery",
       "title": "Disaster Recovery",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4072,7 +4097,7 @@
     {
       "id": "liability-and-its-ramifications",
       "title": "Liability and Its Ramifications",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4366,7 +4391,7 @@
     {
       "id": "implementing-disaster-recovery",
       "title": "Implementing Disaster Recovery",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
@@ -4637,7 +4662,7 @@
     {
       "id": "personal-safety-concerns",
       "title": "Personal Safety Concerns",
-      "level": 3,
+      "level": 2,
       "content": [
         {
           "type": "paragraph",
