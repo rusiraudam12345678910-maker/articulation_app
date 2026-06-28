@@ -309,6 +309,48 @@ body {
 .section-read-toggle input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
 .section-read-toggle label { font-size: 0.8rem; color: var(--ink-muted); cursor: pointer; }
 
+/* Bullet lists */
+.content-list {
+  margin: 12px 0 16px 24px;
+  padding: 0;
+  list-style: disc;
+}
+.content-list li {
+  font-size: 1rem; line-height: 1.7;
+  color: var(--ink); margin-bottom: 4px;
+  padding-left: 4px;
+}
+
+/* Blockquote */
+.content-quote {
+  margin: 20px 0;
+  padding: 16px 20px;
+  border-left: 4px solid var(--ink-muted);
+  background: var(--paper-raised);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.content-quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.content-quote cite {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  font-style: normal;
+}
+
+/* Chapter intro line */
+.chapter-intro-line {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 16px 0 8px;
+}
+
 /* Figures */
 .book-figure {
   margin: 24px 0;

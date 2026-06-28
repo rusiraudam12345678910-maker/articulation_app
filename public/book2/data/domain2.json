@@ -4,13 +4,36 @@
   "totalSections": 9,
   "sections": [
     {
-      "id": "chapter",
-      "title": "CHAPTER",
+      "id": "domain-2-intro",
+      "title": "Domain 2 Introduction",
       "level": 2,
       "content": [
         {
+          "type": "chapter_intro",
+          "text": "This chapter presents the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Information life cycle",
+            "Information classification and protection",
+            "Information ownership",
+            "Protection of privacy",
+            "Asset retention",
+            "Data security controls",
+            "Asset handling requirements"
+          ]
+        },
+        {
+          "type": "quote",
+          "lines": [
+            "Data is a precious thing and will last longer than the systems themselves.",
+            "—Tim Berners-Lee"
+          ]
+        },
+        {
           "type": "paragraph",
-          "text": "Asset Security This chapter presents the following: • Information life cycle • Information classification and protection • Information ownership • Protection of privacy • Asset retention • Data security controls • Asset handling requirements Data is a precious thing and will last longer than the systems themselves. —Tim Berners-Lee An asset is, by definition, anything of worth to an organization. This includes people, partners, equipment, facilities, reputation, and information. While every asset needs to be protected, as discussed in Chapter 1 in the context of risk management, this chapter’s coverage of the second CISSP domain focuses on protecting information assets. Information is typically the most valuable asset to an organization and lies at the heart of every information system, so precision focus on its protection makes a lot of sense. Information, of course, exists in context; it is acquired or created at a particular point in time through a specific process and (usually) for a purpose. It moves through an organization’s information systems, sometimes adding value to processes and sometimes waiting to be useful. Eventually, the information outlives its utility and must be disposed of appropriately. We start off our discussion of asset security by examining an information life-cycle model that applies to most organizations, as well as specific examples. We will then cover the evaluation, use, maintenance, and destruction of the information in the context of its life cycle. This all sets the stage for a discussion of the various organizational roles that deal with information assets, as well as the need for effective retention policies. Finally, we discuss specific threats to information and what controls can be helpful in mitigating the risks of data loss. Information Life Cycle A life-cycle model describes the changes that an entity experiences during its lifetime. Unlike biological systems, information cannot really be said to reproduce, but it can beget other information in a process that is not totally unlike reproduction. Think of entries in a customer"
+          "text": "An asset is, by definition, anything of worth to an organization. This includes people, partners, equipment, facilities, reputation, and information. While every asset needs to be protected, as discussed in Chapter 1 in the context of risk management, this chapter’s coverage of the second CISSP domain focuses on protecting information assets. Information is typically the most valuable asset to an organization and lies at the heart of every information system, so precision focus on its protection makes a lot of sense. Information, of course, exists in context; it is acquired or created at a particular point in time through a specific process and (usually) for a purpose. It moves through an organization’s information systems, sometimes adding value to processes and sometimes waiting to be useful. Eventually, the information outlives its utility and must be disposed of appropriately. We start off our discussion of asset security by examining an information life-cycle model that applies to most organizations, as well as specific examples. We will then cover the evaluation, use, maintenance, and destruction of the information in the context of its life cycle. This all sets the stage for a discussion of the various organizational roles that deal with information assets, as well as the need for effective retention policies. Finally, we discuss specific threats to information and what controls can be helpful in mitigating the risks of data loss. Information Life Cycle A life-cycle model describes the changes that an entity experiences during its lifetime. Unlike biological systems, information cannot really be said to reproduce, but it can beget other information in a process that is not totally unlike reproduction. Think of entries in a customer"
         },
         {
           "type": "paragraph",
@@ -22,11 +45,7 @@
         },
         {
           "type": "note",
-          "text": "important considerations must be deliberately addressed at the point of information acquisition"
-        },
-        {
-          "type": "paragraph",
-          "text": "and not as an afterthought. Use After the information is prepared and stored, it will spend much of its time being used. That is to say it will be read and modified by a variety of users with the necessary access level. From a security perspective, this stage in the information life cycle presents the most challenges in terms of ensuring confidentiality, integrity, and availability. You want the information available, but only to the right people who should then be able to modify it in authorized ways. As the information is being used, we have to ensure that it remains internally consistent. For instance, if we have multiple data stores for performance or reliability purposes, we must ensure that modifications to the information are replicated. We also need to have mechanisms for automatically resolving inconsistencies, such as those that would occur from a server having a power outage after information has been modified but before it has been replicated. This is particularly important in very dynamic systems that have roll-back capabilities. Consistency is also an issue with regard to policy and regulatory compliance. As the information is used and aggregated, it may trigger requirements that must be automatically enforced. For example, a document that refers to a project using a code word or name may be unclassified and freely available, but if that word/name is used in conjunction with other details (a place, purpose, or team members’ names), then it would make the entire document classified. Changes in the information as it is in use must be mapped to the appropriate internal policies, and perhaps to regulations or laws. Archival The information in our systems will likely stop being used regularly (or at all) at some point. When this happens, but before we get rid of it, we probably want to retain it for a variety of reasons. Maybe we anticipate that it will again be useful at a later time, or maybe we are required to keep it around for a certain period of time, as is the case with certain financial information. Whatever the reason for moving this data off to the side, the fact that it is no longer regularly used could mean that unauthorized or accidental access and changes to it could go undetected for a long time if we don’t implement appropriate controls. Of course, the same lack of use could make it easier to detect this threat if we do have the right controls. Another driver for retention is the need for backups. Whether we’re talking about user or back-end backups, it is important to consider our risk assessment when deciding which backups are protected and how. To the extent that end-user backups are performed to removable disk drives, it is difficult to imagine a scenario in which these backups should not be encrypted. Every major operating system provides a means to perform automatic backups as well as encrypt those backups. Let’s take advantage of this."
+          "text": "important considerations must be deliberately addressed at the point of information acquisition and not as an afterthought. Use After the information is prepared and stored, it will spend much of its time being used. That is to say it will be read and modified by a variety of users with the necessary access level. From a security perspective, this stage in the information life cycle presents the most challenges in terms of ensuring confidentiality, integrity, and availability. You want the information available, but only to the right people who should then be able to modify it in authorized ways. As the information is being used, we have to ensure that it remains internally consistent. For instance, if we have multiple data stores for performance or reliability purposes, we must ensure that modifications to the information are replicated. We also need to have mechanisms for automatically resolving inconsistencies, such as those that would occur from a server having a power outage after information has been modified but before it has been replicated. This is particularly important in very dynamic systems that have roll-back capabilities. Consistency is also an issue with regard to policy and regulatory compliance. As the information is used and aggregated, it may trigger requirements that must be automatically enforced. For example, a document that refers to a project using a code word or name may be unclassified and freely available, but if that word/name is used in conjunction with other details (a place, purpose, or team members’ names), then it would make the entire document classified. Changes in the information as it is in use must be mapped to the appropriate internal policies, and perhaps to regulations or laws. Archival The information in our systems will likely stop being used regularly (or at all) at some point. When this happens, but before we get rid of it, we probably want to retain it for a variety of reasons. Maybe we anticipate that it will again be useful at a later time, or maybe we are required to keep it around for a certain period of time, as is the case with certain financial information. Whatever the reason for moving this data off to the side, the fact that it is no longer regularly used could mean that unauthorized or accidental access and changes to it could go undetected for a long time if we don’t implement appropriate controls. Of course, the same lack of use could make it easier to detect this threat if we do have the right controls. Another driver for retention is the need for backups. Whether we’re talking about user or back-end backups, it is important to consider our risk assessment when deciding which backups are protected and how. To the extent that end-user backups are performed to removable disk drives, it is difficult to imagine a scenario in which these backups should not be encrypted. Every major operating system provides a means to perform automatic backups as well as encrypt those backups. Let’s take advantage of this."
         },
         {
           "type": "paragraph",
@@ -51,7 +70,34 @@
         },
         {
           "type": "paragraph",
-          "text": "The following are the common levels of sensitivity from the highest to the lowest for commercial business: • Confidential • Private • Sensitive • Public And here are the levels of sensitivity from the highest to the lowest for military purposes: • Top secret • Secret • Confidential • Sensitive but unclassified • Unclassified The classifications listed in Table 2-1 are commonly used in the industry, but there is a lot of variance. An organization first must decide the number of data classifications that best fit its security needs, then choose the classification naming scheme, and then define what the names in those schemes represent. Company A might use the classification level “confidential,” which represents its most sensitive information. Company B might use “top secret,” “secret,” and “confidential,” where confidential represents its least sensitive information. Each organization must develop an information classification scheme that best fits its business and security needs."
+          "text": "The following are the common levels of sensitivity from the highest to the lowest for commercial business:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Confidential",
+            "Private",
+            "Sensitive",
+            "Public"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "And here are the levels of sensitivity from the highest to the lowest for military purposes:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Top secret",
+            "Secret",
+            "Confidential",
+            "Sensitive but unclassified",
+            "Unclassified"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The classifications listed in Table 2-1 are commonly used in the industry, but there is a lot of variance. An organization first must decide the number of data classifications that best fit its security needs, then choose the classification naming scheme, and then define what the names in those schemes represent. Company A might use the classification level “confidential,” which represents its most sensitive information. Company B might use “top secret,” “secret,” and “confidential,” where confidential represents its least sensitive information. Each organization must develop an information classification scheme that best fits its business and security needs."
         },
         {
           "type": "exam_tip",
@@ -59,23 +105,49 @@
         },
         {
           "type": "note",
-          "text": "NOTE An organization must make sure that whoever is backing up classified data—and"
+          "text": "NOTE An organization must make sure that whoever is backing up classified data—and whoever has access to backed-up data—has the necessary clearance level. A large security risk can be introduced if low-level technicians with no security clearance have access to this information during their tasks. Once the scheme is decided upon, the organization must develop the criteria it will use to decide what information goes into which classification. The following list shows some criteria parameters an organization may use to determine the sensitivity of data: • The usefulness of data • The value of data • The age of data • The level of damage that could be caused if the data were disclosed • The level of damage that could be caused if the data were modified or corrupted • Legal, regulatory, or contractual responsibility to protect the data • Effects the data has on security • Who should be able to access the data • Who should maintain the data • Who should be able to reproduce the data • Lost opportunity costs that could be incurred if the data were not available or were corrupted Data is not the only thing that may need to be classified. Applications and sometimes whole systems may need to be classified. The applications that hold and process classified information should be evaluated for the level of protection they provide. You do not want a program filled with security vulnerabilities to process and “protect” your most sensitive information. The application classifications should be based on the assurance (confidence level) the company has in the software and the type of information it can store and process. CAUTION The classification rules must apply to data no matter what format it is in: digital, paper, video, fax, audio, and so on. Now that we have chosen a sensitivity scheme, the next step is to specify how each classification should be dealt with. We must specify provisions for access control, identification,"
         },
         {
           "type": "paragraph",
-          "text": "whoever has access to backed-up data—has the necessary clearance level. A large security risk can be introduced if low-level technicians with no security clearance have access to this information during their tasks. Once the scheme is decided upon, the organization must develop the criteria it will use to decide what information goes into which classification. The following list shows some criteria parameters an organization may use to determine the sensitivity of data: • The usefulness of data • The value of data • The age of data • The level of damage that could be caused if the data were disclosed • The level of damage that could be caused if the data were modified or corrupted • Legal, regulatory, or contractual responsibility to protect the data • Effects the data has on security • Who should be able to access the data • Who should maintain the data • Who should be able to reproduce the data • Lost opportunity costs that could be incurred if the data were not available or were corrupted Data is not the only thing that may need to be classified. Applications and sometimes whole systems may need to be classified. The applications that hold and process classified information should be evaluated for the level of protection they provide. You do not want a program filled with security vulnerabilities to process and “protect” your most sensitive information. The application classifications should be based on the assurance (confidence level) the company has in the software and the type of information it can store and process."
+          "text": "and labeling, along with how data in specific classifications is stored, maintained, transmitted, and destroyed. We also must iron out auditing, monitoring, and compliance issues. Each classification requires a different degree of security and, therefore, different requirements from each of the mentioned items. Classification Controls As mentioned earlier, which types of controls are implemented per classification depends upon the level of protection that management and the security team have determined is needed. The numerous types of controls available are discussed throughout this book. But some considerations pertaining to sensitive data and applications are common across most organizations:"
         },
         {
-          "type": "note",
-          "text": "CAUTION The classification rules must apply to data no matter what format it is in: digital,"
+          "type": "list",
+          "items": [
+            "Strict and granular access control for all levels of sensitive data and programs",
+            "Encryption of data while stored and while in transmission",
+            "Auditing and monitoring (determine what level of auditing is required and how long logs",
+            "Separation of duties (determine whether two or more people must be involved in accessing"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "paper, video, fax, audio, and so on. Now that we have chosen a sensitivity scheme, the next step is to specify how each classification should be dealt with. We must specify provisions for access control, identification,"
+          "text": "sensitive information to protect against fraudulent activities; if so, define and document procedures)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Periodic reviews (review classification levels, and the data and programs that adhere to"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "and labeling, along with how data in specific classifications is stored, maintained, transmitted, and destroyed. We also must iron out auditing, monitoring, and compliance issues. Each classification requires a different degree of security and, therefore, different requirements from each of the mentioned items. Classification Controls As mentioned earlier, which types of controls are implemented per classification depends upon the level of protection that management and the security team have determined is needed. The numerous types of controls available are discussed throughout this book. But some considerations pertaining to sensitive data and applications are common across most organizations: • Strict and granular access control for all levels of sensitive data and programs • Encryption of data while stored and while in transmission • Auditing and monitoring (determine what level of auditing is required and how long logs are to be retained) • Separation of duties (determine whether two or more people must be involved in accessing sensitive information to protect against fraudulent activities; if so, define and document procedures) • Periodic reviews (review classification levels, and the data and programs that adhere to them, to ensure they are still in alignment with business needs; data or applications may also need to be reclassified or declassified, depending upon the situation) • Backup and recovery procedures (define and document) • Change control procedures (define and document) • Physical security protection (define and document) • Information flow channels (where does the sensitive data reside and how does it transverse the network) • Proper disposal actions, such as shredding, degaussing, and so on (define and document) • Marking, labeling, and handling procedures Classification Procedures The following outlines the necessary steps for a proper classification program: 1. Define classification levels. 2. Specify the criteria that will determine how data is classified. 3. Identify data owners who will be responsible for classifying data. 4. Identify the data custodian who will be responsible for maintaining data and its security level. 5. Indicate the security controls, or protection mechanisms, required for each classification level. 6. Document any exceptions to the previous classification issues. 7. Indicate the methods that can be used to transfer custody of the information to a different data owner."
+          "text": "them, to ensure they are still in alignment with business needs; data or applications may also need to be reclassified or declassified, depending upon the situation)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Backup and recovery procedures (define and document)",
+            "Change control procedures (define and document)",
+            "Physical security protection (define and document)",
+            "Information flow channels (where does the sensitive data reside and how does it transverse",
+            "Proper disposal actions, such as shredding, degaussing, and so on (define and document)",
+            "Marking, labeling, and handling procedures"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Classification Procedures The following outlines the necessary steps for a proper classification program: 1. Define classification levels. 2. Specify the criteria that will determine how data is classified. 3. Identify data owners who will be responsible for classifying data. 4. Identify the data custodian who will be responsible for maintaining data and its security level. 5. Indicate the security controls, or protection mechanisms, required for each classification level. 6. Document any exceptions to the previous classification issues. 7. Indicate the methods that can be used to transfer custody of the information to a different data owner."
         },
         {
           "type": "paragraph",
@@ -87,7 +159,67 @@
         },
         {
           "type": "paragraph",
-          "text": "“chief,” and collectively they are often referred to as the “C-suite.” Executive leaders are ultimately responsible for everything that happens in their organizations, and as such are considered the ultimate business and function owners. This has been evidenced time and again (as we will see shortly) in high-profile cases wherein executives have been fired, sued, or even prosecuted for organizational failures or fraud that occurred under their leadership. Let’s start at the top of a corporate entity, the CEO. Executives Behind Bars The CFO and CEO are responsible for informing stakeholders (creditors, analysts, employees, management, investors) of the firm’s financial condition and health. After the corporate debacles at Enron, Adelphia, Tyco, and WorldCom uncovered in 2001–2002, the U.S. government and the SEC started doling out stiff penalties to people who held these roles and abused them. The following list provides a sampling of some of the cases in the past decade: • March 2012 The former CEO of the Stanford Financial Group, R. Allen Stanford, was sentenced to 110 years in prison for defrauding investors out of $7 billion. • June 2015 Joe White, the former CFO of Shelby Regional Medical Center, was sentenced to 23 months in federal prison after making false claims to receive payments under the Medicare Electronic Health Record Incentive Program. • August 2015 Former Chief Financial Officer of the Lawrence Family Jewish Community Center in California, Nancy Johnson was sentenced to over a year in jail for embezzling over $400,000. • September 2015 KIT Digital’s former CEO Kaleil Isaza Tuzman and his former CFO Robin Smyth were arrested and charged with accounting fraud. They face up to 20 years in jail if convicted. • December 2015 Martin Shkreli, a notorious pharmaceutical executive, was arrested and charged with securities fraud stemming from his alleged use of funds from new companies to pay down debts previously incurred by financially troubled companies. In March 2018 he was sentenced to seven years in prison. • March 2018 Jun Ying, a former chief information officer for Equifax, was charged with insider trading for allegedly selling his stock in the company after discovering a massive data breach. He suspected (correctly) that the stock would lose value once the breach became known. These are only some of the big cases that made it into the headlines. Other CEOs and CFOs have also received punishments for “creative accounting” and fraudulent activities. Chief Executive Officer The chief executive officer (CEO) has the day-to-day management responsibilities of an organization. This person is often the chairperson of the board of directors and is the highest- ranking officer in the company. This role is for the person who oversees the company’s finances, strategic planning, and operations from a high level. The CEO is usually seen as the visionary for the company and is responsible for developing and modifying the company’s business plan. The CEO sets budgets, forms partnerships, decides on what markets to enter, what product lines to"
+          "text": "“chief,” and collectively they are often referred to as the “C-suite.” Executive leaders are ultimately responsible for everything that happens in their organizations, and as such are considered the ultimate business and function owners. This has been evidenced time and again (as we will see shortly) in high-profile cases wherein executives have been fired, sued, or even prosecuted for organizational failures or fraud that occurred under their leadership. Let’s start at the top of a corporate entity, the CEO. Executives Behind Bars The CFO and CEO are responsible for informing stakeholders (creditors, analysts, employees, management, investors) of the firm’s financial condition and health. After the corporate debacles at Enron, Adelphia, Tyco, and WorldCom uncovered in 2001–2002, the U.S. government and the SEC started doling out stiff penalties to people who held these roles and abused them. The following list provides a sampling of some of the cases in the past decade:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "March 2012 The former CEO of the Stanford Financial Group, R. Allen Stanford, was"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "sentenced to 110 years in prison for defrauding investors out of $7 billion."
+        },
+        {
+          "type": "list",
+          "items": [
+            "June 2015 Joe White, the former CFO of Shelby Regional Medical Center, was"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "sentenced to 23 months in federal prison after making false claims to receive payments under the Medicare Electronic Health Record Incentive Program."
+        },
+        {
+          "type": "list",
+          "items": [
+            "August 2015 Former Chief Financial Officer of the Lawrence Family Jewish"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Community Center in California, Nancy Johnson was sentenced to over a year in jail for embezzling over $400,000."
+        },
+        {
+          "type": "list",
+          "items": [
+            "September 2015 KIT Digital’s former CEO Kaleil Isaza Tuzman and his former CFO"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Robin Smyth were arrested and charged with accounting fraud. They face up to 20 years in jail if convicted."
+        },
+        {
+          "type": "list",
+          "items": [
+            "December 2015 Martin Shkreli, a notorious pharmaceutical executive, was arrested and"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "charged with securities fraud stemming from his alleged use of funds from new companies to pay down debts previously incurred by financially troubled companies. In March 2018 he was sentenced to seven years in prison."
+        },
+        {
+          "type": "list",
+          "items": [
+            "March 2018 Jun Ying, a former chief information officer for Equifax, was charged with"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "insider trading for allegedly selling his stock in the company after discovering a massive data breach. He suspected (correctly) that the stock would lose value once the breach became known. These are only some of the big cases that made it into the headlines. Other CEOs and CFOs have also received punishments for “creative accounting” and fraudulent activities. Chief Executive Officer The chief executive officer (CEO) has the day-to-day management responsibilities of an organization. This person is often the chairperson of the board of directors and is the highest- ranking officer in the company. This role is for the person who oversees the company’s finances, strategic planning, and operations from a high level. The CEO is usually seen as the visionary for the company and is responsible for developing and modifying the company’s business plan. The CEO sets budgets, forms partnerships, decides on what markets to enter, what product lines to"
         },
         {
           "type": "paragraph",
@@ -95,11 +227,7 @@
         },
         {
           "type": "note",
-          "text": "NOTE The CEO can delegate tasks, but not necessarily responsibility. More and more"
-        },
-        {
-          "type": "paragraph",
-          "text": "regulations dealing with information security are holding the CEO accountable for ensuring the organization practices due care and due diligence with respect to information security, which is why security departments across the land are receiving more funding. Personal liability for the decision makers and purse-string holders has loosened those purse strings, and companies are now able to spend more money on security than before. Chief Financial Officer The chief financial officer (CFO) is responsible for the corporation’s accounting and financial activities and the overall financial structure of the organization. This person is responsible for determining what the company’s financial needs will be and how to finance those needs. The CFO must create and maintain the company’s capital structure, which is the proper mix of equity, credit, cash, and debt financing. This person oversees forecasting and budgeting and the processes of submitting quarterly and annual financial statements to the Securities and Exchange Commission (SEC) and stakeholders. Chief Information Officer The chief information officer (CIO) may report to either the CEO or CFO, depending upon the corporate structure, and is responsible for the strategic use and management of information systems and technology within the organization. Over time, this position has become more strategic and less operational in many organizations. CIOs oversee and are responsible for the day-in-day-out technology operations of a company, but because organizations are so dependent upon technology, CIOs are being asked to sit at the corporate table more and more. CIO responsibilities have extended to working with the CEO (and other management) on business-process management, revenue generation, and how business strategy can be accomplished with the company’s underlying technology. This person usually should have one foot in techno-land and one foot in business-land to be effective because she is bridging two very different worlds. The CIO sets the stage for the protection of company assets and is ultimately responsible for the success of the company security program. Direction should be coming down from the CEO, and there should be clear lines of communication between the board of directors, the C-level staff, and mid-management. The Sarbanes-Oxley Act (SOX), introduced in Chapter 1, prescribes to the CEO and CFO financial reporting responsibilities and includes penalties and potential personal liability for failure to comply. SOX gave the SEC more authority to create regulations that ensure these officers cannot simply pass along fines to the corporation for personal financial"
+          "text": "NOTE The CEO can delegate tasks, but not necessarily responsibility. More and more regulations dealing with information security are holding the CEO accountable for ensuring the organization practices due care and due diligence with respect to information security, which is why security departments across the land are receiving more funding. Personal liability for the decision makers and purse-string holders has loosened those purse strings, and companies are now able to spend more money on security than before. Chief Financial Officer The chief financial officer (CFO) is responsible for the corporation’s accounting and financial activities and the overall financial structure of the organization. This person is responsible for determining what the company’s financial needs will be and how to finance those needs. The CFO must create and maintain the company’s capital structure, which is the proper mix of equity, credit, cash, and debt financing. This person oversees forecasting and budgeting and the processes of submitting quarterly and annual financial statements to the Securities and Exchange Commission (SEC) and stakeholders. Chief Information Officer The chief information officer (CIO) may report to either the CEO or CFO, depending upon the corporate structure, and is responsible for the strategic use and management of information systems and technology within the organization. Over time, this position has become more strategic and less operational in many organizations. CIOs oversee and are responsible for the day-in-day-out technology operations of a company, but because organizations are so dependent upon technology, CIOs are being asked to sit at the corporate table more and more. CIO responsibilities have extended to working with the CEO (and other management) on business-process management, revenue generation, and how business strategy can be accomplished with the company’s underlying technology. This person usually should have one foot in techno-land and one foot in business-land to be effective because she is bridging two very different worlds. The CIO sets the stage for the protection of company assets and is ultimately responsible for the success of the company security program. Direction should be coming down from the CEO, and there should be clear lines of communication between the board of directors, the C-level staff, and mid-management. The Sarbanes-Oxley Act (SOX), introduced in Chapter 1, prescribes to the CEO and CFO financial reporting responsibilities and includes penalties and potential personal liability for failure to comply. SOX gave the SEC more authority to create regulations that ensure these officers cannot simply pass along fines to the corporation for personal financial"
         },
         {
           "type": "paragraph",
@@ -111,11 +239,7 @@
         },
         {
           "type": "note",
-          "text": "NOTE Data ownership takes on a different meaning when outsourcing data storage"
-        },
-        {
-          "type": "paragraph",
-          "text": "requirements. You may want to ensure that the service contract includes a clause to the effect that all data is and shall remain the sole and exclusive property of your organization. Data Custodian The data custodian (information custodian) is responsible for maintaining and protecting the data. This role is usually filled by the IT or security department, and the duties include implementing and maintaining security controls; performing regular backups of the data; periodically validating the integrity of the data; restoring data from backup media; retaining records of activity; and fulfilling the requirements specified in the company’s security policy, standards, and guidelines that pertain to information security and data protection. System Owner The system owner is responsible for one or more systems, each of which may hold and process data owned by different data owners. A system owner is responsible for integrating security considerations into application and system purchasing decisions and development projects. The system owner is responsible for ensuring that adequate security is being provided by the necessary controls, password management, remote access controls, operating system configurations, and so on. This role must ensure the systems are properly assessed for vulnerabilities and must report any to the incident response team and data owner. Data Owner Issues Each business unit should have a data owner who protects the unit’s most critical information. The company’s policies must give the data owners the necessary authority to carry out their tasks. This is not a technical role, but rather a business role that must understand the relationship between the unit’s success and the protection of this critical asset. Not all businesspeople understand this role, so they should be given the necessary training. Security Administrator The security administrator is responsible for implementing and maintaining specific security network devices and software in the enterprise. These controls commonly include firewalls, an intrusion detection system (IDS), intrusion prevention system (IPS), antimalware, security proxies, data loss prevention, etc. It is common for a delineation to exist between the security administrator’s responsibilities and the network administrator’s responsibilities. The security administrator has the main focus of keeping the network secure, and the network administrator has the focus of keeping things up and running. A security administrator’s tasks commonly also include creating new system user accounts, implementing new security software, testing security patches and components, and issuing new"
+          "text": "NOTE Data ownership takes on a different meaning when outsourcing data storage requirements. You may want to ensure that the service contract includes a clause to the effect that all data is and shall remain the sole and exclusive property of your organization. Data Custodian The data custodian (information custodian) is responsible for maintaining and protecting the data. This role is usually filled by the IT or security department, and the duties include implementing and maintaining security controls; performing regular backups of the data; periodically validating the integrity of the data; restoring data from backup media; retaining records of activity; and fulfilling the requirements specified in the company’s security policy, standards, and guidelines that pertain to information security and data protection. System Owner The system owner is responsible for one or more systems, each of which may hold and process data owned by different data owners. A system owner is responsible for integrating security considerations into application and system purchasing decisions and development projects. The system owner is responsible for ensuring that adequate security is being provided by the necessary controls, password management, remote access controls, operating system configurations, and so on. This role must ensure the systems are properly assessed for vulnerabilities and must report any to the incident response team and data owner. Data Owner Issues Each business unit should have a data owner who protects the unit’s most critical information. The company’s policies must give the data owners the necessary authority to carry out their tasks. This is not a technical role, but rather a business role that must understand the relationship between the unit’s success and the protection of this critical asset. Not all businesspeople understand this role, so they should be given the necessary training. Security Administrator The security administrator is responsible for implementing and maintaining specific security network devices and software in the enterprise. These controls commonly include firewalls, an intrusion detection system (IDS), intrusion prevention system (IPS), antimalware, security proxies, data loss prevention, etc. It is common for a delineation to exist between the security administrator’s responsibilities and the network administrator’s responsibilities. The security administrator has the main focus of keeping the network secure, and the network administrator has the focus of keeping things up and running. A security administrator’s tasks commonly also include creating new system user accounts, implementing new security software, testing security patches and components, and issuing new"
         },
         {
           "type": "paragraph",
@@ -127,11 +251,7 @@
         },
         {
           "type": "note",
-          "text": "NOTE When outsourcing data storage, it is important to specify in the contract language how"
-        },
-        {
-          "type": "paragraph",
-          "text": "long the storage provider will retain your data after you stop doing business with them and what process they will use to eradicate your data from their systems. A very straightforward and perhaps tempting approach would be to look at the lengthiest legal or regulatory retention requirement imposed on your organization and then apply that timeframe to all your data retention. The problem with this approach is that it will probably make your retained data set orders of magnitude greater than it needs to be. Not only does this impose additional storage costs, but it also makes it more difficult to comply with electronic discovery"
+          "text": "NOTE When outsourcing data storage, it is important to specify in the contract language how long the storage provider will retain your data after you stop doing business with them and what process they will use to eradicate your data from their systems. A very straightforward and perhaps tempting approach would be to look at the lengthiest legal or regulatory retention requirement imposed on your organization and then apply that timeframe to all your data retention. The problem with this approach is that it will probably make your retained data set orders of magnitude greater than it needs to be. Not only does this impose additional storage costs, but it also makes it more difficult to comply with electronic discovery"
         },
         {
           "type": "paragraph",
@@ -139,11 +259,7 @@
         },
         {
           "type": "note",
-          "text": "NOTE Be sure to get buy-in from your legal counsel when developing or modifying data"
-        },
-        {
-          "type": "paragraph",
-          "text": "retention and privacy policies. Developing a Retention Policy At its core, every data retention policy answers three fundamental questions: • What data do we keep? • How long do we keep this data? • Where do we keep this data? Most security professionals understand the first two questions. After all, many of us are used to keeping tax records for three years in case we get audited. The “what” and the “how long” are easy. The last question, however, surprises more than a few of us. The twist is that the question is not so much about the location per se, but rather the manner in which the data is kept at that location. In order to be useful to us, retained data must be easy to locate and retrieve. Think about it this way. Suppose your organization had a business transaction with Acme Corporation in which you learned that they were involved in the sale of a particular service to a client in another country. Two years later, you receive a third-party subpoena asking for any information you may have regarding that sale. You know you retain all your data for three years, but you have no idea where the relevant data may be. Was it an e-mail, a recording of a phone conversation, the minutes from a meeting, or something else? Where would you go looking for it? Alternatively, how could you make a case to the court that providing the data would be too costly for your organization?"
+          "text": "NOTE Be sure to get buy-in from your legal counsel when developing or modifying data retention and privacy policies. Developing a Retention Policy At its core, every data retention policy answers three fundamental questions: • What data do we keep? • How long do we keep this data? • Where do we keep this data? Most security professionals understand the first two questions. After all, many of us are used to keeping tax records for three years in case we get audited. The “what” and the “how long” are easy. The last question, however, surprises more than a few of us. The twist is that the question is not so much about the location per se, but rather the manner in which the data is kept at that location. In order to be useful to us, retained data must be easy to locate and retrieve. Think about it this way. Suppose your organization had a business transaction with Acme Corporation in which you learned that they were involved in the sale of a particular service to a client in another country. Two years later, you receive a third-party subpoena asking for any information you may have regarding that sale. You know you retain all your data for three years, but you have no idea where the relevant data may be. Was it an e-mail, a recording of a phone conversation, the minutes from a meeting, or something else? Where would you go looking for it? Alternatively, how could you make a case to the court that providing the data would be too costly for your organization?"
         }
       ]
     },
@@ -154,7 +270,47 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "In order for retained data to be useful, it must be accessible in a timely manner. It really does us no good to have data that takes an inordinate (and perhaps prohibitive) amount of effort to query. To ensure this accessibility, we need to consider various issues, including the ones listed here. • Taxonomy A taxonomy is a scheme for classifying data. This classification can be made using a variety of categories, including functional (e.g., human resources, product development), chronological (e.g., 2015), organizational (e.g., executives, union employees), or any combination of these or other categories. • Classification The sensitivity classification of the data will determine the controls we place on it both while it is in use and when it gets archived. This is particularly important because many organizations protect sensitive information while in use, but not so much after it goes into the archives. • Normalization Retained data will come in a variety of formats, including word processing documents, database records, flat files, images, PDF files, video, and so on. Simply storing the data in its original format will not suffice in any but the most trivial cases. Instead, we need to develop tagging schemas that will make the data searchable. • Indexing Retained data must be searchable if we are to quickly pull out specific items of interest. The most common approach to making data searchable is to build indexes for it. Many archiving systems implement this feature, but others do not. Either way, the indexing approach must support the likely future queries on the archived data. Ideally, archiving occurs in a centralized, regimented, and homogenous manner. We all know, however, that this is seldom the case. We may have to compromise in order to arrive at solutions that meet our minimum requirements within our resource constraints. Still, as we plan and execute our retention strategies, we must remain focused on how we will efficiently access archived data many months or years later. How Long We Retain Once upon a time, there were two main data retention longevity approaches: the “keep nothing” camp and the “keep everything” camp. As the legal processes caught up with modern computer technology, it became clear that (except in very limited cases) these approaches were not acceptable. For starters, whether they retained nothing or everything, organizations following one of these extreme approaches found out it was difficult to defend themselves in lawsuits. The first group had nothing with which to show due diligence, for instance, while those in the second group had too much information that plaintiffs could use against them. So what is the right data retention policy? Ask your legal counsel. Seriously. There are myriads of statutory and regulatory retention requirements, which vary from jurisdiction to jurisdiction (sometimes even within the same country). There are also best practices and case law to consider, so we won’t attempt to get too specific here. Still, the following are some general guidelines sufficient to start the conversation with your attorneys:"
+          "text": "In order for retained data to be useful, it must be accessible in a timely manner. It really does us no good to have data that takes an inordinate (and perhaps prohibitive) amount of effort to query. To ensure this accessibility, we need to consider various issues, including the ones listed here."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Taxonomy A taxonomy is a scheme for classifying data. This classification can be made"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "using a variety of categories, including functional (e.g., human resources, product development), chronological (e.g., 2015), organizational (e.g., executives, union employees), or any combination of these or other categories."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Classification The sensitivity classification of the data will determine the controls we place"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "on it both while it is in use and when it gets archived. This is particularly important because many organizations protect sensitive information while in use, but not so much after it goes into the archives."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Normalization Retained data will come in a variety of formats, including word processing"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "documents, database records, flat files, images, PDF files, video, and so on. Simply storing the data in its original format will not suffice in any but the most trivial cases. Instead, we need to develop tagging schemas that will make the data searchable."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Indexing Retained data must be searchable if we are to quickly pull out specific items of"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "interest. The most common approach to making data searchable is to build indexes for it. Many archiving systems implement this feature, but others do not. Either way, the indexing approach must support the likely future queries on the archived data. Ideally, archiving occurs in a centralized, regimented, and homogenous manner. We all know, however, that this is seldom the case. We may have to compromise in order to arrive at solutions that meet our minimum requirements within our resource constraints. Still, as we plan and execute our retention strategies, we must remain focused on how we will efficiently access archived data many months or years later. How Long We Retain Once upon a time, there were two main data retention longevity approaches: the “keep nothing” camp and the “keep everything” camp. As the legal processes caught up with modern computer technology, it became clear that (except in very limited cases) these approaches were not acceptable. For starters, whether they retained nothing or everything, organizations following one of these extreme approaches found out it was difficult to defend themselves in lawsuits. The first group had nothing with which to show due diligence, for instance, while those in the second group had too much information that plaintiffs could use against them. So what is the right data retention policy? Ask your legal counsel. Seriously. There are myriads of statutory and regulatory retention requirements, which vary from jurisdiction to jurisdiction (sometimes even within the same country). There are also best practices and case law to consider, so we won’t attempt to get too specific here. Still, the following are some general guidelines sufficient to start the conversation with your attorneys:"
         }
       ]
     },
@@ -184,11 +340,7 @@
         },
         {
           "type": "note",
-          "text": "NOTE NIST Special Publication 800-88, Revision 1, “Guidelines for Media Sanitization”"
-        },
-        {
-          "type": "paragraph",
-          "text": "(December 2014), describes the best practices for combating data remanence. Let’s consider what happens when we create a text file using the File Allocation Table (FAT) file system. Though this original form of FAT is antiquated, its core constructs (e.g., disk blocks, free block list/table, file metadata table) are also found at the heart of all other modern file systems. Its simplicity makes it a wonderful training tool for the purpose of explaining file creation and deletion. Suppose we type up the famous Aesop fable titled “The Lion and the Mouse” in a text editor and save it to disk. The operating system will ask us for a filename, which will be Story2.txt for this example. The system will then check the File Allocation Table for available blocks on which to store the text file. As shown in Figure 2-2, the system creates a directory entry for the file containing the name (Story2.txt), location of the first block (163), and the file size in bytes (714). In our simplistic example, each block is 512 bytes in size, so we’ll need two of them. Fortunately, block 164 is right next to the start block and is also free. The system will use the entry for block 163 (the first block of the file) to point to the next block containing it (164). This allows files to occupy discontinuous blocks if the disk is heavily fragmented. That chain of blocks could be quite long if the file was big enough and we didn’t run out of disk space first. In our simple example, however, we just need two blocks, so block 164 is the final one in use and gets a special label of EOF to denote the end of the file."
+          "text": "NOTE NIST Special Publication 800-88, Revision 1, “Guidelines for Media Sanitization” (December 2014), describes the best practices for combating data remanence. Let’s consider what happens when we create a text file using the File Allocation Table (FAT) file system. Though this original form of FAT is antiquated, its core constructs (e.g., disk blocks, free block list/table, file metadata table) are also found at the heart of all other modern file systems. Its simplicity makes it a wonderful training tool for the purpose of explaining file creation and deletion. Suppose we type up the famous Aesop fable titled “The Lion and the Mouse” in a text editor and save it to disk. The operating system will ask us for a filename, which will be Story2.txt for this example. The system will then check the File Allocation Table for available blocks on which to store the text file. As shown in Figure 2-2, the system creates a directory entry for the file containing the name (Story2.txt), location of the first block (163), and the file size in bytes (714). In our simplistic example, each block is 512 bytes in size, so we’ll need two of them. Fortunately, block 164 is right next to the start block and is also free. The system will use the entry for block 163 (the first block of the file) to point to the next block containing it (164). This allows files to occupy discontinuous blocks if the disk is heavily fragmented. That chain of blocks could be quite long if the file was big enough and we didn’t run out of disk space first. In our simple example, however, we just need two blocks, so block 164 is the final one in use and gets a special label of EOF to denote the end of the file."
         },
         {
           "type": "figure",
@@ -217,19 +369,55 @@
         },
         {
           "type": "paragraph",
-          "text": "This example, though simplistic, illustrates the process used by almost every file system when creating and deleting files. The data structures may be named differently in modern versions of Windows, Linux, and macOS, but their purpose and behavior remain essentially the same. In fact, many databases use a similar approach to “deleting” entries by simply marking them as deleted without wiping the original data. To counter data remanence, it is important to identify procedures for ensuring that private data is properly removed. Generally speaking, there are four approaches to eliminating data remanence: • Overwriting Overwriting data entails replacing the 1’s and 0’s that represent it on storage media with random or fixed patterns of 1’s and 0’s in order to render the original data unrecoverable. This should be done at least once (e.g., overwriting the medium with 1’s, 0’s, or a pattern of these), but may have to be done more than that. For many years the U.S. Department of Defense (DoD) standard 5220.22-M required that media be overwritten seven times. This standard has since been superseded. DoD systems with sensitive information must now be degaussed. • Degaussing This is the process of removing or reducing the magnetic field patterns on conventional disk drives or tapes. In essence, a powerful magnetic force is applied to the media, which results in the wiping of the data and sometimes the destruction of the motors"
+          "text": "This example, though simplistic, illustrates the process used by almost every file system when creating and deleting files. The data structures may be named differently in modern versions of Windows, Linux, and macOS, but their purpose and behavior remain essentially the same. In fact, many databases use a similar approach to “deleting” entries by simply marking them as deleted without wiping the original data. To counter data remanence, it is important to identify procedures for ensuring that private data is properly removed. Generally speaking, there are four approaches to eliminating data remanence:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Overwriting Overwriting data entails replacing the 1’s and 0’s that represent it on storage"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "that drive the platters. While it may still be possible to recover the data, it is typically cost prohibitive to do so. • Encryption Many mobile devices take this approach to quickly and securely render data unusable. The premise is that the data is stored on the medium in encrypted format using a strong key. To render the data unrecoverable, the system simply needs to securely delete the encryption key, which is many times faster than deleting the encrypted data. Recovering the data in this scenario is typically computationally infeasible. • Physical destruction Perhaps the best way to combat data remanence is to simply destroy the physical media. The two most commonly used approaches to destroying media are to shred it or expose it to caustic or corrosive chemicals that render it unusable. Another approach is incineration. Limits on Collection Securely deleting data is necessary, but not enough. We must also ensure that the data we collect in the first place, particularly when it is personal in nature, is necessary for our jobs. Generally speaking, organizations should collect the least amount of private personal data required for the performance of their business functions. In many cases, this is not a matter of choice but of law. As of 2017, 120 countries have enacted privacy protection laws that affect organizations within their jurisdictions. It is important to note that privacy protections vary widely among countries. Argentina is one of the most restrictive countries with respect to privacy, while China effectively has no restrictions. The United States has very few restrictions on the collection of private data by nongovernmental organizations, and the European Union has yet to coalesce on a common set of standards in this regard. The point is that you have to be aware of the specific privacy laws that pertain to the places in which your organization stores or uses its data. This is particularly"
+          "text": "media with random or fixed patterns of 1’s and 0’s in order to render the original data unrecoverable. This should be done at least once (e.g., overwriting the medium with 1’s, 0’s, or a pattern of these), but may have to be done more than that. For many years the U.S. Department of Defense (DoD) standard 5220.22-M required that media be overwritten seven times. This standard has since been superseded. DoD systems with sensitive information must now be degaussed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Degaussing This is the process of removing or reducing the magnetic field patterns on"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "conventional disk drives or tapes. In essence, a powerful magnetic force is applied to the media, which results in the wiping of the data and sometimes the destruction of the motors"
+        },
+        {
+          "type": "paragraph",
+          "text": "that drive the platters. While it may still be possible to recover the data, it is typically cost prohibitive to do so."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Encryption Many mobile devices take this approach to quickly and securely render data"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "unusable. The premise is that the data is stored on the medium in encrypted format using a strong key. To render the data unrecoverable, the system simply needs to securely delete the encryption key, which is many times faster than deleting the encrypted data. Recovering the data in this scenario is typically computationally infeasible."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Physical destruction Perhaps the best way to combat data remanence is to simply destroy"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "the physical media. The two most commonly used approaches to destroying media are to shred it or expose it to caustic or corrosive chemicals that render it unusable. Another approach is incineration. Limits on Collection Securely deleting data is necessary, but not enough. We must also ensure that the data we collect in the first place, particularly when it is personal in nature, is necessary for our jobs. Generally speaking, organizations should collect the least amount of private personal data required for the performance of their business functions. In many cases, this is not a matter of choice but of law. As of 2017, 120 countries have enacted privacy protection laws that affect organizations within their jurisdictions. It is important to note that privacy protections vary widely among countries. Argentina is one of the most restrictive countries with respect to privacy, while China effectively has no restrictions. The United States has very few restrictions on the collection of private data by nongovernmental organizations, and the European Union has yet to coalesce on a common set of standards in this regard. The point is that you have to be aware of the specific privacy laws that pertain to the places in which your organization stores or uses its data. This is particularly"
         },
         {
           "type": "note",
-          "text": "important when you outsource services (which may require access to your data) to third parties"
-        },
-        {
-          "type": "paragraph",
-          "text": "in a different country. Apart from applicable laws and regulations, the types of personal data that your organization collects, as well as its life-cycle considerations, must be a matter of explicit written policy. Your privacy policy needs to cover your organization’s collection, use, disclosure, and protection of employee and client data. Many organizations break their privacy policy into two documents: one internal document that covers employee data, and a second external document that covers customer information. At a minimum, you want to answer the following questions when writing your policy: • What personal data is collected (e.g., name, website visits, e-mail messages, etc.)? • Why do we collect this data and how do we use it (e.g., to provide a service, for security)? • With whom do we share this data (e.g., third-party providers, law enforcement agencies)? • Who owns the collected data (e.g., subject, organization)? • What rights does the subject of this data have with regard to it (e.g., opt out, restrictions)? • When do we destroy the data (e.g., after five years, never)? • What specific laws or regulations exist that pertain to this data?"
+          "text": "important when you outsource services (which may require access to your data) to third parties in a different country. Apart from applicable laws and regulations, the types of personal data that your organization collects, as well as its life-cycle considerations, must be a matter of explicit written policy. Your privacy policy needs to cover your organization’s collection, use, disclosure, and protection of employee and client data. Many organizations break their privacy policy into two documents: one internal document that covers employee data, and a second external document that covers customer information. At a minimum, you want to answer the following questions when writing your policy: • What personal data is collected (e.g., name, website visits, e-mail messages, etc.)? • Why do we collect this data and how do we use it (e.g., to provide a service, for security)? • With whom do we share this data (e.g., third-party providers, law enforcement agencies)? • Who owns the collected data (e.g., subject, organization)? • What rights does the subject of this data have with regard to it (e.g., opt out, restrictions)? • When do we destroy the data (e.g., after five years, never)? • What specific laws or regulations exist that pertain to this data?"
         }
       ]
     },
@@ -248,11 +436,7 @@
         },
         {
           "type": "note",
-          "text": "NOTE NIST Special Publication 800-111, “Guide to Storage Encryption Technologies for"
-        },
-        {
-          "type": "paragraph",
-          "text": "End User Devices,” provides a good, if somewhat dated (2007), approach to this topic. Where in the World Is Your Data? Certain countries require that data within its geographic borders, regardless of country of ownership, be made available to certain government organizations such as law enforcement and intelligence agencies with proper authorization. If the data is encrypted, then the organization hosting the data in that country is responsible for providing the keys or could face criminal charges. For this reason, many organizations require their data to be stored only within specific geographical boundaries. This can pose serious challenges to multinational organizations and to some users of cloud computing services. Additionally, even if properly stored in the right places, the data could find its way to other countries when certain services, such as customer support, are outsourced. When planning your data storage architectures, it is imperative that you understand exactly where in the world your data could end up going. Data in Motion Data in motion is data that is moving between computing nodes over a data network such as the"
+          "text": "NOTE NIST Special Publication 800-111, “Guide to Storage Encryption Technologies for End User Devices,” provides a good, if somewhat dated (2007), approach to this topic. Where in the World Is Your Data? Certain countries require that data within its geographic borders, regardless of country of ownership, be made available to certain government organizations such as law enforcement and intelligence agencies with proper authorization. If the data is encrypted, then the organization hosting the data in that country is responsible for providing the keys or could face criminal charges. For this reason, many organizations require their data to be stored only within specific geographical boundaries. This can pose serious challenges to multinational organizations and to some users of cloud computing services. Additionally, even if properly stored in the right places, the data could find its way to other countries when certain services, such as customer support, are outsourced. When planning your data storage architectures, it is imperative that you understand exactly where in the world your data could end up going. Data in Motion Data in motion is data that is moving between computing nodes over a data network such as the"
         },
         {
           "type": "paragraph",
@@ -279,15 +463,107 @@
         },
         {
           "type": "paragraph",
-          "text": "overwriting is sufficient. Each company must evaluate the value of its data and then choose the appropriate erasure/disposal method. Methods were discussed earlier for secure clearing, purging, and destruction of electronic media. Other forms of information, such as paper, microfilm, and microfiche, also require secure disposal. “Dumpster diving” is the practice of searching through trash at homes and businesses to find valuable information that was simply thrown away without being first securely destroyed through shredding or burning. Atoms and Data A device that performs degaussing generates a coercive magnetic force that reduces the magnetic flux density of the storage media to zero. This magnetic force is what properly erases data from media. Data is stored on magnetic media by the representation of the polarization of the atoms. Degaussing changes this polarization (magnetic alignment) by using a type of large magnet to bring it back to its original flux (magnetic alignment). Media management, whether in a library or managed by other systems or individuals, has the following attributes and tasks: • Tracking (audit logging) who has custody of each piece of media at any given moment. This creates the same kind of audit trail as any audit logging activity—to allow an investigation to determine where information was at any given time, who had it, and, for particularly sensitive information, why they accessed it. This enables an investigator to focus efforts on particular people, places, and times if a breach is suspected or known to have happened. • Effectively implementing access controls to restrict who can access each piece of media to only those people defined by the owner of the media/information on the media, and to enforce the appropriate security measures based on the classification of the media/information on the media. Certain media, due to its physical type and/or the nature of the information on it, may require special handling. All personnel who are authorized to access media must have training to ensure they understand what is required of such media. An example of special handling for, say, classified information may be that the media may only be removed from the library or its usual storage place under physical guard, and even then may not be removed from the building. Access controls will include physical (locked doors, drawers, cabinets, or safes), technical (access and authorization control of any automated system for retrieving contents of information in the library), and administrative (the actual rules for who is supposed to do what to each piece of information). Finally, the data may need to change format, as in printing electronic data to paper. The data still needs to be protected at the necessary level, no matter what format it is in. Procedures must include how to continue to provide the appropriate protection. For example, sensitive material that is to be mailed should be sent in a sealable inner envelope and use only courier service. • Tracking the number and location of backup versions (both onsite and offsite). This is necessary to ensure proper disposal of information when the information reaches the end of its lifespan, to account for the location and accessibility of information during audits, and to find a backup copy of information if the primary source of the information is lost or"
+          "text": "overwriting is sufficient. Each company must evaluate the value of its data and then choose the appropriate erasure/disposal method. Methods were discussed earlier for secure clearing, purging, and destruction of electronic media. Other forms of information, such as paper, microfilm, and microfiche, also require secure disposal. “Dumpster diving” is the practice of searching through trash at homes and businesses to find valuable information that was simply thrown away without being first securely destroyed through shredding or burning. Atoms and Data A device that performs degaussing generates a coercive magnetic force that reduces the magnetic flux density of the storage media to zero. This magnetic force is what properly erases data from media. Data is stored on magnetic media by the representation of the polarization of the atoms. Degaussing changes this polarization (magnetic alignment) by using a type of large magnet to bring it back to its original flux (magnetic alignment). Media management, whether in a library or managed by other systems or individuals, has the following attributes and tasks:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tracking (audit logging) who has custody of each piece of media at any given moment."
+          ]
         },
         {
           "type": "paragraph",
-          "text": "damaged. • Documenting the history of changes to media. For example, when a particular version of a software application kept in the library has been deemed obsolete, this fact must be recorded so the obsolete version of the application is not used unless that particular obsolete version is required. Even once no possible need for the actual media or its content remains, retaining a log of the former existence and the time and method of its deletion may be useful to demonstrate due diligence. • Ensuring environmental conditions do not endanger media. Each media type may be susceptible to damage from one or more environmental influences. For example, all media formats are susceptible to fire, and most are susceptible to liquids, smoke, and dust. Magnetic media formats are susceptible to strong magnetic fields. Magnetic and optical media formats are susceptible to variations in temperature and humidity. A media library and any other space where reference copies of information are stored must be physically built so all types of media will be kept within their environmental parameters, and the environment must be monitored to ensure conditions do not range outside of those parameters. Media libraries are particularly useful when large amounts of information must be stored and physically/environmentally protected so that the high cost of environmental control and media management may be centralized in a small number of physical locations and so that cost is spread out over the large number of items stored in the library. • Ensuring media integrity by verifying on a media-type and environment-appropriate basis that each piece of media remains usable and transferring still-valuable information from pieces of media reaching their obsolescence date to new pieces of media. Every type of media has an expected lifespan under certain conditions, after which it can no longer be expected that the media will reliably retain information. For example, a commercially produced CD or DVD stored in good environmental conditions should be reliable for at least ten years, whereas an inexpensive CD-R or DVD-R sitting on a shelf in a home office may become unreliable after just one year. All types of media in use at a company should have a documented (and conservative) expected lifespan. When the information on a piece of media has more remaining lifespan before its scheduled obsolescence/destruction date than does the piece of media on which the information is recorded, then the information must be transcribed to a newer piece or a newer format of media. Even the availability of hardware to read media in particular formats must be taken into account. A media format that is physically stable for decades, but for which no working device remains available to read, is of no value. Additionally, as part of maintaining the integrity of the specific contents of a piece of media, if the information on that media is highly valuable or mandated to be kept by some regulation or law, a cryptographic signature of the contents of the media may be maintained, and the contents of the piece of media verified against that signature on a regular basis. • Inventorying the media on a scheduled basis to detect if any media has been lost/changed. This can reduce the amount of damage a violation of the other media protection responsibilities could cause by detecting such violations sooner rather than later, and is a necessary part of the media management life cycle by which the controls in place are verified as being sufficient. • Carrying out secure disposal activities. Disposition includes the lifetime after which the information is no longer valuable and the minimum necessary measures for the disposal of the media/information. Secure disposal of media/information can add significant cost to"
+          "text": "This creates the same kind of audit trail as any audit logging activity—to allow an investigation to determine where information was at any given time, who had it, and, for particularly sensitive information, why they accessed it. This enables an investigator to focus efforts on particular people, places, and times if a breach is suspected or known to have happened."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Effectively implementing access controls to restrict who can access each piece of media"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "media management. Knowing that only a certain percentage of the information must be securely erased at the end of its life may significantly reduce the long-term operating costs of the company. Similarly, knowing that certain information must be disposed of securely can reduce the possibility of a piece of media being simply thrown in a dumpster and then found by someone who publicly embarrasses or blackmails the company over the data security breach represented by that inappropriate disposal of the information. It is the business that creates the information stored on media, not the person, library, or librarian who has custody of the media, that is responsible for setting the lifetime and disposition of that information. The business must take into account the useful lifetime of the information to the business, legal, and regulatory restrictions, and, conversely, the requirements for retention and archiving when making these decisions. If a law or regulation requires the information to be kept beyond its normally useful lifetime for the business, then disposition may involve archiving—moving the information from the ready (and possibly more expensive) accessibility of a library to a long-term stable and (with some effort) retrievable format that has lower storage costs. • Internal and external labeling of each piece of media in the library should include • Date created • Retention period • Classification level • Who created it • Date to be destroyed • Name and version Taken together, these tasks implement the full life cycle of the media and represent a necessary part of the full life cycle of the information stored thereon."
+          "text": "to only those people defined by the owner of the media/information on the media, and to enforce the appropriate security measures based on the classification of the media/information on the media. Certain media, due to its physical type and/or the nature of the information on it, may require special handling. All personnel who are authorized to access media must have training to ensure they understand what is required of such media. An example of special handling for, say, classified information may be that the media may only be removed from the library or its usual storage place under physical guard, and even then may not be removed from the building. Access controls will include physical (locked doors, drawers, cabinets, or safes), technical (access and authorization control of any automated system for retrieving contents of information in the library), and administrative (the actual rules for who is supposed to do what to each piece of information). Finally, the data may need to change format, as in printing electronic data to paper. The data still needs to be protected at the necessary level, no matter what format it is in. Procedures must include how to continue to provide the appropriate protection. For example, sensitive material that is to be mailed should be sent in a sealable inner envelope and use only courier service."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tracking the number and location of backup versions (both onsite and offsite). This is"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "necessary to ensure proper disposal of information when the information reaches the end of its lifespan, to account for the location and accessibility of information during audits, and to find a backup copy of information if the primary source of the information is lost or"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Documenting the history of changes to media. For example, when a particular version of"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "a software application kept in the library has been deemed obsolete, this fact must be recorded so the obsolete version of the application is not used unless that particular obsolete version is required. Even once no possible need for the actual media or its content remains, retaining a log of the former existence and the time and method of its deletion may be useful to demonstrate due diligence."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ensuring environmental conditions do not endanger media. Each media type may be"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "susceptible to damage from one or more environmental influences. For example, all media formats are susceptible to fire, and most are susceptible to liquids, smoke, and dust. Magnetic media formats are susceptible to strong magnetic fields. Magnetic and optical media formats are susceptible to variations in temperature and humidity. A media library and any other space where reference copies of information are stored must be physically built so all types of media will be kept within their environmental parameters, and the environment must be monitored to ensure conditions do not range outside of those parameters. Media libraries are particularly useful when large amounts of information must be stored and physically/environmentally protected so that the high cost of environmental control and media management may be centralized in a small number of physical locations and so that cost is spread out over the large number of items stored in the library."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ensuring media integrity by verifying on a media-type and environment-appropriate basis"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "that each piece of media remains usable and transferring still-valuable information from pieces of media reaching their obsolescence date to new pieces of media. Every type of media has an expected lifespan under certain conditions, after which it can no longer be expected that the media will reliably retain information. For example, a commercially produced CD or DVD stored in good environmental conditions should be reliable for at least ten years, whereas an inexpensive CD-R or DVD-R sitting on a shelf in a home office may become unreliable after just one year. All types of media in use at a company should have a documented (and conservative) expected lifespan. When the information on a piece of media has more remaining lifespan before its scheduled obsolescence/destruction date than does the piece of media on which the information is recorded, then the information must be transcribed to a newer piece or a newer format of media. Even the availability of hardware to read media in particular formats must be taken into account. A media format that is physically stable for decades, but for which no working device remains available to read, is of no value. Additionally, as part of maintaining the integrity of the specific contents of a piece of media, if the information on that media is highly valuable or mandated to be kept by some regulation or law, a cryptographic signature of the contents of the media may be maintained, and the contents of the piece of media verified against that signature on a regular basis."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Inventorying the media on a scheduled basis to detect if any media has been"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "lost/changed. This can reduce the amount of damage a violation of the other media protection responsibilities could cause by detecting such violations sooner rather than later, and is a necessary part of the media management life cycle by which the controls in place are verified as being sufficient."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carrying out secure disposal activities. Disposition includes the lifetime after which the"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "information is no longer valuable and the minimum necessary measures for the disposal of the media/information. Secure disposal of media/information can add significant cost to"
+        },
+        {
+          "type": "paragraph",
+          "text": "media management. Knowing that only a certain percentage of the information must be securely erased at the end of its life may significantly reduce the long-term operating costs of the company. Similarly, knowing that certain information must be disposed of securely can reduce the possibility of a piece of media being simply thrown in a dumpster and then found by someone who publicly embarrasses or blackmails the company over the data security breach represented by that inappropriate disposal of the information. It is the business that creates the information stored on media, not the person, library, or librarian who has custody of the media, that is responsible for setting the lifetime and disposition of that information. The business must take into account the useful lifetime of the information to the business, legal, and regulatory restrictions, and, conversely, the requirements for retention and archiving when making these decisions. If a law or regulation requires the information to be kept beyond its normally useful lifetime for the business, then disposition may involve archiving—moving the information from the ready (and possibly more expensive) accessibility of a library to a long-term stable and (with some effort) retrievable format that has lower storage costs."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Internal and external labeling of each piece of media in the library should include",
+            "Date created",
+            "Retention period",
+            "Classification level",
+            "Who created it",
+            "Date to be destroyed",
+            "Name and version"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Taken together, these tasks implement the full life cycle of the media and represent a necessary part of the full life cycle of the information stored thereon."
         }
       ]
     },
@@ -298,19 +574,129 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Mobile device theft is increasing at incredible rates each year. Stealing mobile devices is not a new trend, but in the past they were stolen mainly to sell the hardware. Now mobile devices are increasingly being stolen to gain sensitive data for identity theft crimes. What is important to understand is that this is a rampant, and potentially very dangerous, crime. For many of us, significant chunks of our professional and personal lives are chronicled in our laptops or smartphones. Employees who use these devices as they travel for work may have extremely sensitive company or customer data on their systems that can easily fall into the wrong hands. The following list provides many of the protection mechanisms that can be used to protect mobile devices and the data they hold: • Inventory all mobile devices, including serial numbers, so they can be properly identified if they are stolen and then recovered. • Harden the operating system by applying baseline secure configurations. • Password-protect the BIOS on laptops. • Register all devices with their respective vendors, and file a report with the vendor when a"
+          "text": "Mobile device theft is increasing at incredible rates each year. Stealing mobile devices is not a new trend, but in the past they were stolen mainly to sell the hardware. Now mobile devices are increasingly being stolen to gain sensitive data for identity theft crimes. What is important to understand is that this is a rampant, and potentially very dangerous, crime. For many of us, significant chunks of our professional and personal lives are chronicled in our laptops or smartphones. Employees who use these devices as they travel for work may have extremely sensitive company or customer data on their systems that can easily fall into the wrong hands. The following list provides many of the protection mechanisms that can be used to protect mobile devices and the data they hold:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Inventory all mobile devices, including serial numbers, so they can be properly identified if"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "device is stolen. If a stolen device is sent in for repairs after it is stolen, it will be flagged by the vendor if you have reported the theft. • Do not check mobile devices as luggage when flying. Always carry them on with you. • Never leave a mobile device unattended, and carry it in a nondescript carrying case. • Engrave the device with a symbol or number for proper identification. • Use a slot lock with a cable to connect a laptop to a stationary object whenever possible. • Back up all data on mobile devices to an organizationally controlled repository. • Encrypt all data on a mobile device. • Enable remote wiping of data on the device. Tracing software can be installed so that your device can “phone home” if it is taken from you. Several products offer this tracing capability. Once installed and configured, the software periodically sends in a signal to a tracking center or allows you to track it through a website or application. If you report that your device has been stolen, the vendor of this software may work with service providers and law enforcement to track down and return your laptop. Paper Records It is easy to forget that most organizations still process information on paper records. The fact that this is relatively rare compared to the volume of their electronic counterparts is little consolation when a printed e-mail with sensitive information finds its way into the wrong hands and potentially causes just as much damage. Here are some principles to consider when protecting paper records: • Educate your staff on proper handling of paper records. • Minimize the use of paper records. • Ensure workspaces are kept tidy so it is easy to tell when sensitive papers are left exposed, and routinely audit workspaces to ensure sensitive documents are not exposed. • Lock away all sensitive paperwork as soon as you are done with it. • Prohibit taking sensitive paperwork home. • Label all paperwork with its classification level. Ideally, also include its owner’s name and disposition (e.g., retention) instructions. • Conduct random searches of employees’ bags as they leave the office to ensure sensitive materials are not being taken home. • Destroy unneeded sensitive papers using a crosscut shredder. For very sensitive papers, consider burning them instead. Safes A company may have need for a safe. Safes are commonly used to store backup data tapes, original contracts, or other types of valuables. The safe should be penetration resistant and provide fire protection. The types of safes an organization can choose from are • Wall safe Embedded into the wall and easily hidden"
+          "text": "they are stolen and then recovered."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Harden the operating system by applying baseline secure configurations.",
+            "Password-protect the BIOS on laptops.",
+            "Register all devices with their respective vendors, and file a report with the vendor when a"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "• Floor safe Embedded into the floor and easily hidden • Chests Stand-alone safes • Depositories Safes with slots, which allow the valuables to be easily slipped in • Vaults Safes that are large enough to provide walk-in access If a safe has a combination lock, it should be changed periodically, and only a small subset of people should have access to the combination or key. The safe should be in a visible location, so anyone who is interacting with the safe can be seen. The goal is to uncover any unauthorized access attempts. Some safes have passive or thermal relocking functionality. If the safe has a passive relocking function, it can detect when someone attempts to tamper with it, in which case extra internal bolts will fall into place to ensure it cannot be compromised. If a safe has a thermal relocking function, when a certain temperature is met (possibly from drilling), an extra lock is implemented to ensure the valuables are properly protected. Selecting Standards As we discussed in Chapter 1, standards are mandatory activities, actions, or rules that are formally documented and enforced within an organization. Asset security standards can be expensive in terms of both financial and opportunity costs, so we must select them carefully. This is where classification and controls come together. Since we already know the relative value of our data and other information assets and we understand many of the security controls we can apply to them, we can make cost-effective decisions about how to protect them. These decisions get codified as information asset protection standards. One way to go about selecting standards that make sense for your organization is to adapt an existing standard (perhaps belonging to another organization) to your specific situation. Scoping is the process of taking a broader standard and trimming out the irrelevant or otherwise unwanted parts. For example, suppose your company is acquired by another company and you are asked to rewrite some your standards based on the ones they use. That company allows employees to bring their own devices to work, but that is not permitted in your company. You remove those sections from their standard and scope it down to your size. Tailoring, on the other hand, is when you make changes to specific provisions so they better address your requirements. Suppose your new parent company uses a particular solution for centralized backup management that is different from yours. As you modify that part of the standard to account for your platform, you are tailoring it to your needs. The most important concept to remember when selecting information asset protection standards is to balance the value of the information with the cost of protecting it. Asset inventories and classification standards will help you determine the right security controls. Data Leakage Unless we diligently apply the right controls to our data wherever it may be, we should expect that some of it will eventually end up in the wrong hands. In fact, even if we do everything right, the risk of this happening will never be eliminated. Leaks of personal information by an organization can cause large financial losses. The costs commonly include"
+          "text": "device is stolen. If a stolen device is sent in for repairs after it is stolen, it will be flagged by the vendor if you have reported the theft."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Do not check mobile devices as luggage when flying. Always carry them on with you.",
+            "Never leave a mobile device unattended, and carry it in a nondescript carrying case.",
+            "Engrave the device with a symbol or number for proper identification.",
+            "Use a slot lock with a cable to connect a laptop to a stationary object whenever possible.",
+            "Back up all data on mobile devices to an organizationally controlled repository.",
+            "Encrypt all data on a mobile device.",
+            "Enable remote wiping of data on the device."
+          ]
         },
         {
           "type": "paragraph",
-          "text": "• Investigating the incident and remediating the problem • Contacting affected individuals to inform them about the incident • Penalties and fines to regulatory agencies • Contractual liabilities • Mitigating expenses (such as free credit monitoring services for affected individuals) • Direct damages to affected individuals In addition to financial losses, a company’s reputation may be damaged and individuals’ identities may be stolen. The most common cause of data breach for a business is a lack of awareness and discipline among employees—an overwhelming majority of all leaks are the result of negligence. The most common forms of negligent data breaches occur due to the inappropriate removal of information —for instance, from a secure company system to an insecure home computer so that the employee can work from home—or due to simple theft of an insecure laptop or tape from a taxi cab, airport security checkpoint, or shipping box. However, breaches also occur due to negligent uses of technologies that are inappropriate for a particular use—for example, reassigning some type of medium (say, a page frame, disk sector, or magnetic tape) that contained one or more objects to an unrelated purpose without securely ensuring that the media contained no residual data. It would be too easy to simply blame employees for any inappropriate use of information that results in the information being put at risk, followed by breaches. Employees have a job to do, and their understanding of that job is almost entirely based on what their employer tells them. What an employer tells an employee about the job is not limited to, and may not even primarily be in, the “job description.” Instead, it will be in the feedback the employee receives on a day-to- day and year-to-year basis regarding their work. If the company in its routine communications to employees and its recurring training, performance reviews, and salary/bonus processes does not include security awareness, then employees will not understand security to be a part of their job. The more complex the environment and types of media used, the more communication and training that are required to ensure that the environment is well protected. Further, except in government and military environments, company policies and even awareness training will not stop the most dedicated employees from making the best use of up-to-date consumer technologies, including those technologies not yet integrated into the corporate environment, and even those technologies not yet reasonably secured for the corporate environment or corporate information. Companies must stay aware of new consumer technologies and how employees (wish to) use them in the corporate environment. Just saying “no” will not stop an employee from using, say, a personal smartphone, a USB thumb drive, or webmail to forward corporate data to their home e-mail address in order to work on the data when out of the office. Companies must include in their technical security controls the ability to detect and/or prevent such actions through, for example, computer lockdowns, which prevent writing sensitive data to non- company-owned storage devices, such as USB thumb drives, and e-mailing sensitive information to non approved e-mail destinations. Data Leak Prevention Data leak prevention (DLP) comprises the actions that organizations take to prevent"
+          "text": "Tracing software can be installed so that your device can “phone home” if it is taken from you. Several products offer this tracing capability. Once installed and configured, the software periodically sends in a signal to a tracking center or allows you to track it through a website or application. If you report that your device has been stolen, the vendor of this software may work with service providers and law enforcement to track down and return your laptop. Paper Records It is easy to forget that most organizations still process information on paper records. The fact that this is relatively rare compared to the volume of their electronic counterparts is little consolation when a printed e-mail with sensitive information finds its way into the wrong hands and potentially causes just as much damage. Here are some principles to consider when protecting paper records:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Educate your staff on proper handling of paper records.",
+            "Minimize the use of paper records.",
+            "Ensure workspaces are kept tidy so it is easy to tell when sensitive papers are left exposed,"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "and routinely audit workspaces to ensure sensitive documents are not exposed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lock away all sensitive paperwork as soon as you are done with it.",
+            "Prohibit taking sensitive paperwork home.",
+            "Label all paperwork with its classification level. Ideally, also include its owner’s name and"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "disposition (e.g., retention) instructions."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Conduct random searches of employees’ bags as they leave the office to ensure sensitive"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "materials are not being taken home."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Destroy unneeded sensitive papers using a crosscut shredder. For very sensitive papers,"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "consider burning them instead. Safes A company may have need for a safe. Safes are commonly used to store backup data tapes, original contracts, or other types of valuables. The safe should be penetration resistant and provide fire protection. The types of safes an organization can choose from are"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wall safe Embedded into the wall and easily hidden",
+            "Floor safe Embedded into the floor and easily hidden",
+            "Chests Stand-alone safes",
+            "Depositories Safes with slots, which allow the valuables to be easily slipped in",
+            "Vaults Safes that are large enough to provide walk-in access"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If a safe has a combination lock, it should be changed periodically, and only a small subset of people should have access to the combination or key. The safe should be in a visible location, so anyone who is interacting with the safe can be seen. The goal is to uncover any unauthorized access attempts. Some safes have passive or thermal relocking functionality. If the safe has a passive relocking function, it can detect when someone attempts to tamper with it, in which case extra internal bolts will fall into place to ensure it cannot be compromised. If a safe has a thermal relocking function, when a certain temperature is met (possibly from drilling), an extra lock is implemented to ensure the valuables are properly protected. Selecting Standards As we discussed in Chapter 1, standards are mandatory activities, actions, or rules that are formally documented and enforced within an organization. Asset security standards can be expensive in terms of both financial and opportunity costs, so we must select them carefully. This is where classification and controls come together. Since we already know the relative value of our data and other information assets and we understand many of the security controls we can apply to them, we can make cost-effective decisions about how to protect them. These decisions get codified as information asset protection standards. One way to go about selecting standards that make sense for your organization is to adapt an existing standard (perhaps belonging to another organization) to your specific situation. Scoping is the process of taking a broader standard and trimming out the irrelevant or otherwise unwanted parts. For example, suppose your company is acquired by another company and you are asked to rewrite some your standards based on the ones they use. That company allows employees to bring their own devices to work, but that is not permitted in your company. You remove those sections from their standard and scope it down to your size. Tailoring, on the other hand, is when you make changes to specific provisions so they better address your requirements. Suppose your new parent company uses a particular solution for centralized backup management that is different from yours. As you modify that part of the standard to account for your platform, you are tailoring it to your needs. The most important concept to remember when selecting information asset protection standards is to balance the value of the information with the cost of protecting it. Asset inventories and classification standards will help you determine the right security controls. Data Leakage Unless we diligently apply the right controls to our data wherever it may be, we should expect that some of it will eventually end up in the wrong hands. In fact, even if we do everything right, the risk of this happening will never be eliminated. Leaks of personal information by an organization can cause large financial losses. The costs commonly include"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Investigating the incident and remediating the problem",
+            "Contacting affected individuals to inform them about the incident",
+            "Penalties and fines to regulatory agencies",
+            "Contractual liabilities",
+            "Mitigating expenses (such as free credit monitoring services for affected individuals)",
+            "Direct damages to affected individuals"
+          ]
+        },
+        {
+          "type": "quote",
+          "lines": [
+            "In addition to financial losses, a company’s reputation may be damaged and individuals’",
+            "identities may be stolen.",
+            "The most common cause of data breach for a business is a lack of awareness and discipline",
+            "among employees—an overwhelming majority of all leaks are the result of negligence. The most",
+            "common forms of negligent data breaches occur due to the inappropriate removal of information",
+            "—for instance, from a secure company system to an insecure home computer so that the"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "employee can work from home—or due to simple theft of an insecure laptop or tape from a taxi cab, airport security checkpoint, or shipping box. However, breaches also occur due to negligent uses of technologies that are inappropriate for a particular use—for example, reassigning some type of medium (say, a page frame, disk sector, or magnetic tape) that contained one or more objects to an unrelated purpose without securely ensuring that the media contained no residual data. It would be too easy to simply blame employees for any inappropriate use of information that results in the information being put at risk, followed by breaches. Employees have a job to do, and their understanding of that job is almost entirely based on what their employer tells them. What an employer tells an employee about the job is not limited to, and may not even primarily be in, the “job description.” Instead, it will be in the feedback the employee receives on a day-to- day and year-to-year basis regarding their work. If the company in its routine communications to employees and its recurring training, performance reviews, and salary/bonus processes does not include security awareness, then employees will not understand security to be a part of their job. The more complex the environment and types of media used, the more communication and training that are required to ensure that the environment is well protected. Further, except in government and military environments, company policies and even awareness training will not stop the most dedicated employees from making the best use of up-to-date consumer technologies, including those technologies not yet integrated into the corporate environment, and even those technologies not yet reasonably secured for the corporate environment or corporate information. Companies must stay aware of new consumer technologies and how employees (wish to) use them in the corporate environment. Just saying “no” will not stop an employee from using, say, a personal smartphone, a USB thumb drive, or webmail to forward corporate data to their home e-mail address in order to work on the data when out of the office. Companies must include in their technical security controls the ability to detect and/or prevent such actions through, for example, computer lockdowns, which prevent writing sensitive data to non- company-owned storage devices, such as USB thumb drives, and e-mailing sensitive information to non approved e-mail destinations. Data Leak Prevention Data leak prevention (DLP) comprises the actions that organizations take to prevent"
         },
         {
           "type": "paragraph",
@@ -326,27 +712,85 @@
         },
         {
           "type": "note",
-          "text": "NOTE We cover the threats posed by adversaries compiling public information (aggregation)"
+          "text": "NOTE We cover the threats posed by adversaries compiling public information (aggregation) and using it to derive otherwise private information (inference) in Chapter 8. Once you are satisfied that you have inventoried your sensitive data, the next step is to characterize it. We already covered the classification of information earlier in this chapter, so you should know all about data labels. Another element of this characterization is ownership. Who owns a particular set of data? Beyond that, who should be authorized to read or modify it? Depending on your organization, your data may have other characteristics of importance to the DLP effort, such as which data is regulated and how long it must be retained. Data Flows Data that stays put is usually of little use to anyone. Most data will move according to specific business processes through specific network pathways. Understanding data flows at this intersection between business and IT is critical to implementing DLP. Many organizations"
         },
         {
           "type": "paragraph",
-          "text": "and using it to derive otherwise private information (inference) in Chapter 8. Once you are satisfied that you have inventoried your sensitive data, the next step is to characterize it. We already covered the classification of information earlier in this chapter, so you should know all about data labels. Another element of this characterization is ownership. Who owns a particular set of data? Beyond that, who should be authorized to read or modify it? Depending on your organization, your data may have other characteristics of importance to the DLP effort, such as which data is regulated and how long it must be retained. Data Flows Data that stays put is usually of little use to anyone. Most data will move according to specific business processes through specific network pathways. Understanding data flows at this intersection between business and IT is critical to implementing DLP. Many organizations"
+          "text": "put their DLP sensors at the perimeter of their networks, thinking that is where the leakages would occur. But if that’s the only location these sensors are placed, a large number of leaks may not be detected or stopped. Additionally, as we will discuss in detail when we cover network- based DLP, perimeter sensors can often be bypassed by sophisticated attackers. A better approach is to use a variety of sensors tuned to specific data flows. Suppose you have a software development team that routinely passes finished code to a quality assurance (QA) team for testing. The code is sensitive, but the QA team is authorized to read (and perhaps modify) it. However, the QA team is not authorized to access code under development or code from projects past. If an adversary compromises the computer used by a member of the QA team and attempts to access the source code for different projects, a DLP solution that is not tuned to that business process will not detect the compromise. The adversary could then repackage the data to avoid your perimeter monitors and successfully extract the data. Data Protection Strategy The example just described highlights the need for a comprehensive, risk-based data protection strategy. A simple way for an adversary (internal or remote) to extract data from our systems is to encrypt it and/or use steganography to hide it within an innocuous file. Steganography, which we discuss in detail in Chapter 3, is the process of hiding data within other data such that it is difficult or impossible to detect the hidden content. The extent to which we attempt to mitigate these exfiltration routes depends on our assessment of the risk of their use. Obviously, as we increase our scrutiny of a growing set of data items, our costs will grow disproportionately. We usually can’t watch everything all the time, so what do we do? Once we have our data inventories and understand our data flows, we have enough information to do a risk assessment. Recall that we described this process in detail in Chapter 1. The trick is to incorporate data loss into that process. Since we can’t guarantee that we will successfully defend against all attacks, we have to assume that sometimes our adversaries will gain access to our networks. Not only does our data protection strategy have to cover our approach to keeping attackers out, but it also must describe how we protect our data against a threat agent that is already inside. The following are some key areas to consider when developing data protection strategies:"
         },
         {
-          "type": "paragraph",
-          "text": "put their DLP sensors at the perimeter of their networks, thinking that is where the leakages would occur. But if that’s the only location these sensors are placed, a large number of leaks may not be detected or stopped. Additionally, as we will discuss in detail when we cover network- based DLP, perimeter sensors can often be bypassed by sophisticated attackers. A better approach is to use a variety of sensors tuned to specific data flows. Suppose you have a software development team that routinely passes finished code to a quality assurance (QA) team for testing. The code is sensitive, but the QA team is authorized to read (and perhaps modify) it. However, the QA team is not authorized to access code under development or code from projects past. If an adversary compromises the computer used by a member of the QA team and attempts to access the source code for different projects, a DLP solution that is not tuned to that business process will not detect the compromise. The adversary could then repackage the data to avoid your perimeter monitors and successfully extract the data. Data Protection Strategy The example just described highlights the need for a comprehensive, risk-based data protection strategy. A simple way for an adversary (internal or remote) to extract data from our systems is to encrypt it and/or use steganography to hide it within an innocuous file. Steganography, which we discuss in detail in Chapter 3, is the process of hiding data within other data such that it is difficult or impossible to detect the hidden content. The extent to which we attempt to mitigate these exfiltration routes depends on our assessment of the risk of their use. Obviously, as we increase our scrutiny of a growing set of data items, our costs will grow disproportionately. We usually can’t watch everything all the time, so what do we do? Once we have our data inventories and understand our data flows, we have enough information to do a risk assessment. Recall that we described this process in detail in Chapter 1. The trick is to incorporate data loss into that process. Since we can’t guarantee that we will successfully defend against all attacks, we have to assume that sometimes our adversaries will gain access to our networks. Not only does our data protection strategy have to cover our approach to keeping attackers out, but it also must describe how we protect our data against a threat agent that is already inside. The following are some key areas to consider when developing data protection strategies: • Backup and recovery Though we have been focusing our attention on data leaks, it is also"
+          "type": "list",
+          "items": [
+            "Backup and recovery Though we have been focusing our attention on data leaks, it is also"
+          ]
         },
         {
           "type": "note",
-          "text": "important to consider the steps to prevent the loss of this data due to electromechanical or"
+          "text": "important to consider the steps to prevent the loss of this data due to electromechanical or human failures. As we take care of this, we need to also consider the risk that, while we focus our attention on preventing leaks of our primary data stores, our adversaries may be focusing their attention on stealing the backups. • Data life cycle Most of us can intuitively grasp the security issues at each of the stages of the data life cycle. However, we tend to disregard securing the data as it transitions from one stage to another. For instance, if we are archiving data at an offsite location, are we ensuring that it is protected as it travels there? • Physical security While IT provides a wealth of tools and resources to help us protect our data, we must also consider what happens when an adversary just steals a hard drive left in an unsecured area, as happened to Sentara Heart Hospital in Norfolk, Virginia, in August 2015. • Security culture Our information systems users can be a tremendous control if properly educated and incentivized. By developing a culture of security within our organizations, we not only reduce the incidence of users clicking on malicious links and opening attachments,"
         },
         {
           "type": "paragraph",
-          "text": "human failures. As we take care of this, we need to also consider the risk that, while we focus our attention on preventing leaks of our primary data stores, our adversaries may be focusing their attention on stealing the backups. • Data life cycle Most of us can intuitively grasp the security issues at each of the stages of the data life cycle. However, we tend to disregard securing the data as it transitions from one stage to another. For instance, if we are archiving data at an offsite location, are we ensuring that it is protected as it travels there? • Physical security While IT provides a wealth of tools and resources to help us protect our data, we must also consider what happens when an adversary just steals a hard drive left in an unsecured area, as happened to Sentara Heart Hospital in Norfolk, Virginia, in August 2015. • Security culture Our information systems users can be a tremendous control if properly educated and incentivized. By developing a culture of security within our organizations, we not only reduce the incidence of users clicking on malicious links and opening attachments,"
+          "text": "but we also turn each of them into a security sensor, able to detect attacks that we may not otherwise be able to."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Privacy Every data protection policy should carefully balance the need to monitor data"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "but we also turn each of them into a security sensor, able to detect attacks that we may not otherwise be able to. • Privacy Every data protection policy should carefully balance the need to monitor data with the need to protect our users’ privacy. If we allow our users to check personal e-mail or visit social media sites during their breaks, would our systems be quietly monitoring their private communications? • Organizational change Many large organizations grow because of mergers and acquisitions. When these changes happen, we must ensure that the data protection approaches of all entities involved are consistent and sufficient. To do otherwise is to ensure that the overall security posture of the new organization is the lesser of its constituents’ security postures. Implementation, Testing, and Tuning All the elements of a DLP process that we have discussed so far (i.e., data inventories, data flows, and data protection strategies) are administrative in nature. We finally get to discuss the part of DLP with which most of us are familiar: deploying and running a toolset. The sequence of our discussion so far has been deliberate in that the technological part needs to be informed by the other elements we’ve covered. Many organizations have wasted large sums of money on so-called solutions that, though well known and regarded, are just not suitable for their particular environment. Assuming we’ve done our administrative homework and have a good understanding of our true DLP requirements, we can evaluate products according to our own criteria, not someone else’s. The following are some aspects of a possible solution that most organizations will want to consider when comparing competing products: • Sensitive data awareness Different tools will use different approaches to analyzing the sensitivity of documents’ contents and the context in which they are being used. In general terms, the more depth of analysis and breadth of techniques that a product offers, the better. Typical approaches to finding and tracking sensitive data include keywords, regular expressions, tags, and statistical methods. • Policy engine Policies are at the heart of any DLP solution. Unfortunately, not all policy engines are created equal. Some allow extremely granular control but require obscure methods for defining these policies. Other solutions are less expressive but are simple to understand. There is no right answer here, so each organization will weigh this aspect of a set of solutions differently. • Interoperability DLP tools must play nicely with existing infrastructure, which is why most vendors will assure you that their product is interoperable. The trick becomes to determine precisely how this integration takes place. There are products that are technically interoperable but, in practice, require so much effort to integrate that they become infeasible. • Accuracy At the end of the day, DLP solutions keep your data out of the hands of unauthorized entities. Therefore, the right solution is one that is accurate in its identification and prevention of incidents that result in the leakage of sensitive data. The best way to assess this criterion is by testing a candidate solution in an environment that mimics the actual conditions in the organization. Once we select a DLP solution, the next interrelated tasks are integration, testing, and tuning."
+          "text": "with the need to protect our users’ privacy. If we allow our users to check personal e-mail or visit social media sites during their breaks, would our systems be quietly monitoring their private communications?"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Organizational change Many large organizations grow because of mergers and"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "acquisitions. When these changes happen, we must ensure that the data protection approaches of all entities involved are consistent and sufficient. To do otherwise is to ensure that the overall security posture of the new organization is the lesser of its constituents’ security postures. Implementation, Testing, and Tuning All the elements of a DLP process that we have discussed so far (i.e., data inventories, data flows, and data protection strategies) are administrative in nature. We finally get to discuss the part of DLP with which most of us are familiar: deploying and running a toolset. The sequence of our discussion so far has been deliberate in that the technological part needs to be informed by the other elements we’ve covered. Many organizations have wasted large sums of money on so-called solutions that, though well known and regarded, are just not suitable for their particular environment. Assuming we’ve done our administrative homework and have a good understanding of our true DLP requirements, we can evaluate products according to our own criteria, not someone else’s. The following are some aspects of a possible solution that most organizations will want to consider when comparing competing products:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sensitive data awareness Different tools will use different approaches to analyzing the"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "sensitivity of documents’ contents and the context in which they are being used. In general terms, the more depth of analysis and breadth of techniques that a product offers, the better. Typical approaches to finding and tracking sensitive data include keywords, regular expressions, tags, and statistical methods."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Policy engine Policies are at the heart of any DLP solution. Unfortunately, not all policy"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "engines are created equal. Some allow extremely granular control but require obscure methods for defining these policies. Other solutions are less expressive but are simple to understand. There is no right answer here, so each organization will weigh this aspect of a set of solutions differently."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interoperability DLP tools must play nicely with existing infrastructure, which is why"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "most vendors will assure you that their product is interoperable. The trick becomes to determine precisely how this integration takes place. There are products that are technically interoperable but, in practice, require so much effort to integrate that they become infeasible."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Accuracy At the end of the day, DLP solutions keep your data out of the hands of"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "unauthorized entities. Therefore, the right solution is one that is accurate in its identification and prevention of incidents that result in the leakage of sensitive data. The best way to assess this criterion is by testing a candidate solution in an environment that mimics the actual conditions in the organization. Once we select a DLP solution, the next interrelated tasks are integration, testing, and tuning."
         },
         {
           "type": "paragraph",
@@ -354,11 +798,7 @@
         },
         {
           "type": "note",
-          "text": "NOTE We cover misuse cases in detail in Chapter 6."
-        },
-        {
-          "type": "paragraph",
-          "text": "Finally, we must remember that everything changes. The solution that is exquisitely implemented, finely tuned, and effective immediately is probably going to be ineffective in the near future if we don’t continuously maintain and improve it. Apart from the efficacy of the tool itself, our organizations change as people, products, and services come and go. The ensuing cultural and environmental changes will also change the effectiveness of our DLP solutions. And, obviously, if we fail to realize that users are installing rogue access points, using thumb drives without restriction, or clicking malicious links, then it is just a matter of time before our expensive DLP solution will be circumvented. Network DLP Network DLP (NDLP) applies data protection policies to data in motion. NDLP products are"
+          "text": "NOTE We cover misuse cases in detail in Chapter 6. Finally, we must remember that everything changes. The solution that is exquisitely implemented, finely tuned, and effective immediately is probably going to be ineffective in the near future if we don’t continuously maintain and improve it. Apart from the efficacy of the tool itself, our organizations change as people, products, and services come and go. The ensuing cultural and environmental changes will also change the effectiveness of our DLP solutions. And, obviously, if we fail to realize that users are installing rogue access points, using thumb drives without restriction, or clicking malicious links, then it is just a matter of time before our expensive DLP solution will be circumvented. Network DLP Network DLP (NDLP) applies data protection policies to data in motion. NDLP products are"
         },
         {
           "type": "paragraph",
@@ -405,12 +845,200 @@
       "level": 3,
       "content": [
         {
-          "type": "paragraph",
-          "text": "• Information goes through a life cycle that starts with its acquisition and ends with its disposal. • Each phase of the information life cycle requires different considerations when assessing risks and selecting controls. • New information is prepared for use by adding metadata, including classification labels. • Ensuring the consistency of data must be a deliberate process in organizations that use data replication. • Data aggregation may lead to an increase in classification levels. • Cryptography can be an effective control at all phases of the information life cycle. • The data retention policy drives the timeframe at which information transitions from the archival phase to the disposal phase of its life cycle. • Information classification corresponds to the information’s value to the organization. • Each classification should have separate handling requirements and procedures pertaining to how that data is accessed, used, and destroyed. • Senior executives are ultimately responsible to the shareholders for the successes and failures of their corporations, including security issues. • The data owner is the manager in charge of a specific business unit and is ultimately responsible for the protection and use of a specific subset of information. • Data owners specify the classification of data, and data custodians implement and maintain controls to enforce the set classification levels. • The data retention policy must consider legal, regulatory, and operational requirements. • The data retention policy should address what data is to be retained, where, how, and for how long. • Electronic discovery (e-discovery) is the process of producing for a court or external attorney all electronically stored information (ESI) pertinent to a legal proceeding. • Normal deletion of a file does not permanently remove it from media. • NIST SP 800-88, Revision 1, “Guidelines for Media Sanitization,” describes the best practices for combating data remanence. • Overwriting data entails replacing the 1’s and 0’s that represent it on storage media with random or fixed patterns of 1’s and 0’s to render the original data unrecoverable. • Degaussing is the process of removing or reducing the magnetic field patterns on conventional disk drives or tapes. • Privacy pertains to personal information, both from your employees and your customers. • Generally speaking, organizations should collect the least amount of private personal data required for the performance of their business functions. • Data at rest refers to data that resides in external or auxiliary storage devices, such as hard drives or optical discs. • Every major operating system supports whole-disk encryption, which is a good way to protect data at rest. • Data in motion is data that is moving between computing nodes over a data network such as the Internet. • TLS, IPSec, and VPNs are typical ways to use cryptography to protect data in motion."
+          "type": "list",
+          "items": [
+            "Information goes through a life cycle that starts with its acquisition and ends with its",
+            "Each phase of the information life cycle requires different considerations when assessing"
+          ]
         },
         {
           "type": "paragraph",
-          "text": "• Data in use is the term for data residing in primary storage devices, such as volatile memory (e.g., RAM), memory caches, or CPU registers. • Scoping is taking a broader standard and trimming out the irrelevant or otherwise unwanted parts. • Tailoring is when you make changes to specific provisions in a standard so they better address your requirements. • A data leak means that the confidentiality of the data has been compromised. • Data leak prevention (DLP) comprises the actions that organizations take to prevent unauthorized external parties from gaining access to sensitive data. • Network DLP (NDLP) applies data protection policies to data in motion. • Endpoint DLP (EDLP) applies data protection policies to data at rest and data in use. • Mobile devices are easily lost or stolen and should proactively be configured to mitigate the risks of data loss or leakage. • Paper products oftentimes contain information that deserves controls commensurate to the sensitivity and criticality of that information. Questions Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list. 1. Which of the following statements is true about the information life cycle? A. The information life cycle begins with its archival and ends with its classification. B. Most information must be retained indefinitely. C. The information life cycle begins with its acquisition/creation and ends with its disposal/destruction. D. Preparing information for use does not typically involve adding metadata to it. 2. Ensuring data consistency is important for all the following reasons, except A. Replicated data sets can become desynchronized. B. Multiple data items are commonly needed to perform a transaction. C. Data may exist in multiple locations within our information systems. D. Multiple users could attempt to modify data simultaneously. 3. Which of the following makes the most sense for a single organization’s classification levels for data? A. Unclassified, Secret, Top Secret B. Public, Releasable, Unclassified C. Sensitive, Sensitive But Unclassified (SBU), Proprietary D. Proprietary, Trade Secret, Private 4. Which of the following is the most important criterion in determining the classification of data? A. The level of damage that could be caused if the data were disclosed B. The likelihood that the data will be accidentally or maliciously disclosed"
+          "text": "risks and selecting controls."
+        },
+        {
+          "type": "list",
+          "items": [
+            "New information is prepared for use by adding metadata, including classification labels.",
+            "Ensuring the consistency of data must be a deliberate process in organizations that use data",
+            "Data aggregation may lead to an increase in classification levels.",
+            "Cryptography can be an effective control at all phases of the information life cycle.",
+            "The data retention policy drives the timeframe at which information transitions from the"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "archival phase to the disposal phase of its life cycle."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Information classification corresponds to the information’s value to the organization.",
+            "Each classification should have separate handling requirements and procedures pertaining"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "to how that data is accessed, used, and destroyed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Senior executives are ultimately responsible to the shareholders for the successes and"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "failures of their corporations, including security issues."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The data owner is the manager in charge of a specific business unit and is ultimately"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "responsible for the protection and use of a specific subset of information."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Data owners specify the classification of data, and data custodians implement and maintain"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "controls to enforce the set classification levels."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The data retention policy must consider legal, regulatory, and operational requirements.",
+            "The data retention policy should address what data is to be retained, where, how, and for",
+            "Electronic discovery (e-discovery) is the process of producing for a court or external"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "attorney all electronically stored information (ESI) pertinent to a legal proceeding."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Normal deletion of a file does not permanently remove it from media.",
+            "NIST SP 800-88, Revision 1, “Guidelines for Media Sanitization,” describes the best"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "practices for combating data remanence."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Overwriting data entails replacing the 1’s and 0’s that represent it on storage media with"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "random or fixed patterns of 1’s and 0’s to render the original data unrecoverable."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Degaussing is the process of removing or reducing the magnetic field patterns on"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "conventional disk drives or tapes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Privacy pertains to personal information, both from your employees and your customers.",
+            "Generally speaking, organizations should collect the least amount of private personal data"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "required for the performance of their business functions."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Data at rest refers to data that resides in external or auxiliary storage devices, such as hard"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "drives or optical discs."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every major operating system supports whole-disk encryption, which is a good way to"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "protect data at rest."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Data in motion is data that is moving between computing nodes over a data network such",
+            "TLS, IPSec, and VPNs are typical ways to use cryptography to protect data in motion.",
+            "Data in use is the term for data residing in primary storage devices, such as volatile"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "memory (e.g., RAM), memory caches, or CPU registers."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scoping is taking a broader standard and trimming out the irrelevant or otherwise unwanted",
+            "Tailoring is when you make changes to specific provisions in a standard so they better"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "address your requirements."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A data leak means that the confidentiality of the data has been compromised.",
+            "Data leak prevention (DLP) comprises the actions that organizations take to prevent"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "unauthorized external parties from gaining access to sensitive data."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Network DLP (NDLP) applies data protection policies to data in motion.",
+            "Endpoint DLP (EDLP) applies data protection policies to data at rest and data in use.",
+            "Mobile devices are easily lost or stolen and should proactively be configured to mitigate"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "the risks of data loss or leakage."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Paper products oftentimes contain information that deserves controls commensurate to the"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "sensitivity and criticality of that information. Questions Please remember that these questions are formatted and asked in a certain way for a reason. Keep in mind that the CISSP exam is asking questions at a conceptual level. Questions may not always have the perfect answer, and the candidate is advised against always looking for the perfect answer. Instead, the candidate should look for the best answer in the list. 1. Which of the following statements is true about the information life cycle? A. The information life cycle begins with its archival and ends with its classification. B. Most information must be retained indefinitely. C. The information life cycle begins with its acquisition/creation and ends with its disposal/destruction. D. Preparing information for use does not typically involve adding metadata to it. 2. Ensuring data consistency is important for all the following reasons, except A. Replicated data sets can become desynchronized. B. Multiple data items are commonly needed to perform a transaction. C. Data may exist in multiple locations within our information systems. D. Multiple users could attempt to modify data simultaneously. 3. Which of the following makes the most sense for a single organization’s classification levels for data? A. Unclassified, Secret, Top Secret B. Public, Releasable, Unclassified C. Sensitive, Sensitive But Unclassified (SBU), Proprietary D. Proprietary, Trade Secret, Private 4. Which of the following is the most important criterion in determining the classification of data? A. The level of damage that could be caused if the data were disclosed B. The likelihood that the data will be accidentally or maliciously disclosed"
         },
         {
           "type": "paragraph",

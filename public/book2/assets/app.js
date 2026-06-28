@@ -257,6 +257,24 @@ const App = (() => {
       if (block.type === 'table_caption') {
         return `<div class="table-caption-block"><strong>Table ${escHtml(block.tableNum)}</strong> — ${escHtml(block.caption)}</div>`;
       }
+      if (block.type === 'list') {
+        const items = block.items.map(it => `<li>${escHtml(it)}</li>`).join('');
+        return `<ul class="content-list">${items}</ul>`;
+      }
+      if (block.type === 'quote') {
+        // Last line starting with — is attribution, rest is quote text
+        const lines = block.lines || [];
+        const attrIdx = lines.findIndex(l => /^—/.test(l));
+        const quoteLines = attrIdx >= 0 ? lines.slice(0, attrIdx) : lines;
+        const attr = attrIdx >= 0 ? lines[attrIdx].replace(/^—\s*/, '') : null;
+        return `<blockquote class="content-quote">
+          <p>${quoteLines.map(l => escHtml(l)).join('<br>')}</p>
+          ${attr ? `<cite>— ${escHtml(attr)}</cite>` : ''}
+        </blockquote>`;
+      }
+      if (block.type === 'chapter_intro') {
+        return `<p class="chapter-intro-line">${escHtml(block.text)}</p>`;
+      }
       return '';
     }).join('');
   }

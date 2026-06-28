@@ -57,11 +57,29 @@ function parseTextToSections(rawText, domainNum) {
   const sections = [];
   let currentSection = null;
   let paragraphBuffer = [];
+  let bulletBuffer = [];
+  let quoteBuffer = [];
+  let inQuote = false;
+
+  function flushBullets() {
+    if (!bulletBuffer.length) return;
+    if (currentSection) currentSection.content.push({ type: 'list', items: [...bulletBuffer] });
+    bulletBuffer = [];
+  }
+
+  function flushQuote() {
+    if (!quoteBuffer.length) return;
+    if (currentSection) currentSection.content.push({ type: 'quote', lines: [...quoteBuffer] });
+    quoteBuffer = [];
+    inQuote = false;
+  }
 
   function flushParagraph() {
+    flushBullets();
+    flushQuote();
     if (!paragraphBuffer.length) return;
     const text = paragraphBuffer.join(' ').replace(/\s+/g, ' ').trim();
-    if (text.length > 30 && currentSection) {
+    if (text.length > 20 && currentSection) {
       currentSection.content.push({ type: 'paragraph', text });
     }
     paragraphBuffer = [];
@@ -80,19 +98,54 @@ function parseTextToSections(rawText, domainNum) {
   };
 
   for (let i = 0; i < lines.length; i++) {
-    const line = cleanLine(lines[i]);
+    const rawLine = lines[i].trim();
+    const line = cleanLine(rawLine);
     const prevBlank = i === 0 || lines[i - 1].trim() === '';
     const nextBlank = i === lines.length - 1 || lines[i + 1].trim() === '';
 
-    if (!line) { flushParagraph(); continue; }
+    // Blank line — flush buffers
+    if (!line) {
+      flushParagraph();
+      continue;
+    }
 
-    // Skip page numbers and running headers
+    // Skip page numbers, running headers, and standalone chapter number lines
     if (/^\d+$/.test(line)) continue;
     if (/^cissp all-in-one/i.test(line)) continue;
     if (/^chapter \d+/i.test(line) && line.length < 20) continue;
+    if (line === 'CHAPTER') continue;
 
-    // Figure caption (standalone line: "Figure 1-1  Caption text") — check raw line before space collapse
-    const rawLine = lines[i].trim();
+    // Skip domain title if it matches the intro section title (already shown as heading)
+    if (currentSection && currentSection.content.length === 0 && line === currentSection.title) continue;
+    // Also skip if it matches any DOMAIN_MARKERS title (chapter title line)
+    if (DOMAIN_MARKERS.some(m => m.titlePattern.test(line))) continue;
+
+    // ── Bullet point line (starts with • or – used as bullet)
+    if (/^[•\-–]\s+/.test(rawLine)) {
+      flushParagraph(); // flush any preceding paragraph first
+      const itemText = rawLine.replace(/^[•\-–]\s+/, '').trim();
+      bulletBuffer.push(itemText);
+      continue;
+    }
+
+    // If we were collecting bullets and hit a non-bullet, flush them
+    if (bulletBuffer.length && !/^[•\-–]\s+/.test(rawLine)) {
+      flushBullets();
+    }
+
+    // ── Quote attribution line (starts with em-dash —)
+    if (/^—/.test(rawLine)) {
+      // The lines before this (in paragraphBuffer) are the quote text
+      if (paragraphBuffer.length) {
+        quoteBuffer = [...paragraphBuffer];
+        paragraphBuffer = [];
+      }
+      quoteBuffer.push(rawLine); // include attribution
+      flushQuote();
+      continue;
+    }
+
+    // ── Figure caption
     const figMatch = rawLine.match(FIGURE_CAPTION_RE);
     if (figMatch && prevBlank) {
       flushParagraph();
@@ -108,7 +161,7 @@ function parseTextToSections(rawText, domainNum) {
       continue;
     }
 
-    // Table caption
+    // ── Table caption
     const tableMatch = rawLine.match(TABLE_CAPTION_RE);
     if (tableMatch && prevBlank) {
       flushParagraph();
@@ -122,7 +175,7 @@ function parseTextToSections(rawText, domainNum) {
       continue;
     }
 
-    // Exam tip
+    // ── Exam tip
     if (/^exam\s*tip/i.test(line)) {
       flushParagraph();
       let tipText = line;
@@ -136,14 +189,27 @@ function parseTextToSections(rawText, domainNum) {
       continue;
     }
 
-    // NOTE / CAUTION
+    // ── NOTE / CAUTION
     if (/^(note|caution|warning|important)[\s:]/i.test(line)) {
       flushParagraph();
-      if (currentSection) currentSection.content.push({ type: 'note', text: line });
+      // Collect multi-line note
+      let noteText = line;
+      while (i + 1 < lines.length && lines[i + 1].trim() !== '') {
+        i++;
+        noteText += ' ' + cleanLine(lines[i]);
+      }
+      if (currentSection) currentSection.content.push({ type: 'note', text: noteText });
       continue;
     }
 
-    // Section heading
+    // ── "This chapter presents the following:" intro line
+    if (/^this chapter presents/i.test(line)) {
+      flushParagraph();
+      if (currentSection) currentSection.content.push({ type: 'chapter_intro', text: line });
+      continue;
+    }
+
+    // ── Section heading
     const headingLevel = detectHeadingLevel(line, prevBlank, nextBlank);
     if (headingLevel) {
       flushSection();
@@ -155,6 +221,21 @@ function parseTextToSections(rawText, domainNum) {
   }
 
   flushSection();
+
+  // Post-process: merge consecutive list blocks into one
+  for (const section of sections) {
+    const merged = [];
+    for (const block of section.content) {
+      const prev = merged[merged.length - 1];
+      if (block.type === 'list' && prev && prev.type === 'list') {
+        prev.items.push(...block.items);
+      } else {
+        merged.push(block);
+      }
+    }
+    section.content = merged;
+  }
+
   return sections;
 }
 
