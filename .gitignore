@@ -48,7 +48,7 @@ Book/
 # Temp files
 tmp_*.txt
 missing.txt
-data/
+public/book2/data/raw.txt
 
 # Claude memory / session files
 .claude/
