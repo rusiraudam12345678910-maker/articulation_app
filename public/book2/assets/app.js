@@ -238,10 +238,10 @@ const App = (() => {
         return `<p class="para ${readSections[readKey] ? 'read' : ''}">${wrapWords(escHtml(block.text))}</p>`;
       }
       if (block.type === 'exam_tip') {
-        return `<div class="exam-tip"><div class="exam-tip-label">Exam Tip</div><p>${escHtml(block.text)}</p></div>`;
+        return `<div class="exam-tip"><div class="exam-tip-label">Exam Tip</div><p>${wrapWords(escHtml(block.text))}</p></div>`;
       }
       if (block.type === 'note') {
-        return `<div class="note-block"><p>${escHtml(block.text)}</p></div>`;
+        return `<div class="note-block"><p>${wrapWords(escHtml(block.text))}</p></div>`;
       }
       if (block.type === 'figure') {
         const imgFile = figureMap[block.figNum];
@@ -252,15 +252,15 @@ const App = (() => {
           <figure class="book-figure">
             ${imgHtml}
             <figcaption class="book-figure-caption">
-              <strong>Figure ${escHtml(block.figNum)}</strong> — ${escHtml(block.caption)}
+              <strong>Figure ${escHtml(block.figNum)}</strong> — ${wrapWords(escHtml(block.caption))}
             </figcaption>
           </figure>`;
       }
       if (block.type === 'table_caption') {
-        return `<div class="table-caption-block"><strong>Table ${escHtml(block.tableNum)}</strong> — ${escHtml(block.caption)}</div>`;
+        return `<div class="table-caption-block"><strong>Table ${escHtml(block.tableNum)}</strong> — ${wrapWords(escHtml(block.caption))}</div>`;
       }
       if (block.type === 'list') {
-        const items = block.items.map(it => `<li>${escHtml(it)}</li>`).join('');
+        const items = block.items.map(it => `<li>${wrapWords(escHtml(it))}</li>`).join('');
         return `<ul class="content-list">${items}</ul>`;
       }
       if (block.type === 'quote') {
@@ -270,12 +270,12 @@ const App = (() => {
         const quoteLines = attrIdx >= 0 ? lines.slice(0, attrIdx) : lines;
         const attr = attrIdx >= 0 ? lines[attrIdx].replace(/^—\s*/, '') : null;
         return `<blockquote class="content-quote">
-          <p>${quoteLines.map(l => escHtml(l)).join('<br>')}</p>
-          ${attr ? `<cite>— ${escHtml(attr)}</cite>` : ''}
+          <p>${quoteLines.map(l => wrapWords(escHtml(l))).join('<br>')}</p>
+          ${attr ? `<cite>— ${wrapWords(escHtml(attr))}</cite>` : ''}
         </blockquote>`;
       }
       if (block.type === 'chapter_intro') {
-        return `<p class="chapter-intro-line">${escHtml(block.text)}</p>`;
+        return `<p class="chapter-intro-line">${wrapWords(escHtml(block.text))}</p>`;
       }
       return '';
     }).join('');
@@ -546,16 +546,24 @@ const App = (() => {
     const secEl = document.getElementById(`sec-${section.id}`);
     if (!secEl) return;
     const words = secEl.querySelectorAll('.tts-word');
-    // Find approximate word by char position
+    // Rebuild char offsets from the full text of the section element
+    // ttsState.text is the plain-text string passed to SpeechSynthesisUtterance
+    // Map each word span to a position in that string
     let pos = 0;
+    let matched = null;
     for (const w of words) {
-      const wLen = w.textContent.length + 1;
-      if (pos >= charIndex && pos <= charIndex + 20) {
-        w.classList.add('speaking');
-        w.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const wText = w.textContent;
+      const wLen = wText.length;
+      // charIndex points to start of the spoken word in ttsState.text
+      if (pos <= charIndex && charIndex < pos + wLen) {
+        matched = w;
         break;
       }
-      pos += wLen;
+      pos += wLen + 1; // +1 for the space between words
+    }
+    if (matched) {
+      matched.classList.add('speaking');
+      matched.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   }
 
