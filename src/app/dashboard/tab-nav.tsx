@@ -15,6 +15,7 @@ const tabs = [
   { label: '👂 Listen & Repeat', href: '/dashboard/listen' },
   { label: '📚 CISSP', href: '/dashboard/cissp' },
   { label: '📖 CISSP Book', href: '/dashboard/cissp-book' },
+  { label: '📗 CISSP Book2', href: '/dashboard/cissp-book2' },
 ]
 
 export default function TabNav() {
