@@ -130,12 +130,12 @@ const App = (() => {
     const domainList = [
       { num: 1, title: 'Security and Risk Management', available: true },
       { num: 2, title: 'Asset Security', available: true },
-      { num: 3, title: 'Security Architecture and Engineering', available: false },
-      { num: 4, title: 'Communication and Network Security', available: false },
-      { num: 5, title: 'Identity and Access Management', available: false },
-      { num: 6, title: 'Security Assessment and Testing', available: false },
-      { num: 7, title: 'Security Operations', available: false },
-      { num: 8, title: 'Software Development Security', available: false },
+      { num: 3, title: 'Security Architecture and Engineering', available: true },
+      { num: 4, title: 'Communication and Network Security', available: true },
+      { num: 5, title: 'Identity and Access Management', available: true },
+      { num: 6, title: 'Security Assessment and Testing', available: true },
+      { num: 7, title: 'Security Operations', available: true },
+      { num: 8, title: 'Software Development Security', available: true },
     ];
 
     const totalRead = Object.keys(readSections).length;
@@ -292,6 +292,12 @@ const App = (() => {
     const domains = [
       { num: 1, title: 'Security and Risk Management', available: true },
       { num: 2, title: 'Asset Security', available: true },
+      { num: 3, title: 'Security Architecture and Engineering', available: true },
+      { num: 4, title: 'Communication and Network Security', available: true },
+      { num: 5, title: 'Identity and Access Management', available: true },
+      { num: 6, title: 'Security Assessment and Testing', available: true },
+      { num: 7, title: 'Security Operations', available: true },
+      { num: 8, title: 'Software Development Security', available: true },
     ];
 
     let html = '';
@@ -373,8 +379,14 @@ const App = (() => {
   function renderProgress() {
     if (!els.progressPanel) return;
     const domains = [
-      { num: 1, title: 'Security and Risk Management', totalSections: 28 },
-      { num: 2, title: 'Asset Security', totalSections: 11 },
+      { num: 1, title: 'Security and Risk Management', totalSections: 134 },
+      { num: 2, title: 'Asset Security', totalSections: 61 },
+      { num: 3, title: 'Security Architecture and Engineering', totalSections: 200 },
+      { num: 4, title: 'Communication and Network Security', totalSections: 183 },
+      { num: 5, title: 'Identity and Access Management', totalSections: 129 },
+      { num: 6, title: 'Security Assessment and Testing', totalSections: 65 },
+      { num: 7, title: 'Security Operations', totalSections: 142 },
+      { num: 8, title: 'Software Development Security', totalSections: 153 },
     ];
     els.progressPanel.innerHTML = domains.map(d => {
       const read = Object.keys(readSections).filter(k => k.startsWith(`d${d.num}_`)).length;

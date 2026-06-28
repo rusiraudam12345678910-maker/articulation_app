@@ -316,9 +316,9 @@ async function main() {
   }
   console.log(`\nTotal figures found in PDF: ${Object.keys(allFigures).length}`);
 
-  // Extract domains 1 and 2
+  // Extract all 8 domains
   const searchIndex = [];
-  for (let di = 0; di < Math.min(2, domainStarts.length); di++) {
+  for (let di = 0; di < domainStarts.length; di++) {
     const start = domainStarts[di];
     const end = domainStarts[di + 1];
     const domainLines = end ? lines.slice(start.lineIndex, end.lineIndex) : lines.slice(start.lineIndex);

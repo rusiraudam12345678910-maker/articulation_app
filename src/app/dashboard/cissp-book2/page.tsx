@@ -23,14 +23,14 @@ export default function CISSPBook2Page() {
       {/* Domain availability */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
-          { num: 1, title: 'Security and Risk Management', available: true, sections: 28 },
-          { num: 2, title: 'Asset Security', available: true, sections: 11 },
-          { num: 3, title: 'Security Architecture and Engineering', available: false, sections: 0 },
-          { num: 4, title: 'Communication and Network Security', available: false, sections: 0 },
-          { num: 5, title: 'Identity and Access Management', available: false, sections: 0 },
-          { num: 6, title: 'Security Assessment and Testing', available: false, sections: 0 },
-          { num: 7, title: 'Security Operations', available: false, sections: 0 },
-          { num: 8, title: 'Software Development Security', available: false, sections: 0 },
+          { num: 1, title: 'Security and Risk Management', available: true, sections: 134 },
+          { num: 2, title: 'Asset Security', available: true, sections: 61 },
+          { num: 3, title: 'Security Architecture and Engineering', available: true, sections: 200 },
+          { num: 4, title: 'Communication and Network Security', available: true, sections: 183 },
+          { num: 5, title: 'Identity and Access Management', available: true, sections: 129 },
+          { num: 6, title: 'Security Assessment and Testing', available: true, sections: 65 },
+          { num: 7, title: 'Security Operations', available: true, sections: 142 },
+          { num: 8, title: 'Software Development Security', available: true, sections: 153 },
         ].map(d => (
           <div key={d.num} className={`rounded-xl border p-4 ${d.available
             ? 'border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950'
