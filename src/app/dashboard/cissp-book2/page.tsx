@@ -1,6 +1,19 @@
+import Link from 'next/link'
+
 export default function CISSPBook2Page() {
   return (
     <div className="flex flex-col gap-6">
+      {/* Companion link */}
+      <div className="rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950 px-4 py-3 flex items-center justify-between gap-3">
+        <p className="text-xs text-blue-700 dark:text-blue-300">
+          <strong>Also available:</strong> 📘 CISSP CBK Reference 5th Edition — the official (ISC)² reference book.
+        </p>
+        <div className="flex gap-2 flex-shrink-0">
+          <Link href="/dashboard/cissp-cbk" className="rounded-full bg-blue-700 px-3 py-1 text-xs font-medium text-white hover:bg-blue-600 transition-colors whitespace-nowrap">CBK →</Link>
+          <Link href="/dashboard/cissp-books" className="rounded-full border border-blue-400 dark:border-blue-600 px-3 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors whitespace-nowrap">All books →</Link>
+        </div>
+      </div>
+
       <div className="flex flex-col gap-2">
         <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
           📗 CISSP All-in-One — 8th Edition

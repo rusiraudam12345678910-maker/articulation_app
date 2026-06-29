@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function CISSPCBKPage() {
   const domains = [
     { num: 1, title: 'Security and Risk Management',        sections: 51  },
@@ -12,6 +14,17 @@ export default function CISSPCBKPage() {
 
   return (
     <div className="flex flex-col gap-6">
+      {/* Companion link */}
+      <div className="rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950 px-4 py-3 flex items-center justify-between gap-3">
+        <p className="text-xs text-emerald-700 dark:text-emerald-300">
+          <strong>Also available:</strong> 📗 CISSP All-in-One 8th Edition — exam-focused study guide.
+        </p>
+        <div className="flex gap-2 flex-shrink-0">
+          <Link href="/dashboard/cissp-book2" className="rounded-full bg-emerald-700 px-3 py-1 text-xs font-medium text-white hover:bg-emerald-600 transition-colors whitespace-nowrap">Book2 →</Link>
+          <Link href="/dashboard/cissp-books" className="rounded-full border border-emerald-400 dark:border-emerald-600 px-3 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 transition-colors whitespace-nowrap">All books →</Link>
+        </div>
+      </div>
+
       <div className="flex flex-col gap-2">
         <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">
           📘 CISSP CBK Reference — 5th Edition
