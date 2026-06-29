@@ -211,9 +211,13 @@ const App = (() => {
         return `<div class="note-block"><p>${escHtml(block.text)}</p></div>`;
       }
       if (block.type === 'figure') {
+        const imgFile = figureMap[block.figNum];
+        const imgHtml = imgFile
+          ? `<img src="/cbk/figures/${imgFile}" alt="Figure ${escHtml(block.figNum)}" loading="lazy" class="book-figure-real-img">`
+          : `<div class="book-figure-placeholder"><span class="book-figure-label">Figure ${escHtml(block.figNum)}</span><span class="book-figure-icon">📊</span></div>`;
         return `
           <figure class="book-figure">
-            <div class="book-figure-placeholder"><span class="book-figure-label">Figure ${escHtml(block.figNum)}</span><span class="book-figure-icon">📊</span></div>
+            ${imgHtml}
             <figcaption class="book-figure-caption">
               <strong>Figure ${escHtml(block.figNum)}</strong> — ${escHtml(block.caption)}
             </figcaption>
