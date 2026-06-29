@@ -1412,6 +1412,10 @@
         {
           "type": "note",
           "text": "Data protection has evolved over the last several years as initiatives like Big Data have become business imperatives. Big Data is a concept to describe using extremely large sets of data, often sensitive information, and applying complex analytical processes to determine results or meaning. The impacts of Big Data are the same as any data protection, just magnified greatly. You have to account for data storage, collection, privacy, and data sharing."
+        },
+        {
+          "type": "figure",
+          "figNum": "2.4"
         }
       ]
     },
@@ -1864,6 +1868,10 @@
         {
           "type": "paragraph",
           "text": "A resource that highlights supplemental security controls that can be considered is the U.S. National Security Agency Methodology for Adversary Obstruction(https://www.cdse.edu/documents/cdse/nsa-methodology-for-adversary obstruction.pdf)."
+        },
+        {
+          "type": "figure",
+          "figNum": "2.5"
         }
       ]
     },

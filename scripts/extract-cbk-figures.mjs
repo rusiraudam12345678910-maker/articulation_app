@@ -20,20 +20,10 @@ const DATA_DIR = path.join(__dirname, '../public/cbk/data');
 
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
-// ── Collect figure numbers needed ─────────────────────────────────────────────
-const figureNums = new Set();
-for (let d = 1; d <= 8; d++) {
-  const data = JSON.parse(fs.readFileSync(path.join(DATA_DIR, `domain${d}.json`), 'utf8'));
-  for (const section of data.sections)
-    for (const block of section.content)
-      if (block.type === 'figure' && block.figNum) figureNums.add(block.figNum);
-}
-const figures = [...figureNums].sort((a, b) => {
-  const [ad, an] = a.split('.').map(Number);
-  const [bd, bn] = b.split('.').map(Number);
-  return ad !== bd ? ad - bd : an - bn;
-});
-console.log(`Figures needed (${figures.length}):`, figures.join(', '));
+// ── Figure numbers come from scanning the PDF directly (not just from domain JSON)
+// This ensures we capture all figures even if some sections were missed during parsing.
+// figureNums is populated during the page scan below; use a placeholder Set here.
+const figureNums = new Set(); // will be filled during scan
 
 // ── Open PDF ──────────────────────────────────────────────────────────────────
 const pdfBytes = fs.readFileSync(PDF_PATH);
@@ -63,7 +53,8 @@ for (let p = 0; p < totalPages; p++) {
     const m = re.exec(blockText);
     if (m) {
       const figNum = m[1];
-      if (figureNums.has(figNum) && !figLocations[figNum]) {
+      figureNums.add(figNum); // collect all figure numbers from PDF
+      if (!figLocations[figNum]) {
         figLocations[figNum] = { pageIdx: p, captionBbox: block.bbox };
       }
     }
@@ -71,9 +62,16 @@ for (let p = 0; p < totalPages; p++) {
 
   if (p % 100 === 0) process.stdout.write(`  ${p}/${totalPages}\r`);
 }
-console.log(`\nLocated ${Object.keys(figLocations).length}/${figures.length} figures`);
-Object.entries(figLocations).forEach(([f, loc]) =>
-  console.log(`  Figure ${f} → page ${loc.pageIdx + 1}, caption at y=${Math.round(loc.captionBbox.y)}`));
+const figures = [...figureNums].sort((a, b) => {
+  const [ad, an] = a.split('.').map(Number);
+  const [bd, bn] = b.split('.').map(Number);
+  return ad !== bd ? ad - bd : an - bn;
+});
+console.log(`\nLocated ${figures.length} figures in PDF`);
+figures.forEach(f => {
+  const loc = figLocations[f];
+  console.log(`  Figure ${f} → page ${loc.pageIdx + 1}, caption at y=${Math.round(loc.captionBbox.y)}`);
+});
 
 // ── Render and crop each figure ───────────────────────────────────────────────
 const DPI = 150;

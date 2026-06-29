@@ -41,6 +41,14 @@
         {
           "type": "paragraph",
           "text": "Ultimately, because software is an intellectual creation, the best and most secure practices of software development are found in how groups of contributors collaborate as an integrated product team."
+        },
+        {
+          "type": "figure",
+          "figNum": "8.1"
+        },
+        {
+          "type": "figure",
+          "figNum": "8.2"
         }
       ]
     },
