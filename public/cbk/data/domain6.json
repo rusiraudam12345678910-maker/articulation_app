@@ -1,0 +1,2189 @@
+{
+  "domain": 6,
+  "title": "Security Assessment and Testing",
+  "sections": [
+    {
+      "id": "domain-6-domain-6-introduction",
+      "title": "Domain 6 Introduction",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "DOmain 6 security assessment and testing ORGaNIZaTIONS NeeD TO IDeNTIFY and address issues that may put them at risk. To do this, they perform security assessments, risk assessments, and security audits. While they are related, it is important to understand the diff erence between them. ❑ A security audit compares its results against a standard to determine whether the standard is being met. Third-party audits are often required for legal or contractual compliance, but internal auditors are also used by many organizations to provide oversight over their own eff orts. Most security audits will determine whether the organization is in compliance with the standard they are auditing against but won’t track whether the organization’s eff orts exceed it. ❑Security assessments are used to determine an organization’s security posture. This means that assessors use standards as well as their own knowledge and experience to assess the strength and eff ectiveness of their security posture. Thus, all security audits are a form of security assessment, but not all security assessments are audits."
+        },
+        {
+          "type": "paragraph",
+          "text": "\u0001$*441¡\u0001$#,¡\u00013FGFSFODF \u0001'JGUI\u0001&EJUJPO\u0001"
+        },
+        {
+          "type": "paragraph",
+          "text": "$PQZSJHIU\u0001¥\u0001\u0013\u0011\u0012\u001a\u0001CZ\u0001 *4$"
+        },
+        {
+          "type": "paragraph",
+          "text": "❑Risk assessments provide a view of the risks that an organization faces. Many risk assessments categorize risks by probability and impact and include detailsof findings and potential controls. Since risk is an important element in a comprehensive understanding of an organization’s security posture, risk assess ments are often included in a security assessment."
+        },
+        {
+          "type": "paragraph",
+          "text": "Once an organization has completed an assessment or audit, it must prioritize the actions it will take in response. Most assessments and audits provide findings that need to be addressed, and organizations must analyze the gaps and issues based on their knowledge of the organization, its practices, its capabilities, and existing implementations, and then prioritize and plan which they will address and what order they will be handled in. Responses include deploying controls,remediating issues, transferring risk through the purchase of insurance, or docu menting and accepting the risk. Each of these responses comes with a cost thatneeds to be evaluated compared to the improvement in security posture or reduc tion in security risk that it brings to the organization to make sure that appropriate actions are being taken."
+        },
+        {
+          "type": "paragraph",
+          "text": "After controls are put into place, they must be tested to ensure the problem is truly resolved. For example, an organization that is notified about a security issue with its website as part of a security assessment will not want to run the website with an insecure configuration, so it will identify possible controls and will select one or more of those controls to implement. Once a solution has been designed, the organization will test the solution, both prior to deploying it to ensure that itprovides the security the organization is expecting and on an ongoing basis afterward as part of an ongoing security management effort. Only then can the organi zation operate with the confidence that the issues have been resolved."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-design-and-validate-assessment-test-and-audit-strategies",
+      "title": "Design and Validate Assessment, Test, and Audit Strategies",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Projects require creating a methodology and scope for the project, and security assess ment and audit efforts are no different. Management must determine the scope and targets of the assessment, including what systems, services, policies, procedures, and"
+        },
+        {
+          "type": "paragraph",
+          "text": "practices will be reviewed, and what standard, framework, or methodology the organiza tion will select or create as the foundation of the assessment."
+        },
+        {
+          "type": "paragraph",
+          "text": "Commonly used industry frameworks include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "NIST SP 800-53r4, “Assessing Security and Privacy Controls in Federal Informa tion Systems and Organizations”",
+            "NIST SP 800-115, “Technical Guide to Information Security Testing and Assessment”",
+            "ISO 18045, “Information technology – Security techniques – Methodology forIT security evaluation,” and the related ISO for controls ISO/IEC 27002, “Infor mation Technology – Security Techniques – Code of practice for information security controls”",
+            "ISO 15408, “Information Technology – Security Techniques – Evaluation criteria for IT security,” also known as the Common Criteria"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Although National Institute of Standards and Technology (NIST) standards mayappear U.S.-centric at first glance, they are used as a reference for organizations through out the world if there is not another national, international, or contractual standard those organizations must meet. In addition to these broad standards, specific standards like the ISA/IEC 62443 series of standards for industrial automation and control systems may be used where appropriate."
+        },
+        {
+          "type": "paragraph",
+          "text": "Using a standard methodology or framework allows consistency between assessments,allowing comparisons over time and between groups or divisions. In many cases, orga nizations will conduct their own internal assessments using industry standards as part oftheir security operations efforts, and by doing so, they are prepared for third-party or inter nal audits that are based on those standards."
+        },
+        {
+          "type": "paragraph",
+          "text": "In addition to choosing the standard and methodology, it is important to understand that audits can be conducted as internal audits using the organization’s own staff or as external audits using third-party auditors. In addition, audits of third parties like cloud service providers can be conducted. Third-party audits most often use external auditors, rather than your organization’s own staff. You’ll find a deeper discussion of each type of audit, as well as its pros and cons, at the end of this chapter as part of the section titled “Conduct or Facilitate Security Audits.”"
+        },
+        {
+          "type": "paragraph",
+          "text": "Once the high-level goals and scope have been set and the assessment standard and methodology have been determined, assessors need to determine further details of what they will examine. Detailed scoping questions may include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "What portions of the network and which hosts will be tested?",
+            "Will auditing include a review of user files and logs?",
+            "Is susceptibility of staff to social engineering being tested?",
+            "Are confidentiality, integrity, and availability in scope?",
+            "Are there any privacy concerns regarding the audit and the data it collects?",
+            "Will processes, standards, and documentation be reviewed?",
+            "Are employees and adherence to standards being examined?",
+            "Are third-party service providers, cloud vendors, or other organizations part of the assessment?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Other aspects of security are also important. A complete assessment should include answers to these questions:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Are architectural designs documented with data flows and other details matching the published design?",
+            "Are things designed securely from the beginning of the design process?",
+            "Is change management practiced?",
+            "Does a configuration management database exist?",
+            "Are assets tracked?",
+            "Are regular vulnerability scans, and maybe even penetration tests, conducted?",
+            "Are policies, procedures, and standards adhered to?",
+            "Is the organization following industry-recognized best practices?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Budget and time constraints can make it impossible to test everything, so manage ment must determine what will be included while balancing their assessment needs against their available resources."
+        },
+        {
+          "type": "paragraph",
+          "text": "Once the goals, scope, and methodology have been determined, the assessment team must be selected. The team may consist of the company’s own staff, or external personnel may be retained. Factors that can aid in determining which option to select can include industry regulations and requirements, budget, goals, scope, and the expertise required for the assessment."
+        },
+        {
+          "type": "paragraph",
+          "text": "With the team selected, a plan should be created to identify how to meet the assessment’s goals in a timely manner and within the budget constraints set forth by management. With the plan in place, the assessment can be conducted. This phase should generate significant documentation on how the assessment target complies or fails to comply with expectations. Any exceptions and noncompliance must be documented. Once the assessment activities are completed, the results can be compiled and reported to management."
+        },
+        {
+          "type": "paragraph",
+          "text": "Upon receipt of the completed report, management can create an action plan toaddress the issues found during the audit. For instance, a time frame can be set for install ing missing patches and updates on hosts, or a training plan can be created to address process issues identified during the assessment."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-assessment-standards",
+      "title": "Assessment Standards",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "There are a wide variety of assessment standards and tools available. In some cases, organizations must use a specific assessment methodology or standard due to legal require ments or contractual obligations. When they are not required to make a specific choice, organizations frequently choose one or more as the foundation of their own assessments based on their specific needs and fit to their industry or practices."
+        },
+        {
+          "type": "paragraph",
+          "text": "One of the most common auditing standards for service organizations is the Statement on Standards for Attestation Engagements (SSAE), a standard that is overseen by the American Institute of Certified Public Accountants (AICPA). The current version of the SSAE is the SSAE 18, which replaced its predecessor, the SSAE 16, in May of 2017. The SSAE 18 provides Service Organization Control reports called SOC 1, SOC 2, and SOC 3 reports. These reports align to different assessment drivers, coverage, and target audiences as shown in Table 6.1."
+        },
+        {
+          "type": "table_caption",
+          "tableNum": "6.1",
+          "caption": "Soc Levels and applications"
+        },
+        {
+          "type": "paragraph",
+          "text": "reasOn fOr assessmentCOVereD itemsauDit users"
+        },
+        {
+          "type": "paragraph",
+          "text": "sOC 1Audits of financial statements"
+        },
+        {
+          "type": "paragraph",
+          "text": "Internal controls over financial reporting"
+        },
+        {
+          "type": "paragraph",
+          "text": "The client’s auditor and controller’s office"
+        },
+        {
+          "type": "paragraph",
+          "text": "sOC 2Governance, risk, and compliance efforts, due diligence"
+        },
+        {
+          "type": "paragraph",
+          "text": "Confidentiality, integrity, and availability, as well as security and privacy controls"
+        },
+        {
+          "type": "paragraph",
+          "text": "Typically shared undernondisclosure agree ment (NDA) and also used by regulators and others"
+        },
+        {
+          "type": "paragraph",
+          "text": "sOC 3Marketing and customer assurance"
+        },
+        {
+          "type": "paragraph",
+          "text": "Confidentiality, integrity, and availability, as well as security and privacy controls"
+        },
+        {
+          "type": "paragraph",
+          "text": "In addition, there are two types of SOC assessment. Type 1 SOC assessments cover a point in time, while Type 2 assessments cover a period of time and assess the effectiveness of the organization’s controls. Since Type 1 assessments cover a point in time and do not assess the effectiveness of controls, instead focusing on their design, Type 1 assessments are considered less useful and should not be relied on to provide an accurate view of the organization’s ongoing operations."
+        },
+        {
+          "type": "paragraph",
+          "text": "Assessors and security professionals may still encounter SSAE 16 reports and evenolder SAS 70 reports. SSAE 18 added requirements around implementation of a third party vendor management program and a formal annual risk assessment process for allSOC reports, making SSAE 18 particularly desirable if an organization has a strong reli ance on third-party vendors or risk assessment information is desired."
+        },
+        {
+          "type": "paragraph",
+          "text": "SAS 70, the “Statement on Auditing Standards No. 70,” was the predecessor to SSAE16 and was replaced in June 2011. Reports conducted under SAS 70 should be considered dangerously out of date, although they may still be reviewed or available for histori cal reasons."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Internal Standard on Assurance Engagements (ISAE) number 3402, “AssuranceReports on Controls at a Service Organization,” is an international standard for assur ance. The ISAE 3402 framework served as the foundation for SSAE 16 and SSAE 18, with additional controls added to the SSAE standard in a number of areas. Like SSAE 16 and 18, ISAE 3402 engagements evaluate control policies and procedures, and they useType I reports for point-in-time reporting and Type II reports for assessments with evalua tion and testing over a period of time."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Payment Card Industry – Data Security Standard (PCI-DSS) is a set of security standards issued by the Payment Card Industry Security Standards Council (PCI-SSC), a group made up of the major payment card brands. PCI-DSS applies to any organization that transmits or stores cardholder data, making PCI assessments a common requirement for many organizations. PCI assessment requirements are based on the merchant level of the organization, with levels from 1 to 4, as shown in Table 6.2."
+        },
+        {
+          "type": "table_caption",
+          "tableNum": "6.2",
+          "caption": "Pci-DSS merchant Levels"
+        },
+        {
+          "type": "paragraph",
+          "text": "merChant leVelDeScriPtion"
+        },
+        {
+          "type": "paragraph",
+          "text": "1Any merchant processing more than 6 million transactions per year"
+        },
+        {
+          "type": "paragraph",
+          "text": "2Any merchant processing 1–6 million transactions per year"
+        },
+        {
+          "type": "paragraph",
+          "text": "3Any merchant processing 20,000–1 million transactions per year"
+        },
+        {
+          "type": "paragraph",
+          "text": "4Any merchant processing fewer than 20,000 transactions per year"
+        },
+        {
+          "type": "paragraph",
+          "text": "Compliance requirements, and thus the requirements for assessments, increase as merchants process more transactions, including requirements to use third-party assessors and to use approved vulnerability scanning vendors, as well as providing attestations of compliance."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cloud Security Alliance"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Cloud Security Alliance (CSA) provides the Security Trust and Assurance Registry (STAR) for security assurance in the cloud. STAR provides three levels: self-assessment, third-party certification, and continuous auditing based on the CSA’s Cloud Controls Matrix (CCM), the Consensus Assessments Initiative Questionnaire (CAIQ), and the CSA Code of Conduct for GDPR Compliance."
+        },
+        {
+          "type": "paragraph",
+          "text": "The CCM is a framework for cloud-specific security controls and provides map pings to major standards and best practices, as well as regulations. The CAIQ leverages the CCM to allow vendor and provider reviews to be conducted by consumers and auditors."
+        },
+        {
+          "type": "paragraph",
+          "text": "Shared Assessments Tools"
+        },
+        {
+          "type": "paragraph",
+          "text": "Shared Assessments provides licensed tools for risk management assessments via a questionnaire (the Standardized Information Gathering [SIG] questionnaire) and the Standardized Control Assessment (SCA) for performing risk management assessments to validate SIG responses. The Shared Assessments tools focus on cybersecurity, IT, privacy, data security, and business resiliency controls."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Control Objectives for Information and Related Technologies (COBIT) frame work was created by the Information Systems Audit and Control Association (ISACA) to define generic processes for the management of IT. COBIT 5, the current COBIT version, includes a variety of tools, including assurance tools. Organizations that have adopted COBIT as their IT management framework may assess against it as part of their ongoing review or audit processes."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-conduct-security-control-testing",
+      "title": "Conduct Security Control Testing",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "After an organization has selected security controls, it must determine whether a controlis effective and efficient. Since controls cover a wide range of types, such as administra tive controls, technical controls, and others, testing methods must be chosen that are suited to each control, and some controls may require multiple types of testing to fully validate them."
+        },
+        {
+          "type": "paragraph",
+          "text": "As an example of a process and technical control, if an organization is using the ISO27002:13 standard, they might review 8.3.2, disposal of media. The ISO standard’s control states that “Media should be disposed of securely when no longer required, using for mal procedures,” and the implementation guidance for this requirement describes secure shredding and erasure of data as possible options after appropriate procedures have been followed to determine data sensitivity."
+        },
+        {
+          "type": "paragraph",
+          "text": "The organization may opt to test the assessment procedures by selecting a sample of retired media such as hard drives, SSDs, or backup tapes that represent the types ofmedia that the organization regularly retires from service. It can then check the pro cess that retired the media, if the media was classified properly for handling, and if the media was appropriately wiped or destroyed based on that classification. This requires process, documentation, and technical control testing, all to test a single item from the standard."
+        },
+        {
+          "type": "paragraph",
+          "text": "Control tests like this are likely to identify problems, and organizations must thenchoose how to handle the issues they find. Media disposal reviews may find gaps in classification, problems with secure deletion processes, or leakage of media or drives to sec ondary uses despite sensitive data classifications. Once problems like these are found, an additional control review will need to be conducted to determine whether more controls need to be put in place or whether the existing controls are sufficient if they are properly enforced."
+        },
+        {
+          "type": "paragraph",
+          "text": "Technical assessment methods, including vulnerability assessment and penetrationtesting, are also major elements of many security control testing processes. In fact, PCIDSS requires both a vulnerability scan (requirement 11.2) and a penetration test (require ment 11.3) for compliance."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-vulnerability-assessment",
+      "title": "Vulnerability Assessment",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organizations identify and then categorize and assess their vulnerabilities as part of their ongoing security assessment efforts. To do this, they conduct vulnerability scans that check their assets for known vulnerabilities. Assets include servers, routers, and other hardware devices. In addition, assets also include operating systems and their installed applications and services. Vulnerabilities found on an asset may be exploited, allowing an intruder to gain access to a company’s network. Therefore, it’s important to identify vulnerabilities and remediate them, but assessing vulnerabilities requires more than scanning and fixing them. In fact, fully assessing vulnerabilities requires an understanding of the vulnerabilities that exist, the likelihood of exploit, and the business drivers and requirements that influence how they are remediated or handled."
+        },
+        {
+          "type": "paragraph",
+          "text": "As with any security endeavor, this process starts by determining the goals of vulner ability scanning for the organization. Clearly identified goals can help ensure that the scan results are meaningful and have the most impact. If no scanning has previously been done, it is wise to step back and assess the goals prior to initiating a vulnerability scanningprogram. Obviously, the overarching goal is to reduce the number of unaddressed vul nerabilities in an environment to reduce risk. However, running a vulnerability scan on the entire network would likely be a huge mistake. It could easily result in such a massive amount of data that sorting through the results would take weeks and resolving issues may"
+        },
+        {
+          "type": "paragraph",
+          "text": "not be done in a timely manner. Ask some questions to aid in identifying an appropriate scope for your scanning efforts."
+        },
+        {
+          "type": "list",
+          "items": [
+            "What servers and devices support business-critical functions?",
+            "Which hosts are accessible via the Internet and therefore at greater risk of compromise?",
+            "Where are databases and file repositories with sensitive information?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "The answers to these questions can help identify a starting point for your vulnerability identification efforts. However, it is indeed only a starting point. It is foolish to think there are unimportant devices that do not need to be remediated. A variety of entry points intoyour network exist that you may not think are important, in the traditional sense. However, that unpatched vulnerability may be all an attacker needs to completely compro mise your network."
+        },
+        {
+          "type": "paragraph",
+          "text": "There are several popular tools that can be used for vulnerability scanning, includ ing open source and commercial options. They all share common features. They areautomated tools that scan a range of IP addresses or a single host and identify vulnera bilities, missing patches, and other security issues on the targeted hosts. They typically include a severity classification, a brief description, and information regarding patching or remediating the vulnerability. For example, the scan may identify a web server with known weaknesses in its TLS cipher suite. It can classify the ciphers identified by the scan as weak, medium, or strong. Based on the security posture of the organization, the company can then mandate the use of only the strong cipher suites, so those ciphers are no longer utilized. Many of the items found will only be informational, such as the presence of a web server. Critical issues may include a Common Vulnerability Scoring System (CVSS) score, a scoring system created by NIST."
+        },
+        {
+          "type": "paragraph",
+          "text": "As a best practice in security, vulnerability scans should be conducted regularly, and findings from these scans should be remediated in a timely fashion. Continuous scanning is an increasingly common option, often in partnership with continuous integration andDevOps practices that result in constant changes and upgrades in software and IT infra structure. A common practice is to scan each change before it is approved for production, after it enters production, and on a recurring basis. With some organizations making hundreds or thousands of changes a day, continuous scanning is a necessity to match that rate of change."
+        },
+        {
+          "type": "paragraph",
+          "text": "In addition, certain industry regulations, such as PCI-DSS and the Health Insurance Portability and Accountability Act (HIPAA), mandate regular vulnerability scans and prompt remediation of critical vulnerabilities. New assets should also be scanned whenever they are added to the network. Changes, such as the upgrade of an application, installation of a software package, or reconfiguration of a service or firewall, should also"
+        },
+        {
+          "type": "paragraph",
+          "text": "require a rescan of the affected asset. In addition, for a vulnerability scanning program to be effective, it is important to have all of these best practices included as corporate policy."
+        },
+        {
+          "type": "paragraph",
+          "text": "Communication and Planning"
+        },
+        {
+          "type": "paragraph",
+          "text": "Vulnerability scanning tools generate a lot of traffic toward the scan target. Depending on the total number of targets being scanned, this can create issues with traffic load through network devices, such as switches and routers, and the load may also overwhelm a target. Some targets being scanned may also behave erratically after the scan is completed. The target may become unresponsive, or erratic behavior may not manifest until hours after the scan because of application instability or other problems caused by the scanner. In addition to network and service problems, scans can create alerts in system and security management tools, and need to be accounted for or added to exception lists so that they do not create additional work or alerts."
+        },
+        {
+          "type": "paragraph",
+          "text": "◗◗ real WOrlD example: scanning impact"
+        },
+        {
+          "type": "paragraph",
+          "text": "After conducting an enterprise-wide vulnerability scan for a client, targeting their appli cation servers, a third-party security assessment team notified the application ownersthat testing was complete. The scanning completed around midnight, and the appli cation owners completed testing an hour later. They tested the functionality of their applications and reported that all systems were operational."
+        },
+        {
+          "type": "paragraph",
+          "text": "Despite this validation, the assessment team received a call the next morning. One of the servers that had passed testing was not responding to client requests any longer. It was rebooted, and everything was back to normal. Further testing revealed that the scanningcaused the issue, and the application that became nonresponsive suffered from a mem ory leak that only became crippling after about six to eight hours passed. Applications may not always respond well to scanning. Ensure that your testing process accounts for this, and closely monitor applications and servers during and for a reasonable time after scanning to ensure functionality."
+        },
+        {
+          "type": "paragraph",
+          "text": "Planning for all possible contingencies is the best solution to the unexpected impact from scanning. That is easier said than done, of course. When planning the vulnerability scan, determine the route through the network the traffic will take. Which devices in the network will carry the load? This may be a collection of routers and switches. Owners of the devices should be identified, emergency contacts and escalation processes should be documented, and all scanning activity should be coordinated with the owners and"
+        },
+        {
+          "type": "paragraph",
+          "text": "customers who may be impacted. This includes determining who may be impacted if one of the network devices fails or suffers from degraded performance during scanning. Quitequickly, the negative impact of the scan can grow. It may be prudent to have someone con duct the actual scan, while another individual coordinates communication for the scan."
+        },
+        {
+          "type": "paragraph",
+          "text": "Because of these issues, it is important to have a documented and defined process for the vulnerability scan, which includes communication of the testing to any parties that may be impacted by an outage. This includes the server and application owners, management,and customers, as appropriate. A new vulnerability scanning program may begin by scan ning a development or test network. As confidence in the settings and process increases, scanning of production servers may begin. Scanning should also initially be conductedduring nonproduction times or during a scheduled maintenance window for the organization, if possible. It is also important to ensure that scanning doesn’t conflict with mainte nance or other activities that might be negatively impacted by the scan, such as backups orpatching. In continuous scanning environments, system designs need to account for contin uous scanning as part of how maintenance, upgrades, and patching are done."
+        },
+        {
+          "type": "paragraph",
+          "text": "Scanning certain systems and applications may also have unintended consequences. For example, some scanning tools may complete forms and submit them automatically or add useless information into a back-end database. This is especially common when scanning web applications. Consider preventive measures in these scenarios, for example:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Identify any systems that have mail forms or back-end databases.",
+            "Redirect the emails or disable email functionality temporarily.",
+            "Back up the database prior to the scan, and restore it after the scan.",
+            "Consider disabling any alerting that triggers text or email alerts to staff for the duration of the scan."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "By communicating the plan, informing the appropriate parties, testing, and takingappropriate precautions, vulnerability scanning can be an invaluable resource for improv ing an organization’s overall security."
+        },
+        {
+          "type": "paragraph",
+          "text": "◗◗ real WOrlD example: scanning fallout"
+        },
+        {
+          "type": "paragraph",
+          "text": "Scanning is an inexact science, and it pays off to proceed slowly and cautiously. Scanenvironments during development before they go to production, for instance. Sched ule scans for nonproduction time, instead of the middle of the workday. Know that the unexpected inevitably will happen. Older systems running outdated (but still functional) continueS"
+        },
+        {
+          "type": "paragraph",
+          "text": "Part of the planning process should also include the identification of critical systems.In fact, if the company has completed a business continuity plan (BCP) or may have pre pared a business impact analysis (BIA), this information may already be available and can be used to identify critical systems. Scanning critical systems may cause outages, so thesesystems should be handled with the greatest care. Additionally, remediating vulnerabil ities on these systems should be the highest priority. If there is no information availablefrom the BCP or BIA, then you can use the following criteria as a starting point for identi fying critical servers:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Supports business critical operations",
+            "Contains sensitive information (such as PCI, HIPAA, PII, or financial information)",
+            "Provides critical network services (such as Domain Name System, Active Direc tory, or authentication)"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Critical servers typically should be scanned and remediated before noncritical servers. Often common sense should prevail. However, ensure that management is aware of the findings, risks, and prioritization of remediation tasks."
+        },
+        {
+          "type": "paragraph",
+          "text": "Scan Configuration Considerations"
+        },
+        {
+          "type": "paragraph",
+          "text": "Most scans can be configured to scan less aggressively by throttling the rate of packets sent to the target. This can aid in preventing unexpected consequences from a saturated network. Start cautiously by sending traffic at a lower and slower rate, and increase it in subsequent tests. Monitor equipment, including network equipment, the targeted services, and DNS, when significantly changing the test parameters. Don’t hesitate to contact the scanning tool’s support team to clarify functionality or review settings and features. Ideally,members of the network team and server teams especially should be available while scan ning in case of an outage or issue. This can minimize downtime if there’s an outage."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another technique that can help prevent outages when running scans is to disable any potentially unsafe tests. Many scanning tools provide an ability to disable unsafe checks, continueD"
+        },
+        {
+          "type": "paragraph",
+          "text": "applications are especially susceptible to failure from scanning. Such systems sometimesexist in SCADA networks, which often do not have development/nonproduction equipment that can be scanned. Databases can grow in size with useless data from the scan ner. Systems can crash from scanning, which can result in frustrated admins who receivehundreds of alert texts in the middle of the night. Following best practices, communi cating effectively, and proceeding cautiously can ensure that your vulnerability scanning program is successful."
+        },
+        {
+          "type": "paragraph",
+          "text": "either by manually deselecting them or by turning off a category of tests that are known to have potential negative impacts. It is important to understand the types of tests that are enabled so that a conscious decision can be made about unsafe tests."
+        },
+        {
+          "type": "paragraph",
+          "text": "Other typical scanning configuration options include selecting credentialed or non credentialed scans. A noncredentialed scan sends traffic to the open ports on the server to determine whether vulnerabilities or issues exist. A credentialed scan is a feature thatallows the scanning tool to additionally connect to a target and log in with valid cre dentials to perform testing. The scanning tool must be configured with the credentials needed to log in. Credentialed scans are generally preferable, for several reasons:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reduced traffic on the network, by using fewer packets to identify vulnerabilities on the server",
+            "Increased accuracy, by checking for file versions associated with known vulnerabilities",
+            "Improved vulnerability identification, as some issues can be identified only by logging into the server, such as enumerating applied patches to identify missing patches"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "It is common to have a different set of scan settings for different servers that you are scan ning, as a single group of settings is rarely sufficient for most organizations. Organizations may choose to have specific configurations for Linux and Windows servers, workstations, Supervisory Control and Data Acquisition (SCADA) or Industrial Control System (ICS) devices, or applications and servers with known issues that are caused by scans. Crafting scan policies to balance effective, efficient security assessment against resources and time is a key task for security professionals."
+        },
+        {
+          "type": "paragraph",
+          "text": "When first reviewing scan results, the number of vulnerabilities is often muchlarger than anticipated, especially for systems that may have older versions of soft ware, such as Java or Flash. It’s important to understand how the scanner counts vulnerabilities and the difference between the number of vulnerabilities and the number of fixes that need to be applied. Simply, five vulnerabilities may all be resolved by a single patch."
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, say an application called Widget v5.0 had a security vulnerability. The scanner will check for Widget v5.0. The issue was theoretically patched in Widget v5.1. Another bug was found, and Widget v5.2 was created, as well as Widget v5.3. Each version had a bug that was patched in the subsequent version. Now, assume the target system is scanned, and it is on Widget v5.0. The vulnerability scanner may indicate the system has three vulnerabilities: one for each version of the application 5.0, 5.1, and 5.2, except for 5.3, which is the latest version."
+        },
+        {
+          "type": "paragraph",
+          "text": "So, the application has three vulnerabilities; however, one update to version 5.3 will resolve the issues identified in Widget v5.0, 5.1, and 5.2; a single patch brings the"
+        },
+        {
+          "type": "paragraph",
+          "text": "application up to date and resolves the three vulnerabilities. Because of the differences in the number of vulnerabilities versus the number of patches needed, it may be preferableto modify the scan settings to help reduce the number of vulnerabilities and the paperwork that each generates. For instance, most scanners allow vulnerability checks to be dis abled. A vulnerability scanner could simply disable the checks in the scan configuration for versions lower than the latest, most recent version. So, the scanner would check to see whether Widget v5.3 was installed. If any older versions were installed, the Widget v5.3 vulnerability check would indicate there was a single vulnerability, resolved by updating to Widget v5.3."
+        },
+        {
+          "type": "paragraph",
+          "text": "Decisions like this must be made with a full understanding of how the organization treats vulnerabilities and patching. If the organization responds promptly to issues such as the discovery of an old version of software and prioritizes it the same way, then a singledetection option may be appropriate. If the organization does not respond this way, knowing that there are multiple vulnerabilities, potentially with different exploits and thus dif ferent risk levels, may be important to the prioritization process."
+        },
+        {
+          "type": "paragraph",
+          "text": "While this may not seem worth the trouble for many applications, there are a handful of enterprise applications that update frequently or that commonly have multiple major vulnerabilities found in any given year. A failure to patch these applications can result in large jumps in the number of vulnerabilities on a given machine. Vulnerability checks for applications such as Java, WordPress, and some Adobe applications can benefit from this configuration methodology."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another consideration arises when considering the path that the vulnerability scanning software will take. To scan an endpoint, the vulnerability scanner may need to send traffic through routers, firewalls, and proxy servers. Any of these devices may impact the results by restricting the traffic sent to the target. In a vulnerability scanning situation, where accurately identifying security gaps is crucial, dropped traffic is simply unacceptable. The scan must identify all issues that are present, and this necessity may be negatively impacted by a firewall rule or proxy server dropping connections. The traffic generated by a scan can appear to be malicious, so interference from intermediary network devicesis a common issue, and allowing scanning systems through every security device on a net work may be problematic or undesirable, since understanding how the security devices would impact similar traffic can be important."
+        },
+        {
+          "type": "paragraph",
+          "text": "One solution to address the problem and increase the accuracy of the scan is to set up a distributed scanning environment. This involves setting up scanning agents in each subnet. The agents will receive scanning directives and scanning configuration from acentralized host. The centralized host can schedule scans to begin as needed and auto matically send the scan instructions to the appropriate host in the correct subnet. There"
+        },
+        {
+          "type": "paragraph",
+          "text": "is no need, with sufficient scanners, to scan through a firewall or proxy server. All scanresults are sent to the centralized host to generate reports. The scanning load is also dis tributed in this model, so the duration of the scans is reduced. It requires more effort (and cost) to set up a distributed scanning environment; however, there are tangible benefits in the long run, including an improved security posture and potentially reduced bandwidth consumption due to having local scanning devices."
+        },
+        {
+          "type": "paragraph",
+          "text": "Managing Scan Results"
+        },
+        {
+          "type": "paragraph",
+          "text": "Completing a vulnerability scan and analyzing the multitude of vulnerabilities and informational findings can be a daunting task. Handing a vulnerability report to a server administrator with the simple directive to “fix this” can be even more overwhelming for the administrator. Vulnerability scans of multiple hosts can generate hundreds of pages ofissues that need remediation. An effective vulnerability scanning program must also con sider keeping the remediation task manageable. This can typically be accomplished in a few different ways."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prioritize scanning and remediation efforts based on the organization’s business impact analysis.",
+            "Use credentialed scans to reduce false positives.",
+            "Assign more staff to the task.",
+            "Reduce the scope of scanned devices.",
+            "Increase the length of time allowed for remediation.",
+            "Use central management and patching tools to allow patching to be done in an automated fashion."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Management will weigh the cost and risks of the approach and decide on the path that best fits their risk appetite. Each approach has pros and cons. Ideally, enough staff can be assigned to the task to complete the most severe issues found on mission-critical servers within an acceptable time frame."
+        },
+        {
+          "type": "paragraph",
+          "text": "Once the scan has completed, the results should be reviewed for false positives. The results can then be presented to management to determine the action plan for remediation. A general plan should already be in place; however, the results may indicate a need to modify the plan. Several critical issues, for instance, may require immediate attention and prompt remediation. The remediation plan and action items should have the full support of management. Vulnerabilities that cannot be addressed, either because of a lack of a patch or workaround or because of a business requirement, should be formally accepted by management and should be reviewed on a periodic basis to ensure that the underlying reason why it couldn’t be addressed has not changed."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-penetration-testing",
+      "title": "Penetration Testing",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Penetration testing is another assessment activity similar to vulnerability scanning, but goes further. A vulnerability scan enumerates the issues it finds on a server that present a risk of compromise, and it provides a report of those vulnerabilities but does not work to exploit them. A penetration test may include the same activity as the vulnerability scan to identify potential targets. In addition, the penetration test then continues to attempt to exploit, or take advantage of, the discovered vulnerability. For instance, a vulnerability scan may indicate there is an unpatched flaw in the operating system. The flaw allows remote code execution for an attacker. A penetration test takes the information provided from the vulnerability scan and attempts to take advantage of the flaw and remotely execute code. This code may give the penetration tester a remote shell, or command prompt, on the target system. From there, the penetration tester may target other systems, create a user account, gather sensitive information from the server, and scan neighboring hosts for additional targets to compromise."
+        },
+        {
+          "type": "paragraph",
+          "text": "A penetration test can therefore take a vulnerability report a step further and show the potential real-world impact of missing patches, weak configurations, and bad practices. A penetration test can help identify insufficient operational, administrative, and technical controls in an environment. When the test is complete and the tester provides a final report, the target organization is then able to identify and remediate an actual pathway a malicious actor could take into their network. Few things can test an organization’s defenses better than a good penetration test."
+        },
+        {
+          "type": "paragraph",
+          "text": "Penetration testing should be conducted only with permission from the owners of the system. It isn’t ethical to test systems without authorization and may be illegal. Penetration testing without appropriate permission can result in legal action against the tester. Additionally, it is prudent when testing to request a letter or documentation froman organization representative that the tester is permitted to conduct penetration test ing activities. The letter (a “get out of jail free card”) assures the penetration tester that if they are caught or discovered, they can show the letter, thus proving the legitimacy of the tester’s activities."
+        },
+        {
+          "type": "paragraph",
+          "text": "◗◗ real WOrlD example: the sacrificial lamb"
+        },
+        {
+          "type": "paragraph",
+          "text": "Many years ago, a penetration tester was conducting a penetration test for a hospital. They had a wireless network for patients and guests. They had an additional wireless network with a nonbroadcast SSID for hospital staff. They had architected a solution that they felt was highly secure. Once connected to the STAFF network, a laptop user could"
+        },
+        {
+          "type": "paragraph",
+          "text": "then open a VPN connection to the VPN concentrator. Only then would they have access to the corporate network and its resources."
+        },
+        {
+          "type": "paragraph",
+          "text": "The penetration tester had already obtained the wireless staff network’s encryption key and was able to join the network. The next step: scan the network for interesting hosts. A DHCP server and a couple of workstations were the only hosts visible. A vulnerability scan on the DHCP server revealed several open ports, including a web server. The server had also not been patched in some time, as it was susceptible to some older buffer overflow exploits. Within a short time, the penetration tester had full administrative access on the server. Thiswas a good first step, but all of the interesting targets were on the other side of the VPN concentrator. The penetration tester informed one of the security team members of the prog ress. They were unconcerned, as the server was, in their words, just a “sacrificial lamb,” and there wasn’t any way the tester would be able to get past their hardened VPN concentrator."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dumping hashes and passwords from the DHCP server revealed several interesting accounts with weak passwords. The accounts had local administrative access to theserver. The same credentials also allowed administrative access on the laptops con nected to the network."
+        },
+        {
+          "type": "paragraph",
+          "text": "With administrative access to the laptops, their local password stores were pilfered. Anti virus was disabled, and a key logger was installed. The VPN connection the laptop had made was disconnected by stopping the background VPN application. When the staff member reconnected, their VPN credentials were captured. The VPN concentrator allowed multiple connections from the same login, so the tester was now in the internal network."
+        },
+        {
+          "type": "paragraph",
+          "text": "Armed with some local usernames and passwords stored on the laptops on the wireless network, the tester began attempting to authenticate to domain servers. One set of credentials recovered from the laptops—username: Backup, password: CompanyName—"
+        },
+        {
+          "type": "paragraph",
+          "text": "looked particularly promising. And it was. The result of the test included access to finan cial information, patient health records, 70 percent of all staff usernames and passwords, and even the CEO’s emails. While there may have been other paths into the network, one “sacrificial lamb” made the work much easier. Never minimize the risk of not patching and maintaining any host in your network, including servers, routers, switches, and even workstations. All hosts need to be patched and properly hardened and secured."
+        },
+        {
+          "type": "paragraph",
+          "text": "Penetration testing is an effective way to assess the state of an organization’s security. A comprehensive penetration test can identify weaknesses in administrative, technical, anddetective controls by exploiting configuration issues, cracking weak passwords, and com promising servers undetected. As with any endeavor, however, the skill of the penetration"
+        },
+        {
+          "type": "paragraph",
+          "text": "tester or team performing the test can greatly impact the depth and scope of the findings. In addition, the time allotted is also a significant contributing factor. A penetration tester with 20 hours allotted to an assessment will rarely find as many issues as a tester allotted40 hours. To understand why, it’s important to understand the process behind penetra tion testing."
+        },
+        {
+          "type": "paragraph",
+          "text": "Penetration testing must be carefully considered by the organization. Vulnerabilityscanning can be disruptive, as discussed. Penetration testing has an even greater capabil ity to create outages and disruptions. While the risk of an outage is mitigated when the test is conducted by an experienced penetration tester, the risk of an outage can never beeliminated, only reduced. Penetration tests that specifically test the availability of a sys tem through denial-of-service attacks, or that have a known chance of causing services to fail, must be carefully planned and executed with the understanding that an outage may occur. Therefore, management needs to engage the services of a penetration tester fully aware of the risk that accompanies such activities."
+        },
+        {
+          "type": "paragraph",
+          "text": "Agreeing to which penetration testing standard will be used can be an important partof engagement planning. The Open Web Application Security Project (OWASP) main tains a list of penetration testing methodologies at https://www.owasp.org/index.php/"
+        },
+        {
+          "type": "paragraph",
+          "text": "Penetration_testing_methodologies."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Penetration Testing Execution Standard",
+            "PCI-DSS guides",
+            "The Penetration Testing Framework",
+            "NIST SP800-115",
+            "The Information System Security Assessment Framework",
+            "The Open Source Security Testing Methodology Manual"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Other decision points in this process include the scope of the test."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Which systems will be targeted by the test?",
+            "What level of access, if any, will the testers be granted?",
+            "Will social engineering be permitted as part of the test?",
+            "Will physical security be in scope for the test?",
+            "Are only Internet-facing systems in scope?",
+            "Will LAN or physical access be granted?",
+            "Who will manage the pen test team and handle communication?",
+            "Who will perform the test?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "There are a wide variety of individuals and firms offering penetration testing services, and the quality of your results depends on making the right choices. It is important to doyour due diligence in retaining someone to perform a penetration test for your organiza tion, including doing the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Obtaining past references",
+            "Performing background checks",
+            "Requesting industry-recognized certifications",
+            "Conducting in-depth interviews"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "During the interview process, a list of questions should be included, requesting infor mation regarding all aspects of their testing process. Here are some questions to ask:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "What is the firm’s approach and process for testing?",
+            "How is your organization’s data protected?",
+            "How will communication of sensitive information be protected?",
+            "How is sensitive data collected during the testing process secured?",
+            "At the test’s conclusion, how is sensitive data destroyed?",
+            "How will the risk of service disruption be mitigated?",
+            "What are the emergency lines of communication?",
+            "How much of your testing is automated versus manual?",
+            "What tools are used?",
+            "What time frames are available to perform testing?",
+            "When and how are findings reported?",
+            "Do you background check your employees?",
+            "What documentation and logging do you perform while testing?",
+            "What are the rules of engagement?",
+            "What happens when a critical issue is found?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "The answers to these questions typically either increase or decrease your comfort level with a prospective penetration tester. You want to confirm that they will handle your data securely and that they have processes in place to handle all the questions you’ve asked. Any reputable firm should have documented processes, for instance, that indicate how they will handle your data, what actions they take if they find an actual malicious intruder on your network, and how they check for and mitigate the chances of disruption to your organization."
+        },
+        {
+          "type": "paragraph",
+          "text": "Phases of Penetration Testing"
+        },
+        {
+          "type": "paragraph",
+          "text": "It is helpful to understand the penetration tester’s process. Penetration testers may use different names for the phases, but the general concepts are consistent. The typical flow of a penetration test includes the following phases:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Phase 1: Discovery or reconnaissance"
+        },
+        {
+          "type": "paragraph",
+          "text": "Phase 2: Scanning and probing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Phase 3: Exploitation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Phase 4: Post-exploitation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Phase 5: Reporting findings"
+        },
+        {
+          "type": "paragraph",
+          "text": "In the discovery or reconnaissance phase, the pen tester gathers information regarding the target system and network. The information gathered using passive techniques is known as open source intelligence (OSINT). A surprising amount of information can often be found without sending any traffic to the target system or network. This allows the tester to avoid detection and to prioritize targets without interacting with them. For instance, several websites provide valuable information regarding targets. Websites such as the regional Internet registries (RIRs) and others that provide similar lookup services can reveal the public IP ranges assigned to a company. Security search engines like Shodan and Censys can be used to check pre-existing scan data for systems, services, and vulnerabilities. Social network sites, especially those that have a business or professionalnetwork component, can reveal vendor equipment and software installed at an organi zation based on the resumes and profiles of employees who work at the target. WHOIS information regarding domain records may also reveal employee names and contact information. Depending upon the parameters given to the tester, the tester may also use other techniques, such as physically observing the building, employees, and routines of the target. Facilities may be photographed and potential weaknesses documented. The tester may drive around the buildings and campus of the organization with a laptop and a wireless card to identify the wireless network footprint. All these information-gathering techniques can be used by penetration testers as well as malicious attackers to profile your organization without detection by your monitoring systems. The primary goal in this phase is to gather as much information regarding the footprint of the target organization as possible."
+        },
+        {
+          "type": "paragraph",
+          "text": "The penetration tester may also be given information by the organization. For instance, if the organization has an Internet presence, they may choose to provide the pen tester with the public IP address range. Alternately, a single IP may be all that is provided. Assessments may even grant the pen tester access to a server or to the corporate"
+        },
+        {
+          "type": "paragraph",
+          "text": "network, and reconnaissance will begin from that vantage point. This is entirely driven by the objectives of the organization hiring the penetration tester."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Scanning and Probing Phase"
+        },
+        {
+          "type": "paragraph",
+          "text": "The second phase of the process, scanning or probing, involves using the informationgathered in the first phase to identify potential targets and gather more detailed infor mation. Ideally, this is the first phase where the penetration tester actually sends traffic destined for the target network. The goal in this phase is to identify entry points into the network. This may be accomplished in several ways."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ping sweeps: Pinging an IP or IP range looking for hosts that respond",
+            "Port scans: Probing a selection of ports on a target IP for ports in the listening state",
+            "Banner grabs: Collecting information provided by a service when connecting to the service port",
+            "Vulnerability scans: Using a vulnerability scanner to enumerate vulnerabilities on the target"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "It is always preferable as a penetration tester to avoid setting off any alerts or alarms on the target system. It is not uncommon for the probes to alert staff of the activity. While this confirms that the monitoring processes are working, it can create barriers for the tester. For instance, the tester’s IP address may be temporarily (or permanently) shunned. The tester will have to either change IPs or contact the organization to have the shun action lifted. Therefore, scans and sweeps should not be overly aggressive in their timingand may use other concealment techniques to increase the likelihood of avoiding detec tion. This is especially important if using a typical vulnerability scanner to identify issues on the target network. A vulnerability scanner generates a significant amount of traffic, and a full scan for all vulnerabilities will almost certainly be detected by the target organization."
+        },
+        {
+          "type": "paragraph",
+          "text": "After completing this phase, the penetration tester will have a list of systems with potentially vulnerable services. For instance, perhaps an Apache or IIS web server was identified, or FTP, SMTP, DNS, and SSH servers were found, including one or more systems with known vulnerabilities."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Exploitation Phase"
+        },
+        {
+          "type": "paragraph",
+          "text": "The next phase is the exploitation phase. With the list of potentially exploitable systems and services in hand, exploitation can commence. This can include a variety of methods, including manually executing attacks, running scripts, and executing automated attacks. The goal in this phase is to gain additional access to a system. This may be done by"
+        },
+        {
+          "type": "paragraph",
+          "text": "cracking a password, finding a discovered hash in a rainbow table, or using a buffer over flow to gain system-level access to a target system. Other possibilities include executing SQL injection attacks. The end result is the same: the tester has gained more access than they should have been capable of, and the organization is compromised."
+        },
+        {
+          "type": "paragraph",
+          "text": "The penetration tester likely has a long list of potential ways to compromise the target at this point. Typically, it is not feasible based on time limitations to try every possible avenue into the system. The penetration tester will use their experience to determine which paths are most likely to yield additional access via a compromised system. This means that while the penetration tester ends up choosing one path into a network, multiple paths may exist but simply were not explored. However, a good penetration tester will include all of the potential and theoretical paths into the network in the report. Even if a vulnerability was not exploited, it can still be investigated and addressed by the organization’s technical staff."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another area of concern that may arise during this phase is the discovery by the pen etration tester of indicators of compromise: signs that a malicious intruder has previously gained access to a resource. The penetration tester may even identify an ongoing attack. Prior to beginning the penetration test, it is advisable to document how these situations will be addressed by the organization and the penetration tester. Best practices dictate that indicators of compromise will cause all testing activities to cease, and appropriatepersonnel will be notified. Management approval must be given to resume testing activi ties. This is equally true if the penetration tester believes an active attack was uncovered. The penetration test cannot continue until the issue is remediated and resolved."
+        },
+        {
+          "type": "paragraph",
+          "text": "Often, a penetration tester may identify an open port and then attempt an exploit against the port. In some cases, this may cause the service that has the port open to crash. If the penetration tester is not diligent, they may not realize the service is no longer responding to traffic. This is important because it may create a disruption in services for the organization. A penetration tester should make every effort to ensure that services are not disrupted. If a service has failed, a notification and communication plan should be in place that dictates what actions the penetration tester should take. For instance, it’s common to provide the tester with a schedule of on-call personnel to contact in the event anything goes awry. A good, experienced penetration testing firm will ensure they have this information prior to beginning any testing."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Post-Exploitation Phase"
+        },
+        {
+          "type": "paragraph",
+          "text": "The next phase is the post-exploitation phase. The attack continues in this phase, using information gathered from the prior three phases. However, with successful exploitation in phase 3, the penetration tester has a new perspective. Perhaps a privileged account has been compromised, or the tester has gained access to a server in the demilitarized zone (DMZ). This elevated, additional access gives the tester a new insight into things. It is possible, for instance, that with access to the DMZ server, the tester can launch"
+        },
+        {
+          "type": "paragraph",
+          "text": "reconnaissance scans from the DMZ server, initiating the penetration testing phasesagain. Previously limited by the firewall rules protecting devices in the DMZ, the pene tration tester can now scan other DMZ devices from the compromised DMZ server. Thisnew vantage point will then restart the reconnaissance phase as the tester gathers information. The new recon scan may identify additional services and servers that are exploit able, and the cycle of exploitation continues. The process of compromising a server and using that access point to locate and compromise additional targets is often referred to aspivoting within the target network. Since this phase can lead to more discoveries, it is com mon for penetration testers to cycle through scanning, exploitation, and post-exploitation phases multiple times as they gain more access and discover additional targets."
+        },
+        {
+          "type": "paragraph",
+          "text": "The final phase is the reporting phase. The penetration tester gathers all of their findingsand compiles them into one or more reports. Typically, an executive-level report is cre ated. It omits technical detail and focuses on the risk and exposure of the organization.A second report is also created, which includes technical details of value to the organization’s technical staff. This second report is used to drive remediation efforts. The pen etration testing team meets with both executive and technical staff to discuss the report, testing, outcome, and findings generated during the test."
+        },
+        {
+          "type": "paragraph",
+          "text": "◗◗ real WOrlD example: the need for experience"
+        },
+        {
+          "type": "paragraph",
+          "text": "A penetration testing firm was hired to perform testing at a Fortune 500 company. The testing team decided to check a list of accounts for weak passwords. However, they didn’t want to accidentally lock out any accounts. On Windows computers, the command-line utility net accounts will display the workstation’s password policy, including two important configuration details."
+        },
+        {
+          "type": "paragraph",
+          "text": "■lockout Threshold: How many incorrect password attempts will lock out the account"
+        },
+        {
+          "type": "paragraph",
+          "text": "■lockout Observation Window: How long until the failed attempt counter resets to 0"
+        },
+        {
+          "type": "paragraph",
+          "text": "The penetration testing firm saw that the Lockout Observation Window was 30 min utes, and four failed attempts would lock out an account. Selecting what they felt was a conservative number, they configured their script to try a password every 20 minutes. continueS"
+        },
+        {
+          "type": "paragraph",
+          "text": "Documentation and Cleanup"
+        },
+        {
+          "type": "paragraph",
+          "text": "A final critical step exists for the penetration tester upon the conclusion of their test—and typically prior to the reporting phase. During the testing, documentation is critical. The penetration tester must log all of their activity, such as the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "What servers were targeted",
+            "When traffic to the target was sent, how the target responded, and when it ceased",
+            "Hosts and services that responded",
+            "Results of each phase, such as hosts found and vulnerabilities identified",
+            "Screenshots of banners, login pages, errors, and terminal sessions",
+            "Configuration changes on a target, such as accounts created, services stopped, or tools installed",
+            "Any potential indicators of compromise: signs of a past, or even active, malicious attack"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "This was slow enough that any alerts on failed attempts probably would not be trig gered. Additionally, the testers reasoned that one attempt every 20 minutes would allow the counter to reset, and no accounts would be locked out."
+        },
+        {
+          "type": "paragraph",
+          "text": "The test commenced overnight. The organization’s staff arrived at work the next morning to find that numerous service accounts were locked out, and critical batch jobs failed to run as scheduled. The penetration testing team denied responsibility, but all indicators pointed to their script as the culprit. The testers presumed their settings were safe. However, it should have been tested prior to usage because their conclusion was wrong. The logic used by the penetration testers indicated a lack of understanding regarding the Windows settings. The Lockout Observation Window setting indicates the amount of time that must pass with no failed password attempt before the counter will be reset to 0. If there is another failed attempt before the Lockout Observation Window setting elapses, the counter increments by 1. Because the script tested passwords every 20 minutes, 30 minutes never elapsed for the counter to reset. So, after five failed attempts, which took around 80 minutes, the accountswere locked out. The penetration testers did keep excellent documentation of their activi ties, which is certainly beneficial. The failed login attempts in the security logs corresponded exactly with the timing of their tests and the accounts that were tested."
+        },
+        {
+          "type": "paragraph",
+          "text": "Lessons like this help to emphasize the need to ensure that anyone conducting testing against an environment is experienced in the art of penetration testing and understands the technical details of the types of systems and software they are testing."
+        },
+        {
+          "type": "paragraph",
+          "text": "This documentation allows the penetration tester to properly convey their findings and, even more importantly, clean up any remnants from the penetration testing process. It is a failure on the part of the penetration tester to create an account, for example, and leave it on the system."
+        },
+        {
+          "type": "paragraph",
+          "text": "The type of penetration test being performed can be divided into three separate categories: black-box testing, gray-box testing, and white-box testing. These test types are differ entiated by the amount of knowledge and access granted to the tester. In black-box, also called blind or zero knowledge testing, the tester has no knowledge of the systems beingtested. This test creates a situation most like an external malicious actor, who also typi cally would have no prior knowledge of a target system. The testing in this scenario can take longer, as the tester is starting from scratch, discovering all of the details regarding the system via scanning, probing, and trial and error."
+        },
+        {
+          "type": "paragraph",
+          "text": "Black-box testing that is done in a way that simulates an actual attack is called red teaming. Red team exercises test how well an organization’s security designs, responses, policies, and procedures respond to an actual adversary. The defending team, or blueteam, is the defending team in security exercises like this. Black-box testing that is per formed without prior knowledge of the IT staff and security team for an organization is sometimes called double blind or covert testing."
+        },
+        {
+          "type": "paragraph",
+          "text": "On the opposite end of the spectrum is white-box, or full knowledge, testing, also sometimes known as covert testing. As the term implies, the tester is given full knowledge and access to the system. They may even receive application source code to review, if applicable. Where black-box testing is from the outside in, white-box testing is from the inside out. The additional access may allow the testers to uncover more vulnerabilities than in a black-box test. However, this test tends to be less like a real-world scenario and doesn’t simulate an actual attack as well as a black-box test. Overt testing is done with the knowledge of the IT and security staff of an organization, which means that penetrationtesters need to be aware that they may use that knowledge to stop attacks that would oth erwise work, potentially making the testing less useful."
+        },
+        {
+          "type": "paragraph",
+          "text": "In between the two is gray-box testing. As the name implies, it sits somewherebetween the other two test types. The penetration tester is given some information regard ing the system(s) to be tested. However, it is unlikely they have full access and source code availability. Their access and knowledge sits somewhere between full knowledge and no knowledge at all."
+        },
+        {
+          "type": "paragraph",
+          "text": "Physical Penetration Testing"
+        },
+        {
+          "type": "paragraph",
+          "text": "Security issues aren’t limited to networks and systems. A complete penetration testing effort can involve assessing and testing the physical security of an organization and"
+        },
+        {
+          "type": "paragraph",
+          "text": "its facilities. Physical access attacks may target locks, entry access control systems, front-office personnel, security guards, staff behavior, and any other physical security control or mechanism."
+        },
+        {
+          "type": "paragraph",
+          "text": "Physical penetration testing efforts will frequently leverage social engineering tech niques to persuade employees that the penetration tester should be allowed into a secured area or through a locked or access-controlled door. Gaining physical access can result in more danger to the penetration tester, as staff, security guards, and police who discover a penetration tester in areas they are not authorized to be in can respond in unexpectedways. This makes it even more important for physical penetration testers to have well documented emergency contact procedures and a fully documented letter of permission or “get out of jail free” document."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-log-reviews",
+      "title": "Log Reviews",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Logs are generated by most systems, devices, applications, and other elements of an organization’s infrastructure. They can be used to track changes, actions taken by users, service states and performance, and a host of other purposes. These events can indicatesecurity issues and highlight the effectiveness of security controls that are in place. Assess ments and audits rely on log artifacts to provide data about past events and changes and to indicate whether there are ongoing security issues, misconfigurations, or abuse issues. Security control testing also relies on logs, including those from security devices and security management systems."
+        },
+        {
+          "type": "paragraph",
+          "text": "The wide variety of logs, as well as the volume of log entries that can be generated by even a simple infrastructure, means that logs can be challenging to manage. Logs can capture a significant amount of information and quickly become overwhelming in volume. They should be configured with industry best practices in mind, includingimplementing centralized collection, validation using hashing tools, and automated analysis of logs. Distinct log aggregation systems provide a secure second copy, while allow ing centralization and analysis. In many organizations, a properly configured security information and event management (SIEM) system is particularly useful as part of both assessment and audit processes and can help make assessment efforts easier by allowing reporting and searches. Even when centralized logging and log management systems aredeployed, security practitioners must strike a balance between capturing useful informa tion and capturing too much information."
+        },
+        {
+          "type": "note",
+          "text": "Maintaining log integrity is a critical part of an organization’s logging practice. If logs cannot be trusted, then auditing, incident response, and even day-to-day operations are all at risk, since log data is often used in each of those tasks. Thus, organizations need to assess the integrity of their logs as well as their existence, content, and relevance to their purpose."
+        },
+        {
+          "type": "paragraph",
+          "text": "Logs should have proper permissions set on them, they should be hashed to ensure that they are not changed, a secure copy should be available in a separate secure location if the logs are important or require a high level of integrity, and of course any changes that impact the logs themselves should be logged!"
+        },
+        {
+          "type": "paragraph",
+          "text": "Assessing log integrity involves validating that the logs are being properly captured, that they cannot be changed by unauthorized individuals or accounts, and that changes to the logs areproperly recorded and alerted on as appropriate. This means that auditors and security asses sors cannot simply stop when they see a log file that contains the information they expect it to. Instead, technical and administrative procedures around the logs themselves need to be validated as part of a complete assessment process."
+        },
+        {
+          "type": "paragraph",
+          "text": "Assessments and audits need to look at more than just whether logs are captured and their content. In fact, assessments that consider log reviews look at items including the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "What logs are captured?",
+            "How is log integrity ensured? Are log entries hashed and validated?",
+            "Are the systems and applications that generate logs properly configured?",
+            "Do logging systems use a centralized time synchronization service?",
+            "How long are logs retained for, and does that retention time period meet legal, business, or contractual requirements?",
+            "How are the logs reviewed, and by whom?",
+            "Is automated reporting or alarming set up and effective?",
+            "Is there ongoing evidence of active log review, such as a sign-off process?",
+            "Are logs rotated or destroyed on a regular basis?",
+            "Who has access to logs?",
+            "Do logs contain sensitive information such as passwords, keys, or data that should not be exposed via logs to avoid data leakage?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Policies and procedures for log management should be documented and aligned to standards. ISO 27001 and ISO 27002 both provide basic guidance on logging, and NIST provides SP 800-92, “Guide to Computer Security Log Management.” Since logging isdriven by business needs, infrastructure and system design, and the organization’s func tional and security requirements, specific organizational practices and standards need to be created and their implementation regularly assessed."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-synthetic-transactions",
+      "title": "Synthetic Transactions",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Monitoring frequently needs to involve more than simple log reviews and analysis to provide a comprehensive view of infrastructure and systems. The ability to determine"
+        },
+        {
+          "type": "paragraph",
+          "text": "whether a system or application is responding properly to actual transactions, regard less of whether they are simulated or performed by real users, is an important part of a monitoring infrastructure. Understanding how a system or application performs and how that performance impacts users, as well as underlying infrastructure components, is critical to management of systems for organizations that want a view that goes deeper than whether their systems are up or down or under a high or low load. Two major types of transaction monitoring are performed to do this: synthetic transactions and real user monitoring."
+        },
+        {
+          "type": "paragraph",
+          "text": "Synthetic transactions are actions run against monitored objects to see how the system responds. The transaction may emulate a client connecting to a website and submitting a form or viewing the catalog of items on a web page, which pulls the information from a database. Synthetic transactions can confirm that the system is working as expected and that alerts and monitoring are functioning properly."
+        },
+        {
+          "type": "paragraph",
+          "text": "Synthetic transactions are commonly used with databases, websites, and applica tions. They can be automated, which reduces the workload carried by administrators. For instance, synthetic transactions can ensure that the web servers are working properly and responding to client requests. If an error is returned during the transaction, an alert can be generated that notifies responsible personnel. Therefore, instead of a customer complaining that the site is down, IT can proactively respond to the alert and remedy the issue, while impacting fewer customers. Synthetic transactions can also measure response times to issues, allowing staff to proactively respond and remediate slowdowns or mimic user behavior when evaluating newly deployed services, prior to deploying the service to production."
+        },
+        {
+          "type": "paragraph",
+          "text": "Real user monitoring (RUM) is another method to monitor the environment. Instead of creating automated transactions and interactions with an application, the developer or analyst monitors actual users interacting with the application, gathering information based on actual user activity. Real user monitoring is superior to synthetictransactions when actual user activity is desired. Real people will interact with an appli cation in a variety of ways that synthetic transactions cannot emulate because real user interactions are harder to anticipate. However, RUM can also generate much more information for analysis, much of which is spurious, since it will not be specifically targeted at what the monitoring process is intended to review. This can slow down the analysis process or make it difficult to isolate the cause of performance problems or other issues. In addition, RUM can be a source of privacy concerns because of the collection of user data that may include personally identifiable information, usage patterns, or other details."
+        },
+        {
+          "type": "paragraph",
+          "text": "Synthetic transactions can emulate certain behaviors on a scheduled basis, including actions that a real user may not perform regularly or predictably. If a rarely used element of an application needs testing and observation, a synthetic transaction is an excellent"
+        },
+        {
+          "type": "paragraph",
+          "text": "option, whereas the developer or analyst may have to wait for an extended amount of time to view the transaction when using RUM."
+        },
+        {
+          "type": "paragraph",
+          "text": "Synthetic transactions can be used for several functions, including the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Application monitoring: Is an application responsive, and does it respond to queries and input as expected?",
+            "Service monitoring: Is a selected service responding to requests in a timely manner, such as a website or file server?",
+            "Database monitoring: Are back-end databases online and responsive?",
+            "TCP port monitoring: Are the expected ports for an application or service open, listening, and accepting connections?",
+            "Network services: Are the DNS and Dynamic Host Configuration Protocol (DHCP) servers responding to queries? Is the domain controller authenticating users?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "By using a blend of synthetic transactions and real user monitoring, the effectivenessof an organization’s testing and monitoring strategy can be significantly improved. Down time can be reduced because staff is alerted more quickly when issues arise. Application availability can be monitored around the clock without human intervention. Compliance with Service-Level Agreements (SLAs) can also be accurately determined. The benefits of using both types of monitoring merits consideration."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-code-review-and-testing",
+      "title": "Code Review and Testing",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "When software developers write software, the written software is referred to as code. To ensure that flaws in the application do not exist, the code must be reviewed and tested. Failure to both review and test the code can result in flawed software that can be used to gain access to a system without authorization or to conduct other attacksthat expose data, provide access, or result in service failures. In fact, poor coding practices can result in SQL injection attacks, cross-site scripting, authentication and ses sion management flaws, buffer overflows, credential theft, and privilege escalation as well as the other flaws described in the Common Weakness Enumeration (https://"
+        },
+        {
+          "type": "paragraph",
+          "text": "cwe.mitre.org/) and by OWASP Top 10 (https://www.owasp.org/index.php/"
+        },
+        {
+          "type": "paragraph",
+          "text": "Category:OWASP_Top_Ten_Project)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Code review and testing help ensure the security of the final application. The imple mentation of security within an application does not begin with the review or the testing phase, however. Security must be built into the application as part of the initial design process and continue to be a focus through the software development lifecycle."
+        },
+        {
+          "type": "paragraph",
+          "text": "Malicious attackers are experts in identifying and exploiting flaws in applications, as well as weaknesses in interfaces and in the exchange of data between systems. Good programming practices can help reduce and eliminate the number of flaws present in"
+        },
+        {
+          "type": "paragraph",
+          "text": "applications and software. There are several different testing and code review techniques that can be employed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Automated versus manual testing",
+            "Black-box versus white-box testing",
+            "Dynamic versus static testing"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Testing can be conducted with software tools, which automates the examination of the code. This can allow the code to be reviewed quickly. However, an automated tool may miss certain issues. Software developers have different styles, and applications can be increasingly complex. While manual testing may take longer, a skilled manual tester may spot issues that are not evident to the one-size-fits-all automated scanner. Likewise, though, the accuracy and thoroughness of manual testing are highly dependent upon the skill of the individual reviewing the code."
+        },
+        {
+          "type": "paragraph",
+          "text": "In black-box testing, the testing is performed without any internal knowledge of the workings of the application. For instance, the source code is not available in black-box testing, requiring black-box testing to be conducted by running the application itself. Therefore, black-box testing relies on a skilled individual who can run the application and thoroughly test all aspects of the application, often with the use of a testing tool to help. White-box testing includes more detailed information regarding the inner workings of the application. For instance, source code is often reviewed in white-box testing. This in-depth review can allow the tester to identify coding issues that may be less evident during a black-box test. The accuracy and thoroughness of both test types is dependent upon the skill and knowledge of the tester."
+        },
+        {
+          "type": "paragraph",
+          "text": "In dynamic testing, the code being tested is actually run. Static testing is the examination of the system without executing the code. It can be done with a set of tools, automat ically, or manually. Static testing can be done earlier in the software development phase, prior to the finalized code being ready for execution. This allows identification of flaws sooner in the testing process."
+        },
+        {
+          "type": "paragraph",
+          "text": "Code security should be considered during the initiation and design phase of appli cation development and should continue throughout the development process. Different testing and review options are used at each stage of the development process."
+        },
+        {
+          "type": "paragraph",
+          "text": "During the planning and design phase, the overall design of the application can be considered."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Is the software architecture appropriate and secure for the functions it will provide?",
+            "Will sensitive data be transmitted via the application?",
+            "How will the data be protected?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "list",
+          "items": [
+            "Does the design of the application handle data in a way that is compliant with industry regulations, such as PCI?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "In addition to considering the architecture, this phase can also consider the different threats to the application and the data it manages."
+        },
+        {
+          "type": "list",
+          "items": [
+            "How might the application be attacked?",
+            "What is the attack surface for the application, and how can it be reduced?",
+            "How can potential attacks be mitigated or avoided altogether?",
+            "Does the application accept input from untrusted sources?",
+            "Where is input sanitization and validation needed?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "During the development phase, when the application code is written, code review can be performed. This can take the shape of static source code analysis and manual code review. In fact, a number of code review processes are commonly used to create secure code, including the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pair programming is an agile software development technique that places two developers at one workstation. One developer writes code, while the other reviews it. Frequent role switches ensure that both developers are coding and reviewing equally and that both are familiar with all of the code.",
+            "Over-the-shoulder code review requires one developer to write code while the other watches and reviews the code.",
+            "Pass-around code reviews work by sending code to reviewers who check the code at a later date. This is less time-intensive than pair or over-the-shoulder reviews, but also means that developers do not receive immediate feedback.",
+            "Tool-assisted reviews rely on a formal or informal tool to ensure that code is reviewed and receives proper sign-off."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Some organizations use a formal code inspection process like Fagan inspection,which uses a multiphase review process to conduct in-depth formal reviews. The down fall of a complex formal code inspection process is that it requires a large amount of time and personnel resources and must be repeated for each new code release or update. Thismeans that an in-depth formal code review process is used only when the business justifi cation for it exists."
+        },
+        {
+          "type": "paragraph",
+          "text": "In addition to the source code of a program, the compiled source, which creates the executable, can be reviewed. The testing of compiled source code is referred to as static binary analysis and manual binary review. All of these test types observe the code without executing the application. They rely on the tester’s experience to identify issues within the code based on their knowledge of secure coding practices."
+        },
+        {
+          "type": "paragraph",
+          "text": "There are a variety of tools and methods that can be used in software testing. The tester must consider many different factors that can aid in selecting the appropriate tools to test the code."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Is this a web application, a script, or a compiled executable?",
+            "Does the application have a back-end database?",
+            "Where will the application reside, and what interfaces are available?",
+            "Does the application rely on source code libraries or dynamically import code from a source code repository like GitHub?",
+            "Is version management used for the source code, and how are versions tracked and released?",
+            "What programming language is used? Some tools are designed to work only with specific coding languages and may not provide useful results if used incorrectly.",
+            "Do the results correctly identify issues? Are the results usable and applicable?",
+            "Does the tool efficiently manage system resources?",
+            "Is the tool easy to use and consistent in the results provided?",
+            "Are the tools well supported?",
+            "Do alternate tools with similar capabilities give similar results?",
+            "Is one tool more comprehensive than another?",
+            "Does one tool handle the testing process more gracefully, without crashes or system stability issues?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Just as with any job, selecting the right tool can make all the difference. Selecting the right tool relies on understanding the task at hand, as well as the application and the environment in which it will reside."
+        },
+        {
+          "type": "paragraph",
+          "text": "Once enough code has been written, the application can be executed. This opens new doors for testing possibilities. A running application can be the target of a manual or automated penetration test, as well as automated vulnerability scanners. All theseoptions provide the ability to identify previously undiscovered vulnerabilities in an application. In addition to the automated nature of these options, they also review signifi cantly more code more quickly than nonautomated testing types. The drawback is that the algorithms used to find errors may not identify issues that an experienced developer and tester might identify."
+        },
+        {
+          "type": "paragraph",
+          "text": "An automated method that can test in ways that manual tester often cannot is fuzz testing. Fuzz testing is another automated approach to testing a running application that uses a fuzzer, an application designed to test another application, by sending unexpected"
+        },
+        {
+          "type": "paragraph",
+          "text": "data to the application. The tester can then observe how the application responds to receiving the random data from the fuzzer."
+        },
+        {
+          "type": "paragraph",
+          "text": "Test plans and test cases should be created early in the architecture and design process of an application. The application’s testing can be organized into different levels of testing."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Unit testing: Does a particular piece of code properly perform the task it is intended to?",
+            "Integration testing: Does the application behave as expected when integrated and communicating with other systems in the environment?",
+            "System testing: This ensures that the application provides the required functionality and that the application is trustworthy as deployed in regard to security, pri vacy, performance, recovery, and usability."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Testing in continuous integration or DevOps environments, like those found in manycloud-centric organizations, now frequently relies on automated build processes that per form regression testing, which ensures that old bugs do not reappear, and test programs, which perform unit, integration, and system testing in an automated fashion before code is deployed."
+        },
+        {
+          "type": "paragraph",
+          "text": "A comprehensive code testing program, with an emphasis throughout the softwaredevelopment lifecycle, can ensure that developed applications are deployed with mini mal vulnerabilities."
+        },
+        {
+          "type": "paragraph",
+          "text": "As you might imagine, the quality of the results depends highly on the experience of the individual reviewing the code. An inexperienced reviewer may miss many issues. Additionally, reviewers may be more adept at finding certain kinds of mistakes or better at reviewing certain coding languages. Ensure that the appropriate people review the code,and consider outsourcing the task if more experience or expertise is needed than is avail able within the organization."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-misuse-case-testing",
+      "title": "Misuse Case Testing",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In the context of a software development lifecycle, use cases describe what actors will do and what applications will do in response. Validating that code or an application satisfiesthe use cases that it was designed for is part of all development processes. This is an exam ple of positive testing, where the desired functionality and behavior is tested to ensure that it works as designed."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ensuring that applications are secure requires that negative testing, or testing that validates what happens when things do not work as expected, is conducted to identify vulnerabilities and coding errors. Thus, to ensure security, misuse cases are also tested to ensure that using an application in ways that it was not intended to be used does not"
+        },
+        {
+          "type": "paragraph",
+          "text": "result in unexpected or unintended consequences. Common examples of misuse testing techniques include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Required form fields: The application may require certain fields before a form can be submitted. If the fields are left blank, does the application properly stop the submission and request that the empty field be completed?",
+            "Data mismatch: What happens when letters are entered into a ZIP code field? Or symbols are entered into a First Name field?",
+            "Field limits: What happens when four or more digits are entered into a form field for a customer’s age? Does it truncate the data or reject the entry?",
+            "Data bounds: What happens if negative numbers are entered when positive numbers are expected, and vice versa? Does the application properly handle the anom aly, or does it accept the input and yield unexpected results?",
+            "Unauthenticated pages: Does a site that requires login allow access to pages with out authentication? Can pages be opened directly if the URL is known?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Most use cases simply ensure that the application provides necessary functionality. In contrast, misuse case testing has to test a broader set of possible issues, since invalid inputs, intentional attacks, and many other unexpected behaviors have to be tested for to fully validate the wide range of misuse cases."
+        },
+        {
+          "type": "paragraph",
+          "text": "Testing for intentional misuse cases, also known as abuse cases, is part of a comprehensivemisuse testing effort. Thus, when misuse cases are evaluated, they should also be consid ered from the point of view of an attacker or malicious insider with a focus on how the system, service, application, or process could be abused."
+        },
+        {
+          "type": "paragraph",
+          "text": "Abuse cases must be considered at each level of an infrastructure or system, including individual components, how they integrate, and how they are managed and maintained. At each stage, assessors must consider how normal functionality could be misused and how techniques such as providing unexpected input or intentional malicious actions might have an impact."
+        },
+        {
+          "type": "paragraph",
+          "text": "Since complete coverage for misuse case testing can be extremely time- and resource-intensive, a risk assessment should be performed to determine focus areas. Oncefocus areas have been determined, abuse case testing emulates common activities of mali cious actors who abuse applications by performing actions the application doesn’t expect, which can reveal vulnerabilities that may allow system compromise. Exceptional testing for abuse cases may occur during penetration tests, with white-box penetration tests often providing the greatest insight into potential abuse, but conducting thorough abuse case testing can be very expensive."
+        },
+        {
+          "type": "paragraph",
+          "text": "Since abuse cases are a subset of misuse cases, the differences between them can result in confusion. All abuse cases are misuse cases, but a misuse case becomes an abuse case only when it involves an intentional attempt to misuse the system for malicious purposes."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-test-coverage-analysis",
+      "title": "Test Coverage Analysis",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Test coverage analysis refers to identifying how the testing performed relates to the total functionality of the application. When designing the test, are all aspects and functionality of the application thoroughly tested? Is there functionality that cannot easily be tested through the interface? How will such sections of code be tested?"
+        },
+        {
+          "type": "paragraph",
+          "text": "There are four main types of coverage criteria."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Branch coverage ensures that each branch in a control statement has been executed.",
+            "Condition coverage requires each Boolean expression to be validated for both true and false conditions.",
+            "Function coverage makes sure that every function in the program is called.",
+            "Statement coverage validates the execution of every statement in the program."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "In addition to these four basic types of coverage criteria, two more advanced types ofcriteria are often used. The first is decision coverage; this validates combinations of func tion coverage and branch coverage to ensure that every entry and exit point for a program has been tested at least once and that each decision in a program has also been tested at least once. Parameter coverage validates that every function that accepts parameters has been tested with common values for the parameter. Other types of coverage, such as loop coverage, path coverage, and data flow coverage are used less frequently but may be required for specific testing or validation reasons."
+        },
+        {
+          "type": "paragraph",
+          "text": "The ratio of tested functionality and code to complete functionality and code equates to the actual test coverage. Ideally, test coverage encompasses 100 percent of a program’s code and functionality; however, this is not easy to achieve. When there are gaps in test coverage, undiscovered flaws, such as buffer overflows or logic errors, may be present. When determining what levels of coverage are acceptable, consider factors such as the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sensitivity of data handled by the application",
+            "Relationship of the application to business-critical processes",
+            "Human safety"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "The more sensitive the data or the more critical the application, the greater the per centage of test coverage required to maintain acceptable levels of risk. Another factor"
+        },
+        {
+          "type": "paragraph",
+          "text": "some may consider important is exposure of the application to the Internet or other expo sure risk factors. However, regardless of the zone where the application is deployed, all vulnerabilities present in an application should be fixed. While it is tempting to review public web applications more closely than internal applications, an internal applicationcan still be compromised by a malicious employee, a penetration tester or red team mem ber, or a hacker who has breached the organization’s outer defenses."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-interface-testing",
+      "title": "Interface Testing",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "When two systems or a user and a system can interact with each other, the exchange of data occurs via an interface. Interfaces allow systems to exchange data with each other, other applications, other systems, and users. Interface testing is used to validate whethersystems or components pass data and control information properly. This systematic evaluation of the interface’s functionality helps ensure the integrity and possibly the confidenti ality and availability of the data and services provided by the application. Interface testing can be conducted by both developers and end users, but penetration testers and security professionals may also perform interface testing as part of their efforts."
+        },
+        {
+          "type": "paragraph",
+          "text": "Interface testing will typically assess the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the interface responds as expected",
+            "How the interface handles errors, if it responds to them appropriately",
+            "How the interface deals with unexpected input, or a lack of required input",
+            "What the interface does when there is a connectivity issue",
+            "The security of the interface and the data that it sends through it"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Interface testing may require components on both ends of a system to be tested or for multiple elements in an infrastructure to be validated. External interfaces such as APIs, web services, and servers’ services are all frequently tested by security professionals toensure that they are not vulnerable, leaking data, or exposed beyond their designed acces sibility. Internal interfaces for programs, operating system kernels and services, and other similar components may also be tested by security professionals, particularly those who develop security tools or who work to defeat malware."
+        },
+        {
+          "type": "paragraph",
+          "text": "Interface testing is a common part of a typical software development lifecycle(SDLC). In the SDLC, interface testing can ensure user-friendliness within the applica tion. It can also identify issues such as proper error handling in addition to unexpected behaviors. For instance, do transactions maintain their integrity in all circumstances, including an interruption of the transaction? Are errors handled properly, or do they divulge sensitive information?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Server interface testing can also ensure that server to server, server to database, and web application to server communication is performed as expected. Testing should be"
+        },
+        {
+          "type": "paragraph",
+          "text": "conducted with a variety of browsers to ensure that each browser performs as expected.Other factors that can cause a test to succeed or fail include the presence of browser plugins. Testing should include examining the functionality of the site with and without plug ins enabled."
+        },
+        {
+          "type": "paragraph",
+          "text": "Website links should work, and linked documents should be accessible on a varietyof operating system platforms. It may be useful to determine whether encryption is nec essary based on the contents of the site. Identify whether the copy and paste functions are secure and justifiable from a business perspective. Other elements of the test can answer questions such as these:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the website returns an error, does it divulge sensitive information, such as source code, directory listings, or system paths?",
+            "If the application crashes, does it recover gracefully and automatically, or is inter vention or a reboot required?",
+            "If a transaction is interrupted, does it gracefully recover?",
+            "Do interruptions cause a loss of data or necessitate a re-creation of work performed?",
+            "Does inactivity log out the user and cancel a transaction?",
+            "Does the system recover the session gracefully after a browser crash?",
+            "Are cookies used, and do they store sensitive information?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Other elements can be tested as well, such as the interface’s functionality, perfor mance, usability, intuitiveness, and user satisfaction. Interface testing can ensure the application adheres to security requirements and meets the needs of the organization."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-collect-security-process-data",
+      "title": "Collect Security Process Data",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "It is unlikely that a networking and computing environment that was initially configuredin 2010 is unchanged today. In fact, it is highly likely that your own network has under gone minor and possibly major changes in the last six months. As technology has advanced and threats to networks have increased, the need to monitor networks has become crucial."
+        },
+        {
+          "type": "paragraph",
+          "text": "Traditional approaches to security process data collection involved solution-specific logging and data capture, sometimes paired with a central Security Information and Event Management (SIEM) or other security management device. As organizational IT infrastructure and systems have become more complex, security process data has also increased in complexity and scope."
+        },
+        {
+          "type": "paragraph",
+          "text": "Information security continuous monitoring (ISCM) is a holistic strategy to improve and address security. As with any security initiative, it begins with senior management"
+        },
+        {
+          "type": "paragraph",
+          "text": "buy-in. The most effective security programs consistently have upper management support. This creates an environment where the policies, the budget, and the vision for the company all include security as a cornerstone of the company’s success. ISCM is designed to align facets of the organization including the people, the processes, and the technologies in place."
+        },
+        {
+          "type": "paragraph",
+          "text": "An organization needs to do the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Monitor all systems",
+            "Understand threats to the organization",
+            "Assess security controls",
+            "Collect, correlate, and analyze security data",
+            "Communicate security status",
+            "Actively manage risk"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "This will aid the organization in implementing ISCM. ISCM will help ensure thatsecurity controls are effective and that the organization’s risk exposure is within accept able limits."
+        },
+        {
+          "type": "paragraph",
+          "text": "ICSM standards are increasingly available, and major examples include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "NIST SP800-137, “Information Security Continuous Monitoring (ISCM) for Federal Information Systems and Organizations” (https://csrc.nist.gov/"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "publications/detail/sp/800-137/final)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cloud Security Alliance STAR level 3 provides continuous monitoring-based cer tification (https://cloudsecurityalliance.org/star/continuous/)",
+            "The FedRAMP Continuous Monitoring Strategy Guide (https://www.fedramp .gov/assets/resources/documents/CSP_Continuous_Monitoring_Strategy_"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "list",
+          "items": [
+            "NIST SP 800-37, “Risk Management Framework for Information Systems and Organizations: A System Life Cycle Approach for Security and Privacy” (https://csrc.nist.gov/publications/detail/sp/800-37/rev-2/draft), is indraft as of the writing of this book but specifically includes risk management link ages to governance and process."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "There are several steps to implementing ISCM as outlined in NIST SP800-137."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Define the strategy based on the organization’s risk tolerance.",
+            "Formally establish an ISCM program by selecting metrics.",
+            "Implement the program and collect the necessary data, ideally via automation.",
+            "Analyze and report findings, and determine the appropriate action."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "list",
+          "items": [
+            "Respond to the findings based on the analysis and use standard options, such as risk mitigation, risk transference, risk avoidance, or risk acceptance.",
+            "Plan strategy and programs as needed to continually increase insight and visibility into the organization’s information systems."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Depending on the organization and the maturity of the implemented ISCM, it istypically necessary to implement one step of the strategy at a time. ISCM tools pull infor mation from many sources. This data may be integrated with SIEM tools. Ideally this process is automated."
+        },
+        {
+          "type": "paragraph",
+          "text": "ICSM has become increasingly complex as organizations spread their operations into hosted and cloud environments and as they need to integrate third parties into theirdata-gathering processes. Successful ICSM now needs to provide methods to intercon nect legacy ICSM processes with third-party systems and data feeds."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-account-management",
+      "title": "Account Management",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Accounts are the set of credentials used to access a system. Most commonly, people think of user accounts, such as a username and a password, used to log onto a computer. However, in the enterprise, other accounts exist also. Here are some examples:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Computer accounts used to authenticate and authorize a computer’s access to network resources",
+            "Service accounts used by processes running on a system and that can execute commands on a system without the need to log on",
+            "Guest accounts used to allow anonymous access to a resource",
+            "Federated accounts and other third-party accounts that may be provided by identity providers outside of the organization"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Since accounts are the core of access to most organizations networks, systems, and services, collecting data on the state of accounts, their usage, and whether they are meeting organization security policy is critical to the ongoing security of the organization."
+        },
+        {
+          "type": "paragraph",
+          "text": "Account management is fairly complex, but it is easier to understand if you look at itdivided into the phases of the account management lifecycle. This can simply be identi fied as the following phases:"
+        },
+        {
+          "type": "paragraph",
+          "text": "2. Modifying accounts"
+        },
+        {
+          "type": "paragraph",
+          "text": "Account management begins with the creation of the account. This is the first phase of the account management lifecycle. Regardless of the type of account that is needed, several things should be considered."
+        },
+        {
+          "type": "list",
+          "items": [
+            "What is the purpose of the account?",
+            "Who will have the login information for the account?",
+            "Will the account be needed indefinitely or for a shorter, definable time frame?",
+            "Will the account have access to sensitive information?",
+            "How complex and long will the password or passphrase be?",
+            "How will the login information be transmitted to the account’s authorized user?",
+            "What’s the minimum level of access necessary for the account?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Tracking all of this data is important, as it provides a foundation for assessment, audit,and monitoring of account status and usage. Using central identity management infra structure, including authorization and authentication systems that have an automated monitoring and audit capability, is key to ensuring this across organizations."
+        },
+        {
+          "type": "paragraph",
+          "text": "Once an account has been created, modifications to it must be tracked throughout its lifecycle. That includes ensuring that it only has the rights, access, and privileges that are appropriate for the role that it or the account owner needs to perform and that privileges that do not match have been removed. Managing changes to the account, like password changes, tracking requests for additional rights or role changes, and monitoring uses of privileged credentials, are all necessary during the account’s life."
+        },
+        {
+          "type": "paragraph",
+          "text": "The third phase in the lifecycle is the audit phase. This phase is designed to catch any violations of policies and best practices. For instance, when employees move between roles, they may receive new, additional privileges and access for their new roles. However,their old privileges and access may remain intact, instead of being removed. This is typ ically referred to as permission creep or permission accumulation. Auditing can identify accounts that are no longer being used. Perhaps a contractor is no longer working for the organization, and the account management team wasn’t notified, so the account remainsusable in the system. What if an account has been exempted from the password expira tion policy and the password has remained unchanged for months or even years? Actively auditing accounts can help identify these risks."
+        },
+        {
+          "type": "paragraph",
+          "text": "When an account needs to be removed, ensuring that it is removed from all of the systems and services where it may have existed is also a critical step. Attackers often look for unused or unmaintained accounts that they can access, and forgotten accounts belonging to terminated staff members, administrators, or services can all be attractivetargets. Monitoring the entire lifecycle, the actions taken by the administrators who man age accounts, and the actions taken by account holders are all important to securing the account management lifecycle."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-management-review-and-approval",
+      "title": "Management Review and Approval",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Security assessment efforts rely on management sponsoring the process and reviewing and approving the results. Management engagement throughout the process is critical to its success. Organizational security is effective only with management support. Ideally, top levels of management are supportive of security initiatives and include security as partof the company’s vision. With this level of responsibility, it only makes sense that manage ment must be informed about risk and must have an opportunity to determine whether a risk is acceptable."
+        },
+        {
+          "type": "paragraph",
+          "text": "Each of the techniques and procedures discussed in this chapter has a role in management’s oversight of organizational security. Assessment processes can be used to val idate organizational progress toward security goals or to ensure that standards are being ◗◗ real WOrlD example: password resets"
+        },
+        {
+          "type": "paragraph",
+          "text": "There are many ways organizations manage the issuance of temporary credentials, most often after a password is forgotten and needs to be reset. If you observe the help desk and the account management team at different organizations, you will inevitably see many poor choices, such as Pass123, Pa$$w0rd, Monday1, Tuesday2018, and more. The following are two common errors when it comes to handing out temporary credentials:"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Using the same password for all new accounts"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Using an easily guessable algorithm to generate the passwords, such as Monday123"
+        },
+        {
+          "type": "paragraph",
+          "text": "By using such simple techniques to generate passwords, accounts become much easierto compromise. When conducting penetration tests and password audits, it’s not uncom mon to find a few accounts that still have these initial passwords. There is also a risk that a malicious actor will discover the temporary password formula, perhaps a disgruntledemployee who has left the company. If they know a new employee is joining the com pany, they can easily derive the most likely username and password combination and gain access to network resources."
+        },
+        {
+          "type": "paragraph",
+          "text": "The good news is that this is simple to address from both technical and administrative perspectives. A strong technical solution is to require multifactor authentication. With a multifactor token or application, a weak password or one that is exposed is a significantly smaller risk and may be effectively ignored in many cases, unless the second factor is also exposed. Administrative controls, such as security training of the support team regarding account creation and password generation, is also a useful way to reduce this risk."
+        },
+        {
+          "type": "paragraph",
+          "text": "met. Internal audits provide a chance to check against specific requirements through the eyes of an auditor rather than the staff members who maintain or use the systems and services. External audits remove internal biases and can provide an unfiltered view of theorganization. Finally, assessments of third-party vendors and partners can help manage ment make decisions about business relationships and agreements."
+        },
+        {
+          "type": "paragraph",
+          "text": "Assessment and audit reports provide a number of key elements that management needs to consider."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An executive overview that provides a high-level view of the effort, its findings, and recommendations",
+            "A set of detailed findings, typically ranked by priority or severity",
+            "Recommendations for responses, sometimes including a detailed controls map ping and assessment",
+            "Additional appendixes with further data about specifics in the assessment"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "It is important to present data to management in an easy-to-understand format,including charts and other visualizations that make serious issues easy to identify. Man agement needs to have a clear understanding of which issues are the most severe, which need immediate attention, and whether there are systemic problems that are part of an underlying issue."
+        },
+        {
+          "type": "paragraph",
+          "text": "Once the management has reviewed assessment or audit outputs, they must make decisions based on organizational priorities, business needs, and legal and contractual obligations. Ongoing assessments will likely be required to validate the impact of their decisions and the performance of controls and remediations that are implemented based on them."
+        },
+        {
+          "type": "paragraph",
+          "text": "All action items and decisions from meetings should be documented and assignedresponsibility. Any residual risk and the acceptance of any risk should also be docu mented. Open issues are ideally prioritized, and action items and remediations are assigned deadlines as well."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-key-performance-and-risk-indicators",
+      "title": "Key Performance and Risk Indicators",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Security metrics can help measure how effective security efforts are. When you want to improve security, you need to determine whether you are making progress. This isaccomplished by using key performance indicators (KPIs) to help identify more specif ically how security is performing. You also need to know if you’re taking risks. Key risk indicators (KRIs) are used to accomplish this."
+        },
+        {
+          "type": "paragraph",
+          "text": "Both KPIs and KRIs are part of the governance, risk, and compliance (GRC) efforts required to provide security oversight and tracking for an organization. While some metrics and measures are gathered manually, GRC tools are increasingly popular tools for IT and security risk management and oversight."
+        },
+        {
+          "type": "paragraph",
+          "text": "Key Performance Indicators"
+        },
+        {
+          "type": "paragraph",
+          "text": "Key performance indicators are used to show how the organization is performing based on goals set by leadership, as well as progress toward the goals that have not yet been met. Measuring performance requires an understanding of what meaningful progress is and how it can be measured. Much like any metric, numbers themselves do not have meaning without context that is relevant to the organization and its objectives."
+        },
+        {
+          "type": "paragraph",
+          "text": "Major industry standards for measuring information security performance include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "NIST SP800-55, “Performance Measurement Guide for Information Security”(https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800 55r1.pdf)",
+            "ISO 27004, “Information technology – Security techniques – Information security management – Monitoring, measurement, analysis, and evaluation”",
+            "ITIL’s information security management module"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Several steps are necessary when identifying useful KPIs. For instance, what are the business goals? What data sources provide information regarding the goals? Can the sources of data be used to identify progress toward reaching those goals or indicate the current status in relationship to organization objectives? How frequently should the data be collected? Is the data collection automated or manual? By answering these questions, you’ll be better able to identify the KPIs that are useful to your organization. In addition, you’ll have a good idea of the task in front of you and the work necessary to accomplish it."
+        },
+        {
+          "type": "paragraph",
+          "text": "To define useful KPIs, several pieces of information are necessary. You first need to identify the baseline you are starting from and the goals you want to accomplish. Then you can best determine how to achieve those goals."
+        },
+        {
+          "type": "paragraph",
+          "text": "The baseline—where you are at—is the starting point for developing KPIs. It merely requires taking measurements of the current status. Of course, you must wisely choose which numbers matter. You want to choose factors that indicate the level of security. The KPIs selected should align with the organization’s documented goals. In addition, the more readily available the data or the easier it is to collect, the better. Automation is also a key component in being effective. If it takes an inordinate amount of time to gather the data, then the overall effort suffers."
+        },
+        {
+          "type": "paragraph",
+          "text": "Once the initial data is gathered, the baseline is created. At the next sampling inter val, progress toward goals can be evaluated. Analysis of the data can begin. The analysismay be automated, manual, or both, depending on the circumstances. Additional infor mation can also be considered during the analysis, such as external factors that may have"
+        },
+        {
+          "type": "paragraph",
+          "text": "influenced the data. For instance, an increase in unresolved calls to the help desk may have been created by issues with an application update. This in turn may indicate that testing for the application update was insufficient. Ensure that all the factors that impact the KPIs are documented. This allows for more accurate conclusions."
+        },
+        {
+          "type": "paragraph",
+          "text": "The information gathered should be documented. Trends should be observed andanalyzed and findings reported to management as appropriate. With this data, determi nations can be made regarding budget and resource allocation so that KPIs can show evidence of progress (or the lack thereof) toward organizational goals."
+        },
+        {
+          "type": "paragraph",
+          "text": "KPIs measure how well things are being done. KRIs, however, measure the organization’s risk and how its risk profile changes. This provides the ability to assess the likelihood of a negative event, as well as assess the risk level of an activity or situation. The risks, if realized, can typically profoundly impact the organization. Therefore, KRIs can strongly impact decision-making by senior-level executives."
+        },
+        {
+          "type": "paragraph",
+          "text": "Common key risk indicators include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Vulnerability metrics",
+            "Policy exception rates",
+            "Audit findings that are outstanding or unresolved",
+            "Security incident rates",
+            "Malware infection rates",
+            "Security education and awareness rates",
+            "Measures of the use of unapproved software",
+            "Risk assessment ratings",
+            "Patching compliance",
+            "Account management status and issue rate"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "KRIs, like KPIs, must be adapted to the organization that will use them and should be both timely and a good fit with the organization’s security needs."
+        },
+        {
+          "type": "paragraph",
+          "text": "Risk also changes over time. The activities of an organization can increase or decrease risk. The resultant KRI should indicate these changes. Management should identifyacceptable measurements for any KRI. Any changes in a KRI that result in an unac ceptable value should trigger an action on the part of the company. For instance, if thenumber of unpatched machines with critical vulnerabilities exceeds an agreed-upon per centage, then desktop support staff works after hours to manually patch enough machines to bring the KRIs back into a state of compliance."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-backup-verification-data",
+      "title": "Backup Verification Data",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "It is unlikely that you work at an organization that doesn’t perform backups of company data. Backups are an expected part of IT in almost every company. It’s also just as unlikelythat your organization has never experienced data loss. Whether by an accidental dele tion, a failed backup that wasn’t discovered, or malware that encrypted information, most people have experienced the consequences of data loss."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first step in avoiding data loss is identifying the data that is critical to an organi zation. Once criticality is documented, a backup schedule can be identified, and backups can begin. This is the first half of the process. The second critical portion is ensuring that the backups are functioning property. This involves reviewing the backup logs to ensure thatthe backups ran without issue. Any issues during the backup process should be investi gated and resolved quickly. Problems should be escalated to management so there is an awareness regarding any data that may not have been backed up. Failed backups create risk that upper management must be informed about."
+        },
+        {
+          "type": "paragraph",
+          "text": "Finally, backups must be tested. Backups should occasionally be restored and tested to ensure that the data is intact and has maintained its integrity. All the hardware needed for the recovery process should be tested and confirmed working. Ideally, use different hardware for the test recovery process. Testing the recovery process ensures that personnel are properly trained and ready for a recovery situation. A backup is useful only if it can be restored. Auditing should review both the process and the execution of backups and backup verification to ensure that the organization minimizes the risk of data loss."
+        },
+        {
+          "type": "paragraph",
+          "text": "◗◗ real WOrlD example: tape Backups"
+        },
+        {
+          "type": "paragraph",
+          "text": "Few things are more disconcerting than, in the middle of a data recovery situation, realizing there is no viable backup. The backup data can’t be read, critical data cannot be restored, and information is lost. It is difficult to account for every situation that might occur. For example, there was a company that was diligent in rotating their tape media in their backup solution. No tape in use was very old. There were written logs that were checked ona nightly basis to ensure backups occurred as expected. A set of backups were stored off site. After a backup was completed, a small restore was done to verify the information."
+        },
+        {
+          "type": "paragraph",
+          "text": "But one critical step was missed: the same tape backup drive that performed backups was used for the test restores. However, when that drive failed, a replacement was ordered—and the replacement drive was unable to read any of the backup tapes continueS"
+        }
+      ]
+    },
+    {
+      "id": "domain-6-training-and-awareness",
+      "title": "Training and Awareness",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The security landscape is constantly changing. It’s a field that requires a dedication to learning. Practices and technologies that were acceptable 20 years ago are now considered insecure. File formats once thought safe have been exploited. Encryption technologies relied upon for wireless communication or secure web transactions have been found to have weaknesses. Issues have even been found in hardware, from Trusted Platform Module (TPM) chips to CPUs, with some issues, such as the Spectre and Meltdown flaws, existingfor more than a decade before discovery. A security professional must stay on top of emerg ing threats to be effective. This creates two important areas all companies should address."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Security training: Teaching people to perform their roles securely",
+            "Security awareness training: Educating people about security issues"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "On the surface, these sound similar; however, they have distinct objectives. For instance, we’ve discussed aspects of account management and the account management lifecycle. Teaching help-desk employees the processes of secure account creation andpassword distribution falls into the realm of security training. Employees have job responsibilities, and ensuring their tasks are performed in accordance with established guide lines and best practices falls under security training."
+        },
+        {
+          "type": "paragraph",
+          "text": "Additionally, emerging threats may pose a risk to the company. Educating employees regarding common attacks, such as phishing attacks and business email compromise, can raise awareness regarding attack methods and educate employees regarding how they can adjust their practices to reduce the risk. Teaching employees the benefits of passphrases over passwords, for instance, can reduce the likelihood of success of password-guessing attacks against your network. Thus, security awareness training that covers each of these items and tracking both its effectiveness and uptake by staff are important parts of securitymanagement. In fact, security awareness KPIs are included in NIST SP 800-55, “Perfor mance Measurement Guide for Information Security.”"
+        },
+        {
+          "type": "paragraph",
+          "text": "Training activities should be tracked and audited. Identify the security training and secu rity awareness training needed. Ensure that all employees undergo the necessary training. Determine when periodic refresher training may be needed for job tasks. Identify trends that may indicate areas that training can address. Additionally, as the security landscape changes, continueD"
+        },
+        {
+          "type": "paragraph",
+          "text": "created with the original tape backup drive. Apparently, the heads on the different drives were aligned differently. Data recovery was necessary, adding additional time to the recovery process, which is never a good situation. This could have been avoided by ensuring that the backup media was readable by different physical hardware. Make sure your process accounts for such contingencies."
+        },
+        {
+          "type": "paragraph",
+          "text": "develop training for employees that raises awareness of threats, bad practices, and behaviors that may increase risk to the organization, such as password sharing. As training is delivered, identify employees who did and did not attend, and offer opportunities to attend an additional session, review a recording of the presentation, or participate in other similar alternatives so that all staff are adequately informed and aware of threats and best practices in mitigating the threats. Many industry regulations, such as PCI-DSS, require training. Therefore, performing training, tracking attendance, and auditing compliance with training are important."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-disaster-recovery-and-business-continuity",
+      "title": "Disaster Recovery and Business Continuity",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Disaster recovery (DR) and BCPs are part of an organization’s operational controls and need to be considered in any assessment process. Fortunately, standards exist for DR/"
+        },
+        {
+          "type": "paragraph",
+          "text": "BCPs as well, including ISO 22301, “Societal security – Business continuity management systems – Requirements” and NIST SP-800-34, “Contingency Planning Guide for Federal Information Systems.” COBIT DS4, “Ensure Continuous Service,” also addresses disaster recovery and business continuity planning."
+        },
+        {
+          "type": "paragraph",
+          "text": "Auditing DR plans and BCPs includes asking questions like these:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Does a DR plan or BCP exist, and is it up to date?",
+            "Is the plan securely stored in an accessible location?",
+            "Are personnel aware of the plan, how to access it, and its contents?",
+            "Are crises identified with an appropriate scale to assess the level of action to take?",
+            "Are critical functions identified?",
+            "Does each critical function have a plan?",
+            "Has the plan been tested?",
+            "Is there a communication plan?",
+            "Are emergency service providers identified?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "In addition to these, there are dozens of questions that should be reviewed when assessing a DR plan or BCP. Fortunately, audit organizations like ISACA provide disaster recovery audit toolkits. (See www.isaca.org/Groups/Professional-English/"
+        },
+        {
+          "type": "paragraph",
+          "text": "business-continuity-disaster-recovery-planning/GroupDocuments/DRP%20"
+        },
+        {
+          "type": "paragraph",
+          "text": "toolkit_DRP%20and%20BCP%20audit.pdf.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "IT environments change frequently, and these changes can impact disaster recovery processes. If plans are not maintained regularly, they can quickly become outdated. Other events can also cause the plans to become outdated, such as the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Adoption of new vendors, such as cloud software-as-a-service (SaaS) vendors thatremove operational control from the home organization and necessitate under standing their DR plan or BCP and capabilities",
+            "Failure to integrate plan maintenance with change management processes",
+            "Changes and updates to the environment, such as new hardware and applications",
+            "Redesigning or rearchitecting the network, or adding new services",
+            "Department mergers and organization hierarchy changes",
+            "Staff turnover and lack of ongoing training",
+            "Failure to assign responsibility for maintenance tasks (no ownership)",
+            "Plan maintenance does not directly benefit a company’s bottom line until disaster strikes"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Steps must be taken to counter these issues. An out-of-date plan undermines all the effort that was spent in creating it. Consider implementing countermeasures."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Integrate plan updates as a required portion of change control processes.",
+            "Ensure all new equipment and applications are deployed through change control processes.",
+            "Make sure all modifications to systems and their architecture also go through change control.",
+            "Assign responsibility and resources to update the plan in the event of mergers and hierarchical changes.",
+            "Require ongoing training and cross training, upon hire as well as annually, at a minimum.",
+            "Assign responsibility for oversight of the plan and its maintenance.",
+            "Regularly review and test the plan."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Assessments must validate both the existence of the plan and its ongoing maintenance and testing. Testing frequency may be dictated by the number of systems being tested.Fortunately, assessing DR plans and BCPs is also a useful way to improve them, as simulated or actual activations as well as walk-through assessments will all provide opportuni ties for improvement of the plan."
+        },
+        {
+          "type": "paragraph",
+          "text": "While all systems should be tested at least once a year, an organization may opt to conduct a single large-scale test annually and several tests that are smaller in scope throughout the year. There are several types of tests that can be performed, and the type of test can also be factored in when determining the frequency of testing."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Paper or checklist tests: A copy of the test plan is distributed to team members for review.",
+            "Structured walkthrough: Groups review the plan together to identify any omis sions or issues with the plan."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "list",
+          "items": [
+            "Simulation or tabletop exercise: Employees are given a disaster recovery scenario and walk through the actions, communication, and strategy needed to recover, according to the plan.",
+            "Parallel test: Recovery processes are put into place, restoring critical systems in a test environment. No disruption to actual production systems is permitted. The ability to replace and restore systems is confirmed.",
+            "Cutover or full interruption test: This is the most disruptive test type: productionsystems are taken offline, and backup systems and processes are tested as replace ment systems are brought online to carry the production load."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Each of these testing methods should generate appropriate artifacts based on organiza tional policies and any audit or assessment requirements that may exist for the organization."
+        },
+        {
+          "type": "paragraph",
+          "text": "The desired outcome of all these exercises and tests is the same: identify shortcomings in the plans, and document them. Implement changes in the original plan to address any issues that are uncovered. With test types that have a larger scope and impact, consider assigning a point person to collect information regarding issues that arise that will requirea plan modification. While the information collected may be minimal during the recov ery process, it can be expanded once the process is complete, and this ensures that few, if any, updates to the plan are forgotten during the recovery process."
+        },
+        {
+          "type": "paragraph",
+          "text": "As you prepare to assess DR plans and BCPs, it may be helpful to consider the life cycle of the BCP. It is not a static document but must be regularly evaluated. As the company, network, and services change, the systems that support critical processes may change, and the business continuity plan and disaster recovery plan should be updated accordingly. The lifecycle of the BCP is reflected as follows:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Phase 1: Perform a risk analysis.",
+            "Phase 2: Perform a business impact analysis.",
+            "Phase 3: Create a strategy and develop a plan.",
+            "Phase 4: Test, train, and maintain the plan."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Some models for the plan have five phases, by breaking phase 3 into two parts: createa strategy and develop a plan, for instance. Or they break phase 4 into testing and accep tance, and train and maintain. The result, however, is essentially the same."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-analyze-test-output-and-generate-report",
+      "title": "Analyze Test Output and Generate Report",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Security controls, vulnerability scans, penetration tests, and audits—all these activities generate a significant amount of data. Perhaps a few gifted people can review the raw data and draw salient conclusions, but most people need the data presented to them in a"
+        },
+        {
+          "type": "paragraph",
+          "text": "meaningful way. This allows them to draw appropriate and correct conclusions about the state of the environment. Generating reports is a critical step in most security endeavors."
+        },
+        {
+          "type": "paragraph",
+          "text": "One of the first things to consider is the audience for the report. For instance, when reporting on the results of a vulnerability scan, it is important to consider who will review the report. Most executives do not have the time or interest in reviewing the steps required to remediate a buffer overflow on an application server. Likewise, the server administrator who needs to remediate a vulnerability is more interested in the technical details of fixing the issue and less interested in how many vulnerabilities the server had last month."
+        },
+        {
+          "type": "paragraph",
+          "text": "Often, however, both reports are needed. One approach is to write a single all- encompassing report, which combines all the sections that are applicable to all the audiences. After creating the all-encompassing report, carefully review it, and have it peer reviewed and finalized. Then, determine which sections are needed for each audience. Next, for each audience, remove the unnecessary sections from the all-encompassing report, and save an audience-specific version of the report. This is why the peer review is critical: it is much easier to make a correction on the all-encompassing report prior to creating the audience-specific reports. Any changes to a section after the review will require either re-creation of all the audience reports after correcting the master, which is the safer option, or separate updating of all the audience reports. The likelihood of introducing an error and replicating it is greater, though, when editing all the audience reports."
+        },
+        {
+          "type": "paragraph",
+          "text": "Some tools will automate report generation; however, automated reports cannot take the place of customized reports for your organization. Your clients will appreciate a report that is designed just for them, as opposed to a one-size-fits-all approach. Take the time to ensure that the report fits the needs of the audience. Additionally, while using templates can speed up the creation of reports and create consistency, you must ensure that all the information included in the report is accurate and relevant to the audience. If too much copying and pasting is used, mistakes can happen, and the validity of the entire report and findings can be called into question."
+        },
+        {
+          "type": "paragraph",
+          "text": "◗◗ real WOrlD example: the Danger of Copy and paste"
+        },
+        {
+          "type": "paragraph",
+          "text": "After several weeks of penetration testing, the vendor scheduled a meeting to present their report and findings to an organization. The first portion of the presentation went smoothly. The executive summary and high-level review of the findings presented no surprises."
+        },
+        {
+          "type": "paragraph",
+          "text": "Next came a closer review of the findings. After covering a few findings, one particular finding was a little bit confusing. A server was identified by name, with several missing"
+        },
+        {
+          "type": "paragraph",
+          "text": "critical patches. This isn’t altogether uncommon in most cases. In this case, however, the server name caused concern: it was not a server on the organization’s network, nor was the domain name correct. Based on the domain name, it was quite apparent that this server belonged to another, well-known company in the area. Two more findings were similar."
+        },
+        {
+          "type": "paragraph",
+          "text": "This incident raised several concerning questions, and the speculation during the meet ing was not good:"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Did the vendor accidentally provide the organization information regarding another company’s network?"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Did the finding belong to one of the organization’s servers and the wrong name was simply left from a prior report?"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Was the organization’s confidential information being accidentally shared with other companies?"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Were the findings in the report accurate and complete?"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Did the vendor properly destroy data after an engagement was finished?"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Did all the penetration testers and report writers follow proper procedures?"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Was the report carefully reviewed prior to presentation?"
+        },
+        {
+          "type": "paragraph",
+          "text": "The mistakes caused the validity of the entire report to be called into question. Using the vendor for any additional engagements was a decidedly unwise risk, andtheir services were no longer utilized. This type of mistake causes significant dam age to the reputation of a company. It simply cannot happen, and it is one of the dangers of carelessness when using templates to create reports. Ensure the accuracy of information presented. Have the final draft of the report and findings carefully reviewed. Double- and triple-check everything. The reputation of your organization may be at stake."
+        },
+        {
+          "type": "paragraph",
+          "text": "Audit reports can take many forms. When presenting the findings, especially to a technical audience, necessary elements include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Threats and vulnerabilities identified",
+            "Criticality level of the finding",
+            "Exploitation probability",
+            "Exploitation impact",
+            "Remediation steps"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "This information is typically presented either as a single host and all its associated vul nerabilities or as a particular vulnerability and a list of all its impacted hosts. If the audit identified only a small number of vulnerabilities, then listing a vulnerability and impacted hosts may be acceptable. When many hosts are audited and several vulnerabilities are present, then presenting the findings by host, with all the hosts’ vulnerabilities listed, may be preferable. Optionally, both formats can be used and separated into two sections."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Findings by vulnerability, with associated hosts",
+            "Findings by host, with associated vulnerabilities"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "It is also not uncommon to find organizations that prefer both. Some staff will find one format more useful than the other, depending on how the information is being used. If an IT staff member is patching a critical vulnerability that was found, they may want to see a list of all hosts impacted by that vulnerability. However, another IT staff member may be patching all issues on a single host at a time before moving to the next server, so having the issues listed by host is ideal."
+        },
+        {
+          "type": "paragraph",
+          "text": "The report also needs an executive summary. The summary should generally be nolonger than one to two pages and accurately summarize the findings. It should be accessi ble and understandable to senior management. Refrain from technical details and other information that isn’t necessary for the audience. The initial paragraph explains the goals and objectives of the audit, as well as summarizing the rest of the executive summary. The following paragraphs of the executive summary can include a high-level overview of the findings. The rest of the summary may identify discovered vulnerabilities basedon the type of target, such as summarizing network hardware vulnerabilities in one para graph, server vulnerabilities in a second paragraph, and workstations in a third paragraph of the summary. In addition, include numbers that reflect the current state of security as uncovered by the audit’s findings. How many servers are present with unpatched critical vulnerabilities? How many targets of the audit have no serious vulnerabilities? What arethe most critical findings that create the most risk? What is the impact of the vulnera bilities, and how much effort is expected for remediation? Management often seeks the bottom line: what is the cost of fixing the issues, and what is the cost of ignoring them? What is the risk associated with the vulnerabilities found? Ensure that this information is included in your executive summary and that it is easily found in your final report."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-conduct-or-facilitate-security-audits",
+      "title": "Conduct or Facilitate Security Audits",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Security professionals often conduct internal security audits and facilitate external audits of their organization. Understanding the benefits and challenges of internal and external audits is crucial that they provide organizational value. At the same time, you may also need to participate in assessments or audits for third parties, such as service providers and"
+        },
+        {
+          "type": "paragraph",
+          "text": "business partners. Knowing what types of audit information to request and what standards third parties are likely to have been assessed against can greatly improve the results of these assessments."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-internal-audits",
+      "title": "Internal Audits",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "An internal audit is conducted by the staff of an organization. The organization may have an audit person or audit team responsible for performing any audit activities. An advantage that internal auditors have is their familiarity with the environment and the culture. The internal auditor can use their familiarity to ensure that objective goals are met. Unlike external auditors, internal auditors know how the organization works, what issues are likely to exist, and who to work with to obtain all of the information that they need."
+        },
+        {
+          "type": "paragraph",
+          "text": "The internal knowledge and relationships that the internal auditor brings can also be a weakness. For instance, the relationship between the auditor and fellow employees can result in bias on the part of the auditor. This must be guarded against and is onedeciding factor for looking outside of the organization for the auditing team. Additionally, industry regulations may require that an audit be performed by a separate organi zation to avoid any conflict of interest that might exist with an internal auditor."
+        },
+        {
+          "type": "paragraph",
+          "text": "In situations where a third-party auditor is required, it is not uncommon for the inter nal team to perform their own audit, often using the same goals and scope used by thethird-party team. For instance, PCI requires third-party auditing and publishes the check list of items to review. It is prudent for an organization to review the items to be audited and perform their own audit. Issues can be addressed, often before the official PCI audit, and place the organization in better standing. This is a much better approach than simply waiting to see what the auditor will find."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-external-audits",
+      "title": "External Audits",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In contrast to an internal audit, an external audit retains resources outside of the com pany to perform the audit as required by laws, regulations, or contractual agreements. There are advantages to this approach. External auditors typically have audited a wide variety of organizations, systems, and processes. This experience helps the auditor know what items and issues to look for, which a less experienced or internal auditor may miss. Additionally, external auditors will generally have no prior relationship to the staff whose systems and processes are being audited. This allows them to identify issues without bias. They are also able to complete their task without knowledge of the politics and culture of an organization, which could bias their findings."
+        },
+        {
+          "type": "paragraph",
+          "text": "However, there are also cons. External audits can be expensive, depending on their scope. The external audit’s primary disadvantage, therefore, is its cost. In addition, while"
+        },
+        {
+          "type": "paragraph",
+          "text": "an auditor’s lack of knowledge of an organization’s politics can be an advantage in some circumstances, it can also be a disadvantage in others. The lack of knowledge regarding an organization can result in additional time being spent learning the organization’sstructure and potential interdepartmental conflicts of priorities, responsibilities, and com munication. A more serious downside is that an auditor’s lack of knowledge could leadthem to a false positive finding because an organization’s unique processes and proce dures do not conform to the auditor’s previous experience."
+        },
+        {
+          "type": "paragraph",
+          "text": "External auditors are frequently utilized when performing compliance audits. If anorganization is subject to industry regulations, such as PCI or Sarbanes-Oxley, then inter nal auditors are not an option to attain compliance. While internal auditors can be used to pre-audit and prepare for the audit by identifying deviances from a standard, achieving compliance requires the services of an external auditor. External audits may also require that the auditor has been certified by the regulatory organization. PCI certifies their approved auditors as Qualified Security Assessors (QSAs), and completion of an audit by a QSA is required for certain levels of PCI compliance."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-third-party-audits",
+      "title": "Third-Party Audits",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "When an organization works with a third-party supplier, vendor, or partner, they may want to perform an assessment or audit of their security practices. Audits performed to standards like the SSAE 18, ISAE 3402, or PCI-DSS are all commonly requested either during initial contract stages or on an ongoing basis from third-party vendors, and SOC 3 reports are specifically designed to be publicly available. In fact, major service providers often post them to their websites, making them easy to check."
+        },
+        {
+          "type": "paragraph",
+          "text": "When organizations want to understand the details of the security status of a third party, they may request a SOC 2 assessment, which may be released under an NDA. The availability of assessment or audit information to an organization will vary based on the third party’s policies. Since audits can expose material weaknesses in the practices of an organization or may provide information that attackers could leverage to attack them, some organizations do not provide a detailed audit report to any third party."
+        },
+        {
+          "type": "paragraph",
+          "text": "When considering third-party audits and assessments, a few critical questions are important to ask."
+        },
+        {
+          "type": "list",
+          "items": [
+            "What standards do they assess or audit to?",
+            "What type of audit or assessment reports do they provide automatically?",
+            "What type of audit or assessment reports will they provide upon request or after signing an NDA?",
+            "What is an acceptable level of audit findings or material deficiencies in an assessment?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Third-party service provider assessments can add another layer of complexity if you review where they acquire the services they rely on. A service provider may use multiple other service providers, and those providers may use even more providers. Since contracts are signed between two organizations, you may have little recourse with the downstream partners, but their security may directly impact your data or services."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-integrating-internal-and-external-audits",
+      "title": "Integrating Internal and External Audits",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organizations are increasingly operating in a hybrid environment where systems and infrastructure may exist inside of organizational network boundaries and in third-partyenvironments like software-as-a-service providers, cloud infrastructure, or other organiza tions. This change in design makes it more likely that auditors and assessors will need toassess across these organizational and design boundaries to gain a full view of the organi zation’s security status and compliance efforts."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fortunately, the common assessment frameworks we discussed earlier in this chapter can be leveraged to ensure that assessments are conducted to the same standard. Whilethird parties may not allow your organization to audit them, validation to the same stan dard can provide a reasonable level of assurance in many cases. Integration of internal and external audit information can be done through audit management tools using the same framework, making an otherwise difficult task approachable."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-auditing-principles",
+      "title": "Auditing Principles",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Regardless of whether an audit is internal, is external, or is a third-party audit, the principles used to conduct an audit are critically important. ISO 19011:2018 describes a num ber of core principles of auditing that are intended to make an audit effective and to allow organizations to rely on their output. The principles described in ISO 19011:2018 are as follows:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Integrity",
+            "Fair presentation",
+            "Due professional care",
+            "Confidentiality",
+            "Independence",
+            "Use of an evidence-based approach",
+            "Use of a risk-based approach"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Other audit standards may present slightly different guiding principles, but the core elements of these principles will remain for almost any audit an organization conducts due to the importance of providing fair, accurate, and relevant audit results."
+        },
+        {
+          "type": "paragraph",
+          "text": "✔standards for audits and audit programs"
+        },
+        {
+          "type": "paragraph",
+          "text": "There are a number of relevant ISO audit standards that security professionals may encounter, including ISO standards that have broad international adoption."
+        },
+        {
+          "type": "paragraph",
+          "text": "■isO 19011:2018: Guidelines for auditing management systems, including principles for auditing, how to manage an audit program, selection of audit meth ods, maintaining records, and review and improvement of the audit program."
+        },
+        {
+          "type": "paragraph",
+          "text": "■isO/ieC 27007:2017, “information technology – security techniques”: Guidelines for information security management systems auditing, which coversstandards for managing audit programs, performing audits, and managing audi tors for information security management programs. The standard is primarily aimed at defining how ISO 19011 can be applied, including specific audit tests."
+        },
+        {
+          "type": "paragraph",
+          "text": "■isO/ieC 27008:2011, “information technology – security techniques”: Guidelines for auditors on information security controls, including how to review the implementation of security controls and how to validate their operation. As of the writing of this book, the standard is under review, with a new version expected in the relatively near future."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-audit-programs",
+      "title": "Audit Programs",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Audit programs are established to ensure that audits are conducted in a consistent manner, with appropriate resources, oversight, and support from management. While indi vidual audits may be useful, one-off audits do not offer the consistency and repeatability that an audit program can, and organizations that are required to perform audits by legal, contractual, or other standards often have to demonstrate audit performance over time."
+        },
+        {
+          "type": "paragraph",
+          "text": "Implementing and Managing an Audit Program"
+        },
+        {
+          "type": "paragraph",
+          "text": "Audit programs require an objective or objectives to be effective. Security practitioners and auditors must be aware of the objectives of an audit as they implement controls, document how those controls are working, and assess their effectiveness. Audit objectivestake into account the risks that the organization faces, compliance with legal and contrac tual requirements, and management goals and strategies."
+        },
+        {
+          "type": "paragraph",
+          "text": "An example of the requirements that must be met as part of this can be found in ISO 27002:2017, which outlines the next steps in establishing an audit program, including the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Identifying the roles and responsibilities of the person managing the program, as well as their competence"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "list",
+          "items": [
+            "Establishing the extent of the program, including the size of the organization, staffing, and sites, as well as the complexity of the organization or systems that are in scope",
+            "Identifying and evaluating risks to the audit program",
+            "Establishing procedures for the audit program",
+            "Identifying resources for the audit program"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Once the audit program itself is established, individual audits can be conducted using the guidelines and practices that are part of the program. Individual audits may have more specific scope and objectives or may apply specific criteria based on the reason that they are conducted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Auditing Techniques and Activities"
+        },
+        {
+          "type": "paragraph",
+          "text": "Audits have a number of stages that may vary from organization to organization, but most share a few common elements: assessment and planning, tool and methodology selection, on-site assessment, control gap analysis, and discussion and reporting. In many cases, an audit will also require the assessment of threats, vulnerabilities, and risks, and an assessment stage may be built into the early stages of the audit if this information hasn’t already been prepared by the organization."
+        },
+        {
+          "type": "paragraph",
+          "text": "Regardless of whether an audit is conducted by internal or external auditors, a num ber of techniques are commonly used."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Testing of representative items may be conducted to verify that they match what is expected. For example, change records may be tested to ensure that a change is filed, approved, and tested as required by the organization’s change procedures.",
+            "Documentary examination reviews documents and documentation to ensure that they exist and contain the appropriate information.",
+            "Physical examination may be used to validate the existence or state of both con trols and physical systems, locations, or other objects. Checking the physical inventory of an organization’s systems is a type of physical examination.",
+            "Testing can be used to ensure that responses occur as they are supposed to or that procedures are properly performed.",
+            "Compliance testing tests against compliance requirements and ensures that the controls implemented are effective and reliable.",
+            "Observation techniques are used to review policies and procedures and allow auditors to assess whether they are appropriate, well designed, and in line with industry standards or meet compliance requirements."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Sampling is often part of data review. A sampling rate is selected based on the quan tity of data to ensure that a meaningful sample is selected and reviewed, and then a random sample is validated against the audit standard. If issues are discovered, additional samples may be selected, or auditors may choose to review a more significant amount of the data available."
+        },
+        {
+          "type": "paragraph",
+          "text": "Audit tools may be used to validate configurations or to gather other evidence or data. Auditing techniques that rely on tools must themselves be validated to ensure that the tool is gathering all of the required data and that it does not introduce errors."
+        },
+        {
+          "type": "paragraph",
+          "text": "Maintaining an Audit Program"
+        },
+        {
+          "type": "paragraph",
+          "text": "Regular recurring audits are an important part of audit programs. A recurring audit will help to verify that issues identified in previous assessments have been remediated and that older problems have not recurred. In addition, a recurring audit provides an opportunity to reassess controls that may have become less useful as the organization or technologyhas shifted. While organizations typically want to have zero findings, most should iden tify new issues during periodic audits due to changes. A consistent lack of findings may actually indicate issues with the audit technique, auditors, or the information that is being shared with the auditors."
+        }
+      ]
+    },
+    {
+      "id": "domain-6-summary",
+      "title": "Summary",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Assessing the state of the security of an organization, as well as the success of its security program and operations, requires careful planning. Industry standards for assessments and audits can provide a strong foundation for a security assessment and testing process that includes vulnerability assessments, penetration testing, log reviews, secure coding, andsecurity design. All the elements of an organization’s infrastructure, as well as its practices, procedures, and awareness, need to be reviewed and assessed throughout their life cycle. Whether an organization assesses itself, hires external auditors, or uses third-party audits to ensure that third-party suppliers and partners meet accepted industry standardsor specific requirements, conducting security assessments and testing is critical to main taining a strong security posture."
+        },
+        {
+          "type": "paragraph",
+          "text": "A critical part of security assessment and testing is collecting the data that you need to validate operational and managerial controls. That means ensuring that training and awareness are measured, that account management practices and procedures are checked, and that disaster recovery and business continuity testing occur. Each security assessment and process should be measured, and key performance and risk indicatorsneed to be associated with the measures that fit the organization’s strategic and compli ance needs."
+        }
+      ]
+    }
+  ]
+}

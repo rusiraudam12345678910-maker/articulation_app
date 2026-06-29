@@ -1,0 +1,2011 @@
+{
+  "domain": 5,
+  "title": "Identity and Access Management",
+  "sections": [
+    {
+      "id": "domain-5-domain-5-introduction",
+      "title": "Domain 5 Introduction",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "doMain 5 identity and access Management DoMaiN 5, iDeNtitY aND Access Management (IAM), deals with who gets access to what assets at which locations, for how long, and for what purpose. It also addresses ensuring that a person or entity who requests access to an asset actually is who they claim to be. These matters are the essence of IAM. This chapter discusses the theoretical foundation of these concepts, their historical development, and professional practice today. It also refers you to well-established bodies of practice, standards, and professional organizations and consortia that help all of us advance IAM practice. This chapter will examine the core aspects of IAM, beginning with the foundational concept of controlling physical and logical access to assets. Then it will delve into the essential practice of managing the identifi cation and authentication of people, devices, and services. Next it will explore integrating identity as a third-party service and implementing and managing authorization mechanisms. Finally, it will discuss managing the identity and access provisioning lifecycle."
+        },
+        {
+          "type": "paragraph",
+          "text": "\u0001$*441¡\u0001$#,¡\u00013FGFSFODF \u0001'JGUI\u0001&EJUJPO\u0001"
+        },
+        {
+          "type": "paragraph",
+          "text": "$PQZSJHIU\u0001¥\u0001\u0013\u0011\u0012\u001a\u0001CZ\u0001 *4$"
+        },
+        {
+          "type": "paragraph",
+          "text": "As one technical topic after another is explored in this chapter, it willbecome evident that IAM is involved to some degree in every part of an orga nization’s security arrangements. From basic architecture design to the details of your network defenses, your choices about who can see, use, or alter yourorganization’s assets and services will determine just how effective your secu rity turns out to be."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-control-physical-and-logical-access-to-assets",
+      "title": "Control Physical and Logical Access to Assets",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Everyone has real-life experience with access management, in which a subject (you, per haps) controls access to an object (your home, say, or your bank account). Some controls are physical, such as a door lock, a vault, or a detective control such as an alarm. A logical control can be a password that unlocks a folder (or lets you log in), a decryption key, or a list of authorized individuals. Controls can also be a hybrid combination of physical and logical controls, such as the door locks in some modern homes or hotel rooms that require the use of a mobile app to unlock them."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another factor to consider about the management of physical logical controls is whether the information about those controls should itself be centralized, decentralized, or a hybrid. Think, for example, of the electronic door locks common to hotel rooms thesedays. To read the key card, the lock has a simple computer inside it. But is the lock’s elec tronic card reader connected, with or without wires, to the front desk, or even to a server at hotel headquarters? In some hotel chains, they are. This makes it easy to change the key code and even make a good guess as to whether the room is occupied at a given moment. Some brands of electronic door, on the other hand, are standalone, requiring someone to physically go to the door and electronically engage it to unlock it, change the code, or download from the lock a record of openings and closings. Each scheme and the many hybrids have pros and cons. One argument for centralized control is economy of scale (in the hotel example, one clerk can set key codes for many rooms). An argument on the side of decentralized control is the potential chaos an attacker could cause if every room in a hotel (or every vault in a museum or bank) were to be unlocked at the same time!"
+        },
+        {
+          "type": "paragraph",
+          "text": "Regardless of whether controls are centralized, the primary purpose when selectingaccess controls for an asset is to protect the asset’s confidentiality, integrity, and/or avail ability. As a reminder, the three components of the CIA triad are as follows:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Confidentiality is preserving authorized restrictions on information access and disclo sure, including means for protecting personal privacy and proprietary information."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Control Physical and Logical Access to Assets485"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Integrity means guarding against improper information modification or destruc tion and includes ensuring information nonrepudiation and authenticity.",
+            "Availability means ensuring timely and reliable access to and use of information by authorized users."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "The following sections quickly analyze how each of these three attributes might be at risk if you fail to control access, either physical or logical."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-information",
+      "title": "Information",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Sound practice requires you to identify and classify the information you need to protect.Identifying what to protect against is part of this. Loss of data confidentiality, integ rity, and availability are three different types of loss, and each requires its own type of protection."
+        },
+        {
+          "type": "paragraph",
+          "text": "For most people, the point of instituting access controls over their information is to protect its confidentiality. Whether dealing with personally identifiable information (PII), such as a bank account number, personal medical data, or the combination to the lock on the server room door at work, the concern generally is information “falling into the wrong hands.”"
+        },
+        {
+          "type": "paragraph",
+          "text": "Data integrity can be essential, depending on the context and perspective. However, determining its importance in a given scenario might not always be straightforward. If thejob is to protect experimental results relating to, say, nuclear weapons, the nuclear scien tists might tell you that their experiments are designed to discover intrinsic characteristics of the physical world. This is critical data to protect from theft, lest nonnuclear states learn shortcuts to making nuclear weapons. But preventing a spy from tampering with the experimental results—changing the reported characteristics of certain fissile material—"
+        },
+        {
+          "type": "paragraph",
+          "text": "may seem like a lower priority to the scientists, because repeating well-designed experi ments will allow the values to be verified as needed. Data integrity, therefore, may not be the prime concern in this realm."
+        },
+        {
+          "type": "paragraph",
+          "text": "Similarly, if you are charged with protecting the moment-to-moment figures in the day’s stock trading, it is necessary to guard those numbers against all threats so that no one gets an unfair look at the trading strategies of experts. But the data owners might tell you that all stock trades become public very soon after they are completed. Therefore, for stock traders, confidentiality might seem like a lower priority than worrying aboutwhether the markets go down for a few minutes. Similarly, multiple copies of each trans action always exist: a discrepancy between buyer and seller (it happens) tends to be easy to resolve. Availability is the concern here."
+        },
+        {
+          "type": "paragraph",
+          "text": "There is one final way, often overlooked, in which information itself plays a role in IAM. Careful stewardship of the records of who (or what) requested access to what (or whom) can be the very foundation of sound security. Audit records of all requests and"
+        },
+        {
+          "type": "paragraph",
+          "text": "attempts and their outcomes should be protected with care and considered to be at least as sensitive as the most important asset they pertain to. Accountability is an important piece of the management function."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-systems",
+      "title": "Systems",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A system is a collection of hardware, software, algorithms, personnel, policies, budgets, and similar resources that are devoted to accomplishing one or more tasks."
+        },
+        {
+          "type": "paragraph",
+          "text": "If you are responsible for protecting the information on the system from theft, confi dentiality is a significant concern. Similarly, tampering with the chief financial officer’s forecast spreadsheets can land the company in terrible trouble. But when dealing with computer systems themselves (and not, say, the data kept on them or produced by them), one phrase that causes serious alarm is “the system is down,” which is clearly an availability issue that can result when authentication precautions fail and an intruder is allowed onto the system."
+        },
+        {
+          "type": "paragraph",
+          "text": "Modern enterprises spend millions or more designing and supporting systems for a wide range of purposes. By the reckoning of some experts, the very definition of a security disaster is that the system is no longer capable of performing the task for which it was acquired—not that it has lost data integrity and not that whatever is secret on it may not stay that way. A true security catastrophe, in this line of thinking, is when the payroll system cannot generate the paychecks, the movie cannot get out over the cable or the airwaves, or a billion users cannot share their opinions on the happenings of the day or photographs of their dinners."
+        },
+        {
+          "type": "paragraph",
+          "text": "When we are talking about systems and catastrophes, though, we can’t restrict our selves to failures of availability. Some very serious attacks—for example, an attempt to impersonate a trusted system to fake a bank transfer—involve a failure of authenticity. As we discuss later in this chapter, digital certificates are one method of IAM commonly used today to ensure the integrity of system identification."
+        },
+        {
+          "type": "paragraph",
+          "text": "Confidentiality, too, can relate to systems themselves (in addition to the information they contain). In some circumstances, the very existence of a computer on a network, or a connection to a clandestine subnet, is an important secret to protect. The practice of concealing a system or subnet from unauthorized persons while leaving it available for connection from authorized devices is sometimes called blackholing. Authenticating connections into a black-holed system, of course, is a matter for IAM. Digital certificates,simple IP addresses, and other methods are sometimes used for this purpose, as we dis cuss later."
+        },
+        {
+          "type": "paragraph",
+          "text": "Whichever system access controls and methods you adopt, you will want to select them based on a carefully considered framework; thereafter, you should implement, monitor, and maintain controls according to accepted best practice. For this purpose, we recommend you investigate adopting an Information Security Management System"
+        },
+        {
+          "type": "paragraph",
+          "text": "Control Physical and Logical Access to Assets487"
+        },
+        {
+          "type": "paragraph",
+          "text": "(ISMS), a systematic approach to managing sensitive information assets using policies, procedures, guidelines, and associated resources."
+        },
+        {
+          "type": "paragraph",
+          "text": "Perhaps the best-known ISMS in the world is a set of standards laid out by the International Organization for Standardization (ISO), known as the “27000” family of ISO/IEC standards."
+        },
+        {
+          "type": "paragraph",
+          "text": "The part of the ISO 27000 series that provides an overview of ISMS concepts and terminology, and pertains specifically to the selection of access controls, is identified (in its latest version) as ISO/IEC 27000:2018, “Information Technology – Security Techniques.” ISO, in that document, describes well the many operational, legal, fiscal, and cost-of-opportunity considerations that—among others—should influence your selections. The standard also provides guidance about the administration of controls, including a measurement system used to evaluate performance."
+        },
+        {
+          "type": "paragraph",
+          "text": "What you will not find—either in ISO standards or in the detailed guidelines avail able from the National Institute for Standards and Technology in the United States, orNIST (notably Special Publication 800-53, “Recommended Security Controls for Federal Information Systems and Organizations”)—is a list of hard requirements, a prescrip tive list of “must do’s” that relieve you and your organization of the burden of decision.Only in the most tightly regulated industries or governmental do external or even supervising bodies prescribe and require a one-size-fits-all set of controls. As elsewhere in secu rity, you must inventory your assets; evaluate your risks; and then choose, implement, and manage those effective controls best suited to your particular environment and mission."
+        },
+        {
+          "type": "note",
+          "text": "The ISO/IEC 27000 family of standards is not distributed free of charge by ISO. The standards are specified in technical documents available for purchase from ISO (see https://www.iso.org/search.html?q=27000) and other distribution channels, such as the American National Standards Institute (see https://webstore.ansi.org/Search/ Find?in=1&st=27000%3A2018). Version 4 of NIST’s Special Publication 800-53, “Recommended Security Controls for Federal Information Systems and Organizations,”) can be downloaded free of charge at https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final. Both the ISO/IEC and NIST (National Institute of Standards and Technology) materials are constantly being reviewed and refined. Be sure to check for updates when procuring these documents."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-devices",
+      "title": "Devices",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Many types of devices exist within a system. Desktop computers, laptops, tablets, key boards, mice, microphones, speakers, and phones are all devices that people in many organizations use every day. Networks are made up of routers, switches, hubs, servers, and cables (even if these are located at a remote location and accessed through the cloud)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Similarly, archives and storage are made up of discs, tapes, or other hardware (again, even if these are located and accessed remotely). These are all devices."
+        },
+        {
+          "type": "paragraph",
+          "text": "Just as a significant concern with regard to systems was availability, the availability of the devices that make up those systems ranks as a very high concern as well. Yet, because devices exist in the world of tangible things, you must also worry about how uncontrolled access or damage to the things can interfere with the system."
+        },
+        {
+          "type": "paragraph",
+          "text": "Uncontrolled access to a disk drive, for example, may allow an adversary to copy thedata (which can compromise confidentiality) or to change it undetected (which compro mises its integrity). A person could also destroy the device’s drive with heat, hyperactivity, or (if direct physical access is gained) even a hammer. If data on such an accessed device hasn’t been sufficiently backed up, that poses both an integrity problem and an accessproblem. Theft of portable devices poses a serious confidentiality concern. Some organi zations try to offset the risk of theft by using remote wipe, forced encryption, and similarmeasures. Such measures are designed to enforce confidentiality, although this is some times at the expense of availability if you don’t have the right credentials."
+        },
+        {
+          "type": "paragraph",
+          "text": "Uncontrolled access to a printer may run it out of ink or paper. Similarly, failed access control of almost any device may lead to an exhaustion of its resources. Fortunately, this availability issue is mitigated by the practice of mobile device management (MDM), which has grown in response to the difficulty of controlling access to physical devices. We will explore further IAM measures relating to mobile devices throughout this chapter, beginning with our extended view of facilities in the following sections."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-facilities",
+      "title": "Facilities",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The security of networks, systems, and physical devices often fundamentally rests on the physical security of the facilities in which those parts of the enterprise reside. Almost all information security measures can be circumvented or overwhelmed if the malefactor has physical access—sustained, unimpeded, unobserved hands-on access—to whatever computer-based asset you are trying to protect."
+        },
+        {
+          "type": "paragraph",
+          "text": "Measures that protect facilities are sometimes referred to, in the aggregate, as physical access control systems (PACSs). Commonly, the controls include not only physical access control but also visitor management (including logs and badges), intrusion detection, and even video surveillance. In this chapter, which is about IAM, we will focus on the first two of those four topics. We will take up physical access control in this section and cover visitor management in our discussion later of identification cards."
+        },
+        {
+          "type": "paragraph",
+          "text": "Physical Protection of Classic Facilities"
+        },
+        {
+          "type": "paragraph",
+          "text": "When it comes to the facilities side of IAM, there are some basic security steps you can take. Don’t let potential attackers come into physical contact with the computer"
+        },
+        {
+          "type": "paragraph",
+          "text": "Control Physical and Logical Access to Assets489"
+        },
+        {
+          "type": "paragraph",
+          "text": "hardware. Don’t let them in the server room. If you can help it, don’t let them in the building or even the parking lot. Once your adversary knows where the hardware is and can manipulate that environment or the device itself, your defensive stance is seriouslycompromised. It is easy to see that, having lost physical control of your facility, the avail ability, confidentiality, and integrity of your information and other assets are all at risk.Beyond establishing and maintaining good physical barriers and restrictions, also main tain good records of everyone who visits, and attempts to visit, your facilities."
+        },
+        {
+          "type": "paragraph",
+          "text": "For a large enterprise, many critical assets are kept in data centers and server rooms. The same principle of keeping potential attackers away from the physical hardware applies for large enterprises as well. If you have office buildings filled with cubicles, you need to worry about physical security in those facilities as well. A laptop stolen by a fake job interviewee (which happened to a major credit card company a few years ago) can do a lot of damage if it contains a sensitive database or proprietary algorithms."
+        },
+        {
+          "type": "paragraph",
+          "text": "Erecting barriers can protect facilities and their contents. Walls are ancient com panions to security, as are doors. The selection of the right sort of door lock can add significantly to the physical security of your facility. Here are a few important factors to consider:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keypads on doors have been common for decades. They can be quite inexpensive, so long as you do not require them to be connected to a central coordinating service but instead store the numeric passcode locally, right inside the lock.",
+            "Badge-reading door locks are ubiquitous today, typically enabled by either a magnetic credit card–like stripe, or a Radio Frequency ID (RFID) chip embedded in the card (or a hand-carried fob) and read at the door.",
+            "Dual-control door locks add a layer of security by requiring two factors to open them, such as a badge and a passcode."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "All electronic door locks raise a policy question, answered perhaps by the fire marshal: when the power goes out, does the door lock fail open or closed? The time-delayed exit door raises that question to an urgent level. Many emergency fire exits require a person to push a bar to force the door open (and consequently set off an audible fire alarm). Suchemergency exits have saved many lives, but also offer a temptation to some smash-and grab thieves who are willing to make a run for it. To counter this threat, some facilities may be permitted by their fire departments to install exit doors with a time delay: push on the bar and the alarm will sound, but the door will not open for several seconds. Thedelay is supposed to give security personnel time to run to the door and take charge. Var ious additional safety features can be required for such doors, including a fail-safe option that ensures the lock will be disabled if electrical power is lost."
+        },
+        {
+          "type": "paragraph",
+          "text": "At the entrance and sometimes at checkpoints at the entrances to particularly sensi tive areas, many installations with strong physical security incorporate an architectural"
+        },
+        {
+          "type": "paragraph",
+          "text": "element known as a mantrap, which has the same general layout as a double airlock such as you might see in a science fiction movie or biomedical laboratory. If you live in a region that has very cold winters, you might think of a mantrap as a mudroom with doors on both sides."
+        },
+        {
+          "type": "paragraph",
+          "text": "Although simple mantraps can be quite effective in controlling traffic, a more advanced design allows security officers to inspect and interview individuals wanting to enter a facility, while maintaining control over traffic flow. In particular, piggybacking—"
+        },
+        {
+          "type": "paragraph",
+          "text": "entering a facility for which one is unauthorized by following on the heels of someone who is—is tough to pull off through a mantrap. Let’s take a look to see why."
+        },
+        {
+          "type": "paragraph",
+          "text": "A mantrap (see Figure 5.1) consists of two doors on opposite sides of a fully enclosed vestibule or corridor. Suppose you enter a building with a mantrap from the outside. Once you open the door, you see the small corridor in front of you and another door on the opposite side. So long as you hold the front door open, the door on the other side is disabled. Once you close the door behind you, you are in a small room. You may have to wait there while your credentials are examined; in some facilities, the vestibule has the equivalent of a bank teller’s window on the side, where you interact with a guard. When you are cleared to leave the mantrap, one door lock is enabled. If all has gone well, it is the door opposite the one you came in from."
+        },
+        {
+          "type": "figure",
+          "figNum": "5.1",
+          "caption": "mantrap"
+        },
+        {
+          "type": "paragraph",
+          "text": "One subtlety of this sort of entrance is that you should never expect to open the door and find someone else already in the corridor. Once someone enters the vestibule and the door is reclosed, the locks on the outside of both doors are disabled, rendering them inoperable to someone trying to go in, while allowing authorized egress. Similarly, if more than one person enters at once, the second door can be held tight while security enforces a “one at a time” rule."
+        },
+        {
+          "type": "paragraph",
+          "text": "Control Physical and Logical Access to Assets491"
+        },
+        {
+          "type": "paragraph",
+          "text": "Extending the “Facilities” View"
+        },
+        {
+          "type": "paragraph",
+          "text": "Although electronic door locks and mantraps can protect the centralized facilities of orga nizations, the workstations of millions of people exist remotely at outside locations. Our modern view of “facilities” must extend to include them."
+        },
+        {
+          "type": "paragraph",
+          "text": "When workers at coffee shops, airport hotspots, and various urban hubs make use of your company’s networks and systems that are run out of centralized facilities, “remote” locations such as these effectively become extensions of your company’s physical offices. Because employees working from home often use wireless devices with a broadcast range that encompasses dozens of neighbors, visitors, and passersby, your design of network access controls must take into account the potential presence of those people on yournetwork. Are these remote workers and random third parties “inside” one of your facili ties? Plan—and act—as if they are."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ultimately, every physical device that a worker uses to connect remotely to the organization’s networks and systems is a potential access point that is immersed in an uncontrolled and potentially hostile environment. Your off-site workers and connecting customers will often be involved in human interaction, exposing them to an elevated risk of social engineering, keyboard eavesdropping, video recording of screen content, device theft, and a variety of other attacks."
+        },
+        {
+          "type": "paragraph",
+          "text": "While these alternate facilities offer you few opportunities for physical controls—"
+        },
+        {
+          "type": "paragraph",
+          "text": "employees’ homes being an exception, to a degree—the IAM controls you select should aim to control both access to and exploitation of the externally exposed assets. You may not, for example, be able to prevent laptops and mobile phones from falling into the possession ofattackers, but the careful deployment of good IAM will prevent or delay attackers from log ging in as well as limiting their access to valued resources."
+        },
+        {
+          "type": "note",
+          "text": "Many companies deploy MDM software to limit access to specific networks, applica tions, and other resources based on time of day, location, identity, and other profile data. There are many advantages to MDM, and the “stolen mobile phone” use case is a great example. (The “your laptop just got taken over because you used an unsecured coffee shop hot spot” is another one.) Properly implemented, MDM can go a long way to address issues raised by today’s highly mobile working environment. Just as the ubiquity of coffee shop computing has forced us security practitioners to expand our view of “office space,” cloud computing has forced us to reimagine the datacenter. Long gone are the days when security designs could count on companies con trolling the physical space housing critical data. When your servers are in the cloud and the physical security of your data is man aged by a third-partner provider, IAM issues take on extra importance. Clearly, you will"
+        },
+        {
+          "type": "paragraph",
+          "text": "need to ensure that those third-party personnel who service and monitor the hardware you rely on are who you think they are and only have access to the resources you want them to have, at the times and under the conditions you stipulate. Further, since it will sometimes be the case that a competitor or adversary can or will make use of the same commercial cloud provider you use (and might have systems and software housed in the very same facility, even on the same network), it might seem that no physical controls are possible."
+        },
+        {
+          "type": "paragraph",
+          "text": "That is not so. First, of course, comes isolation. Depending on costs and the actual layout of the cloud provider’s data centers, you may be able to maximize (with at least contractual assurance) the distance from potentially hostile systems at which “your”hardware operates. You may also be able to ensure that it is isolated in terms of air condi tioning, temperature, air flow, and electrical supplies. You also might (depending again on cost and availability) be able to assert contractual control over personnel, limiting physical access to your hardware to bonded personnel or persons whom you have vetted and approved, or who otherwise meet standards you have specified."
+        },
+        {
+          "type": "paragraph",
+          "text": "None of those factors will matter much, however, unless you ensure that the physicalsecurity of the cloud provider’s facilities themselves meets your standards. If circum stances allow, one or more inspection tours by appropriate security staff are certainly called for. At the least, video surveillance and visitor logs, accompanied by strong IAM and access logs, will increase assurance that the facilities side of your cloud operations is well controlled."
+        },
+        {
+          "type": "paragraph",
+          "text": "Of course, you cannot predict—and you should not assume—which of these mea sures might be legal in whatever country your data might reside in. For example, privacyrights in the hosting country might preclude the kind of personnel vetting (and surveillance) you would prefer. Be sure to obtain adequate counsel on relevant legal and regula tory issues before signing (also adequately counseled) any cloud computing contracts."
+        },
+        {
+          "type": "paragraph",
+          "text": "We will turn now from physical and logical access controls to managing the identifi cation and authentication of people, devices, and services."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-manage-identification-and-authentication-of-people-devices-a",
+      "title": "Manage Identification and Authentication of People, Devices, and Services",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "There are several concepts relating to identity management and access control, often confused, that we must clarify before proceeding. These concepts make up the identity lifecycle, and they are: identity creation, identification, authentication, authorization, and deprovisioning."
+        },
+        {
+          "type": "paragraph",
+          "text": "A person’s identity is, in one sense, who they are. When a person opens a new bank account, creates a new email account, or is hired by a company, the organization creates"
+        },
+        {
+          "type": "paragraph",
+          "text": "a formal identity for that person in its system. This often includes defining the specific resources a user needs and determining the type of access to those resources the user may have."
+        },
+        {
+          "type": "paragraph",
+          "text": "Identification is the process of verifying that a claimed identity is valid. For example, identification occurs when a person supplies a user ID and a system verifies that the user ID is valid. (This step does not prove that the person is who they claim to be, but only that such an identity has been established.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Authentication is the validation of a provable assertion of an identity. For example, when a person uses a user ID, they are required to provide their password as a way to prove that they actually are the owner of that user ID."
+        },
+        {
+          "type": "paragraph",
+          "text": "Although authentication proves that a person is who they claim to be, that is not the same as proving they have the right to do whatever they are trying to do. For example, a person might be a validly authenticated member of an organization, but that doesn’t necessarily mean they have access to all of that organization’s accounting or human resources files. Authorization is the process of determining whether to allow a person to have access to resources."
+        },
+        {
+          "type": "paragraph",
+          "text": "The final stage of the identity lifecycle is sometimes referred to as deprovisioning, dis abling, revocation, and other terms, but it generally means ending a person’s general access to the system. However, that person’s formal identity will often persist within the system for months or years after the person it was created for has no direct need for it. For example, a bank will have archives of a member who closed an account, and an organization will keep records of former employees for taxes, human resources, and regulatory purposes."
+        },
+        {
+          "type": "note",
+          "text": "The term identity proofing is sometimes used when discussing aspects of the identity lifecycle. This process begins with collecting and verifying information about a person. This information is later used to confirm that a person who has requested an account, a credential,or other special resource is indeed who he or she claims to be. This establishes a reliable relationship that can be trusted electronically between the individual and the resource for pur poses of electronic authentication. Here is an example of the full identity lifecycle: Suppose you go to work at a new job. They enroll you in the personnel system, establishing a new identity for you. They emboss an employee badge for you, maybe with your photograph on it; now you have the means to authenticate as a company employee. But if you want to get into the buildingusing the badge, they will let you in only if you have the authorization to enter that par ticular building. Authorization defines the specific resources a user needs and determines the type of access to those resources the user may have. When you cease working for that organization, they require that you return the badge to them. We explore this lifecycle in detail later in the “Manage the Identity and Access Provisioning Lifecycle” section."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-identity-management-implementation",
+      "title": "Identity Management Implementation",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Business computing began in the era of mainframe computers. Whether the computeruser was an insurance actuarial, a salesperson, or a research scientist, the account man agement process was often the same. Individuals would be assigned an account on the mainframe linked to their name, and all “timesharing” costs would be charged to their department."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this highly centralized model, identities and accounts were created and managed by the corporate Management Information Systems (MIS) department. If a researcher did work on more than one project, they might be given a separate account for each project, but often the timesharing costs were recorded on the scientist’s main account and “charged back” to a specific project. The percentage of timesharing costs allocated to each department was sometimes a matter for lively debate."
+        },
+        {
+          "type": "paragraph",
+          "text": "Personal computers entered the work world in the 1980s, decentralizing this account management model. Suddenly, the MIS department (the predecessor to today’s ITdepartment) no longer owned all the computers doing the company’s business. Salespersons and scientists alike brought in computers and software purchased on their own bud gets, made their own accounts for themselves and their colleagues on these computers, and settled into spreadsheet-making."
+        },
+        {
+          "type": "paragraph",
+          "text": "Few users really want to have to keep track of a separate password for every application they use at work. Similarly, no IT department truly wants to supply you with a sepa rate account for each task you perform at work. The resulting challenge is how to provideauthentication for multiple separate applications and services without building an unac ceptable burden for users and system administrators. This is the reason single sign-on (SSO) became a popular goal for security architects. The idea, simply, is that each user gets a single identity (and a single set of credentials) to use with all software across the enterprise. It becomes the job of the various pieces of software to communicate (“talk to each other”), keeping track of when, whether, and with what degree of assurance the user has been authenticated."
+        },
+        {
+          "type": "paragraph",
+          "text": "Using SSO is fairly easy. For example, imagine that you log into your bank’s website and authenticate so that you can look at your bank account. If your bank now allows you to check a retirement account (or pay down a credit card) without having to log in all over again, it means you selected a bank that uses web browser SSO."
+        },
+        {
+          "type": "paragraph",
+          "text": "Although SSO seems simple, under the surface there is a lot going on. Those bank services almost certainly were provided by different accounts. In that scenario, how did the credit card service know it was really you making the payment? (You may not care ifsomeone impersonates you to pay down your credit card, but the bank should.) The func tioning of SSO is discussed in more detail later in this chapter, but for a brief explanation, what is happening basically is that the bank app, when it was logging you in, relied on an authentication service, which checked your credentials and passed back a thumbs-up"
+        },
+        {
+          "type": "paragraph",
+          "text": "sign in the form of a token. When the bank app transferred control to the credit card app, it relayed that token as assurance that you had been properly authenticated."
+        },
+        {
+          "type": "paragraph",
+          "text": "Many SSO technologies and approaches are available today to implement this chain of trust. We will describe several leading ones here."
+        },
+        {
+          "type": "paragraph",
+          "text": "As you are evaluating SSO schemes, keep in mind the ever-present risk of central ization: creating a single point of failure. If all of your applications and access to every system rely on the availability of a centralized authentication mechanism, taking theauthentication server down will render many files, applications, and services inaccessi ble that are otherwise still functional. Consider, too, that any service or server holding a centralized aggregation of all credentials will be a prime target of attackers, who—if they can crack your protection scheme—might then be able to impersonate users (and some processes) at will."
+        },
+        {
+          "type": "paragraph",
+          "text": "Some of the first SSO technologies include the Secure European System for Appli cations in a Multivendor Environment (SESAME) and Kerberos, a ticket-based systemdeveloped at the Massachusetts Institute of Technology (MIT). Kerberos pioneered several elements of session and credential management, and Kerberos authentication proto col version 5 has provided the foundation for several Microsoft Windows authentication elements, including Active Directory. MIT remains involved in Kerberos developmentand continues to be an active enabling technology, and a Kerberos Consortium contrib utes to commercially supported versions."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fast-forwarding to today’s business computing environment, the same tension still exists between centralized versus decentralized accounts and identity management. In many (perhaps most) businesses, everyday computing services like email and calendaring are provided by the corporate IT department. This group creates and manages primary corporate computing identities, accounts, and credentials for these services. Can thesesame accounts and passwords be used when the employee logs into the seemingly count less web-based applications used for timecards, customer management, internal surveys, and so forth? It all depends on the company’s identity management implementation."
+        },
+        {
+          "type": "paragraph",
+          "text": "One modern way the coordination could have been achieved is via Security Assertion Markup Language (SAML) actions. SAML (currently at version 2.0) is an open OASIS standard used to exchange authentication and authorization data among cooperating processes or domains. The Organization for the Advancement of Structured InformationStandards (OASIS) is a global nonprofit consortium of vendors and other companies, universities, government agencies, and individuals. OASIS has more than two dozen techni cal standards, either in the field or under development."
+        },
+        {
+          "type": "paragraph",
+          "text": "SSO can be achieved by using a number of tools based on SAML, OpenID Connect(OIDC), Kerberos, or a similar service to pass information back and forth between coop erating processes needing to authenticate. These mechanisms work via an interprocess"
+        },
+        {
+          "type": "paragraph",
+          "text": "communication where coders make use of an application programming interface (API) to enable the software they are working on to exchange data with authentication services."
+        },
+        {
+          "type": "paragraph",
+          "text": "Regardless of which tool is used, it is important to consider the location, format, andprotection of the information. These functions, which must be part of any identity man agement implementation, are the role of an identity provider (IdP), a service that manages and maintains identity information on the network and can “talk to” the SAML or OIDC service. A SAML service provider will communicate with its IdP in XML."
+        },
+        {
+          "type": "paragraph",
+          "text": "A related but competing approach would be to use the OpenID protocol and OIDC instead of SAML. OIDC is an implementation of the authorization framework OAuth 2.0, facilitating the communication of attribute and authentication information. One difference is that, whereas SAML specifically relays requests from a website, OIDC can work to effect authentication with either a website or a mobile application as the requester. We will discuss the use of these two authentication and authorization methods in more detail a little later in this chapter."
+        },
+        {
+          "type": "paragraph",
+          "text": "A third modern mechanism for the exchange of user information for SSO is Service Provisioning Markup Language (SPML), also developed by OASIS. Its primary application is in “federated” environments, a topic that is discussed further later in this chapter."
+        },
+        {
+          "type": "note",
+          "text": "A helpful list of SAML-based products and services can be found at https://en.wikipedia.org/wiki/SAML-based_products_and_services."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-single-factor-multifactor-authentication",
+      "title": "Single Factor/Multifactor Authentication",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Authentication—the process of proving that a person or system is who they claim to be—"
+        },
+        {
+          "type": "paragraph",
+          "text": "has traditionally been based on one or more of three authentication factors:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Type I: Something you know (e.g., a password)",
+            "Type II: Something you have (e.g., a smartcard)",
+            "Type III: Something you are (e.g., your fingerprint)"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Two emerging technologies have recently been coming into greater prominence as authentication factors as well: “something you do” and “somewhere you are.”"
+        },
+        {
+          "type": "paragraph",
+          "text": "These factors can be applied alone or in combination. Single-factor authenticationinvolves the use of exactly one of these three factors to carry out the authentication pro cess being requested. Multifactor authentication helps to ensure that a user is who he or she claims to be via the use of more than one factor to carry out the authenticationprocess being requested. Generally, the more factors used to determine a person’s iden tity, the greater trust you can place on the authentication. Other factors being equal, you might therefore decide to allow users who have completed multifactor authentication"
+        },
+        {
+          "type": "paragraph",
+          "text": "access to more sensitive assets than those authenticated by means of a single factor, such as a password."
+        },
+        {
+          "type": "paragraph",
+          "text": "Everyone who has used a modern computer system is familiar with the first type of authentication factor, “something you know.” Two common forms of this authentication factor include passwords and security questions."
+        },
+        {
+          "type": "paragraph",
+          "text": "The media frequently features stories about security disasters caused by weak passwords.Break-ins in which hundreds of thousands (or millions, or hundreds of millions) of passwords and usernames have been captured, compromised, or guessed have become a com mon phenomenon. The consequences for the people whose identities may no longer be protected can be substantial."
+        },
+        {
+          "type": "paragraph",
+          "text": "Passwords are by far the most commonly used authentication mechanism. They are just about the weakest, too. There are some methods you can use to get the most out ofpasswords, but relying on passwords alone as a single authentication factor is poor prac tice. Here is a short list of bad things that can happen if you do so:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The user may forget the password.",
+            "The user, if allowed to choose the password, may select a trivial one. Some studies show that the most common password selected by everyday users is “123456.” “12345678” is quite popular, too.",
+            "If the password is not trivial, the user may write it down to be able to find it when needed. This in turn means that someone else may find it, too.",
+            "The user may share it with people who are not supposed to know it, which could directly compromise the security of a system—or, at the very least, baffle administrators as to who is to be held accountable for actions enabled by the use of that password.",
+            "Passwords may be written into software or otherwise kept on file on the system the password is supposed to protect.",
+            "Passwords may be guessed, either directly (because an attacker knows something about the user or the system that influences the choice of the password) or via the use of special attack software. The science of guessing passwords has advanced tothe point that dedicated password “cracker” hardware can decipher up to 100 mil lion passwords a second in some cases."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Generally, a password should be easy to remember but hard to guess. Even those practitioners who agree with that guideline, however, have yet to achieve a consensus on just what policies and procedures you should deploy to achieve optimal password security. (This lack of a consensus may account for the incredible diversity in password policies you,"
+        },
+        {
+          "type": "paragraph",
+          "text": "as a user, have to conform to on the various websites, applications, and services you use every day.) There are some common policies that organizations use to try to strengthen passwords. Many common password guidelines require passwords to be the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Complex. Compose passwords of letters, numbers, special characters, and symbols in as unpredictable a mix as possible.",
+            "Long. Eight characters is a common minimum, but generally, more characters in a password make it harder to guess. A complex 12-character or 15-character password is many orders of magnitude more difficult to guess than an 8-character password of similar complexity. Still greater lengths (some sites today require 32 characters, or even 128) may offer a significant technical barrier to attackers, while raising considerable practical complications.",
+            "Different. Passwords should not be reused from one system to another or from one website to another. Similarly, they should not be recycled or reused on systems where they have previously appeared.",
+            "Nonobvious. Some people try to use something that is easy for them to remember but they believe will be difficult for others to guess, such as the following:",
+            "Dictionary words",
+            "Names of relatives, pets, sports teams, movies, and so on",
+            "Popular expressions"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "note",
+          "text": "that seemingly “nonobvious” passwords are often a lot more obvious than people think. Some people even misspell words or substitute characters for letters (e.g., “3” for “e”, “@” for “a”). These practices may frustrate human guessers—and seldom hurt your cause—but will not significantly delay sophisticated cracking software. Modern operating systems don’t store passwords in the plain-text form in which users present them. In fact, passwords are not stored at all. Here is a simple explanation. When a user first sets a password, the supplied string is fed as input to a hashing function that computes a unique numerical value, called a hash. It’s the hash, not the password, that is stored. Then, when someone (nominally the sameuser) supplies a candidate string that purports to be that same password, the authenticat ing software repeats that hashing function, using the candidate string, and compares the new hash with the stored result. If it’s really the password, the hashes will match. That’s just the basic idea. In practice, passwords these days are first combined with an additional secret string known to the system, and that combined string is what’s hashed. This practice, known as salting, helps stymie attackers who try to guess passwords by building huge dictionaries with millions of possible passwords prehashed. The secret string is known as salt, and there are many schemes and algorithms bearing on how best to salt passwords."
+        },
+        {
+          "type": "paragraph",
+          "text": "One way you can manually construct a long and relatively difficult-to-guess password unlikely to appear in a dictionary is to build a combination of unrelated words, or a phrase. You can then make that password even more difficult to guess by modifying it in some way. A few minutes of thinking will likely turn up novel ways that you can create innovative individualistic passwords for yourself."
+        },
+        {
+          "type": "paragraph",
+          "text": "An added benefit of this approach is that you may be able to concoct a fairly complex sequence that you nevertheless can reconstruct at will and thus do not need to remember or write down. Ideally, each time that you are required to enter a password for a particular website, you can use this technique to work out what passphrase you would have specified at creation time. Then, supply it again."
+        },
+        {
+          "type": "list",
+          "items": [
+            "String several words together to make a passphrase. It helps if the phrase is itself novel, but ideally the words will carry enough meaning for you that you can recall it. “Isurehopeitdoesntrain” is a simple example.",
+            "Concatenate words and numbers together. Choose elements that bear no logical relation. Hence, “WorldSeriesBaseball” is far easier to guess than “1Companion2Umbrellas4Beers”; yet the latter may be easy to reconstruct if youcan remember that the phrase denotes items that might help you enjoy an out door sporting event in late October.",
+            "If you are familiar with a “foreign” language (whatever that might be at your facility), mix in words and phrases from that language to add some spice and complexity.",
+            "It will not hurt, and might help, to misspell words, transliterate letters into num bers, mix in punctuation, reverse strings, and shift numbers up or down. These transformations are unlikely to significantly slow specialized attack software but may confuse human guessers—especially if they have happened to get just a glance at your secret."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Perhaps the best way to avoid the common problem of users picking trivial, easy-to guess passwords is to provide (and require the use of) an application known as a password manager. Such an app will create a strong, hard-to-guess password on behalf of the user whenever they are prompted for one. The password manager will also store all the user’s passwords and then provide them automatically and without user intervention when other software asks for a password to be typed."
+        },
+        {
+          "type": "paragraph",
+          "text": "A person whose passwords are managed in this way does not need to remember them anymore, nor write them down. The passwords can be as long and as complicated as thesystem and the individual applications will allow. What the user does need to remem ber is the master password needed to unlock the password manager’s repository. (This approach, by the way, is entirely different from the SSO strategy discussed earlier in this chapter. Here, there may be a great many passwords, one for each account; it is simply"
+        },
+        {
+          "type": "paragraph",
+          "text": "not necessary for the user to actually remember all of them. SSO obviates the need for a huge collection of passwords in the first place.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Collecting all or most of a user’s passwords in a single repository addresses manyimportant problems long associated with passwords. Be aware, as well, that the deployment of a password manager also makes possible two fairly novel and potentially cata strophic security failures."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first case, in which all passwords would be compromised, occurs when the cen tral repository for the user’s passwords is breached. This can happen either if the master password is guessed by an attacker on the user’s system or as a result of a disastrous attack and compromise of the master customer database within the company that sells the password manager. This risk was mentioned earlier in the discussion of SSO schemes in the “Identity Management Implementation” section."
+        },
+        {
+          "type": "paragraph",
+          "text": "Password managers entail another, much simpler risk, too, which is the possibility that the user might forget the master password. Eventual recovery might be possible, depending on the brand of management software, but some operational disruption would be certain."
+        },
+        {
+          "type": "paragraph",
+          "text": "A wide variety of password management software is commercially available on every major operating system. In some cases, the function of password management is included as one part of a larger credential management system, incorporating credentials of various types and relating to multiple systems. Credential management systems are described in further detail later in this chapter."
+        },
+        {
+          "type": "paragraph",
+          "text": "Because passwords are an intrinsically weak authentication mechanism, the quality of your password policies can make a big difference. It is important for a security architect to provide a means for users to make strong passwords and to change them in a timely way. Password managers go a long way toward making these good practices easy."
+        },
+        {
+          "type": "paragraph",
+          "text": "It is sound practice, then, to make and enforce policies that require users to avail themselves of these tools—to have strong passwords, change them when compromised or expired, and never disclose or share them—or face consequences."
+        },
+        {
+          "type": "paragraph",
+          "text": "A couple of excellent policies include requiring tools to make strong passwords to be available and enforcing your password rules (whatever they are). Here are a few other candidate policies to consider as part of an authentication strategy."
+        },
+        {
+          "type": "note",
+          "text": "For guidance about good password policies, as well as recommendations about sound implementation of password algorithms such as salting, we recommend you study the2017 password recommendations released by NIST. (See https://pages.nist.gov/800 63-3/sp800-63-3.html.) While they formally apply only to U.S. government systems, they represent decades of hard-won, experience-based knowledge, and when released, they overturned much conventional wisdom. Many of NIST’s recommendations are incorporated into this chapter."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Require passwords to be at least 8 characters (or 12, or more) long. Longer pass words are harder to guess, in roughly exponential proportion to the length increase.",
+            "Allow users to make use of as many characters as possible to build passwords,including all of the printable ASCII table (including the space character), Uni code characters, even emojis.",
+            "Lock out a user after three (or five, etc.) failed login attempts. One problem with this is that some legitimate users will be thwarted in attempts to log in, perhaps at a strategic moment selected by an attacker as part of a denial of service."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Keep in mind that passwords are a weak and outmoded means of authentication and are by no means sufficient as your sole barrier. Require multifactor authentication whenever possible, especially for exceptionally sensitive data (whatever “exceptionally sensitive” means for your environment)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Please note that NIST does not recommend that you require passwords to be changed at regularly scheduled intervals, which has been common practice in some environments for many years. The obvious advantage of this practice is that a password that has been guessed or otherwise compromised will not remain in effect for long. Yet confidence in this practice is on the wane today. (NIST dropped the recommendation in 2017.) Among many practical issues that have arisen over the years, mandating periodic changes can ease the task of attackers, as users find it difficult to produce enough distinct, hard-to-guess passwords over the course of a year. Worse yet, they may be motivated to write passwords down or reuse them by cycling through a familiar set."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another traditional practice that fell from NIST’s recommendations in 2017 has to do with password complexity. While it is important to rule out, where you can, truly trivialselections such as “password” and “123456,” there are potential drawbacks to forcing pass words to conform to a specified structure (e.g., begin or end with a digit, and include at least one uppercase character). Taken to extremes, such restrictions (especially if casually chosen by policymakers) may actually make an attacker’s guessing easier by reducing the space of potential combinations. At the same time, complexity rules have little chance of defeating modern password crackers, promote a false sense of security, and likely increase the chance that, as with other complications, users write down or otherwise record their passwords for ease of recall."
+        },
+        {
+          "type": "paragraph",
+          "text": "Passwords are not the only way to use “something you know” for authentication. Most likely, you are already familiar with the most popular alternative, known as security questions or cognitive passwords."
+        },
+        {
+          "type": "paragraph",
+          "text": "While the use of security questions rapidly became popular as an easy method of authentication in the days when the World Wide Web was growing to encompass the"
+        },
+        {
+          "type": "paragraph",
+          "text": "globe, they have proven to be a weak barrier. Partly because of the popularity of the very social media applications they have helped to proliferate, the answers to many questionsare easily guessed (or simply looked up) by attackers. The latest available (2017) guide lines from NIST dropped security questions (and hints) from their list of approved tactics; you should not rely on them, especially as a primary means of authentication."
+        },
+        {
+          "type": "paragraph",
+          "text": "Here is how they work. Like passwords, security questions are older in practice than computers. Bank managers setting up accounts have been asking for “your mother’s maiden name” for a long time. Here are some standard security questions:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Where did you go to elementary school?",
+            "Where did you meet your significant other?",
+            "What was the model of the first car you drove?",
+            "What was the first name of your best childhood friend?",
+            "What is the middle name of your eldest sibling, or other older relative?"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "One common use of security questions is that of a backup authentication method. When someone purporting to be a particular user says they have forgotten their account password, for example, a website will often use a mix of these questions to validate the claim before initiating the “change my password” protocol."
+        },
+        {
+          "type": "paragraph",
+          "text": "Now that more than a billion people have signed up for social media accounts, the use of security questions to authenticate identity is less useful and less safe than it was only a few years ago. Depending upon the precise question asked and the degree to which the candidate user has documented their life online, it may be fairly easy for an attacker to reconstruct the answers to several of these questions."
+        },
+        {
+          "type": "paragraph",
+          "text": "You might consider answering such questions incorrectly when setting up an account. As long as you can repeat the false answers when required, the cognitive dissonance may have no real-world impact."
+        },
+        {
+          "type": "paragraph",
+          "text": "Remember, if you are considering the use of security questions in your role as a secu rity architect or software author, you should not place undue reliance on them as a way of validating identity."
+        },
+        {
+          "type": "paragraph",
+          "text": "The second type of authentication is “something you have.” Just as passwords were known in the ancient world, keys have been used since time immemorial as access devices. Even older, perhaps, is the idea of a pass: something you can carry with you that you can show to gatekeeper to gain entry."
+        },
+        {
+          "type": "paragraph",
+          "text": "Such low-tech methods remain in use because they are reliable, inexpensive, and simple to use. Paper passes, unfortunately, are easy to forge these days. And keys, especially, lack versatility, as any security officer who has had to change sets of keys or door locks when an employee left can tell you."
+        },
+        {
+          "type": "paragraph",
+          "text": "In most modern facilities, badges and smartcards have replaced keys and paper passes. Electronic badge readers have been ubiquitous for decades, reading credentials from a magnetic stripe or chip when the ID is swiped through or waved near the reader."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the first decade of the 21st century, the U.S. government pursued physical security with a national focus, developing NIST guides and standards relating to PACSs. One of the key outcomes of this focus was the development of smartcards for identification, pursuing several trials and experiments before settling on two workable systems. Today, millions of federal personnel use either common access cards (CACs) or personal identity verification (PIV) cards to authenticate into facilities and computer systems. CACs, for example, are the standard identification means for active duty military personnel in the United States, as well as Department of Defense civilian employees."
+        },
+        {
+          "type": "note",
+          "text": "For more information about the requirements and standards surrounding PACSs and the associated CACs or PIV authentication, see Federal Information Processing Standard Publication 201 (FIPS 201, Parts I and II) developed by the National Institute of Standards and Technology (https://csrc.nist.gov/publications/detail/fips/201/2/final). Because electronic ID cards like the CAC and PIV are intended for mass production and millions of mass-produced cards make an alluring target for attackers, it is critical for researchers and practitioners alike to keep abreast of vulnerability concerns with these and similar devices. For example, an alarming report by two Czech scientists in 2014about a “highly theoretical” vulnerability in Estonian CAC ID cards led to an investiga tion identifying a manufacturing error requiring 15 cards to be canceled immediately. After further investigation, the Estonian software was rewritten to compensate for the problem. (For more information, see, for example, https://news.postimees .ee/4236857/id-card-tip-from-czech-scientists.) While the fundamentaltechnology appears sound and the cards practical, we can expect many more vulnerabil ities and alarms in the future as these hardware-based devices, impossible to perfect and resistant (in their current forms) to patching, proliferate and increase in importance in our careers and our everyday lives. Another type of portable security device is the token. Tokens are electronic devices, small enough and light enough to be carried on a keychain, that display numericsequences for authentication. The most common type in use today features an LCD dis play showing a six- to eight-digit number. These hardware tokens can either supplant or supplement conventional passwords. Used in combination with software running on the system being logged into, the string of digits they display (a personal identification number, or PIN) can be used as a dynamic one-time password. Hardware tokens are used in two different ways, synchronously and asynchronously."
+        },
+        {
+          "type": "paragraph",
+          "text": "Synchronous dynamic password tokens are time-based, changing to a different num ber sequence after a specified period of time (say, once a minute). The software on the authenticating system also “knows” the sequence and the timing of changes, and so offers a window to the user during which the number displayed on the token will validate access."
+        },
+        {
+          "type": "paragraph",
+          "text": "Unlike synchronous dynamic passwords, asynchronous dynamic password tokens do not rely on synchronized time. Rather, each side of the login sequence keeps track of a counter, generating the next one-time password by using the same algorithm to produce the same sequence for that count."
+        },
+        {
+          "type": "paragraph",
+          "text": "In either scheme, the one-time password can optionally be appended or prepended to a conventional password for extra safety, in addition to standing by itself as a second step in authentication."
+        },
+        {
+          "type": "paragraph",
+          "text": "Although adding “something you have” to the security stack of authentication is gen erally sound practice, physical items such as smartcards, badges, and tokens can be lost or stolen. Security architectures, policies, and procedures should take this possibility into account and deal with notification and revocation in the wake of such events."
+        },
+        {
+          "type": "paragraph",
+          "text": "In another variation to consider, tokens can be implemented in software rather thanas physical devices. “Soft” tokens these days are most often built as mobile phone applications. They can be made to work identically to “hard” tokens and offer serious advan tages: soft tokens cost less and are much easier to patch or update in case a security issue is uncovered. On the downside, bundling an authentication token with an attractive, expensive mobile phone may well increase the chance that the soft token ends up in the wrong hands. Make doubly sure you have your revocation procedures in good shape to be ready if such an eventuality occurs."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another concept related to soft tokens is that of an authenticator. Sometimes used synonymously with “soft token,” the term can also refer to a special one-time code sent to a prevetted smartphone. Such authenticators are sometimes invoked in the middle of a loginsequence, for example when a login is attempted by a device unfamiliar to the authenti cation service. In this case, the code, when read from the phone and typed into the login software, provides a separate, out-of-channel means of authenticating the request."
+        },
+        {
+          "type": "paragraph",
+          "text": "Still more complex authenticator schemes involve a challenge-and-response method, whereby the login sequence displays a “challenge.” The user then types the challenge string into an authenticator app on the phone, the app displays a response (often a string of digits), and the user relays the response string back into the challenging software to complete that extra stage of authentication."
+        },
+        {
+          "type": "paragraph",
+          "text": "Perhaps the surest way of knowing that a person is truly who they claim to be is by com paring physical measurements of the claimant to those recorded in a template. This is the “something you are,” biometric approach."
+        },
+        {
+          "type": "paragraph",
+          "text": "As so often happens in security, the concept is not new. Human beings have identi fied each other by face and by voice for millennia. Footprints have helped to implicate or rule out criminal suspects for centuries."
+        },
+        {
+          "type": "paragraph",
+          "text": "Types of Biometric Methods"
+        },
+        {
+          "type": "paragraph",
+          "text": "Today, many biometric methods are available to the security architect. They vary widely as to reliability, practicability, and cost."
+        },
+        {
+          "type": "paragraph",
+          "text": "What may be the simplest biometric method is nevertheless still in use in certain high-security installations, though always in combination with other factors. It is, simply, body weight. While what a person weighs may change often (and by many pounds or kilos) over the course of their employment, weight can nevertheless be a straightforward sanity check of identity. Well-known patterns of periodic loss and gain can be used to help detect anomalies. Measuring body weight is safe, passive, low-tech, and low-key—somuch so that if scales are built into the flooring of vestibules or corridors, many authentication candidates may never know that this “scan” has been done (which might be con sidered unethical or even illegal in some jurisdictions)."
+        },
+        {
+          "type": "paragraph",
+          "text": "The most commonly used biometric technique in the world, today and for the past 100 years, is fingerprinting. A foundation of criminological forensics and a rite of passage for individuals with security clearances, fingerprinting is highly reliable as a means ofidentification and is quick, safe, and low in cost. With the advent of quick and inexpensive fingerprint scanners that can easily be attached to everyday computer systems, finger prints have transitioned from paper records to high-tech authentication and will remain a piece of biometric solutions for the foreseeable future."
+        },
+        {
+          "type": "paragraph",
+          "text": "Palm prints are at least as old as fingerprints as an authentication method and may actually be older. The larger surface area makes possible more detailed differentiation, and palm prints do have some technical advantages over fingerprints. Still, palm printshave never been as popular for everyday authentication. Today, two relatively new tech nologies have brought the palm back into the mainstream as an authentication element. Palm vein recognition is a biometric method that uses near-infrared illumination to see (and record for comparison) subcutaneous vascular patterns, which are the pattern ofblood vessels beneath the skin that are unique to each individual. Palm scans are fast, pas sive, and painless. Perhaps because palm vein recognition may seem more invasive, some people placing their hands onto a scanner would prefer the alternate older approaches of palm topography and hand geometry."
+        },
+        {
+          "type": "paragraph",
+          "text": "In these methods, features of the hand such as finger and palm length and width (and perhaps the ridges of the palm) are scanned, recorded, and compared. In one hand geometry method, you would be asked to place your palm on a flat metal plate. The platehas small round metal stanchions sticking up out of it; they are there to guide your place ment so that the stanchions are nestled up against the places where the webbing of your"
+        },
+        {
+          "type": "paragraph",
+          "text": "fingers come together (see Figure 5.2). With your palm properly placed, the device canregister an image of your hand and develop a set of measurements sufficient to authenti cate you in the future."
+        },
+        {
+          "type": "figure",
+          "figNum": "5.2",
+          "caption": "Features of the hand"
+        },
+        {
+          "type": "note",
+          "text": "The anatomically normal hand is composed of several carpal bones: one metacarpalbone for each finger, attached to the carpal bones, and three phalanges. The proximal pha lange attaches to the metacarpal, the medial phalange attaches to the proximal, and the distal phalange is attached to the medial. As you can imagine, looking at the diagram, a properly positioned and anatomically normal hand will yield calculations as to palm width, finger length and width, and the length of several of the phalanges. These measurements form a sound basis for biometric authentication."
+        },
+        {
+          "type": "paragraph",
+          "text": "Biometric measurements of the eye proceed similarly. The iris is the colorful part of the eye that surrounds the pupil, the dark circle in the middle. Gradations of color andpatterns of light and dark are distinctive for any individual. These colors and these pat terns persist throughout a lifetime, with little change due to age or illness, making the iris one of the most reliable forms of biometric measurement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Biometric scans using the retina are even more individualistic than those of the iris. The retina, a thin segment of light-sensitive tissue at the back of the eye, contains both arteries and veins. The structure of the inner retinal vasculature is unique to each human eye, differing even for identical twins. It can be recorded for biometric use by means ofinfrared light. To acquire a good picture of the back of the eye, it is necessary for the indi vidual being measured to place their eye directly up against a view piece similar to thatof a microscope; some people find this experience physically or psychologically uncom fortable. Another drawback of retinal scans is that the appearance of the retina can be affected by diseases of the eye such as glaucoma and cataracts, or even the progression of diseases such as diabetes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Facial recognition is commonly used as a biometric tool as well. One scheme uses the structure of the face—the positions of the eye sockets, nose, chin, and ears—just as palm geometry maps the hand. Facial layout varies enough from person to person to make facial recognition a fundamental human skill, and it translates to modern computers well."
+        },
+        {
+          "type": "paragraph",
+          "text": "Similarly, the position of blood vessels and fascia underneath the skin of the face can be discerned by infrared cameras and recorded for biometric comparisons. Because it now can be performed in real time, and from a distance, facial recognition is becoming more and more popular as processor speeds make it increasingly efficient."
+        },
+        {
+          "type": "paragraph",
+          "text": "Just as facial recognition is becoming more popular as processor speeds increase, so are voice analysis and voice recognition gaining as biometric tools. Comparisons can be done most easily if a special phrase or set of phrases is registered at enrollment time, but as voice recognition technology improves, the cadence of speech and the vocal volume dynamics of particular phonemes make real-time voice recognition more and more feasible."
+        },
+        {
+          "type": "paragraph",
+          "text": "Signature dynamics can be used for authentication, too. If a special stylus is used, pen pressure can be recorded in addition to the points in the strokes when the writer pauses. Without a special stylus, signature dynamics devolve to more standard graphological analysis, studying the handwriting itself for individualistic characteristics and indications of stress."
+        },
+        {
+          "type": "paragraph",
+          "text": "Keystroke dynamics can also be used for biometric purposes. In this application, the characteristics of key presses—dwell time, for example, and the pauses between and after certain key combinations—can be recorded and registered as belonging to the legitimate user, for later comparison. As with signature dynamics, keystroke analysis verges on a new dimension of biometric security. It represents, perhaps, “something you do,” as opposed to “something you are.”"
+        },
+        {
+          "type": "paragraph",
+          "text": "Considerations When Using Biometric Methods"
+        },
+        {
+          "type": "paragraph",
+          "text": "Regardless of the specific technology that is used, biometric techniques all involve the same stages of preparation as any other authentication method. First, the user must be enrolled, and the characteristics that will be used for authentication must be recorded in a registration process. This creates a reference profile to which comparisons can be made. Preparations must be made for the secure storage of reference profiles and their retrieval in a timely way. A method must be available to verify, promptly and withinspecified accuracy limits, whether a person claiming an identity should be authenti cated. A final requirement is a secure method of updating the reference profile whenthe characteristics to be compared change (due to age or illness, for example) or revok ing the reference profile when it is no longer needed, has expired, or can no longer be trusted to be accurate."
+        },
+        {
+          "type": "paragraph",
+          "text": "Regardless of the authentication method you choose, it is important to understand the degree of accuracy that you can rely upon. The two ways that authentication can fail are known as Type I and Type II. Type I is failure to recognize a legitimate user, a false rejection. Type II is erroneous recognition—either by confusing one user with anotheror by accepting an impostor as a legitimate user. This is a false acceptance. To avoid con fusing the two types, some security professionals and vendors often refer simply to either “false rejection” or “false acceptance” and don’t even refer to authentication failures as being Type I or Type II."
+        },
+        {
+          "type": "paragraph",
+          "text": "In selecting, tuning, and deploying a biometric method, it is critical to monitor both the types and rates of errors."
+        },
+        {
+          "type": "paragraph",
+          "text": "The ratio of Type I errors to valid authentications is known as the false rejection rate (FRR). If 1,000 attempts to authenticate result in two rejections of legitimate users, the FRR is .002, or .2 percent."
+        },
+        {
+          "type": "paragraph",
+          "text": "The ratio of Type II errors to valid authentications is known as the false acceptance rate (FAR). If, in 1,000 attempts to authenticate, two impostors are erroneously allowed in, the FAR is .002, or .2 percent."
+        },
+        {
+          "type": "paragraph",
+          "text": "One statistic you will often see cited in vendor material about biometric devices is the crossover error rate (CER). See Figure 5.3. (You may sometimes see this statistic referred to as an equal error rate, or EER.) This is the number that results when the device isadjusted to provide equal Type I and Type II error rates in your environment. When eval uating biometric systems, check the CERs; other considerations being equal, the device with the lower CER may demonstrate greater intrinsic accuracy."
+        },
+        {
+          "type": "paragraph",
+          "text": "Your experience in real life will inform you that one can adjust biometric systems, making them more or less sensitive. While the CER is a useful evaluation metric, there is no particular reason it would make an appropriate setting at which to set your biometric threshold when you configure it."
+        },
+        {
+          "type": "figure",
+          "figNum": "5.3",
+          "caption": "ceR"
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, there are certain considerations if you are responsible for a repositoryof fissile material, guarding the pieces of plutonium that terrorists would need to con struct an improvised nuclear bomb. You will want to tune the false acceptance rate on the retinal and palm geometry scanners down just about as far as they will go. Your users, those nuclear scientists and weapon specialists, are used to extreme security and will have planned for entry delays."
+        },
+        {
+          "type": "paragraph",
+          "text": "If, on the other hand, you are responsible for adjusting the office badge reader at anewspaper office, you will want to consider trying to keep the false rejection rate reason ably low—if only to avoid reading flaming editorials complaining about how security has run amok in modern society."
+        },
+        {
+          "type": "paragraph",
+          "text": "In selecting a set of biometric tools for authentication, it is certainly important to be aware of the error rates. There is more to be considered, though, besides the accuracy and reproducibility of a potential biometric technique."
+        },
+        {
+          "type": "paragraph",
+          "text": "First, of course, you want the measurements taken to be unique to an individual. While many (not all—think body weight) biometric tools will succumb to impersonation by an identical twin, uniqueness of the measure is important. After all, depending on the precise nature of the tool, you may find yourself with a degraded reading. Fingerprints can smudge; voice recordings may have a lot of background noise, and poor lighting or infrared interference may cloud a photographic record. A good biometric will have theattribute that the copy to be compared to the registered base will vary minimally and pre dictably as it degrades in quality."
+        },
+        {
+          "type": "paragraph",
+          "text": "Consider, too, that it is not only the measurement taken for comparison that may be degraded. Fingers, palms, and faces may be scarred by accident (or, alas, intentionally). Aging, illness, and injury must all be anticipated and compensated for."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another factor to consider is the accessibility of the part of the body that must be registered. It is not a coincidence that fingers, at the end of our extensible arms, were employed as the first widely used biometric."
+        },
+        {
+          "type": "paragraph",
+          "text": "Further, one wants biometric measurements to be noninvasive, passive, and safe. Individuals to be vetted will vary in general health; in dexterity; in their ability to see and hear; in their alertness, and the ability to follow instructions; and in their physical and psychological tolerance to being prodded, scanned by various rays, or enclosed in an examination compartment. Many individuals will be concerned about electromagnetic irradiation. Some women to be authenticated by your biometric device may be pregnant at the time or may become pregnant later. All of these individual conditions should beanticipated and respected with due concern for the examined individual’s health, well being, privacy, dignity, and legal rights."
+        },
+        {
+          "type": "paragraph",
+          "text": "As with all security measures, when selecting a biometric for deployment in your enterprise you must consider the cumulative costs of setting up the system, registering each person, taking each measurement such as a fingerprint, and the storage and retrieval of the candidates’ measurements."
+        },
+        {
+          "type": "paragraph",
+          "text": "Finally, be sure to consider the likelihood and effectiveness of anti-biometric tactics by potential attackers."
+        },
+        {
+          "type": "paragraph",
+          "text": "If you are using facial recognition, attackers might wear masks."
+        },
+        {
+          "type": "paragraph",
+          "text": "If you rely on fingerprints, you had better anticipate and test the effectiveness of fake finger casts made out of silicone, rubber, or even ordinary wood glue. Japan’s National Institute of Informatics even found that fingerprints can be copied by a digital camera from 10 feet away and then easily reproduced with simple technology. Depending on just how low you need to drive down the false acceptance rate, you might want to select a vendor for fingerprint sensors that can supply “liveness detection,” sensing temperature, pulse, and even body capacitance as a means of detecting fake fingers."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the age of 3D printers, security architects need to think creatively about the tech nology relied upon by their biometric tools."
+        },
+        {
+          "type": "paragraph",
+          "text": "Emerging Authentication Technologies"
+        },
+        {
+          "type": "paragraph",
+          "text": "The science of biometric services is constantly advancing. Increased processor speeds, coupled with more compact form factors, are one reason. Each year it becomes possible to pack more algorithmic intelligence into cameras and other sensors. Facial recognition, for example, has leaped forward in recent years—so much so that in the iPhone X, Apple has introduced facial recognition as the chief method for authenticating yourself to your phone, although passwords and fingerprints are still options."
+        },
+        {
+          "type": "paragraph",
+          "text": "Similarly, behavior-based recognition is improving each year as well. “Something you do”—as represented by signature dynamics, keystroke patterns, and even hand gestures—"
+        },
+        {
+          "type": "paragraph",
+          "text": "is growing as a factor in authentication, especially for mobile devices."
+        },
+        {
+          "type": "paragraph",
+          "text": "Some vendors have gone further, adding another dimension of authentication with “somewhere you are”—that is, location-based authentication. Although location has been dreamt of for decades as a means of assurance, recent advances may make it realistic at"
+        },
+        {
+          "type": "paragraph",
+          "text": "last to validate that a person or system truly is where they claim to be. The implications for off-site operation of critical infrastructure in emergencies, if nothing else, would be transformative."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-accountability",
+      "title": "Accountability",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Accountability is the attribute of a security architecture that allows individuals and processes to be held responsible for their actions and decisions. It ensures that account man agement has assurance that only authorized users are accessing the system and using it properly."
+        },
+        {
+          "type": "paragraph",
+          "text": "In real life, you can hold other people accountable by knowing what they did and being able to prove it. In cyberspace, this translates to monitoring and logging all actions—including requests for access or changes that get turned down—and auditing those actions. This enables you to know who did what and when. These facts must berecorded, protected from unauthorized alteration, and preserved in order for accountabil ity to be possible."
+        },
+        {
+          "type": "paragraph",
+          "text": "This fact means that if accountability is to be strong, the false acceptance rate ofauthentication needs to be kept low. You will rarely be successful in enforcing disci plinary penalties against a user if there is substantial doubt about who did what."
+        },
+        {
+          "type": "paragraph",
+          "text": "One example is how you handle it if someone tries to tamper with log files. Attackers and other malefactors (e.g., embezzlers) will typically attempt to change log files to cover up their wrongdoing. You can take steps to prevent and detect log file tampering."
+        },
+        {
+          "type": "paragraph",
+          "text": "One approach, useful but often not practical, is to keep the log files on disk driveswith physical “write once, read many” (WORM) controls. A more practical (and afford able) option is to send security events in real time to a logging agent protected by separate administrator credentials. Whatever such measures you take to protect against or detect tampering, be aware that anomalous system events such as unexplained restarts could be an attempt to cover or effect a change to log files."
+        },
+        {
+          "type": "paragraph",
+          "text": "As a top priority, you must protect against the compromise of highly privileged accounts. With sufficient privileges, one can modify log files in a way that is difficult todetect. It may even be possible to alter the “reality” of the computer system itself by intro ducing subtle yet nefarious changes into the operating system via so-called rootkits. Oncethe very foundation of a system’s operation comes under an adversary’s control, account ability is hard indeed to recover. (Well-maintained backups may be a saving grace here.)"
+        }
+      ]
+    },
+    {
+      "id": "domain-5-session-management",
+      "title": "Session Management",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A session is a series of exchanges between two entities, perhaps a human user and a web server. Session management entails initiating, controlling, maintaining, and terminating the “state” of these exchanges."
+        },
+        {
+          "type": "paragraph",
+          "text": "The web surfing protocols Hypertext Transfer Protocol (HTTP) and HyperText Transfer Protocol Secure (HTTPS) are conducted statelessly. This means that each request to a web server for information is handled with no knowledge of previous requests. This “stateless” operation was part of the original design of the World Wide Web. However, as the Web exploded in popularity and commercial applications were created for it, the need for some information (like the contents of a virtual shopping cart) to persist through a series of back-and-forth exchanges with a website became apparent."
+        },
+        {
+          "type": "paragraph",
+          "text": "As the interchange between the user and the site server progresses (the user asks to log in, is challenged for credentials, provides credentials, requests a page, is served a page, and so forth), all knowledge about the previous information exchanged must be preserved as context for the next exchange. This context—state—comprises a session."
+        },
+        {
+          "type": "paragraph",
+          "text": "To pass state information back and forth, a session ID is created, establishing that the user was authenticated. The session ID binds the user’s authenticated credentials to the traffic and associated access controls."
+        },
+        {
+          "type": "paragraph",
+          "text": "The session ID, which can be thought of as a token, will typically expire after a set period (e.g., an hour or a day)."
+        },
+        {
+          "type": "paragraph",
+          "text": "The paradox that stateful exchanges must be conducted via stateless protocols cre ates fertile ground for many security attacks. If you are ever given the opportunity to design session IDs, try to do it so as not to give away important information, such as the name of the user or the technologies at work inside the browser. Also, make the token value long enough (and otherwise unpredictable enough) so that it cannot effectively be guessed."
+        },
+        {
+          "type": "paragraph",
+          "text": "One common goal of attackers is to corrupt the state kept by the session manager. In the early days of online shopping carts, for example, it proved possible in some cases to record an “order” for a single item and then add duplicates of that item to the virtual cart without increasing the price calculated by the server."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another common threat is session hijacking, allowing an impersonator to act in the stead of the authenticated user. Various techniques are used for hijacking, including a simple man-in-the-middle attack (interposing the attacker between the two legitimate ends of the exchange)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Session sidejacking can be accomplished by using a packet sniffer (or other eavesdropping technique) to intercept and study the traffic between the two sides. Many sites revert to plain-text exchanges, even in Secure Socket Layer (SSL) sessions, after authentication is complete. The password probably will not be passed in plain text, but the session token (or cookie) may be, and this may be enough for impersonation to begin."
+        },
+        {
+          "type": "paragraph",
+          "text": "Session fixation can be used in cases where the value of a session ID about to begin is known, and fixed. The attacker lies in wait until the session kicks off and then takes the place of the authenticated user in the exchange."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-registration-and-proofing-of-identity",
+      "title": "Registration and Proofing of Identity",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Deciding who gets access to what in a network or enterprise is just as important as select ing and implementing technical controls such as firewalls or intrusion detection software."
+        },
+        {
+          "type": "paragraph",
+          "text": "Before any action by a user can be authorized, the person requesting authorization must be authenticated as the user they claim to be. Before they can be authenticated as having the right to an identity, that identity must be created; and the person must be enrolled and associated with that identity in the registration system."
+        },
+        {
+          "type": "paragraph",
+          "text": "Whether your company supports critical infrastructure (such as the electrical grid) or makes million-dollar movies, if what you have is worth protecting, paying attention to who you bring onto your network makes sense. The person who sets up identities in your organization needs a way to determine whether the person claiming an identity really is who they say they are. Proofing the right to an identity is one of the foundations of all enterprise security."
+        },
+        {
+          "type": "paragraph",
+          "text": "Suppose you have been assigned the task of validating and proofing applications for the creation of an identity, as for a newly hired employee. (This makes you a credential service provider, or CSP.) You will work through several steps and stages in this task. The first consideration is just how sure you are supposed to be."
+        },
+        {
+          "type": "paragraph",
+          "text": "Identity Assurance Levels"
+        },
+        {
+          "type": "paragraph",
+          "text": "In this matter of registration and identity proofing, the U.S. government (not surprisingly) has a great deal of experience, and much at stake. NIST is responsible for advising federal agencies how to do this correctly. NIST Special Publication 800-63A, “Digital Identity Guidelines: Enrollment and Identity Proofing Requirements” (https://doi.org/10.6028/"
+        },
+        {
+          "type": "paragraph",
+          "text": "NIST.SP.800-63a), suggests you consider three “identity assurance levels” (IALs)."
+        },
+        {
+          "type": "list",
+          "items": [
+            "At risk level 1, you as a credential service provider can take “self-asserted” attri butes (assertions from the claimant) at face value, neither validated nor verified.",
+            "At risk level 2, you will require evidence that “supports the real-world existence” of the claimed identity and then use that evidence to verify that the claimant has a right to that identity. The evidence could be a state-supplied driver’s license, for instance, or a certified copy of a birth certificate.",
+            "At risk level 3, you should require the physical presence of the claimant. They must present themselves to you, and any identifying attributes must be verified by you. This applies to physical measurements, biometric attributes, and other characteristics (such as birth date) that can be established by your validation of original documents."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "The next consideration is to determine the level of assurance your organization needs. Evaluate the “bad things that can happen” if you assess the applicant’s claim incorrectly. Table 5.1 was adapted from NIST materials and demonstrates the degree to which security measures must ensure confidence to reach one of three identity assurance levels (IALs). You can see that if a threat to personal safety is involved, you should at least require an identity assurance level of 2, even if the likelihood is low. Or if, for example, the chance of civil or criminal violations is high, you probably want to go for the highest assurance level possible."
+        },
+        {
+          "type": "paragraph",
+          "text": "The values shown in Table 5.1 are, of course, just meant as examples. Each organization needs to make for itself the policy decisions relating to risk and consequence. Our point is that you need to be aware that differing levels of assurance are possible, then think through the risks of failed assurance before deciding on identity proofing policies and processes."
+        },
+        {
+          "type": "table_caption",
+          "tableNum": "5.1",
+          "caption": "sample identity assurance Levels"
+        },
+        {
+          "type": "paragraph",
+          "text": "impact categoRiesiaL1iaL2iaL3"
+        },
+        {
+          "type": "paragraph",
+          "text": "Inconvenience, distress, or damage to standing or reputationLowMedHigh"
+        },
+        {
+          "type": "paragraph",
+          "text": "Financial loss or company liabilityLowMedHigh"
+        },
+        {
+          "type": "paragraph",
+          "text": "Harm to company programs or shareholder interestsN/ALow/MedHigh"
+        },
+        {
+          "type": "paragraph",
+          "text": "Unauthorized release of sensitive informationN/ALow/MedHigh"
+        },
+        {
+          "type": "paragraph",
+          "text": "Personal safetyN/ALowMed/High"
+        },
+        {
+          "type": "paragraph",
+          "text": "Civil or criminal violationsN/ALow/MedHigh"
+        },
+        {
+          "type": "paragraph",
+          "text": "Adapted from NIST SP 800-63-3 “Digital Identity Guidelines” (https://doi.org/10.6028/NIST .SP.800-63-3)."
+        },
+        {
+          "type": "paragraph",
+          "text": "One factor that has often influenced the decision about what assurance level to use to validate a new hire’s identity is the level of position they are applying for. That is the sort of information you can get from the hiring manager, and it often makes sense to apply ahigher standard for more sensitive positions. You want to be careful, however, about influ encing decisions with derogatory, potentially disqualifying information. Privacy is important."
+        },
+        {
+          "type": "paragraph",
+          "text": "People who are responsible for inspecting and validating proof of identify are often privy to extremely private information. Some of this material is PII, such as birth date, currentaddress, home telephone number, and so forth. Sometimes other kinds of sensitive infor mation come up during the identity validation process: a criminal background, financial information, or health data (either requested by or enforced against the employee). Each organization needs to have policies in place not only to protect PII but also to ensure that personal secrets that were divulged as part of the proofing process are used only for germane and legal purposes. Protect personal secrets carefully, according to law and policy; gossip has no place in the security office."
+        },
+        {
+          "type": "table_caption",
+          "tableNum": "5.2",
+          "caption": "presents the recommendations that the NIST makes to federal agencies as to the strength of evidence needed to achieve each of the three levels of assurance. As in Table 5.1, the three identity assurance levels (IALs) represent gradations of risk."
+        },
+        {
+          "type": "table_caption",
+          "tableNum": "5.2",
+          "caption": "sample identity proofing actions"
+        },
+        {
+          "type": "paragraph",
+          "text": "RequiRementiaL1iaL2iaL3"
+        },
+        {
+          "type": "paragraph",
+          "text": "PresenceNo requirementsIn-person and unsupervised remote."
+        },
+        {
+          "type": "paragraph",
+          "text": "In-person and supervised remote"
+        },
+        {
+          "type": "paragraph",
+          "text": "ResolutionNo requirementsThe minimum attributes necessary to accomplish identity resolution"
+        },
+        {
+          "type": "paragraph",
+          "text": "Knowledge-based verification may be used for added confidence."
+        },
+        {
+          "type": "paragraph",
+          "text": "EvidenceNo identity evidence is collected."
+        },
+        {
+          "type": "paragraph",
+          "text": "One piece of SUPERIOR or STRONG evidence depending on strength of original proof and validation occurs with issuing source, or"
+        },
+        {
+          "type": "paragraph",
+          "text": "Two pieces of STRONG evidence,"
+        },
+        {
+          "type": "paragraph",
+          "text": "One piece of STRONG evidence plus two pieces of FAIR evidence"
+        },
+        {
+          "type": "paragraph",
+          "text": "Two pieces of SUPERIOR evidence, or"
+        },
+        {
+          "type": "paragraph",
+          "text": "One piece of SUPERIOR evidence and one piece of STRONG evidence depending on strength of original proof and validation occurs with issuing source, or"
+        },
+        {
+          "type": "paragraph",
+          "text": "Two pieces of STRONG evidence plus one piece of FAIR evidence"
+        },
+        {
+          "type": "paragraph",
+          "text": "ValidationNo validationEach piece of evidence must be validated with a process that is able to achieve the same strength as the evidence presented."
+        },
+        {
+          "type": "paragraph",
+          "text": "VerificationNo verificationVerified by a process that is able to achieve a strength of STRONG"
+        },
+        {
+          "type": "paragraph",
+          "text": "Verified by a process that is able to achieve a strength of SUPERIOR"
+        },
+        {
+          "type": "paragraph",
+          "text": "No requirements for address confirmation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Required. Enrollment code sentto any address of record. Notifica tion sent by means different from enrollment code"
+        },
+        {
+          "type": "paragraph",
+          "text": "Required. Notification of proofing to postal address"
+        },
+        {
+          "type": "paragraph",
+          "text": "Adapted from NIST SP 800-63a."
+        },
+        {
+          "type": "paragraph",
+          "text": "There are several subtle points of interest in the sample identity proofing actions providedin Table 5.2. Notice, for example, that for level 2 and level 3 assurance, it is necessary to validate each piece of evidence with a process that is able to achieve the same strength as the evi dence. It is poor practice to accept a verbal assurance that the applicant has a college diploma and then give that evidence the same weight as a written diploma itself. That is, if a piece of Strong identity evidence is presented, it is to be validated at a strength of Strong itself."
+        },
+        {
+          "type": "note",
+          "text": "also the level of care to be taken with the collection of biometric evidence. For the lowest level of assurance, none is needed; for level 2, it is optional; for level 3 (the highest degree of assurance), biometric means of verifying identity are mandatory. These sample recommendations, while official to the U.S. government, may not be appropriate for your organization. Having explored the sorts of assurance possible or required for proof of identity, we will shift to a related topic of identity assurance, digital certificates. Digital Certificates A digital certificate is an electronic credential, a document that makes use of modern public key cryptography to provide a means of verifying an identity. It may help to think of a certificate as a driver’s license made up of encrypted ones and zeros, bound to an electronically stored identity."
+        },
+        {
+          "type": "note",
+          "text": "For details about public key cryptography and how a public key infrastructure (PKI) works, see Chapter 3. Technically, what the certificate proves is that the particular public key included inthe certificate is owned by the subject of the certificate, which can be a person, an orga nization, a computer system, or a software application. This ownership is attested to by a certificate authority (CA). A certificate authority is an entity trusted by one or more users as an authority that issues, revokes, and manages digital certificates to bind individuals and entities to their public keys. Like a driver’s license, a credential must be created, maintained, and (if necessary) revoked; that is, credentials must be managed. Various circumstances might invalidate a certificate, such as the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Change of the subject’s name (does not always invalidate the certificate, depend ing on policy and the implementing technology)",
+            "Change of association between the subject and the certificate authority (such as when the subject is an employee leaving the company that acts as the certificate authority)",
+            "Compromise of the private key that corresponds to the public key included in the certificate"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "In these circumstances, the CA must revoke the certificate. One common way is to put that certificate’s serial number on a certificate revocation list (CRL) maintained and made public, perhaps on a website, by the CA."
+        },
+        {
+          "type": "paragraph",
+          "text": "Checking that a certificate you have received has not been revoked is an important step in verifying it. You can either download the latest CRL from the CA or check directlywith the CA in real time using the Online Certificate Status Protocol (OCSP). If the cer tificate has not been revoked, the digital signature of the certificate authority is authentic, and you trust that CA, then the chain of logic is complete."
+        },
+        {
+          "type": "paragraph",
+          "text": "Once you have verified a certificate, you may consider the data contained in it as authentic. That choice, like others in our field, is a risk to be balanced. Because digital certificates are such an important part of modern security, it comes as no surprise that attackers have worked hard—and have often succeeded—at discovering and exploiting vulnerabilities associated with certificates. Dozens of flaws with digital certificates have been uncovered over the years."
+        },
+        {
+          "type": "paragraph",
+          "text": "Some attackers have focused their efforts on certificate authorities. One approachseeks to exploit weaknesses in the domain validation schemes a CA employs to authenti cate the applicant for a new certificate. Another is to directly compromise the databases maintained by a certificate authority to cause the issuance of rogue certificates."
+        },
+        {
+          "type": "paragraph",
+          "text": "The potential use of rogue certificates has afflicted more than one mobile banking application, weakening their defense against man-in-the-middle (MITM) attacks. The MITM risk is that an attacker may intercept an encrypted connection, pose to each side as the other participant, copy the user’s banking credentials, and steal their money. Recently, a defensive tactic known as pinning—associating a particular host with their expected certificate—has become popular. Pinning, however, fails to solve the problem ifthe application does not check to see if it is connected to a trusted source (that is, authen ticate the hostname) before using the certificate."
+        },
+        {
+          "type": "paragraph",
+          "text": "Critics have long pointed to cryptographic issues with digital certificates, as well. To make certificates more difficult to subvert, the hash function must provide unique values. The ability to generate two different files with identical hash values makes possible a so-called collision attack, diluting the value of the digital signatures used in certificates. NIST warned in 2015 that advances in processing speed had rendered unsafe the use ofthe popular SHA-1 cryptographic algorithm, and in 2017 Google researchers demon strated a hash collision attack against SHA-1."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pure implementation issues not directly due to cryptographic issues have plagued certificate-based security in recent years as well, as the infamous “HeartBleed” and “POODLE” vulnerabilities of 2014 illustrated only too well."
+        },
+        {
+          "type": "paragraph",
+          "text": "Many of these certificate-based vulnerabilities have been addressed, over the years, with new designs and new implementation versions. Yet as long as clever attackers seek to undermine complex authentication systems, you can never be absolutely certain that a certificate is trustworthy."
+        },
+        {
+          "type": "paragraph",
+          "text": "The responsible management of digital certificates is so important because they are critical to modern authentication methods. Certificates have so many uses!"
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, a software developer may use a credential scheme to allow their appli cation to log into a database without having to hard-code the username and password into the source code. It is also possible to digitally sign software and patches upon release with credentials so that any tampering with the executable file can be detected. IPSec, a framework of open standards helping to secure communications over the Internet, relieson digital certificates, as do almost all virtual private network (VPN) technologies. Digi tal certificates also make possible the Secure/Multipurpose Internet Mail Extension (S/"
+        },
+        {
+          "type": "paragraph",
+          "text": "MIME) capabilities that can be used to encrypt electronic mail."
+        },
+        {
+          "type": "paragraph",
+          "text": "The place where the everyday user interacts with digital certificates most often, with out question, is when they visit a “secure” website—that is, one with a URL that begins with “HTTPS” and not “HTTP.”"
+        },
+        {
+          "type": "paragraph",
+          "text": "When you connect to a website with an address that begins with “HTTPS,” you are specifying that you want the browser session to use Transport Layer Security (TLS), a cryptographic protocol that provides communications security between computer networks. (TLS has largely supplanted the earlier protocol SSL, which introduced this capability.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "TLS uses digital certificates. To give you a sense of the complexity of the configura tion possibilities, see this section of the NIST guidance:"
+        },
+        {
+          "type": "paragraph",
+          "text": "The TLS server shall be configured with one or more public key certificates and the associated private keys. TLS server implementations should supportmultiple server certificates with their associated private keys to support algo rithm and key size agility."
+        },
+        {
+          "type": "paragraph",
+          "text": "There are six options for TLS server certificates that can satisfy the require ment for Approved cryptography: an RSA key encipherment certificate; an RSA signature certificate; an Elliptic Curve Digital Signature Algorithm(ECDSA) signature certificate; a Digital Signature Algorithm (DSA) signa ture certificate; a Diffie-Hellman certificate; and an ECDH certificate...."
+        },
+        {
+          "type": "paragraph",
+          "text": "TLS servers shall be configured with certificates issued by a CA, rather than self-signed certificates. Furthermore, TLS server certificates shall be issued by a CA that publishes revocation information in either a Certificate Revocation List (CRL) [RFC5280] or in Online Certificate Status Protocol (OCSP) [RFC6960] responses."
+        },
+        {
+          "type": "paragraph",
+          "text": "NIST Special Publication 800-52, Guidelines for the Selection, Configuration and Use of Transport Layer Security (TLS) Implementations, April 2014 ("
+        },
+        {
+          "type": "paragraph",
+          "text": "https://doi.org/10.6028/NIST.SP.800-52r1)"
+        },
+        {
+          "type": "paragraph",
+          "text": "The full details, which extend for several additional pages, are beyond the scope ofthis chapter. The key concept is that your web browser and the website server use certifi cates to be sure of the identity of the other side of the transaction."
+        },
+        {
+          "type": "paragraph",
+          "text": "The most popular design for the content and format of digital certificates is definedby the standard X.509, provided by the Standardization sector of the International Tele communications Union (ITU-T). Version 1 was defined in 1988, Version 2 in 1993, and Version 3 (the current version) in 1996."
+        },
+        {
+          "type": "paragraph",
+          "text": "An X.509 certificate consists of three required fields: the tbscertificate, the signatureAlgorithm, and the signatureValue. Here is a quick look at the contents of each:"
+        },
+        {
+          "type": "paragraph",
+          "text": "Inside the tbscertificate field, you will find the names of the subject and the issuer. This field also contains the public key associated with the subject and the “validity period” specifying the notBefore and notAfter times. The certificate authority generates and inserts a unique serialNumber for the certificate, too."
+        },
+        {
+          "type": "paragraph",
+          "text": "The signatureAlgorithm field contains an identifier for the cryptographic algorithm used by the certificate authority to sign the certificate."
+        },
+        {
+          "type": "paragraph",
+          "text": "The signatureValue field contains a digital signature computed for this certificate, encoded as a bit string."
+        },
+        {
+          "type": "note",
+          "text": "For more information about the X.509 certificate and its required fields, see RFC 5280,“Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Pro file,” from the Internet Engineering Task Force (https://doi.org/10.17487/RFC5280). In addition to specifying the content of X.509 certificates, the standard lays out a certification path validation algorithm as well. Digital certificates build and rely upon a chain of trust, and a certificate chain carefully lists for examination each CA in the chain, conveying credence to the certificate. A certificate can in fact be self-signed by the subject. Properly constructed self-signed certificates adhere to the format and satisfy the standard, leaving it up to the recipient toevaluate whether they are trustworthy. Self-certification limits, naturally, the sum of con veyed trust to the subject alone. On the other hand, self-signed certificates do eliminatethe potential risk of third parties, which may improperly sign certificates or have them selves been compromised by an attack. Before leaving the subject of digital certificates, we must tackle the difference between a certificate and a blockchain. Blockchains have made cryptocurrencies possible (and increasingly popular) in recent years. They are based on a cryptographic message integrity scheme. A blockchain is a decentralized public record of transactions calculated by distributed computing systems across the Internet. The blockchain uses cryptographic encryption to ensure that any tampering with that record can be detected."
+        },
+        {
+          "type": "paragraph",
+          "text": "Briefly, the blocks keep batches of valid transactions that are hashed and encoded into something called a Merkel tree. Each block holds the cryptographic hash of the previous block. Hence, they are chained together, in a set of continuous links, all the way back to a genesis block. This distributed public chain of verifiable blocks ensures the integrity of the blockchain transaction records."
+        },
+        {
+          "type": "paragraph",
+          "text": "Central to the idea of a digital certificate is a hierarchy of certificate authorities, exter nal entities that are trusted to “certify” the connection between the subject and the datain the certificate. Blockchains are not certificates, because no external entity is perform ing certification."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-federated-identity-management",
+      "title": "Federated Identity Management",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Earlier this chapter discussed how SSO helped ordinary users and system administra tors keep their sanity. By requiring the user to authenticate just one time with a singleaccount and then use many applications inside an enterprise, SSO eases the authentica tion burden for all."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this section, we will discuss two related, but different, approaches to SSO. One is called federated identity management (FIM). The other is delegated identity management(DIM). In the federated approach to website authentication, users can supply any credentials they want that are compatible with the site and the services behind it. For exam ple, an OpenID account can be used with any service that implements the OpenID service. Delegating an authentication service, on the other hand, transfers responsibility for authentication to a third party. Facebook Connect is an example. If you have ever been offered a chance to “authenticate through Facebook,” you have seen delegated authentication in action."
+        },
+        {
+          "type": "paragraph",
+          "text": "Both approaches allow you to authenticate once and then conduct a session using applications across several cooperating enterprises. A user can log into one enterprise and then be able to employ resources in a second, affiliated network without additional authentication and without applying a second credential."
+        },
+        {
+          "type": "paragraph",
+          "text": "These two approaches offer a good way to enforce multifactor authentication across many applications. The method scales well and extends cleanly to cloud environments."
+        },
+        {
+          "type": "paragraph",
+          "text": "One important design element is that these two authentication schemes rely on mutual trust. The user’s credentials are stored with an “identity provider” accessible on the connected networks or the cloud. When the user logs into a service (for example,a security as a service application), the service provider puts its trust in the identity pro vider. These trust relationships mean effectively that the compromise of one significant element of the service chain can lead to the compromise of all connected systems that trust that identity."
+        },
+        {
+          "type": "paragraph",
+          "text": "One facet of this arrangement amplifies operational security considerably: it is no lon ger necessary to deauthorize a compromised account or persona non grata user on every individual system or application for which they are authorized. A user can be deauthorized once with immediate effect everywhere on all of the systems using this distributed method."
+        },
+        {
+          "type": "paragraph",
+          "text": "An implementer of federated identity management has plenty of technical choices. They can use Security Assertion Markup Language (SAML) or even plain XML to transmit authorization messages among partners. Other options include use OAuth,OpenID, and even security tokens or PKI. Various combinations are possible; for example, WS-Federation is an Identity Federation specification developed by a group of com panies, part of the Web Services Security framework. WS-Federation has mechanisms for brokering information on identities, identity attributes, and authentication itself."
+        },
+        {
+          "type": "paragraph",
+          "text": "Using SAML for Federated Identity Management"
+        },
+        {
+          "type": "paragraph",
+          "text": "SAML, a modern open standard defined by the OASIS Committee, was discussed earlierin the “Identity Management Implementation” section. Under federated identity man agement, XML-based SAML makes use of three roles and four primary components."
+        },
+        {
+          "type": "paragraph",
+          "text": "In its simplest application within IAM, SAML provides a formal mechanism and for mat for one entity to assure a second entity about the identity of a third, usually a human being. These three SAML roles include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Identity provider (IdP): This is the first entity. It makes an assertion about another identity, based on information it has. This information might have just been obtained, say by querying the user for a username/password pair.",
+            "Service provider (SP): This entity is the relying party that is being asked to pro vide its service or resource, based on the assurance provided by the IdP.",
+            "Subject or principal: This entity is the subject of the assertion, usually a person, who is in some sense being vouched for."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "The four primary components of SAML are:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Assertions: In a SAML assertion, an identity provider makes one or more statements about a subject (also known as the principal—usually, a user) that the rely ing party can use to make access control decisions. The statement vouches for theauthentication of the subject (perhaps providing details in an authentication state ment) and may provide one or more attribute statements, describing the subject by means of name-value pairs. The assertion may also specify, in an authorization decision statement, conditions under which the principal is permitted to perform certain actions on a given resource.",
+            "Protocols: SAML protocols describe how information is to be exchanged between, or consumed by, SAML entities. These rules specify the format and"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "content of several types SAML exchanges, especially queries between entities. Forexample, SAML version 1.1 provides for queries concerning the kind of authentication, attribute, and authorization information contained in assertions. Addi tional protocols, added in SAML 2.0, include an Artifact Resolution Protocol, a Name Identifier Management Protocol, and Single Logout Protocol."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bindings: SAML bindings specify how to encapsulate the various SAML proto cols in various types of messages. Since SAML 2.0, these bindings have described not only how to include queries in, for example, SOAP envelopes, but also HTTP POST and GET exchanges (among others).",
+            "Profiles: SAML bindings, protocols, and assertions can be pulled together to make a profile, a set of definitions and instructions for a specified use case. SAML 2.0, for instance, makes available five different profiles for SSO use cases: EnhancedClient or Proxy (ECP), Identity Provider Discovery, Name Identifier Manage ment, Single Logout, and Web Browser SSO. Several other profiles are available in SAML 2.0. There are third-party profiles, too, such as the OASIS WS-Security SAML Token Profile."
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "SAML assertions themselves do not provide authentication of the user or principal. The next section discusses several methods for achieving this."
+        },
+        {
+          "type": "note",
+          "text": "For more information about SAML, its roles and components, and their formats, see “Security Assertion Markup Language (SAML) V2.0 Technical Overview, OASIS Committee Draft 02,” at https://wiki.oasis-open.org/security/Saml2TechOverview. Authentication and Authorization Methods There are several prominent methods for authentication in use today, ranging from get ting a simple username/password pair to the use of multifactor authentication to the most complex of modern centralized methods. Several older, legacy authentication methods remain in use, including Remote Authentication Dial-in User Service (RADIUS), Lightweight Directory Access Protocol (LDAP), and Microsoft’s Active Directory. RADIUS originated in the early 1990s as a method of authenticating dial-up cus tomers and has seen much use in support of classical remote access. A RADIUS server, when queried by a client supplying candidate login credentials, can reply with either an Access-Accept message, an Access-Reject, or an Access-Challenge. With this lightweight structure, RADIUS can conduct fast and simple authentications when possible or move on to multifactor authentication and even challenge-response dialogs when those are"
+        },
+        {
+          "type": "paragraph",
+          "text": "required. RADIUS can also support complications such as the Extensible Authentication Protocol (EAP)."
+        },
+        {
+          "type": "paragraph",
+          "text": "LDAP is a directory service based on the X.500 Directory Access Protocol standard developed by the ITU-T. Designed to take advantage of the IP protocol suite, whichevolved after the adoption of the X.500 Directory Access Protocol, LDAP is often com pared to an old-fashioned telephone directory. An LDAP server contains informationabout users in a directory tree, and clients query it to get details. Large enterprises main tain replicated LDAP servers at various points across the enterprise to facilitate a quick response."
+        },
+        {
+          "type": "paragraph",
+          "text": "Each entry in an LDAP directory tree is a collection of information about an object, pointed to by a unique identifier called a distinguished name (DN). The DN represents the complete path in the tree to the desired entry. A set of named component parts called attributes hold the data for that entry. Various user attributes are typically stored in LDAP directories, including telephone numbers, physical addresses, postal addresses, and email addresses."
+        },
+        {
+          "type": "paragraph",
+          "text": "LDAP can also be used to authenticate user credentials by an LDAP command called bind. In the simplest case, bind checks the entered candidate password against the userPassword attribute (receiving either a success code or the error Invalid credentials)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Microsoft’s ubiquitous Active Directory, developed for Windows domain networks, uses LDAP versions 2 and 3. Active Directory is a proprietary directory service. A serverrunning Active Directory Domain Services (AD DS), called a domain controller, authen ticates users and authorizes actions, verifying their credentials and defining their accessrights. AD DS provide structured hierarchical data storage for users, printers, and ser vices, as well as support for locating and working with those objects."
+        },
+        {
+          "type": "paragraph",
+          "text": "On a larger, multinetwork or multi-enterprise playing field, Active Directory Feder ation Services (AD FS) can allow the sharing of information between trusted business partners. AD FS can provide SSO to federated partners just as other federated identity management systems can."
+        },
+        {
+          "type": "paragraph",
+          "text": "Two more modern protocols, mentioned earlier in this chapter, are commonly used together to provide authentication services. OAuth 2.0 and OIDC offer a related but competing approach to SAML."
+        },
+        {
+          "type": "paragraph",
+          "text": "OIDC is an implementation of the authorization framework OAuth 2.0, facilitatingthe communication of attribute and authentication information. Whereas SAML specifi cally relays requests from a website, OIDC can work to effect authentication with either a website or a mobile application as the requester."
+        },
+        {
+          "type": "paragraph",
+          "text": "An OIDC authentication sequence requires the selection of an OpenID identify provider. Once the IdP is known, OIDC operates as an authentication layer on top of the"
+        },
+        {
+          "type": "paragraph",
+          "text": "OAuth 2.0 protocol, allowing the relying party to request and receive information about the user from the IdP."
+        },
+        {
+          "type": "paragraph",
+          "text": "OAuth 2.0 is itself an authorization protocol. Using it, a client application can request access to a protected resource from the entity that owns that resource. The request goes to an authorization server, which must authenticate the resource owner, validate the request, obtain authorization from the resource owner, and then relay an authorization token to the resource server that hosts the protected resource."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the OIDC authentication implementation, the relying party (RP) is an OAuth 2.0 application requesting an ID token from an OpenID Connect Provider (OP). The fields in the token will contain data (“claims”) about both the user (called the subject, or sub, and known by a locally unique identifier) and the timing (both the “issued at” time, or iat, and the expiration time, exp) of the authentication event. Also, the ID token will contain the issuer identifier (iss) of the OP and the client identifier (audience, or aud) registered for the RP at the issuer. Additionally, the claims can contain more information about the user, such as first_name, last_name, and so on."
+        },
+        {
+          "type": "paragraph",
+          "text": "One way to view this extension of OAuth 2.0 is that OIDC effectively allows an appli cation to request authorization to authenticate a user."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-credential-management-systems",
+      "title": "Credential Management Systems",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Earlier in this chapter, we explored the idea of using a password manager to ease a user’s task in creating and remembering complex passwords. We discussed then the pros and cons of storing all of an individual’s passwords for a given computer in one central place. It means less work for the user and often results in stronger, more complex passwords.The central storage has special risks, too: the loss or theft of the master password can sig nificantly disrupt the user’s work and may open them to impersonation, which can pose a serious threat to network security."
+        },
+        {
+          "type": "paragraph",
+          "text": "Password managers are one instance of a credential management system, in which the same concept of centralization is carried out at an enterprise level (or even a federation of cooperating enterprises). You can use a commercial credential management system (CMS) to create, maintain, and store the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Traditional passwords",
+            "Digital certificates and tokens",
+            "One-time passwords",
+            "Biometric records"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "A good CMS must do the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scale well as the enterprise or federation grows",
+            "Handle the needs of devices and users who are on site, remote, mobile, or in the cloud"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Just as with any “put all your eggs in one basket” approach, CMSs come withsome special challenges and risks. If the security protecting the CMS is compro mised, a massive failure may (depending on the exact design of the CMS and other safeguards) be possible via successful impersonation. In any event, an enterprise with a compromised CMS would need to reissue credentials on a massive scale—an expensive, disruptive, and time-consuming process."
+        },
+        {
+          "type": "paragraph",
+          "text": "Do not let this mostly hypothetical risk of catastrophic failure dissuade you from using such a centralized repository. A well-designed, professional-grade CMS should certainly prove more resistant to attack than the alternative, one or more ad hoc systems spreadaround a network. Indeed, a CMS may well be the only way to provide sufficient assur ance for regulators and boards of directors that credentials are adequately secured."
+        },
+        {
+          "type": "paragraph",
+          "text": "A useful feature of any CMS is a hardware security module (HSM), a physical device that attaches to a computer system. An HSM protects credentials to a higherdegree than any software running on a general-purpose computing system could pro vide by itself. It can take many physical forms (a PCI plug-in card, a smartcard, or aphysically shielded local area network appliance), but all HSMs will feature a special ized processor to provide cryptographic keys and accelerated cryptographic operations."
+        },
+        {
+          "type": "paragraph",
+          "text": "An HSM thus offers high performance and sophisticated key management, as well as (often) redundant storage for high availability. Perhaps its most important advantage, though, is that it facilitates separation of duties. The system administrators who manage the enterprise network, and may have general privileged access to accounts, registers, and directories, can nevertheless be walled off from access to the HSM, administered separately. If no one person has the ability to both manage accounts (including associated privileges) and the accounts’ credentials, a single rogue administrator has a much harder time taking total control."
+        },
+        {
+          "type": "paragraph",
+          "text": "For a complementary perspective on methods and risks pertaining to credential management and further discussion of HSMs, please consult Chapter 3, “Security Architec ture and Engineering.”"
+        }
+      ]
+    },
+    {
+      "id": "domain-5-integrate-identity-as-a-third-party-service",
+      "title": "Integrate Identity as a Third-Party Service",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In implementing identity management services, it is often desirable to integrate identityas a third-party service, engaging an identity provider. We will examine here three scenar ios: on-premises implementations, cloud services, and a federated approach. Naturally, these arrangements can be combined in various ways. Any solution must bridge to"
+        },
+        {
+          "type": "paragraph",
+          "text": "existing technologies you are already using (e.g., Active Directory) and integrate with your traditionally authenticated applications."
+        },
+        {
+          "type": "paragraph",
+          "text": "To begin the analysis, consider the traditional security architect’s question: what can go wrong?"
+        },
+        {
+          "type": "paragraph",
+          "text": "Before “outsourcing” your identity services, take a careful look at the question of availability. Especially if the bulk of your operations are still on site, introducing a new dependency on the cloud may represent a significant incremental risk. If the mechanismsallowing your users to log into your applications now include vectoring the authenti cation request to a third party IdP, your business will grind to a halt if that third party is offline."
+        },
+        {
+          "type": "paragraph",
+          "text": "To manage this risk, try to find a way to avoid making the IdP a single point of failure. Do they offer a high-availability option, perhaps by partnering with a competing service to cover their outages? The peace of mind might be worth the extra cost."
+        },
+        {
+          "type": "paragraph",
+          "text": "Whether or not you can protect against an outage of your outsourced identity pro vider, you need to look at the failure scenarios. Presumably, if the IdP is offline, your accounts will fail closed—that is, login attempts will be denied. Does it make sense (is it even possible?) to maintain a core set of on-premises accounts as a backup so that specific administrators will be guaranteed access in case of an IdP outage? Many arrangements are possible; engage the right stakeholders, and choose one."
+        },
+        {
+          "type": "paragraph",
+          "text": "Another point to keep in mind when considering outsourcing a particular service is your third-party risk. If you integrate identity as a third-party service, you are trusting that third party with the identity of your users and their authentication to all the software and data you provide them. A compromise of the identity provider’s systems or databases ornetwork could mean giving control to an attacker of the authentication within your enter prise. To be diligent, satisfy yourself that the intrinsic enterprise security of the candidate IdP is, at the very least, as strong as that of your own company. Otherwise, you will be simply lowering your security to their level."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-on-premise",
+      "title": "On-Premise",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "If you have already standardized on a traditional technology such as Active Directory or LDAP, you may want to retain that on-premises directory as your master identity source. (However, you might not have a choice. Some of the newer identity schemes and IoT environments are incompatible with legacy environments.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "There are hybrid models to consider. One solution is to use your established methods for employees while managing the identities of contractors and guests via a third-partyproduct. The access given to employees is typically more textured, with many more appli cations and services involved than for temporary workers. Consider managing identities for the latter with a lightweight modern third-party solution. You want to avoid as many"
+        },
+        {
+          "type": "paragraph",
+          "text": "adds, moves, and changes as you can with the more complex services such as Active Directory."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-cloud",
+      "title": "Cloud",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Many enterprises today operate either wholly in a cloud environment or with a mix ofon-premises and cloud-based operations. In the cloud especially, it is common to imple ment identity as a service (IDaaS)."
+        },
+        {
+          "type": "paragraph",
+          "text": "IDaaS provides cloud-based services that broker IAM functions to target systems on customers’ premises and/or in the cloud. IDaaS is often paired with software as a service (SaaS), implemented as applications in the cloud."
+        },
+        {
+          "type": "paragraph",
+          "text": "When the movement toward SaaS first began in the late 1990s, authentication was the sticking point, the notable obstacle. As SaaS emerged, it required an enterprise to authorize duplicate accounts (parallel to those already in the enterprise) for its users, on the website of the software service. Maintaining duplicate accounts was troublesome and risky, and the question of who held the passwords (the enterprise or the service company) had no good answer. Using an identity provider in the cloud along with SaaS elegantly resolves this puzzle."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the identity provider scheme, a user in your organization logs in using an identity from an outside provider, such as Google, Facebook, or Amazon Web Services. That external entity is given permission by your security services to use internal resources on behalf of that validated account. This way, your users can access resources via the cloud without revealing your internal usernames and passwords, or other internal credentials, to third parties in the cloud."
+        },
+        {
+          "type": "paragraph",
+          "text": "Availability of the identity provider remains a concern, as it always must. Still, will there often be a case when your users want to use cloud software services—which areup—but the cloud-based identity provider is down? Usually, they will both be avail able; occasionally, they will both be offline due to difficulty in reaching the cloud. The unavailability of the IdP alone should be a rare occurrence."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-federated",
+      "title": "Federated",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "To make use of an identity provider across a federated group of partners is a natural extension of the simpler cases. You will need to examine the increased spread of the risks involved, but the business drivers for collaboration are irresistible for most companies in today’s environment."
+        },
+        {
+          "type": "paragraph",
+          "text": "The key is to be able to give access to selected applications and databases—no more. If those services are hosted in the cloud, configured as SaaS, both your employees andyour collaborators can use the same IDaaS. If the services to be shared run on your inter nal, on-premises servers, you will need your servers to receive, accept, and trust incoming directives (typically, SAML assertions) from your collaborator."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-implement-and-manage-authorization-mechanisms",
+      "title": "Implement and Manage Authorization Mechanisms",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Suppose that you have the opportunity to devise, from scratch, a scheme for access con trol to all of the assets for which you are responsible. Not only can you pick the security devices and policies, but you can also decide on the very kinds of attributes that will determine access authority for everyone."
+        },
+        {
+          "type": "paragraph",
+          "text": "One way to start such a design is to imagine that you—or your avatar—will be que ried, moment to moment, for an on-the-spot decision as to who can do what. For this example, suppose you receive the queries via text and respond with your decision the same way."
+        },
+        {
+          "type": "paragraph",
+          "text": "If the CFO wants to open a forecast spreadsheet, you might see something like this: [Date/Timestamp]: User jsmith1 wants to OPEN forecast.xls for WRITE."
+        },
+        {
+          "type": "paragraph",
+          "text": "In response, you need to grant or deny access. Your decision will be based on a variety of factors, each of which will be informed by the access control model that you are using."
+        },
+        {
+          "type": "paragraph",
+          "text": "There are several access control models that exist. The most useful of these include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Role-based access control (RBAC)",
+            "Rule-based access control (also, ambiguously, RBAC)",
+            "Mandatory access control (MAC) (sometimes known as nondiscretionary access control, or NDAC)",
+            "Discretionary access control (DAC)",
+            "Attribute-based access control (ABAC)"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "The following sections examine how each model would implement this hypothetical CFO’s spreadsheet example."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-role-based-access-control",
+      "title": "Role-Based Access Control",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "RBAC is an access control model that bases the access control authorizations on the roles (or functions) that the user is assigned within an organization."
+        },
+        {
+          "type": "paragraph",
+          "text": "RBAC has been used in simple forms since the early days of information security. It was formally defined by David Ferraiolo and Rick Kuhn in 1992 and soon became the dominant model for advanced access control. A well-designed and carefully managed RBAC system can dramatically reduce the cost of security administration while providing sound flexible control."
+        },
+        {
+          "type": "paragraph",
+          "text": "With RBAC, access rules are modeled after the enterprise’s structure. Several orga nizational roles are defined (e.g., manager, software developer, salesperson), and each user is assigned one or more roles. Access rights are then assigned to the roles (not to the"
+        },
+        {
+          "type": "paragraph",
+          "text": "individual users) after determining which operations must be accomplished by people in each particular job. The role can be a job description, group membership, or security access level."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the CFO spreadsheet scenario in our example, a role of “confidential financial analyst” could be assigned to user jsmith1, who would also be assigned a role of (say) “senior manager,” sharing that role with other executives. Files similar to forecast.xls would certainly be made available for read and write to the analyst class, while senior managers might only have read access. The organization would need some sort of role for system administrators as well, empowering them to perform backups, and perhaps to read from (but not write to) such files as well."
+        },
+        {
+          "type": "paragraph",
+          "text": "Notice, by the way, that role conflicts are possible. That is,jsmith1 may have permission to read and write in their role as an analyst, but only reading rights as a senior man ager. How to resolve such conflicts is a matter of policy. A permissive system will grant the maximum access of all combined rights, usually permitting any action granted by any of the assigned roles. A restrictive system will grant only the minimum access, the least access of any role assigned to the user."
+        },
+        {
+          "type": "paragraph",
+          "text": "In this example, therefore, you (or your avatar) would handle the request"
+        },
+        {
+          "type": "paragraph",
+          "text": "[Date/Timestamp]: User jsmith1 wants to OPEN forecast.xls for WRITE."
+        },
+        {
+          "type": "paragraph",
+          "text": "by looking up all the roles assigned to jsmith1 and determining, via a policy like the one just described, whether write access is included."
+        },
+        {
+          "type": "paragraph",
+          "text": "Compared to other access control paradigms, RBAC can reduce employee downtime and simplify account provisioning."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-rule-based-access-control",
+      "title": "Rule-Based Access Control",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "RBAC is an access control model that is based on a list of predefined rules that determine what accesses should be granted. It is a simple concept which can result in extremely complex rule lists."
+        },
+        {
+          "type": "paragraph",
+          "text": "A firewall configuration file is an example of rule-based access."
+        },
+        {
+          "type": "paragraph",
+          "text": "All traffic presented to the firewall is compared to the rules, one after another. An incoming connection request may be considered first according to its source InternetProtocol address and then according to its IP address destination. If no rule has been trig gered yet, the connection request may be filtered according to the particular port sought for a connection. After all the rules and filters have been applied, if no disposition has been determined the default action (if there is one) will be carried out, either a deny or accept."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the CFO spreadsheet scenario in our example, there would be an access control list (ACL) associated with the file, or perhaps the folder in which the file resides. This ACL will define the types of access (read, write, or read/write, perhaps execute) allowed"
+        },
+        {
+          "type": "paragraph",
+          "text": "to each user they want to be able to use the file. Our access control software will con sult the ACL associated with the spreadsheet file forecast.xls to see whether the user jsmith1 has write access to the file."
+        },
+        {
+          "type": "paragraph",
+          "text": "Since the acronym RBAC is most often used to denote role-based models, one some times sees rule-based access control models referred to as “rule-BAC” (or sometimes RB-RBAC) systems, rather than RBAC."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-mandatory-access-control",
+      "title": "Mandatory Access Control",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "This model, often associated with military or government organizations, employs a static and strictly hierarchical approach to controlling resources."
+        },
+        {
+          "type": "paragraph",
+          "text": "MAC sometimes referred to as non-discretionary access control (NDAC), requires the system itself to manage access controls in accordance with the organization’s security policies. The information officer assigns a security label to each object or resource. The label names a classification (e.g., Top Secret, Secret, Confidential, or Unclassified) and a category (e.g., management level, department, or project)."
+        },
+        {
+          "type": "paragraph",
+          "text": "End users—often, consumers of the information—have no control over the label set tings. The identity administrator assigns each user a clearance and that user can consume information classified at or below that level. For example, a user with a Secret clearance can view documents that are Secret or Confidential but not Top Secret."
+        },
+        {
+          "type": "paragraph",
+          "text": "The owner or creator of a document sets its classification (we are simplifying here—"
+        },
+        {
+          "type": "paragraph",
+          "text": "that may be a specialist’s job) but cannot decide which users are authorized. That deci sion is made by the system itself, depending on whether a particular user’s access level rises as high as the document. This model is based on levels and labels, not roles; it issometimes called a lattice-based model. To see how this works, visualize a set of book shelves in a fancy library, with a ladder giving access to the highest shelves. If you put the most precious books (or facts) on the highest shelves and then control how many steps up the ladder the library’s users are allowed to climb, you have implemented a lattice-based access control model."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the CFO spreadsheet scenario in our example, the access decision will come down to what classification (e.g., Secret) was assigned to forecast.xls and whether CFO jsmith1 has Secret access or better."
+        },
+        {
+          "type": "paragraph",
+          "text": "Two formal historical methods sometimes associated with MAC are the Biba IntegrityModel and the Bell-LaPadula model, both proposed in academic papers in the mid 1970s. Each has had a significant influence on access control theory—so much so thattheir principles today may sound familiar and simplistic to security practitioners unac quainted with the theoretical underpinnings of modern practice."
+        },
+        {
+          "type": "paragraph",
+          "text": "In 1973, computer scientists David Bell and Leonard LaPadula proposed a ground breaking formal model for computer access control. In their model, they divide all entities on a computer system into either subjects or objects. Bell and LaPadula prove"
+        },
+        {
+          "type": "paragraph",
+          "text": "mathematically that if their rules for handling of objects by subjects are followed, the confidentiality of the objects will be preserved."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Biba Integrity Model was proposed by Kenneth Biba in 1975. His model described a set of access control rules designed to preserve the integrity of information. A user with low-level clearance can read higher-level information (“read up”). A user with high-level clearance can write for lower levels of clearance (“write down”). Notice that the latter rule protects the integrity of documents from those unauthorized to change them."
+        },
+        {
+          "type": "paragraph",
+          "text": "The basic rules are what we described for MAC. Users can create content only at or above their own security level (no “write-down”). Users can view content only at or below their own security level (no “read-up”). They also provided for the use of an access matrix to specify discretionary access control; this facet of the model introduces a taste of DAC, which we discuss next."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-discretionary-access-control",
+      "title": "Discretionary Access Control",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "DAC is a paradigm in which the system owner decides who gets access to that computer system. In the case of a file or other data object, it is the owner, creator, or data custodian who defines and controls access (such as reading and writing) to the object."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the CFO spreadsheet scenario in our example, the file’s owner will have cre ated an ACL defining the types of access (e.g., read, write, or read/write, perhapsexecute) accorded to each user they wanted to be able to use the file. As in our rule based example, our access control software will need to consult the ACL associated with the spreadsheet file forecast.xls to see whether the user jsmith1 has write access to the file."
+        },
+        {
+          "type": "note",
+          "text": "that DAC allows the individual data owner complete control over the objects they own, even to the extent of granting some users higher levels of access to the object than they would ordinarily have over other similar objects."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-attribute-based-access-control",
+      "title": "Attribute-Based Access Control",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "ABAC is a relatively new, so-called “next-generation” access control model. It employs a paradigm whereby access rights are granted to users according to policies that combine attributes. For example, access to a given data set or system might only be allowed during “working hours” (however those are defined by the organization).Because it controls access of subject to objects by evaluating rules against the attri butes of the subject and object and against the environmental conditions, ABAC is more flexible than the other methods we have discussed. It can be easy to set up but may be complex to manage."
+        },
+        {
+          "type": "paragraph",
+          "text": "◗◗ real World exaMPle: desirable attributes of authorization schemes"
+        },
+        {
+          "type": "paragraph",
+          "text": "Whatever access and identity management scheme you select, you will need to ensure that it is the following:"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Fast in operation. Logic that is involved in every decision on the network must be crisp. Keep in mind that, usually, simpler principles lead to faster execution"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Scalable. Whether you need to control hundreds of assets, or billions, you will want to use the same basic approach. Most enterprises, especially successful ones, grow and change and sprawl and spurt. You do not want your access scheme to hinder growth."
+        },
+        {
+          "type": "paragraph",
+          "text": "■Comprehensive. It is not always possible to subsume all of an enterprise’s assets under a single identity or access management scheme. You may not be able to ensure that each employee and consultant and advisor in every department can be given a username and appropriate access regardless of when they join the company and what it is they do. Strive, however, for the minimal number of arrangements and meanings and things to remember that it is possible to achieve in managing assets and identities."
+        },
+        {
+          "type": "paragraph",
+          "text": "■Maintainable. Your organization will change. In a big company, divisions may be added, product groups invented, or an entire business arm may be broken ABAC systems are capable of enforcing both DAC and MAC models. ABAC systems can even be made to adapt as risks change, by expressing the risk values as variable attributes."
+        },
+        {
+          "type": "paragraph",
+          "text": "In our CFO spreadsheet example, the security office or network administrator might assign to jsmith1 the attributes of being an officer of the company and a manager in the financial department. The forecast.xls file could be assigned attributes showing it to contain sensitive financial records and subject to regulatory control. The system, in comparing the attributes of the user and the file, would (one presumes) conclude that an officer of the company, a manager in the financial department, should be given access to sensitive financial records pertinent to the company’s regulatory environment."
+        },
+        {
+          "type": "paragraph",
+          "text": "The policies with which ABAC operates are written in a structured language called the Extensible Access Control Markup Language (XACML), currently at version 3. One XACML rule for our example might direct the access control system, for example,to “permit managers to access financial data provided they are from the finance depart ment.” The language provides a level of contextual awareness difficult to match in earlier access control models."
+        },
+        {
+          "type": "paragraph",
+          "text": "up. Even in a small enterprise, individual contributors will be reassigned, and reporting relationships will change. You want an identity scheme that will power through any such changes and not require that someone change their internal email address or even their username because of a transfer or promotion"
+        },
+        {
+          "type": "paragraph",
+          "text": "■Adaptable. Ideally, the same scheme and decision factors should be capable of controlling access on individual computer systems, within a wholly owned data center, in a globe-circling cloud environment, or (more realistically) all of these environments and more, simultaneously."
+        },
+        {
+          "type": "paragraph",
+          "text": "■Just (and justifiable). Authorization decisions need to be justifiable in the eyes ofthose who are denied as well as those who are granted permission. Arbitrary deci sions, or decisions that can reasonably be criticized as discriminatory or frivolous, will at the very least drain energy away from security as they are defended."
+        },
+        {
+          "type": "paragraph",
+          "text": "■Comprehensible. Do not underrate the advantage of being able to explain the rea soning behind the IAM scheme you have selected. Management, vendors, board members or advisors, and many curious and sometimes frustrated employees will want to know how names and access roles are determined and what policy and infrastructure is carrying out access decisions."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-manage-the-identity-and-access-provisioning-lifecycle",
+      "title": "Manage the Identity and Access Provisioning Lifecycle",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "The identity lifecycle includes identity creation, identification, authentication, authorization, and deprovisioning. In a simpler sense, these steps can be generalized as provision ing, reviewing, and deprovisioning of identification. An overview of the identity lifecycle was provided earlier in the chapter in the “Manage Identification and Authentication of People, Devices, and Services” section. This section is focused more specifically on aspects of managing the lifecycle, including user access review, system account access review, and the provisioning and deprovisioning of identities."
+        },
+        {
+          "type": "paragraph",
+          "text": "Access control and identity settings must be kept up to date. People leave the company, and even those who stay change departments or jobs. It is important to review peri odically who has access to what and whether the access is still needed."
+        },
+        {
+          "type": "paragraph",
+          "text": "The need for periodic access review is not just a matter of departmental transfers. Many people go through periods in their lives when they become—perhaps for short periods—less reliable than they might like to be. Whether the cause is a sick child or an ailing marriage, a substance abuse issue or an attitude problem, everyone’s loyalty and ability to focus is challenged from time to time. Your policies and processes need to reflect these realities by mandating periodic user and system access reviews. Every person"
+        },
+        {
+          "type": "paragraph",
+          "text": "should have the minimum access rights needed for the tasks they are assigned. That access, as well as the person’s trustworthiness should be reviewed periodically, to make sure there is still a match between trust and risk."
+        },
+        {
+          "type": "paragraph",
+          "text": "For much the same reason, access control decisions and provisioning processes must be designed to allocate the minimum amount of access required for the shortest period of time possible. You need to determine precisely what access is needed to accomplish the task for which this person was hired or the system was created. You need to determine whether this system, access, or task is still relevant and necessary. The following sectionsdescribe how to do this, concluding with a discussion of how you can ensure that the life cycle is adequately managed and the implications of failure if you don’t."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-user-access-review",
+      "title": "User Access Review",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Whether you control access by enforcing rules or interpreting the various roles of the user,you must periodically review the access privileges accorded to each user (or system or soft ware entity). The period of the review should be set by policy and strictly enforced by well documented processes. Many organizations review the access of each user once per year."
+        },
+        {
+          "type": "paragraph",
+          "text": "In setting this policy, one must take into account the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Legal constraints, whether statutory or required by regulations",
+            "The frequency with which employees in your enterprise change jobs or change responsibilities within a job",
+            "Generally, the pace of change characteristic to your organization",
+            "The burden that user access reviews place upon the information technology staff and other parts of the company",
+            "The cost, both financial and in lost productivity, of the reviews themselves"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Your user access review process should include, at a minimum, the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "All of the accounts created for the user, or the accounts to which the user has been granted access",
+            "All of the computers this user can connect to, use, or log into",
+            "All of the databases this user can read from or write to",
+            "All of the applications this user can use",
+            "All of the websites controlled by your enterprise that the user can visit, and whether the user can log in, change things on the site, or merely read from it",
+            "What sorts of data this user can see or change",
+            "The times of day or days of the week all of these things may be done",
+            "The geographical locations—and logical places on the enterprise network or in the cloud—from which all of these things may be done"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Many of the most serious computer breaches in history have been the result of access rights left in place after a user changed assignments or left the company. Leftover accounts and no-longer-needed access are like land mines in your network. Defuse them with periodic substantive access review."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-system-account-access-review",
+      "title": "System Account Access Review",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "In addition to conducting a periodic review of access granted to and possible by each user, good practice also requires that you check access from the system point of view as well. Modern computer systems make extensive use of “system” accounts. These are a kind of user account not associated with a human being but rather an automated process. Often used for housekeeping purposes such as backups, disk management, or the general gathering and analysis of monitoring and log data, these accounts usually have elevated privileges that grant access to special devices or system files. Ideally, you would check system by system, for every computer, every security device on your network, and every database—in fact, every technical entity—to see which software and systems can do any of these things:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Connect",
+            "",
+            "Write",
+            "Verify the existence of, or the up/down state or its health",
+            "Start or stop",
+            "Read or change access settings",
+            "Read or change any other configuration settings",
+            "Perform privileged actions, or act as a system administrator"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "Such checks are time-consuming and in an ordinary network must be automated in order for a comprehensive scan to be practical. As with so many security measures, you may find it necessary to prioritize which systems (and which system accounts) are reviewed."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-provisioning-and-deprovisioning",
+      "title": "Provisioning and Deprovisioning",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Provisioning is the discrete act by which an identity, with whatever credentials are neces sary for authentication, is made available for use. Provisioning is what your company’s IT department does when they create an account on the company’s computers for you, issue you a laptop or mobile phone, or authorize you to use the enterprise computers."
+        },
+        {
+          "type": "paragraph",
+          "text": "Conversely, deprovisioning is the act of deactivating or decommissioning an identity and associated access. When, for example, you cease to be employed at the company,"
+        },
+        {
+          "type": "paragraph",
+          "text": "your accounts may be deactivated, and you will certainly be required to turn back in any phones or computers that had been issued to you."
+        },
+        {
+          "type": "paragraph",
+          "text": "Further aspects of deprovisioning may include the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Removing you from the list of authorized computer users",
+            "Removing you from any role-related access control lists",
+            "Disabling login accounts",
+            "Disabling email"
+          ],
+          "ordered": false
+        },
+        {
+          "type": "paragraph",
+          "text": "On that last point many organizations, when an employee leaves, do not remove login accounts and email access right away but rather disable them. The idea is that files and records can stay in one known place for a bit, while the organization figures out how to redistribute the responsibilities of the departed employee. (Your policies should make clear what is to be done, not leaving the decision up to the individual system administrator.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "We began this chapter about IAM by discussing who gets access to what assets in an enterprise. We stepped through the process of establishing an identity, authenticating a user, and determining whether they were authorized for a particular action. It is fitting, then, that we concluded with a discussion about how to remove a user and terminate their access. From beginning to end, the cycle of granting, managing, and removing identities and access authorizations is the essence of IAM."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-auditing-and-enforcement",
+      "title": "Auditing and Enforcement",
+      "level": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "We have laid out here a detailed description of good provisioning practice. But under standing what must be done is not enough. Even a small slip in executing these steps can blow open a gaping hole in your security. Here are a few real-world scenarios you should consider."
+        },
+        {
+          "type": "paragraph",
+          "text": "Suppose human resources’ everyday practices do not ensure that a departing employ ee’s login account is deactivated that same day. That leaves open a back door not only for the departing insider but also for, say, spiteful spouses with whom credentials (or the means to guess or circumvent them) have been shared."
+        },
+        {
+          "type": "paragraph",
+          "text": "Suppose a manager (acting out of compassion, perhaps, or simply juggling task pri orities) fails to ensure that the former employee’s laptop, phone, and other equipment is surrendered right away. Well, even if the equipment package does not enable a VPN tunnel straight into the corporate network (enhancing attack chances) and even if emails and files on the devices are somehow inaccessible for the former employee (if they were accessible it would facilitate theft or extortion), the remaining proprietary information on the equipment (employee lists, email addresses, and internal telephone numbers, as well as confidential text messages) can pose a significant security risk. Because even if your"
+        },
+        {
+          "type": "paragraph",
+          "text": "former employee is not, prior to surrendering the equipment, motivated to exploit that proprietary information, you might be unlucky enough to be dealing with someone whowill make a copy of such potential competitive ammunition, just in case. Many success ful enterprise attacks have been based on just such intelligence."
+        },
+        {
+          "type": "paragraph",
+          "text": "Such dire considerations are not speculations; they are case studies. And to avoid adding your company’s mistakes and oversights to the syllabi of leading business schools, you had better engineer compliance to the lifecycle practices we detailed in the previous sections. You can do that with auditing and enforcement."
+        },
+        {
+          "type": "paragraph",
+          "text": "Auditors can be a real pain. In fact, they ought to be, especially in the critical down to-earth details of your IAM. As a security professional, do all you can to build and support well-thought-out policies and practices in this area. Then, ask for or arrange or procure the most methodical, unforgiving, clear-eyed, exhaustive (and exhausting) review possible. You might engage disinterested third parties. Alternatively, internal auditing may be your corporate practice. If you are lucky, you may be able to use both. In any case,arranging for repeated thorough professional audits of your IAM is one of the best preven tative measures at your disposal."
+        },
+        {
+          "type": "paragraph",
+          "text": "Keep in mind that managing identities and access is more than making and announcing rules. Being a good manager, you will determine what is needed, make rules as appro priate, arrange for resources, provide training and obtain buy-in, measure performance (auditing is part of this), and then enforce consequences for failure. Whether the failure was in the policies or actions of human resources, the poor execution of technical steps by the information technology team, or a simple oversight by a manager or team memberanywhere in the chain of trust, enforcement (and reinforcement, as needed) of best prac tices can never be skipped."
+        },
+        {
+          "type": "paragraph",
+          "text": "The final step, of course, is to drive what you have learned from omissions and mis takes back into the workflow so your team (and you) can do a better job next time."
+        }
+      ]
+    },
+    {
+      "id": "domain-5-summary",
+      "title": "Summary",
+      "level": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Controlling who can do what to which object is, it can be fairly argued, the essence of security. Yes, it is possible to imagine a set of protections that make no distinction between friend and foe, block every action, and never allow a peek into whatever recordsmay reside in the database. Such blanket restrictions, however, do not constitute “secu rity” but rather a kind of data prison. A well-secured system is one that is available for the purpose intended by its owner and protects against reasonable threats by measures that do not significantly hamper its intended use. Such protections are impossible without the kinds of IAM techniques discussed here."
+        }
+      ]
+    }
+  ]
+}
