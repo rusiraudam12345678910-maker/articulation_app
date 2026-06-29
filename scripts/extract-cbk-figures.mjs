@@ -55,11 +55,13 @@ for (let p = 0; p < totalPages; p++) {
     // Collect all text in block
     const blockText = (block.lines || [])
       .map(l => l.text || (l.spans || []).map(s => s.text).join(''))
-      .join(' ');
+      .join(' ').trim();
 
-    const re = /Figure\s+(\d+\.\d+)/gi;
-    let m;
-    while ((m = re.exec(blockText)) !== null) {
+    // Only match caption blocks: "Figure X.Y" must appear at the START of the block
+    // (captions begin with "Figure X.Y", paragraphs only reference them mid-sentence)
+    const re = /^Figure\s+(\d+\.\d+)/i;
+    const m = re.exec(blockText);
+    if (m) {
       const figNum = m[1];
       if (figureNums.has(figNum) && !figLocations[figNum]) {
         figLocations[figNum] = { pageIdx: p, captionBbox: block.bbox };
@@ -81,41 +83,73 @@ const figureMap = {};
 async function renderFigure(figNum, pageIdx, captionBbox) {
   const page = doc.loadPage(pageIdx);
 
-  // Render full page
+  // Render full page at target DPI
   const matrix = mupdf.Matrix.scale(SCALE, SCALE);
   const pixmap = page.toPixmap(matrix, mupdf.ColorSpace.DeviceRGB, false, true);
   const pngBuf = Buffer.from(pixmap.asPNG());
 
   const { width: pixW, height: pixH } = await sharp(pngBuf).metadata();
 
-  // Get all text blocks on page to find what's above the caption
+  const captionBottomPx = Math.min(pixH, Math.round((captionBbox.y + captionBbox.h + 12) * SCALE));
+
+  // Find the bottom of the last "body text" paragraph above the figure.
+  // Exclude figure-internal labels by requiring block to end ≥50pt above caption.
   const json = JSON.parse(page.toStructuredText('preserve-whitespace').asJSON());
-
-  // Find the caption block again and all blocks
-  const captionY = captionBbox.y;
-
-  // Find the nearest text block that ends just above the figure
-  // (i.e. the last block whose bottom < captionY - some margin)
-  let topY = 36; // default: 0.5 inch from top
+  let textAboveBottomPt = 36;
   for (const block of json.blocks) {
     const blockBottom = block.bbox.y + block.bbox.h;
-    // Block must end above the caption with at least 10pt gap
-    if (blockBottom < captionY - 10) {
-      topY = Math.max(topY, blockBottom);
+    if (blockBottom < captionBbox.y - 80) {
+      textAboveBottomPt = Math.max(textAboveBottomPt, blockBottom);
     }
   }
 
-  // Caption bottom
-  const captionBottom = captionBbox.y + captionBbox.h + 8; // +8pt padding
+  const left  = Math.max(0, Math.round(30 * SCALE));
+  const right = Math.min(pixW, Math.round((36 + 468 + 6) * SCALE));
+  const scanWidth = right - left;
 
-  // Convert PDF coords to pixels
-  const left   = Math.max(0, Math.round(36 * SCALE));   // 0.5in left margin
-  const right  = Math.min(pixW, Math.round((36 + 468) * SCALE)); // standard text width
-  const top    = Math.max(0, Math.round(topY * SCALE));
-  const bottom = Math.min(pixH, Math.round(captionBottom * SCALE));
+  // Pixel-scan the full band from textAboveBottomPx to captionTopPx.
+  // Scan DOWNWARD to find the first row that has colored/non-white pixels —
+  // that is where the figure graphic begins.
+  const captionTopPx = Math.round(captionBbox.y * SCALE);
+  const bandTop = Math.max(0, Math.round(textAboveBottomPt * SCALE));
+  const bandH   = Math.max(1, captionTopPx - bandTop);
+
+  // Get RGB raw pixels to detect color (figures have colored fills)
+  const { data: rgbBand } = await sharp(pngBuf)
+    .extract({ left, top: bandTop, width: scanWidth, height: bandH })
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  // A pixel is "figure content" if it's not near-white (any channel < 230)
+  // or if it's strongly colored (high saturation)
+  const NEAR_WHITE = 250; // high threshold catches antialiased edges of vector figures
+  let figureFirstRow = -1;
+  for (let row = 0; row < bandH; row++) {
+    for (let col = 0; col < scanWidth; col++) {
+      const i = (row * scanWidth + col) * 3;
+      const r = rgbBand[i], g = rgbBand[i+1], b = rgbBand[i+2];
+      if (r < NEAR_WHITE || g < NEAR_WHITE || b < NEAR_WHITE) {
+        figureFirstRow = row;
+        break;
+      }
+    }
+    if (figureFirstRow !== -1) break;
+  }
+
+  let top, bottom;
+  if (figureFirstRow !== -1) {
+    // Use exact first content row — no subtraction to avoid going into paragraph above
+    top = bandTop + figureFirstRow;
+  } else {
+    top = bandTop;
+  }
+  bottom = captionBottomPx;
+
+  top    = Math.max(0, top);
+  bottom = Math.min(pixH, bottom);
 
   if (bottom <= top) {
-    console.log(`  ⚠ Figure ${figNum}: invalid crop (top=${top} bottom=${bottom}), using half-page`);
+    console.log(`  ⚠ Figure ${figNum}: invalid crop (top=${top} bottom=${bottom})`);
     return null;
   }
 
