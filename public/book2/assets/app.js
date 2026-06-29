@@ -530,7 +530,7 @@ const App = (() => {
     if (!section) return;
 
     currentSectionIdx = sectionIdx;
-    const text = section.content.map(b => {
+    const bodyText = section.content.map(b => {
       if (b.type === 'paragraph' || b.type === 'note' || b.type === 'exam_tip' || b.type === 'chapter_intro') return b.text;
       if (b.type === 'list') return b.items.join('. ');
       if (b.type === 'quote') return b.lines.join(' ');
@@ -538,7 +538,8 @@ const App = (() => {
       if (b.type === 'table_caption') return `Table ${b.tableNum}. ${b.caption}.`;
       return '';
     }).filter(Boolean).join(' ');
-    if (!text) return;
+    const text = section.title ? section.title + '. ' + bodyText : bodyText;
+    if (!text.trim()) return;
 
     const utter = new SpeechSynthesisUtterance(text);
     utter.rate = parseFloat(els.ttsSpeed ? els.ttsSpeed.value : 1);
