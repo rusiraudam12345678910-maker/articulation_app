@@ -519,6 +519,62 @@ const App = (() => {
   }
 
   // ===== TTS =====
+
+  // Build the spoken text for a section, with natural pause punctuation between blocks.
+  // Returns { text, wordMap } where wordMap is an array of { charIndex, span } built
+  // after injectTTSSpans() so the highlight can match by position in the spoken string.
+  function buildTTSText(section) {
+    const parts = [];
+    if (section.title) parts.push(section.title + '.');
+
+    section.content.forEach(b => {
+      if (b.type === 'paragraph' || b.type === 'chapter_intro') {
+        // Ensure sentence ends with a period so the engine pauses naturally
+        const t = b.text.trimEnd();
+        parts.push(/[.!?]$/.test(t) ? t : t + '.');
+      } else if (b.type === 'note' || b.type === 'exam_tip') {
+        const label = b.type === 'exam_tip' ? 'Exam tip.' : 'Note.';
+        const t = b.text.trimEnd();
+        parts.push(label + ' ' + (/[.!?]$/.test(t) ? t : t + '.'));
+      } else if (b.type === 'list') {
+        // Each item separated by a comma-pause; trailing period ends the list
+        parts.push(b.items.map(it => it.trimEnd().replace(/[.!?,]$/, '')).join(', ') + '.');
+      } else if (b.type === 'quote') {
+        parts.push(b.lines.join(' '));
+      } else if (b.type === 'figure') {
+        parts.push(`Figure ${b.figNum}. ${b.caption}.`);
+      } else if (b.type === 'table_caption') {
+        parts.push(`Table ${b.tableNum}. ${b.caption}.`);
+      }
+    });
+
+    // Join blocks with two spaces — browsers treat this as a brief inter-sentence pause
+    return parts.filter(Boolean).join('  ');
+  }
+
+  // After injectTTSSpans(), align each .tts-word span to its position in spokenText.
+  // Returns an array sorted by charIndex: [{ charIndex, span }, ...]
+  function buildWordMap(secEl, spokenText) {
+    const spans = Array.from(secEl.querySelectorAll('.tts-word'));
+    const map = [];
+    let searchFrom = 0;
+
+    for (const span of spans) {
+      const word = span.textContent;
+      // Strip trailing punctuation to improve matching (e.g. "Models." → "Models")
+      const bare = word.replace(/[.,!?;:'")\]]+$/, '').replace(/^['"([]+/, '');
+      if (!bare) continue;
+
+      // Search forward in spokenText for this word token
+      const idx = spokenText.indexOf(bare, searchFrom);
+      if (idx === -1) continue;
+
+      map.push({ charIndex: idx, span });
+      searchFrom = idx + bare.length;
+    }
+    return map;
+  }
+
   function startTTS(sectionIdx) {
     if (!window.speechSynthesis) { alert('Text-to-speech is not supported in this browser.'); return; }
 
@@ -530,26 +586,20 @@ const App = (() => {
     if (!section) return;
 
     currentSectionIdx = sectionIdx;
-    const bodyText = section.content.map(b => {
-      if (b.type === 'paragraph' || b.type === 'note' || b.type === 'exam_tip' || b.type === 'chapter_intro') return b.text;
-      if (b.type === 'list') return b.items.join('. ');
-      if (b.type === 'quote') return b.lines.join(' ');
-      if (b.type === 'figure') return `Figure ${b.figNum}. ${b.caption}.`;
-      if (b.type === 'table_caption') return `Table ${b.tableNum}. ${b.caption}.`;
-      return '';
-    }).filter(Boolean).join(' ');
-    const text = section.title ? section.title + '. ' + bodyText : bodyText;
+    const text = buildTTSText(section);
     if (!text.trim()) return;
 
     const utter = new SpeechSynthesisUtterance(text);
     utter.rate = parseFloat(els.ttsSpeed ? els.ttsSpeed.value : 1);
     utter.lang = 'en-US';
 
-    // Inject word spans into just this section before speaking
     const secEl = document.getElementById(`sec-${section.id}`);
     if (secEl) injectTTSSpans(secEl);
 
-    ttsState = { active: true, paused: false, utterance: utter, sectionIdx, text, secEl };
+    // Build the precise char→span map after spans are injected
+    const wordMap = secEl ? buildWordMap(secEl, text) : [];
+
+    ttsState = { active: true, paused: false, utterance: utter, sectionIdx, text, secEl, wordMap };
 
     utter.onstart = () => {
       els.ttsBar.classList.remove('hidden');
@@ -559,8 +609,7 @@ const App = (() => {
 
     utter.onboundary = (e) => {
       if (e.name !== 'word') return;
-      highlightTTSWord(section, e.charIndex, e.charLength);
-      // Update progress
+      highlightTTSWord(e.charIndex);
       const pct = Math.round((e.charIndex / text.length) * 100);
       if (els.ttsProgressFill) els.ttsProgressFill.style.width = pct + '%';
     };
@@ -571,7 +620,6 @@ const App = (() => {
       els.ttsPlayBtn.textContent = '▶';
       ttsState.active = false;
       if (els.ttsProgressFill) els.ttsProgressFill.style.width = '100%';
-      // Auto-advance to next section
       if (sectionIdx + 1 < data.sections.length) {
         setTimeout(() => startTTS(sectionIdx + 1), 800);
       }
@@ -581,34 +629,25 @@ const App = (() => {
 
     window.speechSynthesis.speak(utter);
 
-    // Scroll section into view
     if (secEl) secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function highlightTTSWord(section, charIndex, charLength) {
+  function highlightTTSWord(charIndex) {
     clearTTSHighlights();
-    const secEl = ttsState.secEl;
-    if (!secEl) return;
-    const words = secEl.querySelectorAll('.tts-word');
-    // Rebuild char offsets from the full text of the section element
-    // ttsState.text is the plain-text string passed to SpeechSynthesisUtterance
-    // Map each word span to a position in that string
-    let pos = 0;
-    let matched = null;
-    for (const w of words) {
-      const wText = w.textContent;
-      const wLen = wText.length;
-      // charIndex points to start of the spoken word in ttsState.text
-      if (pos <= charIndex && charIndex < pos + wLen) {
-        matched = w;
-        break;
-      }
-      pos += wLen + 1; // +1 for the space between words
+    const { wordMap } = ttsState;
+    if (!wordMap || !wordMap.length) return;
+
+    // Find the last entry whose charIndex <= current charIndex (binary search)
+    let lo = 0, hi = wordMap.length - 1, best = 0;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (wordMap[mid].charIndex <= charIndex) { best = mid; lo = mid + 1; }
+      else hi = mid - 1;
     }
-    if (matched) {
-      matched.classList.add('speaking');
-      matched.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+
+    const { span } = wordMap[best];
+    span.classList.add('speaking');
+    span.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   function clearTTSHighlights() {
