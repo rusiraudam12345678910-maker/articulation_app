@@ -1,13 +1,21 @@
 import Link from 'next/link'
 import { login } from './actions'
 
-export default function LoginPage() {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+  const { error } = await searchParams
+
   return (
     <div className="flex min-h-full flex-col items-center justify-center bg-zinc-50 dark:bg-black px-4">
       <div className="w-full max-w-sm bg-white dark:bg-zinc-900 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 p-8">
         <h1 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 mb-6">
           Sign in
         </h1>
+
+        {error && (
+          <div className="mb-4 rounded-lg bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 px-4 py-3">
+            <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
+          </div>
+        )}
 
         <form className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">

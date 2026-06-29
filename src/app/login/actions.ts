@@ -13,7 +13,15 @@ export async function login(formData: FormData) {
   })
 
   if (error) {
-    redirect('/login?error=Invalid email or password')
+    let message = 'Invalid email or password.'
+    if (error.message.toLowerCase().includes('email not confirmed')) {
+      message = 'Please confirm your email address before signing in. Check your inbox for a confirmation link.'
+    } else if (error.message.toLowerCase().includes('invalid')) {
+      message = 'Invalid email or password.'
+    } else {
+      message = error.message
+    }
+    redirect('/login?error=' + encodeURIComponent(message))
   }
 
   revalidatePath('/', 'layout')
