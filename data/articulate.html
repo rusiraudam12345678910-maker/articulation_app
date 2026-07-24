@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articulate — Speech Clarity Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1B2430;
+    --ink-light: #2A3544;
+    --paper: #F2EDE4;
+    --paper-dim: #E7E0D2;
+    --coral: #E85D4C;
+    --coral-dim: #C44A3B;
+    --sage: #8BA888;
+    --gold: #D4A24C;
+    --text-on-ink: #F2EDE4;
+    --text-muted: #8C96A3;
+    --font-display: 'Fraunces', serif;
+    --font-mono: 'Space Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--ink);
+    color: var(--text-on-ink);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .app {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .brand-mark {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  .brand-mark .accent { color: var(--coral); font-style: italic; font-weight: 500; }
+
+  .brand-sub {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .streak-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink-light);
+    border: 1px solid rgba(212,162,76,0.3);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .streak-flame { color: var(--gold); font-size: 15px; }
+  .streak-count { font-weight: 700; color: var(--gold); }
+
+  /* ===== NAV TABS ===== */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .tab {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+  }
+  .tab:hover { color: var(--text-on-ink); }
+  .tab.active { color: var(--coral); }
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 14px; right: 14px;
+    height: 2px;
+    background: var(--coral);
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 18px;
+  }
+
+  .card-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--coral-dim);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .drill-text {
+    font-family: var(--font-mono);
+    font-size: 26px;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    margin: 14px 0 6px;
+  }
+
+  .drill-text .pair-divider {
+    color: var(--coral-dim);
+    margin: 0 10px;
+    font-weight: 700;
+  }
+
+  .drill-phonetic {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: #6b6356;
+    margin-bottom: 18px;
+  }
+
+  .drill-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .drill-nav {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: transform 0.12s, opacity 0.2s;
+  }
+  .btn:active { transform: scale(0.97); }
+
+  .btn-ghost {
+    background: rgba(27,36,48,0.06);
+    color: var(--ink);
+  }
+  .btn-ghost:hover { background: rgba(27,36,48,0.1); }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-primary:hover { background: var(--ink-light); }
+
+  .progress-dots {
+    display: flex;
+    gap: 5px;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(27,36,48,0.15);
+  }
+  .dot.done { background: var(--sage); }
+  .dot.current { background: var(--coral); transform: scale(1.4); }
+
+  /* ===== RECORDER ===== */
+  .recorder-card {
+    background: var(--ink-light);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 18px;
+  }
+
+  .recorder-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .rec-btn {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--coral);
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .rec-btn .dot-inner {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--coral);
+    transition: all 0.2s;
+  }
+  .rec-btn.recording {
+    background: var(--coral);
+    animation: pulse-ring 1.5s ease-out infinite;
+  }
+  .rec-btn.recording .dot-inner {
+    border-radius: 4px;
+    width: 14px; height: 14px;
+    background: var(--paper);
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(232,93,76,0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(232,93,76,0); }
+    100% { box-shadow: 0 0 0 0 rgba(232,93,76,0); }
+  }
+
+  .waveform-wrap {
+    flex: 1;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .wave-bar {
+    width: 3px;
+    min-height: 3px;
+    background: var(--text-muted);
+    border-radius: 2px;
+    transition: height 0.05s ease;
+  }
+  .wave-bar.active { background: var(--coral); }
+
+  .rec-status {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .playback-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .playback-controls .btn {
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+  .btn-sage { background: var(--sage); color: var(--ink); }
+  .btn-sage:hover { opacity: 0.85; }
+
+  /* ===== MODE SELECTOR ===== */
+  .mode-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 480px) {
+    .mode-grid { grid-template-columns: 1fr; }
+  }
+  .mode-card {
+    background: var(--ink-light);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .mode-card:hover { border-color: rgba(232,93,76,0.4); }
+  .mode-card.selected {
+    border-color: var(--coral);
+    background: rgba(232,93,76,0.08);
+  }
+  .mode-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .mode-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ===== STATS ===== */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .stat-box {
+    background: var(--ink-light);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--ink-light);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .history-item .h-date { color: var(--text-muted); font-family: var(--font-mono); font-size: 11px; }
+  .history-item .h-mode { color: var(--text-on-ink); }
+  .history-item .h-count { color: var(--sage); font-family: var(--font-mono); font-size: 12px; }
+
+  .empty-state {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: #6b6356;
+    margin-top: 4px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rec-btn.recording { animation: none; }
+    .wave-bar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header>
+    <div class="brand">
+      <div class="brand-mark">Artic<span class="accent">u</span>late</div>
+      <div class="brand-sub">Clarity &amp; accent practice</div>
+    </div>
+    <div class="streak-pill">
+      <span class="streak-flame">●</span>
+      <span>Streak: <span class="streak-count" id="streakCount">0</span> days</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="practice">Practice</button>
+    <button class="tab" data-tab="progress">Progress</button>
+  </div>
+
+  <!-- PRACTICE TAB -->
+  <div id="tab-practice">
+    <div class="mode-grid">
+      <div class="mode-card selected" data-mode="minimal">
+        <div class="mode-name">Minimal Pairs</div>
+        <div class="mode-desc">Contrast sounds that trip people up — ship/sheep, light/right.</div>
+      </div>
+      <div class="mode-card" data-mode="endings">
+        <div class="mode-name">Word Endings</div>
+        <div class="mode-desc">Drill the consonants people drop — -ed, -s, -t, -d.</div>
+      </div>
+      <div class="mode-card" data-mode="twisters">
+        <div class="mode-name">Tongue Twisters</div>
+        <div class="mode-desc">Control first, speed second. Say it slow and clean.</div>
+      </div>
+      <div class="mode-card" data-mode="shadow">
+        <div class="mode-name">Shadow Sentences</div>
+        <div class="mode-desc">Stress and rhythm practice — read aloud with natural pacing.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-eyebrow"><span id="modeLabel">Minimal Pairs</span></div>
+      <div class="drill-text" id="drillText">ship <span class="pair-divider">/</span> sheep</div>
+      <div class="drill-phonetic" id="drillPhonetic">/ʃɪp/ — /ʃiːp/</div>
+      <div class="hint" id="drillHint">Say each word slowly, then at normal pace. Feel the difference in vowel length.</div>
+      <div class="drill-meta">
+        <div class="progress-dots" id="progressDots"></div>
+        <div class="drill-nav">
+          <button class="btn btn-ghost" id="prevBtn">← Prev</button>
+          <button class="btn btn-primary" id="nextBtn">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="recorder-card">
+      <div class="recorder-row">
+        <button class="rec-btn" id="recBtn" aria-label="Start recording">
+          <div class="dot-inner"></div>
+        </button>
+        <div class="waveform-wrap" id="waveform"></div>
+      </div>
+      <div class="rec-status">
+        <span id="recStatusText">Tap to record yourself saying it</span>
+        <span id="recTimer">0:00</span>
+      </div>
+      <div class="playback-controls" id="playbackControls" style="display:none;">
+        <button class="btn btn-sage" id="playBtn">▶ Play back</button>
+        <button class="btn btn-ghost" id="discardBtn">Discard</button>
+        <button class="btn btn-ghost" id="markDoneBtn">✓ Mark practiced</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS TAB -->
+  <div id="tab-progress" style="display:none;">
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num" id="statTotal">0</div>
+        <div class="stat-label">Drills Done</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="statStreak">0</div>
+        <div class="stat-label">Day Streak</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="statToday">0</div>
+        <div class="stat-label">Today</div>
+      </div>
+    </div>
+    <div class="section-title">Recent sessions</div>
+    <div class="history-list" id="historyList">
+      <div class="empty-state">No sessions yet — finish a drill to start your history.</div>
+    </div>
+  </div>
+
+  <footer>BUILT FOR DAILY PRACTICE · NO AUDIO LEAVES YOUR DEVICE</footer>
+</div>
+
+<script>
+(function() {
+  // ===== DRILL CONTENT =====
+  const DRILLS = {
+    minimal: {
+      label: "Minimal Pairs",
+      hint: "Say each word slowly, then at normal pace. Feel the difference in vowel length / tongue position.",
+      items: [
+        { text: "ship / sheep", phon: "/ʃɪp/ — /ʃiːp/" },
+        { text: "light / right", phon: "/laɪt/ — /raɪt/" },
+        { text: "cat / cut", phon: "/kæt/ — /kʌt/" },
+        { text: "thin / fin", phon: "/θɪn/ — /fɪn/" },
+        { text: "very / wery", phon: "/ˈvɛri/ — /ˈwɛri/" },
+        { text: "bat / bad", phon: "/bæt/ — /bæd/" },
+        { text: "pin / bin", phon: "/pɪn/ — /bɪn/" },
+        { text: "full / fool", phon: "/fʊl/ — /fuːl/" },
+        { text: "rice / lice", phon: "/raɪs/ — /laɪs/" },
+        { text: "vest / west", phon: "/vɛst/ — /wɛst/" }
+      ]
+    },
+    endings: {
+      label: "Word Endings",
+      hint: "Don't swallow the last sound. Land on it clearly — even slightly exaggerated.",
+      items: [
+        { text: "walked", phon: "/wɔːkt/ — hard T, don't drop it" },
+        { text: "asked", phon: "/æskt/ — both consonants land" },
+        { text: "months", phon: "/mʌnθs/ — TH then S, no shortcuts" },
+        { text: "watched", phon: "/wɑːtʃt/ — full CH-T ending" },
+        { text: "thoughts", phon: "/θɔːts/ — three sounds at the end" },
+        { text: "she stopped", phon: "/ʃi stɑːpt/ — clip the T" },
+        { text: "he laughed loudly", phon: "/hi læft ˈlaʊdli/" },
+        { text: "best friend's birthday", phon: "/bɛst frɛndz ˈbɜːrθdeɪ/" }
+      ]
+    },
+    twisters: {
+      label: "Tongue Twisters",
+      hint: "Slow and accurate first. Only speed up once every sound is clean.",
+      items: [
+        { text: "red leather, yellow leather", phon: "focus: L vs R" },
+        { text: "she sells seashells by the seashore", phon: "focus: S / SH contrast" },
+        { text: "unique New York, unique New York", phon: "focus: N / Y blends" },
+        { text: "toy boat, toy boat, toy boat", phon: "focus: T / B / OY vowel" },
+        { text: "irish wristwatch, swiss wristwatch", phon: "focus: consonant clusters" },
+        { text: "the sixth sheikh's sixth sheep's sick", phon: "focus: S / SH / TH cluster" }
+      ]
+    },
+    shadow: {
+      label: "Shadow Sentences",
+      hint: "Read at natural conversational pace. Match stress to the bolded-feeling words in your head.",
+      items: [
+        { text: "I didn't say he stole the money.", phon: "stress changes meaning — try stressing each word once" },
+        { text: "Could you send that over by Friday?", phon: "natural rising intonation at the end" },
+        { text: "Honestly, I think we should wait.", phon: "soft start, clear stress on 'wait'" },
+        { text: "That's not what I meant at all.", phon: "stress on 'not' and 'all'" },
+        { text: "We've been over this a hundred times.", phon: "even rhythm, no rushing the middle" }
+      ]
+    }
+  };
+
+  let currentMode = 'minimal';
+  let currentIndex = 0;
+  let mediaRecorder = null;
+  let audioChunks = [];
+  let audioBlob = null;
+  let audioURL = null;
+  let recording = false;
+  let recordStart = 0;
+  let timerInterval = null;
+  let audioCtx = null;
+  let analyser = null;
+  let animationId = null;
+  let stream = null;
+
+  // ===== STORAGE =====
+  const STORAGE_KEY = 'articulate_data_v1';
+  function loadData() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch(e) {}
+    return { sessions: [], lastPracticeDate: null, streak: 0 };
+  }
+  function saveData(data) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+  }
+  let appData = loadData();
+
+  function todayStr() {
+    return new Date().toISOString().slice(0,10);
+  }
+  function daysBetween(d1, d2) {
+    return Math.round((new Date(d2) - new Date(d1)) / 86400000);
+  }
+  function recordPractice(mode, drillText) {
+    const today = todayStr();
+    if (appData.lastPracticeDate) {
+      const diff = daysBetween(appData.lastPracticeDate, today);
+      if (diff === 1) appData.streak += 1;
+      else if (diff > 1) appData.streak = 1;
+      // diff === 0 -> same day, streak unchanged
+    } else {
+      appData.streak = 1;
+    }
+    appData.lastPracticeDate = today;
+    appData.sessions.push({ date: today, mode: DRILLS[mode].label, text: drillText, ts: Date.now() });
+    saveData(appData);
+    renderStreak();
+  }
+
+  function renderStreak() {
+    document.getElementById('streakCount').textContent = appData.streak;
+    document.getElementById('statStreak').textContent = appData.streak;
+    document.getElementById('statTotal').textContent = appData.sessions.length;
+    const today = todayStr();
+    const todayCount = appData.sessions.filter(s => s.date === today).length;
+    document.getElementById('statToday').textContent = todayCount;
+  }
+
+  function renderHistory() {
+    const list = document.getElementById('historyList');
+    if (appData.sessions.length === 0) {
+      list.innerHTML = '<div class="empty-state">No sessions yet — finish a drill to start your history.</div>';
+      return;
+    }
+    const recent = appData.sessions.slice(-15).reverse();
+    list.innerHTML = recent.map(s => `
+      <div class="history-item">
+        <div>
+          <div class="h-mode">${s.mode}</div>
+          <div class="h-date">${s.date} · ${s.text}</div>
+        </div>
+        <div class="h-count">✓</div>
+      </div>
+    `).join('');
+  }
+
+  // ===== DRILL RENDERING =====
+  function renderDrill() {
+    const set = DRILLS[currentMode];
+    const item = set.items[currentIndex];
+    document.getElementById('modeLabel').textContent = set.label;
+    document.getElementById('drillText').textContent = item.text.includes(' / ')
+      ? item.text.split(' / ')[0] : item.text;
+    if (item.text.includes(' / ')) {
+      const parts = item.text.split(' / ');
+      document.getElementById('drillText').innerHTML = `${parts[0]} <span class="pair-divider">/</span> ${parts[1]}`;
+    } else {
+      document.getElementById('drillText').textContent = item.text;
+    }
+    document.getElementById('drillPhonetic').textContent = item.phon;
+    document.getElementById('drillHint').textContent = set.hint;
+
+    const dotsWrap = document.getElementById('progressDots');
+    dotsWrap.innerHTML = set.items.map((_, i) => {
+      let cls = 'dot';
+      if (i === currentIndex) cls += ' current';
+      return `<div class="${cls}"></div>`;
+    }).join('');
+
+    resetRecorder();
+  }
+
+  document.querySelectorAll('.mode-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      currentMode = card.dataset.mode;
+      currentIndex = 0;
+      renderDrill();
+    });
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    const set = DRILLS[currentMode];
+    currentIndex = (currentIndex + 1) % set.items.length;
+    renderDrill();
+  });
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    const set = DRILLS[currentMode];
+    currentIndex = (currentIndex - 1 + set.items.length) % set.items.length;
+    renderDrill();
+  });
+
+  // ===== TABS =====
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.tab;
+      document.getElementById('tab-practice').style.display = target === 'practice' ? '' : 'none';
+      document.getElementById('tab-progress').style.display = target === 'progress' ? '' : 'none';
+      if (target === 'progress') { renderStreak(); renderHistory(); }
+    });
+  });
+
+  // ===== WAVEFORM BARS SETUP =====
+  const WAVE_BAR_COUNT = 48;
+  const waveformWrap = document.getElementById('waveform');
+  for (let i = 0; i < WAVE_BAR_COUNT; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'wave-bar';
+    waveformWrap.appendChild(bar);
+  }
+  const waveBars = Array.from(document.querySelectorAll('.wave-bar'));
+
+  function resetWaveform() {
+    waveBars.forEach(b => { b.style.height = '3px'; b.classList.remove('active'); });
+  }
+
+  // ===== RECORDING =====
+  const recBtn = document.getElementById('recBtn');
+  const recStatusText = document.getElementById('recStatusText');
+  const recTimer = document.getElementById('recTimer');
+  const playbackControls = document.getElementById('playbackControls');
+
+  function resetRecorder() {
+    recording = false;
+    audioBlob = null;
+    if (audioURL) { URL.revokeObjectURL(audioURL); audioURL = null; }
+    recBtn.classList.remove('recording');
+    recStatusText.textContent = 'Tap to record yourself saying it';
+    recTimer.textContent = '0:00';
+    playbackControls.style.display = 'none';
+    resetWaveform();
+    if (timerInterval) clearInterval(timerInterval);
+    if (animationId) cancelAnimationFrame(animationId);
+  }
+
+  function formatTime(ms) {
+    const s = Math.floor(ms/1000);
+    return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+  }
+
+  async function startRecording() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch (err) {
+      recStatusText.textContent = 'Microphone access needed — check browser permissions';
+      return;
+    }
+    audioChunks = [];
+    mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+    mediaRecorder.onstop = () => {
+      audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+      audioURL = URL.createObjectURL(audioBlob);
+      playbackControls.style.display = 'flex';
+      recStatusText.textContent = 'Recorded — listen back and compare';
+      stream.getTracks().forEach(t => t.stop());
+    };
+    mediaRecorder.start();
+
+    // audio analysis for waveform
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioCtx.createMediaStreamSource(stream);
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    source.connect(analyser);
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+    function drawWave() {
+      analyser.getByteFrequencyData(dataArray);
+      const step = Math.floor(dataArray.length / WAVE_BAR_COUNT);
+      waveBars.forEach((bar, i) => {
+        const v = dataArray[i * step] || 0;
+        const h = Math.max(3, (v / 255) * 56);
+        bar.style.height = h + 'px';
+        bar.classList.toggle('active', v > 30);
+      });
+      animationId = requestAnimationFrame(drawWave);
+    }
+    drawWave();
+
+    recording = true;
+    recBtn.classList.add('recording');
+    recStatusText.textContent = 'Recording — speak now';
+    recordStart = Date.now();
+    timerInterval = setInterval(() => {
+      recTimer.textContent = formatTime(Date.now() - recordStart);
+    }, 200);
+  }
+
+  function stopRecording() {
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      mediaRecorder.stop();
+    }
+    recording = false;
+    recBtn.classList.remove('recording');
+    clearInterval(timerInterval);
+    cancelAnimationFrame(animationId);
+    if (audioCtx) audioCtx.close();
+  }
+
+  recBtn.addEventListener('click', () => {
+    if (!recording) startRecording();
+    else stopRecording();
+  });
+
+  document.getElementById('playBtn').addEventListener('click', () => {
+    if (audioURL) {
+      const audio = new Audio(audioURL);
+      audio.play();
+    }
+  });
+
+  document.getElementById('discardBtn').addEventListener('click', resetRecorder);
+
+  document.getElementById('markDoneBtn').addEventListener('click', () => {
+    const set = DRILLS[currentMode];
+    const item = set.items[currentIndex];
+    recordPractice(currentMode, item.text);
+    recStatusText.textContent = 'Marked practiced ✓';
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % set.items.length;
+      renderDrill();
+    }, 500);
+  });
+
+  // ===== INIT =====
+  renderDrill();
+  renderStreak();
+  renderHistory();
+})();
+</script>
+
+</body>
+</html>
