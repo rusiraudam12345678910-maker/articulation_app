@@ -51,10 +51,11 @@ export default function CoachHub() {
     transcript: string
     aiReply: string
     corrections: CoachTurn['corrections']
+    nativeRephrase: CoachTurn['nativeRephrase']
   }) {
     setTurns((prev) => [
       ...prev,
-      { id: `${Date.now()}-user`, speaker: 'user', transcript: result.transcript, corrections: result.corrections },
+      { id: `${Date.now()}-user`, speaker: 'user', transcript: result.transcript, corrections: result.corrections, nativeRephrase: result.nativeRephrase },
       { id: `${Date.now()}-ai`, speaker: 'ai', transcript: result.aiReply },
     ])
   }

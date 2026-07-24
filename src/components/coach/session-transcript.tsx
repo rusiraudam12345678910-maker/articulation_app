@@ -10,6 +10,7 @@ export interface CoachTurn {
     type: 'grammar' | 'phrasing' | 'vocabulary'
     explanation: string
   }[]
+  nativeRephrase?: string | null
 }
 
 export default function SessionTranscript({ turns }: { turns: CoachTurn[] }) {
@@ -34,6 +35,14 @@ export default function SessionTranscript({ turns }: { turns: CoachTurn[] }) {
               {turn.corrections.map((c, i) => (
                 <CorrectionCard key={i} correction={c} />
               ))}
+              {turn.nativeRephrase && (
+                <div className="bg-zinc-800 border border-emerald-800 rounded-lg p-3 text-sm">
+                  <span className="inline-block text-[10px] font-semibold uppercase tracking-wide border border-emerald-700 bg-emerald-900/40 text-emerald-300 rounded-full px-2 py-0.5 mb-2">
+                    Like a native speaker
+                  </span>
+                  <p className="text-emerald-100">{turn.nativeRephrase}</p>
+                </div>
+              )}
             </div>
           )}
         </div>

@@ -14,6 +14,7 @@ interface TurnResult {
     type: 'grammar' | 'phrasing' | 'vocabulary'
     explanation: string
   }[]
+  nativeRephrase: string | null
 }
 
 interface CoachRecorderProps {
@@ -142,7 +143,7 @@ export default function CoachRecorder({ sessionId, onTurn }: CoachRecorderProps)
       }
 
       const metaHeader = res.headers.get('X-Coach-Meta')
-      const meta = metaHeader ? JSON.parse(atob(metaHeader)) : { transcript: '', aiReply: '', corrections: [] }
+      const meta = metaHeader ? JSON.parse(atob(metaHeader)) : { transcript: '', aiReply: '', corrections: [], nativeRephrase: null }
       const audioBlob = await res.blob()
       const hasAudio = res.headers.get('Content-Type') === 'audio/mpeg'
 

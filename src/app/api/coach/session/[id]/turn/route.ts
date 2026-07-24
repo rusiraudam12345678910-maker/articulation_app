@@ -63,6 +63,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   let reply: string
   let corrections: Correction[]
+  let nativeRephrase: string | null
   try {
     console.time('gpt-4o')
     const completion = await client.chat.completions.create({
@@ -77,6 +78,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     const parsed = JSON.parse(completion.choices[0]?.message?.content ?? '{}')
     reply = typeof parsed.reply === 'string' ? parsed.reply : "Sorry, could you say that again?"
     corrections = Array.isArray(parsed.corrections) ? parsed.corrections : []
+    nativeRephrase = typeof parsed.nativeRephrase === 'string' ? parsed.nativeRephrase : null
   } catch (err) {
     console.error('GPT-4o reply failed:', err)
     const message = err instanceof Error ? err.message : 'AI reply failed'
@@ -101,7 +103,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   after(async () => {
     console.time('db-writes')
-    await supabase.from('coach_turns').insert({ id: userTurnId, session_id: sessionId, speaker: 'user', transcript })
+    await supabase.from('coach_turns').insert({ id: userTurnId, session_id: sessionId, speaker: 'user', transcript, native_rephrase: nativeRephrase })
 
     const dbWrites: PromiseLike<unknown>[] = [
       supabase.from('coach_turns').insert({ session_id: sessionId, speaker: 'ai', transcript: reply }),
@@ -123,7 +125,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     console.timeEnd('db-writes')
   })
 
-  const meta = JSON.stringify({ transcript, aiReply: reply, corrections })
+  const meta = JSON.stringify({ transcript, aiReply: reply, corrections, nativeRephrase })
 
   return new NextResponse(audioBuffer ? new Uint8Array(audioBuffer) : undefined, {
     headers: {
