@@ -103,7 +103,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     console.time('db-writes')
     await supabase.from('coach_turns').insert({ id: userTurnId, session_id: sessionId, speaker: 'user', transcript })
 
-    const dbWrites: Promise<unknown>[] = [
+    const dbWrites: PromiseLike<unknown>[] = [
       supabase.from('coach_turns').insert({ session_id: sessionId, speaker: 'ai', transcript: reply }),
     ]
     if (corrections.length > 0) {
@@ -125,7 +125,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   const meta = JSON.stringify({ transcript, aiReply: reply, corrections })
 
-  return new NextResponse(audioBuffer ?? undefined, {
+  return new NextResponse(audioBuffer ? new Uint8Array(audioBuffer) : undefined, {
     headers: {
       'Content-Type': audioBuffer ? 'audio/mpeg' : 'application/octet-stream',
       'X-Coach-Meta': Buffer.from(meta, 'utf-8').toString('base64'),
