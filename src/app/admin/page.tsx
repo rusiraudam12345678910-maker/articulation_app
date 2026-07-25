@@ -23,10 +23,14 @@ export default async function AdminPage() {
 
   const { data: authUsers } = await serviceClient.auth.admin.listUsers()
 
-  const users = profiles?.map((p) => ({
-    ...p,
-    email: authUsers?.users.find((u) => u.id === p.id)?.email ?? 'Unknown',
-  }))
+  const users = profiles?.map((p) => {
+    const authUser = authUsers?.users.find((u) => u.id === p.id)
+    return {
+      ...p,
+      email: authUser?.email ?? 'Unknown',
+      lastSignInAt: authUser?.last_sign_in_at ?? null,
+    }
+  })
 
   const { data: entries } = await serviceClient
     .from('entries')

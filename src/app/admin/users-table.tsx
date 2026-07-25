@@ -8,6 +8,7 @@ type User = {
   role: string
   created_at: string
   email: string
+  lastSignInAt: string | null
 }
 
 export default function UsersTable({ users, currentUserId }: { users: User[], currentUserId: string }) {
@@ -103,6 +104,7 @@ export default function UsersTable({ users, currentUserId }: { users: User[], cu
               <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">Email</th>
               <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">Role</th>
               <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">Joined</th>
+              <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">Last sign-in</th>
               <th className="px-4 py-3 font-medium text-zinc-500 dark:text-zinc-400">Actions</th>
             </tr>
           </thead>
@@ -126,6 +128,11 @@ export default function UsersTable({ users, currentUserId }: { users: User[], cu
                 </td>
                 <td className="px-4 py-3 text-zinc-500 dark:text-zinc-400 text-xs">
                   {new Date(u.created_at).toLocaleDateString()}
+                </td>
+                <td className="px-4 py-3 text-zinc-500 dark:text-zinc-400 text-xs">
+                  {u.lastSignInAt
+                    ? new Date(u.lastSignInAt).toLocaleString()
+                    : <span className="text-zinc-400">Never</span>}
                 </td>
                 <td className="px-4 py-3">
                   {u.id === currentUserId ? (
