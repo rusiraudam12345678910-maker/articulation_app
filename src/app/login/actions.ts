@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 
 export async function login(formData: FormData) {
@@ -26,4 +27,23 @@ export async function login(formData: FormData) {
 
   revalidatePath('/', 'layout')
   redirect('/dashboard')
+}
+
+export async function signInWithGoogle() {
+  const supabase = await createClient()
+  const headersList = await headers()
+  const origin = headersList.get('origin')
+
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${origin}/auth/callback`,
+    },
+  })
+
+  if (error || !data.url) {
+    redirect('/login?error=' + encodeURIComponent('Could not start Google sign-in. Please try again.'))
+  }
+
+  redirect(data.url)
 }
