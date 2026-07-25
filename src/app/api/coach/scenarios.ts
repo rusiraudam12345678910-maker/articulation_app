@@ -50,6 +50,12 @@ if there were no corrections.`
 
   return `${persona}
 
+IMPORTANT: Respond ONLY in English. Every field in your JSON output — "reply", "corrections",
+"nativeRephrase", "correctionSpeech" — must be written entirely in English, using only Latin
+script. Never include words, phrases, or scripts from any other language, even if the user's
+message contains another language or the transcript is unclear. If you cannot understand the
+user's message, respond in English asking them to repeat themselves.
+
 ${replyInstruction}
 ${registerInstruction}
 

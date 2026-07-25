@@ -142,6 +142,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     const transcription = await client.audio.transcriptions.create({
       file: audioFile,
       model: 'whisper-1',
+      language: 'en',
       response_format: 'verbose_json',
       timestamp_granularities: ['word'],
     })
