@@ -5,8 +5,11 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import { createServiceClient } from '@/utils/supabase/service'
 import { checkInvite, consumeInvite } from '@/utils/supabase/invites'
+import { signInWithGoogle as signInWithGoogleAction } from '@/app/login/actions'
 
-export { signInWithGoogle } from '@/app/login/actions'
+export async function signInWithGoogle(formData: FormData) {
+  await signInWithGoogleAction(formData)
+}
 
 export async function signup(formData: FormData) {
   const email = formData.get('email') as string
