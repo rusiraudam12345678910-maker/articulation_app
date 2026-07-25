@@ -13,6 +13,23 @@ interface Correction {
 
 const REPEAT_MATCH_THRESHOLD = 0.8
 
+const REPEAT_SUCCESS_LINES = [
+  'Nice, that sounds great!',
+  'Perfect, that sounded very natural.',
+  'Great job, that was spot on!',
+  "That's it — nicely done!",
+]
+
+const REPEAT_RETRY_LINES = [
+  "Not quite — let's try that one more time.",
+  "Close, but let's give it another go.",
+  'Almost there — one more try.',
+]
+
+function pickRandom(lines: string[]): string {
+  return lines[Math.floor(Math.random() * lines.length)]
+}
+
 function normalize(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim()
 }
@@ -104,7 +121,18 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   if (expectedPhrase) {
     const score = similarity(transcript, expectedPhrase)
     const correct = score >= REPEAT_MATCH_THRESHOLD
-    return NextResponse.json({ repeatCheck: true, correct, transcript, expectedPhrase })
+    const feedbackSpeech = correct
+      ? pickRandom(REPEAT_SUCCESS_LINES)
+      : pickRandom(REPEAT_RETRY_LINES)
+    const feedbackAudio = await synthesizeSpeech(client, feedbackSpeech)
+    return NextResponse.json({
+      repeatCheck: true,
+      correct,
+      transcript,
+      expectedPhrase,
+      feedbackSpeech,
+      feedbackAudioBase64: feedbackAudio ? feedbackAudio.toString('base64') : null,
+    })
   }
 
   const systemPrompt = buildSystemPrompt(session.mode, session.scenario_type, session.correction_style)

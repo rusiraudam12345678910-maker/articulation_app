@@ -9,6 +9,7 @@ const SCENARIOS = [
   { value: 'job_interview', label: 'Job interview' },
   { value: 'small_talk', label: 'Small talk' },
   { value: 'ordering_food', label: 'Ordering food' },
+  { value: 'cricket', label: 'Talking about cricket' },
 ]
 
 interface Summary {
@@ -84,7 +85,7 @@ export default function CoachHub() {
         repeatVerdict: result.correct ? 'correct' : 'incorrect',
       },
     ])
-    setExpectedPhrase(null)
+    if (result.correct) setExpectedPhrase(null)
   }
 
   async function endSession() {

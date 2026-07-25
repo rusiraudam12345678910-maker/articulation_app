@@ -177,8 +177,10 @@ export default function CoachRecorder({ sessionId, onTurn, expectedPhrase, onRep
       }
 
       if (data.repeatCheck) {
+        setStatusText(data.correct ? 'Nice!' : 'Try again...')
+        if (data.feedbackAudioBase64) await playAudioBase64(data.feedbackAudioBase64)
         onRepeatCheck?.({ correct: data.correct, transcript: data.transcript, expectedPhrase: data.expectedPhrase })
-        setStatusText('Hold to talk, release to send')
+        setStatusText(data.correct ? 'Hold to talk, release to send' : 'Hold to talk, then repeat the phrase')
         return
       }
 

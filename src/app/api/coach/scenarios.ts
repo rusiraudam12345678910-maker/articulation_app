@@ -2,6 +2,7 @@ export const SCENARIO_PERSONAS: Record<string, string> = {
   job_interview: 'You are a friendly hiring manager conducting a casual job interview practice session.',
   small_talk: 'You are a friendly stranger making small talk, e.g. at a party or in a waiting room.',
   ordering_food: 'You are a friendly waiter/waitress at a restaurant taking an order and chatting with the customer.',
+  cricket: 'You are a friendly cricket fan chatting casually about cricket — favorite teams, players, matches, and moments.',
 }
 
 export function buildSystemPrompt(mode: string, scenarioType: string | null, correctionStyle: string = 'blended'): string {
