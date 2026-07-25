@@ -19,6 +19,7 @@ const tabs = [
   { label: '🎓 CISSP Books', href: '/dashboard/cissp-books' },
   { label: '📗 CISSP Book2', href: '/dashboard/cissp-book2' },
   { label: '📘 CISSP CBK', href: '/dashboard/cissp-cbk' },
+  { label: '🎬 CISSP Video', href: '/dashboard/cissp-video' },
 ]
 
 export default function TabNav() {
