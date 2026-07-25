@@ -1,9 +1,12 @@
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
 import { createClient } from '@/utils/supabase/server'
 import { createServiceClient } from '@/utils/supabase/service'
 import { isAdmin } from '@/utils/supabase/admin'
 import UsersTable from './users-table'
 import EntriesTable from './entries-table'
+import InvitesTable from './invites-table'
+import { listInvites } from './actions'
 
 export default async function AdminPage() {
   const admin = await isAdmin()
@@ -30,6 +33,12 @@ export default async function AdminPage() {
     .select('id, content, type, user_id, created_at')
     .order('created_at', { ascending: false })
 
+  const invites = await listInvites()
+  const headersList = await headers()
+  const host = headersList.get('x-forwarded-host') ?? headersList.get('host') ?? ''
+  const protocol = headersList.get('x-forwarded-proto') ?? (host.startsWith('localhost') ? 'http' : 'https')
+  const appUrl = host ? `${protocol}://${host}` : ''
+
   return (
     <div className="flex min-h-full flex-col bg-zinc-50 dark:bg-black">
       <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-6 py-4 flex items-center justify-between">
@@ -46,6 +55,14 @@ export default async function AdminPage() {
 
       <main className="flex flex-1 flex-col items-center px-6 py-10">
         <div className="w-full max-w-4xl flex flex-col gap-10">
+
+          {/* Invites */}
+          <div>
+            <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-50 mb-4">
+              Invites ({invites.length})
+            </h2>
+            <InvitesTable invites={invites} appUrl={appUrl} />
+          </div>
 
           {/* Users */}
           <div>

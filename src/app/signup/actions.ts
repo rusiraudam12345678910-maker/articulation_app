@@ -3,21 +3,36 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
+import { createServiceClient } from '@/utils/supabase/service'
+import { checkInvite, consumeInvite } from '@/utils/supabase/invites'
 
 export { signInWithGoogle } from '@/app/login/actions'
 
 export async function signup(formData: FormData) {
+  const email = formData.get('email') as string
+  const password = formData.get('password') as string
+  const inviteCode = (formData.get('invite') as string | null)?.trim()
+
+  if (!inviteCode) {
+    redirect('/signup?error=' + encodeURIComponent('An invite link is required to sign up.'))
+  }
+
+  const invite = await checkInvite(inviteCode, email)
+  if (!invite.valid) {
+    redirect('/signup?invite=' + encodeURIComponent(inviteCode) + '&error=' + encodeURIComponent(invite.reason))
+  }
+
   const supabase = await createClient()
-
-  const { data, error } = await supabase.auth.signUp({
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
-  })
-
-  console.log('Signup result:', { data, error })
+  const { data, error } = await supabase.auth.signUp({ email, password })
 
   if (error) {
-    redirect('/signup?error=' + encodeURIComponent(error.message))
+    redirect('/signup?invite=' + encodeURIComponent(inviteCode) + '&error=' + encodeURIComponent(error.message))
+  }
+
+  if (data.user) {
+    await consumeInvite(invite.inviteId, data.user.id)
+    const service = createServiceClient()
+    await service.from('profiles').upsert({ id: data.user.id, role: invite.role })
   }
 
   revalidatePath('/', 'layout')

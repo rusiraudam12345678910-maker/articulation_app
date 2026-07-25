@@ -29,15 +29,19 @@ export async function login(formData: FormData) {
   redirect('/dashboard')
 }
 
-export async function signInWithGoogle() {
+export async function signInWithGoogle(formData: FormData) {
   const supabase = await createClient()
   const headersList = await headers()
   const origin = headersList.get('origin')
+  const inviteCode = (formData.get('invite') as string | null)?.trim()
+
+  const callbackUrl = new URL(`${origin}/auth/callback`)
+  if (inviteCode) callbackUrl.searchParams.set('invite', inviteCode)
 
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${origin}/auth/callback`,
+      redirectTo: callbackUrl.toString(),
     },
   })
 

@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { signup, signInWithGoogle } from './actions'
 
-export default function SignupPage() {
+export default async function SignupPage({ searchParams }: { searchParams: Promise<{ invite?: string; error?: string }> }) {
+  const { invite, error } = await searchParams
+
   return (
     <div className="flex min-h-full flex-col items-center justify-center bg-zinc-50 dark:bg-black px-4">
       <div className="w-full max-w-sm bg-white dark:bg-zinc-900 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 p-8">
@@ -9,7 +11,23 @@ export default function SignupPage() {
           Create account
         </h1>
 
+        {error && (
+          <div className="mb-4 rounded-lg bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 px-4 py-3">
+            <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
+          </div>
+        )}
+
+        {!invite && (
+          <div className="mb-4 rounded-lg bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 px-4 py-3">
+            <p className="text-sm text-amber-700 dark:text-amber-300">
+              You need an invite link to create an account. Ask an admin to send you one.
+            </p>
+          </div>
+        )}
+
         <form className="flex flex-col gap-4">
+          <input type="hidden" name="invite" value={invite ?? ''} />
+
           <div className="flex flex-col gap-1.5">
             <label htmlFor="email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
               Email
@@ -42,7 +60,8 @@ export default function SignupPage() {
 
           <button
             formAction={signup}
-            className="mt-2 rounded-full bg-zinc-900 dark:bg-zinc-50 px-4 py-2.5 text-sm font-medium text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors"
+            disabled={!invite}
+            className="mt-2 rounded-full bg-zinc-900 dark:bg-zinc-50 px-4 py-2.5 text-sm font-medium text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Create account
           </button>
@@ -55,9 +74,11 @@ export default function SignupPage() {
         </div>
 
         <form action={signInWithGoogle}>
+          <input type="hidden" name="invite" value={invite ?? ''} />
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-4 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors"
+            disabled={!invite}
+            className="w-full flex items-center justify-center gap-2 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-4 py-2.5 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.57-5.17 3.57-8.82Z" />
