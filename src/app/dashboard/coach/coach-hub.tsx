@@ -57,7 +57,7 @@ export default function CoachHub() {
 
   function handleTurn(result: {
     transcript: string
-    aiReply: string
+    aiReply: string | null
     corrections: CoachTurn['corrections']
     nativeRephrase: CoachTurn['nativeRephrase']
     correctionSpeech: string | null
@@ -65,7 +65,7 @@ export default function CoachHub() {
     setTurns((prev) => [
       ...prev,
       { id: `${Date.now()}-user`, speaker: 'user', transcript: result.transcript, corrections: result.corrections, nativeRephrase: result.nativeRephrase },
-      { id: `${Date.now()}-ai`, speaker: 'ai', transcript: result.aiReply },
+      ...(result.aiReply ? [{ id: `${Date.now()}-ai`, speaker: 'ai' as const, transcript: result.aiReply }] : []),
     ])
 
     if (correctionStyle === 'separate' && result.nativeRephrase) {
@@ -75,7 +75,7 @@ export default function CoachHub() {
     }
   }
 
-  function handleRepeatCheck(result: { correct: boolean; transcript: string; expectedPhrase: string }) {
+  function handleRepeatCheck(result: { correct: boolean; transcript: string; expectedPhrase: string; aiReply: string | null }) {
     setTurns((prev) => [
       ...prev,
       {
@@ -84,6 +84,7 @@ export default function CoachHub() {
         transcript: result.transcript,
         repeatVerdict: result.correct ? 'correct' : 'incorrect',
       },
+      ...(result.aiReply ? [{ id: `${Date.now()}-ai`, speaker: 'ai' as const, transcript: result.aiReply }] : []),
     ])
     if (result.correct) setExpectedPhrase(null)
   }

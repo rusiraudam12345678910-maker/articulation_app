@@ -6,7 +6,7 @@ const WAVE_BAR_COUNT = 48
 
 interface TurnResult {
   transcript: string
-  aiReply: string
+  aiReply: string | null
   corrections: {
     original: string
     corrected: string
@@ -21,6 +21,7 @@ interface RepeatCheckResult {
   correct: boolean
   transcript: string
   expectedPhrase: string
+  aiReply: string | null
 }
 
 interface CoachRecorderProps {
@@ -179,7 +180,13 @@ export default function CoachRecorder({ sessionId, onTurn, expectedPhrase, onRep
       if (data.repeatCheck) {
         setStatusText(data.correct ? 'Nice!' : 'Try again...')
         if (data.feedbackAudioBase64) await playAudioBase64(data.feedbackAudioBase64)
-        onRepeatCheck?.({ correct: data.correct, transcript: data.transcript, expectedPhrase: data.expectedPhrase })
+        if (data.correct && data.replyAudioBase64) await playAudioBase64(data.replyAudioBase64)
+        onRepeatCheck?.({
+          correct: data.correct,
+          transcript: data.transcript,
+          expectedPhrase: data.expectedPhrase,
+          aiReply: data.correct ? (data.aiReply ?? null) : null,
+        })
         setStatusText(data.correct ? 'Hold to talk, release to send' : 'Hold to talk, then repeat the phrase')
         return
       }

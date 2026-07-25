@@ -78,7 +78,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   const { data: session, error: sessionError } = await supabase
     .from('coach_sessions')
-    .select('id, mode, scenario_type, user_id, correction_style')
+    .select('id, mode, scenario_type, user_id, correction_style, pending_reply')
     .eq('id', sessionId)
     .single()
 
@@ -124,7 +124,22 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     const feedbackSpeech = correct
       ? pickRandom(REPEAT_SUCCESS_LINES)
       : pickRandom(REPEAT_RETRY_LINES)
-    const feedbackAudio = await synthesizeSpeech(client, feedbackSpeech)
+
+    const pendingReply = correct ? session.pending_reply : null
+    const [feedbackAudio, pendingReplyAudio] = await Promise.all([
+      synthesizeSpeech(client, feedbackSpeech),
+      pendingReply ? synthesizeSpeech(client, pendingReply) : Promise.resolve(null),
+    ])
+
+    if (correct) {
+      after(async () => {
+        await supabase.from('coach_sessions').update({ pending_reply: null }).eq('id', sessionId)
+        if (pendingReply) {
+          await supabase.from('coach_turns').insert({ session_id: sessionId, speaker: 'ai', transcript: pendingReply })
+        }
+      })
+    }
+
     return NextResponse.json({
       repeatCheck: true,
       correct,
@@ -132,6 +147,8 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       expectedPhrase,
       feedbackSpeech,
       feedbackAudioBase64: feedbackAudio ? feedbackAudio.toString('base64') : null,
+      aiReply: pendingReply,
+      replyAudioBase64: pendingReplyAudio ? pendingReplyAudio.toString('base64') : null,
     })
   }
 
@@ -163,9 +180,13 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     return NextResponse.json({ error: `AI reply failed: ${message}` }, { status: 502 })
   }
 
+  // In Separate mode, if there's a correction to repeat back, hold the conversational
+  // reply until the user completes the repeat-back — don't speak it yet.
+  const holdReply = session.correction_style === 'separate' && !!nativeRephrase && !!correctionSpeech
+
   console.time('tts')
   const [replyAudio, correctionAudio] = await Promise.all([
-    synthesizeSpeech(client, reply),
+    holdReply ? Promise.resolve(null) : synthesizeSpeech(client, reply),
     correctionSpeech ? synthesizeSpeech(client, correctionSpeech) : Promise.resolve(null),
   ])
   console.timeEnd('tts')
@@ -177,7 +198,9 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     await supabase.from('coach_turns').insert({ id: userTurnId, session_id: sessionId, speaker: 'user', transcript, native_rephrase: nativeRephrase })
 
     const dbWrites: PromiseLike<unknown>[] = [
-      supabase.from('coach_turns').insert({ session_id: sessionId, speaker: 'ai', transcript: reply }),
+      holdReply
+        ? supabase.from('coach_sessions').update({ pending_reply: reply }).eq('id', sessionId)
+        : supabase.from('coach_turns').insert({ session_id: sessionId, speaker: 'ai', transcript: reply }),
     ]
     if (corrections.length > 0) {
       dbWrites.push(
@@ -198,7 +221,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   return NextResponse.json({
     transcript,
-    aiReply: reply,
+    aiReply: holdReply ? null : reply,
     corrections,
     nativeRephrase,
     correctionSpeech,
