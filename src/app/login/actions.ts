@@ -32,7 +32,9 @@ export async function login(formData: FormData) {
 export async function signInWithGoogle(formData: FormData) {
   const supabase = await createClient()
   const headersList = await headers()
-  const origin = headersList.get('origin')
+  const host = headersList.get('x-forwarded-host') ?? headersList.get('host') ?? ''
+  const protocol = headersList.get('x-forwarded-proto') ?? (host.startsWith('localhost') ? 'http' : 'https')
+  const origin = host ? `${protocol}://${host}` : ''
   const inviteCode = (formData.get('invite') as string | null)?.trim()
 
   const callbackUrl = new URL(`${origin}/auth/callback`)
