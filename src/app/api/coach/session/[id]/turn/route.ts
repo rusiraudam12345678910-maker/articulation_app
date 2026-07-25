@@ -30,6 +30,43 @@ function pickRandom(lines: string[]): string {
   return lines[Math.floor(Math.random() * lines.length)]
 }
 
+const FILLER_WORDS = ['um', 'uh', 'umm', 'uhh', 'er', 'erm', 'like', 'you know', 'i mean', 'sort of', 'kind of']
+
+interface WhisperWord {
+  word: string
+  start: number
+  end: number
+}
+
+interface DeliveryStats {
+  wpm: number
+  fillerCount: number
+  fillerWords: string[]
+  durationSeconds: number
+}
+
+function computeDeliveryStats(words: WhisperWord[]): DeliveryStats | null {
+  if (words.length === 0) return null
+
+  const durationSeconds = words[words.length - 1].end - words[0].start
+  const wpm = durationSeconds > 0 ? Math.round((words.length / durationSeconds) * 60) : 0
+
+  const fillerWords: string[] = []
+  const normalizedWords = words.map((w) => w.word.toLowerCase().replace(/[^a-z']/g, ''))
+  for (let i = 0; i < normalizedWords.length; i++) {
+    const single = normalizedWords[i]
+    const twoWord = i < normalizedWords.length - 1 ? `${single} ${normalizedWords[i + 1]}` : ''
+    if (FILLER_WORDS.includes(twoWord)) {
+      fillerWords.push(twoWord)
+      i++
+    } else if (FILLER_WORDS.includes(single)) {
+      fillerWords.push(single)
+    }
+  }
+
+  return { wpm, fillerCount: fillerWords.length, fillerWords, durationSeconds: Math.round(durationSeconds) }
+}
+
 function normalize(text: string): string {
   return text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim()
 }
@@ -78,7 +115,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   const { data: session, error: sessionError } = await supabase
     .from('coach_sessions')
-    .select('id, mode, scenario_type, user_id, correction_style, pending_reply')
+    .select('id, mode, scenario_type, user_id, correction_style, pending_reply, register')
     .eq('id', sessionId)
     .single()
 
@@ -99,14 +136,18 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   const audioFile = new File([await audio.arrayBuffer()], 'turn.webm', { type: audio.type || 'audio/webm' })
 
   let transcript: string
+  let words: WhisperWord[] = []
   try {
     console.time('whisper')
     const transcription = await client.audio.transcriptions.create({
       file: audioFile,
       model: 'whisper-1',
+      response_format: 'verbose_json',
+      timestamp_granularities: ['word'],
     })
     console.timeEnd('whisper')
     transcript = transcription.text.trim()
+    words = (transcription as unknown as { words?: WhisperWord[] }).words ?? []
   } catch (err) {
     console.error('Whisper transcription failed:', err)
     const message = err instanceof Error ? err.message : 'Speech-to-text failed'
@@ -152,7 +193,9 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     })
   }
 
-  const systemPrompt = buildSystemPrompt(session.mode, session.scenario_type, session.correction_style)
+  const deliveryStats = computeDeliveryStats(words)
+
+  const systemPrompt = buildSystemPrompt(session.mode, session.scenario_type, session.correction_style, session.register)
 
   let reply: string
   let corrections: Correction[]
@@ -225,6 +268,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     corrections,
     nativeRephrase,
     correctionSpeech,
+    deliveryStats,
     replyAudioBase64: replyAudio ? replyAudio.toString('base64') : null,
     correctionAudioBase64: correctionAudio ? correctionAudio.toString('base64') : null,
   })

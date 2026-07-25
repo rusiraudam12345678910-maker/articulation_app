@@ -10,10 +10,11 @@ export async function POST(req: NextRequest) {
   const mode = body.mode === 'scenario' ? 'scenario' : 'free'
   const scenarioType = mode === 'scenario' ? (body.scenarioType ?? null) : null
   const correctionStyle = body.correctionStyle === 'separate' ? 'separate' : 'blended'
+  const register = body.register === 'professional' ? 'professional' : 'casual'
 
   const { data, error } = await supabase
     .from('coach_sessions')
-    .insert({ user_id: user.id, mode, scenario_type: scenarioType, correction_style: correctionStyle })
+    .insert({ user_id: user.id, mode, scenario_type: scenarioType, correction_style: correctionStyle, register })
     .select('id')
     .single()
 

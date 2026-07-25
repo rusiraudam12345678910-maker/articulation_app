@@ -4,6 +4,13 @@ import { useEffect, useRef, useState } from 'react'
 
 const WAVE_BAR_COUNT = 48
 
+interface DeliveryStats {
+  wpm: number
+  fillerCount: number
+  fillerWords: string[]
+  durationSeconds: number
+}
+
 interface TurnResult {
   transcript: string
   aiReply: string | null
@@ -15,6 +22,7 @@ interface TurnResult {
   }[]
   nativeRephrase: string | null
   correctionSpeech: string | null
+  deliveryStats: DeliveryStats | null
 }
 
 interface RepeatCheckResult {
@@ -197,6 +205,7 @@ export default function CoachRecorder({ sessionId, onTurn, expectedPhrase, onRep
         corrections: data.corrections,
         nativeRephrase: data.nativeRephrase,
         correctionSpeech: data.correctionSpeech ?? null,
+        deliveryStats: data.deliveryStats ?? null,
       })
 
       if (data.correctionAudioBase64) await playAudioBase64(data.correctionAudioBase64)

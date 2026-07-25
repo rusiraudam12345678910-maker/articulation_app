@@ -12,6 +12,12 @@ export interface CoachTurn {
   }[]
   nativeRephrase?: string | null
   repeatVerdict?: 'correct' | 'incorrect'
+  deliveryStats?: {
+    wpm: number
+    fillerCount: number
+    fillerWords: string[]
+    durationSeconds: number
+  } | null
 }
 
 export default function SessionTranscript({ turns }: { turns: CoachTurn[] }) {
@@ -31,6 +37,14 @@ export default function SessionTranscript({ turns }: { turns: CoachTurn[] }) {
           >
             {turn.transcript}
           </div>
+          {turn.speaker === 'user' && turn.deliveryStats && turn.deliveryStats.durationSeconds >= 2 && (
+            <span className="text-[11px] font-mono text-zinc-500 px-1">
+              {turn.deliveryStats.wpm} wpm
+              {turn.deliveryStats.fillerCount > 0 && (
+                <> · {turn.deliveryStats.fillerCount} filler{turn.deliveryStats.fillerCount > 1 ? 's' : ''} ({turn.deliveryStats.fillerWords.join(', ')})</>
+              )}
+            </span>
+          )}
           {turn.speaker === 'user' && turn.repeatVerdict && (
             <span
               className={`text-xs font-semibold px-2 py-1 rounded-full border ${

@@ -5,10 +5,28 @@ export const SCENARIO_PERSONAS: Record<string, string> = {
   cricket: 'You are a friendly cricket fan chatting casually about cricket — favorite teams, players, matches, and moments.',
 }
 
-export function buildSystemPrompt(mode: string, scenarioType: string | null, correctionStyle: string = 'blended'): string {
+export function buildSystemPrompt(
+  mode: string,
+  scenarioType: string | null,
+  correctionStyle: string = 'blended',
+  register: string = 'casual'
+): string {
   const persona = mode === 'scenario' && scenarioType && SCENARIO_PERSONAS[scenarioType]
     ? SCENARIO_PERSONAS[scenarioType]
     : 'You are a friendly English conversation partner having a natural, casual conversation.'
+
+  const registerInstruction = register === 'professional'
+    ? `
+Target register: PROFESSIONAL / ADVANCED. When correcting the user's English, don't just aim for
+casual native-speaker phrasing — aim for the more sophisticated, polished vocabulary and sentence
+structure an educated native speaker would use in a professional or business setting. Prefer precise,
+higher-register word choices over basic ones (e.g. "I'd like to propose..." over "I want to say...",
+"a significant improvement" over "a big improvement", "I look forward to discussing this further"
+over "let's talk more"). Still keep it natural — not stiff, textbook, or robotic — just more advanced
+and professional than everyday casual speech.`
+    : `
+Target register: CASUAL / EVERYDAY. Aim for natural, casual native-speaker phrasing, the way people
+actually talk day to day — not overly formal or advanced vocabulary.`
 
   const replyInstruction = correctionStyle === 'separate'
     ? `Reply naturally and briefly to continue the conversation, as that persona would. Keep this "reply"
@@ -33,6 +51,7 @@ if there were no corrections.`
   return `${persona}
 
 ${replyInstruction}
+${registerInstruction}
 
 Additionally, act as a native-speaker language coach. Analyze the user's last message for anything
 that would mark it as non-native English, not just outright grammar mistakes. Look specifically for:
@@ -54,8 +73,9 @@ Examples of the correction style to use:
 - original: "It depends of the weather", corrected: "It depends on the weather", type: "grammar", explanation: "\"Depend\" pairs with \"on\", not \"of\", in English."
 
 If the message had one or more issues, also include a "nativeRephrase" field: a single natural,
-fluent rewrite of the user's ENTIRE message the way a native speaker would say the whole thing,
-not just a patch of each error in isolation. Omit this field entirely if there were no corrections.
+fluent rewrite of the user's ENTIRE message the way a native speaker would say the whole thing at
+the target register described above, not just a patch of each error in isolation. Omit this field
+entirely if there were no corrections.
 ${correctionSpeechInstruction}
 
 Respond ONLY with a JSON object in this exact shape, no extra text:

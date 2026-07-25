@@ -22,6 +22,7 @@ export default function CoachHub() {
   const [mode, setMode] = useState<'free' | 'scenario'>('free')
   const [scenarioType, setScenarioType] = useState(SCENARIOS[0].value)
   const [correctionStyle, setCorrectionStyle] = useState<'blended' | 'separate'>('blended')
+  const [register, setRegister] = useState<'casual' | 'professional'>('casual')
   const [turns, setTurns] = useState<CoachTurn[]>([])
   const [starting, setStarting] = useState(false)
   const [summary, setSummary] = useState<Summary | null>(null)
@@ -39,6 +40,7 @@ export default function CoachHub() {
           mode,
           scenarioType: mode === 'scenario' ? scenarioType : undefined,
           correctionStyle,
+          register,
         }),
       })
       if (!res.ok) {
@@ -61,10 +63,11 @@ export default function CoachHub() {
     corrections: CoachTurn['corrections']
     nativeRephrase: CoachTurn['nativeRephrase']
     correctionSpeech: string | null
+    deliveryStats: CoachTurn['deliveryStats']
   }) {
     setTurns((prev) => [
       ...prev,
-      { id: `${Date.now()}-user`, speaker: 'user', transcript: result.transcript, corrections: result.corrections, nativeRephrase: result.nativeRephrase },
+      { id: `${Date.now()}-user`, speaker: 'user', transcript: result.transcript, corrections: result.corrections, nativeRephrase: result.nativeRephrase, deliveryStats: result.deliveryStats },
       ...(result.aiReply ? [{ id: `${Date.now()}-ai`, speaker: 'ai' as const, transcript: result.aiReply }] : []),
     ])
 
@@ -151,6 +154,18 @@ export default function CoachHub() {
           <label className="flex items-center gap-2 text-sm text-zinc-300">
             <input type="radio" checked={correctionStyle === 'separate'} onChange={() => setCorrectionStyle('separate')} />
             Separate step — coach explains the correction out loud, then asks you to repeat it back
+          </label>
+        </div>
+
+        <div className="flex flex-col gap-3 mb-6">
+          <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wide">Target English level</span>
+          <label className="flex items-center gap-2 text-sm text-zinc-300">
+            <input type="radio" checked={register === 'casual'} onChange={() => setRegister('casual')} />
+            Casual — natural everyday native speech
+          </label>
+          <label className="flex items-center gap-2 text-sm text-zinc-300">
+            <input type="radio" checked={register === 'professional'} onChange={() => setRegister('professional')} />
+            Professional — more advanced, polished vocabulary and phrasing
           </label>
         </div>
 
