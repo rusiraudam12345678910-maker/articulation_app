@@ -20,10 +20,12 @@ export default function CoachHub() {
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [mode, setMode] = useState<'free' | 'scenario'>('free')
   const [scenarioType, setScenarioType] = useState(SCENARIOS[0].value)
+  const [correctionStyle, setCorrectionStyle] = useState<'blended' | 'separate'>('blended')
   const [turns, setTurns] = useState<CoachTurn[]>([])
   const [starting, setStarting] = useState(false)
   const [summary, setSummary] = useState<Summary | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [expectedPhrase, setExpectedPhrase] = useState<string | null>(null)
 
   async function startSession() {
     setStarting(true)
@@ -32,7 +34,11 @@ export default function CoachHub() {
       const res = await fetch('/api/coach/session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mode, scenarioType: mode === 'scenario' ? scenarioType : undefined }),
+        body: JSON.stringify({
+          mode,
+          scenarioType: mode === 'scenario' ? scenarioType : undefined,
+          correctionStyle,
+        }),
       })
       if (!res.ok) {
         setError('Could not start session')
@@ -42,6 +48,7 @@ export default function CoachHub() {
       setSessionId(data.sessionId)
       setTurns([])
       setSummary(null)
+      setExpectedPhrase(null)
     } finally {
       setStarting(false)
     }
@@ -52,12 +59,32 @@ export default function CoachHub() {
     aiReply: string
     corrections: CoachTurn['corrections']
     nativeRephrase: CoachTurn['nativeRephrase']
+    correctionSpeech: string | null
   }) {
     setTurns((prev) => [
       ...prev,
       { id: `${Date.now()}-user`, speaker: 'user', transcript: result.transcript, corrections: result.corrections, nativeRephrase: result.nativeRephrase },
       { id: `${Date.now()}-ai`, speaker: 'ai', transcript: result.aiReply },
     ])
+
+    if (correctionStyle === 'separate' && result.nativeRephrase) {
+      setExpectedPhrase(result.nativeRephrase)
+    } else {
+      setExpectedPhrase(null)
+    }
+  }
+
+  function handleRepeatCheck(result: { correct: boolean; transcript: string; expectedPhrase: string }) {
+    setTurns((prev) => [
+      ...prev,
+      {
+        id: `${Date.now()}-repeat`,
+        speaker: 'user',
+        transcript: result.transcript,
+        repeatVerdict: result.correct ? 'correct' : 'incorrect',
+      },
+    ])
+    setExpectedPhrase(null)
   }
 
   async function endSession() {
@@ -113,6 +140,18 @@ export default function CoachHub() {
           )}
         </div>
 
+        <div className="flex flex-col gap-3 mb-6">
+          <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wide">How corrections are spoken</span>
+          <label className="flex items-center gap-2 text-sm text-zinc-300">
+            <input type="radio" checked={correctionStyle === 'blended'} onChange={() => setCorrectionStyle('blended')} />
+            Blended into the reply — corrections woven into the conversation
+          </label>
+          <label className="flex items-center gap-2 text-sm text-zinc-300">
+            <input type="radio" checked={correctionStyle === 'separate'} onChange={() => setCorrectionStyle('separate')} />
+            Separate step — coach explains the correction out loud, then asks you to repeat it back
+          </label>
+        </div>
+
         <button
           onClick={startSession}
           disabled={starting}
@@ -144,7 +183,18 @@ export default function CoachHub() {
 
       <SessionTranscript turns={turns} />
 
-      <CoachRecorder sessionId={sessionId} onTurn={handleTurn} />
+      {expectedPhrase && (
+        <div className="bg-zinc-800 border border-emerald-800 rounded-lg px-4 py-2 text-sm text-emerald-200">
+          Repeat back: <span className="font-semibold">{expectedPhrase}</span>
+        </div>
+      )}
+
+      <CoachRecorder
+        sessionId={sessionId}
+        onTurn={handleTurn}
+        expectedPhrase={expectedPhrase}
+        onRepeatCheck={handleRepeatCheck}
+      />
     </div>
   )
 }

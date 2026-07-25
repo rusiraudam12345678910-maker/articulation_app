@@ -4,14 +4,34 @@ export const SCENARIO_PERSONAS: Record<string, string> = {
   ordering_food: 'You are a friendly waiter/waitress at a restaurant taking an order and chatting with the customer.',
 }
 
-export function buildSystemPrompt(mode: string, scenarioType: string | null): string {
+export function buildSystemPrompt(mode: string, scenarioType: string | null, correctionStyle: string = 'blended'): string {
   const persona = mode === 'scenario' && scenarioType && SCENARIO_PERSONAS[scenarioType]
     ? SCENARIO_PERSONAS[scenarioType]
     : 'You are a friendly English conversation partner having a natural, casual conversation.'
 
+  const replyInstruction = correctionStyle === 'separate'
+    ? `Reply naturally and briefly to continue the conversation, as that persona would. Keep this "reply"
+field focused ONLY on the conversation itself — do NOT mention the correction or nativeRephrase in it,
+since those are spoken to the user separately before your reply.`
+    : `Reply naturally and briefly to continue the conversation, as that persona would.`
+
+  const correctionSpeechInstruction = correctionStyle === 'separate'
+    ? `
+If there were one or more corrections, also include a "correctionSpeech" field: a short, warm,
+spoken-style script (1-3 sentences) that a coach would say OUT LOUD before continuing the
+conversation. It should briefly point out the more natural way to say it and end by asking the
+user to repeat the nativeRephrase back. For example: "A more natural way to say that is: 'I'd
+like you to call me tomorrow.' Go ahead and try saying that back to me." Omit this field entirely
+if there were no corrections.`
+    : ''
+
+  const correctionSpeechField = correctionStyle === 'separate'
+    ? `,\n  "correctionSpeech": "optional: short spoken script asking the user to repeat the nativeRephrase, omit if no corrections"`
+    : ''
+
   return `${persona}
 
-Reply naturally and briefly to continue the conversation, as that persona would.
+${replyInstruction}
 
 Additionally, act as a native-speaker language coach. Analyze the user's last message for anything
 that would mark it as non-native English, not just outright grammar mistakes. Look specifically for:
@@ -35,6 +55,7 @@ Examples of the correction style to use:
 If the message had one or more issues, also include a "nativeRephrase" field: a single natural,
 fluent rewrite of the user's ENTIRE message the way a native speaker would say the whole thing,
 not just a patch of each error in isolation. Omit this field entirely if there were no corrections.
+${correctionSpeechInstruction}
 
 Respond ONLY with a JSON object in this exact shape, no extra text:
 {
@@ -42,6 +63,6 @@ Respond ONLY with a JSON object in this exact shape, no extra text:
   "corrections": [
     { "original": "...", "corrected": "...", "type": "grammar|phrasing|vocabulary", "explanation": "short, friendly explanation" }
   ],
-  "nativeRephrase": "optional: the whole message rewritten fluently, omit if no corrections"
+  "nativeRephrase": "optional: the whole message rewritten fluently, omit if no corrections"${correctionSpeechField}
 }`
 }

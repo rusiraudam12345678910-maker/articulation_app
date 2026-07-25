@@ -11,6 +11,7 @@ export interface CoachTurn {
     explanation: string
   }[]
   nativeRephrase?: string | null
+  repeatVerdict?: 'correct' | 'incorrect'
 }
 
 export default function SessionTranscript({ turns }: { turns: CoachTurn[] }) {
@@ -30,6 +31,17 @@ export default function SessionTranscript({ turns }: { turns: CoachTurn[] }) {
           >
             {turn.transcript}
           </div>
+          {turn.speaker === 'user' && turn.repeatVerdict && (
+            <span
+              className={`text-xs font-semibold px-2 py-1 rounded-full border ${
+                turn.repeatVerdict === 'correct'
+                  ? 'bg-emerald-900/40 text-emerald-300 border-emerald-700'
+                  : 'bg-red-900/40 text-red-300 border-red-700'
+              }`}
+            >
+              {turn.repeatVerdict === 'correct' ? '✓ Nice, that was correct!' : '✗ Not quite — try again'}
+            </span>
+          )}
           {turn.speaker === 'user' && turn.corrections && turn.corrections.length > 0 && (
             <div className="flex flex-col gap-2 max-w-[80%] w-full">
               {turn.corrections.map((c, i) => (

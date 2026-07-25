@@ -7,7 +7,6 @@ const WAVE_BAR_COUNT = 48
 interface TurnResult {
   transcript: string
   aiReply: string
-  aiAudioBase64: string | null
   corrections: {
     original: string
     corrected: string
@@ -15,17 +14,46 @@ interface TurnResult {
     explanation: string
   }[]
   nativeRephrase: string | null
+  correctionSpeech: string | null
+}
+
+interface RepeatCheckResult {
+  correct: boolean
+  transcript: string
+  expectedPhrase: string
 }
 
 interface CoachRecorderProps {
   sessionId: string
   onTurn: (result: TurnResult) => void
+  expectedPhrase?: string | null
+  onRepeatCheck?: (result: RepeatCheckResult) => void
 }
 
-export default function CoachRecorder({ sessionId, onTurn }: CoachRecorderProps) {
+function playAudioBase64(base64: string): Promise<void> {
+  return new Promise((resolve) => {
+    const binary = atob(base64)
+    const bytes = new Uint8Array(binary.length)
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
+    const blob = new Blob([bytes], { type: 'audio/mpeg' })
+    const url = URL.createObjectURL(blob)
+    const audio = new Audio(url)
+    audio.onended = () => {
+      URL.revokeObjectURL(url)
+      resolve()
+    }
+    audio.onerror = () => {
+      URL.revokeObjectURL(url)
+      resolve()
+    }
+    void audio.play()
+  })
+}
+
+export default function CoachRecorder({ sessionId, onTurn, expectedPhrase, onRepeatCheck }: CoachRecorderProps) {
   const [recording, setRecording] = useState(false)
   const [busy, setBusy] = useState(false)
-  const [statusText, setStatusText] = useState('Hold to talk, release to send')
+  const [statusText, setStatusText] = useState(expectedPhrase ? 'Hold to talk, then repeat the phrase' : 'Hold to talk, release to send')
   const [errorText, setErrorText] = useState<string | null>(null)
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
@@ -41,6 +69,10 @@ export default function CoachRecorder({ sessionId, onTurn }: CoachRecorderProps)
   useEffect(() => {
     return () => cleanup()
   }, [])
+
+  useEffect(() => {
+    setStatusText(expectedPhrase ? 'Hold to talk, then repeat the phrase' : 'Hold to talk, release to send')
+  }, [expectedPhrase])
 
   function cleanup() {
     cancelAnimationFrame(animFrameRef.current)
@@ -125,36 +157,41 @@ export default function CoachRecorder({ sessionId, onTurn }: CoachRecorderProps)
 
   async function sendTurn(blob: Blob) {
     setBusy(true)
-    setStatusText('Thinking...')
+    setStatusText(expectedPhrase ? 'Checking...' : 'Thinking...')
     try {
       const formData = new FormData()
       formData.append('audio', blob, 'turn.webm')
+      if (expectedPhrase) formData.append('expectedPhrase', expectedPhrase)
 
       const res = await fetch(`/api/coach/session/${sessionId}/turn`, {
         method: 'POST',
         body: formData,
       })
 
+      const data = await res.json().catch(() => ({}))
+
       if (!res.ok) {
-        const body = await res.json().catch(() => ({}))
-        setErrorText(body.error ?? 'Something went wrong — try again')
+        setErrorText(data.error ?? 'Something went wrong — try again')
         setStatusText('Hold to talk, release to send')
         return
       }
 
-      const metaHeader = res.headers.get('X-Coach-Meta')
-      const meta = metaHeader ? JSON.parse(atob(metaHeader)) : { transcript: '', aiReply: '', corrections: [], nativeRephrase: null }
-      const audioBlob = await res.blob()
-      const hasAudio = res.headers.get('Content-Type') === 'audio/mpeg'
-
-      onTurn({ ...meta, aiAudioBase64: null })
-
-      if (hasAudio && audioBlob.size > 0) {
-        const audioUrl = URL.createObjectURL(audioBlob)
-        const audio = new Audio(audioUrl)
-        audio.onended = () => URL.revokeObjectURL(audioUrl)
-        void audio.play()
+      if (data.repeatCheck) {
+        onRepeatCheck?.({ correct: data.correct, transcript: data.transcript, expectedPhrase: data.expectedPhrase })
+        setStatusText('Hold to talk, release to send')
+        return
       }
+
+      onTurn({
+        transcript: data.transcript,
+        aiReply: data.aiReply,
+        corrections: data.corrections,
+        nativeRephrase: data.nativeRephrase,
+        correctionSpeech: data.correctionSpeech ?? null,
+      })
+
+      if (data.correctionAudioBase64) await playAudioBase64(data.correctionAudioBase64)
+      if (data.replyAudioBase64) await playAudioBase64(data.replyAudioBase64)
 
       setStatusText('Hold to talk, release to send')
     } catch {

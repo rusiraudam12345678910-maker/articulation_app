@@ -11,6 +11,44 @@ interface Correction {
   explanation: string
 }
 
+const REPEAT_MATCH_THRESHOLD = 0.8
+
+function normalize(text: string): string {
+  return text.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim()
+}
+
+function levenshtein(a: string, b: string): number {
+  const rows = a.length + 1
+  const cols = b.length + 1
+  const dist = Array.from({ length: rows }, (_, i) => [i, ...Array(cols - 1).fill(0)])
+  for (let j = 1; j < cols; j++) dist[0][j] = j
+  for (let i = 1; i < rows; i++) {
+    for (let j = 1; j < cols; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1
+      dist[i][j] = Math.min(dist[i - 1][j] + 1, dist[i][j - 1] + 1, dist[i - 1][j - 1] + cost)
+    }
+  }
+  return dist[rows - 1][cols - 1]
+}
+
+function similarity(a: string, b: string): number {
+  const na = normalize(a)
+  const nb = normalize(b)
+  if (!na && !nb) return 1
+  const maxLen = Math.max(na.length, nb.length)
+  if (maxLen === 0) return 1
+  return 1 - levenshtein(na, nb) / maxLen
+}
+
+async function synthesizeSpeech(client: OpenAI, text: string): Promise<Buffer | null> {
+  try {
+    const speech = await client.audio.speech.create({ model: 'tts-1', voice: 'alloy', input: text })
+    return Buffer.from(await speech.arrayBuffer())
+  } catch {
+    return null
+  }
+}
+
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id: sessionId } = await params
 
@@ -23,7 +61,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   const { data: session, error: sessionError } = await supabase
     .from('coach_sessions')
-    .select('id, mode, scenario_type, user_id')
+    .select('id, mode, scenario_type, user_id, correction_style')
     .eq('id', sessionId)
     .single()
 
@@ -34,6 +72,9 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   const formData = await req.formData()
   const audio = formData.get('audio') as Blob | null
   if (!audio) return NextResponse.json({ error: 'Missing audio' }, { status: 400 })
+
+  const expectedPhraseRaw = formData.get('expectedPhrase')
+  const expectedPhrase = typeof expectedPhraseRaw === 'string' && expectedPhraseRaw.trim() ? expectedPhraseRaw.trim() : null
 
   const client = new OpenAI({ apiKey })
 
@@ -59,11 +100,19 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     return NextResponse.json({ error: 'Could not understand audio' }, { status: 422 })
   }
 
-  const systemPrompt = buildSystemPrompt(session.mode, session.scenario_type)
+  // Repeat-back verification: don't treat this as a new conversational turn.
+  if (expectedPhrase) {
+    const score = similarity(transcript, expectedPhrase)
+    const correct = score >= REPEAT_MATCH_THRESHOLD
+    return NextResponse.json({ repeatCheck: true, correct, transcript, expectedPhrase })
+  }
+
+  const systemPrompt = buildSystemPrompt(session.mode, session.scenario_type, session.correction_style)
 
   let reply: string
   let corrections: Correction[]
   let nativeRephrase: string | null
+  let correctionSpeech: string | null
   try {
     console.time('gpt-4o')
     const completion = await client.chat.completions.create({
@@ -79,25 +128,19 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     reply = typeof parsed.reply === 'string' ? parsed.reply : "Sorry, could you say that again?"
     corrections = Array.isArray(parsed.corrections) ? parsed.corrections : []
     nativeRephrase = typeof parsed.nativeRephrase === 'string' ? parsed.nativeRephrase : null
+    correctionSpeech = typeof parsed.correctionSpeech === 'string' ? parsed.correctionSpeech : null
   } catch (err) {
     console.error('GPT-4o reply failed:', err)
     const message = err instanceof Error ? err.message : 'AI reply failed'
     return NextResponse.json({ error: `AI reply failed: ${message}` }, { status: 502 })
   }
 
-  let audioBuffer: Buffer | null = null
-  try {
-    console.time('tts')
-    const speech = await client.audio.speech.create({
-      model: 'tts-1',
-      voice: 'alloy',
-      input: reply,
-    })
-    audioBuffer = Buffer.from(await speech.arrayBuffer())
-    console.timeEnd('tts')
-  } catch {
-    // Non-fatal: user still gets text + corrections without audio playback
-  }
+  console.time('tts')
+  const [replyAudio, correctionAudio] = await Promise.all([
+    synthesizeSpeech(client, reply),
+    correctionSpeech ? synthesizeSpeech(client, correctionSpeech) : Promise.resolve(null),
+  ])
+  console.timeEnd('tts')
 
   const userTurnId = randomUUID()
 
@@ -125,12 +168,13 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     console.timeEnd('db-writes')
   })
 
-  const meta = JSON.stringify({ transcript, aiReply: reply, corrections, nativeRephrase })
-
-  return new NextResponse(audioBuffer ? new Uint8Array(audioBuffer) : undefined, {
-    headers: {
-      'Content-Type': audioBuffer ? 'audio/mpeg' : 'application/octet-stream',
-      'X-Coach-Meta': Buffer.from(meta, 'utf-8').toString('base64'),
-    },
+  return NextResponse.json({
+    transcript,
+    aiReply: reply,
+    corrections,
+    nativeRephrase,
+    correctionSpeech,
+    replyAudioBase64: replyAudio ? replyAudio.toString('base64') : null,
+    correctionAudioBase64: correctionAudio ? correctionAudio.toString('base64') : null,
   })
 }
