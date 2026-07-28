@@ -30,6 +30,13 @@ export async function POST(req: NextRequest) {
 
   const audioBuffer = await audio.arrayBuffer()
 
+  // MediaRecorder in the browser produces webm/opus (or ogg/opus), not wav —
+  // Azure needs the real codec declared or it fails to parse the audio.
+  const mimeType = audio.type || 'audio/webm;codecs=opus'
+  const azureContentType = mimeType.includes('ogg')
+    ? 'audio/ogg; codecs=opus'
+    : 'audio/webm; codecs=opus'
+
   const url = `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed`
 
   const token = await getAzureToken(key, region)
@@ -42,7 +49,7 @@ export async function POST(req: NextRequest) {
     method: 'POST',
     headers: {
       ...authHeaders,
-      'Content-Type': 'audio/wav',
+      'Content-Type': azureContentType,
     },
     body: audioBuffer,
   })
@@ -54,13 +61,16 @@ export async function POST(req: NextRequest) {
   }
 
   if (result.RecognitionStatus !== 'Success') {
-    return NextResponse.json({ error: `Recognition failed: ${result.RecognitionStatus}` }, { status: 422 })
+    return NextResponse.json(
+      { error: `Recognition failed: ${result.RecognitionStatus}`, raw: result },
+      { status: 422 }
+    )
   }
 
   const transcript = result?.NBest?.[0]?.Display ?? result?.DisplayText ?? ''
 
   if (!transcript) {
-    return NextResponse.json({ error: 'Could not understand audio' }, { status: 422 })
+    return NextResponse.json({ error: 'Could not understand audio', raw: result }, { status: 422 })
   }
 
   return NextResponse.json({ transcript })

@@ -121,6 +121,7 @@ export default function VoiceRecorder() {
       const data = await res.json()
 
       if (!res.ok) {
+        console.error('Transcription error:', data)
         setError(data.error ?? 'Transcription failed')
         setStatusText('Tap to start recording')
       } else {
