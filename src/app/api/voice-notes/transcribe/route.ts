@@ -1,24 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-async function getAzureToken(key: string, region: string): Promise<string | null> {
-  try {
-    const res = await fetch(`https://${region}.api.cognitive.microsoft.com/sts/v1.0/issuetoken`, {
-      method: 'POST',
-      headers: { 'Ocp-Apim-Subscription-Key': key, 'Content-Length': '0' },
-    })
-    if (!res.ok) return null
-    return await res.text()
-  } catch {
-    return null
-  }
-}
+import OpenAI from 'openai'
 
 export async function POST(req: NextRequest) {
-  const key = process.env.AZURE_SPEECH_KEY
-  const region = process.env.AZURE_SPEECH_REGION
-
-  if (!key || !region) {
-    return NextResponse.json({ error: 'Azure Speech not configured' }, { status: 500 })
+  const apiKey = process.env.OPENAI_API_KEY
+  if (!apiKey) {
+    return NextResponse.json({ error: 'OpenAI not configured' }, { status: 500 })
   }
 
   const formData = await req.formData()
@@ -28,49 +14,27 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing audio' }, { status: 400 })
   }
 
-  const audioBuffer = await audio.arrayBuffer()
+  const client = new OpenAI({ apiKey })
 
-  // MediaRecorder in the browser produces webm/opus (or ogg/opus), not wav —
-  // Azure needs the real codec declared or it fails to parse the audio.
-  const mimeType = audio.type || 'audio/webm;codecs=opus'
-  const azureContentType = mimeType.includes('ogg')
-    ? 'audio/ogg; codecs=opus'
-    : 'audio/webm; codecs=opus'
+  // Whisper requires a File-like object with a filename
+  const audioFile = new File([await audio.arrayBuffer()], 'recording.webm', { type: audio.type || 'audio/webm' })
 
-  const url = `https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed`
-
-  const token = await getAzureToken(key, region)
-
-  const authHeaders: Record<string, string> = token
-    ? { 'Authorization': `Bearer ${token}` }
-    : { 'Ocp-Apim-Subscription-Key': key }
-
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      ...authHeaders,
-      'Content-Type': azureContentType,
-    },
-    body: audioBuffer,
-  })
-
-  const result = await response.json()
-
-  if (!response.ok) {
-    return NextResponse.json({ error: `Azure error ${response.status}`, raw: result }, { status: 502 })
+  let transcript: string
+  try {
+    const transcription = await client.audio.transcriptions.create({
+      file: audioFile,
+      model: 'whisper-1',
+      language: 'en',
+    })
+    transcript = transcription.text.trim()
+  } catch (err) {
+    console.error('Whisper transcription failed:', err)
+    const message = err instanceof Error ? err.message : 'Speech-to-text failed'
+    return NextResponse.json({ error: `Speech-to-text failed: ${message}` }, { status: 502 })
   }
-
-  if (result.RecognitionStatus !== 'Success') {
-    return NextResponse.json(
-      { error: `Recognition failed: ${result.RecognitionStatus}`, raw: result },
-      { status: 422 }
-    )
-  }
-
-  const transcript = result?.NBest?.[0]?.Display ?? result?.DisplayText ?? ''
 
   if (!transcript) {
-    return NextResponse.json({ error: 'Could not understand audio', raw: result }, { status: 422 })
+    return NextResponse.json({ error: 'Could not understand audio' }, { status: 422 })
   }
 
   return NextResponse.json({ transcript })
