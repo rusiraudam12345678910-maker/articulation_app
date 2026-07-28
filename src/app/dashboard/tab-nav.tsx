@@ -14,6 +14,7 @@ const tabs = [
   { label: '🎙 Practice', href: '/dashboard/practice' },
   { label: '👂 Listen & Repeat', href: '/dashboard/listen' },
   { label: '🗣 Speech Coach', href: '/dashboard/coach' },
+  { label: '🎤 Voice Notes', href: '/dashboard/voice' },
   { label: '📚 CISSP', href: '/dashboard/cissp' },
   { label: '📖 CISSP Book', href: '/dashboard/cissp-book' },
   { label: '🎓 CISSP Books', href: '/dashboard/cissp-books' },
