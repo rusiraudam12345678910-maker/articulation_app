@@ -454,6 +454,15 @@ body {
 .tts-word { transition: background 0.05s; border-radius: 2px; }
 .tts-word.speaking { background: #d4f700; color: #000; }
 
+/* TTS block (paragraph/list/note/etc.) highlight — reliable fallback since
+   not every browser/voice fires per-word boundary events. */
+.tts-block-active {
+  background: var(--accent-soft, rgba(212, 247, 0, 0.15));
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--accent, #d4f700);
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
 /* ===== Selection → Practice Popup ===== */
 #book2-selection-popup {
   position: absolute;

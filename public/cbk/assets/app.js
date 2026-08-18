@@ -434,32 +434,64 @@ const App = (() => {
   }
 
   // ===== TTS =====
-  function buildTTSText(section) {
-    const parts = [];
-    if (section.title) parts.push(section.title + '.');
+  // Speaks one block (DOM element) at a time so highlighting is driven by
+  // utterance start/end rather than relying solely on the unreliable
+  // SpeechSynthesis `onboundary` event (many Windows/Chrome/Edge voices
+  // never fire word-level boundaries). Word-level highlighting inside the
+  // active block is still applied opportunistically when onboundary fires.
+  function buildTTSBlocks(section, secEl) {
+    const blocks = [];
+    if (!secEl) return blocks;
+
+    const heading = secEl.querySelector(':scope > h2, :scope > h3');
+    if (heading && section.title) {
+      blocks.push({ el: heading, text: section.title + '.' });
+    }
 
     section.content.forEach(b => {
-      if (b.type === 'paragraph' || b.type === 'chapter_intro') {
+      let el = null;
+      let text = '';
+      if (b.type === 'paragraph') {
+        el = findBlockEl(secEl, 'p.para', blocks);
         const t = b.text.trimEnd();
-        parts.push(/[.!?]$/.test(t) ? t : t + '.');
-      } else if (b.type === 'note' || b.type === 'exam_tip') {
-        const label = b.type === 'exam_tip' ? 'Exam tip.' : 'Note.';
+        text = /[.!?]$/.test(t) ? t : t + '.';
+      } else if (b.type === 'chapter_intro') {
+        el = findBlockEl(secEl, 'p.chapter-intro-line', blocks);
         const t = b.text.trimEnd();
-        parts.push(label + ' ' + (/[.!?]$/.test(t) ? t : t + '.'));
+        text = /[.!?]$/.test(t) ? t : t + '.';
+      } else if (b.type === 'exam_tip') {
+        el = findBlockEl(secEl, '.exam-tip', blocks);
+        const t = b.text.trimEnd();
+        text = 'Exam tip. ' + (/[.!?]$/.test(t) ? t : t + '.');
+      } else if (b.type === 'note') {
+        el = findBlockEl(secEl, '.note-block', blocks);
+        const t = b.text.trimEnd();
+        text = 'Note. ' + (/[.!?]$/.test(t) ? t : t + '.');
       } else if (b.type === 'list') {
-        parts.push(b.items.map(it => it.trimEnd().replace(/[.!?,]$/, '')).join(', ') + '.');
+        el = findBlockEl(secEl, '.content-list', blocks);
+        text = b.items.map(it => it.trimEnd().replace(/[.!?,]$/, '')).join(', ') + '.';
       } else if (b.type === 'figure') {
-        parts.push(`Figure ${b.figNum}. ${b.caption}.`);
+        el = findBlockEl(secEl, '.book-figure', blocks);
+        text = `Figure ${b.figNum}. ${b.caption}.`;
       } else if (b.type === 'table_caption') {
-        parts.push(`Table ${b.tableNum}. ${b.caption}.`);
+        el = findBlockEl(secEl, '.table-caption-block', blocks);
+        text = `Table ${b.tableNum}. ${b.caption}.`;
       }
+      if (el && text.trim()) blocks.push({ el, text });
     });
 
-    return parts.filter(Boolean).join('  ');
+    return blocks;
   }
 
-  function buildWordMap(secEl, spokenText) {
-    const spans = Array.from(secEl.querySelectorAll('.tts-word'));
+  function findBlockEl(secEl, selector, alreadyUsed) {
+    const used = new Set(alreadyUsed.map(b => b.el));
+    const candidates = secEl.querySelectorAll(`:scope > ${selector}`);
+    for (const c of candidates) if (!used.has(c)) return c;
+    return null;
+  }
+
+  function buildWordMap(blockEl, spokenText) {
+    const spans = Array.from(blockEl.querySelectorAll('.tts-word'));
     const map = [];
     let searchFrom = 0;
 
@@ -485,52 +517,71 @@ const App = (() => {
     if (!section) return;
 
     currentSectionIdx = sectionIdx;
-    const text = buildTTSText(section);
-    if (!text.trim()) return;
-
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.rate = parseFloat(els.ttsSpeed ? els.ttsSpeed.value : 1);
-    utter.lang = 'en-US';
-
     const secEl = document.getElementById(`sec-${section.id}`);
-    if (secEl) injectTTSSpans(secEl);
+    if (!secEl) return;
 
-    const wordMap = secEl ? buildWordMap(secEl, text) : [];
-    ttsState = { active: true, paused: false, utterance: utter, sectionIdx, text, secEl, wordMap };
+    const blocks = buildTTSBlocks(section, secEl);
+    if (!blocks.length) return;
 
-    utter.onstart = () => {
-      els.ttsBar.classList.remove('hidden');
-      els.ttsPlayBtn.textContent = '⏸';
-      if (els.ttsSection) els.ttsSection.textContent = section.title;
-    };
+    ttsState = { active: true, paused: false, sectionIdx, secEl, blocks, blockIdx: -1 };
 
-    utter.onboundary = (e) => {
-      if (e.name !== 'word') return;
-      highlightTTSWord(e.charIndex);
-      const pct = Math.round((e.charIndex / text.length) * 100);
-      if (els.ttsProgressFill) els.ttsProgressFill.style.width = pct + '%';
-    };
+    els.ttsBar.classList.remove('hidden');
+    els.ttsPlayBtn.textContent = '⏸';
+    if (els.ttsSection) els.ttsSection.textContent = section.title;
 
-    utter.onend = () => {
-      clearTTSHighlights();
-      removeTTSSpans(ttsState.secEl);
-      els.ttsPlayBtn.textContent = '▶';
+    secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    speakBlock(0);
+  }
+
+  function speakBlock(blockIdx) {
+    const data = domainData[currentDomain];
+    if (!ttsState.active || !data) return;
+
+    const { blocks, sectionIdx, secEl } = ttsState;
+    clearBlockHighlight();
+
+    if (blockIdx >= blocks.length) {
+      removeTTSSpans(secEl);
       ttsState.active = false;
+      els.ttsPlayBtn.textContent = '▶';
       if (els.ttsProgressFill) els.ttsProgressFill.style.width = '100%';
       if (sectionIdx + 1 < data.sections.length) {
         setTimeout(() => startTTS(sectionIdx + 1), 800);
       }
+      return;
+    }
+
+    ttsState.blockIdx = blockIdx;
+    const block = blocks[blockIdx];
+    block.el.classList.add('tts-block-active');
+    block.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    injectTTSSpans(block.el);
+    const wordMap = buildWordMap(block.el, block.text);
+
+    const utter = new SpeechSynthesisUtterance(block.text);
+    utter.rate = parseFloat(els.ttsSpeed ? els.ttsSpeed.value : 1);
+    utter.lang = 'en-US';
+
+    utter.onboundary = (e) => {
+      if (e.name !== 'word') return;
+      highlightTTSWord(wordMap, e.charIndex);
+    };
+
+    utter.onend = () => {
+      const pct = Math.round(((blockIdx + 1) / blocks.length) * 100);
+      if (els.ttsProgressFill) els.ttsProgressFill.style.width = pct + '%';
+      if (ttsState.active) speakBlock(blockIdx + 1);
     };
 
     utter.onerror = () => { stopTTS(); };
 
+    ttsState.utterance = utter;
     window.speechSynthesis.speak(utter);
-    if (secEl) secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function highlightTTSWord(charIndex) {
-    clearTTSHighlights();
-    const { wordMap } = ttsState;
+  function highlightTTSWord(wordMap, charIndex) {
+    document.querySelectorAll('.tts-word.speaking').forEach(w => w.classList.remove('speaking'));
     if (!wordMap || !wordMap.length) return;
 
     let lo = 0, hi = wordMap.length - 1, best = 0;
@@ -541,10 +592,10 @@ const App = (() => {
     }
     const { span } = wordMap[best];
     span.classList.add('speaking');
-    span.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  function clearTTSHighlights() {
+  function clearBlockHighlight() {
+    document.querySelectorAll('.tts-block-active').forEach(el => el.classList.remove('tts-block-active'));
     document.querySelectorAll('.tts-word.speaking').forEach(w => w.classList.remove('speaking'));
   }
 
@@ -566,7 +617,7 @@ const App = (() => {
 
   function stopTTS() {
     window.speechSynthesis && window.speechSynthesis.cancel();
-    clearTTSHighlights();
+    clearBlockHighlight();
     removeTTSSpans(ttsState.secEl);
     ttsState = { active: false, paused: false };
     if (els.ttsBar) els.ttsBar.classList.add('hidden');
