@@ -213,7 +213,7 @@ const App = (() => {
   // labels — a short leading phrase (<=4 words) ending in a colon, optionally
   // followed by more detail text on the same line. The word-count cap avoids
   // matching ordinary sentences that happen to contain a colon.
-  const SUBSUBTOPIC_RE = /^([A-Z][A-Za-z0-9 /'()-]{1,38}:)(\s+.*)?$/;
+  const SUBSUBTOPIC_RE = /^([A-Z][A-Za-z0-9 /'()-]{0,38}:)(\s+.*)?$/;
 
   function renderListItemText(text) {
     const subtopic = text.match(SUBTOPIC_RE);
