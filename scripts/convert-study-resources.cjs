@@ -11,15 +11,19 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 function slugify(text) {
   return text
     .toLowerCase()
-    .replace(/\[.*?\]\(.*?\)/g, '') // strip markdown links first pass (headings have their own anchor link, handled by caller)
+    .replace(/§LINK§([^§]*)§[^§]*§/g, '$1') // marker -> link text only
     .replace(/[^\w\s-]/g, '')
     .trim()
     .replace(/\s+/g, '-');
 }
 
+// Converts markdown links into a §LINK§text§URL§ marker (survives escHtml in the
+// reader, which then turns markers back into real <a> tags after escaping — see
+// linkifyMarkers() in app.js). Bold/italic/code markup is stripped to plain text
+// since the reader has no renderer for it.
 function stripInlineMd(text) {
   return text
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // [text](url) -> text
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '§LINK§$1§$2§')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
     .replace(/`([^`]+)`/g, '$1')
@@ -42,13 +46,19 @@ for (const file of files) {
 
   const sections = [];
   let current = null;
-  let listBuf = null;
+
+  // Nested bullets are collected into a tree of {text, children:[]} nodes so the
+  // reader can render real nested <ul>s instead of one flattened list (indentation
+  // in the source is 2 spaces per level).
+  let listRoot = null;   // top-level list node stack root
+  let stack = [];        // stack of { indent, node } currently open
 
   function flushList() {
-    if (listBuf && listBuf.items.length) {
-      current.content.push({ type: 'list', ordered: false, items: listBuf.items });
+    if (listRoot && listRoot.length) {
+      current.content.push({ type: 'list', ordered: false, items: listRoot });
     }
-    listBuf = null;
+    listRoot = null;
+    stack = [];
   }
 
   // Skip the "Contents" TOC block we generated earlier — regenerate nav from sections instead.
@@ -80,10 +90,22 @@ for (const file of files) {
 
     const bullet = line.match(/^(\s*)-\s+(.*)$/);
     if (bullet) {
+      const indent = bullet[1].length;
       const text = stripInlineMd(bullet[2]);
       if (!text) continue;
-      if (!listBuf) listBuf = { items: [] };
-      listBuf.items.push(text);
+
+      const node = { text, children: [] };
+      if (!listRoot) { listRoot = []; stack = []; }
+
+      // pop stack entries at >= this indent to find the correct parent
+      while (stack.length && stack[stack.length - 1].indent >= indent) stack.pop();
+
+      if (stack.length === 0) {
+        listRoot.push(node);
+      } else {
+        stack[stack.length - 1].node.children.push(node);
+      }
+      stack.push({ indent, node });
       continue;
     }
 
@@ -101,10 +123,14 @@ for (const file of files) {
   );
   console.log(`domain${domainNum}.json: ${sections.length} sections`);
 
+  function flattenNodes(nodes) {
+    return nodes.map(n => n.text + (n.children.length ? ' ' + flattenNodes(n.children) : '')).join(' ');
+  }
   for (const s of sections) {
     const fullText = s.content
-      .map(b => b.type === 'list' ? b.items.join(' ') : (b.text || ''))
-      .join(' ');
+      .map(b => b.type === 'list' ? flattenNodes(b.items) : (b.text || ''))
+      .join(' ')
+      .replace(/§LINK§([^§]*)§[^§]*§/g, '$1');
     searchIndex.push({ domain: domainNum, id: s.id, title: s.title, domainTitle, fullText });
   }
 }

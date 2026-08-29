@@ -199,6 +199,26 @@ const App = (() => {
     setupScrollSpy();
   }
 
+  // §LINK§text§url§ markers survive escHtml, then become real <a> tags here.
+  function linkifyMarkers(escapedText) {
+    return escapedText.replace(/§LINK§([^§]*)§([^§]*)§/g, (m, text, url) =>
+      `<a href="${escHtml(url)}" target="_blank" rel="noopener noreferrer">${text}</a>`);
+  }
+
+  // List items can be plain strings (legacy CBK format) or {text, children} nodes
+  // (nested outline format used by the Study Resources data set).
+  function renderListItems(items) {
+    return items.map(it => {
+      if (typeof it === 'string') {
+        return `<li>${linkifyMarkers(escHtml(it))}</li>`;
+      }
+      const children = it.children && it.children.length
+        ? `<ul class="content-list content-list-nested">${renderListItems(it.children)}</ul>`
+        : '';
+      return `<li>${linkifyMarkers(escHtml(it.text))}${children}</li>`;
+    }).join('');
+  }
+
   function renderSectionContent(content, readKey) {
     return content.map(block => {
       if (block.type === 'paragraph') {
@@ -227,7 +247,7 @@ const App = (() => {
         return `<div class="table-caption-block"><strong>Table ${escHtml(block.tableNum)}</strong> — ${escHtml(block.caption)}</div>`;
       }
       if (block.type === 'list') {
-        const items = block.items.map(it => `<li>${escHtml(it)}</li>`).join('');
+        const items = renderListItems(block.items);
         return block.ordered
           ? `<ol class="content-list content-list-ordered">${items}</ol>`
           : `<ul class="content-list">${items}</ul>`;
@@ -439,6 +459,20 @@ const App = (() => {
   // SpeechSynthesis `onboundary` event (many Windows/Chrome/Edge voices
   // never fire word-level boundaries). Word-level highlighting inside the
   // active block is still applied opportunistically when onboundary fires.
+  // Flattens list items (string or {text, children} node) into plain speakable
+  // strings, dropping §LINK§ markers down to their link text only.
+  function flattenListForSpeech(items) {
+    const out = [];
+    items.forEach(it => {
+      const raw = typeof it === 'string' ? it : it.text;
+      const clean = raw.replace(/§LINK§([^§]*)§[^§]*§/g, '$1').trimEnd().replace(/[.!?,]$/, '');
+      if (clean) out.push(clean);
+      const children = typeof it === 'object' && it.children;
+      if (children && children.length) out.push(...flattenListForSpeech(children));
+    });
+    return out;
+  }
+
   function buildTTSBlocks(section, secEl) {
     const blocks = [];
     if (!secEl) return blocks;
@@ -469,7 +503,7 @@ const App = (() => {
         text = 'Note. ' + (/[.!?]$/.test(t) ? t : t + '.');
       } else if (b.type === 'list') {
         el = findBlockEl(secEl, '.content-list', blocks);
-        text = b.items.map(it => it.trimEnd().replace(/[.!?,]$/, '')).join(', ') + '.';
+        text = flattenListForSpeech(b.items).join(', ') + '.';
       } else if (b.type === 'figure') {
         el = findBlockEl(secEl, '.book-figure', blocks);
         text = `Figure ${b.figNum}. ${b.caption}.`;
