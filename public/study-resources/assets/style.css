@@ -375,6 +375,19 @@ body {
   margin-bottom: 8px;
 }
 
+/* Subtopic labels, e.g. "1.2.1 Confidentiality, integrity, and availability..." */
+.subtopic-label {
+  font-weight: 700;
+  font-size: 1.12em;
+  color: var(--ink);
+}
+
+/* Sub-subtopic labels, e.g. "Confidentiality:" within a subtopic's list */
+.subsubtopic-label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
 /* Blockquote */
 .content-quote {
   margin: 20px 0;

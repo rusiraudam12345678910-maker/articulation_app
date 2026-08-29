@@ -205,17 +205,43 @@ const App = (() => {
       `<a href="${escHtml(url)}" target="_blank" rel="noopener noreferrer">${text}</a>`);
   }
 
+  // Detects "1.2.1 Some subtopic title" style labels (dotted numbering with
+  // 2+ dots) and renders the whole line bold/larger as a subtopic heading.
+  const SUBTOPIC_RE = /^(\d+(?:\.\d+){2,})\s+(.+)$/;
+
+  // Detects short "Confidentiality:" / "AAA Services:" style sub-subtopic
+  // labels — a short leading phrase (<=4 words) ending in a colon, optionally
+  // followed by more detail text on the same line. The word-count cap avoids
+  // matching ordinary sentences that happen to contain a colon.
+  const SUBSUBTOPIC_RE = /^([A-Z][A-Za-z0-9 /'()-]{1,38}:)(\s+.*)?$/;
+
+  function renderListItemText(text) {
+    const subtopic = text.match(SUBTOPIC_RE);
+    if (subtopic) {
+      return `<span class="subtopic-label">${escHtml(subtopic[1])} ${linkifyMarkers(escHtml(subtopic[2]))}</span>`;
+    }
+    const subsubtopic = text.match(SUBSUBTOPIC_RE);
+    if (subsubtopic) {
+      const labelWords = subsubtopic[1].slice(0, -1).trim().split(/\s+/).length;
+      if (labelWords <= 4) {
+        const rest = subsubtopic[2] ? linkifyMarkers(escHtml(subsubtopic[2])) : '';
+        return `<span class="subsubtopic-label">${escHtml(subsubtopic[1])}</span>${rest}`;
+      }
+    }
+    return linkifyMarkers(escHtml(text));
+  }
+
   // List items can be plain strings (legacy CBK format) or {text, children} nodes
   // (nested outline format used by the Study Resources data set).
   function renderListItems(items) {
     return items.map(it => {
       if (typeof it === 'string') {
-        return `<li>${linkifyMarkers(escHtml(it))}</li>`;
+        return `<li>${renderListItemText(it)}</li>`;
       }
       const children = it.children && it.children.length
         ? `<ul class="content-list content-list-nested">${renderListItems(it.children)}</ul>`
         : '';
-      return `<li>${linkifyMarkers(escHtml(it.text))}${children}</li>`;
+      return `<li>${renderListItemText(it.text)}${children}</li>`;
     }).join('');
   }
 
