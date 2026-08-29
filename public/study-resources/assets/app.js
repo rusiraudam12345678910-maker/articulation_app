@@ -209,11 +209,24 @@ const App = (() => {
   // 2+ dots) and renders the whole line bold/larger as a subtopic heading.
   const SUBTOPIC_RE = /^(\d+(?:\.\d+){2,})\s+(.+)$/;
 
-  // Detects short "Confidentiality:" / "AAA Services:" style sub-subtopic
-  // labels — a short leading phrase (<=4 words) ending in a colon, optionally
-  // followed by more detail text on the same line. The word-count cap avoids
-  // matching ordinary sentences that happen to contain a colon.
+  // Detects short "Confidentiality:" / "Software as a Service (SaaS):" style
+  // sub-subtopic labels — a short leading phrase ending in a colon, optionally
+  // followed by more detail text on the same line. Word-count cap plus a
+  // stop-word check on the first/last word avoid matching ordinary sentences
+  // that happen to end in a colon (e.g. "Four main types of suppression:").
   const SUBSUBTOPIC_RE = /^([A-Z][A-Za-z0-9 /'()-]{0,38}:)(\s+.*)?$/;
+  const LABEL_START_STOPWORDS = new Set(['see', 'note', 'key', 'four', 'three', 'two', 'five', 'six', 'the', 'a', 'an', 'use', 'click', 'refer']);
+  const LABEL_END_STOPWORDS = new Set(['is', 'are', 'of', 'include', 'includes', 'be', 'as', 'that', 'following', 'below', 'steps', 'types', 'for', 'to', 'in', 'on', 'with', 'by']);
+
+  function isSubsubtopicLabel(label) {
+    const words = label.slice(0, -1).trim().split(/\s+/);
+    if (words.length > 6) return false;
+    const first = words[0].toLowerCase();
+    const last = words[words.length - 1].replace(/[^\w]/g, '').toLowerCase();
+    if (LABEL_START_STOPWORDS.has(first)) return false;
+    if (LABEL_END_STOPWORDS.has(last)) return false;
+    return true;
+  }
 
   function renderListItemText(text) {
     const subtopic = text.match(SUBTOPIC_RE);
@@ -221,12 +234,9 @@ const App = (() => {
       return `<span class="subtopic-label">${escHtml(subtopic[1])} ${linkifyMarkers(escHtml(subtopic[2]))}</span>`;
     }
     const subsubtopic = text.match(SUBSUBTOPIC_RE);
-    if (subsubtopic) {
-      const labelWords = subsubtopic[1].slice(0, -1).trim().split(/\s+/).length;
-      if (labelWords <= 4) {
-        const rest = subsubtopic[2] ? linkifyMarkers(escHtml(subsubtopic[2])) : '';
-        return `<span class="subsubtopic-label">${escHtml(subsubtopic[1])}</span>${rest}`;
-      }
+    if (subsubtopic && isSubsubtopicLabel(subsubtopic[1])) {
+      const rest = subsubtopic[2] ? linkifyMarkers(escHtml(subsubtopic[2])) : '';
+      return `<span class="subsubtopic-label">${escHtml(subsubtopic[1])}</span>${rest}`;
     }
     return linkifyMarkers(escHtml(text));
   }
